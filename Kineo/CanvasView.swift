@@ -4,14 +4,16 @@
 import PencilKit
 
 class CanvasView: PKCanvasView {
-    init() {
+    init(page: Page) {
         super.init(frame: .zero)
+
+        drawing = page.drawing
+
+        tool = PKInkingTool(.pen, color: .systemRed, width: 5)
         translatesAutoresizingMaskIntoConstraints = false
 
         layer.borderWidth = 1
         layer.borderColor = UIColor.opaqueSeparator.cgColor
-
-        tool = PKInkingTool(.pen, color: .systemRed, width: 5)
     }
 
     // MARK: Boilerplate

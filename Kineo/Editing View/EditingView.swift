@@ -1,13 +1,17 @@
 //  Created by Geoff Pado on 7/14/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import PencilKit
 import UIKit
 
-class EditingView: UIView {
-    init() {
+class EditingView: UIView, PKCanvasViewDelegate {
+    init(page: Page) {
+        self.page = page
         super.init(frame: .zero)
+
         backgroundColor = .systemBackground
 
+        canvasView.delegate = self
         addSubview(canvasView)
 
         NSLayoutConstraint.activate([
@@ -18,9 +22,16 @@ class EditingView: UIView {
         ])
     }
 
+    // MARK: PKCanvasViewDelegate
+
+    func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
+        dump(try? JSONEncoder().encode(Page(drawing: canvasView.drawing)).hex)
+    }
+
     // MARK: Boilerplate
 
-    private let canvasView = CanvasView()
+    private lazy var canvasView = CanvasView(page: page)
+    private let page: Page
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

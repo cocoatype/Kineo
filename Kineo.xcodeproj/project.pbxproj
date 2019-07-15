@@ -18,6 +18,9 @@
 		04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A66C22DC23F700E4E5D6 /* SceneWindow.swift */; };
 		04C0A67022DC2A2500E4E5D6 /* EditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */; };
 		04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */; };
+		04C0A67422DC3A8200E4E5D6 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67322DC3A8200E4E5D6 /* Document.swift */; };
+		04C0A67722DC406B00E4E5D6 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67622DC406B00E4E5D6 /* DataExtensions.swift */; };
+		04C0A67922DC436400E4E5D6 /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C0A67822DC436400E4E5D6 /* example.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		04C0A66C22DC23F700E4E5D6 /* SceneWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneWindow.swift; sourceTree = "<group>"; };
 		04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingView.swift; sourceTree = "<group>"; };
 		04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		04C0A67322DC3A8200E4E5D6 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		04C0A67622DC406B00E4E5D6 /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
+		04C0A67822DC436400E4E5D6 /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,14 +93,16 @@
 		04C0A64422DC208E00E4E5D6 /* Kineo */ = {
 			isa = PBXGroup;
 			children = (
+				04C0A67822DC436400E4E5D6 /* example.json */,
 				04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */,
 				04C0A66B22DC23EA00E4E5D6 /* Default Scene */,
-				04C0A66722DC221700E4E5D6 /* UIViewControllerExtensions.swift */,
+				04C0A67522DC406000E4E5D6 /* Extensions */,
 				04C0A64E22DC208E00E4E5D6 /* Assets.xcassets */,
 				04C0A65022DC208E00E4E5D6 /* LaunchScreen.storyboard */,
 				04C0A65322DC208E00E4E5D6 /* Info.plist */,
 				04C0A66E22DC292E00E4E5D6 /* Editing View */,
 				04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */,
+				04C0A67322DC3A8200E4E5D6 /* Document.swift */,
 			);
 			path = Kineo;
 			sourceTree = "<group>";
@@ -125,6 +133,15 @@
 				04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */,
 			);
 			path = "Editing View";
+			sourceTree = "<group>";
+		};
+		04C0A67522DC406000E4E5D6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04C0A66722DC221700E4E5D6 /* UIViewControllerExtensions.swift */,
+				04C0A67622DC406B00E4E5D6 /* DataExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +227,7 @@
 			files = (
 				04C0A65222DC208E00E4E5D6 /* LaunchScreen.storyboard in Resources */,
 				04C0A64F22DC208E00E4E5D6 /* Assets.xcassets in Resources */,
+				04C0A67922DC436400E4E5D6 /* example.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,8 +248,10 @@
 				04C0A66822DC221700E4E5D6 /* UIViewControllerExtensions.swift in Sources */,
 				04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */,
 				04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */,
+				04C0A67722DC406B00E4E5D6 /* DataExtensions.swift in Sources */,
 				04C0A64622DC208E00E4E5D6 /* AppDelegate.swift in Sources */,
 				04C0A67022DC2A2500E4E5D6 /* EditingView.swift in Sources */,
+				04C0A67422DC3A8200E4E5D6 /* Document.swift in Sources */,
 				04C0A66A22DC224B00E4E5D6 /* EditingViewController.swift in Sources */,
 				04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */,
 				04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */,
