@@ -6,8 +6,12 @@ import UIKit
 class SceneViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
-        embed(EditingViewController(document: Document()))
+        embed(EditingViewController(document: documentStore.sampleDocument))
     }
+
+    // MARK: Boilerplate
+
+    private let documentStore = DocumentStore()
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

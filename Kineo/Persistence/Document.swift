@@ -2,11 +2,20 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 import Foundation
-import PencilKit
 
 struct Document: Codable {
     init() {
-        self.pages = [(Document.samplePage ?? Page())]
+        self.init(pages: [Page()])
+    }
+
+    init(pages: [Page]) {
+        self.pages = pages
+    }
+
+    func replacingPage(atIndex index: Int, with page: Page) -> Document {
+        var newPages = pages
+        newPages[index] = page
+        return Document(pages: newPages)
     }
 
     private static var samplePage: Page? {
@@ -19,12 +28,4 @@ struct Document: Codable {
     }
 
     let pages: [Page]
-}
-
-struct Page: Codable {
-    init(drawing: PKDrawing? = nil) {
-        self.drawing = drawing ?? PKDrawing()
-    }
-
-    let drawing: PKDrawing
 }

@@ -22,6 +22,10 @@ class EditingViewController: UIViewController {
         }
     }
 
+    @objc func drawingViewDidChangePage(_ sender: DrawingView) {
+        documentEditor.replaceCurrentPage(with: sender.page)
+    }
+
     // MARK: Boilerplate
 
     private let documentEditor: DocumentEditor
@@ -30,18 +34,5 @@ class EditingViewController: UIViewController {
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
-    }
-}
-
-class DocumentEditor: NSObject {
-    init(document: Document) {
-        self.document = document
-        super.init()
-    }
-
-    private let document: Document
-    private var currentIndex = 0
-    var currentPage: Page {
-        return document.pages[currentIndex]
     }
 }

@@ -21,6 +21,12 @@
 		04C0A67422DC3A8200E4E5D6 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67322DC3A8200E4E5D6 /* Document.swift */; };
 		04C0A67722DC406B00E4E5D6 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67622DC406B00E4E5D6 /* DataExtensions.swift */; };
 		04C0A67922DC436400E4E5D6 /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C0A67822DC436400E4E5D6 /* example.json */; };
+		04C0A67C22DC51E700E4E5D6 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67B22DC51E700E4E5D6 /* Page.swift */; };
+		04C0A67E22DC522500E4E5D6 /* DocumentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67D22DC522500E4E5D6 /* DocumentStore.swift */; };
+		04C0A68022DC531100E4E5D6 /* DocumentEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67F22DC531100E4E5D6 /* DocumentEditor.swift */; };
+		04C0A68222DC5D3800E4E5D6 /* DocumentSaveOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A68122DC5D3800E4E5D6 /* DocumentSaveOperation.swift */; };
+		04C0A68422DC5DA300E4E5D6 /* DocumentOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A68322DC5DA300E4E5D6 /* DocumentOperationQueue.swift */; };
+		04C0A68622DC5EBD00E4E5D6 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +58,12 @@
 		04C0A67322DC3A8200E4E5D6 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		04C0A67622DC406B00E4E5D6 /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
 		04C0A67822DC436400E4E5D6 /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
+		04C0A67B22DC51E700E4E5D6 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		04C0A67D22DC522500E4E5D6 /* DocumentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentStore.swift; sourceTree = "<group>"; };
+		04C0A67F22DC531100E4E5D6 /* DocumentEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentEditor.swift; sourceTree = "<group>"; };
+		04C0A68122DC5D3800E4E5D6 /* DocumentSaveOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSaveOperation.swift; sourceTree = "<group>"; };
+		04C0A68322DC5DA300E4E5D6 /* DocumentOperationQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentOperationQueue.swift; sourceTree = "<group>"; };
+		04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +114,8 @@
 				04C0A65322DC208E00E4E5D6 /* Info.plist */,
 				04C0A66E22DC292E00E4E5D6 /* Editing View */,
 				04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */,
-				04C0A67322DC3A8200E4E5D6 /* Document.swift */,
+				04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */,
+				04C0A67A22DC51CC00E4E5D6 /* Persistence */,
 			);
 			path = Kineo;
 			sourceTree = "<group>";
@@ -142,6 +155,19 @@
 				04C0A67622DC406B00E4E5D6 /* DataExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		04C0A67A22DC51CC00E4E5D6 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				04C0A67322DC3A8200E4E5D6 /* Document.swift */,
+				04C0A67B22DC51E700E4E5D6 /* Page.swift */,
+				04C0A67D22DC522500E4E5D6 /* DocumentStore.swift */,
+				04C0A68322DC5DA300E4E5D6 /* DocumentOperationQueue.swift */,
+				04C0A68122DC5D3800E4E5D6 /* DocumentSaveOperation.swift */,
+				04C0A67F22DC531100E4E5D6 /* DocumentEditor.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,12 +273,18 @@
 			files = (
 				04C0A66822DC221700E4E5D6 /* UIViewControllerExtensions.swift in Sources */,
 				04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */,
+				04C0A67E22DC522500E4E5D6 /* DocumentStore.swift in Sources */,
+				04C0A68622DC5EBD00E4E5D6 /* DrawingView.swift in Sources */,
 				04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */,
 				04C0A67722DC406B00E4E5D6 /* DataExtensions.swift in Sources */,
 				04C0A64622DC208E00E4E5D6 /* AppDelegate.swift in Sources */,
 				04C0A67022DC2A2500E4E5D6 /* EditingView.swift in Sources */,
+				04C0A67C22DC51E700E4E5D6 /* Page.swift in Sources */,
 				04C0A67422DC3A8200E4E5D6 /* Document.swift in Sources */,
+				04C0A68222DC5D3800E4E5D6 /* DocumentSaveOperation.swift in Sources */,
 				04C0A66A22DC224B00E4E5D6 /* EditingViewController.swift in Sources */,
+				04C0A68022DC531100E4E5D6 /* DocumentEditor.swift in Sources */,
+				04C0A68422DC5DA300E4E5D6 /* DocumentOperationQueue.swift in Sources */,
 				04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */,
 				04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */,
 			);
