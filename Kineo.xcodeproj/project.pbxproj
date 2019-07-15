@@ -16,6 +16,8 @@
 		04C0A66822DC221700E4E5D6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A66722DC221700E4E5D6 /* UIViewControllerExtensions.swift */; };
 		04C0A66A22DC224B00E4E5D6 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A66922DC224B00E4E5D6 /* EditingViewController.swift */; };
 		04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A66C22DC23F700E4E5D6 /* SceneWindow.swift */; };
+		04C0A67022DC2A2500E4E5D6 /* EditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */; };
+		04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		04C0A66722DC221700E4E5D6 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		04C0A66922DC224B00E4E5D6 /* EditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
 		04C0A66C22DC23F700E4E5D6 /* SceneWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneWindow.swift; sourceTree = "<group>"; };
+		04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingView.swift; sourceTree = "<group>"; };
+		04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +93,8 @@
 				04C0A64E22DC208E00E4E5D6 /* Assets.xcassets */,
 				04C0A65022DC208E00E4E5D6 /* LaunchScreen.storyboard */,
 				04C0A65322DC208E00E4E5D6 /* Info.plist */,
-				04C0A66922DC224B00E4E5D6 /* EditingViewController.swift */,
+				04C0A66E22DC292E00E4E5D6 /* Editing View */,
+				04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */,
 			);
 			path = Kineo;
 			sourceTree = "<group>";
@@ -111,6 +116,15 @@
 				04C0A66C22DC23F700E4E5D6 /* SceneWindow.swift */,
 			);
 			path = "Default Scene";
+			sourceTree = "<group>";
+		};
+		04C0A66E22DC292E00E4E5D6 /* Editing View */ = {
+			isa = PBXGroup;
+			children = (
+				04C0A66922DC224B00E4E5D6 /* EditingViewController.swift */,
+				04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */,
+			);
+			path = "Editing View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,7 +229,9 @@
 			files = (
 				04C0A66822DC221700E4E5D6 /* UIViewControllerExtensions.swift in Sources */,
 				04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */,
+				04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */,
 				04C0A64622DC208E00E4E5D6 /* AppDelegate.swift in Sources */,
+				04C0A67022DC2A2500E4E5D6 /* EditingView.swift in Sources */,
 				04C0A66A22DC224B00E4E5D6 /* EditingViewController.swift in Sources */,
 				04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */,
 				04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */,

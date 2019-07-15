@@ -1,19 +1,20 @@
 //  Created by Geoff Pado on 7/14/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
-import UIKit
+import PencilKit
 
-class EditingViewController: UIViewController {
-    override func loadView() {
-        view = EditingView()
-    }
-}
-
-class EditingView: UIView {
+class CanvasView: PKCanvasView {
     init() {
         super.init(frame: .zero)
-        backgroundColor = .magenta
+        translatesAutoresizingMaskIntoConstraints = false
+
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.opaqueSeparator.cgColor
+
+        tool = PKInkingTool(.pen, color: .systemRed, width: 5)
     }
+
+    // MARK: Boilerplate
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
