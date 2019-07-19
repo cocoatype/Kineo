@@ -39,7 +39,11 @@ class EditingView: UIView {
 
     private lazy var drawingView = DrawingView(page: page)
     private let transportControlsView = TransportControlsView()
-    private let page: Page
+    var page: Page {
+        didSet {
+            drawingView.page = page
+        }
+    }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

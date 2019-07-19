@@ -23,6 +23,27 @@ class EditingViewController: UIViewController {
         documentEditor.replaceCurrentPage(with: sender.page)
     }
 
+    // MARK: Transport Controls
+
+    @objc func addPage() {
+        documentEditor.addPage()
+        editingView?.page = documentEditor.currentPage
+    }
+
+    @objc func playOneLoop() {
+        print("play one loop")
+    }
+
+    @objc func advancePage() {
+        documentEditor.advancePage()
+        editingView?.page = documentEditor.currentPage
+    }
+
+    @objc func retreatPage() {
+        documentEditor.retreatPage()
+        editingView?.page = documentEditor.currentPage
+    }
+
     // MARK: Boilerplate
 
     private let documentEditor: DocumentEditor

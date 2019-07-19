@@ -18,6 +18,12 @@ struct Document: Codable {
         return Document(pages: newPages)
     }
 
+    func insertingBlankPage(at index: Int) -> Document {
+        var newPages = pages
+        newPages.insert(Page(), at: index)
+        return Document(pages: newPages)
+    }
+
     private static var samplePage: Page? {
         guard let resourceURL = Bundle.main.url(forResource: "example", withExtension: "json"),
           let data = try? Data(contentsOf: resourceURL),

@@ -4,6 +4,8 @@
 import UIKit
 
 enum Icons {
-    static var addPage: UIImage? { return UIImage(systemName: "plus") }
-    static var play: UIImage? { return UIImage(systemName: "play") }
+    static let addPage = UIImage(systemName: "plus")
+    static let play = UIImage(systemName: "play")
+    static let nextPage = UIImage(systemName: "chevron.right.circle")
+    static let previousPage = UIImage(systemName: "chevron.left.circle")
 }

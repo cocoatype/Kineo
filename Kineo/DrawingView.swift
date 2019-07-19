@@ -26,7 +26,13 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
     }
 
     var page: Page {
-        return Page(drawing: canvasView.drawing)
+        get {
+            return Page(drawing: canvasView.drawing)
+        }
+
+        set(newPage) {
+            canvasView.drawing = newPage.drawing
+        }
     }
 
     func observe(_ toolPicker: PKToolPicker) {
