@@ -12,12 +12,17 @@ class EditingView: UIView {
         backgroundColor = .systemBackground
 
         addSubview(drawingView)
+        addSubview(transportControlsView)
 
         NSLayoutConstraint.activate([
             drawingView.widthAnchor.constraint(equalTo: drawingView.heightAnchor),
             drawingView.widthAnchor.constraint(equalToConstant: 512.0),
             drawingView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            drawingView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            drawingView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            transportControlsView.centerXAnchor.constraint(equalTo: drawingView.centerXAnchor),
+            transportControlsView.topAnchor.constraint(equalTo: drawingView.bottomAnchor, constant: 20),
+            transportControlsView.widthAnchor.constraint(equalTo: drawingView.widthAnchor),
+            transportControlsView.heightAnchor.constraint(equalToConstant: 60.0)
         ])
     }
 
@@ -33,6 +38,7 @@ class EditingView: UIView {
     // MARK: Boilerplate
 
     private lazy var drawingView = DrawingView(page: page)
+    private let transportControlsView = TransportControlsView()
     private let page: Page
 
     @available(*, unavailable)
