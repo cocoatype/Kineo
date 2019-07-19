@@ -29,6 +29,11 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
         return Page(drawing: canvasView.drawing)
     }
 
+    func observe(_ toolPicker: PKToolPicker) {
+        toolPicker.setVisible(true, forFirstResponder: self)
+        toolPicker.addObserver(canvasView)
+    }
+
     // MARK: PKCanvasViewDelegate
 
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
@@ -38,6 +43,8 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
     // MARK: Boilerplate
 
     private let canvasView = CanvasView()
+
+    override var canBecomeFirstResponder: Bool { return true }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

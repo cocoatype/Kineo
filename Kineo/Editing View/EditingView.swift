@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 7/14/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import PencilKit
 import UIKit
 
 class EditingView: UIView {
@@ -18,6 +19,15 @@ class EditingView: UIView {
             drawingView.centerXAnchor.constraint(equalTo: centerXAnchor),
             drawingView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+    }
+
+    func setupToolPicker() {
+        guard let window = window,
+            let toolPicker = PKToolPicker.shared(for: window)
+            else { return }
+
+        drawingView.observe(toolPicker)
+        _ = drawingView.becomeFirstResponder()
     }
 
     // MARK: Boilerplate

@@ -16,10 +16,7 @@ class EditingViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        if let view = view, let window = view.window {
-            PKToolPicker.shared(for: window)?.setVisible(true, forFirstResponder: view)
-        }
+        editingView?.setupToolPicker()
     }
 
     @objc func drawingViewDidChangePage(_ sender: DrawingView) {
@@ -29,6 +26,7 @@ class EditingViewController: UIViewController {
     // MARK: Boilerplate
 
     private let documentEditor: DocumentEditor
+    private var editingView: EditingView? { return view as? EditingView }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

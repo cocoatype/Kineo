@@ -6,8 +6,6 @@ import PencilKit
 class CanvasView: PKCanvasView {
     init() {
         super.init(frame: .zero)
-
-        tool = PKInkingTool(.pen, color: .systemRed, width: 5)
         translatesAutoresizingMaskIntoConstraints = false
     }
 
