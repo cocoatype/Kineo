@@ -17,11 +17,17 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
         canvasView.drawing = page.drawing
         addSubview(canvasView)
 
+        addSubview(skinsImageView)
+
         NSLayoutConstraint.activate([
             canvasView.widthAnchor.constraint(equalTo: widthAnchor),
             canvasView.heightAnchor.constraint(equalTo: heightAnchor),
             canvasView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            canvasView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            canvasView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            skinsImageView.widthAnchor.constraint(equalTo: widthAnchor),
+            skinsImageView.heightAnchor.constraint(equalTo: heightAnchor),
+            skinsImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            skinsImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 
@@ -32,6 +38,13 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
 
         set(newPage) {
             canvasView.drawing = newPage.drawing
+        }
+    }
+
+    var skinsImage: UIImage? {
+        get { return skinsImageView.image }
+        set(newImage) {
+            skinsImageView.image = newImage
         }
     }
 
@@ -49,6 +62,11 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
     // MARK: Boilerplate
 
     private let canvasView = CanvasView()
+    private let skinsImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
 
     override var canBecomeFirstResponder: Bool { return true }
 

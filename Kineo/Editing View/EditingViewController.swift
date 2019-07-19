@@ -27,7 +27,7 @@ class EditingViewController: UIViewController {
 
     @objc func addPage() {
         documentEditor.addPage()
-        editingView?.page = documentEditor.currentPage
+        updateCurrentPage()
     }
 
     @objc func playOneLoop() {
@@ -36,18 +36,32 @@ class EditingViewController: UIViewController {
 
     @objc func advancePage() {
         documentEditor.advancePage()
-        editingView?.page = documentEditor.currentPage
+        updateCurrentPage()
     }
 
     @objc func retreatPage() {
         documentEditor.retreatPage()
+        updateCurrentPage()
+    }
+
+    // MARK: Editing View
+
+    private var editingView: EditingView? { return view as? EditingView }
+
+    private lazy var skinGenerator = SkinGenerator(traitCollection: traitCollection)
+
+    private func updateCurrentPage() {
         editingView?.page = documentEditor.currentPage
+        editingView?.skinsImage = skinGenerator.skinsImage(from: documentEditor.document, currentPageIndex: documentEditor.currentIndex)
     }
 
     // MARK: Boilerplate
 
     private let documentEditor: DocumentEditor
-    private var editingView: EditingView? { return view as? EditingView }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        skinGenerator.traitCollection = traitCollection
+    }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

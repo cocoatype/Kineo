@@ -37,8 +37,8 @@ class DocumentEditor: NSObject {
 
     private let documentStore = DocumentStore()
 
-    private var document: Document
-    private var currentIndex = 0
+    private(set) var document: Document
+    private(set) var currentIndex = 0
     var currentPage: Page {
         return document.pages[currentIndex]
     }

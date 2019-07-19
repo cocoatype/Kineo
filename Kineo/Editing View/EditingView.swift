@@ -44,6 +44,12 @@ class EditingView: UIView {
             drawingView.page = page
         }
     }
+    var skinsImage: UIImage? {
+        get { return drawingView.skinsImage }
+        set(newImage) {
+            drawingView.skinsImage = newImage
+        }
+    }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
