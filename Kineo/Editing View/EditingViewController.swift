@@ -31,7 +31,7 @@ class EditingViewController: UIViewController {
     }
 
     @objc func playOneLoop() {
-        print("play one loop")
+        editingView?.play(documentEditor.document)
     }
 
     @objc func advancePage() {
