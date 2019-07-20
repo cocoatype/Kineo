@@ -10,6 +10,7 @@
 		04318A2F22E1888B003D70C8 /* TransportControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A2E22E1888B003D70C8 /* TransportControlsView.swift */; };
 		04318A3122E18C72003D70C8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3022E18C72003D70C8 /* Icons.swift */; };
 		04318A3322E19AB5003D70C8 /* SkinGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3222E19AB5003D70C8 /* SkinGenerator.swift */; };
+		04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3422E2EC3C003D70C8 /* PlaybackView.swift */; };
 		04C0A64622DC208E00E4E5D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */; };
 		04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64722DC208E00E4E5D6 /* SceneDelegate.swift */; };
 		04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64922DC208E00E4E5D6 /* SceneViewController.swift */; };
@@ -46,6 +47,7 @@
 		04318A2E22E1888B003D70C8 /* TransportControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportControlsView.swift; sourceTree = "<group>"; };
 		04318A3022E18C72003D70C8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		04318A3222E19AB5003D70C8 /* SkinGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinGenerator.swift; sourceTree = "<group>"; };
+		04318A3422E2EC3C003D70C8 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
 		04C0A64222DC208E00E4E5D6 /* Kineo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kineo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C0A64722DC208E00E4E5D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,8 +121,6 @@
 				04C0A65022DC208E00E4E5D6 /* LaunchScreen.storyboard */,
 				04C0A65322DC208E00E4E5D6 /* Info.plist */,
 				04C0A66E22DC292E00E4E5D6 /* Editing View */,
-				04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */,
-				04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */,
 				04C0A67A22DC51CC00E4E5D6 /* Persistence */,
 				04318A2E22E1888B003D70C8 /* TransportControlsView.swift */,
 				04318A3022E18C72003D70C8 /* Icons.swift */,
@@ -151,8 +151,11 @@
 		04C0A66E22DC292E00E4E5D6 /* Editing View */ = {
 			isa = PBXGroup;
 			children = (
+				04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */,
+				04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */,
 				04C0A66922DC224B00E4E5D6 /* EditingViewController.swift */,
 				04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */,
+				04318A3422E2EC3C003D70C8 /* PlaybackView.swift */,
 			);
 			path = "Editing View";
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				04C0A66822DC221700E4E5D6 /* UIViewControllerExtensions.swift in Sources */,
 				04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */,
 				04318A3322E19AB5003D70C8 /* SkinGenerator.swift in Sources */,
+				04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */,
 				04C0A67E22DC522500E4E5D6 /* DocumentStore.swift in Sources */,
 				04C0A68622DC5EBD00E4E5D6 /* DrawingView.swift in Sources */,
 				04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */,

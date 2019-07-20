@@ -4,7 +4,7 @@
 import PencilKit
 import UIKit
 
-class EditingView: UIView {
+class EditingView: UIView, PlaybackViewDelegate {
     init(page: Page) {
         self.page = page
         super.init(frame: .zero)
@@ -33,6 +33,36 @@ class EditingView: UIView {
 
         drawingView.observe(toolPicker)
         _ = drawingView.becomeFirstResponder()
+    }
+
+    // MARK: Playback
+
+    private var playbackView: PlaybackView?
+
+    func play(_ document: Document, continuously: Bool = false) {
+        let playbackView: PlaybackView
+        if let existingPlaybackView = self.playbackView {
+            existingPlaybackView.document = document
+            playbackView = existingPlaybackView
+        } else {
+            playbackView = PlaybackView(document: document)
+
+            addSubview(playbackView)
+            NSLayoutConstraint.activate([
+                playbackView.widthAnchor.constraint(equalTo: drawingView.widthAnchor),
+                playbackView.heightAnchor.constraint(equalTo: drawingView.heightAnchor),
+                playbackView.centerXAnchor.constraint(equalTo: drawingView.centerXAnchor),
+                playbackView.centerYAnchor.constraint(equalTo: drawingView.centerYAnchor)
+            ])
+        }
+
+        playbackView.animate(continuously: continuously)
+    }
+
+    func playbackViewDidFinishPlayback(_ playbackView: PlaybackView) {
+        guard playbackView == self.playbackView else { return }
+        playbackView.removeFromSuperview()
+        self.playbackView = nil
     }
 
     // MARK: Boilerplate
