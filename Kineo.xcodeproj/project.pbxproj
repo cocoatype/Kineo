@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0417F09E22E46F410063AD66 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F09D22E46F410063AD66 /* UIImageExtensions.swift */; };
 		04318A2F22E1888B003D70C8 /* TransportControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A2E22E1888B003D70C8 /* TransportControlsView.swift */; };
 		04318A3122E18C72003D70C8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3022E18C72003D70C8 /* Icons.swift */; };
 		04318A3322E19AB5003D70C8 /* SkinGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3222E19AB5003D70C8 /* SkinGenerator.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0417F09D22E46F410063AD66 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		04318A2E22E1888B003D70C8 /* TransportControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportControlsView.swift; sourceTree = "<group>"; };
 		04318A3022E18C72003D70C8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		04318A3222E19AB5003D70C8 /* SkinGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinGenerator.swift; sourceTree = "<group>"; };
@@ -166,8 +168,9 @@
 		04C0A67522DC406000E4E5D6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				04C0A66722DC221700E4E5D6 /* UIViewControllerExtensions.swift */,
 				04C0A67622DC406B00E4E5D6 /* DataExtensions.swift */,
+				04C0A66722DC221700E4E5D6 /* UIViewControllerExtensions.swift */,
+				0417F09D22E46F410063AD66 /* UIImageExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C0A66822DC221700E4E5D6 /* UIViewControllerExtensions.swift in Sources */,
+				0417F09E22E46F410063AD66 /* UIImageExtensions.swift in Sources */,
 				04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */,
 				04318A3322E19AB5003D70C8 /* SkinGenerator.swift in Sources */,
 				04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */,
