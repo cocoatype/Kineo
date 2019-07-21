@@ -1,21 +1,18 @@
-//  Created by Geoff Pado on 7/14/19.
+//  Created by Geoff Pado on 7/21/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 import UIKit
 
-class SceneViewController: UIViewController {
+class GalleryViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
-        embed(EditingViewController(document: documentStore.sampleDocument))
     }
 
-    @objc func showGallery() {
-        transition(to: GalleryViewController())
+    override func loadView() {
+        view = GalleryView()
     }
 
     // MARK: Boilerplate
-
-    private let documentStore = DocumentStore()
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0417F09E22E46F410063AD66 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F09D22E46F410063AD66 /* UIImageExtensions.swift */; };
+		0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */; };
+		0417F0A322E4A3B30063AD66 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F0A222E4A3B30063AD66 /* GalleryView.swift */; };
 		04318A2F22E1888B003D70C8 /* TransportControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A2E22E1888B003D70C8 /* TransportControlsView.swift */; };
 		04318A3122E18C72003D70C8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3022E18C72003D70C8 /* Icons.swift */; };
 		04318A3322E19AB5003D70C8 /* SkinGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3222E19AB5003D70C8 /* SkinGenerator.swift */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		0417F09D22E46F410063AD66 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		0417F0A222E4A3B30063AD66 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		04318A2E22E1888B003D70C8 /* TransportControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportControlsView.swift; sourceTree = "<group>"; };
 		04318A3022E18C72003D70C8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		04318A3222E19AB5003D70C8 /* SkinGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinGenerator.swift; sourceTree = "<group>"; };
@@ -96,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0417F09F22E4A0860063AD66 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */,
+				0417F0A222E4A3B30063AD66 /* GalleryView.swift */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
 		04C0A63922DC208E00E4E5D6 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +130,7 @@
 		04C0A64422DC208E00E4E5D6 /* Kineo */ = {
 			isa = PBXGroup;
 			children = (
+				0417F09F22E4A0860063AD66 /* Gallery */,
 				04C0A67822DC436400E4E5D6 /* example.json */,
 				04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */,
 				04C0A66B22DC23EA00E4E5D6 /* Default Scene */,
@@ -296,6 +310,7 @@
 				04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */,
 				04C0A67E22DC522500E4E5D6 /* DocumentStore.swift in Sources */,
 				04C0A68622DC5EBD00E4E5D6 /* DrawingView.swift in Sources */,
+				0417F0A322E4A3B30063AD66 /* GalleryView.swift in Sources */,
 				04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */,
 				04C0A67722DC406B00E4E5D6 /* DataExtensions.swift in Sources */,
 				04C0A64622DC208E00E4E5D6 /* AppDelegate.swift in Sources */,
@@ -308,6 +323,7 @@
 				04C0A66A22DC224B00E4E5D6 /* EditingViewController.swift in Sources */,
 				04C0A68022DC531100E4E5D6 /* DocumentEditor.swift in Sources */,
 				04318A3122E18C72003D70C8 /* Icons.swift in Sources */,
+				0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */,
 				04C0A68422DC5DA300E4E5D6 /* DocumentOperationQueue.swift in Sources */,
 				04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */,
 				04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */,
