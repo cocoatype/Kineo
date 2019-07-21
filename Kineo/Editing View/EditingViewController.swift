@@ -31,7 +31,7 @@ class EditingViewController: UIViewController {
     }
 
     @objc func playOneLoop() {
-        print("play one loop")
+        editingView?.play(documentEditor.document)
     }
 
     @objc func advancePage() {
@@ -42,6 +42,19 @@ class EditingViewController: UIViewController {
     @objc func retreatPage() {
         documentEditor.retreatPage()
         updateCurrentPage()
+    }
+
+    @objc func exportVideo() {
+        videoGenerator.generateVideo(from: documentEditor.document) { result in
+            switch result {
+            case .success(let exportURL):
+                let data = try? Data(contentsOf: exportURL)
+                let encodedData = data?.base64EncodedString() ?? "none"
+                dump(encodedData)
+            case .failure(let error):
+                dump(error.localizedDescription)
+            }
+        }
     }
 
     // MARK: Editing View
@@ -58,6 +71,7 @@ class EditingViewController: UIViewController {
     // MARK: Boilerplate
 
     private let documentEditor: DocumentEditor
+    private let videoGenerator = VideoGenerator()
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         skinGenerator.traitCollection = traitCollection
