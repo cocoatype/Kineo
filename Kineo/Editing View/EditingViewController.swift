@@ -44,6 +44,19 @@ class EditingViewController: UIViewController {
         updateCurrentPage()
     }
 
+    @objc func exportVideo() {
+        videoGenerator.generateVideo(from: documentEditor.document) { result in
+            switch result {
+            case .success(let exportURL):
+                let data = try? Data(contentsOf: exportURL)
+                let encodedData = data?.base64EncodedString() ?? "none"
+                dump(encodedData)
+            case .failure(let error):
+                dump(error.localizedDescription)
+            }
+        }
+    }
+
     // MARK: Editing View
 
     private var editingView: EditingView? { return view as? EditingView }
@@ -58,6 +71,7 @@ class EditingViewController: UIViewController {
     // MARK: Boilerplate
 
     private let documentEditor: DocumentEditor
+    private let videoGenerator = VideoGenerator()
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         skinGenerator.traitCollection = traitCollection

@@ -64,8 +64,15 @@ class TransportControlsView: UIView {
         return button
     }()
 
+    private let exportButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.addTarget(nil, action: #selector(EditingViewController.exportVideo), for: .primaryActionTriggered)
+        button.setImage(Icons.export, for: .normal)
+        return button
+    }()
+
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [addButton, playButton, retreatButton, advanceButton])
+        let stackView = UIStackView(arrangedSubviews: [addButton, playButton, retreatButton, advanceButton, exportButton])
         stackView.distribution = .equalCentering
         stackView.spacing = UIStackView.spacingUseSystem
         stackView.translatesAutoresizingMaskIntoConstraints = false
