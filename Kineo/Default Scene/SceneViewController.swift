@@ -13,6 +13,10 @@ class SceneViewController: UIViewController {
         transition(to: GalleryViewController())
     }
 
+    @objc func showEditingView(_ sender: GalleryViewController, for event: GallerySelectionEvent) {
+        transition(to: EditingViewController(document: event.document))
+    }
+
     // MARK: Boilerplate
 
     private let documentStore = DocumentStore()

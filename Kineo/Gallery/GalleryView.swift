@@ -3,15 +3,20 @@
 
 import UIKit
 
-class GalleryView: UIView {
+class GalleryView: UICollectionView {
     init() {
-        super.init(frame: .zero)
-        backgroundColor = .magenta
+        let layout = GalleryViewLayout()
+        super.init(frame: .zero, collectionViewLayout: layout)
+
+        register(GalleryDocumentCollectionViewCell.self, forCellWithReuseIdentifier: GalleryDocumentCollectionViewCell.identifier)
+        register(GalleryNewCollectionViewCell.self, forCellWithReuseIdentifier: GalleryNewCollectionViewCell.identifier)
+
+        backgroundColor = .darkGray
     }
 
     // MARK: Boilerplate
 
-    @available(*, unavailable)
+    @available(*, unavailable, message: "This class does not implement init(coder:)")
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")

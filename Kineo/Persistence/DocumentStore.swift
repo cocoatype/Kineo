@@ -13,6 +13,18 @@ struct DocumentStore {
         }
     }()
 
+    var documentsCount: Int {
+        return 1
+    }
+
+    func document(at index: Int) -> Document {
+        return sampleDocument
+    }
+
+    func newDocument() -> Document {
+        return Document()
+    }
+
     // MARK: Disk Operations
 
     static func url(for document: Document) -> URL {
