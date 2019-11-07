@@ -18,7 +18,9 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate {
     // MARK: UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectionEvent = GallerySelectionEvent(document: dataSource.document(at: indexPath))
+        // TODO (#18): Show some kind of error if reading the document throws
+        guard let document = try? dataSource.document(at: indexPath) else { return }
+        let selectionEvent = GallerySelectionEvent(document: document)
         UIApplication.shared.sendAction(#selector(SceneViewController.showEditingView(_:for:)), to: nil, from: self, for: selectionEvent)
     }
 

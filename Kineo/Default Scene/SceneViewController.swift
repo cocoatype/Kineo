@@ -6,7 +6,7 @@ import UIKit
 class SceneViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
-        embed(EditingViewController(document: documentStore.sampleDocument))
+        embed(GalleryViewController())
     }
 
     @objc func showGallery() {

@@ -4,11 +4,11 @@
 import UIKit
 
 class GalleryViewDataSource: NSObject, UICollectionViewDataSource {
-    func document(at indexPath: IndexPath) -> Document {
+    func document(at indexPath: IndexPath) throws -> Document {
         guard indexPath != GalleryViewDataSource.newDocumentIndexPath else { return documentStore.newDocument() }
 
         let documentIndex = indexPath.item - 1
-        return documentStore.document(at: documentIndex)
+        return try documentStore.document(at: documentIndex)
     }
 
     // MARK: UICollectionViewDataSource
