@@ -11,7 +11,7 @@ class GalleryView: UICollectionView {
         register(GalleryDocumentCollectionViewCell.self, forCellWithReuseIdentifier: GalleryDocumentCollectionViewCell.identifier)
         register(GalleryNewCollectionViewCell.self, forCellWithReuseIdentifier: GalleryNewCollectionViewCell.identifier)
 
-        backgroundColor = .darkGray
+        backgroundColor = .appBackground
     }
 
     // MARK: Boilerplate
