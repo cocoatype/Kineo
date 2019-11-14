@@ -10,12 +10,24 @@ class GalleryDocumentCollectionViewCellBackgroundView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         layer.mask = maskLayer
 
+        addSubview(previewImageView)
         addSubview(titleContainer)
 
         NSLayoutConstraint.activate([
             titleContainer.topAnchor.constraint(equalTo: topAnchor),
-            titleContainer.widthAnchor.constraint(equalTo: widthAnchor)
+            titleContainer.widthAnchor.constraint(equalTo: widthAnchor),
+            previewImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            previewImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            previewImageView.widthAnchor.constraint(equalTo: widthAnchor),
+            previewImageView.heightAnchor.constraint(equalTo: heightAnchor)
         ])
+    }
+
+    var previewImage: UIImage? {
+        get { return previewImageView.image }
+        set(newImage) {
+            previewImageView.image = newImage
+        }
     }
 
     override func layoutSublayers(of layer: CALayer) {
@@ -31,6 +43,7 @@ class GalleryDocumentCollectionViewCellBackgroundView: UIView {
     // MARK: Boilerplate
 
     private let maskLayer = CAShapeLayer()
+    private let previewImageView = GalleryDocumentPreviewImageView()
     private let titleContainer = GalleryDocumentCollectionViewCellTitleContainerView()
 
     @available(*, unavailable)

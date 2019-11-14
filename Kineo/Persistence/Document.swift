@@ -25,15 +25,6 @@ struct Document: Codable {
         return Document(pages: newPages, uuid: self.uuid)
     }
 
-    private static var samplePage: Page? {
-        guard let resourceURL = Bundle.main.url(forResource: "example", withExtension: "json"),
-          let data = try? Data(contentsOf: resourceURL),
-          let page = try? JSONDecoder().decode(Page.self, from: data)
-        else { return nil }
-
-        return page
-    }
-
     let pages: [Page]
     let uuid: UUID
 }

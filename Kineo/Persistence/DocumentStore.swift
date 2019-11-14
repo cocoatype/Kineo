@@ -1,7 +1,7 @@
 //  Created by Geoff Pado on 7/14/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
-import Foundation
+import UIKit
 
 struct DocumentStore {
     var documentsCount: Int {
@@ -24,16 +24,28 @@ struct DocumentStore {
         do {
             let storeDirectoryURL = DocumentStore.storeDirectoryURL
             let urls = try FileManager.default.contentsOfDirectory(at: storeDirectoryURL, includingPropertiesForKeys: [.contentModificationDateKey], options: [])
-            return urls.map(StoredDocument.init(url:)).sorted { $0.modifiedDate > $1.modifiedDate }
+            return urls.filter { $0.pathExtension == "kineo" }.compactMap(StoredDocument.init(url:)).sorted { $0.modifiedDate > $1.modifiedDate }
         } catch {
             return []
         }
+    }
+
+    // MARK: Preview Images
+
+    func previewImage(at index: Int) -> UIImage? {
+        let storedDocument = storedDocuments[index]
+        guard let imageData = try? Data(contentsOf: storedDocument.imagePreviewURL), let image = UIImage(data: imageData) else { return nil }
+        return image
     }
 
     // MARK: Disk Operations
 
     static func url(for document: Document) -> URL {
         return storeDirectoryURL.appendingPathComponent(document.uuid.uuidString).appendingPathExtension("kineo")
+    }
+
+    static func previewImageURL(for document: Document) -> URL {
+        return storeDirectoryURL.appendingPathComponent(document.uuid.uuidString).appendingPathExtension("png")
     }
 
     func save(_ document: Document) {
@@ -66,4 +78,7 @@ struct StoredDocument {
 
     let modifiedDate: Date
     let url: URL
+    var imagePreviewURL: URL {
+        return url.deletingPathExtension().appendingPathExtension("png")
+    }
 }

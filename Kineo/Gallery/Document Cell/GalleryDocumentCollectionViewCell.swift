@@ -25,6 +25,11 @@ class GalleryDocumentCollectionViewCell: UICollectionViewCell {
         ])
     }
 
+    var previewImage: UIImage? {
+        get { return canvasView.previewImage }
+        set(newImage) { canvasView.previewImage = newImage }
+    }
+
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 8.0).cgPath
