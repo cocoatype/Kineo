@@ -10,4 +10,5 @@ enum Icons {
     static let nextPage = UIImage(systemName: "chevron.right.circle")
     static let previousPage = UIImage(systemName: "chevron.left.circle")
     static let gallery = UIImage(systemName: "square.stack")
+    static let newDocument = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(weight: .bold))
 }
