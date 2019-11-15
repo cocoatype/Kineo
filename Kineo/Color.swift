@@ -12,4 +12,5 @@ extension UIColor {
     static let appBackground = UIColor.named("Background")
     static let appShadow = UIColor.named("Shadow")
     static let cellTitle = UIColor.named("Cell Title")
+    static let newCellTint = UIColor.named("New Document Cell Tint")
 }
