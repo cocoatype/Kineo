@@ -6,7 +6,15 @@ import UIKit
 class SceneViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
-        embed(EditingViewController(document: documentStore.sampleDocument))
+        embed(GalleryViewController())
+    }
+
+    @objc func showGallery() {
+        transition(to: GalleryViewController())
+    }
+
+    @objc func showEditingView(_ sender: GalleryViewController, for event: GallerySelectionEvent) {
+        transition(to: EditingViewController(document: event.document))
     }
 
     // MARK: Boilerplate

@@ -9,4 +9,5 @@ enum Icons {
     static let play = UIImage(systemName: "play")
     static let nextPage = UIImage(systemName: "chevron.right.circle")
     static let previousPage = UIImage(systemName: "chevron.left.circle")
+    static let gallery = UIImage(systemName: "square.stack")
 }

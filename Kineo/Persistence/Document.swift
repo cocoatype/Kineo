@@ -5,23 +5,24 @@ import Foundation
 
 struct Document: Codable {
     init() {
-        self.init(pages: [Page()])
+        self.init(pages: [Page()], uuid: UUID())
     }
 
-    init(pages: [Page]) {
+    init(pages: [Page], uuid: UUID) {
         self.pages = pages
+        self.uuid = uuid
     }
 
     func replacingPage(atIndex index: Int, with page: Page) -> Document {
         var newPages = pages
         newPages[index] = page
-        return Document(pages: newPages)
+        return Document(pages: newPages, uuid: self.uuid)
     }
 
     func insertingBlankPage(at index: Int) -> Document {
         var newPages = pages
         newPages.insert(Page(), at: index)
-        return Document(pages: newPages)
+        return Document(pages: newPages, uuid: self.uuid)
     }
 
     private static var samplePage: Page? {
@@ -34,4 +35,5 @@ struct Document: Codable {
     }
 
     let pages: [Page]
+    let uuid: UUID
 }
