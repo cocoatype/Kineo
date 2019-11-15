@@ -11,6 +11,13 @@ class GalleryViewDataSource: NSObject, UICollectionViewDataSource {
         return try documentStore.document(at: documentIndex)
     }
 
+    func previewImage(at indexPath: IndexPath) -> UIImage? {
+        guard indexPath != GalleryViewDataSource.newDocumentIndexPath else { return nil }
+
+        let documentIndex = indexPath.item - 1
+        return documentStore.previewImage(at: documentIndex)
+    }
+
     // MARK: UICollectionViewDataSource
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -18,8 +25,25 @@ class GalleryViewDataSource: NSObject, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard indexPath.item != 0 else { return collectionView.dequeueReusableCell(withReuseIdentifier: GalleryNewCollectionViewCell.identifier, for: indexPath) }
-        return collectionView.dequeueReusableCell(withReuseIdentifier: GalleryDocumentCollectionViewCell.identifier, for: indexPath)
+        guard indexPath.item != 0 else { return newCollectionViewCell(in: collectionView, at: indexPath) }
+
+        return documentCollectionViewCell(in: collectionView, at: indexPath)
+    }
+
+    private func newCollectionViewCell(in collectionView: UICollectionView, at indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: GalleryNewCollectionViewCell.identifier, for: indexPath)
+    }
+
+    private func documentCollectionViewCell(in collectionView: UICollectionView, at indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryDocumentCollectionViewCell.identifier, for: indexPath)
+        guard let documentCell = cell as? GalleryDocumentCollectionViewCell else {
+            assertionFailure("Cell is incorrect type: \(cell), expected GalleryDocumentCollectionViewCell")
+            return cell
+        }
+
+        documentCell.previewImage = previewImage(at: indexPath)
+
+        return documentCell
     }
 
     // MARK: Boilerplate

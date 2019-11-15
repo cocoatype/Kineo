@@ -13,6 +13,13 @@ class DocumentSaveOperation: Operation {
         do {
             let encodedData = try JSONEncoder().encode(document)
             try encodedData.write(to: DocumentStore.url(for: document))
+
+            guard
+              let previewImage = SkinGenerator().previewImage(from: document),
+              let imageEncodedData = previewImage.pngData()
+            else { return }
+
+            try imageEncodedData.write(to: DocumentStore.previewImageURL(for: document))
         } catch {
             dump("error saving document: \(error.localizedDescription)")
         }

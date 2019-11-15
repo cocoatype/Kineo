@@ -6,7 +6,7 @@ import UIKit
 class GalleryViewLayout: UICollectionViewFlowLayout {
     override init() {
         super.init()
-        itemSize = CGSize(width: 200.0, height: 200.0)
+        itemSize = CGSize(width: 220.0, height: 220.0)
     }
 
     @available(*, unavailable)
