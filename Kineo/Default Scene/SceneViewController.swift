@@ -25,10 +25,17 @@ class SceneViewController: UIViewController {
 
     func embedInContainer(_ newChild: UIViewController) {
         embed(newChild, embedView: containerView)
+        updateSidebar(for: newChild as? SidebarActionProviding)
     }
 
     func transitionInContainer(to newChild: UIViewController) {
         transition(to: newChild, embedView: containerView)
+        updateSidebar(for: newChild as? SidebarActionProviding)
+    }
+
+    private func updateSidebar(for newChild: SidebarActionProviding?) {
+        let actionSet = newChild?.sidebarActions ?? ([],[],[])
+        sidebarView.display(actionSet)
     }
 
     // MARK: Status Bar

@@ -24,6 +24,8 @@
 		04BD9256237FFC4300C8FD09 /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD9255237FFC4300C8FD09 /* SceneView.swift */; };
 		04BD9258237FFC8900C8FD09 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD9257237FFC8900C8FD09 /* SidebarView.swift */; };
 		04BD925A237FFCA400C8FD09 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD9259237FFCA400C8FD09 /* ContainerView.swift */; };
+		04BD925D237FFCF700C8FD09 /* SidebarAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD925C237FFCF700C8FD09 /* SidebarAction.swift */; };
+		04BD925F237FFDBD00C8FD09 /* EditingActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD925E237FFDBD00C8FD09 /* EditingActions.swift */; };
 		04C0A64622DC208E00E4E5D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */; };
 		04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64722DC208E00E4E5D6 /* SceneDelegate.swift */; };
 		04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64922DC208E00E4E5D6 /* SceneViewController.swift */; };
@@ -80,6 +82,8 @@
 		04BD9255237FFC4300C8FD09 /* SceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneView.swift; sourceTree = "<group>"; };
 		04BD9257237FFC8900C8FD09 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		04BD9259237FFCA400C8FD09 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		04BD925C237FFCF700C8FD09 /* SidebarAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarAction.swift; sourceTree = "<group>"; };
+		04BD925E237FFDBD00C8FD09 /* EditingActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingActions.swift; sourceTree = "<group>"; };
 		04C0A64222DC208E00E4E5D6 /* Kineo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kineo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C0A64722DC208E00E4E5D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +157,15 @@
 			path = "New Document Cell";
 			sourceTree = "<group>";
 		};
+		04BD925B237FFCE800C8FD09 /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				04BD9257237FFC8900C8FD09 /* SidebarView.swift */,
+				04BD925C237FFCF700C8FD09 /* SidebarAction.swift */,
+			);
+			path = Sidebar;
+			sourceTree = "<group>";
+		};
 		04C0A63922DC208E00E4E5D6 = {
 			isa = PBXGroup;
 			children = (
@@ -210,7 +223,7 @@
 				04C0A64922DC208E00E4E5D6 /* SceneViewController.swift */,
 				04C0A66C22DC23F700E4E5D6 /* SceneWindow.swift */,
 				04BD9255237FFC4300C8FD09 /* SceneView.swift */,
-				04BD9257237FFC8900C8FD09 /* SidebarView.swift */,
+				04BD925B237FFCE800C8FD09 /* Sidebar */,
 				04BD9259237FFCA400C8FD09 /* ContainerView.swift */,
 			);
 			path = "Default Scene";
@@ -224,6 +237,7 @@
 				04C0A66922DC224B00E4E5D6 /* EditingViewController.swift */,
 				04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */,
 				04318A3422E2EC3C003D70C8 /* PlaybackView.swift */,
+				04BD925E237FFDBD00C8FD09 /* EditingActions.swift */,
 			);
 			path = "Editing View";
 			sourceTree = "<group>";
@@ -374,6 +388,7 @@
 				04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */,
 				04C0A67E22DC522500E4E5D6 /* DocumentStore.swift in Sources */,
 				04C0A68622DC5EBD00E4E5D6 /* DrawingView.swift in Sources */,
+				04BD925F237FFDBD00C8FD09 /* EditingActions.swift in Sources */,
 				04BD9251237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift in Sources */,
 				0445AA612373C7B700EB2A7B /* GalleryViewLayout.swift in Sources */,
 				04D36ADD237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift in Sources */,
@@ -394,6 +409,7 @@
 				04318A2F22E1888B003D70C8 /* TransportControlsView.swift in Sources */,
 				04C0A68222DC5D3800E4E5D6 /* DocumentSaveOperation.swift in Sources */,
 				04B52D05237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift in Sources */,
+				04BD925D237FFCF700C8FD09 /* SidebarAction.swift in Sources */,
 				0445AA5F2373C7A000EB2A7B /* GalleryViewDataSource.swift in Sources */,
 				04D36AE323782A960052A933 /* GalleryDocumentCollectionViewCellTitleContainerView.swift in Sources */,
 				04C0A66A22DC224B00E4E5D6 /* EditingViewController.swift in Sources */,
