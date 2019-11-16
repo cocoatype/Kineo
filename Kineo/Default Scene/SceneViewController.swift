@@ -31,6 +31,10 @@ class SceneViewController: UIViewController {
         transition(to: newChild, embedView: containerView)
     }
 
+    // MARK: Status Bar
+
+    override var prefersStatusBarHidden: Bool { return true }
+
     // MARK: Boilerplate
 
     private let documentStore = DocumentStore()
