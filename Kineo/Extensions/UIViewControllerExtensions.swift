@@ -4,7 +4,9 @@
 import UIKit
 
 extension UIViewController {
-    public func embed(_ newChild: UIViewController) {
+    public func embed(_ newChild: UIViewController, embedView: UIView? = nil) {
+        guard let parentView = embedView ?? self.view else { return }
+
         if let existingChild = children.first {
             existingChild.willMove(toParent: nil)
             existingChild.view.removeFromSuperview()
@@ -15,18 +17,19 @@ extension UIViewController {
         newChildView.translatesAutoresizingMaskIntoConstraints = false
 
         addChild(newChild)
-        view.addSubview(newChildView)
+        parentView.addSubview(newChildView)
         newChild.didMove(toParent: self)
 
         NSLayoutConstraint.activate([
-            newChildView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            newChildView.heightAnchor.constraint(equalTo: view.heightAnchor),
-            newChildView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            newChildView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            newChildView.widthAnchor.constraint(equalTo: parentView.widthAnchor),
+            newChildView.heightAnchor.constraint(equalTo: parentView.heightAnchor),
+            newChildView.centerXAnchor.constraint(equalTo: parentView.centerXAnchor),
+            newChildView.centerYAnchor.constraint(equalTo: parentView.centerYAnchor)
         ])
     }
 
-    public func transition(to child: UIViewController, completion: ((Bool) -> Void)? = nil) {
+    public func transition(to child: UIViewController, embedView: UIView? = nil, completion: ((Bool) -> Void)? = nil) {
+        guard let parentView = embedView ?? self.view else { return }
         let duration = 0.3
 
         let current = children.last
@@ -37,7 +40,7 @@ extension UIViewController {
         let newView = childView
         newView.translatesAutoresizingMaskIntoConstraints = true
         newView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        newView.frame = view.bounds
+        newView.frame = parentView.bounds
 
         if let existing = current {
             existing.willMove(toParent: nil)
@@ -48,7 +51,7 @@ extension UIViewController {
                 completion?(done)
             })
         } else {
-            view.addSubview(newView)
+            parentView.addSubview(newView)
 
             UIView.animate(withDuration: duration, delay: 0, options: [.transitionCrossDissolve], animations: { }, completion: { done in
                 child.didMove(toParent: self)
