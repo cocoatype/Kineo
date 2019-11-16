@@ -13,7 +13,6 @@ class EditingView: UIView, PlaybackViewDelegate {
 
         addSubview(drawingView)
         addSubview(transportControlsView)
-        addSubview(galleryButton)
 
         NSLayoutConstraint.activate([
             drawingView.widthAnchor.constraint(equalTo: drawingView.heightAnchor),
@@ -24,8 +23,6 @@ class EditingView: UIView, PlaybackViewDelegate {
             transportControlsView.topAnchor.constraint(equalTo: drawingView.bottomAnchor, constant: 20),
             transportControlsView.widthAnchor.constraint(equalTo: drawingView.widthAnchor),
             transportControlsView.heightAnchor.constraint(equalToConstant: 60.0),
-            galleryButton.leadingAnchor.constraint(equalToSystemSpacingAfter: safeAreaLayoutGuide.leadingAnchor, multiplier: 1),
-            galleryButton.topAnchor.constraint(equalToSystemSpacingBelow: safeAreaLayoutGuide.topAnchor, multiplier: 1)
         ])
     }
 
@@ -67,16 +64,6 @@ class EditingView: UIView, PlaybackViewDelegate {
         playbackView.removeFromSuperview()
         self.playbackView = nil
     }
-
-    // MARK: Navigation
-
-    private let galleryButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(nil, action: #selector(SceneViewController.showGallery), for: .primaryActionTriggered)
-        button.setImage(Icons.gallery, for: .normal)
-        return button
-    }()
 
     // MARK: Boilerplate
 

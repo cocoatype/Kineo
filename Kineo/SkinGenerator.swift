@@ -33,7 +33,7 @@ class SkinGenerator: NSObject {
     }
 
     func previewImage(from document: Document) -> UIImage? {
-        let maxSkinPageIndex = max(SkinGenerator.skinPageCount, document.pages.endIndex)
+        let maxSkinPageIndex = min(SkinGenerator.skinPageCount, document.pages.endIndex)
         let skinPageRange = 0..<maxSkinPageIndex
         let skinPages = document.pages[skinPageRange]
 

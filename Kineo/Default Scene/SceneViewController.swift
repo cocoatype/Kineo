@@ -6,20 +6,51 @@ import UIKit
 class SceneViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
-        embed(GalleryViewController())
+        embedInContainer(GalleryViewController())
+    }
+
+    override func loadView() {
+        view = SceneView()
     }
 
     @objc func showGallery() {
-        transition(to: GalleryViewController())
+        transitionInContainer(to: GalleryViewController())
     }
 
     @objc func showEditingView(_ sender: GalleryViewController, for event: GallerySelectionEvent) {
-        transition(to: EditingViewController(document: event.document))
+        transitionInContainer(to: EditingViewController(document: event.document))
     }
+
+    // MARK: Embedding
+
+    func embedInContainer(_ newChild: UIViewController) {
+        embed(newChild, embedView: containerView)
+        updateSidebar(for: newChild as? SidebarActionProviding)
+    }
+
+    func transitionInContainer(to newChild: UIViewController) {
+        transition(to: newChild, embedView: containerView)
+        updateSidebar(for: newChild as? SidebarActionProviding)
+    }
+
+    private func updateSidebar(for newChild: SidebarActionProviding?) {
+        let actionSet = newChild?.sidebarActions ?? ([],[],[])
+        sidebarView.display(actionSet)
+    }
+
+    // MARK: Status Bar
+
+    override var prefersStatusBarHidden: Bool { return true }
 
     // MARK: Boilerplate
 
     private let documentStore = DocumentStore()
+    private var containerView: ContainerView { return sceneView.containerView }
+    private var sidebarView: SidebarView { return sceneView.sidebarView }
+    private var sceneView: SceneView {
+        guard let sceneView = view as? SceneView else { fatalError("Incorrect view type: \(String(describing: view))") }
+        return sceneView
+    }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

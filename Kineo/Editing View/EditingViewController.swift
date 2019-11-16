@@ -4,7 +4,7 @@
 import PencilKit
 import UIKit
 
-class EditingViewController: UIViewController {
+class EditingViewController: UIViewController, SidebarActionProviding {
     init(document: Document) {
         self.documentEditor = DocumentEditor(document: document)
         super.init(nibName: nil, bundle: nil)
@@ -55,6 +55,12 @@ class EditingViewController: UIViewController {
                 dump(error.localizedDescription)
             }
         }
+    }
+
+    // MARK: Sidebar Actions
+
+    var sidebarActions: SidebarActionSet {
+        return ([GalleryNavigationAction(), ExportAction()], [PlayAction()], [PreviousPageAction(), NextPageAction()])
     }
 
     // MARK: Editing View
