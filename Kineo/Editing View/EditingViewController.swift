@@ -60,7 +60,7 @@ class EditingViewController: UIViewController, SidebarActionProviding {
     // MARK: Sidebar Actions
 
     var sidebarActions: SidebarActionSet {
-        return ([GalleryNavigationAction()], [], [])
+        return ([GalleryNavigationAction(), ExportAction()], [PlayAction()], [PreviousPageAction(), NextPageAction()])
     }
 
     // MARK: Editing View
