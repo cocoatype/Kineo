@@ -52,6 +52,8 @@ class SceneView: UIView {
     init() {
         super.init(frame: .zero)
 
+        backgroundColor = .appBackground
+
         addSubview(containerView)
         addSubview(sidebarView)
 
@@ -84,8 +86,23 @@ class SceneView: UIView {
 class SidebarView: UIView {
     init() {
         super.init(frame: .zero)
-        backgroundColor = .systemBlue
+        backgroundColor = .sidebarBackground
+        clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
+    }
+
+    override func draw(_ rect: CGRect) {
+        let screen = window?.screen ?? UIScreen.main
+        let pixelWidth = 1 / screen.scale
+
+        let xPosition = bounds.maxX - (pixelWidth / 2)
+        let borderPath = UIBezierPath()
+        borderPath.lineWidth = pixelWidth
+        borderPath.move(to: CGPoint(x: xPosition, y: bounds.minY - pixelWidth))
+        borderPath.addLine(to: CGPoint(x: xPosition, y: bounds.maxY + pixelWidth))
+
+        UIColor.sidebarBorder.setStroke()
+        borderPath.stroke()
     }
 
     // MARK: Boilerplate
@@ -100,7 +117,7 @@ class SidebarView: UIView {
 class ContainerView: UIView {
     init() {
         super.init(frame: .zero)
-        backgroundColor = .systemRed
+        backgroundColor = .appBackground
         translatesAutoresizingMaskIntoConstraints = false
     }
 
