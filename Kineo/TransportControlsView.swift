@@ -38,7 +38,7 @@ class TransportControlsView: UIView {
 
     private let addButton: UIButton = {
         let button = UIButton(type: .system)
-        button.addTarget(nil, action: #selector(EditingViewController.addPage), for: .primaryActionTriggered)
+        button.addTarget(nil, action: #selector(EditingViewController.advancePage), for: .primaryActionTriggered)
         button.setImage(Icons.addPage, for: .normal)
         return button
     }()

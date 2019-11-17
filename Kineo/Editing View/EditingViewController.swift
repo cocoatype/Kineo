@@ -25,11 +25,6 @@ class EditingViewController: UIViewController, SidebarActionProviding {
 
     // MARK: Transport Controls
 
-    @objc func addPage() {
-        documentEditor.addPage()
-        updateCurrentPage()
-    }
-
     @objc func playOneLoop() {
         editingView?.play(documentEditor.document)
     }

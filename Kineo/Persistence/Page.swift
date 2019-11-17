@@ -10,4 +10,5 @@ struct Page: Codable {
     }
 
     let drawing: PKDrawing
+    var hasDrawing: Bool { return drawing.bounds.size != .zero }
 }
