@@ -9,7 +9,7 @@ class SidebarActionButton: UIButton {
         super.init(frame: .zero)
 
         backgroundColor = .clear
-        tintColor = .newCellTint
+        tintColor = .sidebarButtonTint
         translatesAutoresizingMaskIntoConstraints = false
 
         setImage(action.icon, for: .normal)

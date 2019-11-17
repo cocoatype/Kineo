@@ -9,7 +9,7 @@ class EditingView: UIView, PlaybackViewDelegate {
         self.page = page
         super.init(frame: .zero)
 
-        backgroundColor = .systemBackground
+        backgroundColor = .appBackground
 
         addSubview(drawingView)
 
