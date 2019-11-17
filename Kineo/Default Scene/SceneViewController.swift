@@ -17,8 +17,12 @@ class SceneViewController: UIViewController {
         transitionInContainer(to: GalleryViewController())
     }
 
+    func showEditingView(for document: Document) {
+        transitionInContainer(to: EditingViewController(document: document))
+    }
+
     @objc func showEditingView(_ sender: GalleryViewController, for event: GallerySelectionEvent) {
-        transitionInContainer(to: EditingViewController(document: event.document))
+        self.showEditingView(for: event.document)
     }
 
     // MARK: Embedding

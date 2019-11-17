@@ -10,8 +10,11 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
 
         translatesAutoresizingMaskIntoConstraints = false
 
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.opaqueSeparator.cgColor
+        layer.shadowColor = UIColor.appShadow.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowOpacity = 1
+        layer.shadowRadius = 3
+        layer.cornerRadius = 8
 
         canvasView.delegate = self
         canvasView.drawing = page.drawing

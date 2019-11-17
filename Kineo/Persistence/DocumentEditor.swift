@@ -26,7 +26,14 @@ class DocumentEditor: NSObject {
     // MARK: Navigation
 
     func advancePage() {
-        currentIndex = min(currentIndex + 1, document.pages.endIndex - 1)
+        let lastPageIndex = document.pages.endIndex - 1
+        let currentPage = document.pages[currentIndex]
+
+        if currentIndex == lastPageIndex, currentPage.hasDrawing {
+            addPage()
+        } else {
+            currentIndex = min(currentIndex + 1, lastPageIndex)
+        }
     }
 
     func retreatPage() {

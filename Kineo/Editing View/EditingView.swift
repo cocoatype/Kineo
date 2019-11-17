@@ -9,20 +9,15 @@ class EditingView: UIView, PlaybackViewDelegate {
         self.page = page
         super.init(frame: .zero)
 
-        backgroundColor = .systemBackground
+        backgroundColor = .appBackground
 
         addSubview(drawingView)
-        addSubview(transportControlsView)
 
         NSLayoutConstraint.activate([
             drawingView.widthAnchor.constraint(equalTo: drawingView.heightAnchor),
             drawingView.widthAnchor.constraint(equalToConstant: 512.0),
             drawingView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            drawingView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            transportControlsView.centerXAnchor.constraint(equalTo: drawingView.centerXAnchor),
-            transportControlsView.topAnchor.constraint(equalTo: drawingView.bottomAnchor, constant: 20),
-            transportControlsView.widthAnchor.constraint(equalTo: drawingView.widthAnchor),
-            transportControlsView.heightAnchor.constraint(equalToConstant: 60.0),
+            drawingView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 
@@ -68,7 +63,7 @@ class EditingView: UIView, PlaybackViewDelegate {
     // MARK: Boilerplate
 
     private lazy var drawingView = DrawingView(page: page)
-    private let transportControlsView = TransportControlsView()
+
     var page: Page {
         didSet {
             drawingView.page = page

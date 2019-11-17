@@ -6,6 +6,8 @@ import PencilKit
 class CanvasView: PKCanvasView {
     init() {
         super.init(frame: .zero)
+        backgroundColor = .white
+        layer.cornerRadius = 8.0
         translatesAutoresizingMaskIntoConstraints = false
     }
 

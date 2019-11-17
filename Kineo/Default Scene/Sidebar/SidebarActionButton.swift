@@ -8,9 +8,11 @@ class SidebarActionButton: UIButton {
         self.action = action
         super.init(frame: .zero)
 
-        backgroundColor = .clear
-        tintColor = .newCellTint
+        backgroundColor = .sidebarButtonBackground
+        tintColor = .sidebarButtonTint
         translatesAutoresizingMaskIntoConstraints = false
+
+        layer.cornerRadius = 8.0
 
         setImage(action.icon, for: .normal)
         addTarget(action.target, action: action.selector, for: .primaryActionTriggered)
