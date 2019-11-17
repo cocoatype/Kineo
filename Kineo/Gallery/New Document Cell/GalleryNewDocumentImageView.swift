@@ -7,7 +7,7 @@ class GalleryNewDocumentImageView: UIImageView {
     init() {
         super.init(frame: .zero)
         backgroundColor = .clear
-        image = Icons.addPage
+        image = Icons.newDocument
         tintColor = .newCellTint
         translatesAutoresizingMaskIntoConstraints = false
     }

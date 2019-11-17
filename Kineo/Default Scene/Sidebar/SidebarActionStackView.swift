@@ -8,6 +8,7 @@ class SidebarActionStackView: UIStackView {
         super.init(frame: .zero)
         
         axis = .vertical
+        spacing = 8.0
         translatesAutoresizingMaskIntoConstraints = false
 
         actions.map(SidebarActionButton.init).forEach(addArrangedSubview(_:))
