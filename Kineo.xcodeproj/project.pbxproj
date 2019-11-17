@@ -10,7 +10,6 @@
 		0417F09E22E46F410063AD66 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F09D22E46F410063AD66 /* UIImageExtensions.swift */; };
 		0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */; };
 		0417F0A322E4A3B30063AD66 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F0A222E4A3B30063AD66 /* GalleryView.swift */; };
-		04318A2F22E1888B003D70C8 /* TransportControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A2E22E1888B003D70C8 /* TransportControlsView.swift */; };
 		04318A3122E18C72003D70C8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3022E18C72003D70C8 /* Icons.swift */; };
 		04318A3322E19AB5003D70C8 /* SkinGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3222E19AB5003D70C8 /* SkinGenerator.swift */; };
 		04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3422E2EC3C003D70C8 /* PlaybackView.swift */; };
@@ -70,7 +69,6 @@
 		0417F09D22E46F410063AD66 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		0417F0A222E4A3B30063AD66 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
-		04318A2E22E1888B003D70C8 /* TransportControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportControlsView.swift; sourceTree = "<group>"; };
 		04318A3022E18C72003D70C8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		04318A3222E19AB5003D70C8 /* SkinGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinGenerator.swift; sourceTree = "<group>"; };
 		04318A3422E2EC3C003D70C8 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 				04C0A65322DC208E00E4E5D6 /* Info.plist */,
 				04C0A66E22DC292E00E4E5D6 /* Editing View */,
 				04C0A67A22DC51CC00E4E5D6 /* Persistence */,
-				04318A2E22E1888B003D70C8 /* TransportControlsView.swift */,
 				04318A3022E18C72003D70C8 /* Icons.swift */,
 				04318A3222E19AB5003D70C8 /* SkinGenerator.swift */,
 				04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */,
@@ -414,7 +411,6 @@
 				04C0A67422DC3A8200E4E5D6 /* Document.swift in Sources */,
 				04D36AD82378205F0052A933 /* Color.swift in Sources */,
 				0445AA632373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift in Sources */,
-				04318A2F22E1888B003D70C8 /* TransportControlsView.swift in Sources */,
 				04C0A68222DC5D3800E4E5D6 /* DocumentSaveOperation.swift in Sources */,
 				04B52D05237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift in Sources */,
 				04BD925D237FFCF700C8FD09 /* SidebarAction.swift in Sources */,
