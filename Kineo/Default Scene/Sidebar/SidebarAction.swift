@@ -6,6 +6,7 @@ import UIKit
 protocol SidebarAction {
     var icon: UIImage? { get }
     var selector: Selector { get }
+    var doubleTapSelector: Selector? { get }
     var target: Any? { get }
 }
 
