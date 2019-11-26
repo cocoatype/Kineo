@@ -47,11 +47,7 @@ class SidebarActionButton: UIControl {
 
     // MARK: Touch Handling
 
-    private lazy var singleTapGestureRecognizer: UITapGestureRecognizer = {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
-        gestureRecognizer.require(toFail: doubleTapGestureRecognizer)
-        return gestureRecognizer
-    }()
+    private lazy var singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
 
     private lazy var doubleTapGestureRecognizer: UITapGestureRecognizer = {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap))
