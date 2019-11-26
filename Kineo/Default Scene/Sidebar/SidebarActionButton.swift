@@ -9,20 +9,26 @@ class SidebarActionButton: UIControl {
         super.init(frame: .zero)
 
         backgroundColor = .sidebarButtonBackground
+        image = action.icon
         tintColor = .sidebarButtonTint
         translatesAutoresizingMaskIntoConstraints = false
 
         layer.cornerRadius = 8.0
 
-//        setImage(action.icon, for: .normal)
         addTarget(action.target, action: action.selector, for: .primaryActionTriggered)
         if let doubleTapSelector = action.doubleTapSelector {
             addTarget(action.target, action: doubleTapSelector, for: .doubleTap)
         }
 
+        addSubview(imageView)
+
         NSLayoutConstraint.activate([
             widthAnchor.constraint(equalTo: heightAnchor),
-            widthAnchor.constraint(equalToConstant: Self.width)
+            widthAnchor.constraint(equalToConstant: Self.width),
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            imageView.widthAnchor.constraint(equalTo: widthAnchor),
+            imageView.heightAnchor.constraint(equalTo: heightAnchor)
         ])
 
         addGestureRecognizer(singleTapGestureRecognizer)
@@ -30,6 +36,14 @@ class SidebarActionButton: UIControl {
     }
 
     private var action: SidebarAction
+
+    // MARK: Icon Display
+
+    private let imageView = SidebarActionButtonImageView()
+    private var image: UIImage? {
+        get { return imageView.image }
+        set(newImage) { imageView.image = newImage }
+    }
 
     // MARK: Touch Handling
 
@@ -66,4 +80,19 @@ class SidebarActionButton: UIControl {
 
 extension UIControl.Event {
     static let doubleTap = UIControl.Event(rawValue: 0x1000000)
+}
+
+class SidebarActionButtonImageView: UIImageView {
+    init() {
+        super.init(frame: .zero)
+        backgroundColor = .clear
+        contentMode = .center
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+
+    @available(*, unavailable)
+    required init(coder: NSCoder) {
+        let typeName = NSStringFromClass(type(of: self))
+        fatalError("\(typeName) does not implement init(coder:)")
+    }
 }
