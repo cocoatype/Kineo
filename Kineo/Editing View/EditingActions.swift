@@ -5,6 +5,7 @@ import UIKit
 
 struct GalleryNavigationAction: SidebarAction {
     var icon: UIImage? { return Icons.gallery }
+    var auxiliaryIcon: UIImage? { return nil }
     var selector: Selector { return #selector(SceneViewController.showGallery) }
     var doubleTapSelector: Selector? { return nil }
     var target: Any? { return nil }
@@ -12,6 +13,7 @@ struct GalleryNavigationAction: SidebarAction {
 
 struct ExportAction: SidebarAction {
     var icon: UIImage? { return Icons.export }
+    var auxiliaryIcon: UIImage? { return nil }
     var selector: Selector { return #selector(EditingViewController.exportVideo) }
     var doubleTapSelector: Selector? { return nil }
     var target: Any? { return nil }
@@ -19,6 +21,7 @@ struct ExportAction: SidebarAction {
 
 struct PlayAction: SidebarAction {
     var icon: UIImage? { return Icons.play }
+    var auxiliaryIcon: UIImage? { return nil }
     var selector: Selector { return #selector(EditingViewController.playOneLoop) }
     var doubleTapSelector: Selector? { return #selector(EditingViewController.playInfiniteLoop) }
     var target: Any? { return nil }
@@ -26,6 +29,7 @@ struct PlayAction: SidebarAction {
 
 struct PreviousPageAction: SidebarAction {
     var icon: UIImage? { return Icons.previousPage }
+    var auxiliaryIcon: UIImage? { return nil }
     var selector: Selector { return #selector(EditingViewController.retreatPage) }
     var doubleTapSelector: Selector? { return nil }
     var target: Any? { return nil }
@@ -33,7 +37,10 @@ struct PreviousPageAction: SidebarAction {
 
 struct NextPageAction: SidebarAction {
     var icon: UIImage? { return Icons.nextPage }
+    var auxiliaryIcon: UIImage? { return createsNewPage ? Icons.newPage : nil }
     var selector: Selector { return #selector(EditingViewController.advancePage) }
     var doubleTapSelector: Selector? { return nil }
     var target: Any? { return nil }
+
+    var createsNewPage: Bool
 }
