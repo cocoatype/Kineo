@@ -43,17 +43,18 @@ class EditingViewController: UIViewController, SidebarActionProviding {
         updateCurrentPage()
     }
 
-    @objc func exportVideo() {
-        videoGenerator.generateVideo(from: documentEditor.document) { result in
-            switch result {
-            case .success(let exportURL):
-                let data = try? Data(contentsOf: exportURL)
-                let encodedData = data?.base64EncodedString() ?? "none"
-                dump(encodedData)
-            case .failure(let error):
-                dump(error.localizedDescription)
+    @objc func exportVideo(_ sender: SidebarActionButton) {
+        do {
+            let promoText = Self.exportPromoText
+            let videoProvider = try VideoProvider(document: documentEditor.document)
+
+            let activityController = UIActivityViewController(activityItems: [promoText, videoProvider], applicationActivities: nil)
+            if let popoverPresentationController = activityController.popoverPresentationController {
+                popoverPresentationController.sourceView = sender
+                popoverPresentationController.sourceRect = sender.bounds
             }
-        }
+            present(activityController, animated: true, completion: nil)
+        } catch { dump(error) }
     }
 
     // MARK: Sidebar Actions
@@ -75,8 +76,9 @@ class EditingViewController: UIViewController, SidebarActionProviding {
 
     // MARK: Boilerplate
 
+    private static let exportPromoText = NSLocalizedString("EditingViewController.exportPromoText", comment: "Promo text shared when exporting videos")
+
     private let documentEditor: DocumentEditor
-    private let videoGenerator = VideoGenerator()
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         skinGenerator.traitCollection = traitCollection

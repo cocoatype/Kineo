@@ -15,6 +15,7 @@
 		04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3422E2EC3C003D70C8 /* PlaybackView.swift */; };
 		04318A3722E2FCC3003D70C8 /* VideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */; };
 		043854E7238CD06F0041A4AA /* SidebarActionButtonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043854E6238CD06F0041A4AA /* SidebarActionButtonImageView.swift */; };
+		043854F22392246F0041A4AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043854F12392246F0041A4AA /* Localizable.strings */; };
 		0445AA5F2373C7A000EB2A7B /* GalleryViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445AA5E2373C7A000EB2A7B /* GalleryViewDataSource.swift */; };
 		0445AA612373C7B700EB2A7B /* GalleryViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445AA602373C7B700EB2A7B /* GalleryViewLayout.swift */; };
 		0445AA632373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445AA622373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift */; };
@@ -75,6 +76,7 @@
 		04318A3422E2EC3C003D70C8 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
 		04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGenerator.swift; sourceTree = "<group>"; };
 		043854E6238CD06F0041A4AA /* SidebarActionButtonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionButtonImageView.swift; sourceTree = "<group>"; };
+		043854F12392246F0041A4AA /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		0445AA5E2373C7A000EB2A7B /* GalleryViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewDataSource.swift; sourceTree = "<group>"; };
 		0445AA602373C7B700EB2A7B /* GalleryViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewLayout.swift; sourceTree = "<group>"; };
 		0445AA622373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */,
 				04D36AD72378205F0052A933 /* Color.swift */,
 				04D36AD9237826D40052A933 /* Fonts.swift */,
+				043854F12392246F0041A4AA /* Localizable.strings */,
 			);
 			path = Kineo;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C0A65222DC208E00E4E5D6 /* LaunchScreen.storyboard in Resources */,
+				043854F22392246F0041A4AA /* Localizable.strings in Resources */,
 				04C0A64F22DC208E00E4E5D6 /* Assets.xcassets in Resources */,
 				04C0A67922DC436400E4E5D6 /* example.json in Resources */,
 			);
