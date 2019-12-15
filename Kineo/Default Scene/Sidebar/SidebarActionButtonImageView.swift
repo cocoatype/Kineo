@@ -8,6 +8,7 @@ class SidebarActionButtonImageView: UIImageView {
         super.init(frame: .zero)
         backgroundColor = .clear
         contentMode = .center
+        tintColor = .sidebarButtonTint
         translatesAutoresizingMaskIntoConstraints = false
     }
 
