@@ -21,6 +21,8 @@ class EditingViewController: UIViewController, SidebarActionProviding {
 
     @objc func drawingViewDidChangePage(_ sender: DrawingView) {
         documentEditor.replaceCurrentPage(with: sender.page)
+
+        UIApplication.shared.sendAction(#selector(SceneViewController.refreshSidebarActions), to: nil, from: self, for: nil)
     }
 
     // MARK: Transport Controls
@@ -60,7 +62,8 @@ class EditingViewController: UIViewController, SidebarActionProviding {
     // MARK: Sidebar Actions
 
     var sidebarActions: SidebarActionSet {
-        return ([GalleryNavigationAction(), ExportAction()], [PlayAction()], [PreviousPageAction(), NextPageAction()])
+        let nextPageAction = NextPageAction(createsNewPage: documentEditor.advancingWouldCreateNewPage)
+        return ([GalleryNavigationAction(), ExportAction()], [PlayAction()], [PreviousPageAction(), nextPageAction])
     }
 
     // MARK: Editing View
@@ -72,6 +75,8 @@ class EditingViewController: UIViewController, SidebarActionProviding {
     private func updateCurrentPage() {
         editingView?.page = documentEditor.currentPage
         editingView?.skinsImage = skinGenerator.skinsImage(from: documentEditor.document, currentPageIndex: documentEditor.currentIndex)
+
+        UIApplication.shared.sendAction(#selector(SceneViewController.refreshSidebarActions), to: nil, from: self, for: nil)
     }
 
     // MARK: Boilerplate

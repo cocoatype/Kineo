@@ -28,6 +28,12 @@ class SidebarView: UIView {
     // MARK: Displaying Actions
 
     func display(_ actionSet: SidebarActionSet) {
+        UIView.transition(with: self, duration: 0.2, options: .transitionCrossDissolve, animations: {
+            self.install(actionSet)
+        }, completion: nil)
+    }
+
+    private func install(_ actionSet: SidebarActionSet) {
         subviews.forEach { $0.removeFromSuperview() }
         let stackViews = (SidebarActionStackView(actionSet.0), SidebarActionStackView(actionSet.1), SidebarActionStackView(actionSet.2))
 

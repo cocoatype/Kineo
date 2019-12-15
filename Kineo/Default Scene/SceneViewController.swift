@@ -42,6 +42,11 @@ class SceneViewController: UIViewController {
         sidebarView.display(actionSet)
     }
 
+    @objc func refreshSidebarActions() {
+        guard let sidebarProvidingChild = (children.compactMap { $0 as? SidebarActionProviding }.first) else { return }
+        sidebarView.display(sidebarProvidingChild.sidebarActions)
+    }
+
     // MARK: Status Bar
 
     override var prefersStatusBarHidden: Bool { return true }

@@ -8,12 +8,14 @@ class SidebarActionButton: UIControl {
         self.action = action
         super.init(frame: .zero)
 
-        backgroundColor = .sidebarButtonBackground
+        backgroundColor = .clear
         image = action.icon
+        auxiliaryImage = action.auxiliaryIcon
         tintColor = .sidebarButtonTint
         translatesAutoresizingMaskIntoConstraints = false
 
-        layer.cornerRadius = 8.0
+        layer.masksToBounds = false
+        clipsToBounds = false
 
         addTarget(action.target, action: action.selector, for: .primaryActionTriggered)
         if let doubleTapSelector = action.doubleTapSelector {
@@ -21,6 +23,7 @@ class SidebarActionButton: UIControl {
         }
 
         addSubview(imageView)
+        addSubview(auxiliaryImageView)
 
         NSLayoutConstraint.activate([
             widthAnchor.constraint(equalTo: heightAnchor),
@@ -28,11 +31,33 @@ class SidebarActionButton: UIControl {
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             imageView.widthAnchor.constraint(equalTo: widthAnchor),
-            imageView.heightAnchor.constraint(equalTo: heightAnchor)
+            imageView.heightAnchor.constraint(equalTo: heightAnchor),
+            auxiliaryImageView.centerXAnchor.constraint(equalTo: trailingAnchor),
+            auxiliaryImageView.centerYAnchor.constraint(equalTo: topAnchor)
         ])
 
         addGestureRecognizer(singleTapGestureRecognizer)
-        addGestureRecognizer(doubleTapGestureRecognizer )
+        addGestureRecognizer(doubleTapGestureRecognizer)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        auxiliaryImageView.frame = CGRect(x: bounds.maxX - 8, y: bounds.minY - 8, width: 16, height: 16) // constraints are being weird…
+    }
+
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        UIColor.sidebarButtonBackground.setFill()
+
+        if auxiliaryImage != nil {
+            let boundsPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.bottomLeft, .bottomRight, .topLeft], cornerRadii: CGSize(width: 8, height: 8))
+            let cutoutRect = CGRect(x: bounds.maxX - 10, y: bounds.minY - 10, width: 20, height: 20)
+            let cutoutPath = UIBezierPath(ovalIn: cutoutRect)
+            boundsPath.append(cutoutPath.reversing())
+            boundsPath.fill()
+        } else {
+            UIBezierPath(roundedRect: bounds, cornerRadius: 8).fill()
+        }
     }
 
     private var action: SidebarAction
@@ -43,6 +68,15 @@ class SidebarActionButton: UIControl {
     private var image: UIImage? {
         get { return imageView.image }
         set(newImage) { imageView.image = newImage }
+    }
+
+    private let auxiliaryImageView = SidebarActionButtonAuxiliaryImageView()
+    private var auxiliaryImage: UIImage? {
+        get { return auxiliaryImageView.image }
+        set(newImage) {
+            auxiliaryImageView.image = newImage
+            auxiliaryImageView.isHidden = (newImage == nil)
+        }
     }
 
     // MARK: Touch Handling
