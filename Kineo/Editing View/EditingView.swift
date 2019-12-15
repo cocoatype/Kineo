@@ -52,6 +52,8 @@ class EditingView: UIView, PlaybackViewDelegate {
         }
 
         playbackView.animate(continuously: continuously)
+        playbackView.delegate = self
+        self.playbackView = playbackView
     }
 
     func playbackViewDidFinishPlayback(_ playbackView: PlaybackView) {

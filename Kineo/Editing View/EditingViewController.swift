@@ -29,6 +29,10 @@ class EditingViewController: UIViewController, SidebarActionProviding {
         editingView?.play(documentEditor.document)
     }
 
+    @objc func playInfiniteLoop() {
+        editingView?.play(documentEditor.document, continuously: true)
+    }
+
     @objc func advancePage() {
         documentEditor.advancePage()
         updateCurrentPage()

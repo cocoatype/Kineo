@@ -9,6 +9,7 @@ protocol PlaybackViewDelegate: class {
 
 class PlaybackView: UIView {
     init(document: Document) {
+
         self.document = document
         super.init(frame: .zero)
 
@@ -25,10 +26,17 @@ class PlaybackView: UIView {
             canvasView.centerXAnchor.constraint(equalTo: centerXAnchor),
             canvasView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+
+        let displayLink = CADisplayLink(target: self, selector: #selector(PlaybackView.animateNextFrame))
+        displayLink.isPaused = true
+        displayLink.preferredFramesPerSecond = PlaybackView.defaultFramesPerSecond
+        displayLink.add(to: .main, forMode: .common)
+        self.displayLink = displayLink
     }
 
     var document: Document {
-        didSet {
+        didSet(oldDocument) {
+            guard document != oldDocument else { return }
             currentIndex = 0
             canvasView.drawing = currentPage.drawing
         }
@@ -39,24 +47,22 @@ class PlaybackView: UIView {
     // MARK: Animation
 
     private var isAnimatingContinuously = false
-    private lazy var displayLink: CADisplayLink = {
-        let displayLink = CADisplayLink(target: self, selector: #selector(PlaybackView.animateNextFrame))
-        displayLink.isPaused = true
-        displayLink.preferredFramesPerSecond = PlaybackView.defaultFramesPerSecond
-        displayLink.add(to: .main, forMode: .common)
-        return displayLink
-    }()
+    private var displayLink: CADisplayLink? {
+        didSet(oldValue) {
+            oldValue?.invalidate()
+        }
+    }
 
     func animate(continuously: Bool = false) {
         isAnimatingContinuously = continuously
         isHidden = false
-        displayLink.isPaused = false
+        displayLink?.isPaused = false
     }
 
     func stopAnimating() {
         isAnimatingContinuously = false
         isHidden = true
-        displayLink.isPaused = true
+        displayLink?.isPaused = true
         delegate?.playbackViewDidFinishPlayback(self)
     }
 
