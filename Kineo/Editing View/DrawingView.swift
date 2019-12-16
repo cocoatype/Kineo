@@ -8,6 +8,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
     init(page: Page) {
         super.init(frame: .zero)
 
+        overrideUserInterfaceStyle = .light
         translatesAutoresizingMaskIntoConstraints = false
 
         layer.shadowColor = UIColor.appShadow.cgColor
@@ -52,6 +53,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
     }
 
     func observe(_ toolPicker: PKToolPicker) {
+        toolPicker.colorUserInterfaceStyle = .light
         toolPicker.setVisible(true, forFirstResponder: self)
         toolPicker.addObserver(canvasView)
     }
