@@ -5,7 +5,9 @@ import UIKit
 
 class SkinGenerator: NSObject {
     init(traitCollection: UITraitCollection = UITraitCollection()) {
-        self.traitCollection = traitCollection
+        let lightTraitCollection = UITraitCollection(userInterfaceStyle: .light)
+        let finalTraitCollection = UITraitCollection(traitsFrom: [traitCollection, lightTraitCollection])
+        self.traitCollection = finalTraitCollection
         super.init()
     }
 
@@ -26,8 +28,10 @@ class SkinGenerator: NSObject {
             drawables.forEach { drawable in
                 let (opacity, page) = drawable
                 let drawing = page.drawing
-                let image = drawing.image(from: drawing.bounds, scale: 1)
-                image.draw(at: drawing.bounds.origin, blendMode: .normal, alpha: opacity)
+                traitCollection.performAsCurrent {
+                    let image = drawing.image(from: drawing.bounds, scale: 1)
+                    image.draw(at: drawing.bounds.origin, blendMode: .normal, alpha: opacity)
+                }
             }
         }
     }
@@ -49,8 +53,10 @@ class SkinGenerator: NSObject {
             drawables.forEach { drawable in
                 let (opacity, page) = drawable
                 let drawing = page.drawing
-                let image = drawing.image(from: drawing.bounds, scale: 1)
-                image.draw(at: drawing.bounds.origin, blendMode: .normal, alpha: opacity)
+                traitCollection.performAsCurrent {
+                    let image = drawing.image(from: drawing.bounds, scale: 1)
+                    image.draw(at: drawing.bounds.origin, blendMode: .normal, alpha: opacity)
+                }
             }
         }
     }
