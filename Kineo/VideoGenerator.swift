@@ -70,19 +70,22 @@ class VideoProvider: UIActivityItemProvider {
             }
         }
 
+        let traitCollection = UITraitCollection(userInterfaceStyle: .light)
         let pages = document.pages
         pages.enumerated().forEach { pageWithIndex in
             let (index, page) = pageWithIndex
             let presentationTime = CMTime(value: CMTimeValue(index), timescale: frameDuration.timescale)
-            let image = page.drawing.image(from: Self.standardCanvasRect, scale: 1)
+            traitCollection.performAsCurrent {
+                let image = page.drawing.image(from: Self.standardCanvasRect, scale: 1)
 
-            mediaReadyCondition.lock()
-            while writerInput.isReadyForMoreMediaData == false {
-                mediaReadyCondition.wait()
+                mediaReadyCondition.lock()
+                while writerInput.isReadyForMoreMediaData == false {
+                    mediaReadyCondition.wait()
+                }
+                mediaReadyCondition.unlock()
+
+                adaptor.append(image.pixelBuffer, withPresentationTime: presentationTime)
             }
-            mediaReadyCondition.unlock()
-
-            adaptor.append(image.pixelBuffer, withPresentationTime: presentationTime)
         }
 
         mediaReadyObservation.invalidate()
