@@ -4,7 +4,7 @@
 import PencilKit
 import UIKit
 
-class EditingViewController: UIViewController, SidebarActionProviding {
+class EditingViewController: UIViewController {
     init(document: Document) {
         self.documentEditor = DocumentEditor(document: document)
         super.init(nibName: nil, bundle: nil)
@@ -12,6 +12,7 @@ class EditingViewController: UIViewController, SidebarActionProviding {
 
     override func loadView() {
         view = EditingView(page: documentEditor.currentPage)
+        setupSidebarActions()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -21,8 +22,15 @@ class EditingViewController: UIViewController, SidebarActionProviding {
 
     @objc func drawingViewDidChangePage(_ sender: DrawingView) {
         documentEditor.replaceCurrentPage(with: sender.page)
+        setupSidebarActions()
+    }
 
-        UIApplication.shared.sendAction(#selector(SceneViewController.refreshSidebarActions), to: nil, from: self, for: nil)
+    // MARK: Sidebar View
+
+    private func setupSidebarActions() {
+        let nextPageAction = NextPageActionButton(createsNewPage: documentEditor.advancingWouldCreateNewPage)
+        let sidebarActions = ([GalleryNavigationActionButton(), ExportActionButton()], [PlayActionButton()], [PreviousPageActionButton(), nextPageAction])
+        sidebarView?.display(sidebarActions)
     }
 
     // MARK: Transport Controls
@@ -59,16 +67,10 @@ class EditingViewController: UIViewController, SidebarActionProviding {
         } catch { dump(error) }
     }
 
-    // MARK: Sidebar Actions
-
-    var sidebarActions: SidebarActionSet {
-        let nextPageAction = NextPageAction(createsNewPage: documentEditor.advancingWouldCreateNewPage)
-        return ([GalleryNavigationAction(), ExportAction()], [PlayAction()], [PreviousPageAction(), nextPageAction])
-    }
-
     // MARK: Editing View
 
     private var editingView: EditingView? { return view as? EditingView }
+    private var sidebarView: SidebarView? { return editingView?.sidebarView }
 
     private lazy var skinGenerator = SkinGenerator(traitCollection: traitCollection)
 
@@ -76,7 +78,7 @@ class EditingViewController: UIViewController, SidebarActionProviding {
         editingView?.page = documentEditor.currentPage
         editingView?.skinsImage = skinGenerator.skinsImage(from: documentEditor.document, currentPageIndex: documentEditor.currentIndex)
 
-        UIApplication.shared.sendAction(#selector(SceneViewController.refreshSidebarActions), to: nil, from: self, for: nil)
+        setupSidebarActions()
     }
 
     // MARK: Boilerplate

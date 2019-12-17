@@ -3,20 +3,48 @@
 
 import UIKit
 
-class GalleryView: UICollectionView {
+class GalleryView: UIView {
     init() {
-        let layout = GalleryViewLayout()
-        super.init(frame: .zero, collectionViewLayout: layout)
+        super.init(frame: .zero)
 
-        register(GalleryDocumentCollectionViewCell.self, forCellWithReuseIdentifier: GalleryDocumentCollectionViewCell.identifier)
-        register(GalleryNewCollectionViewCell.self, forCellWithReuseIdentifier: GalleryNewCollectionViewCell.identifier)
+        addSubview(collectionView)
+        addSubview(sidebarView)
 
-        backgroundColor = .appBackground
+        NSLayoutConstraint.activate([
+            sidebarView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            sidebarView.widthAnchor.constraint(equalToConstant: SidebarView.standardWidth),
+            sidebarView.topAnchor.constraint(equalTo: topAnchor),
+            sidebarView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: sidebarView.trailingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+
+    // MARK: Collection View
+
+    var dataSource: UICollectionViewDataSource? {
+        get { return collectionView.dataSource }
+        set(newDataSource) { collectionView.dataSource = newDataSource }
+    }
+
+    var delegate: UICollectionViewDelegate? {
+        get { return collectionView.delegate }
+        set(newDelegate) { collectionView.delegate = newDelegate }
+    }
+
+    var dragDelegate: UICollectionViewDragDelegate? {
+        get { return collectionView.dragDelegate }
+        set(newDragDelegate) { collectionView.dragDelegate = newDragDelegate }
     }
 
     // MARK: Boilerplate
 
-    @available(*, unavailable, message: "This class does not implement init(coder:)")
+    private let collectionView = GalleryCollectionView()
+    private let sidebarView = SidebarView()
+
+    @available(*, unavailable)
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")

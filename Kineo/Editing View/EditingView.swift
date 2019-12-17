@@ -12,11 +12,16 @@ class EditingView: UIView, PlaybackViewDelegate {
         backgroundColor = .appBackground
 
         addSubview(drawingView)
+        addSubview(sidebarView)
 
         NSLayoutConstraint.activate([
+            sidebarView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            sidebarView.widthAnchor.constraint(equalToConstant: SidebarView.standardWidth),
+            sidebarView.topAnchor.constraint(equalTo: topAnchor),
+            sidebarView.bottomAnchor.constraint(equalTo: bottomAnchor),
             drawingView.widthAnchor.constraint(equalTo: drawingView.heightAnchor),
             drawingView.widthAnchor.constraint(equalToConstant: 512.0),
-            drawingView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            drawingView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: SidebarView.standardWidth / 2.0),
             drawingView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
@@ -65,6 +70,7 @@ class EditingView: UIView, PlaybackViewDelegate {
     // MARK: Boilerplate
 
     private lazy var drawingView = DrawingView(page: page)
+    let sidebarView = SidebarView()
 
     var page: Page {
         didSet {
