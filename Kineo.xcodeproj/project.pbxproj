@@ -82,6 +82,13 @@
 			remoteGlobalIDString = 044484F323AB2A7000CD0C3C;
 			remoteInfo = Data;
 		};
+		04ACCD1A23AB6B68006FBABC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04C0A63A22DC208E00E4E5D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 044484F323AB2A7000CD0C3C;
+			remoteInfo = Data;
+		};
 		04C0A65922DC208F00E4E5D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 04C0A63A22DC208E00E4E5D6 /* Project object */;
@@ -426,6 +433,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				04ACCD1B23AB6B68006FBABC /* PBXTargetDependency */,
 			);
 			name = Stickers;
 			productName = Stickers;
@@ -463,8 +471,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				044484E923AB287A00CD0C3C /* PBXTargetDependency */,
 				044484FA23AB2A7000CD0C3C /* PBXTargetDependency */,
+				044484E923AB287A00CD0C3C /* PBXTargetDependency */,
 			);
 			name = Kineo;
 			productName = Kineo;
@@ -660,6 +668,11 @@
 			isa = PBXTargetDependency;
 			target = 044484F323AB2A7000CD0C3C /* Data */;
 			targetProxy = 044484F923AB2A7000CD0C3C /* PBXContainerItemProxy */;
+		};
+		04ACCD1B23AB6B68006FBABC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 044484F323AB2A7000CD0C3C /* Data */;
+			targetProxy = 04ACCD1A23AB6B68006FBABC /* PBXContainerItemProxy */;
 		};
 		04C0A65A22DC208F00E4E5D6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
