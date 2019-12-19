@@ -27,13 +27,13 @@ class SidebarView: UIView {
 
     // MARK: Displaying Actions
 
-    func display(_ actionSet: SidebarActionSet) {
+    func display(_ actionSet: SidebarButtonSet) {
         UIView.transition(with: self, duration: 0.2, options: .transitionCrossDissolve, animations: {
             self.install(actionSet)
         }, completion: nil)
     }
 
-    private func install(_ actionSet: SidebarActionSet) {
+    private func install(_ actionSet: SidebarButtonSet) {
         subviews.forEach { $0.removeFromSuperview() }
         let stackViews = (SidebarActionStackView(actionSet.0), SidebarActionStackView(actionSet.1), SidebarActionStackView(actionSet.2))
 
@@ -56,9 +56,13 @@ class SidebarView: UIView {
 
     // MARK: Boilerplate
 
+    static let standardWidth = CGFloat(66)
+
     @available(*, unavailable)
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
     }
 }
+
+typealias SidebarButtonSet = ([SidebarActionButton], [SidebarActionButton], [SidebarActionButton])

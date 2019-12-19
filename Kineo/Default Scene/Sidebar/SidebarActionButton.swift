@@ -4,22 +4,21 @@
 import UIKit
 
 class SidebarActionButton: UIControl {
-    init(_ action: SidebarAction) {
-        self.action = action
+    init(icon: UIImage? = nil, auxiliaryIcon: UIImage? = nil, selector: Selector, doubleTapSelector: Selector? = nil, target: Any? = nil) {
         super.init(frame: .zero)
 
         backgroundColor = .clear
-        image = action.icon
-        auxiliaryImage = action.auxiliaryIcon
+        image = icon
+        auxiliaryImage = auxiliaryIcon
         tintColor = .sidebarButtonTint
         translatesAutoresizingMaskIntoConstraints = false
 
         layer.masksToBounds = false
         clipsToBounds = false
 
-        addTarget(action.target, action: action.selector, for: .primaryActionTriggered)
-        if let doubleTapSelector = action.doubleTapSelector {
-            addTarget(action.target, action: doubleTapSelector, for: .doubleTap)
+        addTarget(target, action: selector, for: .primaryActionTriggered)
+        if let doubleTapSelector = doubleTapSelector {
+            addTarget(target, action: doubleTapSelector, for: .doubleTap)
         }
 
         addSubview(imageView)
@@ -59,8 +58,6 @@ class SidebarActionButton: UIControl {
             UIBezierPath(roundedRect: bounds, cornerRadius: 8).fill()
         }
     }
-
-    private var action: SidebarAction
 
     // MARK: Icon Display
 

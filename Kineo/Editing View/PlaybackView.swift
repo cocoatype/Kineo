@@ -9,11 +9,11 @@ protocol PlaybackViewDelegate: class {
 
 class PlaybackView: UIView {
     init(document: Document) {
-
         self.document = document
         super.init(frame: .zero)
 
         isHidden = true
+        overrideUserInterfaceStyle = .light
         translatesAutoresizingMaskIntoConstraints = false
 
         canvasView.drawing = currentPage.drawing

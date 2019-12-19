@@ -4,14 +4,14 @@
 import UIKit
 
 class SidebarActionStackView: UIStackView {
-    init(_ actions: [SidebarAction]) {
+    init(_ actions: [SidebarActionButton]) {
         super.init(frame: .zero)
         
         axis = .vertical
         spacing = 8.0
         translatesAutoresizingMaskIntoConstraints = false
 
-        actions.map(SidebarActionButton.init).forEach(addArrangedSubview(_:))
+        actions.forEach(addArrangedSubview(_:))
     }
 
     // MARK: Boilerplate

@@ -3,44 +3,33 @@
 
 import UIKit
 
-struct GalleryNavigationAction: SidebarAction {
-    var icon: UIImage? { return Icons.gallery }
-    var auxiliaryIcon: UIImage? { return nil }
-    var selector: Selector { return #selector(SceneViewController.showGallery) }
-    var doubleTapSelector: Selector? { return nil }
-    var target: Any? { return nil }
+class GalleryNavigationActionButton: SidebarActionButton {
+    init() {
+        super.init(icon: Icons.gallery, selector: #selector(SceneViewController.showGallery))
+    }
 }
 
-struct ExportAction: SidebarAction {
-    var icon: UIImage? { return Icons.export }
-    var auxiliaryIcon: UIImage? { return nil }
-    var selector: Selector { return #selector(EditingViewController.exportVideo) }
-    var doubleTapSelector: Selector? { return nil }
-    var target: Any? { return nil }
+class ExportActionButton: SidebarActionButton {
+    init() {
+        super.init(icon: Icons.export, selector: #selector(EditingViewController.exportVideo))
+    }
 }
 
-struct PlayAction: SidebarAction {
-    var icon: UIImage? { return Icons.play }
-    var auxiliaryIcon: UIImage? { return nil }
-    var selector: Selector { return #selector(EditingViewController.playOneLoop) }
-    var doubleTapSelector: Selector? { return #selector(EditingViewController.playInfiniteLoop) }
-    var target: Any? { return nil }
+class PlayActionButton: SidebarActionButton {
+    init() {
+        super.init(icon: Icons.play, selector: #selector(EditingViewController.playOneLoop), doubleTapSelector: #selector(EditingViewController.playInfiniteLoop))
+    }
 }
 
-struct PreviousPageAction: SidebarAction {
-    var icon: UIImage? { return Icons.previousPage }
-    var auxiliaryIcon: UIImage? { return nil }
-    var selector: Selector { return #selector(EditingViewController.retreatPage) }
-    var doubleTapSelector: Selector? { return nil }
-    var target: Any? { return nil }
+class PreviousPageActionButton: SidebarActionButton {
+    init() {
+        super.init(icon: Icons.previousPage, selector: #selector(EditingViewController.retreatPage))
+    }
 }
 
-struct NextPageAction: SidebarAction {
-    var icon: UIImage? { return Icons.nextPage }
-    var auxiliaryIcon: UIImage? { return createsNewPage ? Icons.newPage : nil }
-    var selector: Selector { return #selector(EditingViewController.advancePage) }
-    var doubleTapSelector: Selector? { return nil }
-    var target: Any? { return nil }
-
-    var createsNewPage: Bool
+class NextPageActionButton: SidebarActionButton {
+    init(createsNewPage: Bool) {
+        let auxiliaryIcon = createsNewPage ? Icons.newPage : nil
+        super.init(icon: Icons.nextPage, auxiliaryIcon: auxiliaryIcon, selector: #selector(EditingViewController.advancePage))
+    }
 }
