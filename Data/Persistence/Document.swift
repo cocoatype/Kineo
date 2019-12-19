@@ -3,7 +3,7 @@
 
 import Foundation
 
-struct Document: Codable, Equatable {
+public struct Document: Codable, Equatable {
     init() {
         self.init(pages: [Page()], uuid: UUID())
     }
@@ -25,12 +25,12 @@ struct Document: Codable, Equatable {
         return Document(pages: newPages, uuid: self.uuid)
     }
 
-    let pages: [Page]
-    let uuid: UUID
+    public let pages: [Page]
+    public let uuid: UUID
 
     // MARK: Equatable
 
-    static func == (lhs: Document, rhs: Document) -> Bool {
+    public static func == (lhs: Document, rhs: Document) -> Bool {
         return lhs.uuid == rhs.uuid
     }
 }

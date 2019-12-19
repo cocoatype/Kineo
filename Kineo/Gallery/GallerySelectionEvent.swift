@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 11/6/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import Data
 import UIKit
 
 class GallerySelectionEvent: UIEvent {

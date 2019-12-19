@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 12/18/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import Data
 import MobileCoreServices
 import UIKit
 
@@ -52,28 +53,4 @@ class StickerGenerator: NSObject {
     private static let standardCanvasSize = CGSize(width: 512, height: 512)
     private static let standardStickerSize = CGSize(width: 408, height: 408)
     private static let standardFramesPerSecond = CGFloat(12)
-}
-
-class StickerProvider: UIActivityItemProvider {
-    init(document: Document) {
-        self.document = document
-        let defaultExportURL = Self.defaultExportURL(for: document)
-        super.init(placeholderItem: defaultExportURL)
-    }
-
-    private static func defaultExportURL(for document: Document) -> URL {
-        let fileName = document.uuid.uuidString
-        return FileManager.default.temporaryDirectory
-          .appendingPathComponent(fileName)
-          .appendingPathExtension("png")
-    }
-
-    override var item: Any {
-        let exportURL = try? StickerGenerator.sticker(from: document)
-        return exportURL ?? Self.defaultExportURL(for: document)
-    }
-
-    // MARK: Boilerplate
-
-    private let document: Document
 }
