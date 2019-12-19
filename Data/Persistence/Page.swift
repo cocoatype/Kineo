@@ -4,11 +4,11 @@
 import Foundation
 import PencilKit
 
-struct Page: Codable {
-    init(drawing: PKDrawing? = nil) {
+public struct Page: Codable {
+    public init(drawing: PKDrawing? = nil) {
         self.drawing = drawing ?? PKDrawing()
     }
 
-    let drawing: PKDrawing
+    public let drawing: PKDrawing
     var hasDrawing: Bool { return drawing.bounds.size != .zero }
 }

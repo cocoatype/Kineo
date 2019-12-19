@@ -11,13 +11,27 @@
 		0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */; };
 		0417F0A322E4A3B30063AD66 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F0A222E4A3B30063AD66 /* GalleryView.swift */; };
 		04318A3122E18C72003D70C8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3022E18C72003D70C8 /* Icons.swift */; };
-		04318A3322E19AB5003D70C8 /* SkinGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3222E19AB5003D70C8 /* SkinGenerator.swift */; };
 		04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3422E2EC3C003D70C8 /* PlaybackView.swift */; };
 		04318A3722E2FCC3003D70C8 /* VideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */; };
 		043854E7238CD06F0041A4AA /* SidebarActionButtonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043854E6238CD06F0041A4AA /* SidebarActionButtonImageView.swift */; };
 		043854F22392246F0041A4AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043854F12392246F0041A4AA /* Localizable.strings */; };
 		044484D223A884A200CD0C3C /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044484D123A884A200CD0C3C /* GalleryCollectionView.swift */; };
 		044484D423A884D300CD0C3C /* EditingUserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044484D323A884D300CD0C3C /* EditingUserActivity.swift */; };
+		044484DE23AB287800CD0C3C /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044484DD23AB287800CD0C3C /* Messages.framework */; };
+		044484E123AB287800CD0C3C /* StickersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044484E023AB287800CD0C3C /* StickersViewController.swift */; };
+		044484E623AB287A00CD0C3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044484E523AB287A00CD0C3C /* Assets.xcassets */; };
+		044484EA23AB287A00CD0C3C /* Stickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 044484DB23AB287800CD0C3C /* Stickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		044484F823AB2A7000CD0C3C /* Data.h in Headers */ = {isa = PBXBuildFile; fileRef = 044484F623AB2A7000CD0C3C /* Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		044484FB23AB2A7000CD0C3C /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044484F423AB2A7000CD0C3C /* Data.framework */; };
+		044484FC23AB2A7000CD0C3C /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 044484F423AB2A7000CD0C3C /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0444850123AB2ABC00CD0C3C /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67322DC3A8200E4E5D6 /* Document.swift */; };
+		0444850223AB2ABC00CD0C3C /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67B22DC51E700E4E5D6 /* Page.swift */; };
+		0444850323AB2ABC00CD0C3C /* DocumentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67D22DC522500E4E5D6 /* DocumentStore.swift */; };
+		0444850423AB2ABC00CD0C3C /* DocumentOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A68322DC5DA300E4E5D6 /* DocumentOperationQueue.swift */; };
+		0444850523AB2ABC00CD0C3C /* DocumentSaveOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A68122DC5D3800E4E5D6 /* DocumentSaveOperation.swift */; };
+		0444850623AB2ABC00CD0C3C /* DocumentEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67F22DC531100E4E5D6 /* DocumentEditor.swift */; };
+		0444850723AB2AD200CD0C3C /* SkinGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3222E19AB5003D70C8 /* SkinGenerator.swift */; };
+		0444850823AB2DEB00CD0C3C /* StickerGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044484D523AB210500CD0C3C /* StickerGenerator.swift */; };
 		0445AA5F2373C7A000EB2A7B /* GalleryViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445AA5E2373C7A000EB2A7B /* GalleryViewDataSource.swift */; };
 		0445AA612373C7B700EB2A7B /* GalleryViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445AA602373C7B700EB2A7B /* GalleryViewLayout.swift */; };
 		0445AA632373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445AA622373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift */; };
@@ -41,15 +55,10 @@
 		04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A66C22DC23F700E4E5D6 /* SceneWindow.swift */; };
 		04C0A67022DC2A2500E4E5D6 /* EditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */; };
 		04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */; };
-		04C0A67422DC3A8200E4E5D6 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67322DC3A8200E4E5D6 /* Document.swift */; };
 		04C0A67722DC406B00E4E5D6 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67622DC406B00E4E5D6 /* DataExtensions.swift */; };
 		04C0A67922DC436400E4E5D6 /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C0A67822DC436400E4E5D6 /* example.json */; };
-		04C0A67C22DC51E700E4E5D6 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67B22DC51E700E4E5D6 /* Page.swift */; };
-		04C0A67E22DC522500E4E5D6 /* DocumentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67D22DC522500E4E5D6 /* DocumentStore.swift */; };
-		04C0A68022DC531100E4E5D6 /* DocumentEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67F22DC531100E4E5D6 /* DocumentEditor.swift */; };
-		04C0A68222DC5D3800E4E5D6 /* DocumentSaveOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A68122DC5D3800E4E5D6 /* DocumentSaveOperation.swift */; };
-		04C0A68422DC5DA300E4E5D6 /* DocumentOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A68322DC5DA300E4E5D6 /* DocumentOperationQueue.swift */; };
 		04C0A68622DC5EBD00E4E5D6 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */; };
+		04C5FA2923AB322C00DDFC40 /* StickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5FA2823AB322C00DDFC40 /* StickerDataSource.swift */; };
 		04D36AD82378205F0052A933 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD72378205F0052A933 /* Color.swift */; };
 		04D36ADA237826D40052A933 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD9237826D40052A933 /* Fonts.swift */; };
 		04D36ADD237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36ADC237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift */; };
@@ -59,6 +68,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		044484E823AB287A00CD0C3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04C0A63A22DC208E00E4E5D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 044484DA23AB287800CD0C3C;
+			remoteInfo = Stickers;
+		};
+		044484F923AB2A7000CD0C3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04C0A63A22DC208E00E4E5D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 044484F323AB2A7000CD0C3C;
+			remoteInfo = Data;
+		};
+		04ACCD1A23AB6B68006FBABC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04C0A63A22DC208E00E4E5D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 044484F323AB2A7000CD0C3C;
+			remoteInfo = Data;
+		};
 		04C0A65922DC208F00E4E5D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 04C0A63A22DC208E00E4E5D6 /* Project object */;
@@ -67,6 +97,31 @@
 			remoteInfo = Kineo;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		044484EE23AB287A00CD0C3C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				044484EA23AB287A00CD0C3C /* Stickers.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0444850023AB2A7000CD0C3C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				044484FC23AB2A7000CD0C3C /* Data.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0417F09D22E46F410063AD66 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
@@ -80,6 +135,17 @@
 		043854F12392246F0041A4AA /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		044484D123A884A200CD0C3C /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
 		044484D323A884D300CD0C3C /* EditingUserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingUserActivity.swift; sourceTree = "<group>"; };
+		044484D523AB210500CD0C3C /* StickerGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerGenerator.swift; sourceTree = "<group>"; };
+		044484DB23AB287800CD0C3C /* Stickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Stickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		044484DD23AB287800CD0C3C /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		044484E023AB287800CD0C3C /* StickersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersViewController.swift; sourceTree = "<group>"; };
+		044484E523AB287A00CD0C3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		044484E723AB287A00CD0C3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		044484F423AB2A7000CD0C3C /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		044484F623AB2A7000CD0C3C /* Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
+		044484F723AB2A7000CD0C3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0444850923AB2EE200CD0C3C /* Kineo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kineo.entitlements; sourceTree = "<group>"; };
+		0444850A23AB2F1B00CD0C3C /* Stickers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Stickers.entitlements; sourceTree = "<group>"; };
 		0445AA5E2373C7A000EB2A7B /* GalleryViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewDataSource.swift; sourceTree = "<group>"; };
 		0445AA602373C7B700EB2A7B /* GalleryViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewLayout.swift; sourceTree = "<group>"; };
 		0445AA622373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -116,6 +182,7 @@
 		04C0A68122DC5D3800E4E5D6 /* DocumentSaveOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSaveOperation.swift; sourceTree = "<group>"; };
 		04C0A68322DC5DA300E4E5D6 /* DocumentOperationQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentOperationQueue.swift; sourceTree = "<group>"; };
 		04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		04C5FA2823AB322C00DDFC40 /* StickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerDataSource.swift; sourceTree = "<group>"; };
 		04D36AD72378205F0052A933 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		04D36AD9237826D40052A933 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		04D36ADC237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentCollectionViewCellBackgroundView.swift; sourceTree = "<group>"; };
@@ -125,10 +192,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		044484D823AB287800CD0C3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				044484DE23AB287800CD0C3C /* Messages.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		044484F123AB2A7000CD0C3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04C0A63F22DC208E00E4E5D6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044484FB23AB2A7000CD0C3C /* Data.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +240,38 @@
 			path = Gallery;
 			sourceTree = "<group>";
 		};
+		044484DC23AB287800CD0C3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				044484DD23AB287800CD0C3C /* Messages.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		044484DF23AB287800CD0C3C /* Stickers */ = {
+			isa = PBXGroup;
+			children = (
+				0444850A23AB2F1B00CD0C3C /* Stickers.entitlements */,
+				044484D523AB210500CD0C3C /* StickerGenerator.swift */,
+				044484E023AB287800CD0C3C /* StickersViewController.swift */,
+				044484E523AB287A00CD0C3C /* Assets.xcassets */,
+				044484E723AB287A00CD0C3C /* Info.plist */,
+				04C5FA2823AB322C00DDFC40 /* StickerDataSource.swift */,
+			);
+			path = Stickers;
+			sourceTree = "<group>";
+		};
+		044484F523AB2A7000CD0C3C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				04318A3222E19AB5003D70C8 /* SkinGenerator.swift */,
+				04C0A67A22DC51CC00E4E5D6 /* Persistence */,
+				044484F623AB2A7000CD0C3C /* Data.h */,
+				044484F723AB2A7000CD0C3C /* Info.plist */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		04BD924F237EAB2200C8FD09 /* New Document Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +297,9 @@
 			children = (
 				04C0A64422DC208E00E4E5D6 /* Kineo */,
 				04C0A65B22DC208F00E4E5D6 /* KineoTests */,
+				044484DF23AB287800CD0C3C /* Stickers */,
+				044484F523AB2A7000CD0C3C /* Data */,
+				044484DC23AB287800CD0C3C /* Frameworks */,
 				04C0A64322DC208E00E4E5D6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -191,6 +309,8 @@
 			children = (
 				04C0A64222DC208E00E4E5D6 /* Kineo.app */,
 				04C0A65822DC208F00E4E5D6 /* KineoTests.xctest */,
+				044484DB23AB287800CD0C3C /* Stickers.appex */,
+				044484F423AB2A7000CD0C3C /* Data.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,6 +318,7 @@
 		04C0A64422DC208E00E4E5D6 /* Kineo */ = {
 			isa = PBXGroup;
 			children = (
+				0444850923AB2EE200CD0C3C /* Kineo.entitlements */,
 				0417F09F22E4A0860063AD66 /* Gallery */,
 				04C0A67822DC436400E4E5D6 /* example.json */,
 				04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */,
@@ -207,9 +328,7 @@
 				04C0A65022DC208E00E4E5D6 /* LaunchScreen.storyboard */,
 				04C0A65322DC208E00E4E5D6 /* Info.plist */,
 				04C0A66E22DC292E00E4E5D6 /* Editing View */,
-				04C0A67A22DC51CC00E4E5D6 /* Persistence */,
 				04318A3022E18C72003D70C8 /* Icons.swift */,
-				04318A3222E19AB5003D70C8 /* SkinGenerator.swift */,
 				04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */,
 				04D36AD72378205F0052A933 /* Color.swift */,
 				04D36AD9237826D40052A933 /* Fonts.swift */,
@@ -291,7 +410,54 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		044484EF23AB2A7000CD0C3C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				044484F823AB2A7000CD0C3C /* Data.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		044484DA23AB287800CD0C3C /* Stickers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 044484EB23AB287A00CD0C3C /* Build configuration list for PBXNativeTarget "Stickers" */;
+			buildPhases = (
+				044484D723AB287800CD0C3C /* Sources */,
+				044484D823AB287800CD0C3C /* Frameworks */,
+				044484D923AB287800CD0C3C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04ACCD1B23AB6B68006FBABC /* PBXTargetDependency */,
+			);
+			name = Stickers;
+			productName = Stickers;
+			productReference = 044484DB23AB287800CD0C3C /* Stickers.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
+		044484F323AB2A7000CD0C3C /* Data */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 044484FD23AB2A7000CD0C3C /* Build configuration list for PBXNativeTarget "Data" */;
+			buildPhases = (
+				044484EF23AB2A7000CD0C3C /* Headers */,
+				044484F023AB2A7000CD0C3C /* Sources */,
+				044484F123AB2A7000CD0C3C /* Frameworks */,
+				044484F223AB2A7000CD0C3C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Data;
+			productName = Data;
+			productReference = 044484F423AB2A7000CD0C3C /* Data.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		04C0A64122DC208E00E4E5D6 /* Kineo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04C0A66122DC208F00E4E5D6 /* Build configuration list for PBXNativeTarget "Kineo" */;
@@ -299,10 +465,14 @@
 				04C0A63E22DC208E00E4E5D6 /* Sources */,
 				04C0A63F22DC208E00E4E5D6 /* Frameworks */,
 				04C0A64022DC208E00E4E5D6 /* Resources */,
+				044484EE23AB287A00CD0C3C /* Embed App Extensions */,
+				0444850023AB2A7000CD0C3C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				044484FA23AB2A7000CD0C3C /* PBXTargetDependency */,
+				044484E923AB287A00CD0C3C /* PBXTargetDependency */,
 			);
 			name = Kineo;
 			productName = Kineo;
@@ -333,10 +503,16 @@
 		04C0A63A22DC208E00E4E5D6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Cocoatype, LLC";
 				TargetAttributes = {
+					044484DA23AB287800CD0C3C = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					044484F323AB2A7000CD0C3C = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
 					04C0A64122DC208E00E4E5D6 = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -361,11 +537,28 @@
 			targets = (
 				04C0A64122DC208E00E4E5D6 /* Kineo */,
 				04C0A65722DC208F00E4E5D6 /* KineoTests */,
+				044484DA23AB287800CD0C3C /* Stickers */,
+				044484F323AB2A7000CD0C3C /* Data */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		044484D923AB287800CD0C3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				044484E623AB287A00CD0C3C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		044484F223AB2A7000CD0C3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04C0A64022DC208E00E4E5D6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,6 +580,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		044484D723AB287800CD0C3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				044484E123AB287800CD0C3C /* StickersViewController.swift in Sources */,
+				0444850823AB2DEB00CD0C3C /* StickerGenerator.swift in Sources */,
+				04C5FA2923AB322C00DDFC40 /* StickerDataSource.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		044484F023AB2A7000CD0C3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0444850523AB2ABC00CD0C3C /* DocumentSaveOperation.swift in Sources */,
+				0444850623AB2ABC00CD0C3C /* DocumentEditor.swift in Sources */,
+				0444850423AB2ABC00CD0C3C /* DocumentOperationQueue.swift in Sources */,
+				0444850223AB2ABC00CD0C3C /* Page.swift in Sources */,
+				0444850123AB2ABC00CD0C3C /* Document.swift in Sources */,
+				0444850723AB2AD200CD0C3C /* SkinGenerator.swift in Sources */,
+				0444850323AB2ABC00CD0C3C /* DocumentStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04C0A63E22DC208E00E4E5D6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -397,9 +614,7 @@
 				04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */,
 				04BD9256237FFC4300C8FD09 /* SceneView.swift in Sources */,
 				04D36ADF237829F00052A933 /* GalleryDocumentCollectionViewCellTitleLabel.swift in Sources */,
-				04318A3322E19AB5003D70C8 /* SkinGenerator.swift in Sources */,
 				04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */,
-				04C0A67E22DC522500E4E5D6 /* DocumentStore.swift in Sources */,
 				043854E7238CD06F0041A4AA /* SidebarActionButtonImageView.swift in Sources */,
 				04C0A68622DC5EBD00E4E5D6 /* DrawingView.swift in Sources */,
 				04BD925F237FFDBD00C8FD09 /* EditingActions.swift in Sources */,
@@ -414,24 +629,19 @@
 				04318A3722E2FCC3003D70C8 /* VideoGenerator.swift in Sources */,
 				04C0A67022DC2A2500E4E5D6 /* EditingView.swift in Sources */,
 				044484D423A884D300CD0C3C /* EditingUserActivity.swift in Sources */,
-				04C0A67C22DC51E700E4E5D6 /* Page.swift in Sources */,
 				04BD9258237FFC8900C8FD09 /* SidebarView.swift in Sources */,
 				04D36ADA237826D40052A933 /* Fonts.swift in Sources */,
 				04BD92632380083D00C8FD09 /* SidebarActionStackView.swift in Sources */,
 				04BD92612380081900C8FD09 /* SidebarActionButton.swift in Sources */,
 				04BD925A237FFCA400C8FD09 /* ContainerView.swift in Sources */,
-				04C0A67422DC3A8200E4E5D6 /* Document.swift in Sources */,
 				04D36AD82378205F0052A933 /* Color.swift in Sources */,
 				0445AA632373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift in Sources */,
-				04C0A68222DC5D3800E4E5D6 /* DocumentSaveOperation.swift in Sources */,
 				04B52D05237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift in Sources */,
 				0445AA5F2373C7A000EB2A7B /* GalleryViewDataSource.swift in Sources */,
 				04D36AE323782A960052A933 /* GalleryDocumentCollectionViewCellTitleContainerView.swift in Sources */,
 				04C0A66A22DC224B00E4E5D6 /* EditingViewController.swift in Sources */,
-				04C0A68022DC531100E4E5D6 /* DocumentEditor.swift in Sources */,
 				04318A3122E18C72003D70C8 /* Icons.swift in Sources */,
 				0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */,
-				04C0A68422DC5DA300E4E5D6 /* DocumentOperationQueue.swift in Sources */,
 				044484D223A884A200CD0C3C /* GalleryCollectionView.swift in Sources */,
 				04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */,
 				04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */,
@@ -449,6 +659,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		044484E923AB287A00CD0C3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 044484DA23AB287800CD0C3C /* Stickers */;
+			targetProxy = 044484E823AB287A00CD0C3C /* PBXContainerItemProxy */;
+		};
+		044484FA23AB2A7000CD0C3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 044484F323AB2A7000CD0C3C /* Data */;
+			targetProxy = 044484F923AB2A7000CD0C3C /* PBXContainerItemProxy */;
+		};
+		04ACCD1B23AB6B68006FBABC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 044484F323AB2A7000CD0C3C /* Data */;
+			targetProxy = 04ACCD1A23AB6B68006FBABC /* PBXContainerItemProxy */;
+		};
 		04C0A65A22DC208F00E4E5D6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 04C0A64122DC208E00E4E5D6 /* Kineo */;
@@ -468,6 +693,110 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		044484EC23AB287A00CD0C3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = Stickers/Stickers.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 287EDDET2B;
+				INFOPLIST_FILE = Stickers/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.flipbookapp.flickbook.Stickers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		044484ED23AB287A00CD0C3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = Stickers/Stickers.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 287EDDET2B;
+				INFOPLIST_FILE = Stickers/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.flipbookapp.flickbook.Stickers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		044484FE23AB2A7000CD0C3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 287EDDET2B;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Data/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.flipbookapp.flickbook.Data;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		044484FF23AB2A7000CD0C3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 287EDDET2B;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Data/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.flipbookapp.flickbook.Data;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		04C0A65F22DC208F00E4E5D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -585,7 +914,9 @@
 		04C0A66222DC208F00E4E5D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Kineo/Kineo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 287EDDET2B;
 				INFOPLIST_FILE = Kineo/Info.plist;
@@ -603,7 +934,9 @@
 		04C0A66322DC208F00E4E5D6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Kineo/Kineo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 287EDDET2B;
@@ -664,6 +997,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		044484EB23AB287A00CD0C3C /* Build configuration list for PBXNativeTarget "Stickers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				044484EC23AB287A00CD0C3C /* Debug */,
+				044484ED23AB287A00CD0C3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		044484FD23AB2A7000CD0C3C /* Build configuration list for PBXNativeTarget "Data" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				044484FE23AB2A7000CD0C3C /* Debug */,
+				044484FF23AB2A7000CD0C3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		04C0A63D22DC208E00E4E5D6 /* Build configuration list for PBXProject "Kineo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

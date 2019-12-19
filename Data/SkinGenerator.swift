@@ -3,15 +3,15 @@
 
 import UIKit
 
-class SkinGenerator: NSObject {
-    init(traitCollection: UITraitCollection = UITraitCollection()) {
+public class SkinGenerator: NSObject {
+    public init(traitCollection: UITraitCollection = UITraitCollection()) {
         let lightTraitCollection = UITraitCollection(userInterfaceStyle: .light)
         let finalTraitCollection = UITraitCollection(traitsFrom: [traitCollection, lightTraitCollection])
         self.traitCollection = finalTraitCollection
         super.init()
     }
 
-    func skinsImage(from document: Document, currentPageIndex: Int) -> UIImage? {
+    public func skinsImage(from document: Document, currentPageIndex: Int) -> UIImage? {
         let minSkinPageIndex = max(currentPageIndex - SkinGenerator.skinPageCount, document.pages.startIndex)
         let skinPageRange = minSkinPageIndex..<currentPageIndex
         let skinPages = document.pages[skinPageRange]
@@ -61,7 +61,7 @@ class SkinGenerator: NSObject {
         }
     }
 
-    var traitCollection: UITraitCollection
+    public var traitCollection: UITraitCollection
 
     // MARK: Boilerplate
 

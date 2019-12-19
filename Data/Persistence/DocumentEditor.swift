@@ -3,10 +3,14 @@
 
 import Foundation
 
-class DocumentEditor: NSObject {
-    init(document: Document) {
+public class DocumentEditor: NSObject {
+    public init(document: Document) {
         self.document = document
         super.init()
+    }
+
+    public var currentPage: Page {
+        return document.pages[currentIndex]
     }
 
     // MARK: Editing
@@ -18,20 +22,20 @@ class DocumentEditor: NSObject {
         documentStore.save(document)
     }
 
-    func replaceCurrentPage(with newPage: Page) {
+    public func replaceCurrentPage(with newPage: Page) {
         document = document.replacingPage(atIndex: currentIndex, with: newPage)
         documentStore.save(document)
     }
 
     // MARK: Navigation
 
-    var advancingWouldCreateNewPage: Bool {
+    public var advancingWouldCreateNewPage: Bool {
         let lastPageIndex = document.pages.endIndex - 1
         let currentPage = document.pages[currentIndex]
         return currentIndex == lastPageIndex && currentPage.hasDrawing
     }
 
-    func advancePage() {
+    public func advancePage() {
         if advancingWouldCreateNewPage {
             addPage()
         } else {
@@ -39,7 +43,7 @@ class DocumentEditor: NSObject {
         }
     }
 
-    func retreatPage() {
+    public func retreatPage() {
         currentIndex = max(currentIndex - 1, document.pages.startIndex)
     }
 
@@ -47,9 +51,6 @@ class DocumentEditor: NSObject {
 
     private let documentStore = DocumentStore()
 
-    private(set) var document: Document
-    private(set) var currentIndex = 0
-    var currentPage: Page {
-        return document.pages[currentIndex]
-    }
+    private(set) public var document: Document
+    private(set) public var currentIndex = 0
 }

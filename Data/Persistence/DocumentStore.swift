@@ -3,18 +3,20 @@
 
 import UIKit
 
-struct DocumentStore {
-    var documentsCount: Int {
+public struct DocumentStore {
+    public init() {}
+
+    public var documentsCount: Int {
         return storedDocuments.count
     }
 
-    func document(at index: Int) throws -> Document {
+    public func document(at index: Int) throws -> Document {
         let storedDocument = storedDocuments[index]
         let data = try Data(contentsOf: storedDocument.url)
         return try JSONDecoder().decode(Document.self, from: data)
     }
 
-    func newDocument() -> Document {
+    public func newDocument() -> Document {
         let newDocument = Document()
         save(newDocument)
         return newDocument
@@ -32,7 +34,7 @@ struct DocumentStore {
 
     // MARK: Preview Images
 
-    func previewImage(at index: Int) -> UIImage? {
+    public func previewImage(at index: Int) -> UIImage? {
         let storedDocument = storedDocuments[index]
         guard let imageData = try? Data(contentsOf: storedDocument.imagePreviewURL), let image = UIImage(data: imageData) else { return nil }
         return image
@@ -54,10 +56,13 @@ struct DocumentStore {
 
     // MARK: Boilerplate
 
+    private static let appGroupIdentifier = "group.com.flipbookapp.flickbook"
     private static let storeDirectoryURL: URL = {
         do {
+            let appGroupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Self.appGroupIdentifier)
             let documentDirectoryURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            let storeDirectoryURL = documentDirectoryURL.appendingPathComponent("store", isDirectory: true)
+            let storeParentURL = appGroupURL ?? documentDirectoryURL
+            let storeDirectoryURL = storeParentURL.appendingPathComponent("store", isDirectory: true)
             try FileManager.default.createDirectory(at: storeDirectoryURL, withIntermediateDirectories: true, attributes: nil)
             return storeDirectoryURL
         } catch {
