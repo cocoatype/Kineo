@@ -10,11 +10,15 @@ public class DocumentEditor: NSObject {
     }
 
     public var currentPage: Page {
-        return document.pages[currentIndex]
+        return page(at: currentIndex)
     }
 
     public var pageCount: Int {
         return document.pages.count
+    }
+
+    public func page(at index: Int) -> Page {
+        return document.pages[index]
     }
 
     // MARK: Editing

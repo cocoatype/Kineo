@@ -15,7 +15,14 @@ class FilmStripDataSource: NSObject, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: FilmStripExistingPageCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilmStripExistingPageCell.identifier, for: indexPath)
+        guard let existingPageCell = cell as? FilmStripExistingPageCell else {
+            assertionFailure("Cell was not expected type: \(cell)")
+            return cell
+        }
+
+        existingPageCell.image = dataSource.thumbnail(forPageAt: indexPath.item)
+        return existingPageCell
     }
 
     // MARK: Boilerplate

@@ -36,12 +36,16 @@
 		0445AA612373C7B700EB2A7B /* GalleryViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445AA602373C7B700EB2A7B /* GalleryViewLayout.swift */; };
 		0445AA632373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445AA622373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift */; };
 		0445AA652373CB9400EB2A7B /* GallerySelectionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445AA642373CB9400EB2A7B /* GallerySelectionEvent.swift */; };
+		045165FD23B236E400D7B535 /* CGGeometryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045165FB23B2360300D7B535 /* CGGeometryExtensions.swift */; };
+		045165FF23B23A2B00D7B535 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045165FE23B23A2B00D7B535 /* Constants.swift */; };
 		04ACCD1D23B21334006FBABC /* FilmStripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD1C23B21334006FBABC /* FilmStripView.swift */; };
 		04ACCD2023B21985006FBABC /* FilmStripCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */; };
 		04ACCD2223B21A9F006FBABC /* FilmStripCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2123B21A9F006FBABC /* FilmStripCollectionViewLayout.swift */; };
 		04ACCD2423B21B4B006FBABC /* FilmStripExistingPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */; };
 		04ACCD2623B21BAE006FBABC /* FilmStripDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2523B21BAE006FBABC /* FilmStripDataSource.swift */; };
 		04ACCD2823B2310B006FBABC /* EditingViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2723B2310B006FBABC /* EditingViewDataSource.swift */; };
+		04ACCD2A23B23290006FBABC /* FilmStripExistingPageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2923B23290006FBABC /* FilmStripExistingPageImageView.swift */; };
+		04ACCD2C23B2345A006FBABC /* UITraitCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2B23B2345A006FBABC /* UITraitCollectionExtensions.swift */; };
 		04B52D05237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B52D04237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift */; };
 		04BD9251237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD9250237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift */; };
 		04BD9256237FFC4300C8FD09 /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD9255237FFC4300C8FD09 /* SceneView.swift */; };
@@ -156,12 +160,16 @@
 		0445AA602373C7B700EB2A7B /* GalleryViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewLayout.swift; sourceTree = "<group>"; };
 		0445AA622373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentCollectionViewCell.swift; sourceTree = "<group>"; };
 		0445AA642373CB9400EB2A7B /* GallerySelectionEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallerySelectionEvent.swift; sourceTree = "<group>"; };
+		045165FB23B2360300D7B535 /* CGGeometryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGGeometryExtensions.swift; sourceTree = "<group>"; };
+		045165FE23B23A2B00D7B535 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04ACCD1C23B21334006FBABC /* FilmStripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripView.swift; sourceTree = "<group>"; };
 		04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionView.swift; sourceTree = "<group>"; };
 		04ACCD2123B21A9F006FBABC /* FilmStripCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionViewLayout.swift; sourceTree = "<group>"; };
 		04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripExistingPageCell.swift; sourceTree = "<group>"; };
 		04ACCD2523B21BAE006FBABC /* FilmStripDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripDataSource.swift; sourceTree = "<group>"; };
 		04ACCD2723B2310B006FBABC /* EditingViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewDataSource.swift; sourceTree = "<group>"; };
+		04ACCD2923B23290006FBABC /* FilmStripExistingPageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripExistingPageImageView.swift; sourceTree = "<group>"; };
+		04ACCD2B23B2345A006FBABC /* UITraitCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITraitCollectionExtensions.swift; sourceTree = "<group>"; };
 		04B52D04237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentPreviewImageView.swift; sourceTree = "<group>"; };
 		04BD9250237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryNewDocumentImageView.swift; sourceTree = "<group>"; };
 		04BD9255237FFC4300C8FD09 /* SceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneView.swift; sourceTree = "<group>"; };
@@ -276,10 +284,12 @@
 		044484F523AB2A7000CD0C3C /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				045165FB23B2360300D7B535 /* CGGeometryExtensions.swift */,
 				04318A3222E19AB5003D70C8 /* SkinGenerator.swift */,
 				04C0A67A22DC51CC00E4E5D6 /* Persistence */,
 				044484F623AB2A7000CD0C3C /* Data.h */,
 				044484F723AB2A7000CD0C3C /* Info.plist */,
+				045165FE23B23A2B00D7B535 /* Constants.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -291,6 +301,7 @@
 				04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */,
 				04ACCD2123B21A9F006FBABC /* FilmStripCollectionViewLayout.swift */,
 				04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */,
+				04ACCD2923B23290006FBABC /* FilmStripExistingPageImageView.swift */,
 				04ACCD2523B21BAE006FBABC /* FilmStripDataSource.swift */,
 			);
 			path = "Film Strip";
@@ -405,6 +416,7 @@
 				04C0A67622DC406B00E4E5D6 /* DataExtensions.swift */,
 				04C0A66722DC221700E4E5D6 /* UIViewControllerExtensions.swift */,
 				0417F09D22E46F410063AD66 /* UIImageExtensions.swift */,
+				04ACCD2B23B2345A006FBABC /* UITraitCollectionExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -623,10 +635,12 @@
 				0444850523AB2ABC00CD0C3C /* DocumentSaveOperation.swift in Sources */,
 				0444850623AB2ABC00CD0C3C /* DocumentEditor.swift in Sources */,
 				0444850423AB2ABC00CD0C3C /* DocumentOperationQueue.swift in Sources */,
+				045165FD23B236E400D7B535 /* CGGeometryExtensions.swift in Sources */,
 				0444850223AB2ABC00CD0C3C /* Page.swift in Sources */,
 				0444850123AB2ABC00CD0C3C /* Document.swift in Sources */,
 				0444850723AB2AD200CD0C3C /* SkinGenerator.swift in Sources */,
 				0444850323AB2ABC00CD0C3C /* DocumentStore.swift in Sources */,
+				045165FF23B23A2B00D7B535 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +667,7 @@
 				04ACCD2223B21A9F006FBABC /* FilmStripCollectionViewLayout.swift in Sources */,
 				04D36ADD237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift in Sources */,
 				0417F0A322E4A3B30063AD66 /* GalleryView.swift in Sources */,
+				04ACCD2A23B23290006FBABC /* FilmStripExistingPageImageView.swift in Sources */,
 				04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */,
 				04D36AE123782A1A0052A933 /* GalleryNewCollectionViewCell.swift in Sources */,
 				04C0A67722DC406B00E4E5D6 /* DataExtensions.swift in Sources */,
@@ -668,6 +683,7 @@
 				04D36AD82378205F0052A933 /* Color.swift in Sources */,
 				0445AA632373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift in Sources */,
 				04B52D05237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift in Sources */,
+				04ACCD2C23B2345A006FBABC /* UITraitCollectionExtensions.swift in Sources */,
 				04ACCD2023B21985006FBABC /* FilmStripCollectionView.swift in Sources */,
 				0445AA5F2373C7A000EB2A7B /* GalleryViewDataSource.swift in Sources */,
 				04D36AE323782A960052A933 /* GalleryDocumentCollectionViewCellTitleContainerView.swift in Sources */,

@@ -10,9 +10,25 @@ class FilmStripExistingPageCell: UICollectionViewCell {
         super.init(frame: frame)
         backgroundColor = .canvasBackground
         layer.cornerRadius = 8
+
+        contentView.addSubview(imageView)
+
+        NSLayoutConstraint.activate([
+            imageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor),
+            imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ])
+    }
+
+    var image: UIImage? {
+        get { return imageView.image }
+        set(newImage) { imageView.image = newImage }
     }
 
     // MARK: Boilerplate
+
+    private let imageView = FilmStripExistingPageImageView()
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
