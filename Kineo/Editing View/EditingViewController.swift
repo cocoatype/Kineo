@@ -13,7 +13,6 @@ class EditingViewController: UIViewController {
 
     override func loadView() {
         view = EditingView(page: documentEditor.currentPage)
-        setupSidebarActions()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -23,15 +22,6 @@ class EditingViewController: UIViewController {
 
     @objc func drawingViewDidChangePage(_ sender: DrawingView) {
         documentEditor.replaceCurrentPage(with: sender.page)
-        setupSidebarActions()
-    }
-
-    // MARK: Sidebar View
-
-    private func setupSidebarActions() {
-        let nextPageAction = NextPageActionButton(createsNewPage: documentEditor.advancingWouldCreateNewPage)
-        let sidebarActions = ([GalleryNavigationActionButton(), ExportActionButton()], [PlayActionButton()], [PreviousPageActionButton(), nextPageAction])
-        sidebarView?.display(sidebarActions)
     }
 
     // MARK: Transport Controls
@@ -71,15 +61,12 @@ class EditingViewController: UIViewController {
     // MARK: Editing View
 
     private var editingView: EditingView? { return view as? EditingView }
-    private var sidebarView: SidebarView? { return editingView?.sidebarView }
 
     private lazy var skinGenerator = SkinGenerator(traitCollection: traitCollection)
 
     private func updateCurrentPage() {
         editingView?.page = documentEditor.currentPage
         editingView?.skinsImage = skinGenerator.skinsImage(from: documentEditor.document, currentPageIndex: documentEditor.currentIndex)
-
-        setupSidebarActions()
     }
 
     // MARK: Boilerplate

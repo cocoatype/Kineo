@@ -13,17 +13,21 @@ class EditingView: UIView, PlaybackViewDelegate {
         backgroundColor = .appBackground
 
         addSubview(drawingView)
-        addSubview(sidebarView)
+        addSubview(exportButton)
+        addSubview(galleryButton)
+        addSubview(playButton)
 
         NSLayoutConstraint.activate([
-            sidebarView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            sidebarView.widthAnchor.constraint(equalToConstant: SidebarView.standardWidth),
-            sidebarView.topAnchor.constraint(equalTo: topAnchor),
-            sidebarView.bottomAnchor.constraint(equalTo: bottomAnchor),
             drawingView.widthAnchor.constraint(equalTo: drawingView.heightAnchor),
             drawingView.widthAnchor.constraint(equalToConstant: 512.0),
-            drawingView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: SidebarView.standardWidth / 2.0),
-            drawingView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            drawingView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            drawingView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            exportButton.topAnchor.constraint(equalTo: topAnchor, constant: 11),
+            exportButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11),
+            galleryButton.topAnchor.constraint(equalTo: topAnchor, constant: 11),
+            galleryButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
+            playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -11),
+            playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11)
         ])
     }
 
@@ -71,7 +75,9 @@ class EditingView: UIView, PlaybackViewDelegate {
     // MARK: Boilerplate
 
     private lazy var drawingView = DrawingView(page: page)
-    let sidebarView = SidebarView()
+    private let playButton = PlayActionButton()
+    private let galleryButton = GalleryNavigationActionButton()
+    private let exportButton = ExportActionButton()
 
     var page: Page {
         didSet {
