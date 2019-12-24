@@ -4,7 +4,7 @@
 import UIKit
 
 public class SkinGenerator: NSObject {
-    public init(traitCollection: UITraitCollection = UITraitCollection()) {
+    public init(traitCollection: UITraitCollection = UITraitCollection.current) {
         let lightTraitCollection = UITraitCollection(userInterfaceStyle: .light)
         let finalTraitCollection = UITraitCollection(traitsFrom: [traitCollection, lightTraitCollection])
         self.traitCollection = finalTraitCollection

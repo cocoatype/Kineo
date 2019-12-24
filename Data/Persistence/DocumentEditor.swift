@@ -13,6 +13,10 @@ public class DocumentEditor: NSObject {
         return document.pages[currentIndex]
     }
 
+    public var pageCount: Int {
+        return document.pages.count
+    }
+
     // MARK: Editing
 
     func addPage() {

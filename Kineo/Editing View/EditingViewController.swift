@@ -12,7 +12,8 @@ class EditingViewController: UIViewController {
     }
 
     override func loadView() {
-        view = EditingView(page: documentEditor.currentPage)
+        let dataSource = EditingViewDataSource(documentEditor: documentEditor)
+        view = EditingView(dataSource: dataSource)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -62,11 +63,8 @@ class EditingViewController: UIViewController {
 
     private var editingView: EditingView? { return view as? EditingView }
 
-    private lazy var skinGenerator = SkinGenerator(traitCollection: traitCollection)
-
     private func updateCurrentPage() {
         editingView?.page = documentEditor.currentPage
-        editingView?.skinsImage = skinGenerator.skinsImage(from: documentEditor.document, currentPageIndex: documentEditor.currentIndex)
     }
 
     // MARK: Boilerplate
@@ -74,10 +72,6 @@ class EditingViewController: UIViewController {
     private static let exportPromoText = NSLocalizedString("EditingViewController.exportPromoText", comment: "Promo text shared when exporting videos")
 
     private let documentEditor: DocumentEditor
-
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        skinGenerator.traitCollection = traitCollection
-    }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

@@ -6,8 +6,8 @@ import PencilKit
 import UIKit
 
 class EditingView: UIView, PlaybackViewDelegate {
-    init(page: Page) {
-        self.page = page
+    init(dataSource: EditingViewDataSource) {
+        self.dataSource = dataSource
         super.init(frame: .zero)
 
         backgroundColor = .appBackground
@@ -34,6 +34,12 @@ class EditingView: UIView, PlaybackViewDelegate {
             playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -11),
             playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11)
         ])
+
+        reloadData()
+    }
+
+    func reloadData() {
+        self.page = dataSource.currentPage
     }
 
     func setupToolPicker() {
@@ -79,16 +85,18 @@ class EditingView: UIView, PlaybackViewDelegate {
 
     // MARK: Boilerplate
 
-    private lazy var drawingView = DrawingView(page: page)
-    private let filmStripView = FilmStripView()
+    private lazy var drawingView = DrawingView(page: dataSource.currentPage)
+    private lazy var filmStripView = FilmStripView(dataSource: dataSource)
+
     private let playButton = PlayActionButton()
     private let galleryButton = GalleryNavigationActionButton()
     private let exportButton = ExportActionButton()
 
+    private let dataSource: EditingViewDataSource
+
     var page: Page {
-        didSet {
-            drawingView.page = page
-        }
+        get { return drawingView.page }
+        set(newPage) { drawingView.page = newPage }
     }
 
     var skinsImage: UIImage? {

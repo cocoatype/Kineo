@@ -4,14 +4,16 @@
 import UIKit
 
 class FilmStripView: UIControl {
-    init() {
+    init(dataSource: EditingViewDataSource) {
+        self.dataSource = FilmStripDataSource(dataSource: dataSource)
         super.init(frame: .zero)
+
         backgroundColor = .filmStripBackground
         layer.cornerRadius = 10
         layer.masksToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
 
-        collectionView.dataSource = dataSource
+        collectionView.dataSource = self.dataSource
         addSubview(collectionView)
 
         NSLayoutConstraint.activate([
@@ -25,7 +27,7 @@ class FilmStripView: UIControl {
     // MARK: Boilerplate
 
     private let collectionView = FilmStripCollectionView()
-    private let dataSource = FilmStripDataSource()
+    private let dataSource: FilmStripDataSource
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
