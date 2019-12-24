@@ -4,11 +4,15 @@
 import Foundation
 import PencilKit
 
-public struct Page: Codable {
+public struct Page: Codable, Equatable {
     public init(drawing: PKDrawing? = nil) {
         self.drawing = drawing ?? PKDrawing()
     }
 
     public let drawing: PKDrawing
     var hasDrawing: Bool { return drawing.bounds.size != .zero }
+
+    public static func == (lhs: Page, rhs: Page) -> Bool {
+        return lhs.drawing == rhs.drawing
+    }
 }

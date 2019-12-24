@@ -39,7 +39,8 @@ class EditingView: UIView, PlaybackViewDelegate {
     }
 
     func reloadData() {
-        self.page = dataSource.currentPage
+        page = dataSource.currentPage
+        filmStripView.reloadData()
     }
 
     func setupToolPicker() {
@@ -94,12 +95,12 @@ class EditingView: UIView, PlaybackViewDelegate {
 
     private let dataSource: EditingViewDataSource
 
-    var page: Page {
+    private var page: Page {
         get { return drawingView.page }
         set(newPage) { drawingView.page = newPage }
     }
 
-    var skinsImage: UIImage? {
+    private var skinsImage: UIImage? {
         get { return drawingView.skinsImage }
         set(newImage) { drawingView.skinsImage = newImage }
     }

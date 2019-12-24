@@ -24,6 +24,10 @@ class FilmStripView: UIControl {
         ])
     }
 
+    func reloadData() {
+        collectionView.reloadData()
+    }
+
     // MARK: Boilerplate
 
     private let collectionView = FilmStripCollectionView()

@@ -23,6 +23,7 @@ class EditingViewController: UIViewController {
 
     @objc func drawingViewDidChangePage(_ sender: DrawingView) {
         documentEditor.replaceCurrentPage(with: sender.page)
+        updateCurrentPage()
     }
 
     // MARK: Transport Controls
@@ -64,7 +65,7 @@ class EditingViewController: UIViewController {
     private var editingView: EditingView? { return view as? EditingView }
 
     private func updateCurrentPage() {
-        editingView?.page = documentEditor.currentPage
+        editingView?.reloadData()
     }
 
     // MARK: Boilerplate
