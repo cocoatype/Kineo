@@ -13,6 +13,7 @@ class EditingView: UIView, PlaybackViewDelegate {
         backgroundColor = .appBackground
 
         addSubview(drawingView)
+        addSubview(filmStripView)
         addSubview(exportButton)
         addSubview(galleryButton)
         addSubview(playButton)
@@ -22,6 +23,10 @@ class EditingView: UIView, PlaybackViewDelegate {
             drawingView.widthAnchor.constraint(equalToConstant: 512.0),
             drawingView.centerXAnchor.constraint(equalTo: centerXAnchor),
             drawingView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            filmStripView.topAnchor.constraint(equalTo: galleryButton.bottomAnchor, constant: 11),
+            filmStripView.bottomAnchor.constraint(equalTo: playButton.topAnchor, constant: -11),
+            filmStripView.widthAnchor.constraint(equalToConstant: 44),
+            filmStripView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
             exportButton.topAnchor.constraint(equalTo: topAnchor, constant: 11),
             exportButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11),
             galleryButton.topAnchor.constraint(equalTo: topAnchor, constant: 11),
@@ -33,8 +38,8 @@ class EditingView: UIView, PlaybackViewDelegate {
 
     func setupToolPicker() {
         guard let window = window,
-            let toolPicker = PKToolPicker.shared(for: window)
-            else { return }
+          let toolPicker = PKToolPicker.shared(for: window)
+        else { return }
 
         drawingView.observe(toolPicker)
         _ = drawingView.becomeFirstResponder()
@@ -75,6 +80,7 @@ class EditingView: UIView, PlaybackViewDelegate {
     // MARK: Boilerplate
 
     private lazy var drawingView = DrawingView(page: page)
+    private let filmStripView = FilmStripView()
     private let playButton = PlayActionButton()
     private let galleryButton = GalleryNavigationActionButton()
     private let exportButton = ExportActionButton()
@@ -84,11 +90,10 @@ class EditingView: UIView, PlaybackViewDelegate {
             drawingView.page = page
         }
     }
+
     var skinsImage: UIImage? {
         get { return drawingView.skinsImage }
-        set(newImage) {
-            drawingView.skinsImage = newImage
-        }
+        set(newImage) { drawingView.skinsImage = newImage }
     }
 
     @available(*, unavailable)
