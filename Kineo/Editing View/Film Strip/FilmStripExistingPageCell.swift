@@ -8,7 +8,7 @@ class FilmStripExistingPageCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = .canvasBackground
         layer.cornerRadius = 8
     }
 
