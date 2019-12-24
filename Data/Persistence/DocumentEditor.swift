@@ -23,7 +23,7 @@ public class DocumentEditor: NSObject {
 
     // MARK: Editing
 
-    func addPage() {
+    public func addNewPage() {
         let newIndex = currentIndex + 1
         document = document.insertingBlankPage(at: newIndex)
         currentIndex = newIndex
@@ -37,23 +37,7 @@ public class DocumentEditor: NSObject {
 
     // MARK: Navigation
 
-    public var advancingWouldCreateNewPage: Bool {
-        let lastPageIndex = document.pages.endIndex - 1
-        let currentPage = document.pages[currentIndex]
-        return currentIndex == lastPageIndex && currentPage.hasDrawing
-    }
-
-    public func advancePage() {
-        if advancingWouldCreateNewPage {
-            addPage()
-        } else {
-            currentIndex = min(currentIndex + 1, document.pages.endIndex - 1)
-        }
-    }
-
-    public func retreatPage() {
-        currentIndex = max(currentIndex - 1, document.pages.startIndex)
-    }
+    // future home of `navigate(toPageAt:)`
 
     // MARK: Boilerplate
 

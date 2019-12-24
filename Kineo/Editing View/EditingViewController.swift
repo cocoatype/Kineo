@@ -36,13 +36,8 @@ class EditingViewController: UIViewController {
         editingView?.play(documentEditor.document, continuously: true)
     }
 
-    @objc func advancePage() {
-        documentEditor.advancePage()
-        updateCurrentPage()
-    }
-
-    @objc func retreatPage() {
-        documentEditor.retreatPage()
+    @objc func addNewPage() {
+        documentEditor.addNewPage()
         updateCurrentPage()
     }
 

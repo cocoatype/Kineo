@@ -8,6 +8,10 @@ class FilmStripDataSource: NSObject, UICollectionViewDataSource {
         self.dataSource = dataSource
     }
 
+    func isNewPage(_ indexPath: IndexPath) -> Bool {
+        return indexPath.item == dataSource.pageCount
+    }
+
     // MARK: UICollectionViewDataSource
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -15,7 +19,7 @@ class FilmStripDataSource: NSObject, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.item == dataSource.pageCount {
+        if isNewPage(indexPath) {
             return newPageCell(in: collectionView, forItemAt: indexPath)
         } else {
             return existingPageCell(in: collectionView, forItemAt: indexPath)

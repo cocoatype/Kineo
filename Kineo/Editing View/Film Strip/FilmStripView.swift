@@ -3,7 +3,7 @@
 
 import UIKit
 
-class FilmStripView: UIControl {
+class FilmStripView: UIControl, UICollectionViewDelegate {
     init(dataSource: EditingViewDataSource) {
         self.dataSource = FilmStripDataSource(dataSource: dataSource)
         super.init(frame: .zero)
@@ -14,6 +14,7 @@ class FilmStripView: UIControl {
         translatesAutoresizingMaskIntoConstraints = false
 
         collectionView.dataSource = self.dataSource
+        collectionView.delegate = self
         addSubview(collectionView)
 
         NSLayoutConstraint.activate([
@@ -26,6 +27,14 @@ class FilmStripView: UIControl {
 
     func reloadData() {
         collectionView.reloadData()
+    }
+
+    // MARK: UICollectionViewDelegate
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if dataSource.isNewPage(indexPath) {
+            sendAction(#selector(EditingViewController.addNewPage), to: nil, for: nil)
+        }
     }
 
     // MARK: Boilerplate
