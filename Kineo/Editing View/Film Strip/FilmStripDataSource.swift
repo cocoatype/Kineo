@@ -11,11 +11,20 @@ class FilmStripDataSource: NSObject, UICollectionViewDataSource {
     // MARK: UICollectionViewDataSource
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.pageCount
+        return dataSource.pageCount + 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.item == dataSource.pageCount {
+            return newPageCell(in: collectionView, forItemAt: indexPath)
+        } else {
+            return existingPageCell(in: collectionView, forItemAt: indexPath)
+        }
+    }
+
+    private func existingPageCell(in collectionView: UICollectionView, forItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilmStripExistingPageCell.identifier, for: indexPath)
+
         guard let existingPageCell = cell as? FilmStripExistingPageCell else {
             assertionFailure("Cell was not expected type: \(cell)")
             return cell
@@ -23,6 +32,10 @@ class FilmStripDataSource: NSObject, UICollectionViewDataSource {
 
         existingPageCell.image = dataSource.thumbnail(forPageAt: indexPath.item)
         return existingPageCell
+    }
+
+    private func newPageCell(in collectionView: UICollectionView, forItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: FilmStripNewPageCell.identifier, for: indexPath)
     }
 
     // MARK: Boilerplate

@@ -3,13 +3,14 @@
 
 import UIKit
 
-class FilmStripCollectionView: UICollectionView {
+class FilmStripNewPageImageView: UIImageView {
     init() {
-        super.init(frame: .zero, collectionViewLayout: FilmStripCollectionViewLayout())
-        backgroundColor = .filmStripBackground
+        super.init(frame: .zero)
+        backgroundColor = .clear
+        contentMode = .center
+        image = Icons.newPage
+        tintColor = .newCellTint
         translatesAutoresizingMaskIntoConstraints = false
-        register(FilmStripExistingPageCell.self, forCellWithReuseIdentifier: FilmStripExistingPageCell.identifier)
-        register(FilmStripNewPageCell.self, forCellWithReuseIdentifier: FilmStripNewPageCell.identifier)
     }
 
     // MARK: Boilerplate
