@@ -34,8 +34,12 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if dataSource.isNewPage(indexPath) {
             sendAction(#selector(EditingViewController.addNewPage), to: nil, for: nil)
+        } else {
+            sendAction(#selector(EditingViewController.navigateToPage(_:)), to: nil, for: nil)
         }
     }
+
+    var selectedIndex: Int? { return collectionView.indexPathsForSelectedItems?.first?.item }
 
     // MARK: Boilerplate
 

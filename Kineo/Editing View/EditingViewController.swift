@@ -41,6 +41,12 @@ class EditingViewController: UIViewController {
         updateCurrentPage()
     }
 
+    @objc func navigateToPage(_ sender: FilmStripView) {
+        guard let index = sender.selectedIndex else { return }
+        documentEditor.navigate(toPageAt: index)
+        updateCurrentPage()
+    }
+
     @objc func exportVideo(_ sender: SidebarActionButton) {
         do {
             let promoText = Self.exportPromoText

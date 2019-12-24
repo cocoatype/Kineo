@@ -37,7 +37,10 @@ public class DocumentEditor: NSObject {
 
     // MARK: Navigation
 
-    // future home of `navigate(toPageAt:)`
+    public func navigate(toPageAt index: Int) {
+        guard index >= 0, index < pageCount else { return }
+        currentIndex = index
+    }
 
     // MARK: Boilerplate
 
