@@ -12,6 +12,17 @@ class FilmStripCollectionViewLayout: UICollectionViewFlowLayout {
         minimumInteritemSpacing = 4
     }
 
+    override var collectionViewContentSize: CGSize {
+        guard let collectionView = collectionView else { return .zero }
+        let itemsCount = collectionView.numberOfItems(inSection: 0) - 2
+        let contentWidth = collectionView.bounds.width
+
+        let itemsHeight = CGFloat(itemsCount) * (itemSize.height + minimumLineSpacing)
+        let viewHeight = collectionView.bounds.height
+        let contentHeight = itemsHeight + viewHeight
+        return CGSize(width: contentWidth, height: contentHeight)
+    }
+
     // MARK: Boilerplate
 
     @available(*, unavailable)
