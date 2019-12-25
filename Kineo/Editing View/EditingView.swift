@@ -6,31 +6,47 @@ import PencilKit
 import UIKit
 
 class EditingView: UIView, PlaybackViewDelegate {
-    init(page: Page) {
-        self.page = page
+    init(dataSource: EditingViewDataSource) {
+        self.dataSource = dataSource
         super.init(frame: .zero)
 
         backgroundColor = .appBackground
 
         addSubview(drawingView)
-        addSubview(sidebarView)
+        addSubview(filmStripView)
+        addSubview(exportButton)
+        addSubview(galleryButton)
+        addSubview(playButton)
 
         NSLayoutConstraint.activate([
-            sidebarView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            sidebarView.widthAnchor.constraint(equalToConstant: SidebarView.standardWidth),
-            sidebarView.topAnchor.constraint(equalTo: topAnchor),
-            sidebarView.bottomAnchor.constraint(equalTo: bottomAnchor),
             drawingView.widthAnchor.constraint(equalTo: drawingView.heightAnchor),
             drawingView.widthAnchor.constraint(equalToConstant: 512.0),
-            drawingView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: SidebarView.standardWidth / 2.0),
-            drawingView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            drawingView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            drawingView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            filmStripView.topAnchor.constraint(equalTo: galleryButton.bottomAnchor, constant: 11),
+            filmStripView.bottomAnchor.constraint(equalTo: playButton.topAnchor, constant: -11),
+            filmStripView.widthAnchor.constraint(equalToConstant: 44),
+            filmStripView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
+            exportButton.topAnchor.constraint(equalTo: topAnchor, constant: 11),
+            exportButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11),
+            galleryButton.topAnchor.constraint(equalTo: topAnchor, constant: 11),
+            galleryButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
+            playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -11),
+            playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11)
         ])
+
+        reloadData()
+    }
+
+    func reloadData() {
+        page = dataSource.currentPage
+        filmStripView.reloadData()
     }
 
     func setupToolPicker() {
         guard let window = window,
-            let toolPicker = PKToolPicker.shared(for: window)
-            else { return }
+          let toolPicker = PKToolPicker.shared(for: window)
+        else { return }
 
         drawingView.observe(toolPicker)
         _ = drawingView.becomeFirstResponder()
@@ -70,19 +86,23 @@ class EditingView: UIView, PlaybackViewDelegate {
 
     // MARK: Boilerplate
 
-    private lazy var drawingView = DrawingView(page: page)
-    let sidebarView = SidebarView()
+    private lazy var drawingView = DrawingView(page: dataSource.currentPage)
+    private lazy var filmStripView = FilmStripView(dataSource: dataSource)
 
-    var page: Page {
-        didSet {
-            drawingView.page = page
-        }
+    private let playButton = PlayActionButton()
+    private let galleryButton = GalleryNavigationActionButton()
+    private let exportButton = ExportActionButton()
+
+    private let dataSource: EditingViewDataSource
+
+    private var page: Page {
+        get { return drawingView.page }
+        set(newPage) { drawingView.page = newPage }
     }
-    var skinsImage: UIImage? {
+
+    private var skinsImage: UIImage? {
         get { return drawingView.skinsImage }
-        set(newImage) {
-            drawingView.skinsImage = newImage
-        }
+        set(newImage) { drawingView.skinsImage = newImage }
     }
 
     @available(*, unavailable)

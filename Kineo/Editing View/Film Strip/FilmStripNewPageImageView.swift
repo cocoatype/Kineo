@@ -1,13 +1,15 @@
-//  Created by Geoff Pado on 7/14/19.
+//  Created by Geoff Pado on 12/24/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
-import PencilKit
+import UIKit
 
-class CanvasView: PKCanvasView {
+class FilmStripNewPageImageView: UIImageView {
     init() {
         super.init(frame: .zero)
-        backgroundColor = .canvasBackground
-        layer.cornerRadius = 8.0
+        backgroundColor = .clear
+        contentMode = .center
+        image = Icons.newPage
+        tintColor = .newCellTint
         translatesAutoresizingMaskIntoConstraints = false
     }
 

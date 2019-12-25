@@ -12,8 +12,8 @@ class EditingViewController: UIViewController {
     }
 
     override func loadView() {
-        view = EditingView(page: documentEditor.currentPage)
-        setupSidebarActions()
+        let dataSource = EditingViewDataSource(documentEditor: documentEditor)
+        view = EditingView(dataSource: dataSource)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -23,15 +23,7 @@ class EditingViewController: UIViewController {
 
     @objc func drawingViewDidChangePage(_ sender: DrawingView) {
         documentEditor.replaceCurrentPage(with: sender.page)
-        setupSidebarActions()
-    }
-
-    // MARK: Sidebar View
-
-    private func setupSidebarActions() {
-        let nextPageAction = NextPageActionButton(createsNewPage: documentEditor.advancingWouldCreateNewPage)
-        let sidebarActions = ([GalleryNavigationActionButton(), ExportActionButton()], [PlayActionButton()], [PreviousPageActionButton(), nextPageAction])
-        sidebarView?.display(sidebarActions)
+        updateCurrentPage()
     }
 
     // MARK: Transport Controls
@@ -44,13 +36,14 @@ class EditingViewController: UIViewController {
         editingView?.play(documentEditor.document, continuously: true)
     }
 
-    @objc func advancePage() {
-        documentEditor.advancePage()
+    @objc func addNewPage() {
+        documentEditor.addNewPage()
         updateCurrentPage()
     }
 
-    @objc func retreatPage() {
-        documentEditor.retreatPage()
+    @objc func navigateToPage(_ sender: FilmStripView, for event: PageNavigationEvent) {
+        guard documentEditor.currentIndex != event.pageIndex else { return }
+        documentEditor.navigate(toPageAt: event.pageIndex)
         updateCurrentPage()
     }
 
@@ -71,15 +64,9 @@ class EditingViewController: UIViewController {
     // MARK: Editing View
 
     private var editingView: EditingView? { return view as? EditingView }
-    private var sidebarView: SidebarView? { return editingView?.sidebarView }
-
-    private lazy var skinGenerator = SkinGenerator(traitCollection: traitCollection)
 
     private func updateCurrentPage() {
-        editingView?.page = documentEditor.currentPage
-        editingView?.skinsImage = skinGenerator.skinsImage(from: documentEditor.document, currentPageIndex: documentEditor.currentIndex)
-
-        setupSidebarActions()
+        editingView?.reloadData()
     }
 
     // MARK: Boilerplate
@@ -87,10 +74,6 @@ class EditingViewController: UIViewController {
     private static let exportPromoText = NSLocalizedString("EditingViewController.exportPromoText", comment: "Promo text shared when exporting videos")
 
     private let documentEditor: DocumentEditor
-
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        skinGenerator.traitCollection = traitCollection
-    }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

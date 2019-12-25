@@ -10,12 +10,20 @@ public class DocumentEditor: NSObject {
     }
 
     public var currentPage: Page {
-        return document.pages[currentIndex]
+        return page(at: currentIndex)
+    }
+
+    public var pageCount: Int {
+        return document.pages.count
+    }
+
+    public func page(at index: Int) -> Page {
+        return document.pages[index]
     }
 
     // MARK: Editing
 
-    func addPage() {
+    public func addNewPage() {
         let newIndex = currentIndex + 1
         document = document.insertingBlankPage(at: newIndex)
         currentIndex = newIndex
@@ -29,22 +37,9 @@ public class DocumentEditor: NSObject {
 
     // MARK: Navigation
 
-    public var advancingWouldCreateNewPage: Bool {
-        let lastPageIndex = document.pages.endIndex - 1
-        let currentPage = document.pages[currentIndex]
-        return currentIndex == lastPageIndex && currentPage.hasDrawing
-    }
-
-    public func advancePage() {
-        if advancingWouldCreateNewPage {
-            addPage()
-        } else {
-            currentIndex = min(currentIndex + 1, document.pages.endIndex - 1)
-        }
-    }
-
-    public func retreatPage() {
-        currentIndex = max(currentIndex - 1, document.pages.startIndex)
+    public func navigate(toPageAt index: Int) {
+        guard index >= 0, index < pageCount else { return }
+        currentIndex = index
     }
 
     // MARK: Boilerplate

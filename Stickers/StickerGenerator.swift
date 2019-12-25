@@ -21,7 +21,7 @@ class StickerGenerator: NSObject {
             kCGImagePropertyAPNGLoopCount: 0
         ]]
         let frameProperties = [kCGImagePropertyPNGDictionary: [
-            kCGImagePropertyAPNGDelayTime: 1 / Self.standardFramesPerSecond
+            kCGImagePropertyAPNGDelayTime: 1 / Constants.framesPerSecond
         ]]
 
         guard let destination = CGImageDestinationCreateWithURL(exportURL as CFURL, kUTTypePNG, document.pages.count, nil) else { throw Error.destinationCreationError }
@@ -29,9 +29,9 @@ class StickerGenerator: NSObject {
 
         let traitCollection = UITraitCollection(userInterfaceStyle: .light)
         traitCollection.performAsCurrent {
-            let stickerScale = Self.standardStickerSize.width / Self.standardCanvasSize.width
+            let stickerScale = Self.standardStickerSize / Constants.canvasRect
             document.pages.forEach { page in
-                guard let image = page.drawing.image(from: Self.standardCanvasRect, scale: stickerScale).cgImage else { return }
+                guard let image = page.drawing.image(from: Constants.canvasRect, scale: stickerScale).cgImage else { return }
                 CGImageDestinationAddImage(destination, image, frameProperties as CFDictionary)
             }
         }
@@ -49,8 +49,5 @@ class StickerGenerator: NSObject {
 
     // MARK: Boilerplate
 
-    private static let standardCanvasRect = CGRect(origin: .zero, size: standardCanvasSize)
-    private static let standardCanvasSize = CGSize(width: 512, height: 512)
     private static let standardStickerSize = CGSize(width: 408, height: 408)
-    private static let standardFramesPerSecond = CGFloat(12)
 }

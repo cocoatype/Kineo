@@ -49,13 +49,13 @@ class SidebarActionButton: UIControl {
         UIColor.sidebarButtonBackground.setFill()
 
         if auxiliaryImage != nil {
-            let boundsPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.bottomLeft, .bottomRight, .topLeft], cornerRadii: CGSize(width: 8, height: 8))
+            let boundsPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.bottomLeft, .bottomRight, .topLeft], cornerRadii: CGSize(width: 10, height: 10))
             let cutoutRect = CGRect(x: bounds.maxX - 10, y: bounds.minY - 10, width: 20, height: 20)
             let cutoutPath = UIBezierPath(ovalIn: cutoutRect)
             boundsPath.append(cutoutPath.reversing())
             boundsPath.fill()
         } else {
-            UIBezierPath(roundedRect: bounds, cornerRadius: 8).fill()
+            UIBezierPath(roundedRect: bounds, cornerRadius: 10).fill()
         }
     }
 

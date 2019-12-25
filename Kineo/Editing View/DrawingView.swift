@@ -42,6 +42,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
         }
 
         set(newPage) {
+            guard newPage != page else { return }
             canvasView.drawing = newPage.drawing
         }
     }

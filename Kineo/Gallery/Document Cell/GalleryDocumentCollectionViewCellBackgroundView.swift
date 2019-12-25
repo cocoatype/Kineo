@@ -6,7 +6,7 @@ import UIKit
 class GalleryDocumentCollectionViewCellBackgroundView: UIView {
     init() {
         super.init(frame: .zero)
-        backgroundColor = .white
+        backgroundColor = .canvasBackground
         translatesAutoresizingMaskIntoConstraints = false
         layer.mask = maskLayer
 
