@@ -6,8 +6,11 @@ import UIKit
 class FilmStripCollectionView: UICollectionView {
     init() {
         super.init(frame: .zero, collectionViewLayout: FilmStripCollectionViewLayout())
+
         backgroundColor = .filmStripBackground
+        layer.cornerRadius = 10
         translatesAutoresizingMaskIntoConstraints = false
+
         register(FilmStripExistingPageCell.self, forCellWithReuseIdentifier: FilmStripExistingPageCell.identifier)
         register(FilmStripNewPageCell.self, forCellWithReuseIdentifier: FilmStripNewPageCell.identifier)
     }

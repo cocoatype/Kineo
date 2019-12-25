@@ -9,19 +9,22 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
         super.init(frame: .zero)
 
         backgroundColor = .filmStripBackground
+        clipsToBounds = false
         layer.cornerRadius = 10
-        layer.masksToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
 
         collectionView.dataSource = self.dataSource
         collectionView.delegate = self
         addSubview(collectionView)
+        addSubview(indicator)
 
         NSLayoutConstraint.activate([
             collectionView.widthAnchor.constraint(equalTo: widthAnchor),
             collectionView.heightAnchor.constraint(equalTo: heightAnchor),
             collectionView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            collectionView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            collectionView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            indicator.centerXAnchor.constraint(equalTo: trailingAnchor),
+            indicator.topAnchor.constraint(equalTo: topAnchor, constant: 8)
         ])
     }
 
@@ -45,6 +48,7 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
 
     private let collectionView = FilmStripCollectionView()
     private let dataSource: FilmStripDataSource
+    private let indicator = FilmStripIndicator()
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
