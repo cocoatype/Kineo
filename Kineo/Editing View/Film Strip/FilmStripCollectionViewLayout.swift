@@ -24,14 +24,18 @@ class FilmStripCollectionViewLayout: UICollectionViewFlowLayout {
     }
 
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        let targetItemIndex = round(proposedContentOffset.y / spacePerItem)
-        let targetOffset = targetItemIndex * spacePerItem
+        let targetItemIndex = indexOfItem(atContentOffset: proposedContentOffset)
+        let targetOffset = CGFloat(targetItemIndex) * spacePerItem
         return CGPoint(x: proposedContentOffset.x, y: targetOffset)
     }
 
     func contentOffset(forItemAt index: Int) -> CGPoint {
         let verticalOffset = floor(CGFloat(index) * spacePerItem)
         return CGPoint(x: 0, y: verticalOffset)
+    }
+
+    func indexOfItem(atContentOffset contentOffset: CGPoint) -> Int {
+        return Int(round(contentOffset.y / spacePerItem))
     }
 
     // MARK: Boilerplate

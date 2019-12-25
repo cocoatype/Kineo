@@ -41,9 +41,9 @@ class EditingViewController: UIViewController {
         updateCurrentPage()
     }
 
-    @objc func navigateToPage(_ sender: FilmStripView) {
-        guard let index = sender.selectedIndex else { return }
-        documentEditor.navigate(toPageAt: index)
+    @objc func navigateToPage(_ sender: FilmStripView, for event: PageNavigationEvent) {
+        guard documentEditor.currentIndex != event.pageIndex else { return }
+        documentEditor.navigate(toPageAt: event.pageIndex)
         updateCurrentPage()
     }
 

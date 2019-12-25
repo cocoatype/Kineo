@@ -38,7 +38,7 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
         if dataSource.isNewPage(indexPath) {
             sendAction(#selector(EditingViewController.addNewPage), to: nil, for: nil)
         } else {
-            sendAction(#selector(EditingViewController.navigateToPage(_:)), to: nil, for: nil)
+            sendAction(#selector(EditingViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(pageIndex: indexPath.item))
             if let layout = collectionView.collectionViewLayout as? FilmStripCollectionViewLayout {
                 collectionView.setContentOffset(layout.contentOffset(forItemAt: indexPath.item), animated: true)
             } else {
@@ -47,7 +47,11 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
         }
     }
 
-    var selectedIndex: Int? { return collectionView.indexPathsForSelectedItems?.first?.item }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let layout = collectionView.collectionViewLayout as? FilmStripCollectionViewLayout else { return }
+        let pageIndex = layout.indexOfItem(atContentOffset: scrollView.contentOffset)
+        sendAction(#selector(EditingViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(pageIndex: pageIndex))
+    }
 
     // MARK: Boilerplate
 
@@ -59,5 +63,12 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
+    }
+}
+
+class PageNavigationEvent: UIEvent {
+    let pageIndex: Int
+    init(pageIndex: Int) {
+        self.pageIndex = pageIndex
     }
 }
