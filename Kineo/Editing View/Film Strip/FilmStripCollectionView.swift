@@ -9,6 +9,8 @@ class FilmStripCollectionView: UICollectionView {
 
         backgroundColor = .filmStripBackground
         layer.cornerRadius = 10
+        showsHorizontalScrollIndicator = false
+        showsVerticalScrollIndicator = false
         translatesAutoresizingMaskIntoConstraints = false
 
         register(FilmStripExistingPageCell.self, forCellWithReuseIdentifier: FilmStripExistingPageCell.identifier)
