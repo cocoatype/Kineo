@@ -25,6 +25,7 @@ class EditingView: UIView, PlaybackViewDelegate {
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         layoutManager.layout(self)
+        setupToolPicker()
     }
 
     func reloadData() {
@@ -39,6 +40,9 @@ class EditingView: UIView, PlaybackViewDelegate {
 
         drawingView.observe(toolPicker)
         _ = drawingView.becomeFirstResponder()
+
+        let alwaysShowToolPicker = traitCollection.horizontalSizeClass != .compact
+        toolPicker.setVisible(alwaysShowToolPicker, forFirstResponder: drawingView)
     }
 
     // MARK: Playback
@@ -85,7 +89,11 @@ class EditingView: UIView, PlaybackViewDelegate {
     private let dataSource: EditingViewDataSource
 
     private var layoutManager: EditingViewLayoutManager {
-        return EditingViewRegularLayoutManager()
+        if traitCollection.horizontalSizeClass == .compact {
+            return EditingViewCompactLayoutManager()
+        } else {
+            return EditingViewRegularLayoutManager()
+        }
     }
 
     private var page: Page {
