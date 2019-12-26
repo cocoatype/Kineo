@@ -7,9 +7,14 @@ class EditingViewRegularLayoutManager: NSObject, EditingViewLayoutManager {
     func layout(_ editingView: EditingView) {
         let drawingView = self.drawingView(in: editingView)
         let filmStripView = self.filmStripView(in: editingView)
-        let exportButton = self.exportButton(in: editingView)
-        let galleryButton = self.galleryButton(in: editingView)
-        let playButton = self.playButton(in: editingView)
+
+        editingView.subviews
+          .filter { $0 != drawingView && $0 != filmStripView }
+          .forEach { $0.removeFromSuperview() }
+
+        editingView.addSubview(playButton)
+        editingView.addSubview(galleryButton)
+        editingView.addSubview(exportButton)
 
         NSLayoutConstraint.activate([
             drawingView.widthAnchor.constraint(equalTo: drawingView.heightAnchor),
@@ -28,4 +33,8 @@ class EditingViewRegularLayoutManager: NSObject, EditingViewLayoutManager {
             playButton.leadingAnchor.constraint(equalTo: editingView.leadingAnchor, constant: 11)
         ])
     }
+
+    private let playButton = PlayButton()
+    private let galleryButton = GalleryButton()
+    private let exportButton = ExportButton()
 }

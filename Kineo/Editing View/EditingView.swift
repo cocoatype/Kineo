@@ -14,9 +14,6 @@ class EditingView: UIView, PlaybackViewDelegate {
 
         addSubview(drawingView)
         addSubview(filmStripView)
-        addSubview(exportButton)
-        addSubview(galleryButton)
-        addSubview(playButton)
 
         layoutManager.layout(self)
 
@@ -43,6 +40,15 @@ class EditingView: UIView, PlaybackViewDelegate {
 
         let alwaysShowToolPicker = traitCollection.horizontalSizeClass != .compact
         toolPicker.setVisible(alwaysShowToolPicker, forFirstResponder: drawingView)
+    }
+
+    func toggleToolPicker() {
+        guard let window = window,
+          let toolPicker = PKToolPicker.shared(for: window)
+        else { return }
+
+        toolPicker.setVisible(toolPicker.isVisible.toggled, forFirstResponder: drawingView)
+        _ = drawingView.becomeFirstResponder()
     }
 
     // MARK: Playback
@@ -82,10 +88,6 @@ class EditingView: UIView, PlaybackViewDelegate {
     private lazy var drawingView = DrawingView(page: dataSource.currentPage)
     private lazy var filmStripView = FilmStripView(dataSource: dataSource)
 
-    private let playButton = PlayActionButton()
-    private let galleryButton = GalleryNavigationActionButton()
-    private let exportButton = ExportActionButton()
-
     private let dataSource: EditingViewDataSource
 
     private var layoutManager: EditingViewLayoutManager {
@@ -106,4 +108,8 @@ class EditingView: UIView, PlaybackViewDelegate {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
     }
+}
+
+extension Bool {
+    var toggled: Bool { return self == false }
 }

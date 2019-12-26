@@ -21,15 +21,19 @@ extension EditingViewLayoutManager {
         return firstSubview(of: FilmStripView.self, in: editingView)
     }
 
-    func playButton(in editingView: EditingView) -> PlayActionButton {
-        return firstSubview(of: PlayActionButton.self, in: editingView)
+    func playButton(in editingView: EditingView) -> PlayButton {
+        return firstSubview(of: PlayButton.self, in: editingView)
     }
 
-    func galleryButton(in editingView: EditingView) -> GalleryNavigationActionButton {
-        return firstSubview(of: GalleryNavigationActionButton.self, in: editingView)
+    func galleryButton(in editingView: EditingView) -> GalleryButton {
+        return firstSubview(of: GalleryButton.self, in: editingView)
     }
 
-    func exportButton(in editingView: EditingView) -> ExportActionButton {
-        return firstSubview(of: ExportActionButton.self, in: editingView)
+    func exportButton(in editingView: EditingView) -> ExportButton {
+        return firstSubview(of: ExportButton.self, in: editingView)
+    }
+
+    func toolsButton(in editingView: EditingView) -> ToolsButton {
+        return firstSubview(of: ToolsButton.self, in: editingView)
     }
 }
