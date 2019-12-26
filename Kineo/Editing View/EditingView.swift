@@ -18,24 +18,13 @@ class EditingView: UIView, PlaybackViewDelegate {
         addSubview(galleryButton)
         addSubview(playButton)
 
-        NSLayoutConstraint.activate([
-            drawingView.widthAnchor.constraint(equalTo: drawingView.heightAnchor),
-            drawingView.widthAnchor.constraint(equalToConstant: 512.0),
-            drawingView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            drawingView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            filmStripView.topAnchor.constraint(equalTo: galleryButton.bottomAnchor, constant: 11),
-            filmStripView.bottomAnchor.constraint(equalTo: playButton.topAnchor, constant: -11),
-            filmStripView.widthAnchor.constraint(equalToConstant: 44),
-            filmStripView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
-            exportButton.topAnchor.constraint(equalTo: topAnchor, constant: 11),
-            exportButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11),
-            galleryButton.topAnchor.constraint(equalTo: topAnchor, constant: 11),
-            galleryButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
-            playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -11),
-            playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11)
-        ])
+        layoutManager.layout(self)
 
         reloadData()
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        layoutManager.layout(self)
     }
 
     func reloadData() {
@@ -95,14 +84,13 @@ class EditingView: UIView, PlaybackViewDelegate {
 
     private let dataSource: EditingViewDataSource
 
+    private var layoutManager: EditingViewLayoutManager {
+        return EditingViewRegularLayoutManager()
+    }
+
     private var page: Page {
         get { return drawingView.page }
         set(newPage) { drawingView.page = newPage }
-    }
-
-    private var skinsImage: UIImage? {
-        get { return drawingView.skinsImage }
-        set(newImage) { drawingView.skinsImage = newImage }
     }
 
     @available(*, unavailable)
