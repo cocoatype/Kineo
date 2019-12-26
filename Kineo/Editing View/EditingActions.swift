@@ -17,6 +17,6 @@ class ExportActionButton: SidebarActionButton {
 
 class PlayActionButton: SidebarActionButton {
     init() {
-        super.init(icon: Icons.play, selector: #selector(EditingViewController.playOneLoop), doubleTapSelector: #selector(EditingViewController.playInfiniteLoop))
+        super.init(icon: Icons.play, selector: #selector(EditingViewController.play))
     }
 }

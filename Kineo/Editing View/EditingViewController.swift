@@ -28,12 +28,9 @@ class EditingViewController: UIViewController {
 
     // MARK: Transport Controls
 
-    @objc func playOneLoop() {
-        editingView?.play(documentEditor.document)
-    }
-
-    @objc func playInfiniteLoop() {
-        editingView?.play(documentEditor.document, continuously: true)
+    @objc func play(_ sender: Any, for event: UIEvent) {
+        let tapCount = event.allTouches?.first?.tapCount ?? 1
+        editingView?.play(documentEditor.document, continuously: tapCount > 1)
     }
 
     @objc func addNewPage() {

@@ -4,7 +4,7 @@
 import UIKit
 
 class SidebarActionButton: UIControl {
-    init(icon: UIImage? = nil, auxiliaryIcon: UIImage? = nil, selector: Selector, doubleTapSelector: Selector? = nil, target: Any? = nil) {
+    init(icon: UIImage? = nil, auxiliaryIcon: UIImage? = nil, selector: Selector, target: Any? = nil) {
         super.init(frame: .zero)
 
         backgroundColor = .clear
@@ -16,10 +16,7 @@ class SidebarActionButton: UIControl {
         layer.masksToBounds = false
         clipsToBounds = false
 
-        addTarget(target, action: selector, for: .primaryActionTriggered)
-        if let doubleTapSelector = doubleTapSelector {
-            addTarget(target, action: doubleTapSelector, for: .doubleTap)
-        }
+        addTarget(target, action: selector, for: .touchUpInside)
 
         addSubview(imageView)
         addSubview(auxiliaryImageView)
@@ -34,9 +31,6 @@ class SidebarActionButton: UIControl {
             auxiliaryImageView.centerXAnchor.constraint(equalTo: trailingAnchor),
             auxiliaryImageView.centerYAnchor.constraint(equalTo: topAnchor)
         ])
-
-        addGestureRecognizer(singleTapGestureRecognizer)
-        addGestureRecognizer(doubleTapGestureRecognizer)
     }
 
     override func layoutSubviews() {
@@ -76,24 +70,6 @@ class SidebarActionButton: UIControl {
         }
     }
 
-    // MARK: Touch Handling
-
-    private lazy var singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
-
-    private lazy var doubleTapGestureRecognizer: UITapGestureRecognizer = {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap))
-        gestureRecognizer.numberOfTapsRequired = 2
-        return gestureRecognizer
-    }()
-
-    @objc private func handleSingleTap() {
-        sendActions(for: .primaryActionTriggered)
-    }
-
-    @objc private func handleDoubleTap() {
-        sendActions(for: .doubleTap)
-    }
-
     // MARK: Boilerplate
 
     static let width = CGFloat(44)
@@ -103,8 +79,4 @@ class SidebarActionButton: UIControl {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
     }
-}
-
-extension UIControl.Event {
-    static let doubleTap = UIControl.Event(rawValue: 0x1000000)
 }
