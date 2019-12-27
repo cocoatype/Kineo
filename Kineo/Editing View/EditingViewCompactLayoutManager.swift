@@ -12,8 +12,6 @@ class EditingViewCompactLayoutManager: NSObject, EditingViewLayoutManager {
           .filter { $0 != drawingView && $0 != filmStripView }
           .forEach { $0.removeFromSuperview() }
 
-        filmStripView.isHidden = true
-
         editingView.addSubview(playButton)
         editingView.addSubview(galleryButton)
         editingView.addSubview(exportButton)
@@ -31,7 +29,11 @@ class EditingViewCompactLayoutManager: NSObject, EditingViewLayoutManager {
             drawingView.centerXAnchor.constraint(equalTo: editingView.centerXAnchor),
             drawingView.leadingAnchor.constraint(equalTo: editingView.leadingAnchor, constant: 11),
             drawingView.heightAnchor.constraint(equalTo: drawingView.widthAnchor),
-            drawingView.centerYAnchor.constraint(equalTo: editingView.safeAreaLayoutGuide.centerYAnchor)
+            drawingView.centerYAnchor.constraint(equalTo: editingView.safeAreaLayoutGuide.centerYAnchor),
+            filmStripView.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 11),
+            filmStripView.topAnchor.constraint(equalTo: playButton.topAnchor),
+            filmStripView.bottomAnchor.constraint(equalTo: playButton.bottomAnchor),
+            filmStripView.trailingAnchor.constraint(equalTo: toolsButton.trailingAnchor)
         ])
     }
 
