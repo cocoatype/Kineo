@@ -16,6 +16,8 @@ class EditingViewCompactLayoutManager: NSObject, EditingViewLayoutManager {
         editingView.addSubview(galleryButton)
         editingView.addSubview(exportButton)
         editingView.addSubview(toolsButton)
+        editingView.addSubview(undoButton)
+        editingView.addSubview(redoButton)
 
         NSLayoutConstraint.activate([
             galleryButton.topAnchor.constraint(equalTo: editingView.safeAreaLayoutGuide.topAnchor, constant: 11),
@@ -26,6 +28,10 @@ class EditingViewCompactLayoutManager: NSObject, EditingViewLayoutManager {
             playButton.bottomAnchor.constraint(equalTo: editingView.safeAreaLayoutGuide.bottomAnchor, constant: -11),
             toolsButton.trailingAnchor.constraint(equalTo: editingView.trailingAnchor, constant: -11),
             toolsButton.topAnchor.constraint(equalTo: galleryButton.topAnchor),
+            redoButton.trailingAnchor.constraint(equalTo: toolsButton.leadingAnchor, constant: -11),
+            redoButton.centerYAnchor.constraint(equalTo: toolsButton.centerYAnchor),
+            undoButton.trailingAnchor.constraint(equalTo: redoButton.leadingAnchor, constant: -11),
+            undoButton.centerYAnchor.constraint(equalTo: toolsButton.centerYAnchor),
             drawingView.centerXAnchor.constraint(equalTo: editingView.centerXAnchor),
             drawingView.leadingAnchor.constraint(equalTo: editingView.leadingAnchor, constant: 11),
             drawingView.heightAnchor.constraint(equalTo: drawingView.widthAnchor),
@@ -41,4 +47,6 @@ class EditingViewCompactLayoutManager: NSObject, EditingViewLayoutManager {
     private let galleryButton = GalleryButton()
     private let exportButton = ExportButton()
     private let toolsButton = ToolsButton()
+    private let undoButton = UndoButton()
+    private let redoButton = RedoButton()
 }

@@ -26,3 +26,15 @@ class ToolsButton: SidebarActionButton {
         super.init(icon: Icons.tools, selector: #selector(EditingViewController.toggleToolPicker))
     }
 }
+
+class UndoButton: SidebarActionButton {
+    init() {
+        super.init(icon: Icons.undo, selector: #selector(UndoManager.undo))
+    }
+}
+
+class RedoButton: SidebarActionButton {
+    init() {
+        super.init(icon: Icons.redo, selector: #selector(UndoManager.redo))
+    }
+}
