@@ -70,8 +70,8 @@ class EditingViewController: UIViewController {
         editingView?.toggleToolPicker()
     }
 
-    @objc func undoDrawing() {}
-    @objc func redoDrawing() {}
+    @objc func undoDrawing() { undoManager?.undo() }
+    @objc func redoDrawing() { undoManager?.redo() }
 
     // MARK: Boilerplate
 

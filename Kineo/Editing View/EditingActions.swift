@@ -29,12 +29,12 @@ class ToolsButton: SidebarActionButton {
 
 class UndoButton: SidebarActionButton {
     init() {
-        super.init(icon: Icons.undo, selector: #selector(UndoManager.undo))
+        super.init(icon: Icons.undo, selector: #selector(EditingViewController.undoDrawing))
     }
 }
 
 class RedoButton: SidebarActionButton {
     init() {
-        super.init(icon: Icons.redo, selector: #selector(UndoManager.redo))
+        super.init(icon: Icons.redo, selector: #selector(EditingViewController.redoDrawing))
     }
 }
