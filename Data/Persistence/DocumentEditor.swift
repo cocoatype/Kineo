@@ -42,10 +42,23 @@ public class DocumentEditor: NSObject {
         currentIndex = index
     }
 
+    // MARK: Undo/Redo
+
+    public func undo() { documentUndoManager.undo() }
+    public func redo() { documentUndoManager.redo() }
+
     // MARK: Boilerplate
 
     private let documentStore = DocumentStore()
+    private let documentUndoManager = UndoManager()
 
-    private(set) public var document: Document
+    private(set) public var document: Document {
+        didSet(oldDocument) {
+            documentUndoManager.registerUndo(withTarget: self) { [weak self, oldDocument, currentIndex] _ in
+                self?.document = oldDocument
+                self?.currentIndex = currentIndex
+            }
+        }
+    }
     private(set) public var currentIndex = 0
 }

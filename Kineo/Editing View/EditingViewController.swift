@@ -70,8 +70,10 @@ class EditingViewController: UIViewController {
         editingView?.toggleToolPicker()
     }
 
-    @objc func undoDrawing() { undoManager?.undo() }
-    @objc func redoDrawing() { undoManager?.redo() }
+    // MARK: Undo/Redo
+
+    @objc func undoDrawing() { documentEditor.undo(); updateCurrentPage() }
+    @objc func redoDrawing() { documentEditor.redo(); updateCurrentPage() }
 
     // MARK: Boilerplate
 

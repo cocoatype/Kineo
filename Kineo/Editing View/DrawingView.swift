@@ -69,9 +69,17 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
 
     // MARK: PKCanvasViewDelegate
 
+    var toolWasUsed = false
     func canvasViewDidEndUsingTool(_ canvasView: PKCanvasView) {
+        toolWasUsed = true
+    }
+
+    func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
+        guard toolWasUsed == true else { return }
+
         updatePage()
         sendAction(#selector(EditingViewController.drawingViewDidChangePage(_:)), to: nil, for: nil)
+        toolWasUsed = false
     }
 
     // MARK: Boilerplate
