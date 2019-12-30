@@ -26,7 +26,7 @@ class EditingView: UIView, PlaybackViewDelegate {
     }
 
     func reloadData() {
-        page = dataSource.currentPage
+        drawingView.display(page: dataSource.currentPage, skinsImage: dataSource.skinsImage)
         filmStripView.reloadData()
     }
 
@@ -96,11 +96,6 @@ class EditingView: UIView, PlaybackViewDelegate {
         } else {
             return EditingViewRegularLayoutManager()
         }
-    }
-
-    private var page: Page {
-        get { return drawingView.page }
-        set(newPage) { drawingView.page = newPage }
     }
 
     @available(*, unavailable)

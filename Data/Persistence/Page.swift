@@ -11,8 +11,9 @@ public struct Page: Codable, Equatable {
 
     public let drawing: PKDrawing
     var hasDrawing: Bool { return drawing.bounds.size != .zero }
+    private let uuid = UUID()
 
     public static func == (lhs: Page, rhs: Page) -> Bool {
-        return lhs.drawing == rhs.drawing
+        return lhs.uuid == rhs.uuid
     }
 }

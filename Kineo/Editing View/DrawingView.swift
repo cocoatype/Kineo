@@ -7,6 +7,7 @@ import UIKit
 
 class DrawingView: UIControl, PKCanvasViewDelegate {
     init(page: Page) {
+        self.page = page
         super.init(frame: .zero)
 
         overrideUserInterfaceStyle = .light
@@ -36,22 +37,28 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
         ])
     }
 
-    var page: Page {
-        get {
-            return Page(drawing: canvasView.drawing)
-        }
-
-        set(newPage) {
-            guard newPage != page else { return }
-            canvasView.drawing = newPage.drawing
-        }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        updateCanvas()
     }
 
-    var skinsImage: UIImage? {
-        get { return skinsImageView.image }
-        set(newImage) {
-            skinsImageView.image = newImage
-        }
+    func display(page: Page, skinsImage: UIImage?) {
+        guard page != self.page else { return }
+        self.page = page
+        self.skinsImage = skinsImage
+        updateCanvas()
+    }
+
+    private func updateCanvas() {
+        let scale = bounds.width / Constants.canvasSize.width
+        let transform = CGAffineTransform(scaleX: scale, y: scale)
+        canvasView.drawing = page.drawing.transformed(using: transform)
+    }
+
+    private func updatePage() {
+        let scale = Constants.canvasSize.width / bounds.width
+        let transform = CGAffineTransform(scaleX: scale, y: scale)
+        page = Page(drawing: canvasView.drawing.transformed(using: transform))
     }
 
     func observe(_ toolPicker: PKToolPicker) {
@@ -62,18 +69,30 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
 
     // MARK: PKCanvasViewDelegate
 
+    var toolWasUsed = false
+    func canvasViewDidEndUsingTool(_ canvasView: PKCanvasView) {
+        toolWasUsed = true
+    }
+
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
+        guard toolWasUsed == true else { return }
+
+        updatePage()
         sendAction(#selector(EditingViewController.drawingViewDidChangePage(_:)), to: nil, for: nil)
+        toolWasUsed = false
     }
 
     // MARK: Boilerplate
 
     private let canvasView = CanvasView()
-    private let skinsImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    private let skinsImageView = SkinsImageView()
+
+    private(set) var page: Page
+
+    private var skinsImage: UIImage? {
+        get { return skinsImageView.image }
+        set(newImage) { skinsImageView.image = newImage }
+    }
 
     override var canBecomeFirstResponder: Bool { return true }
 
