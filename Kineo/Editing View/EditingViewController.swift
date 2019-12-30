@@ -66,6 +66,13 @@ class EditingViewController: UIViewController {
         editingView?.reloadData()
     }
 
+    @objc func toggleToolPicker() {
+        editingView?.toggleToolPicker()
+    }
+
+    @objc func undoDrawing() { undoManager?.undo() }
+    @objc func redoDrawing() { undoManager?.redo() }
+
     // MARK: Boilerplate
 
     private static let exportPromoText = NSLocalizedString("EditingViewController.exportPromoText", comment: "Promo text shared when exporting videos")

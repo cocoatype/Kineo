@@ -22,14 +22,36 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
             collectionView.widthAnchor.constraint(equalTo: widthAnchor),
             collectionView.heightAnchor.constraint(equalTo: heightAnchor),
             collectionView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            collectionView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            indicator.centerXAnchor.constraint(equalTo: trailingAnchor),
-            indicator.topAnchor.constraint(equalTo: topAnchor, constant: 8)
+            collectionView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+
+        installIndicatorConstraints()
     }
 
     func reloadData() {
         collectionView.reloadData()
+    }
+
+    private func installIndicatorConstraints() {
+        NSLayoutConstraint.deactivate(indicator.constraintsAffectingAllAxes)
+        if traitCollection.horizontalSizeClass == .compact {
+            NSLayoutConstraint.activate([
+                indicator.centerYAnchor.constraint(equalTo: topAnchor),
+                indicator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                indicator.centerXAnchor.constraint(equalTo: trailingAnchor),
+                indicator.topAnchor.constraint(equalTo: topAnchor, constant: 8)
+            ])
+        }
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        guard previousTraitCollection?.horizontalSizeClass != traitCollection.horizontalSizeClass else { return }
+        installIndicatorConstraints()
     }
 
     // MARK: UICollectionViewDelegate

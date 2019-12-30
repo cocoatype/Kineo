@@ -12,7 +12,10 @@ class FilmStripIndicator: UIView {
     }
 
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 2, height: 28)
+        switch traitCollection.horizontalSizeClass {
+        case .compact: return CGSize(width: 28, height: 2)
+        default: return CGSize(width: 2, height: 28)
+        }
     }
 
     // MARK: Boilerplate

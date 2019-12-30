@@ -14,37 +14,74 @@ class FilmStripCollectionViewLayout: UICollectionViewFlowLayout {
 
     override var collectionViewContentSize: CGSize {
         guard let collectionView = collectionView else { return .zero }
-        let itemsCount = collectionView.numberOfItems(inSection: 0) - 2
-        let contentWidth = collectionView.bounds.width
+        let minItemsCount = 2 // always show 2+ items: the current page and new page button
+        let itemsCount = collectionView.numberOfItems(inSection: 0) - minItemsCount
+        let totalItemsSpace = CGFloat(itemsCount) * spacePerItem
+        var finalSize = collectionView.bounds.size
 
-        let itemsHeight = CGFloat(itemsCount) * (itemSize.height + minimumLineSpacing)
-        let viewHeight = collectionView.bounds.height
-        let contentHeight = itemsHeight + viewHeight
-        return CGSize(width: contentWidth, height: contentHeight)
+        switch alignment {
+        case .vertical: finalSize.height += totalItemsSpace
+        case .horizontal: finalSize.width += totalItemsSpace
+        }
+
+        return finalSize
     }
 
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         let targetItemIndex = indexOfItem(atContentOffset: proposedContentOffset)
-        let targetOffset = CGFloat(targetItemIndex) * spacePerItem
-        return CGPoint(x: proposedContentOffset.x, y: targetOffset)
+        let targetDelta = CGFloat(targetItemIndex) * spacePerItem
+        var finalOffset = proposedContentOffset
+
+        switch alignment {
+        case .vertical: finalOffset.y = targetDelta
+        case .horizontal: finalOffset.x = targetDelta
+        }
+
+        return finalOffset
     }
 
     func contentOffset(forItemAt index: Int) -> CGPoint {
-        let verticalOffset = floor(CGFloat(index) * spacePerItem)
-        return CGPoint(x: 0, y: verticalOffset)
+        let delta = floor(CGFloat(index) * spacePerItem)
+        switch alignment {
+        case .vertical: return CGPoint(x: 0, y: delta)
+        case .horizontal: return CGPoint(x: delta, y: 0)
+        }
     }
 
     func indexOfItem(atContentOffset contentOffset: CGPoint) -> Int {
-        return Int(round(contentOffset.y / spacePerItem))
+        var relevantDistance: CGFloat
+        switch alignment {
+        case .vertical: relevantDistance = contentOffset.y
+        case .horizontal: relevantDistance = contentOffset.x
+        }
+        return Int(round(relevantDistance / spacePerItem))
     }
 
     // MARK: Boilerplate
 
-    private var spacePerItem: CGFloat { itemSize.height + minimumLineSpacing }
+    private var alignment: Alignment {
+        guard let collectionView = collectionView else { return .vertical }
+        if collectionView.bounds.width > collectionView.bounds.height {
+            return .horizontal
+        } else {
+            return .vertical
+        }
+    }
+
+    private var spacePerItem: CGFloat {
+        switch alignment {
+        case .vertical: return itemSize.height + minimumLineSpacing
+        case .horizontal: return itemSize.width + minimumInteritemSpacing
+        }
+    }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
+    }
+
+    private enum Alignment {
+        case horizontal, vertical
     }
 }

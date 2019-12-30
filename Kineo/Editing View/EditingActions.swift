@@ -3,20 +3,38 @@
 
 import UIKit
 
-class GalleryNavigationActionButton: SidebarActionButton {
+class GalleryButton: SidebarActionButton {
     init() {
         super.init(icon: Icons.gallery, selector: #selector(SceneViewController.showGallery))
     }
 }
 
-class ExportActionButton: SidebarActionButton {
+class ExportButton: SidebarActionButton {
     init() {
         super.init(icon: Icons.export, selector: #selector(EditingViewController.exportVideo))
     }
 }
 
-class PlayActionButton: SidebarActionButton {
+class PlayButton: SidebarActionButton {
     init() {
         super.init(icon: Icons.play, selector: #selector(EditingViewController.play))
+    }
+}
+
+class ToolsButton: SidebarActionButton {
+    init() {
+        super.init(icon: Icons.tools, selector: #selector(EditingViewController.toggleToolPicker))
+    }
+}
+
+class UndoButton: SidebarActionButton {
+    init() {
+        super.init(icon: Icons.undo, selector: #selector(EditingViewController.undoDrawing))
+    }
+}
+
+class RedoButton: SidebarActionButton {
+    init() {
+        super.init(icon: Icons.redo, selector: #selector(EditingViewController.redoDrawing))
     }
 }
