@@ -26,7 +26,8 @@ class EditingView: UIView, PlaybackViewDelegate {
     }
 
     func reloadData() {
-        page = dataSource.currentPage
+        drawingView.page = dataSource.currentPage
+        drawingView.skinsImage = dataSource.skinsImage
         filmStripView.reloadData()
     }
 

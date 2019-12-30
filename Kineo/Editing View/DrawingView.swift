@@ -69,11 +69,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
     // MARK: Boilerplate
 
     private let canvasView = CanvasView()
-    private let skinsImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    private let skinsImageView = SkinsImageView()
 
     override var canBecomeFirstResponder: Bool { return true }
 
