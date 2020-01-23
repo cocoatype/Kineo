@@ -17,6 +17,21 @@ class FilmStripCollectionView: UICollectionView {
         register(FilmStripNewPageCell.self, forCellWithReuseIdentifier: FilmStripNewPageCell.identifier)
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        let scrollDirection: UICollectionView.ScrollDirection
+        if bounds.width > bounds.height {
+            scrollDirection = .horizontal
+        } else { scrollDirection = .vertical }
+
+        if filmStripLayout?.scrollDirection != scrollDirection {
+            collectionViewLayout = FilmStripCollectionViewLayout(scrollDirection: scrollDirection)
+        }
+    }
+
+    var filmStripLayout: FilmStripCollectionViewLayout? { return collectionViewLayout as? FilmStripCollectionViewLayout }
+
     // MARK: Boilerplate
 
     @available(*, unavailable)
