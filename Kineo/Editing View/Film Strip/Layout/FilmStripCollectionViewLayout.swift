@@ -1,15 +1,13 @@
-//  Created by Geoff Pado on 12/24/19.
-//  Copyright © 2019 Cocoatype, LLC. All rights reserved.
+//  Created by Geoff Pado on 1/22/20.
+//  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
 import UIKit
 
-class FilmStripCollectionViewLayout: UICollectionViewFlowLayout {
-    override init() {
-        super.init()
-        sectionInset = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-        itemSize = CGSize(width: 36, height: 36)
-        minimumLineSpacing = 4
-        minimumInteritemSpacing = 4
+class FilmStripCollectionViewLayout: UICollectionViewCompositionalLayout {
+    init(scrollDirection: UICollectionView.ScrollDirection = .vertical) {
+        let configuration = UICollectionViewCompositionalLayoutConfiguration()
+        configuration.scrollDirection = scrollDirection
+        super.init(section: FilmStripCollectionLayoutSection(), configuration: configuration)
     }
 
     override var collectionViewContentSize: CGSize {
@@ -19,9 +17,10 @@ class FilmStripCollectionViewLayout: UICollectionViewFlowLayout {
         let totalItemsSpace = CGFloat(itemsCount) * spacePerItem
         var finalSize = collectionView.bounds.size
 
-        switch alignment {
+        switch scrollDirection {
         case .vertical: finalSize.height += totalItemsSpace
         case .horizontal: finalSize.width += totalItemsSpace
+        @unknown default: break
         }
 
         return finalSize
@@ -32,9 +31,10 @@ class FilmStripCollectionViewLayout: UICollectionViewFlowLayout {
         let targetDelta = CGFloat(targetItemIndex) * spacePerItem
         var finalOffset = proposedContentOffset
 
-        switch alignment {
+        switch scrollDirection {
         case .vertical: finalOffset.y = targetDelta
         case .horizontal: finalOffset.x = targetDelta
+        @unknown default: break
         }
 
         return finalOffset
@@ -42,46 +42,37 @@ class FilmStripCollectionViewLayout: UICollectionViewFlowLayout {
 
     func contentOffset(forItemAt index: Int) -> CGPoint {
         let delta = floor(CGFloat(index) * spacePerItem)
-        switch alignment {
+        switch scrollDirection {
         case .vertical: return CGPoint(x: 0, y: delta)
         case .horizontal: return CGPoint(x: delta, y: 0)
+        @unknown default: return .zero
         }
     }
 
     func indexOfItem(atContentOffset contentOffset: CGPoint) -> Int {
         var relevantDistance: CGFloat
-        switch alignment {
+        switch scrollDirection {
         case .vertical: relevantDistance = contentOffset.y
         case .horizontal: relevantDistance = contentOffset.x
+        @unknown default: return 0
         }
+
         return Int(round(relevantDistance / spacePerItem))
     }
 
     // MARK: Boilerplate
 
-    private var alignment: Alignment {
-        guard let collectionView = collectionView else { return .vertical }
-        if collectionView.bounds.width > collectionView.bounds.height {
-            return .horizontal
-        } else {
-            return .vertical
-        }
+    private var spacePerItem: CGFloat {
+        return FilmStripCollectionLayoutSize().widthDimension.dimension + FilmStripCollectionLayoutSection.standardSpacing
     }
 
-    private var spacePerItem: CGFloat {
-        switch alignment {
-        case .vertical: return itemSize.height + minimumLineSpacing
-        case .horizontal: return itemSize.width + minimumInteritemSpacing
-        }
+    var scrollDirection: UICollectionView.ScrollDirection {
+        return configuration.scrollDirection
     }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
-    }
-
-    private enum Alignment {
-        case horizontal, vertical
     }
 }
