@@ -2,6 +2,7 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 import Data
+import PencilKit
 import UIKit
 
 protocol PlaybackViewDelegate: class {
@@ -17,7 +18,7 @@ class PlaybackView: UIView {
         overrideUserInterfaceStyle = .light
         translatesAutoresizingMaskIntoConstraints = false
 
-        canvasView.drawing = currentPage.drawing
+        canvasView.drawing = currentDrawing
         canvasView.isUserInteractionEnabled = false
         addSubview(canvasView)
 
@@ -39,7 +40,7 @@ class PlaybackView: UIView {
         didSet(oldDocument) {
             guard document != oldDocument else { return }
             currentIndex = 0
-            canvasView.drawing = currentPage.drawing
+            canvasView.drawing = currentDrawing
         }
     }
 
@@ -78,7 +79,13 @@ class PlaybackView: UIView {
         }
 
         currentIndex = nextIndex
-        canvasView.drawing = currentPage.drawing
+        canvasView.drawing = currentDrawing
+    }
+
+    private var currentDrawing: PKDrawing {
+        let scaleFactor = bounds.width / Constants.canvasSize.width
+        let transform = CGAffineTransform(scaleX: scaleFactor, y: scaleFactor)
+        return currentPage.drawing.transformed(using: transform)
     }
 
     // MARK: Boilerplate
