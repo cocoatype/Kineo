@@ -30,7 +30,13 @@ class FilmStripCollectionView: UICollectionView {
         }
     }
 
-    var filmStripLayout: FilmStripCollectionViewLayout? { return collectionViewLayout as? FilmStripCollectionViewLayout }
+    override func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
+        guard let layout = filmStripLayout else { return super.scrollToItem(at: indexPath, at: scrollPosition, animated: animated) }
+
+        setContentOffset(layout.contentOffset(forItemAt: indexPath.item), animated: true)
+    }
+
+    private var filmStripLayout: FilmStripCollectionViewLayout? { return collectionViewLayout as? FilmStripCollectionViewLayout }
 
     // MARK: Boilerplate
 
