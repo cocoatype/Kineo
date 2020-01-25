@@ -61,12 +61,9 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
             sendAction(#selector(EditingViewController.addNewPage), to: nil, for: nil)
         } else {
             sendAction(#selector(EditingViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(pageIndex: indexPath.item))
-            if let layout = collectionView.collectionViewLayout as? FilmStripCollectionViewLayout {
-                collectionView.setContentOffset(layout.contentOffset(forItemAt: indexPath.item), animated: true)
-            } else {
-                collectionView.scrollToItem(at: indexPath, at: .top, animated: true)
-            }
         }
+
+        collectionView.scrollToItem(at: indexPath, at: .top, animated: true)
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
