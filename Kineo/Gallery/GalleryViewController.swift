@@ -16,6 +16,20 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         view = galleryView
     }
 
+    // MARK: Context Menu Actions
+
+    @objc func deleteAnimation(_ sender: GalleryDocumentCollectionViewCell?) {
+        guard let cell = sender, let indexPath = galleryView?.indexPath(for: cell), let document = try? dataSource.document(at: indexPath) else { return }
+
+        dump(document)
+    }
+
+    @objc func exportAnimation(_ sender: GalleryDocumentCollectionViewCell?) {
+        guard let cell = sender, let indexPath = galleryView?.indexPath(for: cell), let document = try? dataSource.document(at: indexPath) else { return }
+
+        dump(document)
+    }
+
     // MARK: UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -45,6 +59,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     // MARK: Boilerplate
 
     private let dataSource = GalleryViewDataSource()
+    private var galleryView: GalleryView? { return view as? GalleryView }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

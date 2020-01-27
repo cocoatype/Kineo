@@ -24,6 +24,10 @@ class GalleryView: UIView {
 
     // MARK: Collection View
 
+    func indexPath(for cell: UICollectionViewCell) -> IndexPath? {
+        return collectionView.indexPath(for: cell)
+    }
+
     var dataSource: UICollectionViewDataSource? {
         get { return collectionView.dataSource }
         set(newDataSource) { collectionView.dataSource = newDataSource }
