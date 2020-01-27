@@ -19,9 +19,12 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     // MARK: Context Menu Actions
 
     @objc func deleteAnimation(_ sender: GalleryDocumentCollectionViewCell?) {
-        guard let cell = sender, let indexPath = galleryView?.indexPath(for: cell), let document = try? dataSource.document(at: indexPath) else { return }
+        guard let cell = sender, let indexPath = galleryView?.indexPath(for: cell) else { return }
 
-        dump(document)
+        do {
+            try dataSource.deleteDocument(at: indexPath)
+            galleryView?.deleteItem(at: indexPath)
+        } catch {}
     }
 
     @objc func exportAnimation(_ sender: GalleryDocumentCollectionViewCell?) {

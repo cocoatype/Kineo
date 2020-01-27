@@ -28,6 +28,10 @@ class GalleryView: UIView {
         return collectionView.indexPath(for: cell)
     }
 
+    func deleteItem(at indexPath: IndexPath) {
+        collectionView.deleteItems(at: [indexPath])
+    }
+
     var dataSource: UICollectionViewDataSource? {
         get { return collectionView.dataSource }
         set(newDataSource) { collectionView.dataSource = newDataSource }

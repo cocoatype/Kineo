@@ -19,6 +19,11 @@ class GalleryViewDataSource: NSObject, UICollectionViewDataSource {
         return documentStore.previewImage(at: documentIndex)
     }
 
+    func deleteDocument(at indexPath: IndexPath) throws {
+        let documentIndex = indexPath.item - 1
+        try documentStore.deleteDocument(at: documentIndex)
+    }
+
     // MARK: UICollectionViewDataSource
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
