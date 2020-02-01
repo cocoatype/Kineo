@@ -11,11 +11,8 @@ class GalleryDocumentCollectionViewCellBackgroundView: UIView {
         layer.mask = maskLayer
 
         addSubview(previewImageView)
-        addSubview(titleContainer)
 
         NSLayoutConstraint.activate([
-            titleContainer.topAnchor.constraint(equalTo: topAnchor),
-            titleContainer.widthAnchor.constraint(equalTo: widthAnchor),
             previewImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             previewImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             previewImageView.widthAnchor.constraint(equalTo: widthAnchor),
@@ -44,7 +41,6 @@ class GalleryDocumentCollectionViewCellBackgroundView: UIView {
 
     private let maskLayer = CAShapeLayer()
     private let previewImageView = GalleryDocumentPreviewImageView()
-    private let titleContainer = GalleryDocumentCollectionViewCellTitleContainerView()
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

@@ -24,8 +24,8 @@ class GalleryView: UIView {
 
     // MARK: Collection View
 
-    func indexPath(for cell: UICollectionViewCell) -> IndexPath? {
-        return collectionView.indexPath(for: cell)
+    func cell(for indexPath: IndexPath) -> UICollectionViewCell? {
+        return collectionView.cellForItem(at: indexPath)
     }
 
     func deleteItem(at indexPath: IndexPath) {

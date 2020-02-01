@@ -45,17 +45,8 @@ class EditingViewController: UIViewController {
     }
 
     @objc func exportVideo(_ sender: SidebarActionButton) {
-        do {
-            let promoText = Self.exportPromoText
-            let videoProvider = try VideoProvider(document: documentEditor.document)
-
-            let activityController = UIActivityViewController(activityItems: [promoText, videoProvider], applicationActivities: nil)
-            if let popoverPresentationController = activityController.popoverPresentationController {
-                popoverPresentationController.sourceView = sender
-                popoverPresentationController.sourceRect = sender.bounds
-            }
-            present(activityController, animated: true, completion: nil)
-        } catch { dump(error) }
+        guard let activityController = ExportViewController(document: documentEditor.document, sourceView: sender) else { return }
+        present(activityController, animated: true, completion: nil)
     }
 
     // MARK: Editing View
@@ -76,8 +67,6 @@ class EditingViewController: UIViewController {
     @objc func redoDrawing() { documentEditor.redo(); updateCurrentPage() }
 
     // MARK: Boilerplate
-
-    private static let exportPromoText = NSLocalizedString("EditingViewController.exportPromoText", comment: "Promo text shared when exporting videos")
 
     private let documentEditor: DocumentEditor
 
