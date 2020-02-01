@@ -33,9 +33,9 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
     func exportAnimation(at indexPath: IndexPath) {
-        guard let document = try? dataSource.document(at: indexPath) else { return }
+        guard let document = try? dataSource.document(at: indexPath), let activityController = ExportViewController(document: document, sourceView: galleryView?.cell(for: indexPath)) else { return }
 
-        dump(document)
+        present(activityController, animated: true, completion: nil)
     }
 
     func previewViewController(forDocumentAt indexPath: IndexPath) -> UIViewController? {
