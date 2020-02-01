@@ -16,8 +16,15 @@ enum Icons {
     static let newDocument = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(weight: .bold))
 
     static let newPage = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 14, weight: .medium))
+
+    enum ContextMenu {
+        static let delete = UIImage(systemName: "trash", withConfiguration: UIImage.SymbolConfiguration.contextMenuIconConfiguration)
+        static let export = UIImage(systemName: "square.and.arrow.up", withConfiguration: UIImage.SymbolConfiguration.contextMenuIconConfiguration)
+    }
 }
 
 extension UIImage.SymbolConfiguration {
     static let sidebarIconConfiguration = UIImage.SymbolConfiguration(scale: .large).applying(UIImage.SymbolConfiguration(weight: .medium))
+
+    static let contextMenuIconConfiguration = UIImage.SymbolConfiguration(scale: .default)
 }

@@ -2,3 +2,5 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 "EditingViewController.exportPromoText" = "Made with Kineo: https://kineo.app";
+"GalleryDocumentCollectionViewCellMenuConfigurationProvider.deleteMenuItemTitle" = "Delete";
+"GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle" = "Share";

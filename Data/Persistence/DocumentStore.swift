@@ -16,6 +16,12 @@ public struct DocumentStore {
         return try JSONDecoder().decode(Document.self, from: data)
     }
 
+    public func deleteDocument(at index: Int) throws {
+        let storedDocument = storedDocuments[index]
+        try FileManager.default.removeItem(at: storedDocument.imagePreviewURL)
+        try FileManager.default.removeItem(at: storedDocument.url)
+    }
+
     public func newDocument() -> Document {
         let newDocument = Document()
         save(newDocument)
