@@ -82,9 +82,7 @@
 		04D36AD82378205F0052A933 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD72378205F0052A933 /* Color.swift */; };
 		04D36ADA237826D40052A933 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD9237826D40052A933 /* Fonts.swift */; };
 		04D36ADD237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36ADC237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift */; };
-		04D36ADF237829F00052A933 /* GalleryDocumentCollectionViewCellTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36ADE237829F00052A933 /* GalleryDocumentCollectionViewCellTitleLabel.swift */; };
 		04D36AE123782A1A0052A933 /* GalleryNewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AE023782A1A0052A933 /* GalleryNewCollectionViewCell.swift */; };
-		04D36AE323782A960052A933 /* GalleryDocumentCollectionViewCellTitleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AE223782A960052A933 /* GalleryDocumentCollectionViewCellTitleContainerView.swift */; };
 		04EC178D23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC178C23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift */; };
 		04EC178F23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC178E23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift */; };
 		04EC179123D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC179023D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift */; };
@@ -231,9 +229,7 @@
 		04D36AD72378205F0052A933 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		04D36AD9237826D40052A933 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		04D36ADC237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentCollectionViewCellBackgroundView.swift; sourceTree = "<group>"; };
-		04D36ADE237829F00052A933 /* GalleryDocumentCollectionViewCellTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentCollectionViewCellTitleLabel.swift; sourceTree = "<group>"; };
 		04D36AE023782A1A0052A933 /* GalleryNewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryNewCollectionViewCell.swift; sourceTree = "<group>"; };
-		04D36AE223782A960052A933 /* GalleryDocumentCollectionViewCellTitleContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentCollectionViewCellTitleContainerView.swift; sourceTree = "<group>"; };
 		04EC178C23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionViewLayout.swift; sourceTree = "<group>"; };
 		04EC178E23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutSection.swift; sourceTree = "<group>"; };
 		04EC179023D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutGroup.swift; sourceTree = "<group>"; };
@@ -495,8 +491,6 @@
 			children = (
 				0445AA622373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift */,
 				04D36ADC237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift */,
-				04D36AE223782A960052A933 /* GalleryDocumentCollectionViewCellTitleContainerView.swift */,
-				04D36ADE237829F00052A933 /* GalleryDocumentCollectionViewCellTitleLabel.swift */,
 				04B52D04237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift */,
 				0436CE8E23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift */,
 			);
@@ -725,7 +719,6 @@
 				04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */,
 				04BD9256237FFC4300C8FD09 /* SceneView.swift in Sources */,
 				04ACCD2823B2310B006FBABC /* EditingViewDataSource.swift in Sources */,
-				04D36ADF237829F00052A933 /* GalleryDocumentCollectionViewCellTitleLabel.swift in Sources */,
 				04EC179323D991A700A42E08 /* FilmStripCollectionLayoutItem.swift in Sources */,
 				04ACCD2623B21BAE006FBABC /* FilmStripDataSource.swift in Sources */,
 				04B86C0623B45DED005F65F7 /* EditingViewCompactLayoutManager.swift in Sources */,
@@ -768,7 +761,6 @@
 				0445AA5F2373C7A000EB2A7B /* GalleryViewDataSource.swift in Sources */,
 				04EC179523D991C500A42E08 /* FilmStripCollectionLayoutSize.swift in Sources */,
 				04B86C0823B64006005F65F7 /* UIViewExtensions.swift in Sources */,
-				04D36AE323782A960052A933 /* GalleryDocumentCollectionViewCellTitleContainerView.swift in Sources */,
 				04C0A66A22DC224B00E4E5D6 /* EditingViewController.swift in Sources */,
 				04318A3122E18C72003D70C8 /* Icons.swift in Sources */,
 				044DAFFF23B3170C00BD2A0C /* FilmStripIndicator.swift in Sources */,
