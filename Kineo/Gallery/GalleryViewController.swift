@@ -16,6 +16,13 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         view = galleryView
     }
 
+    private func presentAnimation(at indexPath: IndexPath) {
+        // TODO (#18): Show some kind of error if reading the document throws
+        guard let document = try? dataSource.document(at: indexPath) else { return }
+        let selectionEvent = GallerySelectionEvent(document: document)
+        UIApplication.shared.sendAction(#selector(SceneViewController.showEditingView(_:for:)), to: nil, from: self, for: selectionEvent)
+    }
+
     // MARK: Context Menu Actions
 
     @objc func deleteAnimation(at indexPath: IndexPath) {
@@ -34,14 +41,16 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     // MARK: UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO (#18): Show some kind of error if reading the document throws
-        guard let document = try? dataSource.document(at: indexPath) else { return }
-        let selectionEvent = GallerySelectionEvent(document: document)
-        UIApplication.shared.sendAction(#selector(SceneViewController.showEditingView(_:for:)), to: nil, from: self, for: selectionEvent)
+        presentAnimation(at: indexPath)
     }
 
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         return GalleryDocumentCollectionViewCellContextMenuConfigurationFactory.configuration(for: indexPath, delegate: self)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
+        guard let indexPath = (configuration as? GalleryDocumentCollectionViewCellContextMenuConfiguration)?.indexPath else { return }
+        presentAnimation(at: indexPath)
     }
 
     // MARK: UICollectionViewDragDelegate

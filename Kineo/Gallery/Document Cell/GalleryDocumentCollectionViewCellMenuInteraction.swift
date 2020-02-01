@@ -5,7 +5,9 @@ import UIKit
 
 enum GalleryDocumentCollectionViewCellContextMenuConfigurationFactory {
     static func configuration(for indexPath: IndexPath, delegate: GalleryViewController) -> UIContextMenuConfiguration {
-        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: actionProvider(for: indexPath, delegate: delegate))
+        let configuration = GalleryDocumentCollectionViewCellContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: actionProvider(for: indexPath, delegate: delegate))
+        configuration.indexPath = indexPath
+        return configuration
     }
 
     private static func actionProvider(for indexPath: IndexPath, delegate: GalleryViewController) -> UIContextMenuActionProvider {
@@ -24,4 +26,8 @@ enum GalleryDocumentCollectionViewCellContextMenuConfigurationFactory {
 
     private static let deleteMenuItemTitle = NSLocalizedString("GalleryDocumentCollectionViewCellMenuConfigurationProvider.deleteMenuItemTitle", comment: "Menu item title for deleting an animation")
     private static let exportMenuItemTitle = NSLocalizedString("GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle", comment: "Menu item title for exporting an animation")
+}
+
+class GalleryDocumentCollectionViewCellContextMenuConfiguration: UIContextMenuConfiguration {
+    var indexPath: IndexPath?
 }
