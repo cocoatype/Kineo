@@ -5,9 +5,15 @@ import UIKit
 
 enum GalleryDocumentCollectionViewCellContextMenuConfigurationFactory {
     static func configuration(for indexPath: IndexPath, delegate: GalleryViewController) -> UIContextMenuConfiguration {
-        let configuration = GalleryDocumentCollectionViewCellContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: actionProvider(for: indexPath, delegate: delegate))
+        let configuration = GalleryDocumentCollectionViewCellContextMenuConfiguration(identifier: nil, previewProvider: previewProvider(for: indexPath, delegate: delegate), actionProvider: actionProvider(for: indexPath, delegate: delegate))
         configuration.indexPath = indexPath
         return configuration
+    }
+
+    private static func previewProvider(for indexPath: IndexPath, delegate: GalleryViewController) -> UIContextMenuContentPreviewProvider {
+        return {
+            return delegate.previewViewController(forDocumentAt: indexPath)
+        }
     }
 
     private static func actionProvider(for indexPath: IndexPath, delegate: GalleryViewController) -> UIContextMenuActionProvider {

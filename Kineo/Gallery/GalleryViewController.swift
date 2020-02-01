@@ -25,17 +25,23 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     // MARK: Context Menu Actions
 
-    @objc func deleteAnimation(at indexPath: IndexPath) {
+    func deleteAnimation(at indexPath: IndexPath) {
         do {
             try dataSource.deleteDocument(at: indexPath)
             galleryView?.deleteItem(at: indexPath)
         } catch {}
     }
 
-    @objc func exportAnimation(at indexPath: IndexPath) {
+    func exportAnimation(at indexPath: IndexPath) {
         guard let document = try? dataSource.document(at: indexPath) else { return }
 
         dump(document)
+    }
+
+    func previewViewController(forDocumentAt indexPath: IndexPath) -> UIViewController? {
+        guard let document = try? dataSource.document(at: indexPath) else { return nil }
+
+        return GalleryDocumentPreviewViewController(document: document)
     }
 
     // MARK: UICollectionViewDelegate
