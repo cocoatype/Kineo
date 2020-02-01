@@ -18,17 +18,15 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     // MARK: Context Menu Actions
 
-    @objc func deleteAnimation(_ sender: GalleryDocumentCollectionViewCell?) {
-        guard let cell = sender, let indexPath = galleryView?.indexPath(for: cell) else { return }
-
+    @objc func deleteAnimation(at indexPath: IndexPath) {
         do {
             try dataSource.deleteDocument(at: indexPath)
             galleryView?.deleteItem(at: indexPath)
         } catch {}
     }
 
-    @objc func exportAnimation(_ sender: GalleryDocumentCollectionViewCell?) {
-        guard let cell = sender, let indexPath = galleryView?.indexPath(for: cell), let document = try? dataSource.document(at: indexPath) else { return }
+    @objc func exportAnimation(at indexPath: IndexPath) {
+        guard let document = try? dataSource.document(at: indexPath) else { return }
 
         dump(document)
     }
@@ -40,6 +38,10 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         guard let document = try? dataSource.document(at: indexPath) else { return }
         let selectionEvent = GallerySelectionEvent(document: document)
         UIApplication.shared.sendAction(#selector(SceneViewController.showEditingView(_:for:)), to: nil, from: self, for: selectionEvent)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return GalleryDocumentCollectionViewCellContextMenuConfigurationFactory.configuration(for: indexPath, delegate: self)
     }
 
     // MARK: UICollectionViewDragDelegate

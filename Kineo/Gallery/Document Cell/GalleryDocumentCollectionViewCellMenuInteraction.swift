@@ -3,38 +3,25 @@
 
 import UIKit
 
-class GalleryDocumentCollectionViewCellMenuInteraction: UIContextMenuInteraction {
-    init(cell: GalleryDocumentCollectionViewCell) {
-        provider = GalleryDocumentCollectionViewCellMenuConfigurationProvider(cell: cell)
-        super.init(delegate: provider)
+enum GalleryDocumentCollectionViewCellContextMenuConfigurationFactory {
+    static func configuration(for indexPath: IndexPath, delegate: GalleryViewController) -> UIContextMenuConfiguration {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: actionProvider(for: indexPath, delegate: delegate))
     }
 
-    private let provider:  GalleryDocumentCollectionViewCellMenuConfigurationProvider
-}
+    private static func actionProvider(for indexPath: IndexPath, delegate: GalleryViewController) -> UIContextMenuActionProvider {
+        return { _ in
+            let shareElement = UIAction(title: Self.exportMenuItemTitle, image: Icons.ContextMenu.export) { _ in
+                delegate.exportAnimation(at: indexPath)
+            }
 
-private class GalleryDocumentCollectionViewCellMenuConfigurationProvider: NSObject, UIContextMenuInteractionDelegate {
-    init(cell: GalleryDocumentCollectionViewCell?) {
-        self.cell = cell
-    }
+            let deleteElement = UIAction(title: Self.deleteMenuItemTitle, image: Icons.ContextMenu.delete, attributes: [.destructive])  { _ in
+                delegate.deleteAnimation(at: indexPath)
+            }
 
-    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
-        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: actionProvider(suggestedElements:))
-    }
-
-    private func actionProvider(suggestedElements: [UIMenuElement]) -> UIMenu? {
-        let shareElement = UIAction(title: Self.exportMenuItemTitle, image: Icons.ContextMenu.export) { [weak self] _ in
-                   UIApplication.shared.sendAction(#selector(GalleryViewController.exportAnimation(_:)), to: nil, from: self?.cell, for: nil)
-               }
-
-        let deleteElement = UIAction(title: Self.deleteMenuItemTitle, image: Icons.ContextMenu.delete, attributes: [.destructive])  { [weak self] _ in
-                   UIApplication.shared.sendAction(#selector(GalleryViewController.deleteAnimation), to: nil, from: self?.cell, for: nil)
-               }
-
-        return UIMenu(title: "", children: [shareElement, deleteElement])
+            return UIMenu(title: "", children: [shareElement, deleteElement])
+        }
     }
 
     private static let deleteMenuItemTitle = NSLocalizedString("GalleryDocumentCollectionViewCellMenuConfigurationProvider.deleteMenuItemTitle", comment: "Menu item title for deleting an animation")
     private static let exportMenuItemTitle = NSLocalizedString("GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle", comment: "Menu item title for exporting an animation")
-
-    private weak var cell: GalleryDocumentCollectionViewCell?
 }

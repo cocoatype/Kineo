@@ -17,8 +17,6 @@ class GalleryDocumentCollectionViewCell: UICollectionViewCell {
 
         contentView.addSubview(canvasView)
 
-        addInteraction(GalleryDocumentCollectionViewCellMenuInteraction(cell: self))
-
         NSLayoutConstraint.activate([
             canvasView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             canvasView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
