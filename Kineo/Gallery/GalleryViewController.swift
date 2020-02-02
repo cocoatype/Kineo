@@ -6,6 +6,8 @@ import UIKit
 class GalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDragDelegate {
     init() {
         super.init(nibName: nil, bundle: nil)
+        navigationItem.title = Self.navigationTitle
+        navigationItem.largeTitleDisplayMode = .always
     }
 
     override func loadView() {
@@ -77,6 +79,8 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
     // MARK: Boilerplate
+
+    private static let navigationTitle = NSLocalizedString("GalleryViewController.navigationTitle", comment: "Navigation title for the gallery view")
 
     private let dataSource = GalleryViewDataSource()
     private var galleryView: GalleryView? { return view as? GalleryView }

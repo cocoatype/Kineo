@@ -43,6 +43,9 @@
 		045165FF23B23A2B00D7B535 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045165FE23B23A2B00D7B535 /* Constants.swift */; };
 		0451660123B2441000D7B535 /* FilmStripNewPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451660023B2441000D7B535 /* FilmStripNewPageCell.swift */; };
 		0451660323B2467A00D7B535 /* FilmStripNewPageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451660223B2467A00D7B535 /* FilmStripNewPageImageView.swift */; };
+		049A126923E6D47B00479027 /* GalleryNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A126823E6D47B00479027 /* GalleryNavigationController.swift */; };
+		049A126B23E6DE6D00479027 /* GalleryNavigationBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A126A23E6DE6D00479027 /* GalleryNavigationBarAppearance.swift */; };
+		049A126D23E6DE9F00479027 /* GalleryNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A126C23E6DE9F00479027 /* GalleryNavigationBar.swift */; };
 		04ACCD1D23B21334006FBABC /* FilmStripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD1C23B21334006FBABC /* FilmStripView.swift */; };
 		04ACCD2023B21985006FBABC /* FilmStripCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */; };
 		04ACCD2423B21B4B006FBABC /* FilmStripExistingPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */; };
@@ -177,6 +180,9 @@
 		045165FE23B23A2B00D7B535 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0451660023B2441000D7B535 /* FilmStripNewPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripNewPageCell.swift; sourceTree = "<group>"; };
 		0451660223B2467A00D7B535 /* FilmStripNewPageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripNewPageImageView.swift; sourceTree = "<group>"; };
+		049A126823E6D47B00479027 /* GalleryNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryNavigationController.swift; sourceTree = "<group>"; };
+		049A126A23E6DE6D00479027 /* GalleryNavigationBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryNavigationBarAppearance.swift; sourceTree = "<group>"; };
+		049A126C23E6DE9F00479027 /* GalleryNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryNavigationBar.swift; sourceTree = "<group>"; };
 		04ACCD1C23B21334006FBABC /* FilmStripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripView.swift; sourceTree = "<group>"; };
 		04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionView.swift; sourceTree = "<group>"; };
 		04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripExistingPageCell.swift; sourceTree = "<group>"; };
@@ -268,6 +274,7 @@
 		0417F09F22E4A0860063AD66 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				049A126723E6D46D00479027 /* Navigation */,
 				044484D123A884A200CD0C3C /* GalleryView.swift */,
 				0436CE9023E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift */,
 				0445AA642373CB9400EB2A7B /* GallerySelectionEvent.swift */,
@@ -334,6 +341,16 @@
 				04318A3022E18C72003D70C8 /* Icons.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		049A126723E6D46D00479027 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				049A126A23E6DE6D00479027 /* GalleryNavigationBarAppearance.swift */,
+				049A126C23E6DE9F00479027 /* GalleryNavigationBar.swift */,
+				049A126823E6D47B00479027 /* GalleryNavigationController.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		04ACCD1E23B21975006FBABC /* Film Strip */ = {
@@ -708,6 +725,7 @@
 				0417F09E22E46F410063AD66 /* UIImageExtensions.swift in Sources */,
 				0445AA652373CB9400EB2A7B /* GallerySelectionEvent.swift in Sources */,
 				04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */,
+				049A126D23E6DE9F00479027 /* GalleryNavigationBar.swift in Sources */,
 				04BD9256237FFC4300C8FD09 /* SceneView.swift in Sources */,
 				04ACCD2823B2310B006FBABC /* EditingViewDataSource.swift in Sources */,
 				04EC179323D991A700A42E08 /* FilmStripCollectionLayoutItem.swift in Sources */,
@@ -728,6 +746,7 @@
 				04D36ADD237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift in Sources */,
 				0436CE8F23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift in Sources */,
 				04ACCD2A23B23290006FBABC /* FilmStripExistingPageImageView.swift in Sources */,
+				049A126B23E6DE6D00479027 /* GalleryNavigationBarAppearance.swift in Sources */,
 				04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */,
 				04D36AE123782A1A0052A933 /* GalleryNewCollectionViewCell.swift in Sources */,
 				04B86C0223B45B26005F65F7 /* EditingViewLayoutManager.swift in Sources */,
@@ -742,6 +761,7 @@
 				04BD925A237FFCA400C8FD09 /* ContainerView.swift in Sources */,
 				0436CE9123E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift in Sources */,
 				04D36AD82378205F0052A933 /* Color.swift in Sources */,
+				049A126923E6D47B00479027 /* GalleryNavigationController.swift in Sources */,
 				0445AA632373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift in Sources */,
 				04B52D05237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift in Sources */,
 				04ACCD2C23B2345A006FBABC /* UITraitCollectionExtensions.swift in Sources */,

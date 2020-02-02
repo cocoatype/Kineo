@@ -7,7 +7,7 @@ import UIKit
 class SceneViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
-        embed(GalleryViewController())
+        embed(GalleryNavigationController())
     }
 
     override func loadView() {
@@ -15,7 +15,7 @@ class SceneViewController: UIViewController {
     }
 
     @objc func showGallery() {
-        transition(to: GalleryViewController())
+        transition(to: GalleryNavigationController())
     }
 
     func showEditingView(for document: Document) {

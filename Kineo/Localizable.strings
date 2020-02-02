@@ -4,3 +4,4 @@
 "EditingViewController.exportPromoText" = "Made with Kineo: https://kineo.app";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.deleteMenuItemTitle" = "Delete";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle" = "Share";
+"GalleryViewController.navigationTitle" = "Gallery";
