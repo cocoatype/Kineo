@@ -1,58 +1,24 @@
-//  Created by Geoff Pado on 7/21/19.
+//  Created by Geoff Pado on 12/16/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 import UIKit
 
-class GalleryView: UIView {
+class GalleryView: UICollectionView {
     init() {
-        super.init(frame: .zero)
+        let layout = GalleryViewLayout()
+        super.init(frame: .zero, collectionViewLayout: layout)
 
-        addSubview(collectionView)
-        addSubview(sidebarView)
+        translatesAutoresizingMaskIntoConstraints = false
 
-        NSLayoutConstraint.activate([
-            sidebarView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            sidebarView.widthAnchor.constraint(equalToConstant: SidebarView.standardWidth),
-            sidebarView.topAnchor.constraint(equalTo: topAnchor),
-            sidebarView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: sidebarView.trailingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
-    }
+        register(GalleryDocumentCollectionViewCell.self, forCellWithReuseIdentifier: GalleryDocumentCollectionViewCell.identifier)
+        register(GalleryNewCollectionViewCell.self, forCellWithReuseIdentifier: GalleryNewCollectionViewCell.identifier)
 
-    // MARK: Collection View
-
-    func cell(for indexPath: IndexPath) -> UICollectionViewCell? {
-        return collectionView.cellForItem(at: indexPath)
-    }
-
-    func deleteItem(at indexPath: IndexPath) {
-        collectionView.deleteItems(at: [indexPath])
-    }
-
-    var dataSource: UICollectionViewDataSource? {
-        get { return collectionView.dataSource }
-        set(newDataSource) { collectionView.dataSource = newDataSource }
-    }
-
-    var delegate: UICollectionViewDelegate? {
-        get { return collectionView.delegate }
-        set(newDelegate) { collectionView.delegate = newDelegate }
-    }
-
-    var dragDelegate: UICollectionViewDragDelegate? {
-        get { return collectionView.dragDelegate }
-        set(newDragDelegate) { collectionView.dragDelegate = newDragDelegate }
+        backgroundColor = .appBackground
     }
 
     // MARK: Boilerplate
 
-    private let collectionView = GalleryCollectionView()
-    private let sidebarView = SidebarView()
-
-    @available(*, unavailable)
+    @available(*, unavailable, message: "This class does not implement init(coder:)")
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")

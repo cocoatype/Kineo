@@ -28,12 +28,12 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     func deleteAnimation(at indexPath: IndexPath) {
         do {
             try dataSource.deleteDocument(at: indexPath)
-            galleryView?.deleteItem(at: indexPath)
+            galleryView?.deleteItems(at: [indexPath])
         } catch {}
     }
 
     func exportAnimation(at indexPath: IndexPath) {
-        guard let document = try? dataSource.document(at: indexPath), let activityController = ExportViewController(document: document, sourceView: galleryView?.cell(for: indexPath)) else { return }
+        guard let document = try? dataSource.document(at: indexPath), let activityController = ExportViewController(document: document, sourceView: galleryView?.cellForItem(at: indexPath)) else { return }
 
         present(activityController, animated: true, completion: nil)
     }
