@@ -3,29 +3,51 @@
 
 import UIKit
 
-class GalleryViewLayout: UICollectionViewFlowLayout {
-    static func horizontalInset(for bounds: CGRect) -> CGFloat {
-        let numberItems = Int(bounds.width / (Self.cellWidth + Self.spacing))
-        let totalWidth = (numberItems * (Self.cellWidth + Self.spacing)) - Self.spacing
-        return floor((bounds.width - totalWidth) / 2) - 1
-    }
-
-    override func prepare() {
-        guard let collectionViewBounds = collectionView?.bounds else { return }
-        let sideWidth = Self.horizontalInset(for: collectionViewBounds)
-
-        itemSize = CGSize(width: Self.cellWidth, height: Self.cellWidth)
-        minimumInteritemSpacing = Self.spacing
-        minimumLineSpacing = Self.spacing
-        sectionInset = UIEdgeInsets(top: Self.spacing, left: sideWidth, bottom: Self.spacing, right: sideWidth)
-    }
-
-    // MARK: Boilerplate
-
-    private static let cellWidth = CGFloat(256.0)
-    private static let spacing = CGFloat(20.0)
-}
-
 private func * (lhs: Int, rhs: CGFloat) -> CGFloat {
     return CGFloat(lhs) * rhs
+}
+
+class GalleryViewLayout: UICollectionViewCompositionalLayout {
+    init(void: Void = ()) {
+        super.init(section: GalleryViewLayoutSection())
+    }
+
+    @available(*, unavailable)
+    required init(coder: NSCoder) {
+        let typeName = NSStringFromClass(type(of: self))
+        fatalError("\(typeName) does not implement init(coder:)")
+    }
+}
+
+class GalleryViewLayoutSection: NSCollectionLayoutSection {
+    convenience init(void: Void = ()) {
+        self.init(group: GalleryViewLayoutGroup.standardGroup())
+        interGroupSpacing = Self.standardSpacing
+        contentInsets = NSDirectionalEdgeInsets(top: Self.standardSpacing, leading: 0, bottom: Self.standardSpacing, trailing: 0)
+    }
+
+    static let standardSpacing = CGFloat(50)
+}
+
+class GalleryViewLayoutGroup: NSCollectionLayoutGroup {
+    class func standardGroup() -> GalleryViewLayoutGroup {
+        let group = GalleryViewLayoutGroup.custom(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(Self.cellDimension))) { environment -> [NSCollectionLayoutGroupCustomItem] in
+            let size = environment.container.contentSize
+            let numberItems = Int(size.width / (Self.cellDimension + Self.spacing))
+            let totalWidth = (numberItems * (Self.cellDimension + Self.spacing)) - Self.spacing
+            let horizontalInset = floor((size.width - totalWidth) / 2)
+
+            let standardFrame = CGRect(origin: .zero, size: CGSize(width: Self.cellDimension, height: Self.cellDimension))
+            return (0..<numberItems).map {
+                var cellFrame = standardFrame
+                cellFrame.origin.x = horizontalInset + ($0 * (Self.cellDimension + Self.spacing))
+                return NSCollectionLayoutGroupCustomItem(frame: cellFrame)
+            }
+        }
+
+        return group
+    }
+
+    private static let cellDimension = CGFloat(220)
+    private static let spacing = GalleryViewLayoutSection.standardSpacing
 }
