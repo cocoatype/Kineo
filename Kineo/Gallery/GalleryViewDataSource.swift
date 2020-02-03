@@ -24,6 +24,11 @@ class GalleryViewDataSource: NSObject, UICollectionViewDataSource {
         try documentStore.deleteDocument(at: documentIndex)
     }
 
+    func contextMenuConfiguration(forItemAt indexPath: IndexPath, delegate: GalleryViewController) -> UIContextMenuConfiguration? {
+        guard indexPath != Self.newDocumentIndexPath else { return nil }
+        return GalleryDocumentCollectionViewCellContextMenuConfigurationFactory.configuration(for: indexPath, delegate: delegate)
+    }
+
     // MARK: UICollectionViewDataSource
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
