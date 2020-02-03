@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0417F09E22E46F410063AD66 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F09D22E46F410063AD66 /* UIImageExtensions.swift */; };
 		0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */; };
-		0417F0A322E4A3B30063AD66 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F0A222E4A3B30063AD66 /* GalleryView.swift */; };
 		04318A3122E18C72003D70C8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3022E18C72003D70C8 /* Icons.swift */; };
 		04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3422E2EC3C003D70C8 /* PlaybackView.swift */; };
 		04318A3722E2FCC3003D70C8 /* VideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */; };
@@ -59,11 +58,9 @@
 		04B86C0A23BA111C005F65F7 /* SkinsImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86C0923BA111C005F65F7 /* SkinsImageView.swift */; };
 		04BD9251237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD9250237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift */; };
 		04BD9256237FFC4300C8FD09 /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD9255237FFC4300C8FD09 /* SceneView.swift */; };
-		04BD9258237FFC8900C8FD09 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD9257237FFC8900C8FD09 /* SidebarView.swift */; };
 		04BD925A237FFCA400C8FD09 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD9259237FFCA400C8FD09 /* ContainerView.swift */; };
 		04BD925F237FFDBD00C8FD09 /* EditingActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD925E237FFDBD00C8FD09 /* EditingActions.swift */; };
 		04BD92612380081900C8FD09 /* SidebarActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD92602380081900C8FD09 /* SidebarActionButton.swift */; };
-		04BD92632380083D00C8FD09 /* SidebarActionStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD92622380083D00C8FD09 /* SidebarActionStackView.swift */; };
 		04C0A64622DC208E00E4E5D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */; };
 		04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64722DC208E00E4E5D6 /* SceneDelegate.swift */; };
 		04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64922DC208E00E4E5D6 /* SceneViewController.swift */; };
@@ -149,7 +146,6 @@
 /* Begin PBXFileReference section */
 		0417F09D22E46F410063AD66 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
-		0417F0A222E4A3B30063AD66 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		04318A3022E18C72003D70C8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		04318A3222E19AB5003D70C8 /* SkinGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinGenerator.swift; sourceTree = "<group>"; };
 		04318A3422E2EC3C003D70C8 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
@@ -196,11 +192,9 @@
 		04B86C0923BA111C005F65F7 /* SkinsImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsImageView.swift; sourceTree = "<group>"; };
 		04BD9250237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryNewDocumentImageView.swift; sourceTree = "<group>"; };
 		04BD9255237FFC4300C8FD09 /* SceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneView.swift; sourceTree = "<group>"; };
-		04BD9257237FFC8900C8FD09 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		04BD9259237FFCA400C8FD09 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		04BD925E237FFDBD00C8FD09 /* EditingActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingActions.swift; sourceTree = "<group>"; };
 		04BD92602380081900C8FD09 /* SidebarActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionButton.swift; sourceTree = "<group>"; };
-		04BD92622380083D00C8FD09 /* SidebarActionStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionStackView.swift; sourceTree = "<group>"; };
 		04C0A64222DC208E00E4E5D6 /* Kineo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kineo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C0A64722DC208E00E4E5D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -277,7 +271,6 @@
 				044484D123A884A200CD0C3C /* GalleryCollectionView.swift */,
 				0436CE9023E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift */,
 				0445AA642373CB9400EB2A7B /* GallerySelectionEvent.swift */,
-				0417F0A222E4A3B30063AD66 /* GalleryView.swift */,
 				0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */,
 				0445AA5E2373C7A000EB2A7B /* GalleryViewDataSource.swift */,
 				0445AA602373C7B700EB2A7B /* GalleryViewLayout.swift */,
@@ -371,9 +364,7 @@
 		04BD925B237FFCE800C8FD09 /* Sidebar */ = {
 			isa = PBXGroup;
 			children = (
-				04BD9257237FFC8900C8FD09 /* SidebarView.swift */,
 				04BD92602380081900C8FD09 /* SidebarActionButton.swift */,
-				04BD92622380083D00C8FD09 /* SidebarActionStackView.swift */,
 				043854E6238CD06F0041A4AA /* SidebarActionButtonImageView.swift */,
 			);
 			path = Sidebar;
@@ -736,7 +727,6 @@
 				04EC179123D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift in Sources */,
 				04D36ADD237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift in Sources */,
 				0436CE8F23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift in Sources */,
-				0417F0A322E4A3B30063AD66 /* GalleryView.swift in Sources */,
 				04ACCD2A23B23290006FBABC /* FilmStripExistingPageImageView.swift in Sources */,
 				04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */,
 				04D36AE123782A1A0052A933 /* GalleryNewCollectionViewCell.swift in Sources */,
@@ -747,9 +737,7 @@
 				04EC178D23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift in Sources */,
 				04C0A67022DC2A2500E4E5D6 /* EditingView.swift in Sources */,
 				044484D423A884D300CD0C3C /* EditingUserActivity.swift in Sources */,
-				04BD9258237FFC8900C8FD09 /* SidebarView.swift in Sources */,
 				04D36ADA237826D40052A933 /* Fonts.swift in Sources */,
-				04BD92632380083D00C8FD09 /* SidebarActionStackView.swift in Sources */,
 				04BD92612380081900C8FD09 /* SidebarActionButton.swift in Sources */,
 				04BD925A237FFCA400C8FD09 /* ContainerView.swift in Sources */,
 				0436CE9123E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift in Sources */,

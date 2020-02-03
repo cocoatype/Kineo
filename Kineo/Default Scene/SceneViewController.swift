@@ -8,7 +8,7 @@ class SceneViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
         embed(GalleryViewController())
-    }
+}
 
     override func loadView() {
         view = SceneView()

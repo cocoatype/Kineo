@@ -38,3 +38,9 @@ class RedoButton: SidebarActionButton {
         super.init(icon: Icons.redo, selector: #selector(EditingViewController.redoDrawing))
     }
 }
+
+class HelpButton: SidebarActionButton {
+    init() {
+        super.init(icon: Icons.help, selector: #selector(GalleryViewController.presentHelp))
+    }
+}

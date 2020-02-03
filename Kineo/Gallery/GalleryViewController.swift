@@ -23,17 +23,23 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         UIApplication.shared.sendAction(#selector(SceneViewController.showEditingView(_:for:)), to: nil, from: self, for: selectionEvent)
     }
 
+    @objc func presentHelp() {
+        let alert = UIAlertController(title: "Please Do Not Press This Button Again", message: "This feature is currently unimplemented. It will do something more interesting in a later beta.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
+    }
+
     // MARK: Context Menu Actions
 
     func deleteAnimation(at indexPath: IndexPath) {
         do {
             try dataSource.deleteDocument(at: indexPath)
-            galleryView?.deleteItem(at: indexPath)
+            galleryView?.deleteItems(at: [indexPath])
         } catch {}
     }
 
     func exportAnimation(at indexPath: IndexPath) {
-        guard let document = try? dataSource.document(at: indexPath), let activityController = ExportViewController(document: document, sourceView: galleryView?.cell(for: indexPath)) else { return }
+        guard let document = try? dataSource.document(at: indexPath), let activityController = ExportViewController(document: document, sourceView: galleryView?.cellForItem(at: indexPath)) else { return }
 
         present(activityController, animated: true, completion: nil)
     }
