@@ -17,7 +17,7 @@
 		0436CE9323E53237002BE4EF /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436CE9223E53237002BE4EF /* ExportViewController.swift */; };
 		043854E7238CD06F0041A4AA /* SidebarActionButtonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043854E6238CD06F0041A4AA /* SidebarActionButtonImageView.swift */; };
 		043854F22392246F0041A4AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043854F12392246F0041A4AA /* Localizable.strings */; };
-		044484D223A884A200CD0C3C /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044484D123A884A200CD0C3C /* GalleryView.swift */; };
+		044484D223A884A200CD0C3C /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044484D123A884A200CD0C3C /* GalleryCollectionView.swift */; };
 		044484D423A884D300CD0C3C /* EditingUserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044484D323A884D300CD0C3C /* EditingUserActivity.swift */; };
 		044484DE23AB287800CD0C3C /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044484DD23AB287800CD0C3C /* Messages.framework */; };
 		044484E123AB287800CD0C3C /* StickersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044484E023AB287800CD0C3C /* StickersViewController.swift */; };
@@ -155,7 +155,7 @@
 		0436CE9223E53237002BE4EF /* ExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportViewController.swift; sourceTree = "<group>"; };
 		043854E6238CD06F0041A4AA /* SidebarActionButtonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionButtonImageView.swift; sourceTree = "<group>"; };
 		043854F12392246F0041A4AA /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		044484D123A884A200CD0C3C /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		044484D123A884A200CD0C3C /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
 		044484D323A884D300CD0C3C /* EditingUserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingUserActivity.swift; sourceTree = "<group>"; };
 		044484D523AB210500CD0C3C /* StickerGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerGenerator.swift; sourceTree = "<group>"; };
 		044484DB23AB287800CD0C3C /* Stickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Stickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,7 +268,7 @@
 		0417F09F22E4A0860063AD66 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
-				044484D123A884A200CD0C3C /* GalleryView.swift */,
+				044484D123A884A200CD0C3C /* GalleryCollectionView.swift */,
 				0436CE9023E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift */,
 				0445AA642373CB9400EB2A7B /* GallerySelectionEvent.swift */,
 				0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */,
@@ -754,7 +754,7 @@
 				044DAFFF23B3170C00BD2A0C /* FilmStripIndicator.swift in Sources */,
 				0451660323B2467A00D7B535 /* FilmStripNewPageImageView.swift in Sources */,
 				0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */,
-				044484D223A884A200CD0C3C /* GalleryView.swift in Sources */,
+				044484D223A884A200CD0C3C /* GalleryCollectionView.swift in Sources */,
 				04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */,
 				04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */,
 			);
