@@ -65,6 +65,11 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         presentAnimation(at: indexPath)
     }
 
+    func collectionView(_ collectionView: UICollectionView, previewForDismissingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+        guard let indexPath = (configuration as? GalleryDocumentCollectionViewCellContextMenuConfiguration)?.indexPath, let  cell = galleryView?.cellForItem(at: indexPath) else { return nil }
+        return UITargetedPreview(view: cell)
+    }
+
     // MARK: UICollectionViewDragDelegate
 
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
