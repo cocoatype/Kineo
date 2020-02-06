@@ -25,7 +25,7 @@ class GalleryCollectionView: UICollectionView {
     }
 }
 
-class GalleryView: UIView {
+class GalleryView: UIControl {
     init() {
         super.init(frame: .zero)
 

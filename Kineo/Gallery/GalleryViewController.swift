@@ -20,7 +20,8 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         // TODO (#18): Show some kind of error if reading the document throws
         guard let document = try? dataSource.document(at: indexPath) else { return }
         let selectionEvent = GallerySelectionEvent(document: document)
-        UIApplication.shared.sendAction(#selector(SceneViewController.showEditingView(_:for:)), to: nil, from: self, for: selectionEvent)
+
+        galleryView?.sendAction(#selector(SceneViewController.showEditingView(_:for:)), to: nil, for: selectionEvent)
     }
 
     @objc func presentHelp() {
