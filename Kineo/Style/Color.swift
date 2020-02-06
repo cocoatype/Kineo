@@ -20,4 +20,11 @@ extension UIColor {
     static let sidebarBorder = UIColor.named("Sidebar Border")
     static let sidebarButtonBackground = UIColor.named("Sidebar Button Background")
     static let sidebarButtonTint = UIColor.named("Sidebar Button Tint")
+
+    static let primaryExtraLight = UIColor.red
+    static let primaryLight = UIColor.red
+    static let controlTint = UIColor.red
+    static let primary = UIColor.red
+    static let tableViewCellBackground = UIColor.red
+    static let tableViewSeparator = UIColor.red
 }

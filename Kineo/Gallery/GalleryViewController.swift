@@ -24,12 +24,6 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         galleryView?.sendAction(#selector(SceneViewController.showEditingView(_:for:)), to: nil, for: selectionEvent)
     }
 
-    @objc func presentHelp() {
-        let alert = UIAlertController(title: "Please Do Not Press This Button Again", message: "This feature is currently unimplemented. It will do something more interesting in a later beta.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true)
-    }
-
     // MARK: Context Menu Actions
 
     func deleteAnimation(at indexPath: IndexPath) {
