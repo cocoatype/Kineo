@@ -9,6 +9,12 @@ class EditingViewController: UIViewController {
     init(document: Document) {
         self.documentEditor = DocumentEditor(document: document)
         super.init(nibName: nil, bundle: nil)
+
+        NotificationCenter.default.addObserver(forName: Self.didUpdateDocument, object: nil, queue: .main) { [weak self] notification in
+            guard let document = (notification.userInfo?[Self.updatedDocumentKey] as? Document), document.uuid == self?.documentEditor.document.uuid else { return }
+            self?.documentEditor.document = document
+            self?.updateCurrentPage()
+        }
     }
 
     override func loadView() {
@@ -24,6 +30,7 @@ class EditingViewController: UIViewController {
     @objc func drawingViewDidChangePage(_ sender: DrawingView) {
         documentEditor.replaceCurrentPage(with: sender.page)
         updateCurrentPage()
+        NotificationCenter.default.post(name: Self.didUpdateDocument, object: self, userInfo: [Self.documentUUIDKey: documentEditor.document.uuid, Self.updatedDocumentKey: documentEditor.document])
     }
 
     // MARK: Transport Controls
@@ -68,7 +75,12 @@ class EditingViewController: UIViewController {
 
     // MARK: Boilerplate
 
+    private static let didUpdateDocument = Notification.Name("EditingViewController.didUpdateDocument")
+    private static let documentUUIDKey = "EditingViewController.documentUUIDKey"
+    private static let updatedDocumentKey = "EditingViewController.updatedDocumentKey"
+
     private let documentEditor: DocumentEditor
+    private var documentUpdateObserver: Any?
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

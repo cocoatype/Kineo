@@ -52,7 +52,7 @@ public class DocumentEditor: NSObject {
     private let documentStore = DocumentStore()
     private let documentUndoManager = UndoManager()
 
-    private(set) public var document: Document {
+    public var document: Document {
         didSet(oldDocument) {
             documentUndoManager.registerUndo(withTarget: self) { [weak self, oldDocument, currentIndex] _ in
                 self?.document = oldDocument
