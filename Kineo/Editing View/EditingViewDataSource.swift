@@ -13,6 +13,7 @@ class EditingViewDataSource: NSObject {
     var currentPage: Page { return documentEditor.currentPage }
     var currentPageIndex: Int { return documentEditor.currentIndex }
     var pageCount: Int { return documentEditor.pageCount }
+    var document: Document { return documentEditor.document }
 
     func thumbnail(forPageAt index: Int) -> UIImage? {
         let traitCollection = UITraitCollection.current.withLightInterfaceStyle
