@@ -17,6 +17,14 @@ enum ExportSettingsStyleContentItem: ExportSettingsContentItem, CaseIterable {
     case loop
     case bounce
 
+    var title: String {
+        switch self {
+        case .standard: return NSLocalizedString("ExportSettingsStyleContentItem.standard.title", comment: "Title for the standard style of export settings")
+        case .loop: return NSLocalizedString("ExportSettingsStyleContentItem.loop.title", comment: "Title for the loop style of export settings")
+        case .bounce: return NSLocalizedString("ExportSettingsStyleContentItem.bounce.title", comment: "Title for the bounce style of export settings")
+        }
+    }
+
     func isChecked(for settings: ExportSettings) -> Bool {
         return true
     }

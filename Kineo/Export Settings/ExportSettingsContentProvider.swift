@@ -12,6 +12,7 @@ struct ExportSettingsContentProvider {
     var numberOfSections: Int { sections.count }
     func numberOfRows(inSection: Int) -> Int { sections[0].items.count }
     func item(at indexPath: IndexPath) -> ExportSettingsContentItem { sections[indexPath.section].items[indexPath.row] }
+    func section(at index: Int) -> ExportSettingsContentSection { sections[index] }
 
     private var sections: [ExportSettingsContentSection] {
         return [ExportSettingsStyleContentSection(exportSettings)]
@@ -28,5 +29,6 @@ protocol ExportSettingsContentSection {
 }
 
 protocol ExportSettingsContentItem {
+    var title: String { get }
     func isChecked(for settings: ExportSettings) -> Bool
 }

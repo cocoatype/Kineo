@@ -2,5 +2,14 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 "EditingViewController.exportPromoText" = "Made with Kineo: https://kineo.app";
+
+"ExportSettingsActivity.activityTitle" = "Share Settings";
+
+"ExportSettingsStyleContentSection.header" = "Video Effect";
+
+"ExportSettingsStyleContentItem.standard.title" = "Play Once";
+"ExportSettingsStyleContentItem.loop.title" = "Loop";
+"ExportSettingsStyleContentItem.bounce.title" = "Bounce";
+
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.deleteMenuItemTitle" = "Delete";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle" = "Share";

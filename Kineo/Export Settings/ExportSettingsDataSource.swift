@@ -10,8 +10,16 @@ class ExportSettingsDataSource: NSObject, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ExportSettingsTableViewCell.identifier, for: indexPath)
-        cell.textLabel?.text = ""
+
+        let item = contentProvider.item(at: indexPath)
+        cell.textLabel?.text = item.title
+        cell.accessoryType = item.isChecked(for: .standard) ? .checkmark : .none
+
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        contentProvider.section(at: section).header
     }
 
     private let contentProvider = ExportSettingsContentProvider(.standard)

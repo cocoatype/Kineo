@@ -363,6 +363,7 @@
 				04791E6623EEA97100403BD8 /* ExportSettingsTableViewCell.swift */,
 				04791E6423EEA71D00403BD8 /* ExportSettingsView.swift */,
 				04791E5E23EE9CBF00403BD8 /* ExportSettingsViewController.swift */,
+				0436CE9223E53237002BE4EF /* ExportViewController.swift */,
 			);
 			path = "Export Settings";
 			sourceTree = "<group>";
@@ -429,7 +430,6 @@
 			children = (
 				04C0A67822DC436400E4E5D6 /* example.json */,
 				04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */,
-				0436CE9223E53237002BE4EF /* ExportViewController.swift */,
 				04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */,
 				04C0A66B22DC23EA00E4E5D6 /* Default Scene */,
 				04C0A66E22DC292E00E4E5D6 /* Editing View */,
