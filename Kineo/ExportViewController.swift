@@ -9,8 +9,11 @@ class ExportViewController: UIActivityViewController {
         do {
             let promoText = Self.exportPromoText
             let videoProvider = try VideoProvider(document: document)
+            let activity = ExportSettingsActivity()
 
-            super.init(activityItems: [promoText, videoProvider], applicationActivities: nil)
+            super.init(activityItems: [promoText, videoProvider], applicationActivities: [activity])
+            activity.exportController = self
+
             if let popoverPresentationController = self.popoverPresentationController {
                 popoverPresentationController.sourceView = sourceView
                 popoverPresentationController.sourceRect = sourceView?.bounds ?? .zero

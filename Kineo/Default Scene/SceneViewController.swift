@@ -26,6 +26,10 @@ class SceneViewController: UIViewController {
         self.showEditingView(for: event.document)
     }
 
+    @objc func showExportSettings(_ sender: ExportViewController) {
+        NSLog("showing export settings")
+    }
+
     // MARK: Status Bar
 
     override var prefersStatusBarHidden: Bool { return true }
