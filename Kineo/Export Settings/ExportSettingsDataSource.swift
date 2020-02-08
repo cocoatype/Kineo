@@ -13,7 +13,7 @@ class ExportSettingsDataSource: NSObject, UITableViewDataSource {
 
         let item = contentProvider.item(at: indexPath)
         cell.textLabel?.text = item.title
-        cell.accessoryType = item.isChecked(for: .standard) ? .checkmark : .none
+        cell.accessoryType = item.isChecked(for: Defaults.exportSettings) ? .checkmark : .none
 
         return cell
     }
@@ -22,5 +22,5 @@ class ExportSettingsDataSource: NSObject, UITableViewDataSource {
         contentProvider.section(at: section).header
     }
 
-    private let contentProvider = ExportSettingsContentProvider(.standard)
+    private let contentProvider = ExportSettingsContentProvider(Defaults.exportSettings)
 }

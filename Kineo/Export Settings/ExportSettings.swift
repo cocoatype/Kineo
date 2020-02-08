@@ -3,8 +3,10 @@
 
 import CoreGraphics
 
-enum ExportSettings {
-    case standard
-    case loop(minimumDuration: CGFloat)
-    case bounce(minimumDuration: CGFloat)
+enum PlaybackStyle: CaseIterable {
+    case standard, loop, bounce
+}
+
+struct ExportSettings {
+    let playbackStyle: PlaybackStyle
 }

@@ -5,20 +5,20 @@ import Foundation
 
 struct ExportSettingsStyleContentSection: ExportSettingsContentSection {
     init(_ exportSettings: ExportSettings) {
-        items = ExportSettingsStyleContentItem.allCases
+        items = PlaybackStyle.allCases.map(ExportSettingsStyleContentItem.init)
     }
 
     let header: String? = NSLocalizedString("ExportSettingsStyleContentSection.header", comment: "Header text for the export settings style section")
     let items: [ExportSettingsContentItem]
 }
 
-enum ExportSettingsStyleContentItem: ExportSettingsContentItem, CaseIterable {
-    case standard
-    case loop
-    case bounce
+struct ExportSettingsStyleContentItem: ExportSettingsContentItem {
+    init(playbackStyle: PlaybackStyle) {
+        self.playbackStyle = playbackStyle
+    }
 
     var title: String {
-        switch self {
+        switch playbackStyle {
         case .standard: return NSLocalizedString("ExportSettingsStyleContentItem.standard.title", comment: "Title for the standard style of export settings")
         case .loop: return NSLocalizedString("ExportSettingsStyleContentItem.loop.title", comment: "Title for the loop style of export settings")
         case .bounce: return NSLocalizedString("ExportSettingsStyleContentItem.bounce.title", comment: "Title for the bounce style of export settings")
@@ -26,6 +26,8 @@ enum ExportSettingsStyleContentItem: ExportSettingsContentItem, CaseIterable {
     }
 
     func isChecked(for settings: ExportSettings) -> Bool {
-        return true
+        return playbackStyle == settings.playbackStyle
     }
+
+    private let playbackStyle: PlaybackStyle
 }
