@@ -4,15 +4,10 @@
 import Foundation
 
 struct AppEntry: Codable, Equatable {
-    var bundleID: String { return bundleId }
-    var name: String { return trackName }
-    var appStoreURL: URL? { return URL(string: trackViewUrl) }
-    var iconURL: URL? { return URL(string: artworkUrl100) }
-
-    private let artworkUrl100: String
-    private let bundleId: String
-    private let trackName: String
-    private let trackViewUrl: String
+    let name: String
+    let iconURL: URL?
+    let appStoreURL: URL?
+    let bundleID: String
 
     static func == (lhs: AppEntry, rhs: AppEntry) -> Bool {
         return lhs.bundleID == rhs.bundleID

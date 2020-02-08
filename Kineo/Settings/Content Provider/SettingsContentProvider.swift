@@ -4,12 +4,6 @@
 import Foundation
 
 class SettingsContentProvider: NSObject {
-    init(otherAppEntries: [AppEntry] = []) {
-        self.otherAppEntries = otherAppEntries
-        super.init()
-        refreshOtherAppsList()
-    }
-
     // MARK: Data
 
     func sectionIndex(for sectionType: SettingsContentSection.Type) -> Int? {
@@ -34,21 +28,10 @@ class SettingsContentProvider: NSObject {
 
     // MARK: Other Apps
 
-    private var otherAppEntries: [AppEntry] {
-        didSet {
-            guard let otherAppsSectionIndex = sectionIndex(for: OtherAppsSection.self) else { return }
-            NotificationCenter.default.post(name: SettingsContentProvider.didChangeContent, object: self, userInfo: [
-                SettingsContentProvider.sectionIndexSetKey: IndexSet(integer: otherAppsSectionIndex)
-            ])
-        }
-    }
-
-    private func refreshOtherAppsList() {
-        guard otherAppEntries.isEmpty else { return }
-        AppListFetcher().fetchAppEntries { [weak self] appEntries, _ in
-            self?.otherAppEntries = appEntries ?? []
-        }
-    }
+    private let otherAppEntries: [AppEntry] = [
+        AppEntry(name: "Black Highlighter", iconURL: nil, appStoreURL: nil, bundleID: "com.cocoatype.Highlighter"),
+        AppEntry(name: "Scrawl Notes", iconURL: nil, appStoreURL: nil, bundleID: "com.cocoatype.Scratch")
+    ]
 
     // MARK: Notifications
 

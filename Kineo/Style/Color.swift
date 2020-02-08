@@ -21,7 +21,7 @@ extension UIColor {
     static let sidebarButtonBackground = UIColor.named("Sidebar Button Background")
     static let sidebarButtonTint = UIColor.named("Sidebar Button Tint")
 
-    static let primaryExtraLight = UIColor.red
+    static let primaryExtraLight = UIColor.white
     static let primaryLight = UIColor.red
     static let controlTint = UIColor.red
     static let primary = UIColor.red
