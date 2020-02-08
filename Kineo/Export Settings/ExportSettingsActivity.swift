@@ -6,7 +6,7 @@ import UIKit
 class ExportSettingsActivity: UIActivity {
     var exportController: ExportViewController?
 
-    override var activityViewController: UIViewController? { return ExportSettingsViewController() }
+    override var activityViewController: UIViewController? { return ExportSettingsNavigationController() }
 
     // MARK: UIActivity Data
 
