@@ -15,7 +15,7 @@ struct ExportSettingsContentProvider {
     func section(at index: Int) -> ExportSettingsContentSection { sections[index] }
 
     private var sections: [ExportSettingsContentSection] {
-        return [ExportSettingsStyleContentSection(exportSettings)]
+        return [ExportSettingsStyleContentSection(), ExportSettingsDurationContentSection()]
     }
 
     // MARK: Boilerplate
@@ -25,6 +25,7 @@ struct ExportSettingsContentProvider {
 
 protocol ExportSettingsContentSection {
     var header: String? { get }
+    var footer: String? { get }
     var items: [ExportSettingsContentItem] { get }
 }
 

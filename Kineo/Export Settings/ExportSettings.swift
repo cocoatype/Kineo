@@ -7,6 +7,11 @@ enum PlaybackStyle: CaseIterable {
     case standard, loop, bounce
 }
 
+enum ExportDuration: CaseIterable {
+    case threeSeconds, fiveSeconds, tenSeconds
+}
+
 struct ExportSettings {
     let playbackStyle: PlaybackStyle
+    let duration: ExportDuration
 }

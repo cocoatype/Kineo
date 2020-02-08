@@ -4,5 +4,5 @@
 import Foundation
 
 enum Defaults {
-    static var exportSettings: ExportSettings { ExportSettings(playbackStyle: .standard) }
+    static var exportSettings: ExportSettings { ExportSettings(playbackStyle: .loop, duration: .threeSeconds) }
 }

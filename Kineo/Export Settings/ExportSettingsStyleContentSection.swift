@@ -4,11 +4,12 @@
 import Foundation
 
 struct ExportSettingsStyleContentSection: ExportSettingsContentSection {
-    init(_ exportSettings: ExportSettings) {
+    init() {
         items = PlaybackStyle.allCases.map(ExportSettingsStyleContentItem.init)
     }
 
     let header: String? = NSLocalizedString("ExportSettingsStyleContentSection.header", comment: "Header text for the export settings style section")
+    let footer: String? = nil
     let items: [ExportSettingsContentItem]
 }
 

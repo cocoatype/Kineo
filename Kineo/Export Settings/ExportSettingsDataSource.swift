@@ -4,6 +4,10 @@
 import UIKit
 
 class ExportSettingsDataSource: NSObject, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        contentProvider.numberOfSections
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         contentProvider.numberOfRows(inSection: section)
     }
@@ -20,6 +24,10 @@ class ExportSettingsDataSource: NSObject, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         contentProvider.section(at: section).header
+    }
+
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        contentProvider.section(at: section).footer
     }
 
     private let contentProvider = ExportSettingsContentProvider(Defaults.exportSettings)
