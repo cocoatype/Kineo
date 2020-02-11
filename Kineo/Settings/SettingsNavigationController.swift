@@ -12,8 +12,8 @@ class SettingsNavigationController: UINavigationController {
 
     // MARK: Navigation
 
-    @objc func presentAboutViewController() {
-        guard let aboutViewController = AboutViewController() else { return }
+    @objc func presentReleaseNotesController() {
+        guard let aboutViewController = ReleaseNotesViewController() else { return }
         present(aboutViewController, animated: true)
     }
 

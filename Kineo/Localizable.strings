@@ -4,3 +4,18 @@
 "EditingViewController.exportPromoText" = "Made with Kineo: https://kineo.app";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.deleteMenuItemTitle" = "Delete";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle" = "Share";
+
+"SettingsContentProvider.Item.contact" = "Contact the Developer";
+"SettingsContentProvider.Item.instagram" = "Instagram";
+"SettingsContentProvider.Item.instagram.subtitle" = "@kineoapp";
+"SettingsContentProvider.Item.privacy" = "Privacy Policy";
+"SettingsContentProvider.Item.releaseNotes" = "What's New?";
+"SettingsContentProvider.Item.twitch" = "Twitch";
+"SettingsContentProvider.Item.twitch.subtitle" = "@cocoatype";
+"SettingsContentProvider.Item.twitter" = "Twitter";
+"SettingsContentProvider.Item.twitter.subtitle" = "@kineoapp";
+
+"SettingsContentProvider.Section.otherApps.header" = "Other Apps by Cocoatype";
+"SettingsContentProvider.Section.social.header" = "Social Media";
+
+"SettingsViewController.navigationTitle" = "Kineo Help";

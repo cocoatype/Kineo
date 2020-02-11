@@ -3,9 +3,9 @@
 
 import Foundation
 
-class AboutViewController: WebViewController {
+class ReleaseNotesViewController: WebViewController {
     init?() {
-        guard let aboutURL = URL(string: "https://highlighter.cocoatype.com/about") else { return nil }
+        guard let aboutURL = WebViewController.websiteURL(withPath: "/releases") else { return nil }
         super.init(url: aboutURL)
     }
 }

@@ -20,7 +20,7 @@ class AppListFetcher: NSObject {
                 let response = try JSONDecoder().decode(AppLookupResponse.self, from: data)
 
                 // filter out this app from the apps list
-                let bundleID = Bundle.main.bundleIdentifier ?? "com.cocoatype.Highlighter"
+                let bundleID = Bundle.main.bundleIdentifier ?? "com.flipbook.flickbook"
                 let otherApps = response.appEntries.filter { $0.bundleID != bundleID }
 
                 completionHandler(otherApps, nil)

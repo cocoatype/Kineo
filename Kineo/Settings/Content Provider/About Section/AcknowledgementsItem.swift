@@ -5,6 +5,7 @@ import UIKit
 
 struct AcknowledgementsItem: StandardContentItem {
     let title = NSLocalizedString("SettingsContentProvider.Item.acknowledgements", comment: "Title for the acknowledgements settings item")
+    let subtitle = String?.none
     func performSelectedAction(_ sender: Any) {
         UIApplication.shared.sendAction(#selector(SettingsNavigationController.presentAcknowledgementsViewController), to: nil, from: sender, for: nil)
     }

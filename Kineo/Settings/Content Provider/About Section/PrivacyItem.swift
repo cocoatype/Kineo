@@ -5,6 +5,7 @@ import UIKit
 
 struct PrivacyItem: StandardContentItem {
     let title = NSLocalizedString("SettingsContentProvider.Item.privacy", comment: "Title for the privacy policy settings item")
+    let subtitle = String?.none
     func performSelectedAction(_ sender: Any) {
         UIApplication.shared.sendAction(#selector(SettingsNavigationController.presentPrivacyViewController), to: nil, from: sender, for: nil)
     }

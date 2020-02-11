@@ -5,7 +5,7 @@ import Foundation
 
 class AcknowledgementsViewController: WebViewController {
     init?() {
-        guard let acknowledgementsURL = URL(string: "https://highlighter.cocoatype.com/acknowledgements") else { return nil }
+        guard let acknowledgementsURL = WebViewController.websiteURL(withPath: "/acknowledgements") else { return nil }
         super.init(url: acknowledgementsURL)
     }
 }

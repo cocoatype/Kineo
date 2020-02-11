@@ -37,7 +37,7 @@ class SceneViewController: UIViewController {
 
     // MARK: Status Bar
 
-    override var prefersStatusBarHidden: Bool { return true }
+    override var prefersStatusBarHidden: Bool { return UIDevice.current.userInterfaceIdiom == .pad }
 
     // MARK: Boilerplate
 

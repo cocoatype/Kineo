@@ -5,6 +5,7 @@ import UIKit
 
 struct ContactItem: StandardContentItem {
     let title = NSLocalizedString("SettingsContentProvider.Item.contact", comment: "Title for the contact settings item")
+    let subtitle = String?.none
     func performSelectedAction(_ sender: Any) {
         UIApplication.shared.sendAction(#selector(SettingsNavigationController.presentContactViewController), to: nil, from: sender, for: nil)
     }

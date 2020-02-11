@@ -3,11 +3,17 @@
 
 import UIKit
 
-struct OtherAppItem: SettingsContentItem {
+struct OtherAppItem: SettingsContentItem, IconProvidingContentItem {
     let appEntry: AppEntry
-    let cellIdentifier = SettingsAppEntryTableViewCell.identifier
     var title: String { return appEntry.name }
+    var subtitle: String? { appEntry.subtitle }
+    let icon: UIImage? = nil
+
     func performSelectedAction(_ sender: Any) {
         (sender as? UIResponder)?.appEntryOpener?.openAppStore(displaying: appEntry)
     }
+}
+
+protocol IconProvidingContentItem: SettingsContentItem {
+    var icon: UIImage? { get }
 }

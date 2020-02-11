@@ -11,32 +11,23 @@ class SettingsStandardTableViewCell: UITableViewCell, SettingsContentTableViewCe
     static let identifier = "SettingsTableViewCell.identifier"
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .value1, reuseIdentifier: SettingsStandardTableViewCell.identifier)
+        super.init(style: .subtitle, reuseIdentifier: SettingsStandardTableViewCell.identifier)
         accessoryType = .disclosureIndicator
-        backgroundColor = .tableViewCellBackground
+        backgroundColor = .sidebarButtonBackground
 
         let selectedBackgroundView = UIView()
-        selectedBackgroundView.backgroundColor = .primaryLight
+        selectedBackgroundView.backgroundColor = .sidebarButtonHighlight
         self.selectedBackgroundView = selectedBackgroundView
-
-        contentView.addSubview(label)
-        NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
-            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
-            label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
-        ])
     }
 
     var item: SettingsContentItem? {
         didSet {
-            label.text = item?.title
+            textLabel?.text = item?.title
+            detailTextLabel?.text = item?.subtitle
         }
     }
 
     // MARK: Boilerplate
-
-    private let label = SettingsTableViewCellLabel()
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

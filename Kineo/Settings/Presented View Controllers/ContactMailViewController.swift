@@ -16,7 +16,7 @@ class ContactMailViewController: MFMailComposeViewController, MFMailComposeViewC
         setToRecipients([ContactMailViewController.emailToAddress])
         setMessageBody("<br><br>\(versionInformation)", isHTML: true)
 
-        navigationBar.tintColor = .primary
+        navigationBar.tintColor = .controlTint
     }
 
     // MARK: Content

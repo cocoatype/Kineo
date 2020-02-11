@@ -5,7 +5,7 @@ import Foundation
 
 class PrivacyViewController: WebViewController {
     init?() {
-        guard let privacyURL = URL(string: "https://highlighter.cocoatype.com/privacy") else { return nil }
+        guard let privacyURL = WebViewController.websiteURL(withPath: "/privacy") else { return nil }
         super.init(url: privacyURL)
     }
 }

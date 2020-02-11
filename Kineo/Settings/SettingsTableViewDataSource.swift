@@ -21,8 +21,8 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource, UITableViewD
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = contentProvider.item(at: indexPath)
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: item.cellIdentifier, for: indexPath) as? SettingsContentTableViewCell else {
-            fatalError("Settings table view cell is not a SettingsContentTableViewCell: \(item.cellIdentifier)")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsStandardTableViewCell.identifier, for: indexPath) as? SettingsContentTableViewCell else {
+            fatalError("Settings table view cell is not a SettingsContentTableViewCell: \(SettingsStandardTableViewCell.identifier)")
         }
 
         cell.item = item
@@ -35,19 +35,23 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource, UITableViewD
         contentProvider.item(at: indexPath).performSelectedAction(tableView)
     }
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingsTableViewHeaderFooterView.identifier) as? SettingsTableViewHeaderFooterView else { fatalError("Got incorrect header view type") }
-        headerView.text = contentProvider.section(at: section).header
-        return headerView
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return contentProvider.section(at: section).header
     }
 
-    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return SettingsTableViewHeaderFooterLabel().font.lineHeight
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingsTableViewHeaderFooterView.identifier) as? SettingsTableViewHeaderFooterView else { fatalError("Got incorrect header view type") }
+//        headerView.text = contentProvider.section(at: section).header
+//        return headerView
+//    }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
-    }
+//    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+//        return SettingsTableViewHeaderFooterLabel().font.lineHeight
+//    }
+//
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
 
     // MARK: Boilerplate
 

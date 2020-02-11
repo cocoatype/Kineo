@@ -5,6 +5,7 @@ import Foundation
 
 struct AppEntry: Codable, Equatable {
     let name: String
+    let subtitle: String
     let iconURL: URL?
     let appStoreURL: URL?
     let bundleID: String

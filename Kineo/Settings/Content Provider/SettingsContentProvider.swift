@@ -29,8 +29,8 @@ class SettingsContentProvider: NSObject {
     // MARK: Other Apps
 
     private let otherAppEntries: [AppEntry] = [
-        AppEntry(name: "Black Highlighter", iconURL: nil, appStoreURL: nil, bundleID: "com.cocoatype.Highlighter"),
-        AppEntry(name: "Scrawl Notes", iconURL: nil, appStoreURL: nil, bundleID: "com.cocoatype.Scratch")
+        AppEntry(name: "Black Highlighter", subtitle: "Share pictures, not secrets", iconURL: nil, appStoreURL: nil, bundleID: "com.cocoatype.Highlighter"),
+        AppEntry(name: "Scrawl Notes", subtitle: "definitely an app", iconURL: nil, appStoreURL: nil, bundleID: "com.cocoatype.Scratch")
     ]
 
     // MARK: Notifications
@@ -45,7 +45,8 @@ class SettingsContentProvider: NSObject {
 
         sections.append(contentsOf: ([
             AboutSection(),
-            OtherAppsSection(otherApps: otherAppEntries)
+            OtherAppsSection(otherApps: otherAppEntries),
+            SocialSection()
         ] as [SettingsContentSection]))
 
         return sections

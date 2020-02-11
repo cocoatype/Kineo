@@ -17,4 +17,9 @@ class WebViewController: SFSafariViewController {
     }
 
     private var isDarkMode: Bool { return traitCollection.userInterfaceStyle == .dark }
+
+    private static let websiteBase = URL(string: "http://localhost:1313")
+    static func websiteURL(withPath path: String) -> URL? {
+        return websiteBase?.appendingPathComponent(path)
+    }
 }

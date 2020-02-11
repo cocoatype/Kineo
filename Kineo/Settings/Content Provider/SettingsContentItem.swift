@@ -2,7 +2,7 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 protocol SettingsContentItem {
-    var cellIdentifier: String { get }
     var title: String { get }
+    var subtitle: String? { get }
     func performSelectedAction(_ sender: Any)
 }

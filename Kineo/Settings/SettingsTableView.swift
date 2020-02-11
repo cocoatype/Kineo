@@ -6,13 +6,10 @@ import UIKit
 class SettingsTableView: UITableView {
     init() {
         super.init(frame: .zero, style: .grouped)
-        backgroundColor = .primary
-        separatorColor = .tableViewSeparator
-        separatorInset = .zero
+        backgroundColor = .appBackground
+        separatorColor = .sidebarButtonTint
 
         register(SettingsStandardTableViewCell.self, forCellReuseIdentifier: SettingsStandardTableViewCell.identifier)
-        register(SettingsAppEntryTableViewCell.self, forCellReuseIdentifier: SettingsAppEntryTableViewCell.identifier)
-        register(SettingsTableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: SettingsTableViewHeaderFooterView.identifier)
     }
 
     // MARK: Boilerplate

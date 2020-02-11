@@ -5,9 +5,8 @@ struct AboutSection: SettingsContentSection {
     var header: String? { return nil }
     var items: [SettingsContentItem] {
         return [
-            AboutItem(),
+            ReleaseNotesItem(),
             PrivacyItem(),
-            AcknowledgementsItem(),
             ContactItem()
         ]
     }

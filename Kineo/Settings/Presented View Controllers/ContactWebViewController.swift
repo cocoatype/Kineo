@@ -5,7 +5,7 @@ import Foundation
 
 class ContactWebViewController: WebViewController {
     init?() {
-        guard let contactURL = URL(string: "https://highlighter.cocoatype.com/contact") else { return nil }
+        guard let contactURL = WebViewController.websiteURL(withPath: "/support") else { return nil }
         super.init(url: contactURL)
     }
 }
