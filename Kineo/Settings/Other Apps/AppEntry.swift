@@ -1,12 +1,12 @@
 //  Created by Geoff Pado on 5/18/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
-import Foundation
+import UIKit
 
-struct AppEntry: Codable, Equatable {
+struct AppEntry: Equatable {
     let name: String
     let subtitle: String
-    let iconURL: URL?
+    let icon: UIImage?
     let appStoreURL: URL?
     let bundleID: String
 

@@ -7,10 +7,11 @@ struct OtherAppItem: SettingsContentItem, IconProvidingContentItem {
     let appEntry: AppEntry
     var title: String { return appEntry.name }
     var subtitle: String? { appEntry.subtitle }
-    let icon: UIImage? = nil
+    var icon: UIImage? { appEntry.icon }
 
     func performSelectedAction(_ sender: Any) {
-        (sender as? UIResponder)?.appEntryOpener?.openAppStore(displaying: appEntry)
+        guard let appStoreURL = appEntry.appStoreURL else { return }
+        UIApplication.shared.open(appStoreURL)
     }
 }
 

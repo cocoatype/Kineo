@@ -18,7 +18,7 @@ class WebViewController: SFSafariViewController {
 
     private var isDarkMode: Bool { return traitCollection.userInterfaceStyle == .dark }
 
-    private static let websiteBase = URL(string: "http://localhost:1313")
+    private static let websiteBase = URL(string: "https://kineo.app")
     static func websiteURL(withPath path: String) -> URL? {
         return websiteBase?.appendingPathComponent(path)
     }

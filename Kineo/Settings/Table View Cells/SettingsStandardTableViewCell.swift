@@ -24,6 +24,10 @@ class SettingsStandardTableViewCell: UITableViewCell, SettingsContentTableViewCe
         didSet {
             textLabel?.text = item?.title
             detailTextLabel?.text = item?.subtitle
+
+            imageView?.image = (item as? IconProvidingContentItem)?.icon
+            imageView?.layer.cornerRadius = 6
+            imageView?.clipsToBounds = true
         }
     }
 

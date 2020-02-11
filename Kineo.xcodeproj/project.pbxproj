@@ -68,11 +68,6 @@
 		04791E5123EC1F3400403BD8 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E1B23EC1F3400403BD8 /* SettingsTableView.swift */; };
 		04791E5223EC1F3400403BD8 /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E1C23EC1F3400403BD8 /* SettingsTableViewDataSource.swift */; };
 		04791E5323EC1F3400403BD8 /* AppEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E1E23EC1F3400403BD8 /* AppEntry.swift */; };
-		04791E5423EC1F3400403BD8 /* AppEntryOpening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E1F23EC1F3400403BD8 /* AppEntryOpening.swift */; };
-		04791E5523EC1F3400403BD8 /* AppLookupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E2023EC1F3400403BD8 /* AppLookupResponse.swift */; };
-		04791E5623EC1F3400403BD8 /* AppListFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E2123EC1F3400403BD8 /* AppListFetcher.swift */; };
-		04791E5723EC1F3400403BD8 /* AppLookupResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E2223EC1F3400403BD8 /* AppLookupResponseResult.swift */; };
-		04791E5823EC1F3400403BD8 /* AppDeveloperInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E2323EC1F3400403BD8 /* AppDeveloperInfo.swift */; };
 		04791E5923EC1F3400403BD8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E2423EC1F3400403BD8 /* SettingsViewController.swift */; };
 		0485989523F281CB00AFBB3A /* SocialSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989423F281CB00AFBB3A /* SocialSection.swift */; };
 		0485989723F282B500AFBB3A /* TwitterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989623F282B500AFBB3A /* TwitterItem.swift */; };
@@ -237,11 +232,6 @@
 		04791E1B23EC1F3400403BD8 /* SettingsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
 		04791E1C23EC1F3400403BD8 /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		04791E1E23EC1F3400403BD8 /* AppEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppEntry.swift; sourceTree = "<group>"; };
-		04791E1F23EC1F3400403BD8 /* AppEntryOpening.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppEntryOpening.swift; sourceTree = "<group>"; };
-		04791E2023EC1F3400403BD8 /* AppLookupResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLookupResponse.swift; sourceTree = "<group>"; };
-		04791E2123EC1F3400403BD8 /* AppListFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppListFetcher.swift; sourceTree = "<group>"; };
-		04791E2223EC1F3400403BD8 /* AppLookupResponseResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLookupResponseResult.swift; sourceTree = "<group>"; };
-		04791E2323EC1F3400403BD8 /* AppDeveloperInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDeveloperInfo.swift; sourceTree = "<group>"; };
 		04791E2423EC1F3400403BD8 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0485989423F281CB00AFBB3A /* SocialSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSection.swift; sourceTree = "<group>"; };
 		0485989623F282B500AFBB3A /* TwitterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterItem.swift; sourceTree = "<group>"; };
@@ -500,11 +490,6 @@
 			isa = PBXGroup;
 			children = (
 				04791E1E23EC1F3400403BD8 /* AppEntry.swift */,
-				04791E1F23EC1F3400403BD8 /* AppEntryOpening.swift */,
-				04791E2023EC1F3400403BD8 /* AppLookupResponse.swift */,
-				04791E2123EC1F3400403BD8 /* AppListFetcher.swift */,
-				04791E2223EC1F3400403BD8 /* AppLookupResponseResult.swift */,
-				04791E2323EC1F3400403BD8 /* AppDeveloperInfo.swift */,
 			);
 			path = "Other Apps";
 			sourceTree = "<group>";
@@ -900,7 +885,6 @@
 				0445AA652373CB9400EB2A7B /* GallerySelectionEvent.swift in Sources */,
 				04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */,
 				04791E4E23EC1F3400403BD8 /* SettingsTableViewCellImageView.swift in Sources */,
-				04791E5723EC1F3400403BD8 /* AppLookupResponseResult.swift in Sources */,
 				04BD9256237FFC4300C8FD09 /* SceneView.swift in Sources */,
 				04ACCD2823B2310B006FBABC /* EditingViewDataSource.swift in Sources */,
 				04EC179323D991A700A42E08 /* FilmStripCollectionLayoutItem.swift in Sources */,
@@ -909,20 +893,16 @@
 				04ACCD2623B21BAE006FBABC /* FilmStripDataSource.swift in Sources */,
 				04B86C0623B45DED005F65F7 /* EditingViewCompactLayoutManager.swift in Sources */,
 				04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */,
-				04791E5823EC1F3400403BD8 /* AppDeveloperInfo.swift in Sources */,
-				04791E5623EC1F3400403BD8 /* AppListFetcher.swift in Sources */,
 				04791E2823EC1F3400403BD8 /* OtherAppsSection.swift in Sources */,
 				04791E4923EC1F3400403BD8 /* ReleaseNotesViewController.swift in Sources */,
 				04791E2D23EC1F3400403BD8 /* AcknowledgementsItem.swift in Sources */,
 				043854E7238CD06F0041A4AA /* SidebarActionButtonImageView.swift in Sources */,
-				04791E5423EC1F3400403BD8 /* AppEntryOpening.swift in Sources */,
 				0436CE9323E53237002BE4EF /* ExportViewController.swift in Sources */,
 				04ACCD2423B21B4B006FBABC /* FilmStripExistingPageCell.swift in Sources */,
 				04791E5323EC1F3400403BD8 /* AppEntry.swift in Sources */,
 				04791E4F23EC1F3400403BD8 /* SettingsTableViewCellLabel.swift in Sources */,
 				0485989B23F284AD00AFBB3A /* InstagramItem.swift in Sources */,
 				04C0A68622DC5EBD00E4E5D6 /* DrawingView.swift in Sources */,
-				04791E5523EC1F3400403BD8 /* AppLookupResponse.swift in Sources */,
 				04BD925F237FFDBD00C8FD09 /* EditingActions.swift in Sources */,
 				04BD9251237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift in Sources */,
 				04B86C0423B45B48005F65F7 /* EditingViewRegularLayoutManager.swift in Sources */,

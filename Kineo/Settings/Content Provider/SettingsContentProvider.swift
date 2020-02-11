@@ -29,8 +29,8 @@ class SettingsContentProvider: NSObject {
     // MARK: Other Apps
 
     private let otherAppEntries: [AppEntry] = [
-        AppEntry(name: "Black Highlighter", subtitle: "Share pictures, not secrets", iconURL: nil, appStoreURL: nil, bundleID: "com.cocoatype.Highlighter"),
-        AppEntry(name: "Scrawl Notes", subtitle: "definitely an app", iconURL: nil, appStoreURL: nil, bundleID: "com.cocoatype.Scratch")
+        AppEntry(name: "Black Highlighter", subtitle: "Share pictures, not secrets", icon: #imageLiteral(resourceName: "Highlighter.png"), appStoreURL: URL(string: "https://apps.apple.com/us/app/black-highlighter/id1215283742?uo=4"), bundleID: "com.cocoatype.Highlighter"),
+        AppEntry(name: "Scrawl Notes", subtitle: "definitely an app", icon: #imageLiteral(resourceName: "Scrawl"), appStoreURL: URL(string: "https://apps.apple.com/us/app/scrawl-notes/id1229326968?uo=4"), bundleID: "com.cocoatype.Scratch")
     ]
 
     // MARK: Notifications
