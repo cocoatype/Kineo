@@ -30,9 +30,18 @@ class SceneViewController: UIViewController {
         NSLog("showing export settings")
     }
 
+    @objc func presentHelp() {
+        present(SettingsNavigationController(), animated: true)
+    }
+
+    @objc func dismissSettingsViewController(_ sender: SettingsViewController) {
+        guard presentedViewController is SettingsNavigationController else { return }
+        dismiss(animated: true, completion: nil)
+    }
+
     // MARK: Status Bar
 
-    override var prefersStatusBarHidden: Bool { return true }
+    override var prefersStatusBarHidden: Bool { return UIDevice.current.userInterfaceIdiom == .pad }
 
     // MARK: Boilerplate
 

@@ -38,7 +38,7 @@ class GalleryView: UIControl {
             collectionView.topAnchor.constraint(equalTo: topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
             helpButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11),
-            helpButton.topAnchor.constraint(equalTo: topAnchor, constant: 11)
+            helpButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 11)
         ])
     }
 
