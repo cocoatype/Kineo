@@ -41,6 +41,6 @@ class RedoButton: SidebarActionButton {
 
 class HelpButton: SidebarActionButton {
     init() {
-        super.init(icon: Icons.help, selector: #selector(GalleryViewController.presentHelp))
+        super.init(icon: Icons.help, selector: #selector(SceneViewController.presentHelp))
     }
 }

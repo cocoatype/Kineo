@@ -19,5 +19,8 @@ extension UIColor {
     static let sidebarBackground = UIColor.named("Sidebar Background")
     static let sidebarBorder = UIColor.named("Sidebar Border")
     static let sidebarButtonBackground = UIColor.named("Sidebar Button Background")
+    static let sidebarButtonHighlight = UIColor.named("Sidebar Button Highlight")
     static let sidebarButtonTint = UIColor.named("Sidebar Button Tint")
+
+    static let controlTint = UIColor.named("Web Control Tint")
 }
