@@ -9,10 +9,8 @@ class ExportViewController: UIActivityViewController {
         do {
             let promoText = Self.exportPromoText
             let videoProvider = try VideoProvider(document: document)
-            let activity = ExportSettingsActivity()
 
-            super.init(activityItems: [promoText, videoProvider], applicationActivities: [activity])
-            activity.exportController = self
+            super.init(activityItems: [promoText, videoProvider], applicationActivities: [ExportSettingsActivity()])
 
             if let popoverPresentationController = self.popoverPresentationController {
                 popoverPresentationController.sourceView = sourceView

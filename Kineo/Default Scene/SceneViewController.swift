@@ -26,10 +26,6 @@ class SceneViewController: UIViewController {
         self.showEditingView(for: event.document)
     }
 
-    @objc func showExportSettings(_ sender: ExportViewController) {
-        NSLog("showing export settings")
-    }
-
     @objc func presentHelp() {
         present(SettingsNavigationController(), animated: true)
     }

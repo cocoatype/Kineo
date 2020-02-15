@@ -4,8 +4,6 @@
 import UIKit
 
 class ExportSettingsActivity: UIActivity {
-    var exportController: ExportViewController?
-
     override var activityViewController: UIViewController? { return ExportSettingsNavigationController() }
 
     // MARK: UIActivity Data
@@ -14,9 +12,4 @@ class ExportSettingsActivity: UIActivity {
     override var activityTitle: String? { NSLocalizedString("ExportSettingsActivity.activityTitle", comment: "Title for the export settings action") }
     override var activityImage: UIImage? { Icons.exportSettings }
     override func canPerform(withActivityItems activityItems: [Any]) -> Bool { true }
-
-    // MARK: Boilerplate
-
-    private static let showAction = #selector(SceneViewController.showExportSettings(_:))
-    private weak var target: SceneViewController?
 }
