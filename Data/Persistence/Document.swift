@@ -4,11 +4,11 @@
 import Foundation
 
 public struct Document: Codable, Equatable {
-    init() {
-        self.init(pages: [Page()], uuid: UUID())
+    public init(pages: [Page]) {
+        self.init(pages: pages, uuid: UUID())
     }
 
-    init(pages: [Page], uuid: UUID) {
+    init(pages: [Page] = [Page()], uuid: UUID = UUID()) {
         self.pages = pages
         self.uuid = uuid
     }

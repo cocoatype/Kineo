@@ -7,7 +7,7 @@ import UIKit
 
 class VideoProvider: UIActivityItemProvider {
     init(document: Document) throws {
-        self.document = document
+        self.document = DocumentTransformer.transformedDocument(from: document, using: Defaults.exportSettings)
 
         // generate the export URL
         let fileName = UUID().uuidString

@@ -121,6 +121,7 @@
 		04DF241223F888E000657160 /* FilmStripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD1C23B21334006FBABC /* FilmStripView.swift */; };
 		04DF241323F888EC00657160 /* SidebarActionButtonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043854E6238CD06F0041A4AA /* SidebarActionButtonImageView.swift */; };
 		04DF241423F888F800657160 /* FilmStripExistingPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */; };
+		04DF241723F88B1F00657160 /* DocumentTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF241623F88B1F00657160 /* DocumentTransformer.swift */; };
 		04EC178D23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC178C23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift */; };
 		04EC178F23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC178E23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift */; };
 		04EC179123D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC179023D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift */; };
@@ -306,6 +307,7 @@
 		04D36AD9237826D40052A933 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		04D36ADC237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentCollectionViewCellBackgroundView.swift; sourceTree = "<group>"; };
 		04D36AE023782A1A0052A933 /* GalleryNewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryNewCollectionViewCell.swift; sourceTree = "<group>"; };
+		04DF241623F88B1F00657160 /* DocumentTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTransformer.swift; sourceTree = "<group>"; };
 		04EC178C23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionViewLayout.swift; sourceTree = "<group>"; };
 		04EC178E23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutSection.swift; sourceTree = "<group>"; };
 		04EC179023D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutGroup.swift; sourceTree = "<group>"; };
@@ -516,7 +518,7 @@
 			path = "Other Apps";
 			sourceTree = "<group>";
 		};
-		04791E5B23EE9C8100403BD8 /* Export Settings */ = {
+		04791E5B23EE9C8100403BD8 /* Export */ = {
 			isa = PBXGroup;
 			children = (
 				04791E5C23EE9CA400403BD8 /* ExportSettings.swift */,
@@ -530,8 +532,9 @@
 				04791E6423EEA71D00403BD8 /* ExportSettingsView.swift */,
 				04791E5E23EE9CBF00403BD8 /* ExportSettingsViewController.swift */,
 				0436CE9223E53237002BE4EF /* ExportViewController.swift */,
+				04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */,
 			);
-			path = "Export Settings";
+			path = Export;
 			sourceTree = "<group>";
 		};
 		0485989323F281BC00AFBB3A /* Social Section */ = {
@@ -608,12 +611,12 @@
 				04C0A67822DC436400E4E5D6 /* example.json */,
 				04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */,
 				04791E6C23EEB98000403BD8 /* Defaults.swift */,
-				04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */,
 				04C0A66B22DC23EA00E4E5D6 /* Default Scene */,
 				04C0A66E22DC292E00E4E5D6 /* Editing View */,
-				04791E5B23EE9C8100403BD8 /* Export Settings */,
+				04791E5B23EE9C8100403BD8 /* Export */,
 				04C0A67522DC406000E4E5D6 /* Extensions */,
 				0417F09F22E4A0860063AD66 /* Gallery */,
+				04DF241523F88AF400657160 /* Playback */,
 				04791DE323EC1F3400403BD8 /* Settings */,
 				044DB00223B31B0C00BD2A0C /* Style */,
 				044DB00123B31AE800BD2A0C /* Supporting Files */,
@@ -697,6 +700,14 @@
 				0436CE8E23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift */,
 			);
 			path = "Document Cell";
+			sourceTree = "<group>";
+		};
+		04DF241523F88AF400657160 /* Playback */ = {
+			isa = PBXGroup;
+			children = (
+				04DF241623F88B1F00657160 /* DocumentTransformer.swift */,
+			);
+			path = Playback;
 			sourceTree = "<group>";
 		};
 		04EC178B23D9803E00A42E08 /* Layout */ = {
@@ -988,6 +999,7 @@
 				04791E6923EEAB2000403BD8 /* ExportSettingsDataSource.swift in Sources */,
 				04791E6F23EEBC9200403BD8 /* ExportSettingsDurationContentSection.swift in Sources */,
 				04791E3523EC1F3400403BD8 /* SettingsNavigationController.swift in Sources */,
+				04DF241723F88B1F00657160 /* DocumentTransformer.swift in Sources */,
 				04D36AD82378205F0052A933 /* Color.swift in Sources */,
 				0445AA632373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift in Sources */,
 				04B52D05237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift in Sources */,
