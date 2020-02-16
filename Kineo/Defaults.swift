@@ -18,23 +18,45 @@ enum Defaults {
 
     // MARK: Export Settings
 
-    static var exportSettings: ExportSettings { ExportSettings(playbackStyle: exportPlaybackStyle, duration: exportDuration) }
+    static var exportSettings: ExportSettings {
+        get { ExportSettings(playbackStyle: exportPlaybackStyle, duration: exportDuration) }
+        set(newSettings) {
+            Self.exportPlaybackStyle = newSettings.playbackStyle
+            Self.exportDuration = newSettings.duration
+        }
+    }
 
     private static var exportPlaybackStyle: PlaybackStyle {
-        switch userDefaults.string(forKey: Self.exportPlaybackStyleKey) {
-        case Self.exportPlaybackStyleStandard?: return .standard
-        case Self.exportPlaybackStyleLoop?: return .loop
-        case Self.exportPlaybackStyleBounce?: return .bounce
-        default: return .loop
+        get {
+            switch userDefaults.string(forKey: Self.exportPlaybackStyleKey) {
+            case Self.exportPlaybackStyleStandard?: return .standard
+            case Self.exportPlaybackStyleLoop?: return .loop
+            case Self.exportPlaybackStyleBounce?: return .bounce
+            default: return .loop
+            }
+        } set(newStyle) {
+            switch newStyle {
+            case .standard: userDefaults.set(Self.exportPlaybackStyleStandard, forKey: Self.exportPlaybackStyleKey)
+            case .loop: userDefaults.set(Self.exportPlaybackStyleLoop, forKey: Self.exportPlaybackStyleKey)
+            case .bounce: userDefaults.set(Self.exportPlaybackStyleBounce, forKey: Self.exportPlaybackStyleKey)
+            }
         }
     }
 
     private static var exportDuration: ExportDuration {
-        switch userDefaults.string(forKey: Self.exportDurationKey) {
-        case Self.exportDurationThreeSeconds?: return .threeSeconds
-        case Self.exportDurationFiveSeconds?: return .fiveSeconds
-        case Self.exportDurationTenSeconds?: return .tenSeconds
-        default: return .threeSeconds
+        get {
+            switch userDefaults.string(forKey: Self.exportDurationKey) {
+            case Self.exportDurationThreeSeconds?: return .threeSeconds
+            case Self.exportDurationFiveSeconds?: return .fiveSeconds
+            case Self.exportDurationTenSeconds?: return .tenSeconds
+            default: return .threeSeconds
+            }
+        } set (newDuration) {
+            switch newDuration {
+            case .threeSeconds: userDefaults.set(exportDurationThreeSeconds, forKey: exportDurationKey)
+            case .fiveSeconds: userDefaults.set(exportDurationFiveSeconds, forKey: exportDurationKey)
+            case .tenSeconds: userDefaults.set(exportDurationTenSeconds, forKey: exportDurationKey)
+            }
         }
     }
 

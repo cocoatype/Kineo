@@ -30,5 +30,10 @@ struct ExportSettingsDurationContentItem: ExportSettingsContentItem {
         return duration == settings.duration
     }
 
+    func updateExportSettings() {
+        let newExportSettings = ExportSettings(playbackStyle: Defaults.exportSettings.playbackStyle, duration: duration)
+        Defaults.exportSettings = newExportSettings
+    }
+
     private let duration: ExportDuration
 }

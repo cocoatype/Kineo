@@ -3,7 +3,7 @@
 
 import UIKit
 
-class ExportSettingsViewController: UIViewController {
+class ExportSettingsViewController: UIViewController, UITableViewDelegate {
     init() {
         super.init(nibName: nil, bundle: nil)
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(ExportSettingsViewController.dismissSelf))
@@ -13,6 +13,7 @@ class ExportSettingsViewController: UIViewController {
     override func loadView() {
         let settingsView = ExportSettingsView()
         settingsView.dataSource = dataSource
+        settingsView.delegate = self
         view = settingsView
     }
 
@@ -20,15 +21,33 @@ class ExportSettingsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
+    // MARK: UITableViewDelegate
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let reloadIndexPaths = contentProvider.checkedIndexPaths(inSection: indexPath.section) + indexPath
+        contentProvider.item(at: indexPath).updateExportSettings()
+        tableView.reloadRows(at: reloadIndexPaths, with: .automatic)
+    }
+
     // MARK: Boilerplate
 
     private static let navigationTitle = NSLocalizedString("ExportSettingsViewController.navigationTitle", comment: "Navigation title for the export settings")
 
-    private let dataSource = ExportSettingsDataSource()
+    private let contentProvider = ExportSettingsContentProvider()
+    private lazy var dataSource = ExportSettingsDataSource(contentProvider)
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
+    }
+}
+
+extension Array {
+    static func + (lhs: Self, rhs: Self.Element) -> Self {
+        var newArray = lhs
+        newArray.append(rhs)
+        return newArray
     }
 }

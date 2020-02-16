@@ -9,8 +9,8 @@
 "ExportSettingsDurationContentSection.footer" = "Some social networks require a minimum video length to post. Kineo will play your entire animation enough times to meet the minimum length you choose.";
 
 "ExportSettingsDurationContentItem.threeSeconds.title" = "3 seconds";
-"ExportSettingsDurationContentItem.fiveSeconds.title" = "10 seconds";
-"ExportSettingsDurationContentItem.tenSeconds.title" = "30 seconds";
+"ExportSettingsDurationContentItem.fiveSeconds.title" = "5 seconds";
+"ExportSettingsDurationContentItem.tenSeconds.title" = "10 seconds";
 
 "ExportSettingsStyleContentSection.header" = "Video Effect";
 

@@ -5,14 +5,15 @@ import CoreGraphics
 import Foundation
 
 struct ExportSettingsContentProvider {
-    init(_ exportSettings: ExportSettings) {
-        self.exportSettings = exportSettings
-    }
-
     var numberOfSections: Int { sections.count }
-    func numberOfRows(inSection: Int) -> Int { sections[0].items.count }
+    func numberOfRows(inSection section: Int) -> Int { sections[section].items.count }
     func item(at indexPath: IndexPath) -> ExportSettingsContentItem { sections[indexPath.section].items[indexPath.row] }
     func section(at index: Int) -> ExportSettingsContentSection { sections[index] }
+    func checkedIndexPaths(inSection section: Int) -> [IndexPath] {
+        return (0..<sections[section].items.count)
+          .map { IndexPath(row: $0, section: section) }
+          .filter { item(at: $0).isChecked(for: exportSettings) }
+    }
 
     private var sections: [ExportSettingsContentSection] {
         return [ExportSettingsStyleContentSection(), ExportSettingsDurationContentSection()]
@@ -20,7 +21,7 @@ struct ExportSettingsContentProvider {
 
     // MARK: Boilerplate
 
-    private let exportSettings: ExportSettings
+    private var exportSettings: ExportSettings { Defaults.exportSettings }
 }
 
 protocol ExportSettingsContentSection {
@@ -32,4 +33,5 @@ protocol ExportSettingsContentSection {
 protocol ExportSettingsContentItem {
     var title: String { get }
     func isChecked(for settings: ExportSettings) -> Bool
+    func updateExportSettings()
 }

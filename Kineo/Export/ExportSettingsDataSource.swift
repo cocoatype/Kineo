@@ -4,6 +4,10 @@
 import UIKit
 
 class ExportSettingsDataSource: NSObject, UITableViewDataSource {
+    init(_ contentProvider: ExportSettingsContentProvider) {
+        self.contentProvider = contentProvider
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         contentProvider.numberOfSections
     }
@@ -30,5 +34,5 @@ class ExportSettingsDataSource: NSObject, UITableViewDataSource {
         contentProvider.section(at: section).footer
     }
 
-    private let contentProvider = ExportSettingsContentProvider(Defaults.exportSettings)
+    private let contentProvider: ExportSettingsContentProvider
 }
