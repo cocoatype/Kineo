@@ -61,10 +61,8 @@ class VideoProvider: UIActivityItemProvider {
         let frameDuration = CMTime(value: 1, timescale: Self.standardFramesPerSecond)
 
         let mediaReadyCondition = NSCondition()
-        let mediaReadyObservation = writerInput.observe(\.isReadyForMoreMediaData) { [weak mediaReadyCondition] _, change in
-            guard let isReady = change.newValue else { return }
-
-            if isReady {
+        let mediaReadyObservation = writerInput.observe(\.isReadyForMoreMediaData) { [weak mediaReadyCondition] input, _ in
+            if input.isReadyForMoreMediaData {
                 mediaReadyCondition?.lock()
                 mediaReadyCondition?.signal()
                 mediaReadyCondition?.unlock()
