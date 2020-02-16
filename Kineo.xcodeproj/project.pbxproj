@@ -89,8 +89,6 @@
 		04ACCD2C23B2345A006FBABC /* UITraitCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2B23B2345A006FBABC /* UITraitCollectionExtensions.swift */; };
 		04B52D05237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B52D04237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift */; };
 		04B86C0223B45B26005F65F7 /* EditingViewLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86C0123B45B26005F65F7 /* EditingViewLayoutManager.swift */; };
-		04B86C0423B45B48005F65F7 /* EditingViewRegularLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86C0323B45B48005F65F7 /* EditingViewRegularLayoutManager.swift */; };
-		04B86C0623B45DED005F65F7 /* EditingViewCompactLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86C0523B45DED005F65F7 /* EditingViewCompactLayoutManager.swift */; };
 		04B86C0823B64006005F65F7 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86C0723B64006005F65F7 /* UIViewExtensions.swift */; };
 		04B86C0A23BA111C005F65F7 /* SkinsImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86C0923BA111C005F65F7 /* SkinsImageView.swift */; };
 		04BD9251237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD9250237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift */; };
@@ -269,8 +267,6 @@
 		04ACCD2B23B2345A006FBABC /* UITraitCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITraitCollectionExtensions.swift; sourceTree = "<group>"; };
 		04B52D04237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentPreviewImageView.swift; sourceTree = "<group>"; };
 		04B86C0123B45B26005F65F7 /* EditingViewLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewLayoutManager.swift; sourceTree = "<group>"; };
-		04B86C0323B45B48005F65F7 /* EditingViewRegularLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewRegularLayoutManager.swift; sourceTree = "<group>"; };
-		04B86C0523B45DED005F65F7 /* EditingViewCompactLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewCompactLayoutManager.swift; sourceTree = "<group>"; };
 		04B86C0723B64006005F65F7 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		04B86C0923BA111C005F65F7 /* SkinsImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsImageView.swift; sourceTree = "<group>"; };
 		04BD9250237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryNewDocumentImageView.swift; sourceTree = "<group>"; };
@@ -656,8 +652,6 @@
 				044484D323A884D300CD0C3C /* EditingUserActivity.swift */,
 				04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */,
 				04B86C0123B45B26005F65F7 /* EditingViewLayoutManager.swift */,
-				04B86C0323B45B48005F65F7 /* EditingViewRegularLayoutManager.swift */,
-				04B86C0523B45DED005F65F7 /* EditingViewCompactLayoutManager.swift */,
 				04C0A66922DC224B00E4E5D6 /* EditingViewController.swift */,
 				04ACCD2723B2310B006FBABC /* EditingViewDataSource.swift */,
 				04318A3422E2EC3C003D70C8 /* PlaybackView.swift */,
@@ -945,7 +939,6 @@
 				0485989923F2843000AFBB3A /* TwitchItem.swift in Sources */,
 				04ACCD2623B21BAE006FBABC /* FilmStripDataSource.swift in Sources */,
 				04791E5D23EE9CA400403BD8 /* ExportSettings.swift in Sources */,
-				04B86C0623B45DED005F65F7 /* EditingViewCompactLayoutManager.swift in Sources */,
 				04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */,
 				04791E6B23EEAB6C00403BD8 /* ExportSettingsStyleContentSection.swift in Sources */,
 				04791E5F23EE9CBF00403BD8 /* ExportSettingsViewController.swift in Sources */,
@@ -959,7 +952,6 @@
 				04C0A68622DC5EBD00E4E5D6 /* DrawingView.swift in Sources */,
 				04BD925F237FFDBD00C8FD09 /* EditingActions.swift in Sources */,
 				04BD9251237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift in Sources */,
-				04B86C0423B45B48005F65F7 /* EditingViewRegularLayoutManager.swift in Sources */,
 				04EC178F23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift in Sources */,
 				04791E4623EC1F3400403BD8 /* WebViewController.swift in Sources */,
 				04B86C0A23BA111C005F65F7 /* SkinsImageView.swift in Sources */,
