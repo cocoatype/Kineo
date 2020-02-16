@@ -1,0 +1,73 @@
+//  Created by Geoff Pado on 2/8/20.
+//  Copyright © 2020 Cocoatype, LLC. All rights reserved.
+
+import Foundation
+
+enum Defaults {
+    static func initialize() {
+        userDefaults.register(defaults: [
+            Self.exportPlaybackStyleKey: Self.exportPlaybackStyleLoop,
+            Self.exportDurationKey: Self.exportDurationThreeSeconds
+        ])
+    }
+
+    private static let userDefaults: UserDefaults = {
+        guard let defaults = UserDefaults(suiteName: "group.com.flipbookapp.flickbook") else { fatalError("Unable to create user defaults") }
+        return defaults
+    }()
+
+    // MARK: Export Settings
+
+    static var exportSettings: ExportSettings {
+        get { ExportSettings(playbackStyle: exportPlaybackStyle, duration: exportDuration) }
+        set(newSettings) {
+            Self.exportPlaybackStyle = newSettings.playbackStyle
+            Self.exportDuration = newSettings.duration
+        }
+    }
+
+    private static var exportPlaybackStyle: PlaybackStyle {
+        get {
+            switch userDefaults.string(forKey: Self.exportPlaybackStyleKey) {
+            case Self.exportPlaybackStyleStandard?: return .standard
+            case Self.exportPlaybackStyleLoop?: return .loop
+            case Self.exportPlaybackStyleBounce?: return .bounce
+            default: return .loop
+            }
+        } set(newStyle) {
+            switch newStyle {
+            case .standard: userDefaults.set(Self.exportPlaybackStyleStandard, forKey: Self.exportPlaybackStyleKey)
+            case .loop: userDefaults.set(Self.exportPlaybackStyleLoop, forKey: Self.exportPlaybackStyleKey)
+            case .bounce: userDefaults.set(Self.exportPlaybackStyleBounce, forKey: Self.exportPlaybackStyleKey)
+            }
+        }
+    }
+
+    private static var exportDuration: ExportDuration {
+        get {
+            switch userDefaults.string(forKey: Self.exportDurationKey) {
+            case Self.exportDurationThreeSeconds?: return .threeSeconds
+            case Self.exportDurationFiveSeconds?: return .fiveSeconds
+            case Self.exportDurationTenSeconds?: return .tenSeconds
+            default: return .threeSeconds
+            }
+        } set (newDuration) {
+            switch newDuration {
+            case .threeSeconds: userDefaults.set(exportDurationThreeSeconds, forKey: exportDurationKey)
+            case .fiveSeconds: userDefaults.set(exportDurationFiveSeconds, forKey: exportDurationKey)
+            case .tenSeconds: userDefaults.set(exportDurationTenSeconds, forKey: exportDurationKey)
+            }
+        }
+    }
+
+    // MARK: Keys and Values
+
+    private static let exportPlaybackStyleKey = "Defaults.exportPlaybackStyle"
+    private static let exportPlaybackStyleStandard = "Defaults.exportPlaybackStyleStandard"
+    private static let exportPlaybackStyleLoop = "Defaults.exportPlaybackStyleLoop"
+    private static let exportPlaybackStyleBounce = "Defaults.exportPlaybackStyleBounce"
+    private static let exportDurationKey = "Defaults.exportDuration"
+    private static let exportDurationThreeSeconds = "Defaults.exportDurationThreeSeconds"
+    private static let exportDurationFiveSeconds = "Defaults.exportDurationFiveSeconds"
+    private static let exportDurationTenSeconds = "Defaults.exportDurationTenSeconds"
+}

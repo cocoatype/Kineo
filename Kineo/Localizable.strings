@@ -2,6 +2,24 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 "EditingViewController.exportPromoText" = "Made with Kineo: https://kineo.app";
+
+"ExportSettingsActivity.activityTitle" = "Share Settings";
+
+"ExportSettingsDurationContentSection.header" = "Minimum Length";
+"ExportSettingsDurationContentSection.footer" = "Some social networks require a minimum video length to post. Kineo will play your entire animation enough times to meet the minimum length you choose.";
+
+"ExportSettingsDurationContentItem.threeSeconds.title" = "3 seconds";
+"ExportSettingsDurationContentItem.fiveSeconds.title" = "5 seconds";
+"ExportSettingsDurationContentItem.tenSeconds.title" = "10 seconds";
+
+"ExportSettingsStyleContentSection.header" = "Video Effect";
+
+"ExportSettingsStyleContentItem.standard.title" = "Play Once";
+"ExportSettingsStyleContentItem.loop.title" = "Loop";
+"ExportSettingsStyleContentItem.bounce.title" = "Bounce";
+
+"ExportSettingsViewController.navigationTitle" = "Share Settings";
+
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.deleteMenuItemTitle" = "Delete";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle" = "Share";
 

@@ -18,10 +18,14 @@ enum Icons {
 
     static let newPage = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 14, weight: .medium))
 
+    static let exportSettings = UIImage(systemName: "gear", withConfiguration: UIImage.SymbolConfiguration(pointSize: activityIconSize))
+
     enum ContextMenu {
         static let delete = UIImage(systemName: "trash", withConfiguration: UIImage.SymbolConfiguration.contextMenuIconConfiguration)
         static let export = UIImage(systemName: "square.and.arrow.up", withConfiguration: UIImage.SymbolConfiguration.contextMenuIconConfiguration)
     }
+
+    private static var activityIconSize = CGFloat(24)
 }
 
 extension UIImage.SymbolConfiguration {
