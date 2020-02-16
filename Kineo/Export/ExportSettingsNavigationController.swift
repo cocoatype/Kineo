@@ -26,11 +26,13 @@ class ExportSettingsNavigationController: UINavigationController {
         init() {
             super.init(idiom: UIDevice.current.userInterfaceIdiom)
             configureWithTransparentBackground()
+            doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.sidebarButtonTint
         }
 
         override init(barAppearance: UIBarAppearance) {
             super.init(barAppearance: barAppearance)
             configureWithTransparentBackground()
+            doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.sidebarButtonTint
         }
 
         @available(*, unavailable)

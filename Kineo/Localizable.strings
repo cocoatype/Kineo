@@ -18,6 +18,8 @@
 "ExportSettingsStyleContentItem.loop.title" = "Loop";
 "ExportSettingsStyleContentItem.bounce.title" = "Bounce";
 
+"ExportSettingsViewController.navigationTitle" = "Share Settings";
+
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.deleteMenuItemTitle" = "Delete";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle" = "Share";
 
