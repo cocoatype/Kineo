@@ -16,8 +16,6 @@ class CloudSyncOperation: ResultOperation<Void, Error> {
         // save new documents
         let saveOperation = UnstoredDocumentsSaveOperation(database: database)
 
-        // save updated documents
-
         // fetch remote documents
         let fetchOperation = RemoteDocumentsFetchOperation(database: database)
         fetchOperation.addDependency(saveOperation)

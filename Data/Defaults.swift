@@ -63,6 +63,22 @@ public enum Defaults {
 
     // MARK: Cloud
 
+    static private(set) var updatedDocumentIdentifiers: [UUID] {
+        get {
+            return userDefaults.stringArray(forKey: updatedDocumentIdentifiersKey)?.compactMap(UUID.init(uuidString:)) ?? []
+        } set(newIdentifiers) {
+            userDefaults.set(newIdentifiers.map { $0.uuidString }, forKey: updatedDocumentIdentifiersKey)
+        }
+    }
+
+    static func addUpdatedDocumentIdentifier(_ identifier: UUID) {
+        updatedDocumentIdentifiers = updatedDocumentIdentifiers + [identifier]
+    }
+
+    static func removeUpdatedDocumentIdentifiers(_ identifiers: [UUID]) {
+        updatedDocumentIdentifiers = updatedDocumentIdentifiers.filter { identifiers.contains($0) == false }
+    }
+
     static var serverChangeToken: CKServerChangeToken? {
         get {
             guard let serverChangeTokenData = userDefaults.data(forKey: serverChangeTokenDataKey) else { return nil }
@@ -84,4 +100,5 @@ public enum Defaults {
     private static let exportDurationFiveSeconds = "Defaults.exportDurationFiveSeconds"
     private static let exportDurationTenSeconds = "Defaults.exportDurationTenSeconds"
     private static let serverChangeTokenDataKey = "Defaults.serverChangeTokenDataKey"
+    private static let updatedDocumentIdentifiersKey = "Defaults.updatedDocumentIdentifiersKey"
 }

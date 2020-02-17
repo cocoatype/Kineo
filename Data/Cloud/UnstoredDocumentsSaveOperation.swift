@@ -60,7 +60,13 @@ class UnstoredDocumentsSaveOperation: ResultOperation<Void, Error> {
         let unstoredIdentifiers = localIdentifiers.filter { fetchedIdentifiers.contains($0) == false }
         Self.log("Unstored identifiers: \(unstoredIdentifiers)")
 
-        let documentRecords = unstoredIdentifiers.compactMap { try? DocumentRecordTransformer.record(from: documentStore.document(with: $0)) }
+        let updatedIdentifiers = Defaults.updatedDocumentIdentifiers
+        Self.log("Updated identifiers: \(updatedIdentifiers)")
+
+        let uploadIdentifiers = Set(unstoredIdentifiers + updatedIdentifiers)
+        Self.log("Identifiers to upload: \(uploadIdentifiers)")
+
+        let documentRecords = uploadIdentifiers.compactMap { try? DocumentRecordTransformer.record(from: documentStore.document(with: $0)) }
         Self.log("Saving records: \(documentRecords.map { $0[CloudConstants.Fields.identifier]})")
 
         let modifyOperation = CKModifyRecordsOperation(recordsToSave: documentRecords, recordIDsToDelete: nil)
@@ -72,6 +78,7 @@ class UnstoredDocumentsSaveOperation: ResultOperation<Void, Error> {
                 self?.fail(error: error)
             } else {
                 Self.log("Modifying records succeeded")
+                Defaults.removeUpdatedDocumentIdentifiers([UUID](uploadIdentifiers))
                 self?.succeed()
             }
         }

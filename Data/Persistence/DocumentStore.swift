@@ -76,6 +76,7 @@ public struct DocumentStore {
 
     func save(_ document: Document) {
         operationQueue.addOperation(DocumentSaveOperation(document: document))
+        Defaults.addUpdatedDocumentIdentifier(document.uuid)
     }
 
     // MARK: Boilerplate
