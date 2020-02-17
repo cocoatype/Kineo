@@ -5,11 +5,19 @@ import Foundation
 import os.log
 
 class DocumentSaveOperation: Operation {
-    init(document: Document) {
-        self.document = document
+    convenience init(document: Document) {
+        self.init(documents: [document])
+    }
+
+    init(documents: [Document]) {
+        self.documents = documents
     }
 
     override func main() {
+        documents.forEach { self.save($0) }
+    }
+
+    func save(_ document: Document) {
         do {
             let encodedData = try JSONEncoder().encode(document)
             try encodedData.write(to: DocumentStore.url(for: document))
@@ -34,5 +42,5 @@ class DocumentSaveOperation: Operation {
 
     // MARK: Boilerplate
 
-    private let document: Document
+    private let documents: [Document]
 }

@@ -67,7 +67,6 @@
 		04791E5223EC1F3400403BD8 /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E1C23EC1F3400403BD8 /* SettingsTableViewDataSource.swift */; };
 		04791E5323EC1F3400403BD8 /* AppEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E1E23EC1F3400403BD8 /* AppEntry.swift */; };
 		04791E5923EC1F3400403BD8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E2423EC1F3400403BD8 /* SettingsViewController.swift */; };
-		04791E5D23EE9CA400403BD8 /* ExportSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E5C23EE9CA400403BD8 /* ExportSettings.swift */; };
 		04791E5F23EE9CBF00403BD8 /* ExportSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E5E23EE9CBF00403BD8 /* ExportSettingsViewController.swift */; };
 		04791E6123EE9D7400403BD8 /* ExportSettingsActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6023EE9D7400403BD8 /* ExportSettingsActivity.swift */; };
 		04791E6323EEA09300403BD8 /* ExportSettingsContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6223EEA09300403BD8 /* ExportSettingsContentProvider.swift */; };
@@ -75,13 +74,13 @@
 		04791E6723EEA97100403BD8 /* ExportSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6623EEA97100403BD8 /* ExportSettingsTableViewCell.swift */; };
 		04791E6923EEAB2000403BD8 /* ExportSettingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6823EEAB2000403BD8 /* ExportSettingsDataSource.swift */; };
 		04791E6B23EEAB6C00403BD8 /* ExportSettingsStyleContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6A23EEAB6B00403BD8 /* ExportSettingsStyleContentSection.swift */; };
-		04791E6D23EEB98000403BD8 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6C23EEB98000403BD8 /* Defaults.swift */; };
 		04791E6F23EEBC9200403BD8 /* ExportSettingsDurationContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6E23EEBC9200403BD8 /* ExportSettingsDurationContentSection.swift */; };
 		04791E7123EEC0B200403BD8 /* ExportSettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E7023EEC0B200403BD8 /* ExportSettingsNavigationController.swift */; };
 		0485989523F281CB00AFBB3A /* SocialSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989423F281CB00AFBB3A /* SocialSection.swift */; };
 		0485989723F282B500AFBB3A /* TwitterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989623F282B500AFBB3A /* TwitterItem.swift */; };
 		0485989923F2843000AFBB3A /* TwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989823F2843000AFBB3A /* TwitchItem.swift */; };
 		0485989B23F284AD00AFBB3A /* InstagramItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989A23F284AD00AFBB3A /* InstagramItem.swift */; };
+		048E376123F9F4F0005C503B /* UnstoredDocumentsQueryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E376023F9F4F0005C503B /* UnstoredDocumentsQueryOperation.swift */; };
 		04ACCD2023B21985006FBABC /* FilmStripCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */; };
 		04ACCD2623B21BAE006FBABC /* FilmStripDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2523B21BAE006FBABC /* FilmStripDataSource.swift */; };
 		04ACCD2823B2310B006FBABC /* EditingViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2723B2310B006FBABC /* EditingViewDataSource.swift */; };
@@ -120,6 +119,16 @@
 		04DF241323F888EC00657160 /* SidebarActionButtonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043854E6238CD06F0041A4AA /* SidebarActionButtonImageView.swift */; };
 		04DF241423F888F800657160 /* FilmStripExistingPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */; };
 		04DF241723F88B1F00657160 /* DocumentTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF241623F88B1F00657160 /* DocumentTransformer.swift */; };
+		04DF241923F93B3A00657160 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DF241823F93B3A00657160 /* CloudKit.framework */; };
+		04DF241C23F93E9D00657160 /* DocumentRecordTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF241B23F93E9D00657160 /* DocumentRecordTransformer.swift */; };
+		04DF241E23F93F0100657160 /* CloudConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF241D23F93F0100657160 /* CloudConstants.swift */; };
+		04DF242023F941E800657160 /* CloudCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF241F23F941E800657160 /* CloudCoordinator.swift */; };
+		04DF242223F945BD00657160 /* CloudSyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF242123F945BD00657160 /* CloudSyncOperation.swift */; };
+		04DF242423F947F100657160 /* ResultOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF242323F947F100657160 /* ResultOperation.swift */; };
+		04DF242523F94A7800657160 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6C23EEB98000403BD8 /* Defaults.swift */; };
+		04DF242623F94AC300657160 /* ExportSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E5C23EE9CA400403BD8 /* ExportSettings.swift */; };
+		04DF242823F94D6F00657160 /* RemoteDocumentsFetchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF242723F94D6F00657160 /* RemoteDocumentsFetchOperation.swift */; };
+		04DF242A23F94D8B00657160 /* UnstoredDocumentsSaveOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF242923F94D8B00657160 /* UnstoredDocumentsSaveOperation.swift */; };
 		04EC178D23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC178C23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift */; };
 		04EC178F23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC178E23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift */; };
 		04EC179123D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC179023D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift */; };
@@ -258,6 +267,7 @@
 		0485989623F282B500AFBB3A /* TwitterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterItem.swift; sourceTree = "<group>"; };
 		0485989823F2843000AFBB3A /* TwitchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchItem.swift; sourceTree = "<group>"; };
 		0485989A23F284AD00AFBB3A /* InstagramItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramItem.swift; sourceTree = "<group>"; };
+		048E376023F9F4F0005C503B /* UnstoredDocumentsQueryOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoredDocumentsQueryOperation.swift; sourceTree = "<group>"; };
 		04ACCD1C23B21334006FBABC /* FilmStripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripView.swift; sourceTree = "<group>"; };
 		04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionView.swift; sourceTree = "<group>"; };
 		04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripExistingPageCell.swift; sourceTree = "<group>"; };
@@ -304,6 +314,14 @@
 		04D36ADC237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentCollectionViewCellBackgroundView.swift; sourceTree = "<group>"; };
 		04D36AE023782A1A0052A933 /* GalleryNewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryNewCollectionViewCell.swift; sourceTree = "<group>"; };
 		04DF241623F88B1F00657160 /* DocumentTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTransformer.swift; sourceTree = "<group>"; };
+		04DF241823F93B3A00657160 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		04DF241B23F93E9D00657160 /* DocumentRecordTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRecordTransformer.swift; sourceTree = "<group>"; };
+		04DF241D23F93F0100657160 /* CloudConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudConstants.swift; sourceTree = "<group>"; };
+		04DF241F23F941E800657160 /* CloudCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudCoordinator.swift; sourceTree = "<group>"; };
+		04DF242123F945BD00657160 /* CloudSyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSyncOperation.swift; sourceTree = "<group>"; };
+		04DF242323F947F100657160 /* ResultOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultOperation.swift; sourceTree = "<group>"; };
+		04DF242723F94D6F00657160 /* RemoteDocumentsFetchOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDocumentsFetchOperation.swift; sourceTree = "<group>"; };
+		04DF242923F94D8B00657160 /* UnstoredDocumentsSaveOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoredDocumentsSaveOperation.swift; sourceTree = "<group>"; };
 		04EC178C23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionViewLayout.swift; sourceTree = "<group>"; };
 		04EC178E23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutSection.swift; sourceTree = "<group>"; };
 		04EC179023D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutGroup.swift; sourceTree = "<group>"; };
@@ -332,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				044484FB23AB2A7000CD0C3C /* Data.framework in Frameworks */,
+				04DF241923F93B3A00657160 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +382,7 @@
 		044484DC23AB287800CD0C3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04DF241823F93B3A00657160 /* CloudKit.framework */,
 				044484DD23AB287800CD0C3C /* Messages.framework */,
 			);
 			name = Frameworks;
@@ -385,11 +405,14 @@
 			isa = PBXGroup;
 			children = (
 				045165FB23B2360300D7B535 /* CGGeometryExtensions.swift */,
-				04318A3222E19AB5003D70C8 /* SkinGenerator.swift */,
-				04C0A67A22DC51CC00E4E5D6 /* Persistence */,
-				044484F623AB2A7000CD0C3C /* Data.h */,
-				044484F723AB2A7000CD0C3C /* Info.plist */,
+				04DF241A23F93E6200657160 /* Cloud */,
 				045165FE23B23A2B00D7B535 /* Constants.swift */,
+				044484F623AB2A7000CD0C3C /* Data.h */,
+				04791E6C23EEB98000403BD8 /* Defaults.swift */,
+				04791E5C23EE9CA400403BD8 /* ExportSettings.swift */,
+				044484F723AB2A7000CD0C3C /* Info.plist */,
+				04C0A67A22DC51CC00E4E5D6 /* Persistence */,
+				04318A3222E19AB5003D70C8 /* SkinGenerator.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -517,7 +540,6 @@
 		04791E5B23EE9C8100403BD8 /* Export */ = {
 			isa = PBXGroup;
 			children = (
-				04791E5C23EE9CA400403BD8 /* ExportSettings.swift */,
 				04791E6023EE9D7400403BD8 /* ExportSettingsActivity.swift */,
 				04791E6223EEA09300403BD8 /* ExportSettingsContentProvider.swift */,
 				04791E6823EEAB2000403BD8 /* ExportSettingsDataSource.swift */,
@@ -606,7 +628,6 @@
 			children = (
 				04C0A67822DC436400E4E5D6 /* example.json */,
 				04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */,
-				04791E6C23EEB98000403BD8 /* Defaults.swift */,
 				04C0A66B22DC23EA00E4E5D6 /* Default Scene */,
 				04C0A66E22DC292E00E4E5D6 /* Editing View */,
 				04791E5B23EE9C8100403BD8 /* Export */,
@@ -702,6 +723,21 @@
 				04DF241623F88B1F00657160 /* DocumentTransformer.swift */,
 			);
 			path = Playback;
+			sourceTree = "<group>";
+		};
+		04DF241A23F93E6200657160 /* Cloud */ = {
+			isa = PBXGroup;
+			children = (
+				04DF241D23F93F0100657160 /* CloudConstants.swift */,
+				04DF241B23F93E9D00657160 /* DocumentRecordTransformer.swift */,
+				04DF241F23F941E800657160 /* CloudCoordinator.swift */,
+				04DF242123F945BD00657160 /* CloudSyncOperation.swift */,
+				04DF242323F947F100657160 /* ResultOperation.swift */,
+				04DF242723F94D6F00657160 /* RemoteDocumentsFetchOperation.swift */,
+				04DF242923F94D8B00657160 /* UnstoredDocumentsSaveOperation.swift */,
+				048E376023F9F4F0005C503B /* UnstoredDocumentsQueryOperation.swift */,
+			);
+			path = Cloud;
 			sourceTree = "<group>";
 		};
 		04EC178B23D9803E00A42E08 /* Layout */ = {
@@ -903,12 +939,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				0444850523AB2ABC00CD0C3C /* DocumentSaveOperation.swift in Sources */,
+				04DF241E23F93F0100657160 /* CloudConstants.swift in Sources */,
+				04DF242623F94AC300657160 /* ExportSettings.swift in Sources */,
+				04DF242423F947F100657160 /* ResultOperation.swift in Sources */,
 				0444850623AB2ABC00CD0C3C /* DocumentEditor.swift in Sources */,
 				0444850423AB2ABC00CD0C3C /* DocumentOperationQueue.swift in Sources */,
 				045165FD23B236E400D7B535 /* CGGeometryExtensions.swift in Sources */,
+				04DF242A23F94D8B00657160 /* UnstoredDocumentsSaveOperation.swift in Sources */,
+				048E376123F9F4F0005C503B /* UnstoredDocumentsQueryOperation.swift in Sources */,
+				04DF242223F945BD00657160 /* CloudSyncOperation.swift in Sources */,
 				0444850223AB2ABC00CD0C3C /* Page.swift in Sources */,
+				04DF241C23F93E9D00657160 /* DocumentRecordTransformer.swift in Sources */,
 				0444850123AB2ABC00CD0C3C /* Document.swift in Sources */,
+				04DF242823F94D6F00657160 /* RemoteDocumentsFetchOperation.swift in Sources */,
+				04DF242023F941E800657160 /* CloudCoordinator.swift in Sources */,
 				0444850723AB2AD200CD0C3C /* SkinGenerator.swift in Sources */,
+				04DF242523F94A7800657160 /* Defaults.swift in Sources */,
 				0444850323AB2ABC00CD0C3C /* DocumentStore.swift in Sources */,
 				045165FF23B23A2B00D7B535 /* Constants.swift in Sources */,
 			);
@@ -938,7 +984,6 @@
 				04791E5123EC1F3400403BD8 /* SettingsTableView.swift in Sources */,
 				0485989923F2843000AFBB3A /* TwitchItem.swift in Sources */,
 				04ACCD2623B21BAE006FBABC /* FilmStripDataSource.swift in Sources */,
-				04791E5D23EE9CA400403BD8 /* ExportSettings.swift in Sources */,
 				04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */,
 				04791E6B23EEAB6C00403BD8 /* ExportSettingsStyleContentSection.swift in Sources */,
 				04791E5F23EE9CBF00403BD8 /* ExportSettingsViewController.swift in Sources */,
@@ -965,7 +1010,6 @@
 				04D36ADD237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift in Sources */,
 				0436CE8F23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift in Sources */,
 				04ACCD2A23B23290006FBABC /* FilmStripExistingPageImageView.swift in Sources */,
-				04791E6D23EEB98000403BD8 /* Defaults.swift in Sources */,
 				04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */,
 				04D36AE123782A1A0052A933 /* GalleryNewCollectionViewCell.swift in Sources */,
 				04B86C0223B45B26005F65F7 /* EditingViewLayoutManager.swift in Sources */,
