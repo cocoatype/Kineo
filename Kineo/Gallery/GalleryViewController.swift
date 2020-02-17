@@ -1,11 +1,15 @@
 //  Created by Geoff Pado on 7/21/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import Data
 import UIKit
 
 class GalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDragDelegate {
     init() {
         super.init(nibName: nil, bundle: nil)
+        cloudSyncObserver = NotificationCenter.default.addObserver(forName: CloudCoordinator.syncDidComplete, object: nil, queue: .main, using: { [weak self] _ in
+            self?.galleryView?.reloadData()
+        })
     }
 
     override func loadView() {
@@ -14,6 +18,11 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         galleryView.delegate = self
         galleryView.dragDelegate = self
         view = galleryView
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        cloudCoordinator.performSync()
     }
 
     private func presentAnimation(at indexPath: IndexPath) {
@@ -84,6 +93,8 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     // MARK: Boilerplate
 
+    private let cloudCoordinator = CloudCoordinator()
+    private var cloudSyncObserver: Any?
     private let dataSource = GalleryViewDataSource()
     private var galleryView: GalleryView? { return view as? GalleryView }
 
@@ -91,6 +102,10 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
+    }
+
+    deinit {
+        cloudSyncObserver.map(NotificationCenter.default.removeObserver(_:))
     }
 }
 

@@ -65,6 +65,8 @@ class GalleryView: UIControl {
 
     func cellForItem(at indexPath: IndexPath) -> UICollectionViewCell? { collectionView.cellForItem(at: indexPath) }
 
+    func reloadData() { collectionView.reloadData() }
+
     // MARK: Boilerplate
 
     private let collectionView = GalleryCollectionView()

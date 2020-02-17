@@ -1,10 +1,11 @@
 //  Created by Geoff Pado on 2/8/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import CloudKit
 import Foundation
 
-enum Defaults {
-    static func initialize() {
+public enum Defaults {
+    public static func initialize() {
         userDefaults.register(defaults: [
             Self.exportPlaybackStyleKey: Self.exportPlaybackStyleLoop,
             Self.exportDurationKey: Self.exportDurationThreeSeconds
@@ -18,7 +19,7 @@ enum Defaults {
 
     // MARK: Export Settings
 
-    static var exportSettings: ExportSettings {
+    public static var exportSettings: ExportSettings {
         get { ExportSettings(playbackStyle: exportPlaybackStyle, duration: exportDuration) }
         set(newSettings) {
             Self.exportPlaybackStyle = newSettings.playbackStyle
@@ -60,6 +61,18 @@ enum Defaults {
         }
     }
 
+    // MARK: Cloud
+
+    static var serverChangeToken: CKServerChangeToken? {
+        get {
+            guard let serverChangeTokenData = userDefaults.data(forKey: serverChangeTokenDataKey) else { return nil }
+            return try? NSKeyedUnarchiver.unarchivedObject(ofClass: CKServerChangeToken.self, from: serverChangeTokenData)
+        } set(newChangeToken) {
+            guard let token = newChangeToken, let data = try? NSKeyedArchiver.archivedData(withRootObject: token, requiringSecureCoding: true) else { return }
+            userDefaults.set(data, forKey: serverChangeTokenDataKey)
+        }
+    }
+
     // MARK: Keys and Values
 
     private static let exportPlaybackStyleKey = "Defaults.exportPlaybackStyle"
@@ -70,4 +83,5 @@ enum Defaults {
     private static let exportDurationThreeSeconds = "Defaults.exportDurationThreeSeconds"
     private static let exportDurationFiveSeconds = "Defaults.exportDurationFiveSeconds"
     private static let exportDurationTenSeconds = "Defaults.exportDurationTenSeconds"
+    private static let serverChangeTokenDataKey = "Defaults.serverChangeTokenDataKey"
 }

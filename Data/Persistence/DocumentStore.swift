@@ -10,9 +10,19 @@ public struct DocumentStore {
         return storedDocuments.count
     }
 
+    public var allIdentifiers: [UUID] {
+        return storedDocuments.map { $0.uuid }
+    }
+
     public func document(at index: Int) throws -> Document {
         let storedDocument = storedDocuments[index]
         let data = try Data(contentsOf: storedDocument.url)
+        return try JSONDecoder().decode(Document.self, from: data)
+    }
+
+    public func document(with identifier: UUID) throws -> Document {
+        let documentURL = Self.url(forDocumentWith: identifier)
+        let data = try Data(contentsOf: documentURL)
         return try JSONDecoder().decode(Document.self, from: data)
     }
 
@@ -48,12 +58,20 @@ public struct DocumentStore {
 
     // MARK: Disk Operations
 
+    private static func url(for identifier: UUID, pathExtension: String) -> URL {
+        storeDirectoryURL.appendingPathComponent(identifier.uuidString).appendingPathExtension(pathExtension)
+    }
+
+    static func url(forDocumentWith identifier: UUID) -> URL {
+        return url(for: identifier, pathExtension: "kineo")
+    }
+
     static func url(for document: Document) -> URL {
-        return storeDirectoryURL.appendingPathComponent(document.uuid.uuidString).appendingPathExtension("kineo")
+        return url(forDocumentWith: document.uuid)
     }
 
     static func previewImageURL(for document: Document) -> URL {
-        return storeDirectoryURL.appendingPathComponent(document.uuid.uuidString).appendingPathExtension("png")
+        return url(for: document.uuid, pathExtension: "png")
     }
 
     func save(_ document: Document) {
@@ -80,14 +98,18 @@ public struct DocumentStore {
 }
 
 struct StoredDocument {
-    init(url: URL) {
+    init?(url: URL) {
         self.url = url
 
         let modifiedDate = try? url.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate
         self.modifiedDate = modifiedDate ?? .distantPast
+
+        guard let uuid = UUID(uuidString: url.deletingPathExtension().lastPathComponent) else { return nil }
+        self.uuid = uuid
     }
 
     let modifiedDate: Date
+    let uuid: UUID
     let url: URL
     var imagePreviewURL: URL {
         return url.deletingPathExtension().appendingPathExtension("png")
