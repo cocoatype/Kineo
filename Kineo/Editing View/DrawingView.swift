@@ -35,6 +35,14 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
             skinsImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             skinsImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+
+        let updateOnUndoOrRedo = { [weak self] (_: Notification) in
+            self?.updatePage()
+            self?.sendAction(#selector(EditingViewController.drawingViewDidChangePage(_:)), to: nil, for: nil)
+        }
+
+        undoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidUndoChange, object: nil, queue: .main, using: updateOnUndoOrRedo)
+        redoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidRedoChange, object: nil, queue: .main, using: updateOnUndoOrRedo)
     }
 
     override func layoutSubviews() {
@@ -86,6 +94,8 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
 
     private let canvasView = CanvasView()
     private let skinsImageView = SkinsImageView()
+    private var undoObserver: Any?
+    private var redoObserver: Any?
 
     private(set) var page: Page
 
@@ -100,5 +110,10 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
+    }
+
+    deinit {
+        undoObserver.map(NotificationCenter.default.removeObserver(_:))
+        redoObserver.map(NotificationCenter.default.removeObserver(_:))
     }
 }
