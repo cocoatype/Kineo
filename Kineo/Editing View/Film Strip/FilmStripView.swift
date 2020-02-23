@@ -75,7 +75,7 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let layout = collectionView.collectionViewLayout as? FilmStripCollectionViewLayout else { return }
+        guard scrollView.isScrollUserInitiated, let layout = collectionView.collectionViewLayout as? FilmStripCollectionViewLayout else { return }
         let pageIndex = layout.indexOfItem(atContentOffset: scrollView.contentOffset)
         sendAction(#selector(EditingViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(pageIndex: pageIndex))
     }
@@ -97,5 +97,11 @@ class PageNavigationEvent: UIEvent {
     let pageIndex: Int
     init(pageIndex: Int) {
         self.pageIndex = pageIndex
+    }
+}
+
+private extension UIScrollView {
+    var isScrollUserInitiated: Bool {
+        return isTracking || isDragging || isDecelerating
     }
 }
