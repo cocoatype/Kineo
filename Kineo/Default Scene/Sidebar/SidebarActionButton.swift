@@ -38,9 +38,20 @@ class SidebarActionButton: UIControl {
         auxiliaryImageView.frame = CGRect(x: bounds.maxX - 8, y: bounds.minY - 8, width: 16, height: 16) // constraints are being weird…
     }
 
+    override var isHighlighted: Bool {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
+    private var buttonBackgroundColor: UIColor {
+        if isHighlighted { return .sidebarButtonHighlight }
+        return .sidebarButtonBackground
+    }
+
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        UIColor.sidebarButtonBackground.setFill()
+        buttonBackgroundColor.setFill()
 
         if auxiliaryImage != nil {
             let boundsPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.bottomLeft, .bottomRight, .topLeft], cornerRadii: CGSize(width: 10, height: 10))
