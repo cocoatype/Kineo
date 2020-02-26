@@ -14,7 +14,6 @@ class SettingsStandardTableViewCell: UITableViewCell, SettingsContentTableViewCe
         super.init(style: .subtitle, reuseIdentifier: SettingsStandardTableViewCell.identifier)
         accessoryType = .disclosureIndicator
         tintColor = .settingsRowTint
-//        backgroundColor = .settingsRowTint
 
         let selectedBackgroundView = UIView()
         selectedBackgroundView.backgroundColor = .sidebarButtonHighlight
