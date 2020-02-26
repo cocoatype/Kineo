@@ -13,7 +13,8 @@ class SettingsStandardTableViewCell: UITableViewCell, SettingsContentTableViewCe
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: SettingsStandardTableViewCell.identifier)
         accessoryType = .disclosureIndicator
-        backgroundColor = .sidebarButtonBackground
+        tintColor = .settingsRowTint
+//        backgroundColor = .settingsRowTint
 
         let selectedBackgroundView = UIView()
         selectedBackgroundView.backgroundColor = .sidebarButtonHighlight

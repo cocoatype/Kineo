@@ -7,6 +7,7 @@ class ExportSettingsView: UITableView {
     init() {
         super.init(frame: .zero, style: .insetGrouped)
         register(ExportSettingsTableViewCell.self, forCellReuseIdentifier: ExportSettingsTableViewCell.identifier)
+        backgroundColor = .appBackground
     }
 
     // MARK: Boilerplate

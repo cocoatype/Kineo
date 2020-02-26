@@ -21,24 +21,29 @@ class ExportSettingsNavigationController: UINavigationController {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
     }
+}
 
-    private class NavigationBarAppearance: UINavigationBarAppearance {
-        init() {
-            super.init(idiom: UIDevice.current.userInterfaceIdiom)
-            configureWithTransparentBackground()
-            doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.sidebarButtonTint
-        }
+class NavigationBarAppearance: UINavigationBarAppearance {
+    init() {
+        super.init(idiom: UIDevice.current.userInterfaceIdiom)
+        setup()
+    }
 
-        override init(barAppearance: UIBarAppearance) {
-            super.init(barAppearance: barAppearance)
-            configureWithTransparentBackground()
-            doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.sidebarButtonTint
-        }
+    override init(barAppearance: UIBarAppearance) {
+        super.init(barAppearance: barAppearance)
+        setup()
+    }
 
-        @available(*, unavailable)
-        required init(coder: NSCoder) {
-            let typeName = NSStringFromClass(type(of: self))
-            fatalError("\(typeName) does not implement init(coder:)")
-        }
+    private func setup() {
+        configureWithOpaqueBackground()
+        backgroundColor = .appBackground
+        shadowColor = .clear
+        doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.controlTint
+    }
+
+    @available(*, unavailable)
+    required init(coder: NSCoder) {
+        let typeName = NSStringFromClass(type(of: self))
+        fatalError("\(typeName) does not implement init(coder:)")
     }
 }

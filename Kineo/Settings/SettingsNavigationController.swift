@@ -8,7 +8,8 @@ class SettingsNavigationController: UINavigationController {
         let settingsViewController = SettingsViewController()
         super.init(rootViewController: settingsViewController)
         modalPresentationStyle = .formSheet
-        navigationBar.tintColor = .white
+        navigationBar.standardAppearance = NavigationBarAppearance()
+//        navigationBar.tintColor = .white
     }
 
     // MARK: Navigation
