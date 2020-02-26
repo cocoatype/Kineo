@@ -5,9 +5,9 @@ import UIKit
 
 class SettingsTableView: UITableView {
     init() {
-        super.init(frame: .zero, style: .grouped)
+        super.init(frame: .zero, style: .insetGrouped)
         backgroundColor = .appBackground
-        separatorColor = .sidebarButtonTint
+//        separatorColor = .sidebarButtonTint
 
         register(SettingsStandardTableViewCell.self, forCellReuseIdentifier: SettingsStandardTableViewCell.identifier)
     }
