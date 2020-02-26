@@ -24,6 +24,7 @@
 
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.deleteMenuItemTitle" = "Delete";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle" = "Share";
+"GalleryDocumentCollectionViewCellMenuConfigurationProvider.windowMenuItemTitle" = "Open in New Window";
 
 "SettingsContentProvider.Item.contact" = "Contact the Developer";
 "SettingsContentProvider.Item.instagram" = "Instagram";

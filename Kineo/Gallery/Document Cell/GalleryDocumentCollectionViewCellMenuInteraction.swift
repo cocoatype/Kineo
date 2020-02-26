@@ -25,13 +25,19 @@ enum GalleryDocumentCollectionViewCellContextMenuConfigurationFactory {
             let deleteElement = UIAction(title: Self.deleteMenuItemTitle, image: Icons.ContextMenu.delete, attributes: [.destructive])  { _ in
                 delegate.deleteAnimation(at: indexPath)
             }
+            let deleteMenu = UIMenu(title: "", options: .displayInline, children: [deleteElement])
 
-            return UIMenu(title: "", children: [shareElement, deleteElement])
+            let windowElement = UIAction(title: Self.windowMenuItemTitle, image: Icons.ContextMenu.window) { _ in
+                delegate.openAnimationInNewWindow(at: indexPath)
+            }
+
+            return UIMenu(title: "", children: [shareElement, windowElement, deleteMenu])
         }
     }
 
     private static let deleteMenuItemTitle = NSLocalizedString("GalleryDocumentCollectionViewCellMenuConfigurationProvider.deleteMenuItemTitle", comment: "Menu item title for deleting an animation")
     private static let exportMenuItemTitle = NSLocalizedString("GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle", comment: "Menu item title for exporting an animation")
+    private static let windowMenuItemTitle = NSLocalizedString("GalleryDocumentCollectionViewCellMenuConfigurationProvider.windowMenuItemTitle", comment: "Menu item title for exporting an animation")
 }
 
 class GalleryDocumentCollectionViewCellContextMenuConfiguration: UIContextMenuConfiguration {

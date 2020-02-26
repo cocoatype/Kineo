@@ -48,6 +48,14 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         present(activityController, animated: true, completion: nil)
     }
 
+    func openAnimationInNewWindow(at indexPath: IndexPath) {
+        do {
+            let document = try dataSource.document(at: indexPath)
+            let userActivity = EditingUserActivity(document: document)
+            UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
+        } catch { return }
+    }
+
     func previewViewController(forDocumentAt indexPath: IndexPath) -> UIViewController? {
         guard let document = try? dataSource.document(at: indexPath) else { return nil }
 
