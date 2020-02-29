@@ -39,9 +39,14 @@ class EditingView: UIView, PlaybackViewDelegate {
     }
 
     func reloadData() {
-        drawingView.display(page: dataSource.currentPage, skinsImage: dataSource.skinsImage)
-        playbackView?.document = dataSource.document
-        filmStripView.reloadData()
+        dataSource.generateSkinsImage { [weak self] skinsImage in
+            guard let editingView = self else { return }
+            DispatchQueue.main.async {
+                editingView.drawingView.display(page: editingView.dataSource.currentPage, skinsImage: skinsImage)
+                editingView.playbackView?.document = editingView.dataSource.document
+                editingView.filmStripView.reloadData()
+            }
+        }
     }
 
     func setupToolPicker() {

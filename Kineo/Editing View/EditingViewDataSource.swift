@@ -9,7 +9,12 @@ class EditingViewDataSource: NSObject {
         self.documentEditor = documentEditor
     }
 
-    var skinsImage: UIImage? { return skinGenerator.skinsImage(from: documentEditor.document, currentPageIndex: documentEditor.currentIndex) }
+    func generateSkinsImage(_ completionHandler: @escaping ((UIImage?) -> Void)) {
+        skinGenerator.generateSkinsImage(from: documentEditor.document, currentPageIndex: documentEditor.currentIndex) { image in
+            completionHandler(image)
+        }
+    }
+
     var currentPage: Page { return documentEditor.currentPage }
     var currentPageIndex: Int { return documentEditor.currentIndex }
     var pageCount: Int { return documentEditor.pageCount }
