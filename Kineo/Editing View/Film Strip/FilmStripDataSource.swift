@@ -34,7 +34,7 @@ class FilmStripDataSource: NSObject, UICollectionViewDataSource {
             return cell
         }
 
-        existingPageCell.image = dataSource.thumbnail(forPageAt: indexPath.item)
+        existingPageCell.page = dataSource.page(at: indexPath.item)
         return existingPageCell
     }
 

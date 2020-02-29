@@ -13,23 +13,36 @@ class DocumentSaveOperation: Operation {
         self.documents = documents
     }
 
-    override func main() {
-        documents.forEach { self.save($0) }
+    override func start() {
+        let saveGroup = DispatchGroup()
+        documents.forEach {
+            saveGroup.enter()
+            self.save($0) { result in
+                saveGroup.leave()
+            }
+        }
+
+        saveGroup.notify(queue: .main) { [weak self] in
+            self?._executing = false
+            self?._finished = true
+        }
+
+        _executing = true
     }
 
-    func save(_ document: Document) {
-        do {
-            let encodedData = try JSONEncoder().encode(document)
-            try encodedData.write(to: DocumentStore.url(for: document))
+    func save(_ document: Document, completionHandler: @escaping ((Result<Document, Error>) -> Void)) {
+        SkinGenerator().generatePreviewImage(from: document) { previewImage in
+            do {
+                let encodedData = try JSONEncoder().encode(document)
+                try encodedData.write(to: DocumentStore.url(for: document))
 
-            guard
-              let previewImage = SkinGenerator().previewImage(from: document),
-              let imageEncodedData = previewImage.pngData()
-            else { return }
+                guard let imageEncodedData = previewImage?.pngData() else { return }
 
-            try imageEncodedData.write(to: DocumentStore.previewImageURL(for: document))
-        } catch {
-            dump("error saving document: \(error.localizedDescription)")
+                try imageEncodedData.write(to: DocumentStore.previewImageURL(for: document))
+                completionHandler(.success(document))
+            } catch {
+                completionHandler(.failure(error))
+            }
         }
     }
 
@@ -43,4 +56,28 @@ class DocumentSaveOperation: Operation {
     // MARK: Boilerplate
 
     private let documents: [Document]
+
+    override var isAsynchronous: Bool { return true }
+
+    private var _executing = false {
+        willSet {
+            willChangeValue(for: \.isExecuting)
+        }
+
+        didSet {
+            didChangeValue(for: \.isExecuting)
+        }
+    }
+    override var isExecuting: Bool { return _executing }
+
+    private var _finished = false {
+        willSet {
+            willChangeValue(for: \.isFinished)
+        }
+
+        didSet {
+            didChangeValue(for: \.isFinished)
+        }
+    }
+    override var isFinished: Bool { return _finished }
 }
