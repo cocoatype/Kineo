@@ -36,9 +36,12 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
             skinsImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
 
-        let updateOnUndoOrRedo = { [weak self] (_: Notification) in
+        let updateOnUndoOrRedo = { [weak self] (notification: Notification) in
+            let undoManager = (notification.object as? UndoManager)
+            undoManager?.disableUndoRegistration()
             self?.updatePage()
             self?.sendAction(#selector(EditingViewController.drawingViewDidChangePage(_:)), to: nil, for: nil)
+            undoManager?.enableUndoRegistration()
         }
 
         undoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidUndoChange, object: nil, queue: .main, using: updateOnUndoOrRedo)
