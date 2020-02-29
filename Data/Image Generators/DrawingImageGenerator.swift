@@ -16,7 +16,7 @@ public class DrawingImageGenerator: NSObject {
     public func generateSkinLayers(for drawings: [PKDrawing], completionHandler: @escaping (([UIImage], [PKDrawing]) -> Void)) {
         let operations = drawings.map { DrawingImageGenerationOperation(drawing: $0, size: Self.skinLayerSize, usesDisplayScale: true, completionHandler: nil) }
         let finishOperation = BlockOperation {
-            let images = operations.compactMap(\.resultImage)
+            let images = operations.compactMap { $0.resultImage }
             completionHandler(images, drawings)
         }
 

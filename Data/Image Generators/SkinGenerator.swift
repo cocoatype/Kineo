@@ -15,7 +15,7 @@ public class SkinGenerator: NSObject {
         let minSkinPageIndex = max(currentPageIndex - SkinGenerator.skinPageCount, document.pages.startIndex)
         let skinPageRange = minSkinPageIndex..<currentPageIndex
         let skinPages = document.pages[skinPageRange]
-        let skinDrawings = skinPages.map(\.drawing)
+        let skinDrawings = skinPages.map { $0.drawing }
         let traitCollection = self.traitCollection
 
         guard skinPages.count > 0 else { return completionHandler(nil) }
@@ -43,7 +43,7 @@ public class SkinGenerator: NSObject {
         let maxSkinPageIndex = min(SkinGenerator.skinPageCount, document.pages.endIndex)
         let skinPageRange = 0..<maxSkinPageIndex
         let skinPages = document.pages[skinPageRange]
-        let skinDrawings = skinPages.map(\.drawing)
+        let skinDrawings = skinPages.map { $0.drawing }
         let traitCollection = self.traitCollection
 
         guard skinPages.count > 0 else { return completionHandler(nil) }
