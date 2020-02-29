@@ -21,6 +21,17 @@ public class DocumentEditor: NSObject {
         return document.pages[index]
     }
 
+    private(set) public var currentIndex = 0
+    public var document: Document {
+        didSet(oldDocument) {
+            assertUndoManagerExists()
+            undoManager?.registerUndo(withTarget: self) { [weak self, oldDocument, currentIndex] _ in
+                self?.document = oldDocument
+                self?.currentIndex = currentIndex
+            }
+        }
+    }
+
     // MARK: Editing
 
     public func addNewPage() {
@@ -44,21 +55,15 @@ public class DocumentEditor: NSObject {
 
     // MARK: Undo/Redo
 
-    public func undo() { documentUndoManager.undo() }
-    public func redo() { documentUndoManager.redo() }
+    public var undoManager: UndoManager?
+
+//    public func undo() { documentUndoManager.undo() }
+//    public func redo() { documentUndoManager.redo() }
 
     // MARK: Boilerplate
 
     private let documentStore = DocumentStore()
-    private let documentUndoManager = UndoManager()
-
-    public var document: Document {
-        didSet(oldDocument) {
-            documentUndoManager.registerUndo(withTarget: self) { [weak self, oldDocument, currentIndex] _ in
-                self?.document = oldDocument
-                self?.currentIndex = currentIndex
-            }
-        }
+    private func assertUndoManagerExists() {
+        assert(undoManager != nil, "undo manager was nil")
     }
-    private(set) public var currentIndex = 0
 }

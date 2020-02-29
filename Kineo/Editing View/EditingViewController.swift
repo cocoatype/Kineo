@@ -25,6 +25,7 @@ class EditingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         editingView?.setupToolPicker()
+        documentEditor.undoManager = undoManager
     }
 
     @objc func drawingViewDidChangePage(_ sender: DrawingView) {
@@ -70,8 +71,8 @@ class EditingViewController: UIViewController {
 
     // MARK: Undo/Redo
 
-    @objc func undoDrawing() { documentEditor.undo(); updateCurrentPage() }
-    @objc func redoDrawing() { documentEditor.redo(); updateCurrentPage() }
+    @objc func undoDrawing() { undoManager?.undo(); updateCurrentPage() }
+    @objc func redoDrawing() { undoManager?.redo(); updateCurrentPage() }
 
     // MARK: Boilerplate
 
