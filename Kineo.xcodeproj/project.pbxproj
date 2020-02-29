@@ -16,7 +16,9 @@
 		0436CE9123E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436CE9023E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift */; };
 		043854F22392246F0041A4AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043854F12392246F0041A4AA /* Localizable.strings */; };
 		043D71492402695400A1B7D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043D71482402695400A1B7D1 /* InfoPlist.strings */; };
-		043D7617240A5FE400A1B7D1 /* DrawingImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D7616240A5FE400A1B7D1 /* DrawingImageGenerator.swift */; };
+		043D7618240A702400A1B7D1 /* DrawingImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D7616240A5FE400A1B7D1 /* DrawingImageGenerator.swift */; };
+		043D7619240A726700A1B7D1 /* UITraitCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2B23B2345A006FBABC /* UITraitCollectionExtensions.swift */; };
+		043D761C240A742A00A1B7D1 /* DrawingImageGenerationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D761B240A742A00A1B7D1 /* DrawingImageGenerationOperation.swift */; };
 		044484D223A884A200CD0C3C /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044484D123A884A200CD0C3C /* GalleryCollectionView.swift */; };
 		044484D423A884D300CD0C3C /* EditingUserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044484D323A884D300CD0C3C /* EditingUserActivity.swift */; };
 		044484DE23AB287800CD0C3C /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044484DD23AB287800CD0C3C /* Messages.framework */; };
@@ -208,6 +210,7 @@
 		043854F12392246F0041A4AA /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		043D71482402695400A1B7D1 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		043D7616240A5FE400A1B7D1 /* DrawingImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingImageGenerator.swift; sourceTree = "<group>"; };
+		043D761B240A742A00A1B7D1 /* DrawingImageGenerationOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingImageGenerationOperation.swift; sourceTree = "<group>"; };
 		044484D123A884A200CD0C3C /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
 		044484D323A884D300CD0C3C /* EditingUserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingUserActivity.swift; sourceTree = "<group>"; };
 		044484D523AB210500CD0C3C /* StickerGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerGenerator.swift; sourceTree = "<group>"; };
@@ -383,6 +386,16 @@
 			path = Gallery;
 			sourceTree = "<group>";
 		};
+		043D761A240A73FD00A1B7D1 /* Image Generators */ = {
+			isa = PBXGroup;
+			children = (
+				043D7616240A5FE400A1B7D1 /* DrawingImageGenerator.swift */,
+				043D761B240A742A00A1B7D1 /* DrawingImageGenerationOperation.swift */,
+				04318A3222E19AB5003D70C8 /* SkinGenerator.swift */,
+			);
+			path = "Image Generators";
+			sourceTree = "<group>";
+		};
 		044484DC23AB287800CD0C3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,15 +421,15 @@
 		044484F523AB2A7000CD0C3C /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				045165FB23B2360300D7B535 /* CGGeometryExtensions.swift */,
-				04DF241A23F93E6200657160 /* Cloud */,
-				045165FE23B23A2B00D7B535 /* Constants.swift */,
 				044484F623AB2A7000CD0C3C /* Data.h */,
+				044484F723AB2A7000CD0C3C /* Info.plist */,
+				045165FB23B2360300D7B535 /* CGGeometryExtensions.swift */,
+				045165FE23B23A2B00D7B535 /* Constants.swift */,
 				04791E6C23EEB98000403BD8 /* Defaults.swift */,
 				04791E5C23EE9CA400403BD8 /* ExportSettings.swift */,
-				044484F723AB2A7000CD0C3C /* Info.plist */,
+				04DF241A23F93E6200657160 /* Cloud */,
+				043D761A240A73FD00A1B7D1 /* Image Generators */,
 				04C0A67A22DC51CC00E4E5D6 /* Persistence */,
-				04318A3222E19AB5003D70C8 /* SkinGenerator.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -578,7 +591,6 @@
 				04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */,
 				04ACCD2523B21BAE006FBABC /* FilmStripDataSource.swift */,
 				04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */,
-				043D7616240A5FE400A1B7D1 /* DrawingImageGenerator.swift */,
 				04ACCD2923B23290006FBABC /* FilmStripExistingPageImageView.swift */,
 				044DAFFE23B3170C00BD2A0C /* FilmStripIndicator.swift */,
 				0451660023B2441000D7B535 /* FilmStripNewPageCell.swift */,
@@ -945,11 +957,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043D7618240A702400A1B7D1 /* DrawingImageGenerator.swift in Sources */,
 				0444850523AB2ABC00CD0C3C /* DocumentSaveOperation.swift in Sources */,
 				04DF241E23F93F0100657160 /* CloudConstants.swift in Sources */,
 				04DF242623F94AC300657160 /* ExportSettings.swift in Sources */,
 				04DF242423F947F100657160 /* ResultOperation.swift in Sources */,
 				0444850623AB2ABC00CD0C3C /* DocumentEditor.swift in Sources */,
+				043D761C240A742A00A1B7D1 /* DrawingImageGenerationOperation.swift in Sources */,
 				0444850423AB2ABC00CD0C3C /* DocumentOperationQueue.swift in Sources */,
 				045165FD23B236E400D7B535 /* CGGeometryExtensions.swift in Sources */,
 				04DF242A23F94D8B00657160 /* UnstoredDocumentsSaveOperation.swift in Sources */,
@@ -961,6 +975,7 @@
 				04DF242823F94D6F00657160 /* RemoteDocumentsFetchOperation.swift in Sources */,
 				04DF242023F941E800657160 /* CloudCoordinator.swift in Sources */,
 				0444850723AB2AD200CD0C3C /* SkinGenerator.swift in Sources */,
+				043D7619240A726700A1B7D1 /* UITraitCollectionExtensions.swift in Sources */,
 				04DF242523F94A7800657160 /* Defaults.swift in Sources */,
 				0444850323AB2ABC00CD0C3C /* DocumentStore.swift in Sources */,
 				045165FF23B23A2B00D7B535 /* Constants.swift in Sources */,
@@ -992,7 +1007,6 @@
 				0485989923F2843000AFBB3A /* TwitchItem.swift in Sources */,
 				04ACCD2623B21BAE006FBABC /* FilmStripDataSource.swift in Sources */,
 				04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */,
-				043D7617240A5FE400A1B7D1 /* DrawingImageGenerator.swift in Sources */,
 				04791E6B23EEAB6C00403BD8 /* ExportSettingsStyleContentSection.swift in Sources */,
 				04791E5F23EE9CBF00403BD8 /* ExportSettingsViewController.swift in Sources */,
 				04791E6123EE9D7400403BD8 /* ExportSettingsActivity.swift in Sources */,

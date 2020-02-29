@@ -36,28 +36,32 @@ public class SkinGenerator: NSObject {
         }
     }
 
-    func previewImage(from document: Document) -> UIImage? {
+    func generatePreviewImage(from document: Document, completionHandler: @escaping ((UIImage?) -> Void)) {
         let maxSkinPageIndex = min(SkinGenerator.skinPageCount, document.pages.endIndex)
         let skinPageRange = 0..<maxSkinPageIndex
         let skinPages = document.pages[skinPageRange]
+        let skinDrawings = skinPages.map(\.drawing)
+        let traitCollection = self.traitCollection
 
-        guard skinPages.count > 0 else { return nil }
+        guard skinPages.count > 0 else { return completionHandler(nil) }
 
-        let opacityValues = Array(stride(from: 1, to: SkinGenerator.maxOpacity, by: SkinGenerator.opacityStep))
-        let drawables = zip(opacityValues, skinPages)
+        DrawingImageGenerator.shared.generateSkinLayers(for: skinDrawings) { images, _ in
+            let opacityValues = Array(stride(from: 1, to: SkinGenerator.maxOpacity, by: SkinGenerator.opacityStep))
+            
+            let drawables = zip(opacityValues, images)
 
-        let size = CGSize(width: 512, height: 512)
+            let size = CGSize(width: 512, height: 512)
+            let format = UIGraphicsImageRendererFormat(for: traitCollection)
 
-        let format = UIGraphicsImageRendererFormat(for: traitCollection)
-        return UIGraphicsImageRenderer(size: size, format: format).image { _ in
-            drawables.forEach { drawable in
-                let (opacity, page) = drawable
-                let drawing = page.drawing
-                traitCollection.performAsCurrent {
-                    let image = drawing.image(from: drawing.bounds, scale: traitCollection.displayScale)
-                    image.draw(at: drawing.bounds.origin, blendMode: .normal, alpha: opacity)
+            let resultImage = UIGraphicsImageRenderer(size: size, format: format).image { _ in
+                drawables.forEach { drawable in
+                    let (opacity, image) = drawable
+                    traitCollection.performAsCurrent {
+                        image.draw(at: .zero, blendMode: .normal, alpha: opacity)
+                    }
                 }
             }
+            completionHandler(resultImage)
         }
     }
 
