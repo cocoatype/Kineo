@@ -15,22 +15,11 @@ class EditingViewDataSource: NSObject {
     var pageCount: Int { return documentEditor.pageCount }
     var document: Document { return documentEditor.document }
 
-    func thumbnail(forPageAt index: Int) -> UIImage? {
-        let traitCollection = UITraitCollection.current.withLightInterfaceStyle
-        let drawing = documentEditor.page(at: index).drawing
-        var thumbnailImage: UIImage?
-
-        traitCollection.performAsCurrent {
-            let scale = Self.thumbnailSize / Constants.canvasRect * traitCollection.displayScale
-            thumbnailImage = drawing.image(from: Constants.canvasRect, scale: scale)
-        }
-
-        return thumbnailImage
+    func page(at index: Int) -> Page {
+        return document.pages[index]
     }
 
     // MARK: Boilerplate
-
-    private static let thumbnailSize = CGSize(width: 36, height: 36)
 
     private let documentEditor: DocumentEditor
     private let skinGenerator = SkinGenerator()

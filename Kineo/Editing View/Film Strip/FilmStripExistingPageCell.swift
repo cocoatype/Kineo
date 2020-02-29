@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 12/24/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import Data
 import UIKit
 
 class FilmStripExistingPageCell: UICollectionViewCell {
@@ -21,13 +22,19 @@ class FilmStripExistingPageCell: UICollectionViewCell {
         ])
     }
 
-    var image: UIImage? {
-        get { return imageView.image }
-        set(newImage) { imageView.image = newImage }
+    var page: Page? {
+        didSet {
+            guard let page = page else { imageView.image = nil; return }
+            Self.generator.generateThumbnail(for: page.drawing) { [weak self] image, drawing in
+                guard drawing == self?.page?.drawing else { return }
+                self?.imageView.image = image
+            }
+        }
     }
 
     // MARK: Boilerplate
 
+    private static let generator = FilmStripThumbnailGenerator()
     private let imageView = FilmStripExistingPageImageView()
 
     @available(*, unavailable)
