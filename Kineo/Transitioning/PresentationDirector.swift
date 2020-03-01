@@ -26,7 +26,7 @@ class PresentationDirector: NSObject {
             cellSnapshot.contents = cellSnapshotImage.cgImage
         }
         cellSnapshot.cornerRadius = 8
-        cellSnapshot.frame = selectedCell.frame
+        cellSnapshot.frame = sceneViewController.view.convert(selectedCell.bounds, from: selectedCell)
 
         galleryViewController.willMove(toParent: nil)
         sceneViewController.addChild(editingViewController)

@@ -63,8 +63,14 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
     func cell(for document: Document) -> UICollectionViewCell? {
-        guard let indexPath = dataSource.indexPath(of: document) else { return galleryView?.cellForItem(at: IndexPath(item: 0, section: 0)) }
-        return galleryView?.cellForItem(at: indexPath)
+        guard let galleryView = galleryView else { fatalError("GalleryViewController has no GalleryView") }
+        let indexPath = dataSource.indexPath(of: document) ?? IndexPath(item: 0, section: 0)
+        if let cell = galleryView.cellForItem(at: indexPath) {
+            return cell
+        } else {
+            galleryView.scroll(to: indexPath)
+            return galleryView.cellForItem(at: indexPath)
+        }
     }
 
     // MARK: UICollectionViewDelegate

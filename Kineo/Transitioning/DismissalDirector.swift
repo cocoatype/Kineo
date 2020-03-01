@@ -45,13 +45,16 @@ class DismissalDirector: NSObject {
 
         // add the editing view and lay out
         sceneViewController.view.insertSubview(galleryView, belowSubview: editingView)
-        editingView.setNeedsLayout()
-        editingView.layoutIfNeeded()
+        galleryView.setNeedsLayout()
+        galleryView.layoutIfNeeded()
         CATransaction.commit()
     }
 
     private func performDismissalAnimation(from editingViewController: EditingViewController, to galleryViewController: GalleryViewController, in sceneViewController: SceneViewController, with canvasSnapshot: CALayer) {
-        guard let documentCell = galleryViewController.cell(for: editingViewController.document) else { return }
+        guard let documentCell = galleryViewController.cell(for: editingViewController.document) else {
+            assertionFailure("couldn't find document cell")
+            return
+        }
         let cellSnapshotSize = documentCell.bounds.size
         let cellSnapshotImage = UIGraphicsImageRenderer(size: cellSnapshotSize).image { context in
             let rect = CGRect(origin: .zero, size: cellSnapshotSize)
@@ -68,8 +71,9 @@ class DismissalDirector: NSObject {
 
         // animate snapshot frame from current to drawing frame
         let snapshotFrame = canvasSnapshot.frame
-        canvasSnapshot.frame = documentCell.frame
-        canvasSnapshot.add(FrameAnimation(from: snapshotFrame, to: documentCell.frame), forKey: "snapshotFrame")
+        let cellFrame = sceneViewController.view.convert(documentCell.bounds, from: documentCell)
+        canvasSnapshot.frame = cellFrame
+        canvasSnapshot.add(FrameAnimation(from: snapshotFrame, to: cellFrame), forKey: "snapshotFrame")
 
         let currentContents = canvasSnapshot.contents
         let newContents = cellSnapshotImage.cgImage

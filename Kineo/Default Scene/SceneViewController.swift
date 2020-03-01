@@ -16,13 +16,13 @@ class SceneViewController: UIViewController {
 
     @objc func showGallery() {
         let galleryViewController = GalleryViewController()
-        guard let editingViewController = (children.first as? EditingViewController) else { return transition(to: galleryViewController) }
+        guard children.count == 1, let editingViewController = (children.first as? EditingViewController) else { return transition(to: galleryViewController) }
         dismissalDirector.animateDismissal(from: editingViewController, to: galleryViewController, in: self)
     }
 
     func showEditingView(for document: Document) {
         let editingViewController = EditingViewController(document: document)
-        guard let galleryViewController = (children.first as? GalleryViewController) else { return transition(to: editingViewController) }
+        guard children.count == 1, let galleryViewController = (children.first as? GalleryViewController) else { return transition(to: editingViewController) }
         presentationDirector.animatePresentation(from: galleryViewController, to: editingViewController, in: self)
     }
 

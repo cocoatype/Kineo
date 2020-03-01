@@ -63,13 +63,20 @@ class GalleryView: UIControl {
         collectionView.deleteItems(at: indexPaths)
     }
 
-    func cellForItem(at indexPath: IndexPath) -> UICollectionViewCell? { collectionView.cellForItem(at: indexPath) }
+    func cellForItem(at indexPath: IndexPath) -> UICollectionViewCell? {
+        return collectionView.cellForItem(at: indexPath)
+    }
 
     func reloadData() { collectionView.reloadData() }
 
     var selectedCell: UICollectionViewCell? {
         guard let selectedIndex = collectionView.indexPathsForSelectedItems?.first else { return nil }
         return collectionView.cellForItem(at: selectedIndex)
+    }
+
+    func scroll(to indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: false)
+        collectionView.layoutIfNeeded()
     }
 
     // MARK: Boilerplate
