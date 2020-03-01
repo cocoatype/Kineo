@@ -23,7 +23,7 @@ class EditingView: UIView, PlaybackViewDelegate {
 
     var drawingFrame: CGRect { return drawingView.frame }
 
-    private lazy var drawingView = DrawingView(page: dataSource.currentPage)
+    private(set) lazy var drawingView = DrawingView(page: dataSource.currentPage)
     private lazy var filmStripView = FilmStripView(dataSource: dataSource)
     private let playButton = PlayButton()
     private let galleryButton = GalleryButton()
@@ -123,10 +123,6 @@ class EditingView: UIView, PlaybackViewDelegate {
         playbackView.removeFromSuperview()
         self.playbackView = nil
     }
-
-    // MARK: Presentation
-    func prepareForPresentation() { drawingView.isHidden = true }
-    func finalizePresentation() { drawingView.isHidden = false }
 
     // MARK: Boilerplate
 

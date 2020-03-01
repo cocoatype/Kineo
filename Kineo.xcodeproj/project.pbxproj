@@ -91,6 +91,7 @@
 		049A044E240B9AF900F5FC17 /* EditingViewRegularConstraintGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A044D240B9AF900F5FC17 /* EditingViewRegularConstraintGenerator.swift */; };
 		049A0451240BBDFC00F5FC17 /* FrameAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0450240BBDFC00F5FC17 /* FrameAnimation.swift */; };
 		049A0453240BBE2200F5FC17 /* OpacityAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0452240BBE2200F5FC17 /* OpacityAnimation.swift */; };
+		049A0455240BCA5000F5FC17 /* DismissalDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0454240BCA5000F5FC17 /* DismissalDirector.swift */; };
 		04ACCD2023B21985006FBABC /* FilmStripCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */; };
 		04ACCD2623B21BAE006FBABC /* FilmStripDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2523B21BAE006FBABC /* FilmStripDataSource.swift */; };
 		04ACCD2823B2310B006FBABC /* EditingViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2723B2310B006FBABC /* EditingViewDataSource.swift */; };
@@ -286,6 +287,7 @@
 		049A044D240B9AF900F5FC17 /* EditingViewRegularConstraintGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewRegularConstraintGenerator.swift; sourceTree = "<group>"; };
 		049A0450240BBDFC00F5FC17 /* FrameAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameAnimation.swift; sourceTree = "<group>"; };
 		049A0452240BBE2200F5FC17 /* OpacityAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpacityAnimation.swift; sourceTree = "<group>"; };
+		049A0454240BCA5000F5FC17 /* DismissalDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissalDirector.swift; sourceTree = "<group>"; };
 		04ACCD1C23B21334006FBABC /* FilmStripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripView.swift; sourceTree = "<group>"; };
 		04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionView.swift; sourceTree = "<group>"; };
 		04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripExistingPageCell.swift; sourceTree = "<group>"; };
@@ -598,6 +600,7 @@
 			isa = PBXGroup;
 			children = (
 				049A0447240B8CDC00F5FC17 /* PresentationDirector.swift */,
+				049A0454240BCA5000F5FC17 /* DismissalDirector.swift */,
 				049A0450240BBDFC00F5FC17 /* FrameAnimation.swift */,
 				049A0452240BBE2200F5FC17 /* OpacityAnimation.swift */,
 			);
@@ -1071,6 +1074,7 @@
 				04DF241423F888F800657160 /* FilmStripExistingPageCell.swift in Sources */,
 				04791E3323EC1F3400403BD8 /* SettingsContentProvider.swift in Sources */,
 				04791E4D23EC1F3400403BD8 /* SettingsStandardTableViewCell.swift in Sources */,
+				049A0455240BCA5000F5FC17 /* DismissalDirector.swift in Sources */,
 				044484D423A884D300CD0C3C /* EditingUserActivity.swift in Sources */,
 				04791E3123EC1F3400403BD8 /* SettingsSection.swift in Sources */,
 				04D36ADA237826D40052A933 /* Fonts.swift in Sources */,

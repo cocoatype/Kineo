@@ -42,7 +42,7 @@ class PresentationDirector: NSObject {
             self.performPresentationAnimation(from: galleryViewController, to: editingViewController, in: sceneViewController, with: cellSnapshot)
         }
         // hide the editing view's drawing view
-        editingView.prepareForPresentation()
+        editingView.drawingView.isHidden = true
 
         // set the editing view's alpha to 0%
         editingView.layer.opacity = 0
@@ -95,7 +95,7 @@ class PresentationDirector: NSObject {
 
     private func cleanupPresentationAnimation(from galleryViewController: GalleryViewController, to editingViewController: EditingViewController, in sceneViewController: SceneViewController, with cellSnapshot: CALayer) {
         guard let editingView = (editingViewController.view as? EditingView) else { return }
-        editingView.finalizePresentation()
+        editingView.drawingView.isHidden = false
 
         CATransaction.begin()
         CATransaction.setAnimationDuration(0.05)
