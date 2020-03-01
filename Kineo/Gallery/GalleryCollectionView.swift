@@ -67,6 +67,11 @@ class GalleryView: UIControl {
 
     func reloadData() { collectionView.reloadData() }
 
+    var selectedCell: UICollectionViewCell? {
+        guard let selectedIndex = collectionView.indexPathsForSelectedItems?.first else { return nil }
+        return collectionView.cellForItem(at: selectedIndex)
+    }
+
     // MARK: Boilerplate
 
     private let collectionView = GalleryCollectionView()

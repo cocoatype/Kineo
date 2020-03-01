@@ -62,6 +62,11 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         return GalleryDocumentPreviewViewController(document: document)
     }
 
+    func cell(for document: Document) -> UICollectionViewCell? {
+        guard let indexPath = dataSource.indexPath(of: document) else { return nil }
+        return galleryView?.cellForItem(at: indexPath)
+    }
+
     // MARK: UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
