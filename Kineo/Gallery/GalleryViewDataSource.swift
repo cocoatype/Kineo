@@ -12,6 +12,11 @@ class GalleryViewDataSource: NSObject, UICollectionViewDataSource {
         return try documentStore.document(at: documentIndex)
     }
 
+    func indexPath(of document: Document) -> IndexPath? {
+        guard let index = documentStore.allIdentifiers.firstIndex(of: document.uuid) else { return nil }
+        return IndexPath(item: index + 1, section: 0)
+    }
+
     func previewImage(at indexPath: IndexPath) -> UIImage? {
         guard indexPath != GalleryViewDataSource.newDocumentIndexPath else { return nil }
 

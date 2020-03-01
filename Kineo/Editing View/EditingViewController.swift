@@ -6,6 +6,7 @@ import PencilKit
 import UIKit
 
 class EditingViewController: UIViewController {
+    var document: Document { return documentEditor.document }
     init(document: Document) {
         self.documentEditor = DocumentEditor(document: document)
         super.init(nibName: nil, bundle: nil)

@@ -15,11 +15,15 @@ class SceneViewController: UIViewController {
     }
 
     @objc func showGallery() {
-        transition(to: GalleryViewController())
+        let galleryViewController = GalleryViewController()
+        guard children.count == 1, let editingViewController = (children.first as? EditingViewController) else { return transition(to: galleryViewController) }
+        dismissalDirector.animateDismissal(from: editingViewController, to: galleryViewController, in: self)
     }
 
     func showEditingView(for document: Document) {
-        transition(to: EditingViewController(document: document))
+        let editingViewController = EditingViewController(document: document)
+        guard children.count == 1, let galleryViewController = (children.first as? GalleryViewController) else { return transition(to: editingViewController) }
+        presentationDirector.animatePresentation(from: galleryViewController, to: editingViewController, in: self)
     }
 
     @objc func showEditingView(_ sender: GalleryViewController, for event: GallerySelectionEvent) {
@@ -42,6 +46,9 @@ class SceneViewController: UIViewController {
     // MARK: Boilerplate
 
     private let documentStore = DocumentStore()
+    private let presentationDirector = PresentationDirector()
+    private let dismissalDirector = DismissalDirector()
+
     private var sceneView: SceneView {
         guard let sceneView = view as? SceneView else { fatalError("Incorrect view type: \(String(describing: view))") }
         return sceneView

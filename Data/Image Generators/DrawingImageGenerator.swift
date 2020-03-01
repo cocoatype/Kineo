@@ -25,6 +25,11 @@ public class DrawingImageGenerator: NSObject {
         operationQueue.addOperation(finishOperation)
     }
 
+    public func generateFirstSkinLayer(for document: Document, completionHandler: @escaping Handler) {
+        guard let drawing = document.pages.first?.drawing else { fatalError("Tried to generate layer for a document with no pages") }
+        generateImage(for: drawing, size: Self.skinLayerSize, usesDisplayScale: true, completionHandler: completionHandler)
+    }
+
     private func generateImage(for drawing: PKDrawing, size: CGSize, usesDisplayScale: Bool, completionHandler: @escaping Handler) {
         operationQueue.addOperation(DrawingImageGenerationOperation(drawing: drawing, size: size, usesDisplayScale: usesDisplayScale, completionHandler: completionHandler))
     }
