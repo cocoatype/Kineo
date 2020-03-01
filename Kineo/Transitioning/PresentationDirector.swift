@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 2/29/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import Data
 import UIKit
 
 class PresentationDirector: NSObject {
@@ -8,9 +9,7 @@ class PresentationDirector: NSObject {
         guard
           let editingView = (editingViewController.view as? EditingView),
           let selectedCell = galleryViewController.cell(for: editingViewController.document)
-//          let cellSnapshot = selectedCell.snapshotView(afterScreenUpdates: true)
         else {
-            assertionFailure("transition setup failure")
             sceneViewController.transition(to: editingViewController)
             return
         }
@@ -22,7 +21,11 @@ class PresentationDirector: NSObject {
         }
 
         let cellSnapshot = CALayer()
-        cellSnapshot.contents = cellSnapshotImage.cgImage
+        cellSnapshot.backgroundColor = UIColor.canvasBackground.cgColor
+        if selectedCell is GalleryDocumentCollectionViewCell {
+            cellSnapshot.contents = cellSnapshotImage.cgImage
+        }
+        cellSnapshot.cornerRadius = 8
         cellSnapshot.frame = selectedCell.frame
 
         galleryViewController.willMove(toParent: nil)
@@ -52,33 +55,42 @@ class PresentationDirector: NSObject {
         // add the snapshot view
         sceneViewController.view.layer.addSublayer(cellSnapshot)
         CATransaction.commit()
-
-        // clean up
     }
 
     private func performPresentationAnimation(from galleryViewController: GalleryViewController, to editingViewController: EditingViewController, in sceneViewController: SceneViewController, with cellSnapshot: CALayer) {
         guard let editingView = (editingViewController.view as? EditingView) else { return }
+        let document = editingViewController.document
 
-        // grab the drawing frame
-        let drawingFrame = editingView.drawingFrame
+        DrawingImageGenerator.shared.generateFirstSkinLayer(for: document) { skinsImage, _ in
+            DispatchQueue.main.async {
+                // grab the drawing frame
+                let drawingFrame = editingView.drawingFrame
 
-        CATransaction.begin()
-        CATransaction.setAnimationDuration(0.25)
-        CATransaction.setCompletionBlock { [weak galleryViewController, weak editingViewController, weak sceneViewController, weak cellSnapshot] in
-            guard let galleryViewController = galleryViewController, let editingViewController = editingViewController, let sceneViewController = sceneViewController, let cellSnapshot = cellSnapshot else { return }
-            self.cleanupPresentationAnimation(from: galleryViewController, to: editingViewController, in: sceneViewController, with: cellSnapshot)
+                CATransaction.begin()
+                CATransaction.setAnimationDuration(0.35)
+                CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: .easeInEaseOut))
+                CATransaction.setCompletionBlock { [weak galleryViewController, weak editingViewController, weak sceneViewController, weak cellSnapshot] in
+                    guard let galleryViewController = galleryViewController, let editingViewController = editingViewController, let sceneViewController = sceneViewController, let cellSnapshot = cellSnapshot else { return }
+                    self.cleanupPresentationAnimation(from: galleryViewController, to: editingViewController, in: sceneViewController, with: cellSnapshot)
+                }
+
+                // animate snapshot frame from current to drawing frame
+                let snapshotFrame = cellSnapshot.frame
+                cellSnapshot.frame = drawingFrame
+                cellSnapshot.add(FrameAnimation(from: snapshotFrame, to: drawingFrame), forKey: "snapshotFrame")
+
+                let currentContents = cellSnapshot.contents
+                let newContents = skinsImage.cgImage
+                cellSnapshot.contents = newContents
+                cellSnapshot.add(ContentsAnimation(from: currentContents, to: newContents), forKey: "skinsImage")
+
+                // fade in editing view
+                editingView.layer.opacity = 1
+                editingView.layer.add(OpacityAnimation(from: 0, to: 1), forKey: "editingOpacity")
+
+                CATransaction.commit()
+            }
         }
-
-        // animate snapshot frame from current to drawing frame
-        let snapshotFrame = cellSnapshot.frame
-        cellSnapshot.frame = drawingFrame
-        cellSnapshot.add(FrameAnimation(from: snapshotFrame, to: drawingFrame), forKey: "snapshotFrame")
-
-        // fade in editing view
-        editingView.layer.opacity = 1
-        editingView.layer.add(OpacityAnimation(from: 0, to: 1), forKey: "editingOpacity")
-
-        CATransaction.commit()
     }
 
     private func cleanupPresentationAnimation(from galleryViewController: GalleryViewController, to editingViewController: EditingViewController, in sceneViewController: SceneViewController, with cellSnapshot: CALayer) {
@@ -86,7 +98,8 @@ class PresentationDirector: NSObject {
         editingView.finalizePresentation()
 
         CATransaction.begin()
-        CATransaction.setAnimationDuration(0.25)
+        CATransaction.setAnimationDuration(0.05)
+        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: .easeOut))
         CATransaction.setCompletionBlock { [weak galleryViewController, weak editingViewController, weak sceneViewController, weak cellSnapshot] in
             guard let galleryViewController = galleryViewController, let editingViewController = editingViewController, let sceneViewController = sceneViewController, let cellSnapshot = cellSnapshot else { return }
             cellSnapshot.removeFromSuperlayer()
@@ -97,37 +110,5 @@ class PresentationDirector: NSObject {
 
         cellSnapshot.opacity = 0
         CATransaction.commit()
-    }
-}
-
-class FrameAnimation: CABasicAnimation {
-    init(from: CGRect, to: CGRect) {
-        super.init()
-        keyPath = #keyPath(CALayer.frame)
-        fromValue = from
-        toValue = to
-    }
-
-    override init() { super.init() } // needed to not crash
-    @available(*, unavailable)
-    required init(coder: NSCoder) {
-        let typeName = NSStringFromClass(type(of: self))
-        fatalError("\(typeName) does not implement init(coder:)")
-    }
-}
-
-class OpacityAnimation: CABasicAnimation {
-    init(from: CGFloat, to: CGFloat) {
-        super.init()
-        keyPath = #keyPath(CALayer.opacity)
-        fromValue = min(max(from, 0), 1)
-        toValue = min(max(to, 0), 1)
-    }
-
-    override init() { super.init() } // needed to not crash
-    @available(*, unavailable)
-    required init(coder: NSCoder) {
-        let typeName = NSStringFromClass(type(of: self))
-        fatalError("\(typeName) does not implement init(coder:)")
     }
 }

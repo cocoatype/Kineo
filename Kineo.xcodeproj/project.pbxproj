@@ -89,6 +89,8 @@
 		049A044A240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0449240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift */; };
 		049A044C240B9AD300F5FC17 /* EditingViewCompactConstraintGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A044B240B9AD300F5FC17 /* EditingViewCompactConstraintGenerator.swift */; };
 		049A044E240B9AF900F5FC17 /* EditingViewRegularConstraintGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A044D240B9AF900F5FC17 /* EditingViewRegularConstraintGenerator.swift */; };
+		049A0451240BBDFC00F5FC17 /* FrameAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0450240BBDFC00F5FC17 /* FrameAnimation.swift */; };
+		049A0453240BBE2200F5FC17 /* OpacityAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0452240BBE2200F5FC17 /* OpacityAnimation.swift */; };
 		04ACCD2023B21985006FBABC /* FilmStripCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */; };
 		04ACCD2623B21BAE006FBABC /* FilmStripDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2523B21BAE006FBABC /* FilmStripDataSource.swift */; };
 		04ACCD2823B2310B006FBABC /* EditingViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2723B2310B006FBABC /* EditingViewDataSource.swift */; };
@@ -282,6 +284,8 @@
 		049A0449240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewConstraintGenerator.swift; sourceTree = "<group>"; };
 		049A044B240B9AD300F5FC17 /* EditingViewCompactConstraintGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewCompactConstraintGenerator.swift; sourceTree = "<group>"; };
 		049A044D240B9AF900F5FC17 /* EditingViewRegularConstraintGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewRegularConstraintGenerator.swift; sourceTree = "<group>"; };
+		049A0450240BBDFC00F5FC17 /* FrameAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameAnimation.swift; sourceTree = "<group>"; };
+		049A0452240BBE2200F5FC17 /* OpacityAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpacityAnimation.swift; sourceTree = "<group>"; };
 		04ACCD1C23B21334006FBABC /* FilmStripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripView.swift; sourceTree = "<group>"; };
 		04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionView.swift; sourceTree = "<group>"; };
 		04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripExistingPageCell.swift; sourceTree = "<group>"; };
@@ -590,6 +594,16 @@
 			path = "Social Section";
 			sourceTree = "<group>";
 		};
+		049A044F240BBDE300F5FC17 /* Transitioning */ = {
+			isa = PBXGroup;
+			children = (
+				049A0447240B8CDC00F5FC17 /* PresentationDirector.swift */,
+				049A0450240BBDFC00F5FC17 /* FrameAnimation.swift */,
+				049A0452240BBE2200F5FC17 /* OpacityAnimation.swift */,
+			);
+			path = Transitioning;
+			sourceTree = "<group>";
+		};
 		04ACCD1E23B21975006FBABC /* Film Strip */ = {
 			isa = PBXGroup;
 			children = (
@@ -661,7 +675,7 @@
 				04791DE323EC1F3400403BD8 /* Settings */,
 				044DB00223B31B0C00BD2A0C /* Style */,
 				044DB00123B31AE800BD2A0C /* Supporting Files */,
-				049A0447240B8CDC00F5FC17 /* PresentationDirector.swift */,
+				049A044F240BBDE300F5FC17 /* Transitioning */,
 			);
 			path = Kineo;
 			sourceTree = "<group>";
@@ -1043,6 +1057,7 @@
 				04791E2523EC1F3400403BD8 /* StandardContentItem.swift in Sources */,
 				04D36ADD237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift in Sources */,
 				0436CE8F23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift in Sources */,
+				049A0453240BBE2200F5FC17 /* OpacityAnimation.swift in Sources */,
 				04ACCD2A23B23290006FBABC /* FilmStripExistingPageImageView.swift in Sources */,
 				04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */,
 				04D36AE123782A1A0052A933 /* GalleryNewCollectionViewCell.swift in Sources */,
@@ -1087,6 +1102,7 @@
 				0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */,
 				04791E2C23EC1F3400403BD8 /* PrivacyItem.swift in Sources */,
 				044484D223A884A200CD0C3C /* GalleryCollectionView.swift in Sources */,
+				049A0451240BBDFC00F5FC17 /* FrameAnimation.swift in Sources */,
 				04791E2A23EC1F3400403BD8 /* ContactItem.swift in Sources */,
 				04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */,
 				04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */,

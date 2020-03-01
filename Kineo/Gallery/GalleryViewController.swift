@@ -63,7 +63,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
     func cell(for document: Document) -> UICollectionViewCell? {
-        guard let indexPath = dataSource.indexPath(of: document) else { return nil }
+        guard let indexPath = dataSource.indexPath(of: document) else { return galleryView?.cellForItem(at: IndexPath(item: 0, section: 0)) }
         return galleryView?.cellForItem(at: indexPath)
     }
 
