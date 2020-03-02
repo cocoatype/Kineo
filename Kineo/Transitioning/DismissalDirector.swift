@@ -6,6 +6,7 @@ import UIKit
 
 class DismissalDirector: NSObject {
     func animateDismissal(from editingViewController: EditingViewController, to galleryViewController: GalleryViewController, in sceneViewController: SceneViewController) {
+        guard UIAccessibility.isReduceMotionEnabled == false else { return sceneViewController.transition(to: galleryViewController) }
         guard let editingView = (editingViewController.view as? EditingView), let galleryView = galleryViewController.view else {
             assertionFailure("dismissal setup failure")
             sceneViewController.transition(to: galleryViewController)
