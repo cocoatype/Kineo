@@ -15,9 +15,14 @@ class ExportButton: SidebarActionButton {
     }
 }
 
-class PlayButton: SidebarActionButton {
+class PlayButton: SidebarActionButton, UIContextMenuInteractionDelegate {
     init() {
         super.init(icon: Icons.play, selector: #selector(EditingViewController.play))
+        addInteraction(PlayButtonContextMenuFactory.interaction(button: self))
+    }
+
+    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        PlayButtonContextMenuFactory.configuration(button: self)
     }
 }
 

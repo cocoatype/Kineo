@@ -26,6 +26,9 @@
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle" = "Share";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.windowMenuItemTitle" = "Open in New Window";
 
+"PlayButtonContextMenuConfigurationFactory.bounceMenuItemTitle" = "Bounce";
+"PlayButtonContextMenuConfigurationFactory.loopMenuItemTitle" = "Loop";
+
 "SettingsContentProvider.Item.contact" = "Contact the Developer";
 "SettingsContentProvider.Item.instagram" = "Instagram";
 "SettingsContentProvider.Item.instagram.subtitle" = "@kineoapp";

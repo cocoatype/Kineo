@@ -21,9 +21,16 @@ enum Icons {
     static let exportSettings = UIImage(systemName: "gear", withConfiguration: UIImage.SymbolConfiguration(pointSize: activityIconSize))
 
     enum ContextMenu {
-        static let delete = UIImage(systemName: "trash", withConfiguration: UIImage.SymbolConfiguration.contextMenuIconConfiguration)
-        static let export = UIImage(systemName: "square.and.arrow.up", withConfiguration: UIImage.SymbolConfiguration.contextMenuIconConfiguration)
-        static let window = UIImage(systemName: "square.split.2x1", withConfiguration: UIImage.SymbolConfiguration.contextMenuIconConfiguration)
+        private static func contextMenuImage(systemName: String) -> UIImage? {
+            return UIImage(systemName: systemName, withConfiguration: UIImage.SymbolConfiguration.contextMenuIconConfiguration)
+        }
+
+        static let delete = contextMenuImage(systemName: "trash")
+        static let export = contextMenuImage(systemName: "square.and.arrow.up")
+        static let window = contextMenuImage(systemName: "square.split.2x1")
+
+        static let loop = contextMenuImage(systemName: "arrow.2.circlepath")
+        static let bounce = contextMenuImage(systemName: "arrow.right.arrow.left")
     }
 
     private static var activityIconSize = CGFloat(24)
