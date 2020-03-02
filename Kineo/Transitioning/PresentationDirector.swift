@@ -6,6 +6,9 @@ import UIKit
 
 class PresentationDirector: NSObject {
     func animatePresentation(from galleryViewController: GalleryViewController, to editingViewController: EditingViewController, in sceneViewController: SceneViewController) {
+        guard UIAccessibility.isReduceMotionEnabled == false else {
+            return sceneViewController.transition(to: editingViewController)
+        }
         guard
           let editingView = (editingViewController.view as? EditingView),
           let selectedCell = galleryViewController.cell(for: editingViewController.document)
