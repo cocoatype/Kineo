@@ -22,16 +22,17 @@ enum GalleryDocumentCollectionViewCellContextMenuConfigurationFactory {
                 delegate.exportAnimation(at: indexPath)
             }
 
-            let deleteElement = UIAction(title: Self.deleteMenuItemTitle, image: Icons.ContextMenu.delete, attributes: [.destructive])  { _ in
+            let confirmDeleteElement = UIAction(title: Self.deleteMenuItemTitle, image: Icons.ContextMenu.delete, attributes: [.destructive])  { _ in
                 delegate.deleteAnimation(at: indexPath)
             }
-            let deleteMenu = UIMenu(title: "", options: .displayInline, children: [deleteElement])
+            let deleteElement = UIMenu(title: Self.deleteMenuItemTitle, image: Icons.ContextMenu.delete, options: [.destructive], children: [confirmDeleteElement])
+            let deleteSection = UIMenu(title: "", options: .displayInline, children: [deleteElement])
 
             let windowElement = UIAction(title: Self.windowMenuItemTitle, image: Icons.ContextMenu.window) { _ in
                 delegate.openAnimationInNewWindow(at: indexPath)
             }
 
-            return UIMenu(title: "", children: [shareElement, windowElement, deleteMenu])
+            return UIMenu(title: "", children: [shareElement, windowElement, deleteSection])
         }
     }
 
