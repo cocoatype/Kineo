@@ -12,6 +12,7 @@ protocol PlaybackViewDelegate: class {
 class PlaybackView: UIView {
     init(document: Document) {
         self.document = document
+        self.playbackDocument = Self.transformedDocument(from: document)
         super.init(frame: .zero)
 
         isHidden = true
@@ -36,11 +37,19 @@ class PlaybackView: UIView {
         self.displayLink = displayLink
     }
 
+    private var playbackDocument: Document
     var document: Document {
         didSet(oldDocument) {
-            guard document != oldDocument else { return }
-            currentIndex = 0
+            playbackDocument = Self.transformedDocument(from: document)
+            if currentIndex > playbackDocument.pages.count { currentIndex = 0 }
             canvasView.drawing = currentDrawing
+        }
+    }
+
+    private static func transformedDocument(from document: Document) -> Document {
+        switch Defaults.exportPlaybackStyle {
+        case .standard, .loop: return document
+        case .bounce: return DocumentTransformer.bouncedDocument(from: document)
         }
     }
 
@@ -69,10 +78,10 @@ class PlaybackView: UIView {
     }
 
     @objc private func animateNextFrame() {
-        let nextIndex = (currentIndex + 1) % document.pages.endIndex
+        let nextIndex = (currentIndex + 1) % playbackDocument.pages.endIndex
 
         // stop if we are not animating continuously, but the next page would be the first page
-        let shouldStop = (nextIndex == document.pages.startIndex && isAnimatingContinuously == false)
+        let shouldStop = (nextIndex == playbackDocument.pages.startIndex && isAnimatingContinuously == false)
         guard shouldStop == false else {
             stopAnimating()
             return
@@ -96,7 +105,7 @@ class PlaybackView: UIView {
     private var currentIndex = 0
 
     private var currentPage: Page {
-        return document.pages[currentIndex]
+        return playbackDocument.pages[currentIndex]
     }
 
     @available(*, unavailable)

@@ -15,7 +15,7 @@ enum DocumentTransformer {
         }
     }
 
-    private static func bouncedDocument(from document: Document) -> Document {
+    static func bouncedDocument(from document: Document) -> Document {
         let pages = document.pages + document.pages.reversed().dropLast().dropFirst()
         return Document(pages: pages)
     }
