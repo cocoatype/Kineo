@@ -38,8 +38,12 @@ class EditingViewController: UIViewController {
     // MARK: Transport Controls
 
     @objc func play(_ sender: Any, for event: UIEvent) {
-        let tapCount = event.allTouches?.first?.tapCount ?? 1
-        editingView?.play(documentEditor.document, continuously: tapCount > 1)
+        guard (event.allTouches?.first?.tapCount ?? 1) == 1 else { return }
+        editingView?.play(documentEditor.document, continuously: false)
+    }
+
+    @objc func playMultiple() {
+        editingView?.play(documentEditor.document, continuously: true)
     }
 
     @objc func addNewPage() {

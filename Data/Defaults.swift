@@ -27,7 +27,7 @@ public enum Defaults {
         }
     }
 
-    private(set) public static var exportPlaybackStyle: PlaybackStyle {
+    public static var exportPlaybackStyle: PlaybackStyle {
         get {
             switch userDefaults.string(forKey: Self.exportPlaybackStyleKey) {
             case Self.exportPlaybackStyleStandard?: return .standard

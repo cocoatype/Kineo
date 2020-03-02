@@ -40,10 +40,9 @@ class PlaybackView: UIView {
     private var playbackDocument: Document
     var document: Document {
         didSet(oldDocument) {
-            guard document != oldDocument else { return }
-            currentIndex = 0
-            canvasView.drawing = currentDrawing
             playbackDocument = Self.transformedDocument(from: document)
+            if currentIndex > playbackDocument.pages.count { currentIndex = 0 }
+            canvasView.drawing = currentDrawing
         }
     }
 

@@ -14,8 +14,8 @@ enum PlayButtonContextMenuFactory {
 
     private static func actionProvider(for button: PlayButton) -> UIContextMenuActionProvider {
         return { _ in
-            let loopElement = UIAction(title: Self.loopMenuItemTitle, image: Icons.ContextMenu.loop) { _ in }
-            let bounceElement = UIAction(title: Self.bounceMenuItemTitle, image: Icons.ContextMenu.bounce) { _ in }
+            let loopElement = UIAction(title: Self.loopMenuItemTitle, image: Icons.ContextMenu.loop) { _ in button.loop() }
+            let bounceElement = UIAction(title: Self.bounceMenuItemTitle, image: Icons.ContextMenu.bounce) { _ in button.bounce() }
 
             return UIMenu(title: "", children: [loopElement, bounceElement])
         }
