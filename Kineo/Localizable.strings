@@ -43,3 +43,5 @@
 "SettingsContentProvider.Section.social.header" = "Social Media";
 
 "SettingsViewController.navigationTitle" = "Kineo Help";
+
+"UseLegacyIconItem.title" = "Use Legacy App Icon";
