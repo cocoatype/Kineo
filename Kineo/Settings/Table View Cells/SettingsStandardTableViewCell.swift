@@ -28,7 +28,19 @@ class SettingsStandardTableViewCell: UITableViewCell, SettingsContentTableViewCe
             imageView?.image = (item as? IconProvidingContentItem)?.icon
             imageView?.layer.cornerRadius = 6
             imageView?.clipsToBounds = true
+
+            if let switchableItem = (item as? SwitchableContentItem) {
+                let itemSwitch = UISwitch()
+                itemSwitch.isOn = switchableItem.isOn
+                itemSwitch.addTarget(self, action: #selector(handleAccessoryAction(_:)), for: .valueChanged)
+                accessoryView = itemSwitch
+            } else { accessoryView = nil }
         }
+    }
+
+    @objc private func handleAccessoryAction(_ sender: Any) {
+        guard let accessoryView = sender as? UIView, accessoryView == self.accessoryView, let tableView = self.tableView else { return }
+        item?.performSelectedAction(tableView)
     }
 
     // MARK: Boilerplate
@@ -37,5 +49,12 @@ class SettingsStandardTableViewCell: UITableViewCell, SettingsContentTableViewCe
     required init(coder: NSCoder) {
         let className = String(describing: type(of: self))
         fatalError("\(className) does not implement init(coder:)")
+    }
+}
+
+private extension UIResponder {
+    var tableView: UITableView? {
+        guard let tableView = self as? UITableView else { return next?.tableView }
+        return tableView
     }
 }

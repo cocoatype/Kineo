@@ -39,20 +39,6 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource, UITableViewD
         return contentProvider.section(at: section).header
     }
 
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingsTableViewHeaderFooterView.identifier) as? SettingsTableViewHeaderFooterView else { fatalError("Got incorrect header view type") }
-//        headerView.text = contentProvider.section(at: section).header
-//        return headerView
-//    }
-
-//    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-//        return SettingsTableViewHeaderFooterLabel().font.lineHeight
-//    }
-//
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
-
     // MARK: Boilerplate
 
     private var contentProvider: SettingsContentProvider

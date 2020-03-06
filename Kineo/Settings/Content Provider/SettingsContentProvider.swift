@@ -45,6 +45,7 @@ class SettingsContentProvider: NSObject {
 
         sections.append(contentsOf: ([
             AboutSection(),
+            IconSection(),
             OtherAppsSection(otherApps: otherAppEntries),
             SocialSection()
         ] as [SettingsContentSection]))
