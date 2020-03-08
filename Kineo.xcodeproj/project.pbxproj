@@ -141,6 +141,9 @@
 		04D46BD324124F9500DBFB9A /* Icon-App-40x40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D46BC124124F9500DBFB9A /* Icon-App-40x40@3x.png */; };
 		04D46BD424124F9500DBFB9A /* Icon-App-60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D46BC224124F9500DBFB9A /* Icon-App-60x60@3x.png */; };
 		04D46BD7241251C300DBFB9A /* IconSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D46BD6241251C300DBFB9A /* IconSection.swift */; };
+		04D46BDA2414E01500DBFB9A /* TutorialEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D46BD92414E01500DBFB9A /* TutorialEditingViewController.swift */; };
+		04D46BDD2414E0FA00DBFB9A /* TutorialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D46BDC2414E0FA00DBFB9A /* TutorialCoordinator.swift */; };
+		04D46BDF2414EC8100DBFB9A /* TutorialIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D46BDE2414EC8100DBFB9A /* TutorialIntroViewController.swift */; };
 		04DF241123F888DA00657160 /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436CE9223E53237002BE4EF /* ExportViewController.swift */; };
 		04DF241223F888E000657160 /* FilmStripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD1C23B21334006FBABC /* FilmStripView.swift */; };
 		04DF241323F888EC00657160 /* SidebarActionButtonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043854E6238CD06F0041A4AA /* SidebarActionButtonImageView.swift */; };
@@ -366,6 +369,9 @@
 		04D46BC124124F9500DBFB9A /* Icon-App-40x40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-40x40@3x.png"; sourceTree = "<group>"; };
 		04D46BC224124F9500DBFB9A /* Icon-App-60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-60x60@3x.png"; sourceTree = "<group>"; };
 		04D46BD6241251C300DBFB9A /* IconSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSection.swift; sourceTree = "<group>"; };
+		04D46BD92414E01500DBFB9A /* TutorialEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditingViewController.swift; sourceTree = "<group>"; };
+		04D46BDC2414E0FA00DBFB9A /* TutorialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCoordinator.swift; sourceTree = "<group>"; };
+		04D46BDE2414EC8100DBFB9A /* TutorialIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroViewController.swift; sourceTree = "<group>"; };
 		04DF241623F88B1F00657160 /* DocumentTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTransformer.swift; sourceTree = "<group>"; };
 		04DF241823F93B3A00657160 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		04DF241B23F93E9D00657160 /* DocumentRecordTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRecordTransformer.swift; sourceTree = "<group>"; };
@@ -711,7 +717,6 @@
 		04C0A64422DC208E00E4E5D6 /* Kineo */ = {
 			isa = PBXGroup;
 			children = (
-				04D46BB024124F6A00DBFB9A /* Legacy Icon Assets */,
 				04C0A67822DC436400E4E5D6 /* example.json */,
 				04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */,
 				04C0A66B22DC23EA00E4E5D6 /* Default Scene */,
@@ -719,11 +724,13 @@
 				04791E5B23EE9C8100403BD8 /* Export */,
 				04C0A67522DC406000E4E5D6 /* Extensions */,
 				0417F09F22E4A0860063AD66 /* Gallery */,
+				04D46BB024124F6A00DBFB9A /* Legacy Icon Assets */,
 				04DF241523F88AF400657160 /* Playback */,
 				04791DE323EC1F3400403BD8 /* Settings */,
 				044DB00223B31B0C00BD2A0C /* Style */,
 				044DB00123B31AE800BD2A0C /* Supporting Files */,
 				049A044F240BBDE300F5FC17 /* Transitioning */,
+				04D46BD82414DEF100DBFB9A /* Tutorial */,
 			);
 			path = Kineo;
 			sourceTree = "<group>";
@@ -753,19 +760,17 @@
 		04C0A66E22DC292E00E4E5D6 /* Editing View */ = {
 			isa = PBXGroup;
 			children = (
-				049A0458240D09C000F5FC17 /* Buttons */,
 				04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */,
 				04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */,
-				04B86C0923BA111C005F65F7 /* SkinsImageView.swift */,
 				044484D323A884D300CD0C3C /* EditingUserActivity.swift */,
 				04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */,
 				04C0A66922DC224B00E4E5D6 /* EditingViewController.swift */,
 				04ACCD2723B2310B006FBABC /* EditingViewDataSource.swift */,
 				04318A3422E2EC3C003D70C8 /* PlaybackView.swift */,
+				04B86C0923BA111C005F65F7 /* SkinsImageView.swift */,
+				049A0458240D09C000F5FC17 /* Buttons */,
+				04D46BDB2414E09800DBFB9A /* Constraint Generators */,
 				04ACCD1E23B21975006FBABC /* Film Strip */,
-				049A0449240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift */,
-				049A044B240B9AD300F5FC17 /* EditingViewCompactConstraintGenerator.swift */,
-				049A044D240B9AF900F5FC17 /* EditingViewRegularConstraintGenerator.swift */,
 			);
 			path = "Editing View";
 			sourceTree = "<group>";
@@ -834,6 +839,26 @@
 				04D46BD6241251C300DBFB9A /* IconSection.swift */,
 			);
 			path = "Icon Section";
+			sourceTree = "<group>";
+		};
+		04D46BD82414DEF100DBFB9A /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				04D46BD92414E01500DBFB9A /* TutorialEditingViewController.swift */,
+				04D46BDC2414E0FA00DBFB9A /* TutorialCoordinator.swift */,
+				04D46BDE2414EC8100DBFB9A /* TutorialIntroViewController.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		04D46BDB2414E09800DBFB9A /* Constraint Generators */ = {
+			isa = PBXGroup;
+			children = (
+				049A044B240B9AD300F5FC17 /* EditingViewCompactConstraintGenerator.swift */,
+				049A0449240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift */,
+				049A044D240B9AF900F5FC17 /* EditingViewRegularConstraintGenerator.swift */,
+			);
+			path = "Constraint Generators";
 			sourceTree = "<group>";
 		};
 		04DF241523F88AF400657160 /* Playback */ = {
@@ -1109,6 +1134,7 @@
 				04791E3F23EC1F3400403BD8 /* ContactWebViewController.swift in Sources */,
 				04791E4723EC1F3400403BD8 /* AcknowledgementsViewController.swift in Sources */,
 				04791E2B23EC1F3400403BD8 /* ReleaseNotesItem.swift in Sources */,
+				04D46BDA2414E01500DBFB9A /* TutorialEditingViewController.swift in Sources */,
 				0451660123B2441000D7B535 /* FilmStripNewPageCell.swift in Sources */,
 				04791E5223EC1F3400403BD8 /* SettingsTableViewDataSource.swift in Sources */,
 				0417F09E22E46F410063AD66 /* UIImageExtensions.swift in Sources */,
@@ -1134,6 +1160,7 @@
 				04791E4F23EC1F3400403BD8 /* SettingsTableViewCellLabel.swift in Sources */,
 				0485989B23F284AD00AFBB3A /* InstagramItem.swift in Sources */,
 				04C0A68622DC5EBD00E4E5D6 /* DrawingView.swift in Sources */,
+				04D46BDD2414E0FA00DBFB9A /* TutorialCoordinator.swift in Sources */,
 				049A044A240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift in Sources */,
 				04BD9251237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift in Sources */,
 				04EC178F23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift in Sources */,
@@ -1165,6 +1192,7 @@
 				04DF241423F888F800657160 /* FilmStripExistingPageCell.swift in Sources */,
 				04791E3323EC1F3400403BD8 /* SettingsContentProvider.swift in Sources */,
 				04791E4D23EC1F3400403BD8 /* SettingsStandardTableViewCell.swift in Sources */,
+				04D46BDF2414EC8100DBFB9A /* TutorialIntroViewController.swift in Sources */,
 				049A0455240BCA5000F5FC17 /* DismissalDirector.swift in Sources */,
 				044484D423A884D300CD0C3C /* EditingUserActivity.swift in Sources */,
 				04791E3123EC1F3400403BD8 /* SettingsSection.swift in Sources */,
