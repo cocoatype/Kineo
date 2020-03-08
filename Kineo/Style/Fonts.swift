@@ -8,6 +8,8 @@ public extension UIFont {
         let fontMetrics = UIFontMetrics(forTextStyle: textStyle)
         let fontMethod: ((UIFont.TextStyle) -> UIFont)
         switch textStyle {
+        case .largeTitle:
+            fontMethod = blackFont(for:)
         case .headline, .title2:
             fontMethod = boldFont(for:)
         default:
@@ -28,24 +30,21 @@ public extension UIFont {
 
     // MARK: Boilerplate
 
-    private static let boldFontName = "AvenirNext-Bold"
-    private static let regularFontName = "AvenirNext-Regular"
+    private static func blackFont(for textStyle: UIFont.TextStyle) -> UIFont {
+        return UIFont(descriptor: fontDescriptor(for: textStyle, weight: .black), size: standardFontSize(for: textStyle))
+    }
 
     private static func boldFont(for textStyle: UIFont.TextStyle) -> UIFont {
-        return standardFont(named: UIFont.boldFontName, for: textStyle)
+        return UIFont(descriptor: fontDescriptor(for: textStyle, weight: .bold), size: standardFontSize(for: textStyle))
     }
 
     private static func regularFont(for textStyle: UIFont.TextStyle) -> UIFont {
-        return standardFont(named: UIFont.regularFontName, for: textStyle)
+        return UIFont(descriptor: fontDescriptor(for: textStyle, weight: .regular), size: standardFontSize(for: textStyle))
     }
 
-    private static func standardFont(named name: String, for textStyle: UIFont.TextStyle) -> UIFont {
-        let size = standardFontSize(for: textStyle)
-        guard let appFont = UIFont(name: name, size: size) else {
-            fatalError("Couldn't get regular font")
-        }
-
-        return appFont
+    private static func fontDescriptor(for textStyle: UIFont.TextStyle, weight: UIFont.Weight) -> UIFontDescriptor {
+        let fallbackFontDescriptor = UIFont.systemFont(ofSize: standardFontSize(for: textStyle), weight: weight).fontDescriptor
+        return fallbackFontDescriptor.withDesign(.rounded) ?? fallbackFontDescriptor
     }
 
     private static func standardFontSize(for textStyle: UIFont.TextStyle) -> CGFloat {
