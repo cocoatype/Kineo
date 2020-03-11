@@ -45,6 +45,12 @@
 		045165FF23B23A2B00D7B535 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045165FE23B23A2B00D7B535 /* Constants.swift */; };
 		0451660123B2441000D7B535 /* FilmStripNewPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451660023B2441000D7B535 /* FilmStripNewPageCell.swift */; };
 		0451660323B2467A00D7B535 /* FilmStripNewPageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451660223B2467A00D7B535 /* FilmStripNewPageImageView.swift */; };
+		04516F712418E09F0096F852 /* TutorialIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F702418E09F0096F852 /* TutorialIntroView.swift */; };
+		04516F732418E0C20096F852 /* TutorialIntroHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F722418E0C20096F852 /* TutorialIntroHeaderLabel.swift */; };
+		04516F752418E0DB0096F852 /* TutorialIntroBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F742418E0DB0096F852 /* TutorialIntroBodyLabel.swift */; };
+		04516F772418E0FC0096F852 /* TutorialIntroDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F762418E0FC0096F852 /* TutorialIntroDismissButton.swift */; };
+		04516F792418E11B0096F852 /* TutorialIntroStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F782418E11B0096F852 /* TutorialIntroStartButton.swift */; };
+		04516F7B2418E1320096F852 /* TutorialIntroButtonsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F7A2418E1320096F852 /* TutorialIntroButtonsStackView.swift */; };
 		04791E2523EC1F3400403BD8 /* StandardContentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791DE523EC1F3400403BD8 /* StandardContentItem.swift */; };
 		04791E2623EC1F3400403BD8 /* SettingsContentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791DE623EC1F3400403BD8 /* SettingsContentItem.swift */; };
 		04791E2723EC1F3400403BD8 /* OtherAppItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791DE823EC1F3400403BD8 /* OtherAppItem.swift */; };
@@ -259,6 +265,12 @@
 		045165FE23B23A2B00D7B535 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0451660023B2441000D7B535 /* FilmStripNewPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripNewPageCell.swift; sourceTree = "<group>"; };
 		0451660223B2467A00D7B535 /* FilmStripNewPageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripNewPageImageView.swift; sourceTree = "<group>"; };
+		04516F702418E09F0096F852 /* TutorialIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroView.swift; sourceTree = "<group>"; };
+		04516F722418E0C20096F852 /* TutorialIntroHeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroHeaderLabel.swift; sourceTree = "<group>"; };
+		04516F742418E0DB0096F852 /* TutorialIntroBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroBodyLabel.swift; sourceTree = "<group>"; };
+		04516F762418E0FC0096F852 /* TutorialIntroDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroDismissButton.swift; sourceTree = "<group>"; };
+		04516F782418E11B0096F852 /* TutorialIntroStartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroStartButton.swift; sourceTree = "<group>"; };
+		04516F7A2418E1320096F852 /* TutorialIntroButtonsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroButtonsStackView.swift; sourceTree = "<group>"; };
 		04791DE523EC1F3400403BD8 /* StandardContentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardContentItem.swift; sourceTree = "<group>"; };
 		04791DE623EC1F3400403BD8 /* SettingsContentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsContentItem.swift; sourceTree = "<group>"; };
 		04791DE823EC1F3400403BD8 /* OtherAppItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherAppItem.swift; sourceTree = "<group>"; };
@@ -507,6 +519,20 @@
 				04318A3022E18C72003D70C8 /* Icons.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		04516F7C2418E17A0096F852 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				04D46BDE2414EC8100DBFB9A /* TutorialIntroViewController.swift */,
+				04516F702418E09F0096F852 /* TutorialIntroView.swift */,
+				04516F722418E0C20096F852 /* TutorialIntroHeaderLabel.swift */,
+				04516F742418E0DB0096F852 /* TutorialIntroBodyLabel.swift */,
+				04516F762418E0FC0096F852 /* TutorialIntroDismissButton.swift */,
+				04516F782418E11B0096F852 /* TutorialIntroStartButton.swift */,
+				04516F7A2418E1320096F852 /* TutorialIntroButtonsStackView.swift */,
+			);
+			path = Intro;
 			sourceTree = "<group>";
 		};
 		04791DE323EC1F3400403BD8 /* Settings */ = {
@@ -846,7 +872,7 @@
 			children = (
 				04D46BD92414E01500DBFB9A /* TutorialEditingViewController.swift */,
 				04D46BDC2414E0FA00DBFB9A /* TutorialCoordinator.swift */,
-				04D46BDE2414EC8100DBFB9A /* TutorialIntroViewController.swift */,
+				04516F7C2418E17A0096F852 /* Intro */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -1167,12 +1193,14 @@
 				049A044E240B9AF900F5FC17 /* EditingViewRegularConstraintGenerator.swift in Sources */,
 				04791E4623EC1F3400403BD8 /* WebViewController.swift in Sources */,
 				04B86C0A23BA111C005F65F7 /* SkinsImageView.swift in Sources */,
+				04516F732418E0C20096F852 /* TutorialIntroHeaderLabel.swift in Sources */,
 				049A045A240D09E400F5FC17 /* PlayButtonContextMenu.swift in Sources */,
 				04791E6523EEA71D00403BD8 /* ExportSettingsView.swift in Sources */,
 				0485989523F281CB00AFBB3A /* SocialSection.swift in Sources */,
 				0445AA612373C7B700EB2A7B /* GalleryViewLayout.swift in Sources */,
 				049A044C240B9AD300F5FC17 /* EditingViewCompactConstraintGenerator.swift in Sources */,
 				04EC179123D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift in Sources */,
+				04516F712418E09F0096F852 /* TutorialIntroView.swift in Sources */,
 				04791E2E23EC1F3400403BD8 /* AboutSection.swift in Sources */,
 				0485989723F282B500AFBB3A /* TwitterItem.swift in Sources */,
 				04791E2523EC1F3400403BD8 /* StandardContentItem.swift in Sources */,
@@ -1207,10 +1235,12 @@
 				04791E6923EEAB2000403BD8 /* ExportSettingsDataSource.swift in Sources */,
 				04791E6F23EEBC9200403BD8 /* ExportSettingsDurationContentSection.swift in Sources */,
 				04791E3523EC1F3400403BD8 /* SettingsNavigationController.swift in Sources */,
+				04516F7B2418E1320096F852 /* TutorialIntroButtonsStackView.swift in Sources */,
 				04DF241723F88B1F00657160 /* DocumentTransformer.swift in Sources */,
 				04D36AD82378205F0052A933 /* Color.swift in Sources */,
 				0445AA632373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift in Sources */,
 				04B52D05237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift in Sources */,
+				04516F772418E0FC0096F852 /* TutorialIntroDismissButton.swift in Sources */,
 				04ACCD2C23B2345A006FBABC /* UITraitCollectionExtensions.swift in Sources */,
 				04ACCD2023B21985006FBABC /* FilmStripCollectionView.swift in Sources */,
 				0445AA5F2373C7A000EB2A7B /* GalleryViewDataSource.swift in Sources */,
@@ -1218,6 +1248,7 @@
 				04B86C0823B64006005F65F7 /* UIViewExtensions.swift in Sources */,
 				049A0448240B8CDC00F5FC17 /* PresentationDirector.swift in Sources */,
 				04C0A66A22DC224B00E4E5D6 /* EditingViewController.swift in Sources */,
+				04516F752418E0DB0096F852 /* TutorialIntroBodyLabel.swift in Sources */,
 				04318A3122E18C72003D70C8 /* Icons.swift in Sources */,
 				044DAFFF23B3170C00BD2A0C /* FilmStripIndicator.swift in Sources */,
 				04791E2623EC1F3400403BD8 /* SettingsContentItem.swift in Sources */,
@@ -1230,6 +1261,7 @@
 				04791E2A23EC1F3400403BD8 /* ContactItem.swift in Sources */,
 				04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */,
 				04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */,
+				04516F792418E11B0096F852 /* TutorialIntroStartButton.swift in Sources */,
 				04791E5923EC1F3400403BD8 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
