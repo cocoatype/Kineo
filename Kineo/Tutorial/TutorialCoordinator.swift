@@ -1,7 +1,7 @@
 //  Created by Geoff Pado on 3/8/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
-import Foundation
+import UIKit
 
 enum TutorialStep {
     case intro
@@ -12,7 +12,12 @@ enum TutorialStep {
 }
 
 class TutorialCoordinator: NSObject {
-    static var shouldStartTutorial: Bool {
+    static func showTutorialIfNeeded(in viewController: UIViewController) {
+        guard shouldStartTutorial else { return }
+        viewController.present(TutorialIntroViewController(), animated: true, completion: nil)
+    }
+
+    private static var shouldStartTutorial: Bool {
         return forceShowTutorial
     }
 

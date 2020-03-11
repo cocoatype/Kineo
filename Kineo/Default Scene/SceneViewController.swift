@@ -14,6 +14,13 @@ class SceneViewController: UIViewController {
         view = SceneView()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TutorialCoordinator.showTutorialIfNeeded(in: self)
+    }
+
+    // MARK: Actions
+
     @objc func showGallery() {
         let galleryViewController = GalleryViewController()
         guard children.count == 1, let editingViewController = (children.first as? EditingViewController) else { return transition(to: galleryViewController) }
