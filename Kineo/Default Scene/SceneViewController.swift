@@ -7,19 +7,21 @@ import UIKit
 class SceneViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
-        embed(GalleryViewController())
+        embed(initialViewController)
     }
 
     override func loadView() {
         view = SceneView()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    // MARK: Initial View
 
+    private var initialViewController: UIViewController {
         if TutorialCoordinator.shouldStartTutorial {
-            present(TutorialIntroViewController(), animated: true, completion: nil)
+            return TutorialEditingViewController(document: documentStore.newDocument())
         }
+
+        return GalleryViewController()
     }
 
     // MARK: Actions
@@ -46,11 +48,6 @@ class SceneViewController: UIViewController {
 
     @objc func dismissSettingsViewController(_ sender: SettingsViewController) {
         guard presentedViewController is SettingsNavigationController else { return }
-        dismiss(animated: true, completion: nil)
-    }
-
-    @objc func dismissTutorial(_ sender: Any) {
-        guard presentedViewController is TutorialIntroViewController else { return }
         dismiss(animated: true, completion: nil)
     }
 

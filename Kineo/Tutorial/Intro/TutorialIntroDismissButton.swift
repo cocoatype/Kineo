@@ -13,7 +13,7 @@ class TutorialIntroDismissButton: UIButton {
         setTitle(Self.title, for: .normal)
         layer.cornerRadius = 8
 
-        addTarget(nil, action: #selector(SceneViewController.dismissTutorial(_:)), for: .primaryActionTriggered)
+        addTarget(nil, action: #selector(TutorialEditingViewController.dismissIntro(_:)), for: .primaryActionTriggered)
     }
 
     // MARK: Boilerplate
