@@ -122,6 +122,8 @@ class TutorialIntroDismissButton: UIButton {
         setTitleColor(.tutorialIntroDismissButtonTitle, for: .normal)
         setTitle(Self.title, for: .normal)
         layer.cornerRadius = 8
+
+        addTarget(nil, action: #selector(SceneViewController.dismissTutorial(_:)), for: .primaryActionTriggered)
     }
 
     // MARK: Boilerplate

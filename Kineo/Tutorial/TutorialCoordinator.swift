@@ -12,12 +12,7 @@ enum TutorialStep {
 }
 
 class TutorialCoordinator: NSObject {
-    static func showTutorialIfNeeded(in viewController: UIViewController) {
-        guard shouldStartTutorial else { return }
-        viewController.present(TutorialIntroViewController(), animated: true, completion: nil)
-    }
-
-    private static var shouldStartTutorial: Bool {
+    static var shouldStartTutorial: Bool {
         return forceShowTutorial
     }
 

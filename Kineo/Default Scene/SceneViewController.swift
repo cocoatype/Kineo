@@ -16,7 +16,10 @@ class SceneViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        TutorialCoordinator.showTutorialIfNeeded(in: self)
+
+        if TutorialCoordinator.shouldStartTutorial {
+            present(TutorialIntroViewController(), animated: true, completion: nil)
+        }
     }
 
     // MARK: Actions
@@ -43,6 +46,11 @@ class SceneViewController: UIViewController {
 
     @objc func dismissSettingsViewController(_ sender: SettingsViewController) {
         guard presentedViewController is SettingsNavigationController else { return }
+        dismiss(animated: true, completion: nil)
+    }
+
+    @objc func dismissTutorial(_ sender: Any) {
+        guard presentedViewController is TutorialIntroViewController else { return }
         dismiss(animated: true, completion: nil)
     }
 
