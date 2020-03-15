@@ -170,6 +170,7 @@
 		04EC179123D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC179023D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift */; };
 		04EC179323D991A700A42E08 /* FilmStripCollectionLayoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC179223D991A700A42E08 /* FilmStripCollectionLayoutItem.swift */; };
 		04EC179523D991C500A42E08 /* FilmStripCollectionLayoutSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC179423D991C500A42E08 /* FilmStripCollectionLayoutSize.swift */; };
+		04F44C66241E0CEB001C6531 /* TutorialEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F44C65241E0CEB001C6531 /* TutorialEditingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -398,6 +399,7 @@
 		04EC179023D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutGroup.swift; sourceTree = "<group>"; };
 		04EC179223D991A700A42E08 /* FilmStripCollectionLayoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutItem.swift; sourceTree = "<group>"; };
 		04EC179423D991C500A42E08 /* FilmStripCollectionLayoutSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutSize.swift; sourceTree = "<group>"; };
+		04F44C65241E0CEB001C6531 /* TutorialEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -871,6 +873,7 @@
 			isa = PBXGroup;
 			children = (
 				04D46BD92414E01500DBFB9A /* TutorialEditingViewController.swift */,
+				04F44C65241E0CEB001C6531 /* TutorialEditingView.swift */,
 				04D46BDC2414E0FA00DBFB9A /* TutorialCoordinator.swift */,
 				04516F7C2418E17A0096F852 /* Intro */,
 			);
@@ -1018,7 +1021,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Cocoatype, LLC";
 				TargetAttributes = {
 					044484DA23AB287800CD0C3C = {
@@ -1226,6 +1229,7 @@
 				04791E3123EC1F3400403BD8 /* SettingsSection.swift in Sources */,
 				04D36ADA237826D40052A933 /* Fonts.swift in Sources */,
 				04791E7123EEC0B200403BD8 /* ExportSettingsNavigationController.swift in Sources */,
+				04F44C66241E0CEB001C6531 /* TutorialEditingView.swift in Sources */,
 				04BD92612380081900C8FD09 /* SidebarActionButton.swift in Sources */,
 				04BD925A237FFCA400C8FD09 /* ContainerView.swift in Sources */,
 				04DF241323F888EC00657160 /* SidebarActionButtonImageView.swift in Sources */,
@@ -1389,7 +1393,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

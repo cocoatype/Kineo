@@ -23,3 +23,11 @@ class TutorialCoordinator: NSObject {
         ProcessInfo.processInfo.environment[forceShowTutorialEnvironmentVariable] != nil
     }
 }
+
+extension Array {
+    public mutating func partitions(by belongsInSecondPartition: (Element) throws -> Bool) rethrows -> ([Element], [Element]) {
+        var copy = self
+        let index: Int = try copy.partition(by: belongsInSecondPartition)
+        return ([Element](copy[0..<index]), [Element](copy[index..<copy.endIndex]))
+    }
+}
