@@ -4,19 +4,37 @@
 import Data
 import Messages
 
-class StickerDataSource: NSObject, MSStickerBrowserViewDataSource {
-    func numberOfStickers(in stickerBrowserView: MSStickerBrowserView) -> Int {
+class StickerDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
+    // MARK: UIViewControllerDataSource
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return documentStore.documentsCount
     }
 
-    func stickerBrowserView(_ stickerBrowserView: MSStickerBrowserView, stickerAt index: Int) -> MSSticker {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StickerCell.identifier, for: indexPath)
+        let index = indexPath.item
+        guard let stickerCell = cell as? StickerCell else { return cell }
+
         do {
             let document = try documentStore.document(at: index)
             let stickerURL = try StickerGenerator.sticker(from: document)
-            return try MSSticker(contentsOfFileURL: stickerURL, localizedDescription: "")
+            stickerCell.sticker = try MSSticker(contentsOfFileURL: stickerURL, localizedDescription: "")
         } catch {
             fatalError("Failed to generate sticker at index \(index)")
         }
+
+        return stickerCell
+    }
+
+    // MARK: UIViewControllerDelegate
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let stickerCell = cell as? StickerCell else { return }
+        stickerCell.startAnimating()
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let stickerCell = cell as? StickerCell else { return }
+        stickerCell.stopAnimating()
     }
 
     // MARK: Boilerplate

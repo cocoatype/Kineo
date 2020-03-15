@@ -4,12 +4,17 @@
 import Messages
 import UIKit
 
-class StickersViewController: MSStickerBrowserViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        stickerBrowserView.dataSource = dataSource
+class StickersViewController: MSMessagesAppViewController {
+    override func loadView() {
+        view = collectionView
     }
 
     // MARK: Boilerplate
+    private lazy var collectionView: StickersCollectionView = {
+        let collectionView = StickersCollectionView()
+        collectionView.dataSource = dataSource
+        collectionView.delegate = dataSource
+        return collectionView
+    }()
     private let dataSource = StickerDataSource()
 }
