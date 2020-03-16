@@ -12,6 +12,8 @@ class TutorialIntroStartButton: UIButton {
         setTitleColor(.tutorialIntroStartButtonTitle, for: .normal)
         setTitle(Self.title, for: .normal)
         layer.cornerRadius = 8
+
+        addTarget(nil, action: #selector(TutorialEditingViewController.dismissIntro(_:)), for: .primaryActionTriggered)
     }
 
     // MARK: Boilerplate

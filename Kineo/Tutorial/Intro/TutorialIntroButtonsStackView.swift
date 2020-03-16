@@ -12,7 +12,6 @@ class TutorialIntroButtonsStackView: UIStackView {
         translatesAutoresizingMaskIntoConstraints = false
         setContentCompressionResistancePriority(.required, for: .horizontal)
 
-        addArrangedSubview(dismissButton)
         addArrangedSubview(startButton)
     }
 
