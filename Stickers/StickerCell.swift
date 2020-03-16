@@ -37,6 +37,8 @@ class StickerCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 8).cgPath
+        contentView.layer.rasterizationScale = window?.windowScene?.screen.scale ?? UIScreen.main.scale
+        contentView.layer.shouldRasterize = true
     }
 
     // MARK: Animation
