@@ -8,6 +8,7 @@ class GalleryCollectionView: UICollectionView {
         let layout = GalleryViewLayout()
         super.init(frame: .zero, collectionViewLayout: layout)
 
+        contentInsetAdjustmentBehavior = .always
         translatesAutoresizingMaskIntoConstraints = false
 
         register(GalleryDocumentCollectionViewCell.self, forCellWithReuseIdentifier: GalleryDocumentCollectionViewCell.identifier)
