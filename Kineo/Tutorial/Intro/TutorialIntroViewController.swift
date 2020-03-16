@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 3/8/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import Data
 import UIKit
 
 class TutorialIntroViewController: UIViewController {
@@ -12,6 +13,11 @@ class TutorialIntroViewController: UIViewController {
 
     override func loadView() {
         view = tutorialIntroView
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Defaults.seenTutorial = true
     }
 
     // MARK: Boilerplate

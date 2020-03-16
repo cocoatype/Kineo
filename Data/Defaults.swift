@@ -8,7 +8,8 @@ public enum Defaults {
     public static func initialize() {
         userDefaults.register(defaults: [
             Self.exportPlaybackStyleKey: Self.exportPlaybackStyleLoop,
-            Self.exportDurationKey: Self.exportDurationThreeSeconds
+            Self.exportDurationKey: Self.exportDurationThreeSeconds,
+            Self.seenTutorialKey: false
         ])
     }
 
@@ -89,6 +90,15 @@ public enum Defaults {
         }
     }
 
+    // MARK: Tutorial
+
+    public static var seenTutorial: Bool {
+        get { return userDefaults.bool(forKey: Self.seenTutorialKey) }
+        set(newSeenTutorial) {
+            userDefaults.set(newSeenTutorial, forKey: Self.seenTutorialKey)
+        }
+    }
+
     // MARK: Keys and Values
 
     private static let exportPlaybackStyleKey = "Defaults.exportPlaybackStyle"
@@ -101,4 +111,5 @@ public enum Defaults {
     private static let exportDurationTenSeconds = "Defaults.exportDurationTenSeconds"
     private static let serverChangeTokenDataKey = "Defaults.serverChangeTokenDataKey"
     private static let updatedDocumentIdentifiersKey = "Defaults.updatedDocumentIdentifiersKey"
+    private static let seenTutorialKey = "Defaults.seenTutorialKey"
 }
