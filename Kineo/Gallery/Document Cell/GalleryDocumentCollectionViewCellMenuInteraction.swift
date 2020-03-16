@@ -32,7 +32,11 @@ enum GalleryDocumentCollectionViewCellContextMenuConfigurationFactory {
                 delegate.openAnimationInNewWindow(at: indexPath)
             }
 
-            return UIMenu(title: "", children: [shareElement, windowElement, deleteSection])
+            let menuItems = (UIApplication.shared.supportsMultipleScenes ?
+                [shareElement, windowElement, deleteSection] :
+                [shareElement, deleteSection])
+
+            return UIMenu(title: "", children: menuItems)
         }
     }
 
