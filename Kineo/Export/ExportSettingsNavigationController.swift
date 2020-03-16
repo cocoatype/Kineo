@@ -38,7 +38,10 @@ class NavigationBarAppearance: UINavigationBarAppearance {
         configureWithOpaqueBackground()
         backgroundColor = .appBackground
         shadowColor = .clear
+        titleTextAttributes[.font] = UIFont.navigationBarTitleFont
         doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.controlTint
+        doneButtonAppearance.normal.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
+        doneButtonAppearance.highlighted.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
     }
 
     @available(*, unavailable)

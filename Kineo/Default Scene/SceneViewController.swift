@@ -7,12 +7,24 @@ import UIKit
 class SceneViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
-        embed(GalleryViewController())
+        embed(initialViewController)
     }
 
     override func loadView() {
         view = SceneView()
     }
+
+    // MARK: Initial View
+
+    private var initialViewController: UIViewController {
+        if TutorialCoordinator.shouldStartTutorial {
+            return TutorialEditingViewController(document: documentStore.newDocument())
+        }
+
+        return GalleryViewController()
+    }
+
+    // MARK: Actions
 
     @objc func showGallery() {
         let galleryViewController = GalleryViewController()

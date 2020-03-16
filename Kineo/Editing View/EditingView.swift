@@ -6,7 +6,7 @@ import PencilKit
 import UIKit
 
 class EditingView: UIView, PlaybackViewDelegate {
-    init(dataSource: EditingViewDataSource) {
+    required init(dataSource: EditingViewDataSource) {
         self.dataSource = dataSource
         super.init(frame: .zero)
 

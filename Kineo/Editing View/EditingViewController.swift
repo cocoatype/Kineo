@@ -20,7 +20,7 @@ class EditingViewController: UIViewController {
 
     override func loadView() {
         let dataSource = EditingViewDataSource(documentEditor: documentEditor)
-        view = EditingView(dataSource: dataSource)
+        view = Self.viewClass.init(dataSource: dataSource)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -87,6 +87,8 @@ class EditingViewController: UIViewController {
 
     private let documentEditor: DocumentEditor
     private var documentUpdateObserver: Any?
+
+    class var viewClass: EditingView.Type { return EditingView.self }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

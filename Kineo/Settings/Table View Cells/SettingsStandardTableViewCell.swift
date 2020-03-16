@@ -15,6 +15,9 @@ class SettingsStandardTableViewCell: UITableViewCell, SettingsContentTableViewCe
         accessoryType = .disclosureIndicator
         tintColor = .settingsRowTint
 
+        textLabel?.font = .appFont(forTextStyle: .body)
+        detailTextLabel?.font = .appFont(forTextStyle: .caption1)
+
         let selectedBackgroundView = UIView()
         selectedBackgroundView.backgroundColor = .sidebarButtonHighlight
         self.selectedBackgroundView = selectedBackgroundView

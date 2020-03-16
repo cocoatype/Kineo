@@ -44,4 +44,9 @@
 
 "SettingsViewController.navigationTitle" = "Kineo Help";
 
+"TutorialIntroDismissButton.title" = "Skip Tour";
+"TutorialIntroStartButton.title" = "Get Started";
+"TutorialIntroView.bodyText" = "Thanks for downloading Kineo! I hope you have a great time creating and sharing your own animations.\n\nIf you have any questions or comments, you can contact me from the help menu at any time.\n\n—Geoff, Kineo Developer";
+"TutorialIntroView.headerText" = "Welcome to\nKineo";
+
 "UseLegacyIconItem.title" = "Use Legacy App Icon";

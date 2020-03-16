@@ -23,5 +23,10 @@ extension UIColor {
     static let sidebarButtonHighlight = UIColor.named("Sidebar Button Highlight")
     static let sidebarButtonTint = UIColor.named("Sidebar Button Tint")
 
+    static let tutorialIntroAccent = UIColor.named("Tutorial Intro Accent")
+    static let tutorialIntroDismissButtonTitle = UIColor.named("Tutorial Intro Dismiss Button Title")
+    static let tutorialIntroStartButtonTitle = UIColor.named("Tutorial Intro Start Button Title")
+    static let tutorialIntroText = UIColor.named("Tutorial Intro Text")
+
     static let controlTint = UIColor.named("Web Control Tint")
 }
