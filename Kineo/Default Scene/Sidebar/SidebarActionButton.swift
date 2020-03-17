@@ -44,6 +44,12 @@ class SidebarActionButton: UIControl {
         }
     }
 
+    override var isEnabled: Bool {
+        didSet {
+            alpha = isEnabled ? 1.0 : 0.4
+        }
+    }
+
     private var buttonBackgroundColor: UIColor {
         if isHighlighted { return .sidebarButtonHighlight }
         return .sidebarButtonBackground

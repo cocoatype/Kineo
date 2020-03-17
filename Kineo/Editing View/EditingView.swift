@@ -59,6 +59,8 @@ class EditingView: UIView, PlaybackViewDelegate {
 
     private let dataSource: EditingViewDataSource
     func reloadData() {
+        undoButton.isEnabled = undoManager?.canUndo ?? false
+        redoButton.isEnabled = undoManager?.canRedo ?? false
         dataSource.generateSkinsImage { [weak self] skinsImage in
             guard let editingView = self else { return }
             DispatchQueue.main.async {
