@@ -14,6 +14,7 @@ class ExportSettingsViewController: UIViewController, UITableViewDelegate {
         let settingsView = ExportSettingsView()
         settingsView.dataSource = dataSource
         settingsView.delegate = self
+        settingsView.register(SettingsHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: SettingsHeaderFooterView.identifier)
         view = settingsView
     }
 
@@ -28,6 +29,14 @@ class ExportSettingsViewController: UIViewController, UITableViewDelegate {
         let reloadIndexPaths = contentProvider.checkedIndexPaths(inSection: indexPath.section) + indexPath
         contentProvider.item(at: indexPath).updateExportSettings()
         tableView.reloadRows(at: reloadIndexPaths, with: .automatic)
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingsHeaderFooterView.identifier)
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingsHeaderFooterView.identifier)
     }
 
     // MARK: Boilerplate
