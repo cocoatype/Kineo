@@ -27,6 +27,7 @@ class SettingsViewController: UIViewController {
         let tableView = SettingsTableView()
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
+        tableView.register(SettingsHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: SettingsHeaderFooterView.identifier)
         view = tableView
     }
 

@@ -29,14 +29,22 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource, UITableViewD
         return cell
     }
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return contentProvider.section(at: section).header
+    }
+
     // MARK: Table View Delegate
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         contentProvider.item(at: indexPath).performSelectedAction(tableView)
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return contentProvider.section(at: section).header
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingsHeaderFooterView.identifier)
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingsHeaderFooterView.identifier)
     }
 
     // MARK: Boilerplate

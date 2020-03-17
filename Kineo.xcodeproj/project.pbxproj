@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0417F09E22E46F410063AD66 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F09D22E46F410063AD66 /* UIImageExtensions.swift */; };
 		0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */; };
+		042B65E324208FA9009AFBD9 /* SettingsHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B65E224208FA9009AFBD9 /* SettingsHeaderFooterView.swift */; };
 		04318A3122E18C72003D70C8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3022E18C72003D70C8 /* Icons.swift */; };
 		04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3422E2EC3C003D70C8 /* PlaybackView.swift */; };
 		04318A3722E2FCC3003D70C8 /* VideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */; };
@@ -237,6 +238,7 @@
 /* Begin PBXFileReference section */
 		0417F09D22E46F410063AD66 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		042B65E224208FA9009AFBD9 /* SettingsHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderFooterView.swift; sourceTree = "<group>"; };
 		04318A3022E18C72003D70C8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		04318A3222E19AB5003D70C8 /* SkinGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinGenerator.swift; sourceTree = "<group>"; };
 		04318A3422E2EC3C003D70C8 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
@@ -557,6 +559,7 @@
 				04791E1B23EC1F3400403BD8 /* SettingsTableView.swift */,
 				04791E1C23EC1F3400403BD8 /* SettingsTableViewDataSource.swift */,
 				04791E2423EC1F3400403BD8 /* SettingsViewController.swift */,
+				042B65E224208FA9009AFBD9 /* SettingsHeaderFooterView.swift */,
 				04791DE423EC1F3400403BD8 /* Content Provider */,
 				04791E1D23EC1F3400403BD8 /* Other Apps */,
 				04791DFD23EC1F3400403BD8 /* Presented View Controllers */,
@@ -1245,6 +1248,7 @@
 				04C0A67722DC406B00E4E5D6 /* DataExtensions.swift in Sources */,
 				04C0A64622DC208E00E4E5D6 /* AppDelegate.swift in Sources */,
 				04318A3722E2FCC3003D70C8 /* VideoGenerator.swift in Sources */,
+				042B65E324208FA9009AFBD9 /* SettingsHeaderFooterView.swift in Sources */,
 				04DF241123F888DA00657160 /* ExportViewController.swift in Sources */,
 				04EC178D23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift in Sources */,
 				04C0A67022DC2A2500E4E5D6 /* EditingView.swift in Sources */,
