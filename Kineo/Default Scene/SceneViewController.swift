@@ -5,23 +5,23 @@ import Data
 import UIKit
 
 class SceneViewController: UIViewController {
-    init() {
+    init(document: Document?) {
         super.init(nibName: nil, bundle: nil)
+        let initialViewController: UIViewController = {
+            if let document = document {
+                return EditingViewController(document: document)
+            } else if TutorialCoordinator.shouldStartTutorial {
+                return TutorialEditingViewController(document: documentStore.newDocument())
+            }
+
+            return GalleryViewController()
+        }()
+
         embed(initialViewController)
     }
 
     override func loadView() {
         view = SceneView()
-    }
-
-    // MARK: Initial View
-
-    private var initialViewController: UIViewController {
-        if TutorialCoordinator.shouldStartTutorial {
-            return TutorialEditingViewController(document: documentStore.newDocument())
-        }
-
-        return GalleryViewController()
     }
 
     // MARK: Actions
