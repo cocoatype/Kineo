@@ -80,6 +80,14 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
         sendAction(#selector(EditingViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(pageIndex: pageIndex))
     }
 
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        sendAction(#selector(EditingViewController.hideSkinsImage(_:)), to: nil, for: nil)
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        sendAction(#selector(EditingViewController.showSkinsImage(_:)), to: nil, for: nil)
+    }
+
     // MARK: Boilerplate
 
     private let collectionView = FilmStripCollectionView()

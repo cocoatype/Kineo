@@ -57,6 +57,14 @@ class EditingViewController: UIViewController {
         editingView?.reloadData(includingFilmStrip: false)
     }
 
+    @objc func hideSkinsImage(_ sender: FilmStripView) {
+        editingView?.hideSkinsImage()
+    }
+
+    @objc func showSkinsImage(_ sender: FilmStripView) {
+        editingView?.showSkinsImage()
+    }
+
     @objc func exportVideo(_ sender: SidebarActionButton) {
         guard let activityController = ExportViewController(document: documentEditor.document, sourceView: sender) else { return }
         present(activityController, animated: true, completion: nil)

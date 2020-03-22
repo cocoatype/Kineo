@@ -11,14 +11,14 @@ public class SkinGenerator: NSObject {
         super.init()
     }
 
-    public func generateSkinsImage(from document: Document, currentPageIndex: Int, completionHandler: @escaping ((UIImage?) -> Void)) {
+    public func generateSkinsImage(from document: Document, currentPageIndex: Int, completionHandler: @escaping ((UIImage?, Int) -> Void)) {
         let minSkinPageIndex = max(currentPageIndex - SkinGenerator.skinPageCount, document.pages.startIndex)
         let skinPageRange = minSkinPageIndex..<currentPageIndex
         let skinPages = document.pages[skinPageRange]
         let skinDrawings = skinPages.map { $0.drawing }
         let traitCollection = self.traitCollection
 
-        guard skinPages.count > 0 else { return completionHandler(nil) }
+        guard skinPages.count > 0 else { return completionHandler(nil, currentPageIndex) }
 
         DrawingImageGenerator.shared.generateSkinLayers(for: skinDrawings) { images, _ in
             let opacityValues = Array(stride(from: SkinGenerator.maxOpacity, to: 0, by: SkinGenerator.opacityStep))
@@ -35,7 +35,7 @@ public class SkinGenerator: NSObject {
                     }
                 }
             }
-            completionHandler(resultImage)
+            completionHandler(resultImage, currentPageIndex)
         }
     }
 
