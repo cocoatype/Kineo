@@ -12,6 +12,8 @@ class SidebarActionButton: UIControl {
         auxiliaryImage = auxiliaryIcon
         tintColor = .sidebarButtonTint
         translatesAutoresizingMaskIntoConstraints = false
+        isAccessibilityElement = true
+        accessibilityTraits = [.button]
 
         layer.masksToBounds = false
         clipsToBounds = false
@@ -47,6 +49,7 @@ class SidebarActionButton: UIControl {
     override var isEnabled: Bool {
         didSet {
             alpha = isEnabled ? 1.0 : 0.4
+            accessibilityTraits = isEnabled ? [.button] : [.button, .notEnabled]
         }
     }
 

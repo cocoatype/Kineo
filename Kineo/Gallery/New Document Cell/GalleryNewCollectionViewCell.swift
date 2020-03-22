@@ -6,7 +6,10 @@ import UIKit
 class GalleryNewCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
+        accessibilityLabel = NSLocalizedString("GalleryNewCollectionViewCell.accessibilityLabel", comment: "Accessibility label for the new document cell")
+        accessibilityTraits = [.button]
         backgroundColor = .clear
+        isAccessibilityElement = true
 
         contentView.addSubview(imageView)
 

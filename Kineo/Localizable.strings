@@ -3,7 +3,11 @@
 
 "ContactMailViewController.emailSubject" = "Hello!";
 
+"DrawingView.accessibilityLabel" = "Canvas";
+
 "EditingViewController.exportPromoText" = "Made with Kineo: https://kineo.app";
+
+"ExportButton.accessibilityLabel" = "Share";
 
 "ExportSettingsActivity.activityTitle" = "Share Settings";
 
@@ -22,12 +26,25 @@
 
 "ExportSettingsViewController.navigationTitle" = "Share Settings";
 
+"GalleryButton.accessibilityLabel" = "Gallery";
+
+"GalleryDocumentCollectionViewCell.accessibilityLabel" = "Animation";
+"GalleryDocumentCollectionViewCell.accessibilityValueFormat" = "Last modified on %@";
+
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.deleteMenuItemTitle" = "Delete";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle" = "Share";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.windowMenuItemTitle" = "Open in New Window";
 
+"GalleryNewCollectionViewCell.accessibilityLabel" = "New Animation";
+
+"HelpButton.accessibilityLabel" = "Help";
+
+"PlayButton.accessibilityLabel" = "Play";
+
 "PlayButtonContextMenuConfigurationFactory.bounceMenuItemTitle" = "Bounce";
 "PlayButtonContextMenuConfigurationFactory.loopMenuItemTitle" = "Loop";
+
+"RedoButton.accessibilityLabel" = "Redo";
 
 "SettingsContentProvider.Item.contact" = "Contact the Developer";
 "SettingsContentProvider.Item.instagram" = "Instagram";
@@ -44,9 +61,13 @@
 
 "SettingsViewController.navigationTitle" = "Kineo Help";
 
+"ToolsButton.accessibilityLabel" = "Tool Picker";
+
 "TutorialIntroDismissButton.title" = "Skip Tour";
 "TutorialIntroStartButton.title" = "Get Started";
 "TutorialIntroView.bodyText" = "Thanks for downloading Kineo! I hope you have a great time creating and sharing your own animations.\n\nIf you have any questions or comments, you can contact me from the help menu at any time.\n\n—Geoff, Kineo Developer";
 "TutorialIntroView.headerText" = "Welcome to\nKineo";
+
+"UndoButton.accessibilityLabel" = "Undo";
 
 "UseLegacyIconItem.title" = "Use Legacy App Icon";
