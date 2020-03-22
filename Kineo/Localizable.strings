@@ -3,6 +3,8 @@
 
 "ContactMailViewController.emailSubject" = "Hello!";
 
+"DrawingView.accessibilityLabel" = "Canvas";
+
 "EditingViewController.exportPromoText" = "Made with Kineo: https://kineo.app";
 
 "ExportButton.accessibilityLabel" = "Share";

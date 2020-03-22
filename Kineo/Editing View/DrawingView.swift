@@ -10,6 +10,10 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
         self.page = page
         super.init(frame: .zero)
 
+        isAccessibilityElement = true
+        accessibilityLabel = NSLocalizedString("DrawingView.accessibilityLabel", comment: "Accessibility label for the drawing view")
+        accessibilityTraits = [.allowsDirectInteraction]
+
         overrideUserInterfaceStyle = .light
         translatesAutoresizingMaskIntoConstraints = false
 
