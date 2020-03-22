@@ -92,8 +92,12 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
         guard toolWasUsed == true else { return }
 
         updatePage()
-        sendAction(#selector(EditingViewController.drawingViewDidChangePage(_:)), to: nil, for: nil)
+        editingViewController?.drawingViewDidChangePage(self)
         toolWasUsed = false
+    }
+
+    func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView) {
+        toolWasUsed = true
     }
 
     // MARK: Boilerplate
@@ -113,5 +117,12 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
+    }
+}
+
+private extension UIResponder {
+    var editingViewController: EditingViewController? {
+        guard let editingViewController = (self as? EditingViewController) else { return next?.editingViewController }
+        return editingViewController
     }
 }
