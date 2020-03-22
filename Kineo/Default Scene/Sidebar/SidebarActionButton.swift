@@ -12,6 +12,8 @@ class SidebarActionButton: UIControl {
         auxiliaryImage = auxiliaryIcon
         tintColor = .sidebarButtonTint
         translatesAutoresizingMaskIntoConstraints = false
+        isAccessibilityElement = true
+        accessibilityTraits = [.button]
 
         layer.masksToBounds = false
         clipsToBounds = false
