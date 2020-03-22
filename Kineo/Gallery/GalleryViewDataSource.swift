@@ -17,6 +17,13 @@ class GalleryViewDataSource: NSObject, UICollectionViewDataSource {
         return IndexPath(item: index + 1, section: 0)
     }
 
+    func modifiedDate(at indexPath: IndexPath) -> Date {
+        guard indexPath != GalleryViewDataSource.newDocumentIndexPath else { return .distantPast }
+
+        let documentIndex = indexPath.item - 1
+        return documentStore.modifiedDate(at: documentIndex)
+    }
+
     func previewImage(at indexPath: IndexPath) -> UIImage? {
         guard indexPath != GalleryViewDataSource.newDocumentIndexPath else { return nil }
 
@@ -57,6 +64,7 @@ class GalleryViewDataSource: NSObject, UICollectionViewDataSource {
             return cell
         }
 
+        documentCell.modifiedDate = modifiedDate(at: indexPath)
         documentCell.previewImage = previewImage(at: indexPath)
 
         return documentCell

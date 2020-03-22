@@ -28,9 +28,14 @@
 
 "GalleryButton.accessibilityLabel" = "Gallery";
 
+"GalleryDocumentCollectionViewCell.accessibilityLabel" = "Animation";
+"GalleryDocumentCollectionViewCell.accessibilityValueFormat" = "Last modified on %@";
+
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.deleteMenuItemTitle" = "Delete";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle" = "Share";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.windowMenuItemTitle" = "Open in New Window";
+
+"GalleryNewCollectionViewCell.accessibilityLabel" = "New Animation";
 
 "HelpButton.accessibilityLabel" = "Help";
 

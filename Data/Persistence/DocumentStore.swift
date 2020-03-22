@@ -48,6 +48,12 @@ public struct DocumentStore {
         }
     }
 
+    // MARK: Accessibility
+
+    public func modifiedDate(at index: Int) -> Date {
+        return storedDocuments[index].modifiedDate
+    }
+
     // MARK: Preview Images
 
     public func previewImage(at index: Int) -> UIImage? {

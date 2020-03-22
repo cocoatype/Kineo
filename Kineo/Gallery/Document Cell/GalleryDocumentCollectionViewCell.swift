@@ -6,8 +6,11 @@ import UIKit
 class GalleryDocumentCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
+        accessibilityLabel = NSLocalizedString("GalleryDocumentCollectionViewCell.accessibilityLabel", comment: "Accessibility label for the document cell")
+        accessibilityTraits = [.button]
         backgroundColor = .clear
         clipsToBounds = false
+        isAccessibilityElement = true
         isOpaque = true
 
         contentView.layer.shadowColor = UIColor.appShadow.cgColor
@@ -26,6 +29,14 @@ class GalleryDocumentCollectionViewCell: UICollectionViewCell {
         ])
     }
 
+    var modifiedDate = Date.distantPast {
+        didSet {
+            let format = NSLocalizedString("GalleryDocumentCollectionViewCell.accessibilityValueFormat", comment: "Format string for the document cell accessibility value")
+            let dateString = Self.dateFormatter.string(from: modifiedDate)
+            accessibilityValue = String(format: format, dateString)
+        }
+    }
+
     var previewImage: UIImage? {
         get { return canvasView.previewImage }
         set(newImage) { canvasView.previewImage = newImage }
@@ -37,6 +48,15 @@ class GalleryDocumentCollectionViewCell: UICollectionViewCell {
         contentView.layer.rasterizationScale = window?.windowScene?.screen.scale ?? UIScreen.main.scale
         contentView.layer.shouldRasterize = true
     }
+
+    // MARK: Accessibility
+
+    private static let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        return dateFormatter
+    }()
 
     // MARK: Boilerplate
 
