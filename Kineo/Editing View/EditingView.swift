@@ -58,7 +58,7 @@ class EditingView: UIView, PlaybackViewDelegate {
     // MARK: Data
 
     private let dataSource: EditingViewDataSource
-    func reloadData() {
+    func reloadData(includingFilmStrip: Bool = true) {
         undoButton.isEnabled = undoManager?.canUndo ?? false
         redoButton.isEnabled = undoManager?.canRedo ?? false
         dataSource.generateSkinsImage { [weak self] skinsImage in
@@ -66,7 +66,9 @@ class EditingView: UIView, PlaybackViewDelegate {
             DispatchQueue.main.async {
                 editingView.drawingView.display(page: editingView.dataSource.currentPage, skinsImage: skinsImage)
                 editingView.playbackView?.document = editingView.dataSource.document
-                editingView.filmStripView.reloadData()
+                if includingFilmStrip {
+                    editingView.filmStripView.reloadData()
+                }
             }
         }
     }

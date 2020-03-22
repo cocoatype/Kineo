@@ -54,7 +54,7 @@ class EditingViewController: UIViewController {
     @objc func navigateToPage(_ sender: FilmStripView, for event: PageNavigationEvent) {
         guard documentEditor.currentIndex != event.pageIndex else { return }
         documentEditor.navigate(toPageAt: event.pageIndex)
-        updateCurrentPage()
+        editingView?.reloadData(includingFilmStrip: false)
     }
 
     @objc func exportVideo(_ sender: SidebarActionButton) {
