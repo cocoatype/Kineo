@@ -49,6 +49,7 @@ class SidebarActionButton: UIControl {
     override var isEnabled: Bool {
         didSet {
             alpha = isEnabled ? 1.0 : 0.4
+            accessibilityTraits = isEnabled ? [.button] : [.button, .notEnabled]
         }
     }
 
