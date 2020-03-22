@@ -21,16 +21,14 @@ public class DocumentEditor: NSObject {
         return document.pages[index]
     }
 
-    private(set) public var currentIndex = 0
-    public var document: Document {
-        didSet(oldDocument) {
-            assertUndoManagerExists()
-            undoManager?.registerUndo(withTarget: self) { [weak self, oldDocument, currentIndex] _ in
-                self?.document = oldDocument
-                self?.currentIndex = currentIndex
-            }
+    private(set) public var currentIndex = 0 {
+        didSet {
+            undoManager?.removeAllActions()
+            NotificationCenter.default.post(name: .NSUndoManagerDidUndoChange, object: undoManager) // hack to get the tool picker to update
         }
     }
+
+    public var document: Document
 
     // MARK: Editing
 
@@ -56,9 +54,6 @@ public class DocumentEditor: NSObject {
     // MARK: Undo/Redo
 
     public var undoManager: UndoManager?
-
-//    public func undo() { documentUndoManager.undo() }
-//    public func redo() { documentUndoManager.redo() }
 
     // MARK: Boilerplate
 
