@@ -35,17 +35,6 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
             skinsImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             skinsImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
-
-        let updateOnUndoOrRedo = { [weak self] (notification: Notification) in
-            let undoManager = (notification.object as? UndoManager)
-            undoManager?.disableUndoRegistration()
-            self?.updatePage()
-            self?.sendAction(#selector(EditingViewController.drawingViewDidChangePage(_:)), to: nil, for: nil)
-            undoManager?.enableUndoRegistration()
-        }
-
-        undoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidUndoChange, object: nil, queue: .main, using: updateOnUndoOrRedo)
-        redoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidRedoChange, object: nil, queue: .main, using: updateOnUndoOrRedo)
     }
 
     override func layoutSubviews() {
@@ -110,8 +99,6 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
     // MARK: Boilerplate
 
     private let canvasView = CanvasView()
-    private var undoObserver: Any?
-    private var redoObserver: Any?
 
     private(set) var page: Page
 
@@ -126,10 +113,5 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
-    }
-
-    deinit {
-        undoObserver.map(NotificationCenter.default.removeObserver(_:))
-        redoObserver.map(NotificationCenter.default.removeObserver(_:))
     }
 }
