@@ -58,18 +58,27 @@ class EditingView: UIView, PlaybackViewDelegate {
     // MARK: Data
 
     private let dataSource: EditingViewDataSource
-    func reloadData() {
+    func reloadData(includingFilmStrip: Bool = true) {
         undoButton.isEnabled = undoManager?.canUndo ?? false
         redoButton.isEnabled = undoManager?.canRedo ?? false
-        dataSource.generateSkinsImage { [weak self] skinsImage in
-            guard let editingView = self else { return }
+        drawingView.display(page: dataSource.currentPage, skinsImage: nil)
+        playbackView?.document = dataSource.document
+
+        dataSource.generateSkinsImage { [weak self] skinsImage, pageIndex in
+            guard let editingView = self, pageIndex == editingView.dataSource.currentPageIndex else { return }
             DispatchQueue.main.async {
                 editingView.drawingView.display(page: editingView.dataSource.currentPage, skinsImage: skinsImage)
-                editingView.playbackView?.document = editingView.dataSource.document
-                editingView.filmStripView.reloadData()
+                if includingFilmStrip {
+                    editingView.filmStripView.reloadData()
+                }
             }
         }
     }
+
+    // MARK: Skins Images
+
+    func hideSkinsImage() { drawingView.hideSkinsImage() }
+    func showSkinsImage() { drawingView.showSkinsImage() }
 
     // MARK: Tool Picker
 

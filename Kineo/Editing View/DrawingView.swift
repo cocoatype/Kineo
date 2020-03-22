@@ -54,7 +54,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
     }
 
     func display(page: Page, skinsImage: UIImage?) {
-        guard page != self.page else { return }
+        guard page != self.page || skinsImage != self.skinsImage else { return }
         self.page = page
         self.skinsImage = skinsImage
         updateCanvas()
@@ -78,6 +78,20 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
         toolPicker.addObserver(canvasView)
     }
 
+    // MARK: Skins Images
+
+    private let skinsImageView = SkinsImageView()
+    func showSkinsImage() {
+        UIView.animate(withDuration: 0.15) { [weak self] in
+            self?.skinsImageView.alpha = 1
+        }
+    }
+    func hideSkinsImage() {
+        UIView.animate(withDuration: 0.15) { [weak self] in
+            self?.skinsImageView.alpha = 0
+        }
+    }
+
     // MARK: PKCanvasViewDelegate
 
     var toolWasUsed = false
@@ -96,7 +110,6 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
     // MARK: Boilerplate
 
     private let canvasView = CanvasView()
-    private let skinsImageView = SkinsImageView()
     private var undoObserver: Any?
     private var redoObserver: Any?
 

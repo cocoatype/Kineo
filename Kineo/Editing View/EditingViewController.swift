@@ -54,7 +54,15 @@ class EditingViewController: UIViewController {
     @objc func navigateToPage(_ sender: FilmStripView, for event: PageNavigationEvent) {
         guard documentEditor.currentIndex != event.pageIndex else { return }
         documentEditor.navigate(toPageAt: event.pageIndex)
-        updateCurrentPage()
+        editingView?.reloadData(includingFilmStrip: false)
+    }
+
+    @objc func hideSkinsImage(_ sender: FilmStripView) {
+        editingView?.hideSkinsImage()
+    }
+
+    @objc func showSkinsImage(_ sender: FilmStripView) {
+        editingView?.showSkinsImage()
     }
 
     @objc func exportVideo(_ sender: SidebarActionButton) {

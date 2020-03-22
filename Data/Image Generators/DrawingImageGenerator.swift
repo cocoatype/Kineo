@@ -17,6 +17,7 @@ public class DrawingImageGenerator: NSObject {
         let operations = drawings.map { DrawingImageGenerationOperation(drawing: $0, size: Self.skinLayerSize, usesDisplayScale: true, completionHandler: nil) }
         let finishOperation = BlockOperation {
             let images = operations.compactMap { $0.resultImage }
+            assert(images.count == operations.count)
             completionHandler(images, drawings)
         }
 

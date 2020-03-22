@@ -9,9 +9,9 @@ class EditingViewDataSource: NSObject {
         self.documentEditor = documentEditor
     }
 
-    func generateSkinsImage(_ completionHandler: @escaping ((UIImage?) -> Void)) {
-        skinGenerator.generateSkinsImage(from: documentEditor.document, currentPageIndex: documentEditor.currentIndex) { image in
-            completionHandler(image)
+    func generateSkinsImage(_ completionHandler: @escaping ((UIImage?, Int) -> Void)) {
+        skinGenerator.generateSkinsImage(from: documentEditor.document, currentPageIndex: documentEditor.currentIndex) { image, page in
+            completionHandler(image, page)
         }
     }
 
