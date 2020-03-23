@@ -22,7 +22,7 @@ class TutorialIntroHeaderLabel: UILabel {
         tintedString.append(NSAttributedString(string: "\n"))
         tintedString.append(secondLine)
         self.attributedText = tintedString
-    }`
+    }
 
     // MARK: Boilerplate
 
