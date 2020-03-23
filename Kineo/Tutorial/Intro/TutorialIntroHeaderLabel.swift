@@ -16,7 +16,7 @@ class TutorialIntroHeaderLabel: UILabel {
 
         let lines = text.split(separator: "\n")
         let firstLine = NSAttributedString(string: String(lines[0]))
-        let secondLine = NSAttributedString(string: String(lines[1]), attributes: [.foregroundColor: UIColor.tutorialIntroAccent])
+        let secondLine = NSAttributedString(string: String(lines[1]), attributes: [.foregroundColor: UIColor.tutorialIntroAccent, .accessibilitySpeechIPANotation: "ˈkɪ.ni.o͡ʊ"])
 
         let tintedString = NSMutableAttributedString(attributedString: firstLine)
         tintedString.append(NSAttributedString(string: "\n"))

@@ -8,9 +8,16 @@ class TutorialIntroBodyLabel: UILabel {
         super.init(frame: .zero)
         self.font = .appFont(forTextStyle: .callout)
         self.numberOfLines = 0
-        self.text = text
+        self.attributedText = correctlyPronounced(text)
         self.textColor = .tutorialIntroText
         self.translatesAutoresizingMaskIntoConstraints = false
+    }
+
+    private func correctlyPronounced(_ string: String) -> NSAttributedString {
+        let range = (string as NSString).range(of: "Kineo")
+        let attributedString = NSMutableAttributedString(string: string)
+        attributedString.addAttribute(.accessibilitySpeechIPANotation, value: "ˈkɪ.ni.o͡ʊ", range: range)
+        return attributedString
     }
 
     // MARK: Boilerplate
