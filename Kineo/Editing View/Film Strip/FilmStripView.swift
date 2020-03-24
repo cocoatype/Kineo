@@ -8,8 +8,13 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
         self.dataSource = FilmStripDataSource(dataSource: dataSource)
         super.init(frame: .zero)
 
+        accessibilityHint = NSLocalizedString("FilmStripView.accessibilityHint", comment: "Accessibility hint for the film strip")
+        accessibilityLabel = NSLocalizedString("FilmStripView.accessibilityLabel", comment: "Accessibility label for the film strip")
+        accessibilityTraits = [.adjustable, .button]
+        accessibilityValue = accessibilityValueForCurrentIndex()
         backgroundColor = .filmStripBackground
         clipsToBounds = false
+        isAccessibilityElement = true
         layer.cornerRadius = 10
         translatesAutoresizingMaskIntoConstraints = false
 
@@ -75,6 +80,7 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        accessibilityValue = accessibilityValueForCurrentIndex()
         guard scrollView.isScrollUserInitiated, let layout = collectionView.collectionViewLayout as? FilmStripCollectionViewLayout else { return }
         let pageIndex = layout.indexOfItem(atContentOffset: scrollView.contentOffset)
         sendAction(#selector(EditingViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(pageIndex: pageIndex))
@@ -88,7 +94,39 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
         sendAction(#selector(EditingViewController.showSkinsImage(_:)), to: nil, for: nil)
     }
 
+    // MARK: Accessibility
+
+    override func accessibilityIncrement() {
+        guard let layout = collectionView.collectionViewLayout as? FilmStripCollectionViewLayout else { return }
+        let currentIndex = layout.indexOfItem(atContentOffset: collectionView.contentOffset)
+        let maxIndex = dataSource.collectionView(collectionView, numberOfItemsInSection: 0) - 1
+        guard currentIndex + 1 < maxIndex else { return }
+        collectionView(collectionView, didSelectItemAt: IndexPath(item: currentIndex + 1, section: 0))
+    }
+
+    override func accessibilityDecrement() {
+        guard let layout = collectionView.collectionViewLayout as? FilmStripCollectionViewLayout else { return }
+        let currentIndex = layout.indexOfItem(atContentOffset: collectionView.contentOffset)
+        guard currentIndex - 1 >= 0 else { return }
+        collectionView(collectionView, didSelectItemAt: IndexPath(item: currentIndex - 1, section: 0))
+    }
+
+    override func accessibilityActivate() -> Bool {
+        let maxIndex = dataSource.collectionView(collectionView, numberOfItemsInSection: 0) - 1
+        collectionView(collectionView, didSelectItemAt: IndexPath(item: maxIndex, section: 0))
+        return true
+    }
+
+    private func accessibilityValueForCurrentIndex() -> String {
+        guard let layout = collectionView.collectionViewLayout as? FilmStripCollectionViewLayout else { return "" }
+        let currentPage = layout.indexOfItem(atContentOffset: collectionView.contentOffset) + 1
+        let itemsCount = dataSource.collectionView(collectionView, numberOfItemsInSection: 0) - 1
+        return String(format: Self.accessibilityValueFormat, currentPage, itemsCount)
+    }
+
     // MARK: Boilerplate
+
+    private static let accessibilityValueFormat = NSLocalizedString("FilmStripView.accessibilityValueFormat", comment: "Format string for the accessibility value of the film strip")
 
     private let collectionView = FilmStripCollectionView()
     private let dataSource: FilmStripDataSource
