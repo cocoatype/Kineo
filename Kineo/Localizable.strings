@@ -26,6 +26,10 @@
 
 "ExportSettingsViewController.navigationTitle" = "Share Settings";
 
+"FilmStripView.accessibilityHint" = "Navigates and creates new pages";
+"FilmStripView.accessibilityLabel" = "Timeline";
+"FilmStripView.accessibilityValueFormat" = "Page %d of %d";
+
 "GalleryButton.accessibilityLabel" = "Gallery";
 
 "GalleryDocumentCollectionViewCell.accessibilityLabel" = "Animation";
