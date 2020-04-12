@@ -1,0 +1,77 @@
+//  Created by Geoff Pado on 11/29/19.
+//  Copyright © 2019 Cocoatype, LLC. All rights reserved.
+
+"ContactMailViewController.emailSubject" = "Hello!";
+
+"DrawingView.accessibilityLabel" = "Canvas";
+
+"EditingViewController.exportPromoText" = "Made with Kineo: https://kineo.app";
+
+"ExportButton.accessibilityLabel" = "Share";
+
+"ExportSettingsActivity.activityTitle" = "Share Settings";
+
+"ExportSettingsDurationContentSection.header" = "Minimum Length";
+"ExportSettingsDurationContentSection.footer" = "Some social networks require a minimum video length to post. Kineo will play your entire animation enough times to meet the minimum length you choose.";
+
+"ExportSettingsDurationContentItem.threeSeconds.title" = "3 seconds";
+"ExportSettingsDurationContentItem.fiveSeconds.title" = "5 seconds";
+"ExportSettingsDurationContentItem.tenSeconds.title" = "10 seconds";
+
+"ExportSettingsStyleContentSection.header" = "Video Effect";
+
+"ExportSettingsStyleContentItem.standard.title" = "Play Once";
+"ExportSettingsStyleContentItem.loop.title" = "Loop";
+"ExportSettingsStyleContentItem.bounce.title" = "Bounce";
+
+"ExportSettingsViewController.navigationTitle" = "Share Settings";
+
+"FilmStripView.accessibilityHint" = "Navigates and creates new pages";
+"FilmStripView.accessibilityLabel" = "Timeline";
+"FilmStripView.accessibilityValueFormat" = "Page %d of %d";
+
+"GalleryButton.accessibilityLabel" = "Gallery";
+
+"GalleryDocumentCollectionViewCell.accessibilityLabel" = "Animation";
+"GalleryDocumentCollectionViewCell.accessibilityValueFormat" = "Last modified on %@";
+
+"GalleryDocumentCollectionViewCellMenuConfigurationProvider.deleteMenuItemTitle" = "Delete";
+"GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle" = "Share";
+"GalleryDocumentCollectionViewCellMenuConfigurationProvider.windowMenuItemTitle" = "Open in New Window";
+
+"GalleryNewCollectionViewCell.accessibilityLabel" = "New Animation";
+
+"HelpButton.accessibilityLabel" = "Help";
+
+"PlayButton.accessibilityLabel" = "Play";
+
+"PlayButtonContextMenuConfigurationFactory.bounceMenuItemTitle" = "Bounce";
+"PlayButtonContextMenuConfigurationFactory.loopMenuItemTitle" = "Loop";
+
+"RedoButton.accessibilityLabel" = "Redo";
+
+"SettingsContentProvider.Item.contact" = "Contact the Developer";
+"SettingsContentProvider.Item.instagram" = "Instagram";
+"SettingsContentProvider.Item.instagram.subtitle" = "@kineoapp";
+"SettingsContentProvider.Item.privacy" = "Privacy Policy";
+"SettingsContentProvider.Item.releaseNotes" = "What's New?";
+"SettingsContentProvider.Item.twitch" = "Twitch";
+"SettingsContentProvider.Item.twitch.subtitle" = "@cocoatype";
+"SettingsContentProvider.Item.twitter" = "Twitter";
+"SettingsContentProvider.Item.twitter.subtitle" = "@kineoapp";
+
+"SettingsContentProvider.Section.otherApps.header" = "Other Apps by Cocoatype";
+"SettingsContentProvider.Section.social.header" = "Social Media";
+
+"SettingsViewController.navigationTitle" = "Kineo Help";
+
+"ToolsButton.accessibilityLabel" = "Tool Picker";
+
+"TutorialIntroDismissButton.title" = "Skip Tour";
+"TutorialIntroStartButton.title" = "Get Started";
+"TutorialIntroView.bodyText" = "Thanks for downloading Kineo! I hope you have a great time creating and sharing your own animations.\n\nIf you have any questions or comments, you can contact me from the help menu at any time.\n\n—Geoff, Kineo Developer";
+"TutorialIntroView.headerText" = "Welcome to\nKineo";
+
+"UndoButton.accessibilityLabel" = "Undo";
+
+"UseLegacyIconItem.title" = "Use Legacy App Icon";

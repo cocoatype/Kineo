@@ -1,12 +1,13 @@
 //  Created by Geoff Pado on 7/14/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import Data
 import UIKit
 
 class SceneWindow: UIWindow {
-    override init(windowScene: UIWindowScene) {
+    init(windowScene: UIWindowScene, document: Document?) {
         super.init(windowScene: windowScene)
-        rootViewController = SceneViewController()
+        rootViewController = SceneViewController(document: document)
     }
 
     @available(*, unavailable)

@@ -4,56 +4,32 @@
 import UIKit
 
 extension UIViewController {
-    public func embed(_ newChild: UIViewController) {
-        if let existingChild = children.first {
-            existingChild.willMove(toParent: nil)
-            existingChild.view.removeFromSuperview()
-            existingChild.removeFromParent()
-        }
-
-        guard let newChildView = newChild.view else { return }
-        newChildView.translatesAutoresizingMaskIntoConstraints = false
-
-        addChild(newChild)
-        view.addSubview(newChildView)
-        newChild.didMove(toParent: self)
-
-        NSLayoutConstraint.activate([
-            newChildView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            newChildView.heightAnchor.constraint(equalTo: view.heightAnchor),
-            newChildView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            newChildView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
+    public func embed(_ newChild: UIViewController, embedView: UIView? = nil) {
+        transition(to: newChild, animated: false, embedView: embedView, completion: nil)
     }
 
-    public func transition(to child: UIViewController, completion: ((Bool) -> Void)? = nil) {
-        let duration = 0.3
+    public func transition(to: UIViewController, animated: Bool = true, embedView: UIView? = nil, completion: ((Bool) -> Void)? = nil) {
+        guard
+          let parentView = embedView ?? self.view,
+          let toView = to.view
+        else { return }
 
-        let current = children.last
-        guard let childView = child.view else { return }
+        let from = children.last
+        from?.willMove(toParent: nil)
 
-        addChild(child)
+        addChild(to)
+        toView.translatesAutoresizingMaskIntoConstraints = true
+        toView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        toView.frame = parentView.bounds
 
-        let newView = childView
-        newView.translatesAutoresizingMaskIntoConstraints = true
-        newView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        newView.frame = view.bounds
-
-        if let existing = current {
-            existing.willMove(toParent: nil)
-
-            transition(from: existing, to: child, duration: duration, options: [.transitionCrossDissolve], animations: { }, completion: { done in
-                existing.removeFromParent()
-                child.didMove(toParent: self)
-                completion?(done)
-            })
-        } else {
-            view.addSubview(newView)
-
-            UIView.animate(withDuration: duration, delay: 0, options: [.transitionCrossDissolve], animations: { }, completion: { done in
-                child.didMove(toParent: self)
-                completion?(done)
-            })
-        }
+        let duration = animated ? 0.3 : 0
+        UIView.transition(with: parentView, duration: duration, options: [.transitionCrossDissolve], animations: {
+            from?.view.removeFromSuperview()
+            parentView.addSubview(toView)
+        }, completion: { done in
+            from?.removeFromParent()
+            to.didMove(toParent: self)
+            completion?(done)
+        })
     }
 }
