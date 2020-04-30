@@ -3,7 +3,7 @@
 
 import UIKit
 
-class GalleryNewCollectionViewCell: UICollectionViewCell {
+class GalleryNewCollectionViewCell: UICollectionViewCell, UIPointerInteractionDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         accessibilityLabel = NSLocalizedString("GalleryNewCollectionViewCell.accessibilityLabel", comment: "Accessibility label for the new document cell")
@@ -19,6 +19,8 @@ class GalleryNewCollectionViewCell: UICollectionViewCell {
             imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
+
+        addPointerInteraction()
     }
 
     override func draw(_ rect: CGRect) {
@@ -29,6 +31,21 @@ class GalleryNewCollectionViewCell: UICollectionViewCell {
         borderPath.lineCapStyle = .round
         UIColor.newCellTint.setStroke()
         borderPath.stroke()
+    }
+
+    // MARK: Pointer Interactions
+
+    private func addPointerInteraction() {
+        guard #available(iOS 13.4, *) else { return }
+        let interaction = UIPointerInteraction(delegate: self)
+        addInteraction(interaction)
+    }
+
+    @available(iOS 13.4, *)
+    func pointerInteraction(_ interaction: UIPointerInteraction, styleFor region: UIPointerRegion) -> UIPointerStyle? {
+        let targetedPreview = UITargetedPreview(view: self)
+        let pointerStyle = UIPointerStyle(effect: .lift(targetedPreview))
+        return pointerStyle
     }
 
     // MARK: Boilerplate

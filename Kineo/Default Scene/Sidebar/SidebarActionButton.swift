@@ -3,7 +3,7 @@
 
 import UIKit
 
-class SidebarActionButton: UIControl {
+class SidebarActionButton: UIControl, UIPointerInteractionDelegate {
     init(icon: UIImage? = nil, auxiliaryIcon: UIImage? = nil, selector: Selector, target: Any? = nil) {
         super.init(frame: .zero)
 
@@ -33,6 +33,8 @@ class SidebarActionButton: UIControl {
             auxiliaryImageView.centerXAnchor.constraint(equalTo: trailingAnchor),
             auxiliaryImageView.centerYAnchor.constraint(equalTo: topAnchor)
         ])
+
+        addPointerInteraction()
     }
 
     override func layoutSubviews() {
@@ -60,7 +62,8 @@ class SidebarActionButton: UIControl {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        buttonBackgroundColor.setFill()
+        UIColor.clear.setFill()
+//        buttonBackgroundColor.setFill()
 
         if auxiliaryImage != nil {
             let boundsPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.bottomLeft, .bottomRight, .topLeft], cornerRadii: CGSize(width: 10, height: 10))
@@ -71,6 +74,26 @@ class SidebarActionButton: UIControl {
         } else {
             UIBezierPath(roundedRect: bounds, cornerRadius: 10).fill()
         }
+    }
+
+    // MARK: Pointer Interactions
+
+    private func addPointerInteraction() {
+        guard #available(iOS 13.4, *) else { return }
+        let interaction = UIPointerInteraction(delegate: self)
+        addInteraction(interaction)
+    }
+
+    @available(iOS 13.4, *)
+    func pointerInteraction(_ interaction: UIPointerInteraction, regionFor request: UIPointerRegionRequest, defaultRegion: UIPointerRegion) -> UIPointerRegion? {
+        return defaultRegion
+    }
+
+    @available(iOS 13.4, *)
+    func pointerInteraction(_ interaction: UIPointerInteraction, styleFor region: UIPointerRegion) -> UIPointerStyle? {
+        let targetedPreview = UITargetedPreview(view: self)
+        let pointerStyle = UIPointerStyle(effect: .highlight(targetedPreview))
+        return pointerStyle
     }
 
     // MARK: Icon Display
