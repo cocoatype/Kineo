@@ -51,6 +51,7 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
 
     func reloadData() {
         collectionView.reloadData()
+        collectionView.scrollToItem(at: IndexPath(item: dataSource.currentPageIndex, section: 0), at: .top, animated: true)
     }
 
     private func installIndicatorConstraints() {
@@ -140,9 +141,18 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
 }
 
 class PageNavigationEvent: UIEvent {
-    let pageIndex: Int
-    init(pageIndex: Int) {
-        self.pageIndex = pageIndex
+    enum Style {
+        case direct(pageIndex: Int)
+        case increment, decrement
+    }
+
+    let style: Style
+    convenience init(pageIndex: Int) {
+        self.init(style: .direct(pageIndex: pageIndex))
+    }
+
+    init(style: Style) {
+        self.style = style
     }
 }
 

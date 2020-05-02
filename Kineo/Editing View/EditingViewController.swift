@@ -53,8 +53,15 @@ class EditingViewController: UIViewController {
     }
 
     @objc func navigateToPage(_ sender: FilmStripView, for event: PageNavigationEvent) {
-        guard documentEditor.currentIndex != event.pageIndex else { return }
-        documentEditor.navigate(toPageAt: event.pageIndex)
+        let currentIndex = documentEditor.currentIndex
+        let eventIndex: Int
+        switch event.style {
+        case .direct(let pageIndex): eventIndex = pageIndex
+        case .increment: eventIndex = currentIndex + 1
+        case .decrement: eventIndex = currentIndex - 1
+        }
+        guard currentIndex != eventIndex else { return }
+        documentEditor.navigate(toPageAt: eventIndex)
         editingView?.reloadData(includingFilmStrip: false)
     }
 
@@ -64,6 +71,10 @@ class EditingViewController: UIViewController {
 
     @objc func showSkinsImage(_ sender: FilmStripView) {
         editingView?.showSkinsImage()
+    }
+
+    @objc func updateFilmStrip(_ sender: Any) {
+        editingView?.reloadData(includingFilmStrip: true)
     }
 
     @objc func exportVideo(_ sender: SidebarActionButton) {
