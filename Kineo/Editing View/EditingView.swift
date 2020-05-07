@@ -97,6 +97,13 @@ class EditingView: UIView, PlaybackViewDelegate {
         toolPicker.setVisible(alwaysShowToolPicker, forFirstResponder: drawingView)
     }
 
+    func resetToolPicker() {
+        guard let toolPicker = toolPicker else { return }
+        if toolPicker.selectedTool is PKEraserTool {
+            toolPicker.selectedTool = PKInkingTool(.pen)
+        }
+    }
+
     func toggleToolPicker() {
         guard let toolPicker = toolPicker else { return }
         toolPicker.setVisible(toolPicker.isVisible.toggled, forFirstResponder: drawingView)
