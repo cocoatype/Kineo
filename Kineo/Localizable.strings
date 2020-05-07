@@ -6,6 +6,11 @@
 "DrawingView.accessibilityLabel" = "Canvas";
 
 "EditingViewController.exportPromoText" = "Made with Kineo: https://kineo.app";
+"EditingViewController.galleryKeyCommandTitle" = "Return to Gallery";
+"EditingViewController.backKeyCommandTitle" = "Back One Page";
+"EditingViewController.forwardKeyCommandTitle" = "Forward One Page";
+"EditingViewController.exportKeyCommandTitle" = "Share Animation";
+"EditingViewController.playKeyCommandTitle" = "Play Animation";
 
 "ExportButton.accessibilityLabel" = "Share";
 
@@ -40,6 +45,10 @@
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.windowMenuItemTitle" = "Open in New Window";
 
 "GalleryNewCollectionViewCell.accessibilityLabel" = "New Animation";
+
+"GalleryViewController.helpKeyCommandTitle" = "Help";
+"GalleryViewController.settingsKeyCommandTitle" = "Settings";
+"GalleryViewController.newDocumentKeyCommandTitle" = "New Animation";
 
 "HelpButton.accessibilityLabel" = "Help";
 

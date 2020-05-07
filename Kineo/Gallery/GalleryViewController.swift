@@ -33,6 +33,23 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         galleryView?.sendAction(#selector(SceneViewController.showEditingView(_:for:)), to: nil, for: selectionEvent)
     }
 
+    // MARK: Key Commands
+
+    override var keyCommands: [UIKeyCommand]? {
+        let helpCommand = UIKeyCommand(title: Self.helpKeyCommandTitle, action: #selector(SceneViewController.presentHelp), input: "?", modifierFlags: [.command])
+        let settingsCommand = UIKeyCommand(title: Self.settingsKeyCommandTitle, action: #selector(SceneViewController.presentHelp), input: ",", modifierFlags: [.command])
+        let newDocumentCommand = UIKeyCommand(title: Self.newDocumentKeyCommandTitle, action: #selector(createNewAnimation), input: "N", modifierFlags: [.command])
+        return [helpCommand, settingsCommand, newDocumentCommand]
+    }
+
+    @objc private func createNewAnimation() {
+        presentAnimation(at: IndexPath(item: 0, section: 0))
+    }
+
+    private static let helpKeyCommandTitle = NSLocalizedString("GalleryViewController.helpKeyCommandTitle", comment: "Key command title for displaying help")
+    private static let settingsKeyCommandTitle = NSLocalizedString("GalleryViewController.settingsKeyCommandTitle", comment: "Key command title for displaying settings")
+    private static let newDocumentKeyCommandTitle = NSLocalizedString("GalleryViewController.newDocumentKeyCommandTitle", comment: "Key command title for creating a new animation")
+
     // MARK: Context Menu Actions
 
     func deleteAnimation(at indexPath: IndexPath) {
