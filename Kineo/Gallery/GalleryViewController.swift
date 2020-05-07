@@ -10,6 +10,11 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         cloudSyncObserver = NotificationCenter.default.addObserver(forName: CloudCoordinator.syncDidComplete, object: nil, queue: .main, using: { [weak self] _ in
             self?.galleryView?.reloadData()
         })
+        deleteObserver = NotificationCenter.default.addObserver(forName: Self.didDeleteItem, object: nil, queue: .main, using: { [weak self] notification in
+            let sender = (notification.object as? GalleryViewController)
+            guard sender != self, let indexPath = (notification.userInfo?[Self.indexPathKey] as? IndexPath) else { self?.galleryView?.reloadData(); return }
+            self?.galleryView?.deleteItems(at: [indexPath])
+        })
     }
 
     override func loadView() {
@@ -39,6 +44,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         do {
             try dataSource.deleteDocument(at: indexPath)
             galleryView?.deleteItems(at: [indexPath])
+            NotificationCenter.default.post(name: Self.didDeleteItem, object: self, userInfo: [Self.indexPathKey: indexPath])
         } catch {}
     }
 
@@ -110,11 +116,17 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
     }
 
+    // MARK: Notifications
+
+    private static let didDeleteItem = Notification.Name("GalleryViewController.didDeleteItem")
+    private static let indexPathKey = "GalleryViewController.indexPathKey"
+
     // MARK: Boilerplate
 
     private let cloudCoordinator = CloudCoordinator()
     private var cloudSyncObserver: Any?
     private let dataSource = GalleryViewDataSource()
+    private var deleteObserver: Any?
     private var galleryView: GalleryView? { return view as? GalleryView }
 
     @available(*, unavailable)
@@ -125,6 +137,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     deinit {
         cloudSyncObserver.map(NotificationCenter.default.removeObserver(_:))
+        deleteObserver.map(NotificationCenter.default.removeObserver(_:))
     }
 }
 
