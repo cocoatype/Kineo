@@ -39,6 +39,14 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
             skinsImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             skinsImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+
+        redoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidRedoChange, object: undoManager, queue: .main, using: { [weak self] _ in
+            self?.handleChange()
+        })
+
+        undoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidUndoChange, object: undoManager, queue: .main, using: { [weak self] notification in
+            self?.handleChange()
+        })
     }
 
     override func layoutSubviews() {
@@ -63,6 +71,12 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
         let scale = Constants.canvasSize.width / bounds.width
         let transform = CGAffineTransform(scaleX: scale, y: scale)
         page = Page(drawing: canvasView.drawing.transformed(using: transform))
+    }
+
+    private func handleChange() {
+        updatePage()
+        editingViewController?.drawingViewDidChangePage(self)
+        toolWasUsed = false
     }
 
     func observe(_ toolPicker: PKToolPicker) {
@@ -94,10 +108,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
 
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
         guard toolWasUsed == true else { return }
-
-        updatePage()
-        editingViewController?.drawingViewDidChangePage(self)
-        toolWasUsed = false
+        handleChange()
     }
 
     func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView) {
@@ -107,6 +118,8 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
     // MARK: Boilerplate
 
     private let canvasView = CanvasView()
+    private var redoObserver: Any?
+    private var undoObserver: Any?
 
     private(set) var page: Page
 
