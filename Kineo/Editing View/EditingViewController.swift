@@ -28,6 +28,7 @@ class EditingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         editingView?.setupToolPicker()
+        editingView?.resetToolPicker()
     }
 
     @objc func drawingViewDidChangePage(_ sender: DrawingView) {
