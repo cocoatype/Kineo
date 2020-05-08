@@ -37,6 +37,23 @@ class EditingViewController: UIViewController {
         NotificationCenter.default.post(name: Self.didUpdateDocument, object: self, userInfo: [Self.documentUUIDKey: documentEditor.document.uuid, Self.updatedDocumentKey: documentEditor.document])
     }
 
+    // MARK: Keyboard Commands
+
+    override var keyCommands: [UIKeyCommand]? {
+        let galleryKeyCommand = UIKeyCommand(title: Self.galleryKeyCommandTitle, action: #selector(SceneViewController.showGallery), input: "W", modifierFlags: [.command])
+        let backKeyCommand = UIKeyCommand(title: Self.backKeyCommandTitle, action: #selector(EditingViewController.navigateToPage(_:for:)), input: UIKeyCommand.inputLeftArrow)
+        let forwardKeyCommand = UIKeyCommand(title: Self.forwardKeyCommandTitle, action: #selector(EditingViewController.navigateToPage(_:for:)), input: UIKeyCommand.inputRightArrow)
+        let shareCommand = UIKeyCommand(title: Self.exportKeyCommandTitle, action:#selector(EditingViewController.exportVideo), input: "S", modifierFlags: [.command])
+        let playCommand = UIKeyCommand(title: Self.playKeyCommandTitle, action: #selector(EditingViewController.play), input: " ")
+        return [galleryKeyCommand, backKeyCommand, forwardKeyCommand, shareCommand, playCommand]
+    }
+
+    private static let galleryKeyCommandTitle = NSLocalizedString("EditingViewController.galleryKeyCommandTitle", comment: "Key command title for returning to the gallery")
+    private static let backKeyCommandTitle = NSLocalizedString("EditingViewController.backKeyCommandTitle", comment: "Key command title for going back one page")
+    private static let forwardKeyCommandTitle = NSLocalizedString("EditingViewController.forwardKeyCommandTitle", comment: "Key command title for going forward one page")
+    private static let exportKeyCommandTitle = NSLocalizedString("EditingViewController.exportKeyCommandTitle", comment: "Key command title for exporting videos")
+    private static let playKeyCommandTitle = NSLocalizedString("EditingViewController.playKeyCommandTitle", comment: "Key command title for playing an animation")
+
     // MARK: Transport Controls
 
     @objc func play(_ sender: Any, for event: UIEvent) {
@@ -53,10 +70,28 @@ class EditingViewController: UIViewController {
         updateCurrentPage()
     }
 
-    @objc func navigateToPage(_ sender: FilmStripView, for event: PageNavigationEvent) {
-        guard documentEditor.currentIndex != event.pageIndex else { return }
-        documentEditor.navigate(toPageAt: event.pageIndex)
-        editingView?.reloadData(includingFilmStrip: false)
+    @objc func navigateToPage(_ sender: Any, for event: PageNavigationEvent) {
+        let currentIndex = documentEditor.currentIndex
+        if let keyCommand = (sender as? UIKeyCommand) {
+            switch keyCommand.input {
+            case UIKeyCommand.inputLeftArrow?:
+                documentEditor.navigate(toPageAt: currentIndex - 1)
+            case UIKeyCommand.inputRightArrow?:
+                documentEditor.navigate(toPageAt: currentIndex + 1)
+            default: break
+            }
+            editingView?.reloadData(includingFilmStrip: true)
+        } else {
+            let eventIndex: Int
+            switch event.style {
+            case .direct(let pageIndex): eventIndex = pageIndex
+            case .increment: eventIndex = currentIndex + 1
+            case .decrement: eventIndex = currentIndex - 1
+            }
+            guard currentIndex != eventIndex else { return }
+            documentEditor.navigate(toPageAt: eventIndex)
+            editingView?.reloadData(includingFilmStrip: false)
+        }
     }
 
     @objc func hideSkinsImage(_ sender: FilmStripView) {
@@ -67,8 +102,12 @@ class EditingViewController: UIViewController {
         editingView?.showSkinsImage()
     }
 
-    @objc func exportVideo(_ sender: SidebarActionButton) {
-        guard let activityController = ExportViewController(document: documentEditor.document, sourceView: sender) else { return }
+    @objc func updateFilmStrip(_ sender: Any) {
+        editingView?.reloadData(includingFilmStrip: true)
+    }
+
+    @objc func exportVideo(_ sender: Any) {
+        guard let editingView = editingView, let activityController = ExportViewController(document: documentEditor.document, sourceView: editingView.exportButton) else { return }
         present(activityController, animated: true, completion: nil)
     }
 

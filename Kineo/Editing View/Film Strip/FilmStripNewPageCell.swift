@@ -3,7 +3,7 @@
 
 import UIKit
 
-class FilmStripNewPageCell: UICollectionViewCell {
+class FilmStripNewPageCell: UICollectionViewCell, UIPointerInteractionDelegate {
     static let identifier = "FilmStripNewPageCell.identifier"
 
     override init(frame: CGRect) {
@@ -18,6 +18,8 @@ class FilmStripNewPageCell: UICollectionViewCell {
             imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
+
+        addPointerInteraction()
     }
 
     override func draw(_ rect: CGRect) {
@@ -28,6 +30,21 @@ class FilmStripNewPageCell: UICollectionViewCell {
         borderPath.lineCapStyle = .round
         UIColor.newCellTint.setStroke()
         borderPath.stroke()
+    }
+
+    // MARK: Pointer Interactions
+
+    private func addPointerInteraction() {
+        guard #available(iOS 13.4, *) else { return }
+        let interaction = UIPointerInteraction(delegate: self)
+        addInteraction(interaction)
+    }
+
+    @available(iOS 13.4, *)
+    func pointerInteraction(_ interaction: UIPointerInteraction, styleFor region: UIPointerRegion) -> UIPointerStyle? {
+        let targetedPreview = UITargetedPreview(view: self)
+        let pointerStyle = UIPointerStyle(effect: .highlight(targetedPreview))
+        return pointerStyle
     }
 
     // MARK: Boilerplate

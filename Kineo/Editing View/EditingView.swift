@@ -27,7 +27,7 @@ class EditingView: UIView, PlaybackViewDelegate {
     private lazy var filmStripView = FilmStripView(dataSource: dataSource)
     private let playButton = PlayButton()
     private let galleryButton = GalleryButton()
-    private let exportButton = ExportButton()
+    let exportButton = ExportButton()
     private let toolsButton = ToolsButton()
     private let undoButton = UndoButton()
     private let redoButton = RedoButton()
