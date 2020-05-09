@@ -28,7 +28,7 @@ class FilmStripNewPageCell: UICollectionViewCell, UIPointerInteractionDelegate {
         borderPath.setLineDash([4.0, 4.0], count: 2, phase: 0)
         borderPath.lineWidth = 1.0
         borderPath.lineCapStyle = .round
-        UIColor.newCellTint.setStroke()
+        UIColor.sidebarButtonTint.setStroke()
         borderPath.stroke()
     }
 
