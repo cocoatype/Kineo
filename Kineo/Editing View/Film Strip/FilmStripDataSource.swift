@@ -8,6 +8,8 @@ class FilmStripDataSource: NSObject, UICollectionViewDataSource {
         self.dataSource = dataSource
     }
 
+    var currentPageIndex: Int { return dataSource.currentPageIndex }
+
     func isNewPage(_ indexPath: IndexPath) -> Bool {
         return indexPath.item == dataSource.pageCount
     }

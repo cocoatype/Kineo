@@ -36,11 +36,11 @@ class GalleryViewLayoutSection: NSCollectionLayoutSection {
 class GalleryViewLayoutGroup: NSCollectionLayoutGroup {
     class func standardGroup() -> GalleryViewLayoutGroup {
         let group = GalleryViewLayoutGroup.custom(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(Self.cellDimension))) { environment -> [NSCollectionLayoutGroupCustomItem] in
-            let size = environment.container.contentSize
+            let size = environment.container.effectiveContentSize
             let cellDimension = (size.width >= 350 ? Self.cellDimension : Self.shrunkenCellDimension)
-            let numberItems = Int(size.width / (cellDimension + Self.spacing))
+            let numberItems = max(Int(size.width / (cellDimension + Self.spacing)), 1)
             let totalWidth = (numberItems * (cellDimension + Self.spacing)) - Self.spacing
-            let horizontalInset = floor((size.width - totalWidth) / 2)
+            let horizontalInset = floor((size.width - totalWidth) / 2) + Self.edgeInset
 
             let standardFrame = CGRect(origin: .zero, size: CGSize(width: cellDimension, height: cellDimension))
             return (0..<numberItems).map {
@@ -49,11 +49,13 @@ class GalleryViewLayoutGroup: NSCollectionLayoutGroup {
                 return NSCollectionLayoutGroupCustomItem(frame: cellFrame)
             }
         }
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: Self.edgeInset, bottom: 0, trailing: Self.edgeInset)
 
         return group
     }
 
     private static let cellDimension = CGFloat(220)
+    private static let edgeInset = CGFloat(66)
     private static let shrunkenCellDimension = CGFloat(202)
     private static let spacing = GalleryViewLayoutSection.standardSpacing
 }

@@ -56,7 +56,7 @@ class TutorialEditingView: EditingView {
     private var filmStripView: FilmStripView { return firstSubview(of: FilmStripView.self) }
     private var playButton: PlayButton { return firstSubview(of: PlayButton.self) }
     private var galleryButton: GalleryButton { return firstSubview(of: GalleryButton.self) }
-    private var exportButton: ExportButton { return firstSubview(of: ExportButton.self) }
+//    private var exportButton: ExportButton { return firstSubview(of: ExportButton.self) }
     private var toolsButton: ToolsButton { return firstSubview(of: ToolsButton.self) }
     private var undoButton: UndoButton { return firstSubview(of: UndoButton.self) }
     private var redoButton: RedoButton { return firstSubview(of: RedoButton.self) }

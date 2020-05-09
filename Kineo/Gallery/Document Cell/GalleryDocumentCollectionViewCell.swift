@@ -3,7 +3,7 @@
 
 import UIKit
 
-class GalleryDocumentCollectionViewCell: UICollectionViewCell {
+class GalleryDocumentCollectionViewCell: UICollectionViewCell, UIPointerInteractionDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         accessibilityLabel = NSLocalizedString("GalleryDocumentCollectionViewCell.accessibilityLabel", comment: "Accessibility label for the document cell")
@@ -27,6 +27,8 @@ class GalleryDocumentCollectionViewCell: UICollectionViewCell {
             canvasView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
             canvasView.heightAnchor.constraint(equalTo: contentView.heightAnchor)
         ])
+
+        addPointerInteraction()
     }
 
     var modifiedDate = Date.distantPast {
@@ -57,6 +59,21 @@ class GalleryDocumentCollectionViewCell: UICollectionViewCell {
         dateFormatter.timeStyle = .none
         return dateFormatter
     }()
+
+    // MARK: Pointer Interactions
+
+    private func addPointerInteraction() {
+        guard #available(iOS 13.4, *) else { return }
+        let interaction = UIPointerInteraction(delegate: self)
+        addInteraction(interaction)
+    }
+
+    @available(iOS 13.4, *)
+    func pointerInteraction(_ interaction: UIPointerInteraction, styleFor region: UIPointerRegion) -> UIPointerStyle? {
+        let targetedPreview = UITargetedPreview(view: self)
+        let pointerStyle = UIPointerStyle(effect: .lift(targetedPreview))
+        return pointerStyle
+    }
 
     // MARK: Boilerplate
 
