@@ -21,6 +21,6 @@ enum PlayButtonContextMenuFactory {
         }
     }
 
-    private static let loopMenuItemTitle = NSLocalizedString("PlayButtonContextMenuConfigurationFactory.loopMenuItemTitle", comment: "Menu item title for playing a standard loop")
-    private static let bounceMenuItemTitle = NSLocalizedString("PlayButtonContextMenuConfigurationFactory.bounceMenuItemTitle", comment: "Menu item title for playing a bouncing loop")
+    static let loopMenuItemTitle = NSLocalizedString("PlayButtonContextMenuConfigurationFactory.loopMenuItemTitle", comment: "Menu item title for playing a standard loop")
+    static let bounceMenuItemTitle = NSLocalizedString("PlayButtonContextMenuConfigurationFactory.bounceMenuItemTitle", comment: "Menu item title for playing a bouncing loop")
 }
