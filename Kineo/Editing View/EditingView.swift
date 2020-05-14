@@ -132,6 +132,8 @@ class EditingView: UIView, PlaybackViewDelegate {
         }
 
         playButton.isSelected = continuously
+        filmStripView.isEnabled = (continuously == false)
+
         playbackView.animate(continuously: continuously)
         playbackView.delegate = self
         self.playbackView = playbackView
@@ -140,6 +142,7 @@ class EditingView: UIView, PlaybackViewDelegate {
     func playbackViewDidFinishPlayback(_ playbackView: PlaybackView) {
         guard playbackView == self.playbackView else { return }
         playButton.isSelected = false
+        filmStripView.isEnabled = true
         playbackView.removeFromSuperview()
         self.playbackView = nil
     }

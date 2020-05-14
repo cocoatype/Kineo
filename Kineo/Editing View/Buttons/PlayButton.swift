@@ -22,6 +22,7 @@ class PlayButton: SidebarActionButton, UIContextMenuInteractionDelegate {
     override var isSelected: Bool {
         didSet {
             updateAccessibilityActions()
+            image = isSelected ? Icons.pause : Icons.play
         }
     }
 

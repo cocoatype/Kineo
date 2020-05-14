@@ -125,6 +125,17 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
         return String(format: Self.accessibilityValueFormat, currentPage, itemsCount)
     }
 
+    // MARK: Enabled
+
+    override var isEnabled: Bool {
+        didSet {
+            isUserInteractionEnabled = isEnabled
+            UIView.animate(withDuration: 0.3) {
+                self.alpha = self.isEnabled ? 1.0 : 0.2
+            }
+        }
+    }
+
     // MARK: Boilerplate
 
     private static let accessibilityValueFormat = NSLocalizedString("FilmStripView.accessibilityValueFormat", comment: "Format string for the accessibility value of the film strip")
