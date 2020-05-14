@@ -7,19 +7,25 @@ import UIKit
 class PlayButton: SidebarActionButton, UIContextMenuInteractionDelegate {
     init() {
         super.init(icon: Icons.play, selector: #selector(EditingViewController.play))
-        accessibilityCustomActions = [
-            UIAccessibilityCustomAction(name: PlayButtonContextMenuFactory.loopMenuItemTitle, target: self, selector: #selector(loop)),
-            UIAccessibilityCustomAction(name: PlayButtonContextMenuFactory.bounceMenuItemTitle, target: self, selector: #selector(bounce))
-        ]
         accessibilityLabel = NSLocalizedString("PlayButton.accessibilityLabel", comment: "Accessibility label for the help button")
+        updateAccessibilityActions()
 
         addTarget(nil, action: #selector(EditingViewController.playMultiple), for: .touchDownRepeat)
         addInteraction(PlayButtonContextMenuFactory.interaction(button: self))
     }
 
     func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
-        PlayButtonContextMenuFactory.configuration(button: self)
+        guard UIAccessibility.isVoiceOverRunning == false else { return nil }
+        return PlayButtonContextMenuFactory.configuration(button: self)
     }
+
+    override var isSelected: Bool {
+        didSet {
+            updateAccessibilityActions()
+        }
+    }
+
+    // MARK: Actions
 
     // these two methods return bools because it is required by UIAccessibilityCustomAction
     @objc @discardableResult func loop() -> Bool {
@@ -32,5 +38,18 @@ class PlayButton: SidebarActionButton, UIContextMenuInteractionDelegate {
         Defaults.exportPlaybackStyle = .bounce
         sendActions(for: .touchDownRepeat)
         return true
+    }
+
+    // MARK: Accessibility
+
+    private func updateAccessibilityActions() {
+        if isSelected {
+            accessibilityCustomActions = []
+        } else {
+            accessibilityCustomActions = [
+                UIAccessibilityCustomAction(name: PlayButtonContextMenuFactory.loopMenuItemTitle, target: self, selector: #selector(loop)),
+                UIAccessibilityCustomAction(name: PlayButtonContextMenuFactory.bounceMenuItemTitle, target: self, selector: #selector(bounce))
+            ]
+        }
     }
 }
