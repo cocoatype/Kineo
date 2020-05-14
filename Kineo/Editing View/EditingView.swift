@@ -115,10 +115,12 @@ class EditingView: UIView, PlaybackViewDelegate {
     private var playbackView: PlaybackView?
 
     func play(_ document: Document, continuously: Bool = false) {
+        let playbackView: PlaybackView
         if let existingPlaybackView = self.playbackView {
-            playbackViewDidFinishPlayback(existingPlaybackView)
+            existingPlaybackView.document = document
+            playbackView = existingPlaybackView
         } else {
-            let playbackView = PlaybackView(document: document)
+            playbackView = PlaybackView(document: document)
 
             addSubview(playbackView)
             NSLayoutConstraint.activate([
@@ -127,11 +129,11 @@ class EditingView: UIView, PlaybackViewDelegate {
                 playbackView.centerXAnchor.constraint(equalTo: drawingView.centerXAnchor),
                 playbackView.centerYAnchor.constraint(equalTo: drawingView.centerYAnchor)
             ])
-
-            playbackView.animate(continuously: continuously)
-            playbackView.delegate = self
-            self.playbackView = playbackView
         }
+
+        playbackView.animate(continuously: continuously)
+        playbackView.delegate = self
+        self.playbackView = playbackView
     }
 
     func playbackViewDidFinishPlayback(_ playbackView: PlaybackView) {
