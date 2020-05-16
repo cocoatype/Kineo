@@ -84,7 +84,7 @@ class SidebarActionButton: UIControl, UIPointerInteractionDelegate {
     // MARK: Icon Display
 
     private let imageView = SidebarActionButtonImageView()
-    private var image: UIImage? {
+    var image: UIImage? {
         get { return imageView.image }
         set(newImage) { imageView.image = newImage }
     }
