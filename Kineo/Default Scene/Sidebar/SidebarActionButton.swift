@@ -3,11 +3,11 @@
 
 import UIKit
 
-class SidebarActionButton: UIControl {
+class SidebarActionButton: UIControl, UIPointerInteractionDelegate {
     init(icon: UIImage? = nil, auxiliaryIcon: UIImage? = nil, selector: Selector, target: Any? = nil) {
         super.init(frame: .zero)
 
-        backgroundColor = .clear
+        backgroundColor = .sidebarButtonBackground
         image = icon
         auxiliaryImage = auxiliaryIcon
         tintColor = .sidebarButtonTint
@@ -15,8 +15,9 @@ class SidebarActionButton: UIControl {
         isAccessibilityElement = true
         accessibilityTraits = [.button]
 
-        layer.masksToBounds = false
         clipsToBounds = false
+        layer.masksToBounds = false
+        layer.cornerRadius = Self.cornerRadius
 
         addTarget(target, action: selector, for: .touchUpInside)
 
@@ -33,6 +34,8 @@ class SidebarActionButton: UIControl {
             auxiliaryImageView.centerXAnchor.constraint(equalTo: trailingAnchor),
             auxiliaryImageView.centerYAnchor.constraint(equalTo: topAnchor)
         ])
+
+        addPointerInteraction()
     }
 
     override func layoutSubviews() {
@@ -58,25 +61,30 @@ class SidebarActionButton: UIControl {
         return .sidebarButtonBackground
     }
 
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        buttonBackgroundColor.setFill()
+    // MARK: Pointer Interactions
 
-        if auxiliaryImage != nil {
-            let boundsPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.bottomLeft, .bottomRight, .topLeft], cornerRadii: CGSize(width: 10, height: 10))
-            let cutoutRect = CGRect(x: bounds.maxX - 10, y: bounds.minY - 10, width: 20, height: 20)
-            let cutoutPath = UIBezierPath(ovalIn: cutoutRect)
-            boundsPath.append(cutoutPath.reversing())
-            boundsPath.fill()
-        } else {
-            UIBezierPath(roundedRect: bounds, cornerRadius: 10).fill()
-        }
+    private func addPointerInteraction() {
+        guard #available(iOS 13.4, *) else { return }
+        let interaction = UIPointerInteraction(delegate: self)
+        addInteraction(interaction)
+    }
+
+    @available(iOS 13.4, *)
+    func pointerInteraction(_ interaction: UIPointerInteraction, regionFor request: UIPointerRegionRequest, defaultRegion: UIPointerRegion) -> UIPointerRegion? {
+        return defaultRegion
+    }
+
+    @available(iOS 13.4, *)
+    func pointerInteraction(_ interaction: UIPointerInteraction, styleFor region: UIPointerRegion) -> UIPointerStyle? {
+        let targetedPreview = UITargetedPreview(view: self)
+        let pointerStyle = UIPointerStyle(effect: .highlight(targetedPreview), shape: .roundedRect(frame, radius: Self.cornerRadius))
+        return pointerStyle
     }
 
     // MARK: Icon Display
 
     private let imageView = SidebarActionButtonImageView()
-    private var image: UIImage? {
+    var image: UIImage? {
         get { return imageView.image }
         set(newImage) { imageView.image = newImage }
     }
@@ -92,6 +100,7 @@ class SidebarActionButton: UIControl {
 
     // MARK: Boilerplate
 
+    private static let cornerRadius = CGFloat(10)
     static let width = CGFloat(44)
 
     @available(*, unavailable)

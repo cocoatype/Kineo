@@ -27,7 +27,7 @@ class EditingView: UIView, PlaybackViewDelegate {
     private lazy var filmStripView = FilmStripView(dataSource: dataSource)
     private let playButton = PlayButton()
     private let galleryButton = GalleryButton()
-    private let exportButton = ExportButton()
+    let exportButton = ExportButton()
     private let toolsButton = ToolsButton()
     private let undoButton = UndoButton()
     private let redoButton = RedoButton()
@@ -97,6 +97,13 @@ class EditingView: UIView, PlaybackViewDelegate {
         toolPicker.setVisible(alwaysShowToolPicker, forFirstResponder: drawingView)
     }
 
+    func resetToolPicker() {
+        guard let toolPicker = toolPicker else { return }
+        if toolPicker.selectedTool is PKEraserTool {
+            toolPicker.selectedTool = PKInkingTool(.pen)
+        }
+    }
+
     func toggleToolPicker() {
         guard let toolPicker = toolPicker else { return }
         toolPicker.setVisible(toolPicker.isVisible.toggled, forFirstResponder: drawingView)
@@ -124,6 +131,9 @@ class EditingView: UIView, PlaybackViewDelegate {
             ])
         }
 
+        playButton.isSelected = continuously
+        filmStripView.isEnabled = (continuously == false)
+
         playbackView.animate(continuously: continuously)
         playbackView.delegate = self
         self.playbackView = playbackView
@@ -131,6 +141,8 @@ class EditingView: UIView, PlaybackViewDelegate {
 
     func playbackViewDidFinishPlayback(_ playbackView: PlaybackView) {
         guard playbackView == self.playbackView else { return }
+        playButton.isSelected = false
+        filmStripView.isEnabled = true
         playbackView.removeFromSuperview()
         self.playbackView = nil
     }

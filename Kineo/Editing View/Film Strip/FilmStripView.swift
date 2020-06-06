@@ -51,6 +51,7 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
 
     func reloadData() {
         collectionView.reloadData()
+        collectionView.scrollToItem(at: IndexPath(item: dataSource.currentPageIndex, section: 0), at: .top, animated: true)
     }
 
     private func installIndicatorConstraints() {
@@ -124,6 +125,17 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
         return String(format: Self.accessibilityValueFormat, currentPage, itemsCount)
     }
 
+    // MARK: Enabled
+
+    override var isEnabled: Bool {
+        didSet {
+            isUserInteractionEnabled = isEnabled
+            UIView.animate(withDuration: 0.3) {
+                self.alpha = self.isEnabled ? 1.0 : 0.2
+            }
+        }
+    }
+
     // MARK: Boilerplate
 
     private static let accessibilityValueFormat = NSLocalizedString("FilmStripView.accessibilityValueFormat", comment: "Format string for the accessibility value of the film strip")
@@ -140,9 +152,18 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
 }
 
 class PageNavigationEvent: UIEvent {
-    let pageIndex: Int
-    init(pageIndex: Int) {
-        self.pageIndex = pageIndex
+    enum Style {
+        case direct(pageIndex: Int)
+        case increment, decrement
+    }
+
+    let style: Style
+    convenience init(pageIndex: Int) {
+        self.init(style: .direct(pageIndex: pageIndex))
+    }
+
+    init(style: Style) {
+        self.style = style
     }
 }
 

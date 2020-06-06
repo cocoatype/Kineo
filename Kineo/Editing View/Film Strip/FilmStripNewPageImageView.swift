@@ -9,7 +9,7 @@ class FilmStripNewPageImageView: UIImageView {
         backgroundColor = .clear
         contentMode = .center
         image = Icons.newPage
-        tintColor = .newCellTint
+        tintColor = .sidebarButtonTint
         translatesAutoresizingMaskIntoConstraints = false
     }
 

@@ -4,7 +4,7 @@
 import Data
 import UIKit
 
-class FilmStripExistingPageCell: UICollectionViewCell {
+class FilmStripExistingPageCell: UICollectionViewCell, UIPointerInteractionDelegate {
     static let identifier = "FilmStripExistingPageCell.identifier"
 
     override init(frame: CGRect) {
@@ -20,6 +20,8 @@ class FilmStripExistingPageCell: UICollectionViewCell {
             imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
+
+        addPointerInteraction()
     }
 
     var page: Page? {
@@ -32,6 +34,21 @@ class FilmStripExistingPageCell: UICollectionViewCell {
                 }
             }
         }
+    }
+
+    // MARK: Pointer Interactions
+
+    private func addPointerInteraction() {
+        guard #available(iOS 13.4, *) else { return }
+        let interaction = UIPointerInteraction(delegate: self)
+        addInteraction(interaction)
+    }
+
+    @available(iOS 13.4, *)
+    func pointerInteraction(_ interaction: UIPointerInteraction, styleFor region: UIPointerRegion) -> UIPointerStyle? {
+        let targetedPreview = UITargetedPreview(view: self)
+        let pointerStyle = UIPointerStyle(effect: .lift(targetedPreview))
+        return pointerStyle
     }
 
     // MARK: Boilerplate

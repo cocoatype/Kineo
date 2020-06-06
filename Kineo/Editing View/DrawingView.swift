@@ -5,7 +5,7 @@ import Data
 import PencilKit
 import UIKit
 
-class DrawingView: UIControl, PKCanvasViewDelegate {
+class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate {
     init(page: Page) {
         self.page = page
         super.init(frame: .zero)
@@ -39,6 +39,16 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
             skinsImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             skinsImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
+
+        redoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidRedoChange, object: undoManager, queue: .main, using: { [weak self] _ in
+            self?.handleChange()
+        })
+
+        undoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidUndoChange, object: undoManager, queue: .main, using: { [weak self] notification in
+            self?.handleChange()
+        })
+
+        addScrollRecognizer()
     }
 
     override func layoutSubviews() {
@@ -65,10 +75,58 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
         page = Page(drawing: canvasView.drawing.transformed(using: transform))
     }
 
+    private func handleChange() {
+        updatePage()
+        editingViewController?.drawingViewDidChangePage(self)
+        toolWasUsed = false
+    }
+
     func observe(_ toolPicker: PKToolPicker) {
         toolPicker.colorUserInterfaceStyle = .light
         toolPicker.setVisible(true, forFirstResponder: self)
         toolPicker.addObserver(canvasView)
+    }
+
+    // MARK: Scroll Recognizer
+
+    private func addScrollRecognizer() {
+        guard #available(iOS 13.4, *) else { return }
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleScroll))
+        panGestureRecognizer.allowedTouchTypes = [NSNumber(integerLiteral: UITouch.TouchType.indirectPointer.rawValue)]
+        panGestureRecognizer.delegate = self
+        panGestureRecognizer.allowedScrollTypesMask = .all
+        addGestureRecognizer(panGestureRecognizer)
+    }
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        guard #available(iOS 13.4, *) else { return false }
+        return touch.type == .indirectPointer
+    }
+
+    private var lastTranslation = CGPoint.zero
+    @objc func handleScroll(_ sender: UIPanGestureRecognizer) {
+        switch sender.state {
+        case .began:
+            sendAction(#selector(EditingViewController.hideSkinsImage(_:)), to: nil, for: nil)
+            fallthrough
+        case .changed:
+            let lastTranslationIndex = Int(floor(lastTranslation.y / 44))
+            let currentTranslation = sender.translation(in: self)
+            let currentTranslationIndex = Int(floor(currentTranslation.y / 44))
+            lastTranslation = currentTranslation
+
+            guard lastTranslationIndex != currentTranslationIndex else { break }
+            if lastTranslationIndex - currentTranslationIndex < 0 {
+                sendAction(#selector(EditingViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(style: .decrement))
+            } else {
+                sendAction(#selector(EditingViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(style: .increment))
+            }
+        case .recognized:
+            sendAction(#selector(EditingViewController.showSkinsImage(_:)), to: nil, for: nil)
+            sendAction(#selector(editingViewController?.updateFilmStrip(_:)), to: nil, for: nil)
+            lastTranslation = .zero
+        default: break
+        }
     }
 
     // MARK: Skins Images
@@ -94,10 +152,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
 
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
         guard toolWasUsed == true else { return }
-
-        updatePage()
-        editingViewController?.drawingViewDidChangePage(self)
-        toolWasUsed = false
+        handleChange()
     }
 
     func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView) {
@@ -107,6 +162,8 @@ class DrawingView: UIControl, PKCanvasViewDelegate {
     // MARK: Boilerplate
 
     private let canvasView = CanvasView()
+    private var redoObserver: Any?
+    private var undoObserver: Any?
 
     private(set) var page: Page
 
