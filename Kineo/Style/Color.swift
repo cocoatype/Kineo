@@ -12,6 +12,8 @@ extension UIColor {
     static let appBackground = UIColor.named("Background")
     static let appShadow = UIColor.named("Shadow")
     static let canvasBackground = UIColor.named("Canvas Background")
+    static let canvasShadowDark = UIColor.named("Canvas Shadow Dark")
+    static let canvasShadowLight = UIColor.named("Canvas Shadow Light")
     static let cellTitle = UIColor.named("Cell Title")
     static let filmStripBackground = UIColor.named("Film Strip Background")
     static let filmStripIndicator = UIColor.named("Film Strip Indicator")

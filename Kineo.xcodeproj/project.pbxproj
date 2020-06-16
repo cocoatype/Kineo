@@ -58,6 +58,8 @@
 		0469375E2427675B005894F7 /* ToolsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375D2427675B005894F7 /* ToolsButton.swift */; };
 		046937602427676B005894F7 /* UndoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375F2427676B005894F7 /* UndoButton.swift */; };
 		046937622427677D005894F7 /* RedoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046937612427677D005894F7 /* RedoButton.swift */; };
+		046C407B2498630A0069E8FB /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */; };
+		046C407D249863220069E8FB /* DrawingBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C407C249863220069E8FB /* DrawingBackgroundView.swift */; };
 		04791E2523EC1F3400403BD8 /* StandardContentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791DE523EC1F3400403BD8 /* StandardContentItem.swift */; };
 		04791E2623EC1F3400403BD8 /* SettingsContentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791DE623EC1F3400403BD8 /* SettingsContentItem.swift */; };
 		04791E2723EC1F3400403BD8 /* OtherAppItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791DE823EC1F3400403BD8 /* OtherAppItem.swift */; };
@@ -132,7 +134,6 @@
 		04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */; };
 		04C0A67722DC406B00E4E5D6 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67622DC406B00E4E5D6 /* DataExtensions.swift */; };
 		04C0A67922DC436400E4E5D6 /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C0A67822DC436400E4E5D6 /* example.json */; };
-		04C0A68622DC5EBD00E4E5D6 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */; };
 		04C5FA2923AB322C00DDFC40 /* StickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5FA2823AB322C00DDFC40 /* StickerDataSource.swift */; };
 		04D36AD82378205F0052A933 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD72378205F0052A933 /* Color.swift */; };
 		04D36ADA237826D40052A933 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD9237826D40052A933 /* Fonts.swift */; };
@@ -291,6 +292,7 @@
 		0469375D2427675B005894F7 /* ToolsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsButton.swift; sourceTree = "<group>"; };
 		0469375F2427676B005894F7 /* UndoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoButton.swift; sourceTree = "<group>"; };
 		046937612427677D005894F7 /* RedoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedoButton.swift; sourceTree = "<group>"; };
+		046C407C249863220069E8FB /* DrawingBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBackgroundView.swift; sourceTree = "<group>"; };
 		04791DE523EC1F3400403BD8 /* StandardContentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardContentItem.swift; sourceTree = "<group>"; };
 		04791DE623EC1F3400403BD8 /* SettingsContentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsContentItem.swift; sourceTree = "<group>"; };
 		04791DE823EC1F3400403BD8 /* OtherAppItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherAppItem.swift; sourceTree = "<group>"; };
@@ -833,6 +835,7 @@
 				049A0458240D09C000F5FC17 /* Buttons */,
 				04D46BDB2414E09800DBFB9A /* Constraint Generators */,
 				04ACCD1E23B21975006FBABC /* Film Strip */,
+				046C407C249863220069E8FB /* DrawingBackgroundView.swift */,
 			);
 			path = "Editing View";
 			sourceTree = "<group>";
@@ -1238,12 +1241,13 @@
 				04791E4923EC1F3400403BD8 /* ReleaseNotesViewController.swift in Sources */,
 				04791E2D23EC1F3400403BD8 /* AcknowledgementsItem.swift in Sources */,
 				04791E5323EC1F3400403BD8 /* AppEntry.swift in Sources */,
+				046C407B2498630A0069E8FB /* DrawingView.swift in Sources */,
 				04791E4F23EC1F3400403BD8 /* SettingsTableViewCellLabel.swift in Sources */,
 				0485989B23F284AD00AFBB3A /* InstagramItem.swift in Sources */,
-				04C0A68622DC5EBD00E4E5D6 /* DrawingView.swift in Sources */,
 				04D46BDD2414E0FA00DBFB9A /* TutorialCoordinator.swift in Sources */,
 				049A044A240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift in Sources */,
 				04BD9251237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift in Sources */,
+				046C407D249863220069E8FB /* DrawingBackgroundView.swift in Sources */,
 				04EC178F23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift in Sources */,
 				049A044E240B9AF900F5FC17 /* EditingViewRegularConstraintGenerator.swift in Sources */,
 				04791E4623EC1F3400403BD8 /* WebViewController.swift in Sources */,
