@@ -7,7 +7,6 @@ class SidebarActionButton: UIControl, UIPointerInteractionDelegate {
     init(icon: UIImage? = nil, auxiliaryIcon: UIImage? = nil, selector: Selector, target: Any? = nil) {
         super.init(frame: .zero)
 
-        backgroundColor = .sidebarButtonBackground
         image = icon
         auxiliaryImage = auxiliaryIcon
         tintColor = .sidebarButtonTint
@@ -15,18 +14,19 @@ class SidebarActionButton: UIControl, UIPointerInteractionDelegate {
         isAccessibilityElement = true
         accessibilityTraits = [.button]
 
-        clipsToBounds = false
-        layer.masksToBounds = false
-        layer.cornerRadius = Self.cornerRadius
-
         addTarget(target, action: selector, for: .touchUpInside)
 
+        addSubview(backgroundView)
         addSubview(imageView)
         addSubview(auxiliaryImageView)
 
         NSLayoutConstraint.activate([
             widthAnchor.constraint(equalTo: heightAnchor),
             widthAnchor.constraint(equalToConstant: Self.width),
+            backgroundView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            backgroundView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            backgroundView.widthAnchor.constraint(equalTo: widthAnchor),
+            backgroundView.heightAnchor.constraint(equalTo: heightAnchor),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             imageView.widthAnchor.constraint(equalTo: widthAnchor),
@@ -102,6 +102,8 @@ class SidebarActionButton: UIControl, UIPointerInteractionDelegate {
 
     private static let cornerRadius = CGFloat(10)
     static let width = CGFloat(44)
+
+    private let backgroundView = SidebarActionButtonBackgroundView()
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

@@ -22,7 +22,10 @@ extension UIColor {
     static let sidebarBackground = UIColor.named("Sidebar Background")
     static let sidebarBorder = UIColor.named("Sidebar Border")
     static let sidebarButtonBackground = UIColor.named("Sidebar Button Background")
+    static let sidebarButtonBorder = UIColor.named("Sidebar Button Border")
     static let sidebarButtonHighlight = UIColor.named("Sidebar Button Highlight")
+    static let sidebarButtonShadowDark = UIColor.named("Sidebar Button Shadow Dark")
+    static let sidebarButtonShadowLight = UIColor.named("Sidebar Button Shadow Light")
     static let sidebarButtonTint = UIColor.named("Sidebar Button Tint")
 
     static let tutorialIntroAccent = UIColor.named("Tutorial Intro Accent")
