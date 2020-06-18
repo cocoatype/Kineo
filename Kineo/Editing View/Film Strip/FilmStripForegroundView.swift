@@ -9,6 +9,7 @@ class FilmStripForegroundView: UIView {
         layer.addSublayer(darkShadowLayer)
         layer.addSublayer(lightShadowLayer)
         backgroundColor = UIColor.clear
+        isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
     }
 
@@ -69,6 +70,12 @@ class InnerShadowLayer: CAShapeLayer {
             path = outsetBoundsStrokePath.copy(strokingWithWidth: shadowRadius, lineCap: .butt, lineJoin: .miter, miterLimit: miterLimit)
             shadowPath = path
         }
+    }
+
+    // MARK: Boilerplate
+
+    override init(layer: Any) {
+        super.init(layer: layer)
     }
 
     @available(*, unavailable)

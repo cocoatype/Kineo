@@ -6,6 +6,7 @@ import UIKit
 class DrawingBackgroundView: UIView {
     init() {
         super.init(frame: .zero)
+        isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
 
         layer.addSublayer(darkShadowLayer)

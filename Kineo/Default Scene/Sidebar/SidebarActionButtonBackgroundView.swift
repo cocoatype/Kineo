@@ -6,6 +6,7 @@ import UIKit
 class SidebarActionButtonBackgroundView: UIView {
     init() {
         super.init(frame: .zero)
+        isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
 
         layer.addSublayer(darkShadowLayer)
@@ -26,8 +27,12 @@ class SidebarActionButtonBackgroundView: UIView {
         super.traitCollectionDidChange(previousTraitCollection)
 
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
+        darkShadowLayer.fillColor = UIColor.sidebarButtonBackground.cgColor
         darkShadowLayer.shadowColor = UIColor.canvasShadowDark.cgColor
+        darkShadowLayer.strokeColor = UIColor.sidebarButtonBorder.cgColor
+        lightShadowLayer.fillColor = UIColor.sidebarButtonBackground.cgColor
         lightShadowLayer.shadowColor = UIColor.canvasShadowLight.cgColor
+        lightShadowLayer.strokeColor = UIColor.sidebarButtonBorder.cgColor
     }
 
     // MARK: Shadow Layers
