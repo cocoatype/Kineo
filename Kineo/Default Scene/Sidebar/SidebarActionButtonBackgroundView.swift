@@ -28,10 +28,10 @@ class SidebarActionButtonBackgroundView: UIView {
 
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
         darkShadowLayer.fillColor = UIColor.sidebarButtonBackground.cgColor
-        darkShadowLayer.shadowColor = UIColor.canvasShadowDark.cgColor
+        darkShadowLayer.shadowColor = UIColor.sidebarButtonShadowDark.cgColor
         darkShadowLayer.strokeColor = UIColor.sidebarButtonBorder.cgColor
         lightShadowLayer.fillColor = UIColor.sidebarButtonBackground.cgColor
-        lightShadowLayer.shadowColor = UIColor.canvasShadowLight.cgColor
+        lightShadowLayer.shadowColor = UIColor.sidebarButtonShadowLight.cgColor
         lightShadowLayer.strokeColor = UIColor.sidebarButtonBorder.cgColor
     }
 

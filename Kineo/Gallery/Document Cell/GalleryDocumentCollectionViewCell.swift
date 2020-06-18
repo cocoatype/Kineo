@@ -13,12 +13,6 @@ class GalleryDocumentCollectionViewCell: UICollectionViewCell, UIPointerInteract
         isAccessibilityElement = true
         isOpaque = true
 
-        contentView.layer.shadowColor = UIColor.appShadow.cgColor
-        contentView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        contentView.layer.shadowOpacity = 1
-        contentView.layer.shadowRadius = 3
-        contentView.layer.shouldRasterize = true
-
         contentView.addSubview(canvasView)
 
         NSLayoutConstraint.activate([

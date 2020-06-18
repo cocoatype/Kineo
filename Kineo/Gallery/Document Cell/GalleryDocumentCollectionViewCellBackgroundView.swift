@@ -6,9 +6,11 @@ import UIKit
 class GalleryDocumentCollectionViewCellBackgroundView: UIView {
     init() {
         super.init(frame: .zero)
-        backgroundColor = .canvasBackground
+        backgroundColor = .clear
         translatesAutoresizingMaskIntoConstraints = false
-        layer.mask = maskLayer
+
+        layer.addSublayer(darkShadowLayer)
+        layer.addSublayer(lightShadowLayer)
 
         addSubview(previewImageView)
 
@@ -31,11 +33,50 @@ class GalleryDocumentCollectionViewCellBackgroundView: UIView {
         super.layoutSublayers(of: layer)
         maskLayer.frame = layer.bounds
         maskLayer.path = currentPath.cgPath
+
+        darkShadowLayer.frame = layer.bounds
+        darkShadowLayer.path = currentPath.cgPath
+        darkShadowLayer.shadowPath = darkShadowLayer.path
+        lightShadowLayer.frame = darkShadowLayer.frame
+        lightShadowLayer.path = darkShadowLayer.path
+        lightShadowLayer.shadowPath = darkShadowLayer.shadowPath
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
+        darkShadowLayer.shadowColor = UIColor.canvasShadowDark.cgColor
+        lightShadowLayer.shadowColor = UIColor.canvasShadowLight.cgColor
     }
 
     private var currentPath: UIBezierPath {
         return UIBezierPath(roundedRect: bounds, cornerRadius: 8.0)
     }
+
+    // MARK: Shadow Layers
+
+    private let darkShadowLayer: CAShapeLayer = {
+        let layer = CAShapeLayer()
+        layer.fillColor = UIColor.canvasBackground.cgColor
+        layer.strokeColor = UIColor.canvasBorder.cgColor
+        layer.shadowColor = UIColor.canvasShadowDark.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 6)
+        layer.shadowOpacity = 1
+        layer.shadowRadius = 8
+        return layer
+    }()
+
+    private let lightShadowLayer: CAShapeLayer = {
+        let layer = CAShapeLayer()
+        layer.fillColor = UIColor.canvasBackground.cgColor
+        layer.strokeColor = UIColor.canvasBorder.cgColor
+        layer.shadowColor = UIColor.canvasShadowLight.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: -6)
+        layer.shadowOpacity = 1
+        layer.shadowRadius = 8
+        return layer
+    }()
 
     // MARK: Boilerplate
 
