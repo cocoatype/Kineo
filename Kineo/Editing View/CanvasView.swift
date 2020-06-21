@@ -8,6 +8,7 @@ class CanvasView: PKCanvasView {
         super.init(frame: .zero)
         backgroundColor = .canvasBackground
         layer.cornerRadius = 8.0
+        overrideUserInterfaceStyle = .light
         translatesAutoresizingMaskIntoConstraints = false
     }
 

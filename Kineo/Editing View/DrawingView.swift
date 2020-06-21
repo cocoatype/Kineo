@@ -14,14 +14,9 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         accessibilityLabel = NSLocalizedString("DrawingView.accessibilityLabel", comment: "Accessibility label for the drawing view")
         accessibilityTraits = [.allowsDirectInteraction]
 
-        overrideUserInterfaceStyle = .light
         translatesAutoresizingMaskIntoConstraints = false
 
-        layer.shadowColor = UIColor.appShadow.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        layer.shadowOpacity = 1
-        layer.shadowRadius = 3
-        layer.cornerRadius = 8
+        addSubview(backgroundView)
 
         canvasView.delegate = self
         canvasView.drawing = page.drawing
@@ -30,6 +25,10 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         addSubview(skinsImageView)
 
         NSLayoutConstraint.activate([
+            backgroundView.widthAnchor.constraint(equalTo: widthAnchor),
+            backgroundView.heightAnchor.constraint(equalTo: heightAnchor),
+            backgroundView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            backgroundView.centerYAnchor.constraint(equalTo: centerYAnchor),
             canvasView.widthAnchor.constraint(equalTo: widthAnchor),
             canvasView.heightAnchor.constraint(equalTo: heightAnchor),
             canvasView.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -161,6 +160,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
 
     // MARK: Boilerplate
 
+    private let backgroundView = DrawingBackgroundView()
     private let canvasView = CanvasView()
     private var redoObserver: Any?
     private var undoObserver: Any?

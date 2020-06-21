@@ -22,12 +22,17 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
         collectionView.delegate = self
         addSubview(collectionView)
         addSubview(indicator)
+        addSubview(foregroundView)
 
         NSLayoutConstraint.activate([
             collectionView.widthAnchor.constraint(equalTo: widthAnchor),
             collectionView.heightAnchor.constraint(equalTo: heightAnchor),
             collectionView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            collectionView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            collectionView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            foregroundView.widthAnchor.constraint(equalTo: widthAnchor),
+            foregroundView.heightAnchor.constraint(equalTo: heightAnchor),
+            foregroundView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            foregroundView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
 
         installIndicatorConstraints()
@@ -142,6 +147,7 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
 
     private let collectionView = FilmStripCollectionView()
     private let dataSource: FilmStripDataSource
+    private let foregroundView = FilmStripForegroundView()
     private let indicator = FilmStripIndicator()
 
     @available(*, unavailable)
