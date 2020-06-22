@@ -39,11 +39,11 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
             skinsImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
 
-        redoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidRedoChange, object: undoManager, queue: .main, using: { [weak self] _ in
+        redoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidRedoChange, object: nil, queue: .main, using: { [weak self] _ in
             self?.handleChange()
         })
 
-        undoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidUndoChange, object: undoManager, queue: .main, using: { [weak self] notification in
+        undoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidUndoChange, object: nil, queue: .main, using: { [weak self] notification in
             self?.handleChange()
         })
 

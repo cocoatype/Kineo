@@ -11,8 +11,6 @@ class EditingViewController: UIViewController {
         self.documentEditor = DocumentEditor(document: document)
         super.init(nibName: nil, bundle: nil)
 
-        self.documentEditor.undoManager = undoManager
-
         NotificationCenter.default.addObserver(forName: Self.didUpdateDocument, object: nil, queue: .main) { [weak self] notification in
             guard let document = (notification.userInfo?[Self.updatedDocumentKey] as? Document), document.uuid == self?.documentEditor.document.uuid else { return }
             self?.documentEditor.document = document
@@ -92,6 +90,7 @@ class EditingViewController: UIViewController {
             documentEditor.navigate(toPageAt: eventIndex)
             editingView?.reloadData(includingFilmStrip: false)
         }
+        editingView?.setupToolPicker()
     }
 
     @objc func hideSkinsImage(_ sender: FilmStripView) {
@@ -117,6 +116,7 @@ class EditingViewController: UIViewController {
 
     private func updateCurrentPage() {
         editingView?.reloadData()
+        editingView?.setupToolPicker()
     }
 
     @objc func toggleToolPicker() {
@@ -125,8 +125,7 @@ class EditingViewController: UIViewController {
 
     // MARK: Undo/Redo
 
-    let editingUndoManager = UndoManager()
-    override var undoManager: UndoManager? { return editingUndoManager }
+    override var undoManager: UndoManager? { return documentEditor.undoManager }
     @objc func undoDrawing() { undoManager?.undo(); updateCurrentPage() }
     @objc func redoDrawing() { undoManager?.redo(); updateCurrentPage() }
 
