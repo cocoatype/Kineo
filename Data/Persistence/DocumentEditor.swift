@@ -7,6 +7,8 @@ public class DocumentEditor: NSObject {
     public init(document: Document) {
         self.document = document
         super.init()
+
+        undoManagers = document.pages.map { _ in UndoManager() }
     }
 
     public var currentPage: Page {
@@ -23,8 +25,7 @@ public class DocumentEditor: NSObject {
 
     private(set) public var currentIndex = 0 {
         didSet {
-            undoManager?.removeAllActions()
-            NotificationCenter.default.post(name: .NSUndoManagerDidUndoChange, object: undoManager) // hack to get the tool picker to update
+            undoManager.removeAllActions()
         }
     }
 
@@ -33,8 +34,9 @@ public class DocumentEditor: NSObject {
     // MARK: Editing
 
     public func addNewPage() {
-        let newIndex = currentIndex + 1
+        let newIndex = pageCount
         document = document.insertingBlankPage(at: newIndex)
+        undoManagers.append(UndoManager())
         currentIndex = newIndex
         documentStore.save(document)
     }
@@ -53,12 +55,12 @@ public class DocumentEditor: NSObject {
 
     // MARK: Undo/Redo
 
-    public var undoManager: UndoManager?
+    private var undoManagers = [UndoManager]()
+    public var undoManager: UndoManager {
+        return undoManagers[currentIndex]
+    }
 
     // MARK: Boilerplate
 
     private let documentStore = DocumentStore()
-    private func assertUndoManagerExists() {
-        assert(undoManager != nil, "undo manager was nil")
-    }
 }
