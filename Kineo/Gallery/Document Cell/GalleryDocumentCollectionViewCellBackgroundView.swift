@@ -58,6 +58,8 @@ class GalleryDocumentCollectionViewCellBackgroundView: UIView {
 
     private let darkShadowLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.shouldRasterize = true
         layer.fillColor = UIColor.canvasBackground.cgColor
         layer.strokeColor = UIColor.canvasBorder.cgColor
         layer.shadowColor = UIColor.canvasShadowDark.cgColor
@@ -69,6 +71,8 @@ class GalleryDocumentCollectionViewCellBackgroundView: UIView {
 
     private let lightShadowLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.shouldRasterize = true
         layer.fillColor = UIColor.canvasBackground.cgColor
         layer.strokeColor = UIColor.canvasBorder.cgColor
         layer.shadowColor = UIColor.canvasShadowLight.cgColor
