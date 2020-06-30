@@ -20,6 +20,7 @@
 		043D7618240A702400A1B7D1 /* DrawingImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D7616240A5FE400A1B7D1 /* DrawingImageGenerator.swift */; };
 		043D7619240A726700A1B7D1 /* UITraitCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2B23B2345A006FBABC /* UITraitCollectionExtensions.swift */; };
 		043D761C240A742A00A1B7D1 /* DrawingImageGenerationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D761B240A742A00A1B7D1 /* DrawingImageGenerationOperation.swift */; };
+		043F06D224AB667D005865BF /* FilmStripExistingPageBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043F06D124AB667D005865BF /* FilmStripExistingPageBackgroundView.swift */; };
 		044484D223A884A200CD0C3C /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044484D123A884A200CD0C3C /* GalleryCollectionView.swift */; };
 		044484D423A884D300CD0C3C /* EditingUserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044484D323A884D300CD0C3C /* EditingUserActivity.swift */; };
 		044484DE23AB287800CD0C3C /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044484DD23AB287800CD0C3C /* Messages.framework */; };
@@ -260,6 +261,7 @@
 		043D71482402695400A1B7D1 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		043D7616240A5FE400A1B7D1 /* DrawingImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingImageGenerator.swift; sourceTree = "<group>"; };
 		043D761B240A742A00A1B7D1 /* DrawingImageGenerationOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingImageGenerationOperation.swift; sourceTree = "<group>"; };
+		043F06D124AB667D005865BF /* FilmStripExistingPageBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripExistingPageBackgroundView.swift; sourceTree = "<group>"; };
 		044484D123A884A200CD0C3C /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
 		044484D323A884D300CD0C3C /* EditingUserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingUserActivity.swift; sourceTree = "<group>"; };
 		044484D523AB210500CD0C3C /* StickerGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerGenerator.swift; sourceTree = "<group>"; };
@@ -728,16 +730,17 @@
 		04ACCD1E23B21975006FBABC /* Film Strip */ = {
 			isa = PBXGroup;
 			children = (
-				04EC178B23D9803E00A42E08 /* Layout */,
 				04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */,
 				04ACCD2523B21BAE006FBABC /* FilmStripDataSource.swift */,
+				043F06D124AB667D005865BF /* FilmStripExistingPageBackgroundView.swift */,
 				04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */,
 				04ACCD2923B23290006FBABC /* FilmStripExistingPageImageView.swift */,
+				046C408024986D3E0069E8FB /* FilmStripForegroundView.swift */,
 				044DAFFE23B3170C00BD2A0C /* FilmStripIndicator.swift */,
 				0451660023B2441000D7B535 /* FilmStripNewPageCell.swift */,
 				0451660223B2467A00D7B535 /* FilmStripNewPageImageView.swift */,
 				04ACCD1C23B21334006FBABC /* FilmStripView.swift */,
-				046C408024986D3E0069E8FB /* FilmStripForegroundView.swift */,
+				04EC178B23D9803E00A42E08 /* Layout */,
 			);
 			path = "Film Strip";
 			sourceTree = "<group>";
@@ -1285,6 +1288,7 @@
 				04DF241123F888DA00657160 /* ExportViewController.swift in Sources */,
 				04EC178D23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift in Sources */,
 				04C0A67022DC2A2500E4E5D6 /* EditingView.swift in Sources */,
+				043F06D224AB667D005865BF /* FilmStripExistingPageBackgroundView.swift in Sources */,
 				04DF241423F888F800657160 /* FilmStripExistingPageCell.swift in Sources */,
 				04791E3323EC1F3400403BD8 /* SettingsContentProvider.swift in Sources */,
 				04791E4D23EC1F3400403BD8 /* SettingsStandardTableViewCell.swift in Sources */,

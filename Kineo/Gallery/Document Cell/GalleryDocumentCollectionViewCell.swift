@@ -38,13 +38,6 @@ class GalleryDocumentCollectionViewCell: UICollectionViewCell, UIPointerInteract
         set(newImage) { canvasView.previewImage = newImage }
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        contentView.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 8.0).cgPath
-        contentView.layer.rasterizationScale = window?.windowScene?.screen.scale ?? UIScreen.main.scale
-        contentView.layer.shouldRasterize = true
-    }
-
     // MARK: Accessibility
 
     private static let dateFormatter: DateFormatter = {

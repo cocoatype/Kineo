@@ -9,12 +9,15 @@ class FilmStripExistingPageCell: UICollectionViewCell, UIPointerInteractionDeleg
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .canvasBackground
-        layer.cornerRadius = 8
 
+        contentView.addSubview(shadowView)
         contentView.addSubview(imageView)
 
         NSLayoutConstraint.activate([
+            shadowView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            shadowView.heightAnchor.constraint(equalTo: contentView.heightAnchor),
+            shadowView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            shadowView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             imageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
             imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor),
             imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -55,6 +58,7 @@ class FilmStripExistingPageCell: UICollectionViewCell, UIPointerInteractionDeleg
 
     private static let generator = DrawingImageGenerator.shared
     private let imageView = FilmStripExistingPageImageView()
+    private let shadowView = FilmStripExistingPageBackgroundView()
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

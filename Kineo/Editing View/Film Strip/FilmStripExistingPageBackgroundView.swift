@@ -1,9 +1,9 @@
-//  Created by Geoff Pado on 11/10/19.
-//  Copyright © 2019 Cocoatype, LLC. All rights reserved.
+//  Created by Geoff Pado on 6/30/20.
+//  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
 import UIKit
 
-class GalleryDocumentCollectionViewCellBackgroundView: UIView {
+class FilmStripExistingPageBackgroundView: UIView {
     init() {
         super.init(frame: .zero)
         backgroundColor = .clear
@@ -11,28 +11,10 @@ class GalleryDocumentCollectionViewCellBackgroundView: UIView {
 
         layer.addSublayer(darkShadowLayer)
         layer.addSublayer(lightShadowLayer)
-
-        addSubview(previewImageView)
-
-        NSLayoutConstraint.activate([
-            previewImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            previewImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            previewImageView.widthAnchor.constraint(equalTo: widthAnchor),
-            previewImageView.heightAnchor.constraint(equalTo: heightAnchor)
-        ])
-    }
-
-    var previewImage: UIImage? {
-        get { return previewImageView.image }
-        set(newImage) {
-            previewImageView.image = newImage
-        }
     }
 
     override func layoutSublayers(of layer: CALayer) {
         super.layoutSublayers(of: layer)
-        maskLayer.frame = layer.bounds
-        maskLayer.path = currentPath.cgPath
 
         darkShadowLayer.frame = layer.bounds
         darkShadowLayer.path = currentPath.cgPath
@@ -63,9 +45,9 @@ class GalleryDocumentCollectionViewCellBackgroundView: UIView {
         layer.fillColor = UIColor.canvasBackground.cgColor
         layer.strokeColor = UIColor.canvasBorder.cgColor
         layer.shadowColor = UIColor.canvasShadowDark.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 6)
+        layer.shadowOffset = CGSize(width: 0, height: 1)
         layer.shadowOpacity = 1
-        layer.shadowRadius = 8
+        layer.shadowRadius = 2
         return layer
     }()
 
@@ -76,16 +58,13 @@ class GalleryDocumentCollectionViewCellBackgroundView: UIView {
         layer.fillColor = UIColor.canvasBackground.cgColor
         layer.strokeColor = UIColor.canvasBorder.cgColor
         layer.shadowColor = UIColor.canvasShadowLight.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: -6)
+        layer.shadowOffset = CGSize(width: 0, height: -1)
         layer.shadowOpacity = 1
-        layer.shadowRadius = 8
+        layer.shadowRadius = 2
         return layer
     }()
 
     // MARK: Boilerplate
-
-    private let maskLayer = CAShapeLayer()
-    private let previewImageView = GalleryDocumentPreviewImageView()
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
