@@ -99,6 +99,20 @@ public enum Defaults {
         }
     }
 
+    // MARK: Saves
+
+    private(set) public static var numberOfSaves: Int {
+        get {
+            return userDefaults.integer(forKey: Self.numberOfSavesKey)
+        } set(newNumberOfSaves) {
+            userDefaults.set(newNumberOfSaves, forKey: Self.numberOfSavesKey)
+        }
+    }
+
+    public static func incrementNumberOfSaves() {
+        numberOfSaves += 1
+    }
+
     // MARK: Keys and Values
 
     private static let exportPlaybackStyleKey = "Defaults.exportPlaybackStyle"
@@ -112,4 +126,5 @@ public enum Defaults {
     private static let serverChangeTokenDataKey = "Defaults.serverChangeTokenDataKey"
     private static let updatedDocumentIdentifiersKey = "Defaults.updatedDocumentIdentifiersKey"
     private static let seenTutorialKey = "Defaults.seenTutorialKey"
+    private static let numberOfSavesKey = "Defaults.numberOfSavesKey"
 }
