@@ -102,6 +102,7 @@
 		0485989723F282B500AFBB3A /* TwitterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989623F282B500AFBB3A /* TwitterItem.swift */; };
 		0485989923F2843000AFBB3A /* TwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989823F2843000AFBB3A /* TwitchItem.swift */; };
 		0485989B23F284AD00AFBB3A /* InstagramItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989A23F284AD00AFBB3A /* InstagramItem.swift */; };
+		048D4F4024E0C780001F86A0 /* AppRatingsPrompter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D4F3F24E0C780001F86A0 /* AppRatingsPrompter.swift */; };
 		048E376123F9F4F0005C503B /* UnstoredDocumentsQueryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E376023F9F4F0005C503B /* UnstoredDocumentsQueryOperation.swift */; };
 		049A0448240B8CDC00F5FC17 /* PresentationDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0447240B8CDC00F5FC17 /* PresentationDirector.swift */; };
 		049A044A240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0449240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift */; };
@@ -340,6 +341,7 @@
 		0485989623F282B500AFBB3A /* TwitterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterItem.swift; sourceTree = "<group>"; };
 		0485989823F2843000AFBB3A /* TwitchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchItem.swift; sourceTree = "<group>"; };
 		0485989A23F284AD00AFBB3A /* InstagramItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramItem.swift; sourceTree = "<group>"; };
+		048D4F3F24E0C780001F86A0 /* AppRatingsPrompter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRatingsPrompter.swift; sourceTree = "<group>"; };
 		048E376023F9F4F0005C503B /* UnstoredDocumentsQueryOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoredDocumentsQueryOperation.swift; sourceTree = "<group>"; };
 		049A0447240B8CDC00F5FC17 /* PresentationDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDirector.swift; sourceTree = "<group>"; };
 		049A0449240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewConstraintGenerator.swift; sourceTree = "<group>"; };
@@ -804,6 +806,7 @@
 				044DB00123B31AE800BD2A0C /* Supporting Files */,
 				049A044F240BBDE300F5FC17 /* Transitioning */,
 				04D46BD82414DEF100DBFB9A /* Tutorial */,
+				048D4F3F24E0C780001F86A0 /* AppRatingsPrompter.swift */,
 			);
 			path = Kineo;
 			sourceTree = "<group>";
@@ -1296,6 +1299,7 @@
 				049A0455240BCA5000F5FC17 /* DismissalDirector.swift in Sources */,
 				044484D423A884D300CD0C3C /* EditingUserActivity.swift in Sources */,
 				04791E3123EC1F3400403BD8 /* SettingsSection.swift in Sources */,
+				048D4F4024E0C780001F86A0 /* AppRatingsPrompter.swift in Sources */,
 				046937602427676B005894F7 /* UndoButton.swift in Sources */,
 				04D36ADA237826D40052A933 /* Fonts.swift in Sources */,
 				04791E7123EEC0B200403BD8 /* ExportSettingsNavigationController.swift in Sources */,

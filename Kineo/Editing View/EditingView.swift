@@ -98,10 +98,8 @@ class EditingView: UIView, PlaybackViewDelegate {
     }
 
     func resetToolPicker() {
-        guard let toolPicker = toolPicker else { return }
-        if toolPicker.selectedTool is PKEraserTool {
-            toolPicker.selectedTool = PKInkingTool(.pen)
-        }
+        guard let toolPicker = toolPicker, toolPicker.selectedTool is PKEraserTool else { return }
+        toolPicker.selectedTool = PKInkingTool(.pen)
     }
 
     func toggleToolPicker() {

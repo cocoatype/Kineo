@@ -11,6 +11,11 @@ class ExportViewController: UIActivityViewController {
             let videoProvider = try VideoProvider(document: document)
 
             super.init(activityItems: [promoText, videoProvider], applicationActivities: [ExportSettingsActivity()])
+            completionWithItemsHandler = { _, completed, _, _ in
+                guard completed == true else { return }
+                Defaults.incrementNumberOfSaves()
+                AppRatingsPrompter.displayRatingsPrompt()
+            }
 
             if let popoverPresentationController = self.popoverPresentationController {
                 popoverPresentationController.sourceView = sourceView
