@@ -2,7 +2,9 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 import AVFoundation
+import CoreServices
 import Data
+import LinkPresentation
 import UIKit
 
 class VideoProvider: UIActivityItemProvider {
@@ -109,6 +111,17 @@ class VideoProvider: UIActivityItemProvider {
         case unexpectedExportFailure
     }
 
+    // MARK: Metadata
+
+    override func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+        let metadata = LPLinkMetadata()
+        metadata.originalURL = WebViewController.websiteURL(withPath: "")
+        metadata.imageProvider = DocumentThumbnailProvider(document: document)
+        metadata.iconProvider = DocumentThumbnailProvider(document: document)
+        metadata.title = Self.metadataTitle
+        return metadata
+    }
+
     // MARK: Boilerplate
 
     private let document: Document
@@ -118,6 +131,7 @@ class VideoProvider: UIActivityItemProvider {
     private static let standardCanvasRect = CGRect(origin: .zero, size: standardCanvasSize)
     private static let standardCanvasSize = CGSize(width: 512, height: 512)
     private static let standardFramesPerSecond = CMTimeScale(12)
+    private static let metadataTitle = NSLocalizedString("VideoProvider.metadataTitle", comment: "Title to display when sharing a video")
 
     typealias VideoGenerationResult = Result<URL, Swift.Error>
 }

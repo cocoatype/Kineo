@@ -39,7 +39,7 @@ public class SkinGenerator: NSObject {
         }
     }
 
-    func generatePreviewImage(from document: Document, completionHandler: @escaping ((UIImage?) -> Void)) {
+    public func generatePreviewImage(from document: Document, withBackground: Bool = false, completionHandler: @escaping ((UIImage?) -> Void)) {
         let maxSkinPageIndex = min(SkinGenerator.skinPageCount, document.pages.endIndex)
         let skinPageRange = 0..<maxSkinPageIndex
         let skinPages = document.pages[skinPageRange]
@@ -56,7 +56,12 @@ public class SkinGenerator: NSObject {
             let size = CGSize(width: 512, height: 512)
             let format = UIGraphicsImageRendererFormat(for: traitCollection)
 
-            let resultImage = UIGraphicsImageRenderer(size: size, format: format).image { _ in
+            let resultImage = UIGraphicsImageRenderer(size: size, format: format).image { context in
+                if withBackground {
+                    UIColor.canvasBackground.setFill()
+                    context.cgContext.fill(CGRect(origin: .zero, size: size))
+                }
+
                 drawables.forEach { drawable in
                     let (opacity, image) = drawable
                     traitCollection.performAsCurrent {
