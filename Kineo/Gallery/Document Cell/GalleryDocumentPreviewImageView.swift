@@ -6,6 +6,8 @@ import UIKit
 class GalleryDocumentPreviewImageView: UIImageView {
     init() {
         super.init(frame: .zero)
+        layer.masksToBounds = true
+        layer.cornerRadius = 8
         translatesAutoresizingMaskIntoConstraints = false
     }
 
