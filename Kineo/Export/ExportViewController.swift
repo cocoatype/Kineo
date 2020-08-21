@@ -7,10 +7,9 @@ import UIKit
 class ExportViewController: UIActivityViewController {
     init?(document: Document, sourceView: UIView?) {
         do {
-            let promoText = Self.exportPromoText
             let videoProvider = try VideoProvider(document: document)
 
-            super.init(activityItems: [promoText, videoProvider], applicationActivities: [ExportSettingsActivity()])
+            super.init(activityItems: [videoProvider], applicationActivities: [ExportSettingsActivity()])
             completionWithItemsHandler = { _, completed, _, _ in
                 guard completed == true else { return }
                 Defaults.incrementNumberOfSaves()

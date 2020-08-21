@@ -104,6 +104,7 @@
 		0485989B23F284AD00AFBB3A /* InstagramItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989A23F284AD00AFBB3A /* InstagramItem.swift */; };
 		048D4F4024E0C780001F86A0 /* AppRatingsPrompter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D4F3F24E0C780001F86A0 /* AppRatingsPrompter.swift */; };
 		048E376123F9F4F0005C503B /* UnstoredDocumentsQueryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E376023F9F4F0005C503B /* UnstoredDocumentsQueryOperation.swift */; };
+		0491C1E024F0817300E67660 /* DocumentThumbnailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491C1DF24F0817300E67660 /* DocumentThumbnailProvider.swift */; };
 		049A0448240B8CDC00F5FC17 /* PresentationDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0447240B8CDC00F5FC17 /* PresentationDirector.swift */; };
 		049A044A240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0449240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift */; };
 		049A044C240B9AD300F5FC17 /* EditingViewCompactConstraintGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A044B240B9AD300F5FC17 /* EditingViewCompactConstraintGenerator.swift */; };
@@ -162,6 +163,7 @@
 		04D46BDA2414E01500DBFB9A /* TutorialEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D46BD92414E01500DBFB9A /* TutorialEditingViewController.swift */; };
 		04D46BDD2414E0FA00DBFB9A /* TutorialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D46BDC2414E0FA00DBFB9A /* TutorialCoordinator.swift */; };
 		04D46BDF2414EC8100DBFB9A /* TutorialIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D46BDE2414EC8100DBFB9A /* TutorialIntroViewController.swift */; };
+		04D4884324EE22F8005CCBC8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD72378205F0052A933 /* Color.swift */; };
 		04DF241123F888DA00657160 /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436CE9223E53237002BE4EF /* ExportViewController.swift */; };
 		04DF241223F888E000657160 /* FilmStripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD1C23B21334006FBABC /* FilmStripView.swift */; };
 		04DF241323F888EC00657160 /* SidebarActionButtonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043854E6238CD06F0041A4AA /* SidebarActionButtonImageView.swift */; };
@@ -343,6 +345,7 @@
 		0485989A23F284AD00AFBB3A /* InstagramItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramItem.swift; sourceTree = "<group>"; };
 		048D4F3F24E0C780001F86A0 /* AppRatingsPrompter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRatingsPrompter.swift; sourceTree = "<group>"; };
 		048E376023F9F4F0005C503B /* UnstoredDocumentsQueryOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoredDocumentsQueryOperation.swift; sourceTree = "<group>"; };
+		0491C1DF24F0817300E67660 /* DocumentThumbnailProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentThumbnailProvider.swift; sourceTree = "<group>"; };
 		049A0447240B8CDC00F5FC17 /* PresentationDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDirector.swift; sourceTree = "<group>"; };
 		049A0449240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewConstraintGenerator.swift; sourceTree = "<group>"; };
 		049A044B240B9AD300F5FC17 /* EditingViewCompactConstraintGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewCompactConstraintGenerator.swift; sourceTree = "<group>"; };
@@ -688,6 +691,7 @@
 				04791E5E23EE9CBF00403BD8 /* ExportSettingsViewController.swift */,
 				0436CE9223E53237002BE4EF /* ExportViewController.swift */,
 				04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */,
+				0491C1DF24F0817300E67660 /* DocumentThumbnailProvider.swift */,
 			);
 			path = Export;
 			sourceTree = "<group>";
@@ -1193,6 +1197,7 @@
 			files = (
 				043D7618240A702400A1B7D1 /* DrawingImageGenerator.swift in Sources */,
 				0444850523AB2ABC00CD0C3C /* DocumentSaveOperation.swift in Sources */,
+				04D4884324EE22F8005CCBC8 /* Color.swift in Sources */,
 				04DF241E23F93F0100657160 /* CloudConstants.swift in Sources */,
 				04DF242623F94AC300657160 /* ExportSettings.swift in Sources */,
 				04DF242423F947F100657160 /* ResultOperation.swift in Sources */,
@@ -1284,6 +1289,7 @@
 				04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */,
 				04D36AE123782A1A0052A933 /* GalleryNewCollectionViewCell.swift in Sources */,
 				04DF241223F888E000657160 /* FilmStripView.swift in Sources */,
+				0491C1E024F0817300E67660 /* DocumentThumbnailProvider.swift in Sources */,
 				04C0A67722DC406B00E4E5D6 /* DataExtensions.swift in Sources */,
 				04C0A64622DC208E00E4E5D6 /* AppDelegate.swift in Sources */,
 				04318A3722E2FCC3003D70C8 /* VideoGenerator.swift in Sources */,

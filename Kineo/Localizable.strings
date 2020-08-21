@@ -84,3 +84,5 @@
 "UndoButton.accessibilityLabel" = "Undo";
 
 "UseLegacyIconItem.title" = "Use Legacy App Icon";
+
+"VideoProvider.metadataTitle" = "Animation";
