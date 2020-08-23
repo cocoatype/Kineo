@@ -8,7 +8,7 @@ public class DocumentEditor: NSObject {
         self.document = document
         super.init()
 
-        undoManagers = document.pages.map { _ in UndoManager() }
+//        undoManagers = document.pages.map { _ in UndoManager() }
     }
 
     public var currentPage: Page {
@@ -23,11 +23,7 @@ public class DocumentEditor: NSObject {
         return document.pages[index]
     }
 
-    private(set) public var currentIndex = 0 {
-        didSet {
-            undoManager.removeAllActions()
-        }
-    }
+    private(set) public var currentIndex = 0
 
     public var document: Document
 
@@ -36,7 +32,7 @@ public class DocumentEditor: NSObject {
     public func addNewPage() {
         let newIndex = pageCount
         document = document.insertingBlankPage(at: newIndex)
-        undoManagers.append(UndoManager())
+//        undoManagers.append(UndoManager())
         currentIndex = newIndex
         documentStore.save(document)
     }
@@ -55,10 +51,10 @@ public class DocumentEditor: NSObject {
 
     // MARK: Undo/Redo
 
-    private var undoManagers = [UndoManager]()
-    public var undoManager: UndoManager {
-        return undoManagers[currentIndex]
-    }
+//    private var undoManagers = [UndoManager]()
+//    public var undoManager: UndoManager {
+//        return undoManagers[currentIndex]
+//    }
 
     // MARK: Boilerplate
 

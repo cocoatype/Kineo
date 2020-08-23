@@ -44,7 +44,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         })
 
         undoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidUndoChange, object: nil, queue: .main, using: { [weak self] notification in
-            self?.handleChange()
+//            self?.handleChange()
         })
 
         addScrollRecognizer()
@@ -56,10 +56,14 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
     }
 
     func display(page: Page, skinsImage: UIImage?) {
-        guard page != self.page || skinsImage != self.skinsImage else { return }
-        self.page = page
-        self.skinsImage = skinsImage
-        updateCanvas()
+        if skinsImage != self.skinsImage {
+            self.skinsImage = skinsImage
+        }
+
+        if page != self.page {
+            self.page = page
+            updateCanvas()
+        }
     }
 
     private func updateCanvas() {
@@ -75,14 +79,14 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
     }
 
     private func handleChange() {
+        toolWasUsed = false
         updatePage()
         editingViewController?.drawingViewDidChangePage(self)
-        toolWasUsed = false
     }
 
     func observe(_ toolPicker: PKToolPicker) {
         toolPicker.colorUserInterfaceStyle = .light
-        toolPicker.setVisible(true, forFirstResponder: self)
+//        toolPicker.setVisible(true, forFirstResponder: self)
         toolPicker.addObserver(canvasView)
     }
 
@@ -146,15 +150,19 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
 
     var toolWasUsed = false
     func canvasViewDidEndUsingTool(_ canvasView: PKCanvasView) {
+        guard canvasView == self.canvasView else { fatalError() }
         toolWasUsed = true
     }
 
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
-        guard toolWasUsed == true else { return }
+        guard canvasView == self.canvasView else { fatalError() }
+        let isUndoing = undoManager?.isUndoing ?? false
+        guard toolWasUsed == true || isUndoing else { return }
         handleChange()
     }
 
     func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView) {
+        guard canvasView == self.canvasView else { fatalError() }
         toolWasUsed = true
     }
 
