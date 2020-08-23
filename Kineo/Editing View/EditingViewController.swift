@@ -128,7 +128,6 @@ class EditingViewController: UIViewController {
 
     // MARK: Undo/Redo
 
-//    override var undoManager: UndoManager? { return documentEditor.undoManager }
     @objc func undoDrawing() { undoManager?.undo(); updateCurrentPage() }
     @objc func redoDrawing() { undoManager?.redo(); updateCurrentPage() }
 

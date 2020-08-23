@@ -39,14 +39,6 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
             skinsImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
 
-        redoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidRedoChange, object: nil, queue: .main, using: { [weak self] _ in
-            self?.handleChange()
-        })
-
-        undoObserver = NotificationCenter.default.addObserver(forName: .NSUndoManagerDidUndoChange, object: nil, queue: .main, using: { [weak self] notification in
-//            self?.handleChange()
-        })
-
         addScrollRecognizer()
     }
 
@@ -86,7 +78,6 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
 
     func observe(_ toolPicker: PKToolPicker) {
         toolPicker.colorUserInterfaceStyle = .light
-//        toolPicker.setVisible(true, forFirstResponder: self)
         toolPicker.addObserver(canvasView)
     }
 
@@ -150,19 +141,17 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
 
     var toolWasUsed = false
     func canvasViewDidEndUsingTool(_ canvasView: PKCanvasView) {
-        guard canvasView == self.canvasView else { fatalError() }
         toolWasUsed = true
     }
 
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
-        guard canvasView == self.canvasView else { fatalError() }
         let isUndoing = undoManager?.isUndoing ?? false
-        guard toolWasUsed == true || isUndoing else { return }
+        let isRedoing = undoManager?.isRedoing ?? false
+        guard toolWasUsed || isUndoing || isRedoing else { return }
         handleChange()
     }
 
     func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView) {
-        guard canvasView == self.canvasView else { fatalError() }
         toolWasUsed = true
     }
 
