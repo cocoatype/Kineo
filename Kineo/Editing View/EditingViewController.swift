@@ -66,6 +66,8 @@ class EditingViewController: UIViewController {
     @objc func addNewPage() {
         documentEditor.addNewPage()
         updateCurrentPage()
+        undoManager?.removeAllActions()
+        editingView?.setupToolPicker()
     }
 
     @objc func navigateToPage(_ sender: Any, for event: PageNavigationEvent) {
@@ -90,6 +92,7 @@ class EditingViewController: UIViewController {
             documentEditor.navigate(toPageAt: eventIndex)
             editingView?.reloadData(includingFilmStrip: false)
         }
+        undoManager?.removeAllActions()
         editingView?.setupToolPicker()
     }
 
@@ -125,7 +128,6 @@ class EditingViewController: UIViewController {
 
     // MARK: Undo/Redo
 
-    override var undoManager: UndoManager? { return documentEditor.undoManager }
     @objc func undoDrawing() { undoManager?.undo(); updateCurrentPage() }
     @objc func redoDrawing() { undoManager?.redo(); updateCurrentPage() }
 
