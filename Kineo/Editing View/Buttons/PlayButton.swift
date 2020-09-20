@@ -4,7 +4,7 @@
 import Data
 import UIKit
 
-class PlayButton: SidebarActionButton, UIContextMenuInteractionDelegate {
+class PlayButton: SidebarActionButton {
     init() {
         super.init(icon: Icons.play, selector: #selector(EditingViewController.play))
         accessibilityLabel = NSLocalizedString("PlayButton.accessibilityLabel", comment: "Accessibility label for the help button")
@@ -14,7 +14,7 @@ class PlayButton: SidebarActionButton, UIContextMenuInteractionDelegate {
         addInteraction(PlayButtonContextMenuFactory.interaction(button: self))
     }
 
-    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+    override func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
         guard UIAccessibility.isVoiceOverRunning == false else { return nil }
         return PlayButtonContextMenuFactory.configuration(button: self)
     }
