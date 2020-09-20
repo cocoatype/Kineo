@@ -18,7 +18,15 @@ extension EditingViewConstraintGenerator {
         return subview
     }
 
-    var drawingView: DrawingView { return firstSubview(of: DrawingView.self) }
+    private func firstLayoutGuide(with identifier: String) -> UILayoutGuide {
+        guard let guide = (editingView.layoutGuides.first(where: { $0.identifier == identifier})) else {
+            fatalError("Could not find guide with identifier \(identifier) in \(editingView)")
+        }
+
+        return guide
+    }
+
+    var drawingViewGuide: UILayoutGuide { return firstLayoutGuide(with: EditingView.drawingViewGuideIdentifier) }
     var filmStripView: FilmStripView { return firstSubview(of: FilmStripView.self) }
     var playButton: PlayButton { return firstSubview(of: PlayButton.self) }
     var galleryButton: GalleryButton { return firstSubview(of: GalleryButton.self) }
