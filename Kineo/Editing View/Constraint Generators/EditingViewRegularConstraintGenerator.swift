@@ -10,10 +10,10 @@ class EditingViewRegularConstraintGenerator: NSObject, EditingViewConstraintGene
     }
 
     lazy var constraints: [NSLayoutConstraint] = [
-        drawingView.widthAnchor.constraint(equalTo: drawingView.heightAnchor),
-        drawingView.widthAnchor.constraint(equalToConstant: 512.0),
-        drawingView.centerXAnchor.constraint(equalTo: editingView.centerXAnchor),
-        drawingView.centerYAnchor.constraint(equalTo: editingView.centerYAnchor),
+        drawingViewGuide.widthAnchor.constraint(equalTo: drawingViewGuide.heightAnchor),
+        drawingViewGuide.widthAnchor.constraint(equalToConstant: 512.0),
+        drawingViewGuide.centerXAnchor.constraint(equalTo: editingView.centerXAnchor),
+        drawingViewGuide.centerYAnchor.constraint(equalTo: editingView.centerYAnchor),
         filmStripView.topAnchor.constraint(equalTo: galleryButton.bottomAnchor, constant: 11),
         filmStripView.bottomAnchor.constraint(equalTo: playButton.topAnchor, constant: -11),
         filmStripView.widthAnchor.constraint(equalToConstant: 44),
