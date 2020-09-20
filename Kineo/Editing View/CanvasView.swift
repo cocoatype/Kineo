@@ -10,6 +10,10 @@ class CanvasView: PKCanvasView {
         layer.cornerRadius = 8.0
         overrideUserInterfaceStyle = .light
         translatesAutoresizingMaskIntoConstraints = false
+
+        if #available(iOS 14.0, *) {
+            drawingPolicy = .anyInput
+        }
     }
 
     // MARK: Boilerplate
