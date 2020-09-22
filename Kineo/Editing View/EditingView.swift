@@ -82,9 +82,16 @@ class EditingView: UIView, PlaybackViewDelegate {
 
     // MARK: Tool Picker
 
+    @available(iOS 14.0, *)
+    private lazy var _toolPicker = PKToolPicker()
+
     private var toolPicker: PKToolPicker? {
-        guard let window = window, let toolPicker = PKToolPicker.shared(for: window) else { return nil }
-        return toolPicker
+        if #available(iOS 14.0, *) {
+            return _toolPicker
+        } else {
+            guard let window = window, let toolPicker = PKToolPicker.shared(for: window) else { return nil }
+            return toolPicker
+        }
     }
 
     func setupToolPicker() {
