@@ -6,13 +6,15 @@ import PencilKit
 import UIKit
 
 class EditingView: UIView, PlaybackViewDelegate {
-    required init(dataSource: EditingViewDataSource) {
+    required init(dataSource: EditingViewDataSource, drawingViewController: DrawingViewController) {
         self.dataSource = dataSource
+        self.drawingViewController = drawingViewController
         super.init(frame: .zero)
 
         backgroundColor = .appBackground
 
-        [drawingView, filmStripView, playButton, galleryButton, exportButton, toolsButton, undoButton, redoButton].forEach(self.addSubview(_:))
+        [filmStripView, playButton, galleryButton, exportButton, toolsButton, undoButton, redoButton].forEach(self.addSubview(_:))
+        addLayoutGuide(drawingViewGuide)
 
         NSLayoutConstraint.activate(constraints(for: traitCollection.horizontalSizeClass))
 
@@ -22,8 +24,16 @@ class EditingView: UIView, PlaybackViewDelegate {
     // MARK: Layout
 
     var drawingFrame: CGRect { return drawingView.frame }
+    let drawingViewController: DrawingViewController
+    var drawingView: DrawingView { drawingViewController.drawingView }
 
-    private(set) lazy var drawingView = DrawingView(page: dataSource.currentPage)
+    static let drawingViewGuideIdentifier = "EditingView.drawingViewGuideIdentifier"
+    let drawingViewGuide: UILayoutGuide = {
+        let guide = UILayoutGuide()
+        guide.identifier = EditingView.drawingViewGuideIdentifier
+        return guide
+    }()
+
     private lazy var filmStripView = FilmStripView(dataSource: dataSource)
     private let playButton = PlayButton()
     private let galleryButton = GalleryButton()

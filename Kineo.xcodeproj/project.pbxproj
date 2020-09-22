@@ -119,6 +119,7 @@
 		04ACCD2823B2310B006FBABC /* EditingViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2723B2310B006FBABC /* EditingViewDataSource.swift */; };
 		04ACCD2A23B23290006FBABC /* FilmStripExistingPageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2923B23290006FBABC /* FilmStripExistingPageImageView.swift */; };
 		04ACCD2C23B2345A006FBABC /* UITraitCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2B23B2345A006FBABC /* UITraitCollectionExtensions.swift */; };
+		04B0FBCB25008ACF002CE851 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B0FBCA25008ACF002CE851 /* DrawingViewController.swift */; };
 		04B52D05237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B52D04237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift */; };
 		04B86C0823B64006005F65F7 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86C0723B64006005F65F7 /* UIViewExtensions.swift */; };
 		04B86C0A23BA111C005F65F7 /* SkinsImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86C0923BA111C005F65F7 /* SkinsImageView.swift */; };
@@ -361,6 +362,7 @@
 		04ACCD2723B2310B006FBABC /* EditingViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewDataSource.swift; sourceTree = "<group>"; };
 		04ACCD2923B23290006FBABC /* FilmStripExistingPageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripExistingPageImageView.swift; sourceTree = "<group>"; };
 		04ACCD2B23B2345A006FBABC /* UITraitCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITraitCollectionExtensions.swift; sourceTree = "<group>"; };
+		04B0FBCA25008ACF002CE851 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		04B52D04237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentPreviewImageView.swift; sourceTree = "<group>"; };
 		04B86C0723B64006005F65F7 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		04B86C0923BA111C005F65F7 /* SkinsImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinsImageView.swift; sourceTree = "<group>"; };
@@ -751,6 +753,15 @@
 			path = "Film Strip";
 			sourceTree = "<group>";
 		};
+		04B0FBC925008AC0002CE851 /* Drawing View */ = {
+			isa = PBXGroup;
+			children = (
+				04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */,
+				04B0FBCA25008ACF002CE851 /* DrawingViewController.swift */,
+			);
+			path = "Drawing View";
+			sourceTree = "<group>";
+		};
 		04BD924F237EAB2200C8FD09 /* New Document Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -841,7 +852,7 @@
 			isa = PBXGroup;
 			children = (
 				04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */,
-				04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */,
+				04B0FBC925008AC0002CE851 /* Drawing View */,
 				044484D323A884D300CD0C3C /* EditingUserActivity.swift */,
 				04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */,
 				04C0A66922DC224B00E4E5D6 /* EditingViewController.swift */,
@@ -1284,6 +1295,7 @@
 				04791E2523EC1F3400403BD8 /* StandardContentItem.swift in Sources */,
 				04D36ADD237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift in Sources */,
 				0436CE8F23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift in Sources */,
+				04B0FBCB25008ACF002CE851 /* DrawingViewController.swift in Sources */,
 				049A0453240BBE2200F5FC17 /* OpacityAnimation.swift in Sources */,
 				04ACCD2A23B23290006FBABC /* FilmStripExistingPageImageView.swift in Sources */,
 				04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */,

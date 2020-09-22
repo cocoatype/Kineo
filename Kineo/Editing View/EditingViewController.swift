@@ -9,7 +9,12 @@ class EditingViewController: UIViewController {
     var document: Document { return documentEditor.document }
     init(document: Document) {
         self.documentEditor = DocumentEditor(document: document)
+        self.dataSource = EditingViewDataSource(documentEditor: documentEditor)
+        self.drawingViewController = DrawingViewController(dataSource: dataSource)
+
         super.init(nibName: nil, bundle: nil)
+
+        embed(drawingViewController, layoutGuide: editingView.drawingViewGuide)
 
         NotificationCenter.default.addObserver(forName: Self.didUpdateDocument, object: nil, queue: .main) { [weak self] notification in
             guard let document = (notification.userInfo?[Self.updatedDocumentKey] as? Document), document.uuid == self?.documentEditor.document.uuid else { return }
@@ -19,14 +24,13 @@ class EditingViewController: UIViewController {
     }
 
     override func loadView() {
-        let dataSource = EditingViewDataSource(documentEditor: documentEditor)
-        view = Self.viewClass.init(dataSource: dataSource)
+        view = editingView
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        editingView?.setupToolPicker()
-        editingView?.resetToolPicker()
+        editingView.setupToolPicker()
+        editingView.resetToolPicker()
     }
 
     @objc func drawingViewDidChangePage(_ sender: DrawingView) {
@@ -56,18 +60,18 @@ class EditingViewController: UIViewController {
 
     @objc func play(_ sender: Any, for event: UIEvent) {
         guard (event.allTouches?.first?.tapCount ?? 1) == 1 else { return }
-        editingView?.play(documentEditor.document, continuously: false)
+        editingView.play(documentEditor.document, continuously: false)
     }
 
     @objc func playMultiple() {
-        editingView?.play(documentEditor.document, continuously: true)
+        editingView.play(documentEditor.document, continuously: true)
     }
 
     @objc func addNewPage() {
         documentEditor.addNewPage()
         updateCurrentPage()
         undoManager?.removeAllActions()
-        editingView?.setupToolPicker()
+        editingView.setupToolPicker()
     }
 
     @objc func navigateToPage(_ sender: Any, for event: PageNavigationEvent) {
@@ -80,7 +84,7 @@ class EditingViewController: UIViewController {
                 documentEditor.navigate(toPageAt: currentIndex + 1)
             default: break
             }
-            editingView?.reloadData(includingFilmStrip: true)
+            editingView.reloadData(includingFilmStrip: true)
         } else {
             let eventIndex: Int
             switch event.style {
@@ -90,40 +94,38 @@ class EditingViewController: UIViewController {
             }
             guard currentIndex != eventIndex else { return }
             documentEditor.navigate(toPageAt: eventIndex)
-            editingView?.reloadData(includingFilmStrip: false)
+            editingView.reloadData(includingFilmStrip: false)
         }
         undoManager?.removeAllActions()
-        editingView?.setupToolPicker()
+        editingView.setupToolPicker()
     }
 
     @objc func hideSkinsImage(_ sender: FilmStripView) {
-        editingView?.hideSkinsImage()
+        editingView.hideSkinsImage()
     }
 
     @objc func showSkinsImage(_ sender: FilmStripView) {
-        editingView?.showSkinsImage()
+        editingView.showSkinsImage()
     }
 
     @objc func updateFilmStrip(_ sender: Any) {
-        editingView?.reloadData(includingFilmStrip: true)
+        editingView.reloadData(includingFilmStrip: true)
     }
 
     @objc func exportVideo(_ sender: Any) {
-        guard let editingView = editingView, let activityController = ExportViewController(document: documentEditor.document, sourceView: editingView.exportButton) else { return }
+        guard let activityController = ExportViewController(document: documentEditor.document, sourceView: editingView.exportButton) else { return }
         present(activityController, animated: true, completion: nil)
     }
 
     // MARK: Editing View
 
-    private var editingView: EditingView? { return view as? EditingView }
-
     private func updateCurrentPage() {
-        editingView?.reloadData()
-        editingView?.setupToolPicker()
+        editingView.reloadData()
+        editingView.setupToolPicker()
     }
 
     @objc func toggleToolPicker() {
-        editingView?.toggleToolPicker()
+        editingView.toggleToolPicker()
     }
 
     // MARK: Undo/Redo
@@ -137,8 +139,11 @@ class EditingViewController: UIViewController {
     private static let documentUUIDKey = "EditingViewController.documentUUIDKey"
     private static let updatedDocumentKey = "EditingViewController.updatedDocumentKey"
 
+    private let dataSource: EditingViewDataSource
     private let documentEditor: DocumentEditor
     private var documentUpdateObserver: Any?
+    private let drawingViewController: DrawingViewController
+    private lazy var editingView: EditingView = Self.viewClass.init(dataSource: dataSource, drawingViewController: drawingViewController)
 
     class var viewClass: EditingView.Type { return EditingView.self }
 
