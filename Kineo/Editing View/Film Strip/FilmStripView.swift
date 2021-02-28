@@ -111,6 +111,13 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
         return [FilmStripPageDragItem(page: page)]
     }
 
+    func collectionView(_ collectionView: UICollectionView, dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return nil }
+        let parameters = UIDragPreviewParameters()
+        parameters.visiblePath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: 8)
+        return parameters
+    }
+
     // MARK: Drop Delegate
 
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {

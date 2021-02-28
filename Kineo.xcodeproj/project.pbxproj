@@ -11,7 +11,7 @@
 		0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */; };
 		0419751B25EB508800CB0F54 /* PageNavigationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419751A25EB508800CB0F54 /* PageNavigationEvent.swift */; };
 		0419752125EB50C300CB0F54 /* UIScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419752025EB50C300CB0F54 /* UIScrollViewExtensions.swift */; };
-		0419752625EB515C00CB0F54 /* FilmStripCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419752525EB515C00CB0F54 /* FilmStripCollectionViewDelegate.swift */; };
+		0419752625EB515C00CB0F54 /* FilmStripPageItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419752525EB515C00CB0F54 /* FilmStripPageItemProvider.swift */; };
 		042B65E324208FA9009AFBD9 /* SettingsHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B65E224208FA9009AFBD9 /* SettingsHeaderFooterView.swift */; };
 		04318A3122E18C72003D70C8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3022E18C72003D70C8 /* Icons.swift */; };
 		04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3422E2EC3C003D70C8 /* PlaybackView.swift */; };
@@ -62,6 +62,7 @@
 		0469375E2427675B005894F7 /* ToolsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375D2427675B005894F7 /* ToolsButton.swift */; };
 		046937602427676B005894F7 /* UndoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375F2427676B005894F7 /* UndoButton.swift */; };
 		046937622427677D005894F7 /* RedoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046937612427677D005894F7 /* RedoButton.swift */; };
+		046B034325EBB893005AB424 /* FilmStripPageDragItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B034225EBB893005AB424 /* FilmStripPageDragItem.swift */; };
 		046C407B2498630A0069E8FB /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */; };
 		046C407D249863220069E8FB /* DrawingBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C407C249863220069E8FB /* DrawingBackgroundView.swift */; };
 		046C407F249868270069E8FB /* SidebarActionButtonBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C407E249868270069E8FB /* SidebarActionButtonBackgroundView.swift */; };
@@ -257,7 +258,7 @@
 		0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		0419751A25EB508800CB0F54 /* PageNavigationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNavigationEvent.swift; sourceTree = "<group>"; };
 		0419752025EB50C300CB0F54 /* UIScrollViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensions.swift; sourceTree = "<group>"; };
-		0419752525EB515C00CB0F54 /* FilmStripCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		0419752525EB515C00CB0F54 /* FilmStripPageItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripPageItemProvider.swift; sourceTree = "<group>"; };
 		042B65E224208FA9009AFBD9 /* SettingsHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderFooterView.swift; sourceTree = "<group>"; };
 		04318A3022E18C72003D70C8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		04318A3222E19AB5003D70C8 /* SkinGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinGenerator.swift; sourceTree = "<group>"; };
@@ -306,6 +307,7 @@
 		0469375D2427675B005894F7 /* ToolsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsButton.swift; sourceTree = "<group>"; };
 		0469375F2427676B005894F7 /* UndoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoButton.swift; sourceTree = "<group>"; };
 		046937612427677D005894F7 /* RedoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedoButton.swift; sourceTree = "<group>"; };
+		046B034225EBB893005AB424 /* FilmStripPageDragItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripPageDragItem.swift; sourceTree = "<group>"; };
 		046C407C249863220069E8FB /* DrawingBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBackgroundView.swift; sourceTree = "<group>"; };
 		046C407E249868270069E8FB /* SidebarActionButtonBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionButtonBackgroundView.swift; sourceTree = "<group>"; };
 		046C408024986D3E0069E8FB /* FilmStripForegroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripForegroundView.swift; sourceTree = "<group>"; };
@@ -763,8 +765,9 @@
 				044DAFFE23B3170C00BD2A0C /* FilmStripIndicator.swift */,
 				0451660023B2441000D7B535 /* FilmStripNewPageCell.swift */,
 				0451660223B2467A00D7B535 /* FilmStripNewPageImageView.swift */,
+				046B034225EBB893005AB424 /* FilmStripPageDragItem.swift */,
+				0419752525EB515C00CB0F54 /* FilmStripPageItemProvider.swift */,
 				04ACCD1C23B21334006FBABC /* FilmStripView.swift */,
-				0419752525EB515C00CB0F54 /* FilmStripCollectionViewDelegate.swift */,
 				04EC178B23D9803E00A42E08 /* Layout */,
 			);
 			path = "Film Strip";
@@ -1285,6 +1288,7 @@
 				0469375A24276724005894F7 /* ExportButton.swift in Sources */,
 				04791E6123EE9D7400403BD8 /* ExportSettingsActivity.swift in Sources */,
 				04791E2823EC1F3400403BD8 /* OtherAppsSection.swift in Sources */,
+				046B034325EBB893005AB424 /* FilmStripPageDragItem.swift in Sources */,
 				04791E4923EC1F3400403BD8 /* ReleaseNotesViewController.swift in Sources */,
 				04791E2D23EC1F3400403BD8 /* AcknowledgementsItem.swift in Sources */,
 				04791E5323EC1F3400403BD8 /* AppEntry.swift in Sources */,
@@ -1345,7 +1349,7 @@
 				04BD925A237FFCA400C8FD09 /* ContainerView.swift in Sources */,
 				04DF241323F888EC00657160 /* SidebarActionButtonImageView.swift in Sources */,
 				04791E2723EC1F3400403BD8 /* OtherAppItem.swift in Sources */,
-				0419752625EB515C00CB0F54 /* FilmStripCollectionViewDelegate.swift in Sources */,
+				0419752625EB515C00CB0F54 /* FilmStripPageItemProvider.swift in Sources */,
 				0436CE9123E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift in Sources */,
 				049A045B240D0C9800F5FC17 /* HelpButton.swift in Sources */,
 				04791E6923EEAB2000403BD8 /* ExportSettingsDataSource.swift in Sources */,
