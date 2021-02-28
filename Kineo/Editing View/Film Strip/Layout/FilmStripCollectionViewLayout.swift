@@ -57,7 +57,10 @@ class FilmStripCollectionViewLayout: UICollectionViewCompositionalLayout {
         @unknown default: return 0
         }
 
-        return Int(round(relevantDistance / spacePerItem))
+        let proposedIndex = Int(round(relevantDistance / spacePerItem))
+        let itemsCount = collectionView?.numberOfItems(inSection: 0) ?? 0
+
+        return max(min(proposedIndex, itemsCount), 0)
     }
 
     // MARK: Boilerplate

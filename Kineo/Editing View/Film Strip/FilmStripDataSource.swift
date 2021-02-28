@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 12/24/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import Data
 import UIKit
 
 class FilmStripDataSource: NSObject, UICollectionViewDataSource {
@@ -12,6 +13,14 @@ class FilmStripDataSource: NSObject, UICollectionViewDataSource {
 
     func isNewPage(_ indexPath: IndexPath) -> Bool {
         return indexPath.item == dataSource.pageCount
+    }
+
+    func page(at indexPath: IndexPath) -> Page {
+        return dataSource.page(at: indexPath.item)
+    }
+
+    func movePage(at sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        dataSource.movePage(at: sourceIndexPath.item, to: destinationIndexPath.item)
     }
 
     // MARK: UICollectionViewDataSource

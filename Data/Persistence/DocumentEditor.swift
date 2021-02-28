@@ -39,6 +39,22 @@ public class DocumentEditor: NSObject {
         documentStore.save(document)
     }
 
+    public func movePage(at sourceIndex: Int, to destinationIndex: Int) {
+        document = document.movingPage(at: sourceIndex, to: destinationIndex)
+        documentStore.save(document)
+    }
+
+    public func duplicate(_ page: Page) {
+        document = document.duplicating(page)
+        documentStore.save(document)
+    }
+
+    public func delete(_ page: Page) {
+        document = document.deleting(page)
+        currentIndex = min(currentIndex, document.pages.count - 1)
+        documentStore.save(document)
+    }
+
     // MARK: Navigation
 
     public func navigate(toPageAt index: Int) {

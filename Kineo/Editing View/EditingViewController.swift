@@ -74,6 +74,22 @@ class EditingViewController: UIViewController {
         editingView.setupToolPicker()
     }
 
+    @objc func deletePage(_ sender: UICommand) {
+        guard let data = sender.propertyList as? Data, let page = try? JSONDecoder().decode(Page.self, from: data) else { return }
+        documentEditor.delete(page)
+        updateCurrentPage()
+        undoManager?.removeAllActions()
+        editingView.setupToolPicker()
+    }
+
+    @objc func duplicatePage(_ sender: UICommand) {
+        guard let data = sender.propertyList as? Data, let page = try? JSONDecoder().decode(Page.self, from: data) else { return }
+        documentEditor.duplicate(page)
+        updateCurrentPage()
+        undoManager?.removeAllActions()
+        editingView.setupToolPicker()
+    }
+
     @objc func navigateToPage(_ sender: Any, for event: PageNavigationEvent) {
         let currentIndex = documentEditor.currentIndex
         if let keyCommand = (sender as? UIKeyCommand) {

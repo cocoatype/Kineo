@@ -4,7 +4,7 @@
 import Data
 import UIKit
 
-class FilmStripExistingPageCell: UICollectionViewCell, UIPointerInteractionDelegate {
+class FilmStripExistingPageCell: UICollectionViewCell, UIPointerInteractionDelegate, UIContextMenuInteractionDelegate {
     static let identifier = "FilmStripExistingPageCell.identifier"
 
     override init(frame: CGRect) {
@@ -25,13 +25,15 @@ class FilmStripExistingPageCell: UICollectionViewCell, UIPointerInteractionDeleg
         ])
 
         addPointerInteraction()
+        addContextMenuInteraction()
     }
 
     var page: Page? {
-        didSet {
+        didSet(oldPage) {
+            guard page != oldPage else { return }
             guard let page = page else { imageView.image = nil; return }
             Self.generator.generateThumbnail(for: page.drawing) { [weak self] image, drawing in
-                guard drawing == self?.page?.drawing else { return }
+                guard self?.page == page else { return }
                 DispatchQueue.main.async {
                     self?.imageView.image = image
                 }
@@ -52,6 +54,24 @@ class FilmStripExistingPageCell: UICollectionViewCell, UIPointerInteractionDeleg
         let targetedPreview = UITargetedPreview(view: self)
         let pointerStyle = UIPointerStyle(effect: .lift(targetedPreview))
         return pointerStyle
+    }
+
+    // MARK: Context Menu Iteraction
+
+    private func addContextMenuInteraction() {
+        let interaction = UIContextMenuInteraction(delegate: self)
+        addInteraction(interaction)
+    }
+
+    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        guard let page = page, let pageData = try? JSONEncoder().encode(page) else { return nil }
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            let menu = UIMenu(children: [
+                UICommand(title: "Duplicate", image: UIImage(systemName: "plus.square.on.square"), action: #selector(EditingViewController.duplicatePage(_:)), propertyList: pageData),
+                UICommand(title: "Delete", image: UIImage(systemName: "trash"), action: #selector(EditingViewController.deletePage(_:)), propertyList: pageData, attributes: .destructive)
+            ])
+            return menu
+        }
     }
 
     // MARK: Boilerplate
