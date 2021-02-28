@@ -24,6 +24,10 @@ class EditingViewDataSource: NSObject {
         return document.pages[index]
     }
 
+    func movePage(at sourceIndex: Int, to destinationIndex: Int) {
+        documentEditor.movePage(at: sourceIndex, to: destinationIndex)
+    }
+
     // MARK: Boilerplate
 
     private let documentEditor: DocumentEditor

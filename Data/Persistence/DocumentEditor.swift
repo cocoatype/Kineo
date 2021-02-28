@@ -39,6 +39,11 @@ public class DocumentEditor: NSObject {
         documentStore.save(document)
     }
 
+    public func movePage(at sourceIndex: Int, to destinationIndex: Int) {
+        document = document.movingPage(at: sourceIndex, to: destinationIndex)
+        documentStore.save(document)
+    }
+
     // MARK: Navigation
 
     public func navigate(toPageAt index: Int) {

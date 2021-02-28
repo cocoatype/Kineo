@@ -25,6 +25,11 @@ public struct Document: Codable, Equatable {
         return Document(pages: newPages, uuid: self.uuid)
     }
 
+    func movingPage(at sourceIndex: Int, to destinationIndex: Int) -> Document {
+        let newPages = pages.moving(from: sourceIndex, to: destinationIndex)
+        return Document(pages: newPages, uuid: self.uuid)
+    }
+
     public let pages: [Page]
     public let uuid: UUID
 
@@ -32,5 +37,21 @@ public struct Document: Codable, Equatable {
 
     public static func == (lhs: Document, rhs: Document) -> Bool {
         return lhs.uuid == rhs.uuid
+    }
+}
+
+extension Array {
+    func moving(from oldIndex: Index, to newIndex: Index) -> Self {
+        var newArray = self
+        // Don't work for free and use swap when indices are next to each other - this
+        // won't rebuild array and will be super efficient.
+        if oldIndex == newIndex { return self }
+        if abs(newIndex - oldIndex) == 1 {
+            newArray.swapAt(oldIndex, newIndex)
+        } else {
+            newArray.insert(newArray.remove(at: oldIndex), at: newIndex)
+        }
+
+        return newArray
     }
 }

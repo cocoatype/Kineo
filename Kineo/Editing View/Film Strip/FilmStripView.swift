@@ -3,7 +3,7 @@
 
 import UIKit
 
-class FilmStripView: UIControl, UICollectionViewDelegate {
+class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDelegate, UICollectionViewDropDelegate {
     init(dataSource: EditingViewDataSource) {
         self.dataSource = FilmStripDataSource(dataSource: dataSource)
         super.init(frame: .zero)
@@ -20,6 +20,9 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
 
         collectionView.dataSource = self.dataSource
         collectionView.delegate = self
+        collectionView.dragDelegate = self
+        collectionView.dropDelegate = self
+
         addSubview(collectionView)
         addSubview(indicator)
         addSubview(foregroundView)
@@ -57,6 +60,7 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
     func reloadData() {
         collectionView.reloadData()
         collectionView.scrollToItem(at: IndexPath(item: dataSource.currentPageIndex, section: 0), at: .top, animated: true)
+        accessibilityValue = accessibilityValueForCurrentIndex()
     }
 
     private func installIndicatorConstraints() {
@@ -98,6 +102,29 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         sendAction(#selector(EditingViewController.showSkinsImage(_:)), to: nil, for: nil)
+    }
+
+    // MARK: Drag Delegate
+
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        let page = dataSource.page(at: indexPath)
+        return [FilmStripPageDragItem(page: page)]
+    }
+
+    // MARK: Drop Delegate
+
+    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+        guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
+        coordinator.items.forEach { [weak self] item in
+            guard let sourceIndexPath = item.sourceIndexPath else { return }
+            self?.dataSource.movePage(at: sourceIndexPath, to: destinationIndexPath)
+            collectionView.moveItem(at: sourceIndexPath, to: destinationIndexPath)
+            coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
+        return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
     }
 
     // MARK: Accessibility
@@ -147,6 +174,7 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
 
     private let collectionView = FilmStripCollectionView()
     private let dataSource: FilmStripDataSource
+//    private let delegate: FilmStripCollectionViewDelegate
     private let foregroundView = FilmStripForegroundView()
     private let indicator = FilmStripIndicator()
 
@@ -154,27 +182,5 @@ class FilmStripView: UIControl, UICollectionViewDelegate {
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
-    }
-}
-
-class PageNavigationEvent: UIEvent {
-    enum Style {
-        case direct(pageIndex: Int)
-        case increment, decrement
-    }
-
-    let style: Style
-    convenience init(pageIndex: Int) {
-        self.init(style: .direct(pageIndex: pageIndex))
-    }
-
-    init(style: Style) {
-        self.style = style
-    }
-}
-
-private extension UIScrollView {
-    var isScrollUserInitiated: Bool {
-        return isTracking || isDragging || isDecelerating
     }
 }

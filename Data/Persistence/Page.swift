@@ -5,13 +5,14 @@ import Foundation
 import PencilKit
 
 public struct Page: Codable, Equatable {
-    public init(drawing: PKDrawing? = nil) {
+    public init(drawing: PKDrawing? = nil, uuid: UUID = UUID()) {
         self.drawing = drawing ?? PKDrawing()
+        self.uuid = uuid
     }
 
     public let drawing: PKDrawing
     var hasDrawing: Bool { return drawing.bounds.size != .zero }
-    private let uuid = UUID()
+    private let uuid: UUID
 
     public static func == (lhs: Page, rhs: Page) -> Bool {
         return lhs.uuid == rhs.uuid

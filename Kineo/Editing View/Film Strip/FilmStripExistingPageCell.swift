@@ -28,10 +28,11 @@ class FilmStripExistingPageCell: UICollectionViewCell, UIPointerInteractionDeleg
     }
 
     var page: Page? {
-        didSet {
+        didSet(oldPage) {
+            guard page != oldPage else { return }
             guard let page = page else { imageView.image = nil; return }
             Self.generator.generateThumbnail(for: page.drawing) { [weak self] image, drawing in
-                guard drawing == self?.page?.drawing else { return }
+                guard self?.page == page else { return }
                 DispatchQueue.main.async {
                     self?.imageView.image = image
                 }
