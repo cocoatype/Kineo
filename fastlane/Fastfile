@@ -8,27 +8,7 @@ platform :ios do
 
   desc "Submit a new beta build to Apple TestFlight"
   lane :beta do
-    # Download signing credentials
-    get_certificates
-    get_provisioning_profile(
-      app_identifier: "com.flipbookapp.flickbook",
-      filename: "app.mobileprovision",
-      platform: "ios")
-    get_provisioning_profile(
-      app_identifier: "com.flipbookapp.flickbook.Stickers",
-      filename: "stickers.mobileprovision",
-      platform: "ios")
-
-    # Update the Xcode project with the correct signing credentials
-    disable_automatic_code_signing
-    update_project_provisioning(
-      build_configuration: "Release",
-      target_filter: "Kineo",
-      profile: "./app.mobileprovision")
-    update_project_provisioning(
-      build_configuration: "Release",
-      target_filter: "Stickers",
-      profile: "./stickers.mobileprovision")
+    sync_code_signing(readonly: true)
 
     # Set the build number to the number of Git commits
     build_number = sh "git log --oneline | wc -l"
@@ -41,6 +21,7 @@ platform :ios do
 
     # Just upload the build to TestFlight, no other changes
     upload_to_testflight(
+      api_key_path: ENV["APPLE_API_KEY_JSON"],
       app_platform: "ios",
       skip_submission: true,
       skip_waiting_for_build_processing: true)

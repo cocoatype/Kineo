@@ -1,0 +1,12 @@
+git_url("git@git.pado.name:pado/certificates.git")
+
+storage_mode("git")
+
+type("appstore") # The default type, can be: appstore, adhoc, enterprise or development
+
+app_identifier([
+  "com.flipbookapp.flickbook",
+  "com.flipbookapp.flickbook.Stickers"
+])
+
+username("buddybuild@cocoatype.com")
