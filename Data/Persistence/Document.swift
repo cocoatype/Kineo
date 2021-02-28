@@ -30,6 +30,21 @@ public struct Document: Codable, Equatable {
         return Document(pages: newPages, uuid: self.uuid)
     }
 
+    func duplicating(_ page: Page) -> Document {
+        guard let index = pages.firstIndex(of: page) else { return self }
+        let duplicatePage = Page(drawing: page.drawing)
+        var newPages = pages
+        newPages.insert(duplicatePage, at: pages.index(after: index))
+        return Document(pages: newPages, uuid: self.uuid)
+    }
+
+    func deleting(_ page: Page) -> Document {
+        guard let index = pages.firstIndex(of: page) else { return self }
+        var newPages = pages
+        newPages.remove(at: index)
+        return Document(pages: newPages, uuid: self.uuid)
+    }
+
     public let pages: [Page]
     public let uuid: UUID
 
