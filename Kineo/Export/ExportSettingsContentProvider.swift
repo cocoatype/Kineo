@@ -17,7 +17,7 @@ struct ExportSettingsContentProvider {
     }
 
     private var sections: [ExportSettingsContentSection] {
-        return [ExportSettingsStyleContentSection(), ExportSettingsDurationContentSection()]
+        return [ExportSettingsStyleContentSection(), ExportSettingsDurationContentSection(), ExportSettingsShapeContentSection()]
     }
 
     // MARK: Boilerplate

@@ -32,7 +32,7 @@ struct ExportSettingsStyleContentItem: ExportSettingsContentItem {
     }
 
     func updateExportSettings() {
-        let newExportSettings = ExportSettings(playbackStyle: playbackStyle, duration: Defaults.exportSettings.duration)
+        let newExportSettings = ExportSettings(playbackStyle: playbackStyle, duration: Defaults.exportSettings.duration, shape: Defaults.exportSettings.shape)
         Defaults.exportSettings = newExportSettings
     }
 

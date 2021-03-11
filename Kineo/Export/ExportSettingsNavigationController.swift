@@ -1,12 +1,13 @@
 //  Created by Geoff Pado on 2/8/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import Data
 import UIKit
 
 class ExportSettingsNavigationController: UINavigationController {
-    init() {
+    init(document: Document) {
         super.init(navigationBarClass: nil, toolbarClass: nil)
-        setViewControllers([ExportSettingsViewController()], animated: false)
+        setViewControllers([ExportSettingsViewController(document: document)], animated: false)
         navigationBar.standardAppearance = NavigationBarAppearance()
     }
 
@@ -39,6 +40,8 @@ class NavigationBarAppearance: UINavigationBarAppearance {
         backgroundColor = .appBackground
         shadowColor = .clear
         titleTextAttributes[.font] = UIFont.navigationBarTitleFont
+        buttonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.controlTint
+        buttonAppearance.normal.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
         doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.controlTint
         doneButtonAppearance.normal.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
         doneButtonAppearance.highlighted.titleTextAttributes[.font] = UIFont.navigationBarButtonFont

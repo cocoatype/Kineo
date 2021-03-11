@@ -7,24 +7,10 @@ import Data
 import LinkPresentation
 import UIKit
 
-enum VideoShape {
-    case square, squarePlain, portrait, landscape
-
-    var size: CGSize {
-        switch self {
-        case .square, .squarePlain: return Self.standardCanvasSize
-        case .portrait: return CGSize(width: 720, height: 1280)
-        case .landscape: return CGSize(width: 1280, height: 720)
-        }
-    }
-
-    private static let standardCanvasSize = CGSize(width: 512, height: 512)
-}
-
 class VideoProvider: UIActivityItemProvider {
-    init(document: Document, shape: VideoShape = .portrait) throws {
+    init(document: Document) throws {
         self.document = DocumentTransformer.transformedDocument(from: document, using: Defaults.exportSettings)
-        self.shape = shape
+        self.shape = Defaults.exportSettings.shape
 
         // generate the export URL
         let fileName = UUID().uuidString
@@ -179,7 +165,7 @@ class VideoProvider: UIActivityItemProvider {
 
     private let document: Document
     private let exportURL: URL
-    private let shape: VideoShape
+    private let shape: ExportShape
     private let videoWriter: AVAssetWriter
 
     private static let standardCanvasRect = CGRect(origin: .zero, size: CGSize(width: 512, height: 512))

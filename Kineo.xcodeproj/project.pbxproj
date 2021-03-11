@@ -94,7 +94,6 @@
 		04791E5323EC1F3400403BD8 /* AppEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E1E23EC1F3400403BD8 /* AppEntry.swift */; };
 		04791E5923EC1F3400403BD8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E2423EC1F3400403BD8 /* SettingsViewController.swift */; };
 		04791E5F23EE9CBF00403BD8 /* ExportSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E5E23EE9CBF00403BD8 /* ExportSettingsViewController.swift */; };
-		04791E6123EE9D7400403BD8 /* ExportSettingsActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6023EE9D7400403BD8 /* ExportSettingsActivity.swift */; };
 		04791E6323EEA09300403BD8 /* ExportSettingsContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6223EEA09300403BD8 /* ExportSettingsContentProvider.swift */; };
 		04791E6523EEA71D00403BD8 /* ExportSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6423EEA71D00403BD8 /* ExportSettingsView.swift */; };
 		04791E6723EEA97100403BD8 /* ExportSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6623EEA97100403BD8 /* ExportSettingsTableViewCell.swift */; };
@@ -339,7 +338,6 @@
 		04791E2423EC1F3400403BD8 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		04791E5C23EE9CA400403BD8 /* ExportSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettings.swift; sourceTree = "<group>"; };
 		04791E5E23EE9CBF00403BD8 /* ExportSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsViewController.swift; sourceTree = "<group>"; };
-		04791E6023EE9D7400403BD8 /* ExportSettingsActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsActivity.swift; sourceTree = "<group>"; };
 		04791E6223EEA09300403BD8 /* ExportSettingsContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsContentProvider.swift; sourceTree = "<group>"; };
 		04791E6423EEA71D00403BD8 /* ExportSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsView.swift; sourceTree = "<group>"; };
 		04791E6623EEA97100403BD8 /* ExportSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -700,7 +698,6 @@
 		04791E5B23EE9C8100403BD8 /* Export */ = {
 			isa = PBXGroup;
 			children = (
-				04791E6023EE9D7400403BD8 /* ExportSettingsActivity.swift */,
 				04791E6223EEA09300403BD8 /* ExportSettingsContentProvider.swift */,
 				04791E6823EEAB2000403BD8 /* ExportSettingsDataSource.swift */,
 				04791E6E23EEBC9200403BD8 /* ExportSettingsDurationContentSection.swift */,
@@ -1286,7 +1283,6 @@
 				04791E6B23EEAB6C00403BD8 /* ExportSettingsStyleContentSection.swift in Sources */,
 				04791E5F23EE9CBF00403BD8 /* ExportSettingsViewController.swift in Sources */,
 				0469375A24276724005894F7 /* ExportButton.swift in Sources */,
-				04791E6123EE9D7400403BD8 /* ExportSettingsActivity.swift in Sources */,
 				04791E2823EC1F3400403BD8 /* OtherAppsSection.swift in Sources */,
 				046B034325EBB893005AB424 /* FilmStripPageDragItem.swift in Sources */,
 				04791E4923EC1F3400403BD8 /* ReleaseNotesViewController.swift in Sources */,
