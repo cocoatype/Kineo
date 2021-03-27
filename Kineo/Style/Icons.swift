@@ -30,15 +30,35 @@ enum Icons {
         static let export = contextMenuImage(systemName: "square.and.arrow.up")
         static let window = contextMenuImage(systemName: "square.split.2x1")
 
-        static let loop = contextMenuImage(systemName: "arrow.2.circlepath")
-        static let bounce = contextMenuImage(systemName: "arrow.right.arrow.left")
+        static let loop = contextMenuImage(systemName: Names.loop)
+        static let bounce = contextMenuImage(systemName: Names.bounce)
+    }
+
+    enum Export {
+        private static func exportPickerImage(systemName: String) -> UIImage? {
+            return UIImage(systemName: systemName, withConfiguration: UIImage.SymbolConfiguration.exportPickerIconConfiguration)
+        }
+
+        static let square = exportPickerImage(systemName: "square")
+        static let squarePlain = exportPickerImage(systemName: "square")
+        static let landscape = exportPickerImage(systemName: "rectangle")
+        static let portrait = exportPickerImage(systemName: "rectangle.portrait")
+
+        static let loop = exportPickerImage(systemName: Names.loop)
+        static let bounce = exportPickerImage(systemName: Names.bounce)
+    }
+
+    private enum Names {
+        static let loop = "arrow.2.circlepath"
+        static let bounce = "arrow.right.arrow.left"
     }
 
     private static var activityIconSize = CGFloat(24)
 }
 
-extension UIImage.SymbolConfiguration {
+private extension UIImage.SymbolConfiguration {
     static let sidebarIconConfiguration = UIImage.SymbolConfiguration(scale: .large).applying(UIImage.SymbolConfiguration(weight: .medium))
 
     static let contextMenuIconConfiguration = UIImage.SymbolConfiguration(scale: .default)
+    static let exportPickerIconConfiguration = UIImage.SymbolConfiguration(pointSize: 24)
 }

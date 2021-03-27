@@ -108,6 +108,7 @@
 		048D4F4024E0C780001F86A0 /* AppRatingsPrompter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D4F3F24E0C780001F86A0 /* AppRatingsPrompter.swift */; };
 		048E376123F9F4F0005C503B /* UnstoredDocumentsQueryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E376023F9F4F0005C503B /* UnstoredDocumentsQueryOperation.swift */; };
 		0491C1E024F0817300E67660 /* DocumentThumbnailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491C1DF24F0817300E67660 /* DocumentThumbnailProvider.swift */; };
+		04975D02260C309600AA2771 /* ExportEditingPickerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04975D01260C309600AA2771 /* ExportEditingPickerControl.swift */; };
 		049A0448240B8CDC00F5FC17 /* PresentationDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0447240B8CDC00F5FC17 /* PresentationDirector.swift */; };
 		049A044A240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0449240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift */; };
 		049A044C240B9AD300F5FC17 /* EditingViewCompactConstraintGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A044B240B9AD300F5FC17 /* EditingViewCompactConstraintGenerator.swift */; };
@@ -183,6 +184,9 @@
 		04DF242623F94AC300657160 /* ExportSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E5C23EE9CA400403BD8 /* ExportSettings.swift */; };
 		04DF242823F94D6F00657160 /* RemoteDocumentsFetchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF242723F94D6F00657160 /* RemoteDocumentsFetchOperation.swift */; };
 		04DF242A23F94D8B00657160 /* UnstoredDocumentsSaveOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF242923F94D8B00657160 /* UnstoredDocumentsSaveOperation.swift */; };
+		04E3B62A25FC647F00D2A945 /* ExportEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E3B62925FC647F00D2A945 /* ExportEditingViewController.swift */; };
+		04E3B63325FC64B100D2A945 /* ExportEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E3B63225FC64B100D2A945 /* ExportEditingView.swift */; };
+		04E3B63E25FC675B00D2A945 /* ExportEditingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E3B63D25FC675B00D2A945 /* ExportEditingNavigationController.swift */; };
 		04EC178D23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC178C23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift */; };
 		04EC178F23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC178E23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift */; };
 		04EC179123D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC179023D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift */; };
@@ -353,6 +357,7 @@
 		048D4F3F24E0C780001F86A0 /* AppRatingsPrompter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRatingsPrompter.swift; sourceTree = "<group>"; };
 		048E376023F9F4F0005C503B /* UnstoredDocumentsQueryOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoredDocumentsQueryOperation.swift; sourceTree = "<group>"; };
 		0491C1DF24F0817300E67660 /* DocumentThumbnailProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentThumbnailProvider.swift; sourceTree = "<group>"; };
+		04975D01260C309600AA2771 /* ExportEditingPickerControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingPickerControl.swift; sourceTree = "<group>"; };
 		049A0447240B8CDC00F5FC17 /* PresentationDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDirector.swift; sourceTree = "<group>"; };
 		049A0449240B9A9C00F5FC17 /* EditingViewConstraintGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewConstraintGenerator.swift; sourceTree = "<group>"; };
 		049A044B240B9AD300F5FC17 /* EditingViewCompactConstraintGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewCompactConstraintGenerator.swift; sourceTree = "<group>"; };
@@ -434,6 +439,9 @@
 		04DF242323F947F100657160 /* ResultOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultOperation.swift; sourceTree = "<group>"; };
 		04DF242723F94D6F00657160 /* RemoteDocumentsFetchOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDocumentsFetchOperation.swift; sourceTree = "<group>"; };
 		04DF242923F94D8B00657160 /* UnstoredDocumentsSaveOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnstoredDocumentsSaveOperation.swift; sourceTree = "<group>"; };
+		04E3B62925FC647F00D2A945 /* ExportEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingViewController.swift; sourceTree = "<group>"; };
+		04E3B63225FC64B100D2A945 /* ExportEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingView.swift; sourceTree = "<group>"; };
+		04E3B63D25FC675B00D2A945 /* ExportEditingNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingNavigationController.swift; sourceTree = "<group>"; };
 		04EC178C23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionViewLayout.swift; sourceTree = "<group>"; };
 		04EC178E23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutSection.swift; sourceTree = "<group>"; };
 		04EC179023D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutGroup.swift; sourceTree = "<group>"; };
@@ -709,6 +717,7 @@
 				0436CE9223E53237002BE4EF /* ExportViewController.swift */,
 				04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */,
 				0491C1DF24F0817300E67660 /* DocumentThumbnailProvider.swift */,
+				04E3B62E25FC648300D2A945 /* Export Editing */,
 			);
 			path = Export;
 			sourceTree = "<group>";
@@ -994,6 +1003,17 @@
 			path = Cloud;
 			sourceTree = "<group>";
 		};
+		04E3B62E25FC648300D2A945 /* Export Editing */ = {
+			isa = PBXGroup;
+			children = (
+				04E3B62925FC647F00D2A945 /* ExportEditingViewController.swift */,
+				04E3B63225FC64B100D2A945 /* ExportEditingView.swift */,
+				04E3B63D25FC675B00D2A945 /* ExportEditingNavigationController.swift */,
+				04975D01260C309600AA2771 /* ExportEditingPickerControl.swift */,
+			);
+			path = "Export Editing";
+			sourceTree = "<group>";
+		};
 		04EC178B23D9803E00A42E08 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
@@ -1254,6 +1274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04791E4523EC1F3400403BD8 /* ContactMailViewController.swift in Sources */,
+				04E3B62A25FC647F00D2A945 /* ExportEditingViewController.swift in Sources */,
 				046C407F249868270069E8FB /* SidebarActionButtonBackgroundView.swift in Sources */,
 				046937622427677D005894F7 /* RedoButton.swift in Sources */,
 				0469375C24276735005894F7 /* PlayButton.swift in Sources */,
@@ -1288,6 +1309,7 @@
 				04791E4923EC1F3400403BD8 /* ReleaseNotesViewController.swift in Sources */,
 				04791E2D23EC1F3400403BD8 /* AcknowledgementsItem.swift in Sources */,
 				04791E5323EC1F3400403BD8 /* AppEntry.swift in Sources */,
+				04E3B63E25FC675B00D2A945 /* ExportEditingNavigationController.swift in Sources */,
 				046C407B2498630A0069E8FB /* DrawingView.swift in Sources */,
 				04791E4F23EC1F3400403BD8 /* SettingsTableViewCellLabel.swift in Sources */,
 				0485989B23F284AD00AFBB3A /* InstagramItem.swift in Sources */,
@@ -1313,6 +1335,7 @@
 				04791E2523EC1F3400403BD8 /* StandardContentItem.swift in Sources */,
 				04D36ADD237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift in Sources */,
 				0436CE8F23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift in Sources */,
+				04E3B63325FC64B100D2A945 /* ExportEditingView.swift in Sources */,
 				04B0FBCB25008ACF002CE851 /* DrawingViewController.swift in Sources */,
 				049A0453240BBE2200F5FC17 /* OpacityAnimation.swift in Sources */,
 				04ACCD2A23B23290006FBABC /* FilmStripExistingPageImageView.swift in Sources */,
@@ -1366,6 +1389,7 @@
 				049A0448240B8CDC00F5FC17 /* PresentationDirector.swift in Sources */,
 				04C0A66A22DC224B00E4E5D6 /* EditingViewController.swift in Sources */,
 				04516F752418E0DB0096F852 /* TutorialIntroBodyLabel.swift in Sources */,
+				04975D02260C309600AA2771 /* ExportEditingPickerControl.swift in Sources */,
 				04318A3122E18C72003D70C8 /* Icons.swift in Sources */,
 				044DAFFF23B3170C00BD2A0C /* FilmStripIndicator.swift in Sources */,
 				04791E2623EC1F3400403BD8 /* SettingsContentItem.swift in Sources */,

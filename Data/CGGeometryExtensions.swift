@@ -11,6 +11,15 @@ public extension CGRect {
     static func / (lhs: CGRect, rhs: CGSize) -> CGFloat {
         return lhs.width / rhs.width
     }
+
+    var center: CGPoint {
+        CGPoint(x: midX, y: midY)
+    }
+
+    init(center: CGPoint, size: CGSize) {
+        let origin = center.applying(CGAffineTransform(translationX: -size.width/2, y: -size.height/2))
+        self.init(origin: origin, size: size)
+    }
 }
 
 public extension CGSize {

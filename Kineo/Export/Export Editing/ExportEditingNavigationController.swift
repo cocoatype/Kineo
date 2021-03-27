@@ -1,21 +1,19 @@
-//  Created by Geoff Pado on 2/8/20.
-//  Copyright © 2020 Cocoatype, LLC. All rights reserved.
+//  Created by Geoff Pado on 3/12/21.
+//  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
 import Data
 import UIKit
 
-class ExportSettingsNavigationController: UINavigationController {
+class ExportEditingNavigationController: UINavigationController {
     init(document: Document) {
-        super.init(navigationBarClass: nil, toolbarClass: nil)
-        setViewControllers([ExportSettingsViewController(document: document)], animated: false)
-        navigationBar.standardAppearance = ExportSettingsNavigationBarAppearance()
+        super.init(rootViewController: ExportEditingViewController(document: document))
+        modalPresentationStyle = .fullScreen
+        modalTransitionStyle = .crossDissolve
+
+        navigationBar.standardAppearance = ExportEditingNavigationBarAppearance()
     }
 
     // MARK: Boilerplate
-
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nil, bundle: nil)
-    }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
@@ -24,7 +22,7 @@ class ExportSettingsNavigationController: UINavigationController {
     }
 }
 
-class ExportSettingsNavigationBarAppearance: UINavigationBarAppearance {
+class ExportEditingNavigationBarAppearance: UINavigationBarAppearance {
     init() {
         super.init(idiom: UIDevice.current.userInterfaceIdiom)
         setup()
@@ -37,12 +35,12 @@ class ExportSettingsNavigationBarAppearance: UINavigationBarAppearance {
 
     private func setup() {
         configureWithOpaqueBackground()
-        backgroundColor = .appBackground
+        backgroundColor = .black
         shadowColor = .clear
         titleTextAttributes[.font] = UIFont.navigationBarTitleFont
-        buttonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.controlTint
+        buttonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.white
         buttonAppearance.normal.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
-        doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.controlTint
+        doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.white
         doneButtonAppearance.normal.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
         doneButtonAppearance.highlighted.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
     }

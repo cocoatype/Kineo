@@ -129,8 +129,8 @@ class EditingViewController: UIViewController {
     }
 
     @objc func exportVideo(_ sender: Any) {
-        let settingsViewController = ExportSettingsNavigationController(document: document)
-        present(settingsViewController, animated: true)
+        let editingViewController = ExportEditingNavigationController(document: document)
+        present(editingViewController, animated: true)
     }
 
     // MARK: Editing View

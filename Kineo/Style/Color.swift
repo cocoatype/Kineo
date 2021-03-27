@@ -38,4 +38,6 @@ extension UIColor {
     static let tutorialIntroText = UIColor.named("Tutorial Intro Text")
 
     static let controlTint = UIColor.named("Web Control Tint")
+
+    static let darkSystemBackgroundSecondary = UIColor.secondarySystemBackground.resolvedColor(with: UITraitCollection(userInterfaceStyle: .dark))
 }
