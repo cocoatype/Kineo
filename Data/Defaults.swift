@@ -63,7 +63,7 @@ public enum Defaults {
         }
     }
 
-    private static var exportShape: ExportShape {
+    public static var exportShape: ExportShape {
         get {
             switch userDefaults.string(forKey: exportShapeKey) {
             case Self.exportShapeSquare?: return .square

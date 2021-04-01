@@ -30,6 +30,13 @@ public enum ExportShape: CaseIterable {
         case .landscape: return CGSize(width: 1280, height: 720)
         }
     }
+
+    public var isPlain: Bool {
+        switch self {
+        case .squarePlain: return true
+        case .square, .portrait, .landscape: return false
+        }
+    }
 }
 
 public struct ExportSettings {

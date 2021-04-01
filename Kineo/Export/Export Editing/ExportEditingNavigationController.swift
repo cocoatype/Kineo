@@ -40,9 +40,9 @@ class ExportEditingNavigationBarAppearance: UINavigationBarAppearance {
         titleTextAttributes[.font] = UIFont.navigationBarTitleFont
         buttonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.white
         buttonAppearance.normal.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
-        doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.white
-        doneButtonAppearance.normal.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
-        doneButtonAppearance.highlighted.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
+        doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.exportAccent
+        doneButtonAppearance.normal.titleTextAttributes[.font] = UIFont.navigationBarDoneButtonFont
+        doneButtonAppearance.highlighted.titleTextAttributes[.font] = UIFont.navigationBarDoneButtonFont
     }
 
     @available(*, unavailable)

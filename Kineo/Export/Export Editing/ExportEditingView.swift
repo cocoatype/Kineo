@@ -6,7 +6,9 @@ import UIKit
 
 class ExportEditingView: UIView {
     init(document: Document) {
-        self.previewView = ExportEditingPreviewView(document: document)
+        let previewView = ExportEditingPreviewView(document: document)
+        self.aspectConstraint = previewView.widthAnchor.constraint(equalTo: previewView.heightAnchor, multiplier: Self.aspectRatio(for: Defaults.exportShape))
+        self.previewView = previewView
         super.init(frame: .zero)
 
         backgroundColor = .black
@@ -21,12 +23,42 @@ class ExportEditingView: UIView {
             previewView.centerYAnchor.constraint(equalTo: centerYAnchor),
             previewView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: 140),
             previewView.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: 140),
-            previewView.widthAnchor.constraint(equalTo: previewView.heightAnchor, multiplier: 16/9),
+            aspectConstraint
         ])
     }
 
     func replay() {
         previewView.replay()
+    }
+
+    // MARK: Preview Layout
+
+    func relayout() {
+        aspectConstraint = aspectRatioConstraint(for: Defaults.exportShape)
+        UIView.animate(withDuration: 0.5) { [unowned self] in
+            self.previewView.updateCanvas()
+            self.layoutIfNeeded()
+        }
+    }
+
+    private static func aspectRatio(for exportShape: ExportShape) -> CGFloat {
+        switch exportShape {
+        case .landscape: return 16 / 9
+        case .portrait: return 9 / 16
+        case .square, .squarePlain: return 1
+        }
+    }
+
+    private func aspectRatioConstraint(for exportShape: ExportShape) -> NSLayoutConstraint {
+        let multiplier = Self.aspectRatio(for: exportShape)
+        return previewView.widthAnchor.constraint(equalTo: previewView.heightAnchor, multiplier: multiplier)
+    }
+
+    private var aspectConstraint: NSLayoutConstraint {
+        didSet {
+            oldValue.isActive = false
+            aspectConstraint.isActive = true
+        }
     }
 
     // MARK: Boilerplate
@@ -45,6 +77,7 @@ class ExportEditingPickerStackView: UIStackView {
     init() {
         super.init(frame: .zero)
 
+        shapePicker.addTarget(nil, action: #selector(ExportEditingViewController.updateExportShape), for: .valueChanged)
         playbackStylePicker.addTarget(nil, action: #selector(ExportEditingViewController.updatePlaybackStyle), for: .valueChanged)
 
         addArrangedSubview(shapePicker)
@@ -68,7 +101,8 @@ class ExportEditingPickerStackView: UIStackView {
 
 class ExportEditingShapePicker: ExportEditingPickerControl {
     init() {
-        super.init(images: Self.images)
+        let selectedIndex = Self.shapes.firstIndex(of: Defaults.exportShape) ?? 0
+        super.init(images: Self.images, selectedIndex: selectedIndex)
     }
 
     var selectedShape: ExportShape { Self.shapes[selectedIndex] }
@@ -92,7 +126,8 @@ class ExportEditingShapePicker: ExportEditingPickerControl {
 
 class ExportEditingPlaybackStylePicker: ExportEditingPickerControl {
     init() {
-        super.init(images: Self.images)
+        let selectedIndex = Self.styles.firstIndex(of: Defaults.exportPlaybackStyle) ?? 0
+        super.init(images: Self.images, selectedIndex: selectedIndex)
     }
 
     var selectedStyle: PlaybackStyle { Self.styles[selectedIndex] }
@@ -114,12 +149,12 @@ class ExportEditingPreviewView: UIView {
     init(document: Document) {
         self.document = document
         self.playbackView = PlaybackView(document: document)
+        self.edgeLengthConstraint = playbackView.heightAnchor.constraint(equalToConstant: 720)
         super.init(frame: .zero)
 
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .appBackground
 
-        layer.cornerRadius = 8
+        updateCanvas()
 
         addSubview(playbackView)
 
@@ -129,19 +164,44 @@ class ExportEditingPreviewView: UIView {
             playbackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             playbackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             playbackView.widthAnchor.constraint(equalTo: playbackView.heightAnchor),
-            playbackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 512 / 720)
+            edgeLengthConstraint
         ])
+
+        edgeLengthConstraint.constant = playbackViewEdgeLength
+    }
+
+    func updateCanvas() {
+        backgroundColor = Defaults.exportShape.isPlain ? .clear : .appBackground
+        layer.cornerRadius = Defaults.exportShape.isPlain ? 0 : 8
+        playbackView.backgroundColor = Defaults.exportShape.isPlain ? .canvasBackground : .clear
     }
 
     func replay() {
         playbackView.document = document
     }
 
-    override var intrinsicContentSize: CGSize { return CGSize(width: 1280, height: 720) }
+    // MARK: Layout
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let newEdgeLength = playbackViewEdgeLength
+        guard edgeLengthConstraint.constant != newEdgeLength else { return }
+        edgeLengthConstraint.constant = newEdgeLength
+        layoutIfNeeded()
+    }
+
+    private var playbackViewEdgeLength: CGFloat {
+        Self.sizeMultiplier * min(bounds.width, bounds.height)
+    }
+
+    override var intrinsicContentSize: CGSize { return CGSize(width: 720, height: 720) }
 
     // MARK: Boilerplate
 
+    private static let sizeMultiplier = CGFloat(512.0/720.0)
+
     private let document: Document
+    private let edgeLengthConstraint: NSLayoutConstraint
     private let playbackView: PlaybackView
 
     @available(*, unavailable)

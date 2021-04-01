@@ -10,6 +10,7 @@ class ExportEditingViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissSelf))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: Self.shareTitle, style: .done, target: self, action: #selector(exportVideo(_:)))
     }
 
     override func loadView() {
@@ -22,12 +23,24 @@ class ExportEditingViewController: UIViewController {
 
     // MARK: Actions
 
+    @objc func updateExportShape(_ sender: ExportEditingShapePicker) {
+        Defaults.exportShape = sender.selectedShape
+        editingView.relayout()
+    }
+
     @objc func updatePlaybackStyle(_ sender: ExportEditingPlaybackStylePicker) {
         Defaults.exportPlaybackStyle = sender.selectedStyle
         editingView.replay()
     }
 
+    @objc func exportVideo(_ sender: UIBarButtonItem) {
+        guard let exportViewController = ExportViewController(document: document, barButtonItem: sender) else { return }
+        present(exportViewController, animated: true)
+    }
+
     // MARK: Boilerplate
+
+    private static let shareTitle = NSLocalizedString("ExportEditingViewController.shareTitle", comment: "Share button title for export editing")
 
     private let document: Document
     private lazy var editingView = ExportEditingView(document: document)

@@ -4,15 +4,16 @@
 import UIKit
 
 class ExportEditingPickerControl: UIControl {
-    var selectedIndex: Int = 0 {
+    var selectedIndex: Int {
         didSet {
             guard selectedIndex != oldValue else { return }
             sendActions(for: .valueChanged)
         }
     }
 
-    init(images: [UIImage?]) {
+    init(images: [UIImage?], selectedIndex: Int) {
         self.images = images
+        self.selectedIndex = selectedIndex
         super.init(frame: .zero)
 
         backgroundColor = .darkSystemBackgroundSecondary
