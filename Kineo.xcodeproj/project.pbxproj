@@ -10,6 +10,15 @@
 		04084927261569B700D2AA15 /* ExportSettingsShapeContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04084926261569B700D2AA15 /* ExportSettingsShapeContentSection.swift */; };
 		0408492C261569E100D2AA15 /* ExportSettingsBackgroundContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408492B261569E100D2AA15 /* ExportSettingsBackgroundContentSection.swift */; };
 		04084931261578FC00D2AA15 /* NSLayoutConstraintExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04084930261578FC00D2AA15 /* NSLayoutConstraintExtensions.swift */; };
+		040849362618045200D2AA15 /* ExportEditingPickerStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040849352618045200D2AA15 /* ExportEditingPickerStackView.swift */; };
+		0408493B2618047100D2AA15 /* ExportEditingShapePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408493A2618047100D2AA15 /* ExportEditingShapePicker.swift */; };
+		040849402618049A00D2AA15 /* ExportEditingPlaybackStylePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408493F2618049A00D2AA15 /* ExportEditingPlaybackStylePicker.swift */; };
+		04084945261804CF00D2AA15 /* ExportEditingPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04084944261804CF00D2AA15 /* ExportEditingPreviewView.swift */; };
+		0408494A2618052600D2AA15 /* ExportEditingCancelBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040849492618052600D2AA15 /* ExportEditingCancelBarButtonItem.swift */; };
+		0408494F2618053E00D2AA15 /* ExportEditingShareBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408494E2618053E00D2AA15 /* ExportEditingShareBarButtonItem.swift */; };
+		040849542618055200D2AA15 /* ExportEditingSettingsBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040849532618055200D2AA15 /* ExportEditingSettingsBarButtonItem.swift */; };
+		04084959261805B100D2AA15 /* IconsImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04084958261805B100D2AA15 /* IconsImageGenerator.swift */; };
+		0408495E261805CF00D2AA15 /* IconsImagePositioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408495D261805CF00D2AA15 /* IconsImagePositioning.swift */; };
 		0417F09E22E46F410063AD66 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F09D22E46F410063AD66 /* UIImageExtensions.swift */; };
 		0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */; };
 		0419751B25EB508800CB0F54 /* PageNavigationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419751A25EB508800CB0F54 /* PageNavigationEvent.swift */; };
@@ -263,6 +272,15 @@
 		04084926261569B700D2AA15 /* ExportSettingsShapeContentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsShapeContentSection.swift; sourceTree = "<group>"; };
 		0408492B261569E100D2AA15 /* ExportSettingsBackgroundContentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsBackgroundContentSection.swift; sourceTree = "<group>"; };
 		04084930261578FC00D2AA15 /* NSLayoutConstraintExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintExtensions.swift; sourceTree = "<group>"; };
+		040849352618045200D2AA15 /* ExportEditingPickerStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingPickerStackView.swift; sourceTree = "<group>"; };
+		0408493A2618047100D2AA15 /* ExportEditingShapePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingShapePicker.swift; sourceTree = "<group>"; };
+		0408493F2618049A00D2AA15 /* ExportEditingPlaybackStylePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingPlaybackStylePicker.swift; sourceTree = "<group>"; };
+		04084944261804CF00D2AA15 /* ExportEditingPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingPreviewView.swift; sourceTree = "<group>"; };
+		040849492618052600D2AA15 /* ExportEditingCancelBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingCancelBarButtonItem.swift; sourceTree = "<group>"; };
+		0408494E2618053E00D2AA15 /* ExportEditingShareBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingShareBarButtonItem.swift; sourceTree = "<group>"; };
+		040849532618055200D2AA15 /* ExportEditingSettingsBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingSettingsBarButtonItem.swift; sourceTree = "<group>"; };
+		04084958261805B100D2AA15 /* IconsImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsImageGenerator.swift; sourceTree = "<group>"; };
+		0408495D261805CF00D2AA15 /* IconsImagePositioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsImagePositioning.swift; sourceTree = "<group>"; };
 		0417F09D22E46F410063AD66 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		0419751A25EB508800CB0F54 /* PageNavigationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNavigationEvent.swift; sourceTree = "<group>"; };
@@ -1023,10 +1041,19 @@
 		04E3B62E25FC648300D2A945 /* Export Editing */ = {
 			isa = PBXGroup;
 			children = (
-				04E3B62925FC647F00D2A945 /* ExportEditingViewController.swift */,
-				04E3B63225FC64B100D2A945 /* ExportEditingView.swift */,
+				040849492618052600D2AA15 /* ExportEditingCancelBarButtonItem.swift */,
 				04E3B63D25FC675B00D2A945 /* ExportEditingNavigationController.swift */,
 				04975D01260C309600AA2771 /* ExportEditingPickerControl.swift */,
+				0408495D261805CF00D2AA15 /* IconsImagePositioning.swift */,
+				04084958261805B100D2AA15 /* IconsImageGenerator.swift */,
+				040849352618045200D2AA15 /* ExportEditingPickerStackView.swift */,
+				0408493F2618049A00D2AA15 /* ExportEditingPlaybackStylePicker.swift */,
+				04084944261804CF00D2AA15 /* ExportEditingPreviewView.swift */,
+				040849532618055200D2AA15 /* ExportEditingSettingsBarButtonItem.swift */,
+				0408493A2618047100D2AA15 /* ExportEditingShapePicker.swift */,
+				0408494E2618053E00D2AA15 /* ExportEditingShareBarButtonItem.swift */,
+				04E3B63225FC64B100D2A945 /* ExportEditingView.swift */,
+				04E3B62925FC647F00D2A945 /* ExportEditingViewController.swift */,
 			);
 			path = "Export Editing";
 			sourceTree = "<group>";
@@ -1298,6 +1325,7 @@
 				04C0A66822DC221700E4E5D6 /* UIViewControllerExtensions.swift in Sources */,
 				0419752125EB50C300CB0F54 /* UIScrollViewExtensions.swift in Sources */,
 				04791E6723EEA97100403BD8 /* ExportSettingsTableViewCell.swift in Sources */,
+				040849542618055200D2AA15 /* ExportEditingSettingsBarButtonItem.swift in Sources */,
 				04791E6323EEA09300403BD8 /* ExportSettingsContentProvider.swift in Sources */,
 				04791E3F23EC1F3400403BD8 /* ContactWebViewController.swift in Sources */,
 				04791E4723EC1F3400403BD8 /* AcknowledgementsViewController.swift in Sources */,
@@ -1313,6 +1341,7 @@
 				04D46BD7241251C300DBFB9A /* IconSection.swift in Sources */,
 				04BD9256237FFC4300C8FD09 /* SceneView.swift in Sources */,
 				04ACCD2823B2310B006FBABC /* EditingViewDataSource.swift in Sources */,
+				0408495E261805CF00D2AA15 /* IconsImagePositioning.swift in Sources */,
 				04EC179323D991A700A42E08 /* FilmStripCollectionLayoutItem.swift in Sources */,
 				0408492C261569E100D2AA15 /* ExportSettingsBackgroundContentSection.swift in Sources */,
 				04084927261569B700D2AA15 /* ExportSettingsShapeContentSection.swift in Sources */,
@@ -1323,6 +1352,7 @@
 				04791E6B23EEAB6C00403BD8 /* ExportSettingsStyleContentSection.swift in Sources */,
 				04791E5F23EE9CBF00403BD8 /* ExportSettingsViewController.swift in Sources */,
 				0469375A24276724005894F7 /* ExportButton.swift in Sources */,
+				040849402618049A00D2AA15 /* ExportEditingPlaybackStylePicker.swift in Sources */,
 				04791E2823EC1F3400403BD8 /* OtherAppsSection.swift in Sources */,
 				046B034325EBB893005AB424 /* FilmStripPageDragItem.swift in Sources */,
 				04791E4923EC1F3400403BD8 /* ReleaseNotesViewController.swift in Sources */,
@@ -1348,6 +1378,7 @@
 				0445AA612373C7B700EB2A7B /* GalleryViewLayout.swift in Sources */,
 				049A044C240B9AD300F5FC17 /* EditingViewCompactConstraintGenerator.swift in Sources */,
 				04EC179123D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift in Sources */,
+				0408494F2618053E00D2AA15 /* ExportEditingShareBarButtonItem.swift in Sources */,
 				04516F712418E09F0096F852 /* TutorialIntroView.swift in Sources */,
 				04791E2E23EC1F3400403BD8 /* AboutSection.swift in Sources */,
 				0485989723F282B500AFBB3A /* TwitterItem.swift in Sources */,
@@ -1358,6 +1389,7 @@
 				04B0FBCB25008ACF002CE851 /* DrawingViewController.swift in Sources */,
 				049A0453240BBE2200F5FC17 /* OpacityAnimation.swift in Sources */,
 				04ACCD2A23B23290006FBABC /* FilmStripExistingPageImageView.swift in Sources */,
+				0408494A2618052600D2AA15 /* ExportEditingCancelBarButtonItem.swift in Sources */,
 				04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */,
 				04D36AE123782A1A0052A933 /* GalleryNewCollectionViewCell.swift in Sources */,
 				04DF241223F888E000657160 /* FilmStripView.swift in Sources */,
@@ -1396,6 +1428,7 @@
 				04791E3523EC1F3400403BD8 /* SettingsNavigationController.swift in Sources */,
 				04516F7B2418E1320096F852 /* TutorialIntroButtonsStackView.swift in Sources */,
 				04DF241723F88B1F00657160 /* DocumentTransformer.swift in Sources */,
+				04084945261804CF00D2AA15 /* ExportEditingPreviewView.swift in Sources */,
 				04D36AD82378205F0052A933 /* Color.swift in Sources */,
 				0445AA632373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift in Sources */,
 				04B52D05237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift in Sources */,
@@ -1404,6 +1437,7 @@
 				04ACCD2023B21985006FBABC /* FilmStripCollectionView.swift in Sources */,
 				0445AA5F2373C7A000EB2A7B /* GalleryViewDataSource.swift in Sources */,
 				04EC179523D991C500A42E08 /* FilmStripCollectionLayoutSize.swift in Sources */,
+				040849362618045200D2AA15 /* ExportEditingPickerStackView.swift in Sources */,
 				0469375E2427675B005894F7 /* ToolsButton.swift in Sources */,
 				04B86C0823B64006005F65F7 /* UIViewExtensions.swift in Sources */,
 				049A0448240B8CDC00F5FC17 /* PresentationDirector.swift in Sources */,
@@ -1417,6 +1451,7 @@
 				0451660323B2467A00D7B535 /* FilmStripNewPageImageView.swift in Sources */,
 				0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */,
 				04791E2C23EC1F3400403BD8 /* PrivacyItem.swift in Sources */,
+				0408493B2618047100D2AA15 /* ExportEditingShapePicker.swift in Sources */,
 				044484D223A884A200CD0C3C /* GalleryCollectionView.swift in Sources */,
 				049A0451240BBDFC00F5FC17 /* FrameAnimation.swift in Sources */,
 				046C408124986D3E0069E8FB /* FilmStripForegroundView.swift in Sources */,
@@ -1424,6 +1459,7 @@
 				04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */,
 				04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */,
 				04516F792418E11B0096F852 /* TutorialIntroStartButton.swift in Sources */,
+				04084959261805B100D2AA15 /* IconsImageGenerator.swift in Sources */,
 				04791E5923EC1F3400403BD8 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

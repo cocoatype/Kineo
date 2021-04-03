@@ -67,23 +67,3 @@ class ExportEditingViewController: UIViewController, ExportSettingsViewControlle
         fatalError("\(typeName) does not implement init(coder:)")
     }
 }
-
-class ExportEditingCancelBarButtonItem: UIBarButtonItem {
-    convenience init(target: Any?) {
-        self.init(barButtonSystemItem: .cancel, target: target, action: #selector(ExportEditingViewController.dismissSelf))
-    }
-}
-
-class ExportEditingShareBarButtonItem: UIBarButtonItem {
-    convenience init(target: Any?) {
-        self.init(title: Self.shareTitle, style: .done, target: target, action: #selector(ExportEditingViewController.exportVideo(_:)))
-    }
-
-    private static let shareTitle = NSLocalizedString("ExportEditingViewController.shareTitle", comment: "Share button title for export editing")
-}
-
-class ExportEditingSettingsBarButtonItem: UIBarButtonItem {
-    convenience init(target: Any?) {
-        self.init(image: UIImage(systemName: "ellipsis.circle.fill"), style: .plain, target: target, action: #selector(ExportEditingViewController.displaySettings(_:)))
-    }
-}
