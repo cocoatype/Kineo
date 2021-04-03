@@ -5,12 +5,15 @@ import Data
 import UIKit
 
 class ExportSettingsViewController: UIViewController, UITableViewDelegate {
+    weak var delegate: ExportSettingsViewControllerDelegate?
+
     init(document: Document) {
         self.document = document
         super.init(nibName: nil, bundle: nil)
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(ExportSettingsViewController.dismissSelf))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: Self.exportButtonTitle, style: .done, target: self, action: #selector(displayShareSheet(_:)))
         navigationItem.title = Self.navigationTitle
+        modalPresentationStyle = .popover
     }
 
     override func loadView() {
@@ -36,6 +39,7 @@ class ExportSettingsViewController: UIViewController, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let reloadIndexPaths = contentProvider.checkedIndexPaths(inSection: indexPath.section) + indexPath
         contentProvider.item(at: indexPath).updateExportSettings()
+        delegate?.exportSettingsDidChange()
         tableView.reloadRows(at: reloadIndexPaths, with: .automatic)
     }
 
@@ -69,4 +73,8 @@ extension Array {
         newArray.append(rhs)
         return newArray
     }
+}
+
+protocol ExportSettingsViewControllerDelegate: class {
+    func exportSettingsDidChange()
 }

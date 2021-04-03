@@ -18,6 +18,12 @@
 
 "ExportSettingsActivity.activityTitle" = "Share Settings";
 
+"ExportSettingsBackgroundContentSection.header" = "Video Background";
+
+"ExportSettingsBackgroundContentItem.unspecified.title" = "Use System Setting (%@)";
+"ExportSettingsBackgroundContentItem.light.title" = "Light";
+"ExportSettingsBackgroundContentItem.dark.title" = "Dark";
+
 "ExportSettingsDurationContentSection.header" = "Minimum Length";
 "ExportSettingsDurationContentSection.footer" = "Some social networks require a minimum video length to post. Kineo will play your entire animation enough times to meet the minimum length you choose.";
 

@@ -25,6 +25,8 @@ class ExportEditingPickerControl: UIControl {
         layer.addSublayer(backgroundLayer)
         layer.addSublayer(foregroundLayer)
         foregroundLayer.mask = maskLayer
+
+        setContentCompressionResistancePriority(.required, for: .vertical)
     }
 
     override func layoutSublayers(of layer: CALayer) {

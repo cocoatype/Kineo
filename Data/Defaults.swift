@@ -3,6 +3,7 @@
 
 import CloudKit
 import Foundation
+import UIKit
 
 public enum Defaults {
     public static func initialize() {
@@ -84,6 +85,26 @@ public enum Defaults {
         }
     }
 
+    public static var exportBackgroundStyle: UIUserInterfaceStyle {
+        get {
+            switch userDefaults.string(forKey: exportBackgroundKey) {
+            case Self.exportBackgroundUnspecified?: return .unspecified
+            case Self.exportBackgroundLight: return .light
+            case Self.exportBackgroundDark?: return .dark
+            default: return .unspecified
+            }
+        } set (newStyle) {
+            let value: String
+            switch newStyle {
+            case .unspecified: value = exportBackgroundUnspecified
+            case .light: value = exportBackgroundLight
+            case .dark: value = exportBackgroundDark
+            @unknown default: value = exportBackgroundUnspecified
+            }
+            userDefaults.set(value, forKey: exportBackgroundKey)
+        }
+    }
+
     // MARK: Cloud
 
     static private(set) var updatedDocumentIdentifiers: [UUID] {
@@ -150,6 +171,10 @@ public enum Defaults {
     private static let exportShapeSquarePlain = "Defaults.exportShapeSquarePlain"
     private static let exportShapePortrait = "Defaults.exportShapePortrait"
     private static let exportShapeLandscape = "Defaults.exportShapeLandscape"
+    private static let exportBackgroundKey = "Defaults.exportBackground"
+    private static let exportBackgroundUnspecified = "Defaults.exportBackgroundUnspecified"
+    private static let exportBackgroundLight = "Defaults.exportBackgroundLight"
+    private static let exportBackgroundDark = "Defaults.exportBackgroundDark"
     private static let serverChangeTokenDataKey = "Defaults.serverChangeTokenDataKey"
     private static let updatedDocumentIdentifiersKey = "Defaults.updatedDocumentIdentifiersKey"
     private static let seenTutorialKey = "Defaults.seenTutorialKey"

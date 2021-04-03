@@ -4,20 +4,23 @@
 import Data
 import UIKit
 
-class ExportEditingViewController: UIViewController {
+class ExportEditingViewController: UIViewController, ExportSettingsViewControllerDelegate {
     init(document: Document) {
         self.document = document
         super.init(nibName: nil, bundle: nil)
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissSelf))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: Self.shareTitle, style: .done, target: self, action: #selector(exportVideo(_:)))
+        navigationItem.leftBarButtonItem = ExportEditingCancelBarButtonItem(target: self)
+        navigationItem.rightBarButtonItems = [
+            ExportEditingShareBarButtonItem(target: self),
+            ExportEditingSettingsBarButtonItem(target: self)
+        ]
     }
 
     override func loadView() {
         view = editingView
     }
 
-    @objc private func dismissSelf() {
+    @objc func dismissSelf() {
         dismiss(animated: true)
     }
 
@@ -38,6 +41,19 @@ class ExportEditingViewController: UIViewController {
         present(exportViewController, animated: true)
     }
 
+    @objc func displaySettings(_ sender: UIBarButtonItem) {
+        let settingsViewController = ExportSettingsViewController(document: document)
+        settingsViewController.delegate = self
+        settingsViewController.popoverPresentationController?.barButtonItem = sender
+        present(settingsViewController, animated: true)
+    }
+
+    // MARK: Settings Delegate
+
+    func exportSettingsDidChange() {
+        editingView.updateInterfaceStyle()
+    }
+
     // MARK: Boilerplate
 
     private static let shareTitle = NSLocalizedString("ExportEditingViewController.shareTitle", comment: "Share button title for export editing")
@@ -49,5 +65,25 @@ class ExportEditingViewController: UIViewController {
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
+    }
+}
+
+class ExportEditingCancelBarButtonItem: UIBarButtonItem {
+    convenience init(target: Any?) {
+        self.init(barButtonSystemItem: .cancel, target: target, action: #selector(ExportEditingViewController.dismissSelf))
+    }
+}
+
+class ExportEditingShareBarButtonItem: UIBarButtonItem {
+    convenience init(target: Any?) {
+        self.init(title: Self.shareTitle, style: .done, target: target, action: #selector(ExportEditingViewController.exportVideo(_:)))
+    }
+
+    private static let shareTitle = NSLocalizedString("ExportEditingViewController.shareTitle", comment: "Share button title for export editing")
+}
+
+class ExportEditingSettingsBarButtonItem: UIBarButtonItem {
+    convenience init(target: Any?) {
+        self.init(image: UIImage(systemName: "ellipsis.circle.fill"), style: .plain, target: target, action: #selector(ExportEditingViewController.displaySettings(_:)))
     }
 }

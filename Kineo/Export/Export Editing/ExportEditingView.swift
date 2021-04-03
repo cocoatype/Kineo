@@ -18,13 +18,27 @@ class ExportEditingView: UIView {
 
         NSLayoutConstraint.activate([
             pickerView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            pickerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -57),
+            pickerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -57).withPriority(.defaultHigh),
+            safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: pickerView.bottomAnchor, multiplier: 1),
             previewView.centerXAnchor.constraint(equalTo: centerXAnchor),
             previewView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            previewView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: 140),
-            previewView.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: 140),
+            previewView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: 140).withPriority(.defaultHigh),
+            previewView.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: 140).withPriority(.defaultHigh),
+            previewView.widthAnchor.constraint(greaterThanOrEqualToConstant: 280).withPriority(.defaultHigh),
+            previewView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: 20),
+            previewView.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: 20),
+            pickerView.topAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: previewView.bottomAnchor, multiplier: 1),
             aspectConstraint
         ])
+
+        previewView.overrideUserInterfaceStyle = Defaults.exportBackgroundStyle
+    }
+
+    func updateInterfaceStyle() {
+        guard self.previewView.overrideUserInterfaceStyle != Defaults.exportBackgroundStyle else { return }
+        UIView.transition(with: self, duration: 0.5, options: .transitionCrossDissolve) {
+            self.previewView.overrideUserInterfaceStyle = Defaults.exportBackgroundStyle
+        } completion: { _ in }
     }
 
     func replay() {

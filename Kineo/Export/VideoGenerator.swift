@@ -81,31 +81,34 @@ class VideoProvider: UIActivityItemProvider {
         let verticalMargins = (shape.size.height - Self.standardCanvasRect.size.height) / 2
         let canvasPoint = CGPoint(x: horizontalMargins, y: verticalMargins)
 
+        let backgroundTraitCollection = UITraitCollection(userInterfaceStyle: Defaults.exportBackgroundStyle)
         let backgroundImage = UIGraphicsImageRenderer(size: shape.size, format: format).image { context in
-            // draw a background
-            UIColor.appBackground.setFill()
-            context.fill(CGRect(origin: .zero, size: shape.size))
+            backgroundTraitCollection.performAsCurrent {
+                // draw a background
+                UIColor.appBackground.setFill()
+                context.fill(CGRect(origin: .zero, size: shape.size))
 
-            // draw a canvas
-            let cgContext = context.cgContext
+                // draw a canvas
+                let cgContext = context.cgContext
 
-            let canvasRect = CGRect(origin: canvasPoint, size: Self.standardCanvasRect.size)
-            let canvasPath = UIBezierPath(roundedRect: canvasRect, cornerRadius: 8).cgPath
+                let canvasRect = CGRect(origin: canvasPoint, size: Self.standardCanvasRect.size)
+                let canvasPath = UIBezierPath(roundedRect: canvasRect, cornerRadius: 8).cgPath
 
-            cgContext.setFillColor(UIColor.canvasBackground.cgColor)
-            cgContext.addPath(canvasPath)
+                cgContext.setFillColor(UIColor.canvasBackground.cgColor)
+                cgContext.addPath(canvasPath)
 
-            // draw the lower shadow
-            cgContext.saveGState()
-            cgContext.setShadow(offset: CGSize(width: 0, height: 12), blur: 32, color: UIColor.canvasShadowDark.cgColor)
-            cgContext.fillPath()
-            cgContext.restoreGState()
+                // draw the lower shadow
+                cgContext.saveGState()
+                cgContext.setShadow(offset: CGSize(width: 0, height: 12), blur: 32, color: UIColor.canvasShadowDark.cgColor)
+                cgContext.fillPath()
+                cgContext.restoreGState()
 
-            // draw the upper shadow
-            cgContext.saveGState()
-            cgContext.setShadow(offset: CGSize(width: 0, height: -12), blur: 32, color: UIColor.canvasShadowLight.cgColor)
-            cgContext.fillPath()
-            cgContext.restoreGState()
+                // draw the upper shadow
+                cgContext.saveGState()
+                cgContext.setShadow(offset: CGSize(width: 0, height: -12), blur: 32, color: UIColor.canvasShadowLight.cgColor)
+                cgContext.fillPath()
+                cgContext.restoreGState()
+            }
         }
 
         let traitCollection = UITraitCollection(userInterfaceStyle: .light)

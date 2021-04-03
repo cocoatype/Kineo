@@ -11,6 +11,7 @@ class ExportEditingNavigationController: UINavigationController {
         modalTransitionStyle = .crossDissolve
 
         navigationBar.standardAppearance = ExportEditingNavigationBarAppearance()
+        navigationBar.tintColor = .white
     }
 
     // MARK: Boilerplate

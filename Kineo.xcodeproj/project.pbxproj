@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04084927261569B700D2AA15 /* ExportSettingsShapeContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04084926261569B700D2AA15 /* ExportSettingsShapeContentSection.swift */; };
+		0408492C261569E100D2AA15 /* ExportSettingsBackgroundContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408492B261569E100D2AA15 /* ExportSettingsBackgroundContentSection.swift */; };
+		04084931261578FC00D2AA15 /* NSLayoutConstraintExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04084930261578FC00D2AA15 /* NSLayoutConstraintExtensions.swift */; };
 		0417F09E22E46F410063AD66 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F09D22E46F410063AD66 /* UIImageExtensions.swift */; };
 		0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */; };
 		0419751B25EB508800CB0F54 /* PageNavigationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419751A25EB508800CB0F54 /* PageNavigationEvent.swift */; };
@@ -257,6 +260,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04084926261569B700D2AA15 /* ExportSettingsShapeContentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsShapeContentSection.swift; sourceTree = "<group>"; };
+		0408492B261569E100D2AA15 /* ExportSettingsBackgroundContentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsBackgroundContentSection.swift; sourceTree = "<group>"; };
+		04084930261578FC00D2AA15 /* NSLayoutConstraintExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintExtensions.swift; sourceTree = "<group>"; };
 		0417F09D22E46F410063AD66 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		0419751A25EB508800CB0F54 /* PageNavigationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNavigationEvent.swift; sourceTree = "<group>"; };
@@ -490,6 +496,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040849222615699600D2AA15 /* Content Provider */ = {
+			isa = PBXGroup;
+			children = (
+				04791E6223EEA09300403BD8 /* ExportSettingsContentProvider.swift */,
+				04791E6E23EEBC9200403BD8 /* ExportSettingsDurationContentSection.swift */,
+				04791E7023EEC0B200403BD8 /* ExportSettingsNavigationController.swift */,
+				04791E6A23EEAB6B00403BD8 /* ExportSettingsStyleContentSection.swift */,
+				04084926261569B700D2AA15 /* ExportSettingsShapeContentSection.swift */,
+				0408492B261569E100D2AA15 /* ExportSettingsBackgroundContentSection.swift */,
+			);
+			path = "Content Provider";
+			sourceTree = "<group>";
+		};
 		0417F09F22E4A0860063AD66 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
@@ -706,11 +725,8 @@
 		04791E5B23EE9C8100403BD8 /* Export */ = {
 			isa = PBXGroup;
 			children = (
-				04791E6223EEA09300403BD8 /* ExportSettingsContentProvider.swift */,
+				040849222615699600D2AA15 /* Content Provider */,
 				04791E6823EEAB2000403BD8 /* ExportSettingsDataSource.swift */,
-				04791E6E23EEBC9200403BD8 /* ExportSettingsDurationContentSection.swift */,
-				04791E7023EEC0B200403BD8 /* ExportSettingsNavigationController.swift */,
-				04791E6A23EEAB6B00403BD8 /* ExportSettingsStyleContentSection.swift */,
 				04791E6623EEA97100403BD8 /* ExportSettingsTableViewCell.swift */,
 				04791E6423EEA71D00403BD8 /* ExportSettingsView.swift */,
 				04791E5E23EE9CBF00403BD8 /* ExportSettingsViewController.swift */,
@@ -901,6 +917,7 @@
 				04ACCD2B23B2345A006FBABC /* UITraitCollectionExtensions.swift */,
 				04B86C0723B64006005F65F7 /* UIViewExtensions.swift */,
 				0419752025EB50C300CB0F54 /* UIScrollViewExtensions.swift */,
+				04084930261578FC00D2AA15 /* NSLayoutConstraintExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1297,6 +1314,8 @@
 				04BD9256237FFC4300C8FD09 /* SceneView.swift in Sources */,
 				04ACCD2823B2310B006FBABC /* EditingViewDataSource.swift in Sources */,
 				04EC179323D991A700A42E08 /* FilmStripCollectionLayoutItem.swift in Sources */,
+				0408492C261569E100D2AA15 /* ExportSettingsBackgroundContentSection.swift in Sources */,
+				04084927261569B700D2AA15 /* ExportSettingsShapeContentSection.swift in Sources */,
 				04791E5123EC1F3400403BD8 /* SettingsTableView.swift in Sources */,
 				0485989923F2843000AFBB3A /* TwitchItem.swift in Sources */,
 				04ACCD2623B21BAE006FBABC /* FilmStripDataSource.swift in Sources */,
@@ -1358,6 +1377,7 @@
 				04D46BDF2414EC8100DBFB9A /* TutorialIntroViewController.swift in Sources */,
 				049A0455240BCA5000F5FC17 /* DismissalDirector.swift in Sources */,
 				044484D423A884D300CD0C3C /* EditingUserActivity.swift in Sources */,
+				04084931261578FC00D2AA15 /* NSLayoutConstraintExtensions.swift in Sources */,
 				04791E3123EC1F3400403BD8 /* SettingsSection.swift in Sources */,
 				048D4F4024E0C780001F86A0 /* AppRatingsPrompter.swift in Sources */,
 				046937602427676B005894F7 /* UndoButton.swift in Sources */,
