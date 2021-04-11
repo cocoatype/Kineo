@@ -4,7 +4,7 @@
 import Data
 import UIKit
 
-class ExportEditingViewController: UIViewController, ExportSettingsViewControllerDelegate {
+class ExportEditingViewController: UIViewController, ExportSettingsViewControllerDelegate, UIPopoverPresentationControllerDelegate {
     init(document: Document) {
         self.document = document
         super.init(nibName: nil, bundle: nil)
@@ -44,8 +44,19 @@ class ExportEditingViewController: UIViewController, ExportSettingsViewControlle
     @objc func displaySettings(_ sender: UIBarButtonItem) {
         let settingsViewController = ExportSettingsViewController(document: document)
         settingsViewController.delegate = self
+        settingsViewController.popoverPresentationController?.delegate = self
         settingsViewController.popoverPresentationController?.barButtonItem = sender
         present(settingsViewController, animated: true)
+    }
+
+    // MARK: Popover Presentation Delegate
+
+    func presentationController(_ controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
+        guard style == .formSheet else { return nil }
+
+        let navigationController = ExportSettingsNavigationController(document: document)
+        navigationController.settingsController.delegate = self
+        return navigationController
     }
 
     // MARK: Settings Delegate

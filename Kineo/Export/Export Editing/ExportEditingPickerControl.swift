@@ -27,6 +27,9 @@ class ExportEditingPickerControl: UIControl {
         foregroundLayer.mask = maskLayer
 
         setContentCompressionResistancePriority(.required, for: .vertical)
+
+        gestureRecognizer.addTarget(self, action: #selector(handleGesture))
+        addGestureRecognizer(gestureRecognizer)
     }
 
     override func layoutSublayers(of layer: CALayer) {
@@ -49,54 +52,31 @@ class ExportEditingPickerControl: UIControl {
     }()
 
     // MARK: Touch Handling
-    private var trackedTouch: UITouch?
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard trackedTouch == nil else { return }
-        trackedTouch = touches.first(where: { touch in
-            let position = touch.location(in: self)
-            return maskLayer.frame.contains(position)
-        })
-    }
-
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let trackedTouch = trackedTouch, touches.contains(trackedTouch) else { return }
-
+    private func moveThumb(to location: CGPoint, animated: Bool) {
+        print("moving thumb")
         CATransaction.begin()
-        CATransaction.setDisableActions(true)
+        defer { CATransaction.commit() }
+        CATransaction.setDisableActions(animated == false)
+
         let inset = Self.thumbSize.width / 2
         let insetBounds = bounds.inset(by: UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset))
-        let proposedX = trackedTouch.location(in: self).x
+        let proposedX = location.x
         maskLayer.position.x = min(max(proposedX, insetBounds.minX), insetBounds.maxX)
-        CATransaction.commit()
     }
 
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let trackedTouch = trackedTouch, touches.contains(trackedTouch) else { return }
-        self.trackedTouch = nil
-
+    private func updateIndex(for location: CGPoint) {
         // find closest center to touch
-        let position = trackedTouch.location(in: self)
         let closestCenterIndex = imageCenters.enumerated().reduce((Int.max, CGFloat.greatestFiniteMagnitude)) { (closestCenterTuple, nextCenterTuple) -> (Int, CGFloat) in
             let (index, nextCenter) = nextCenterTuple
             let (_, minDistance) = closestCenterTuple
-            let distance = abs(nextCenter.x - position.x)
+            let distance = abs(nextCenter.x - location.x)
             if distance < minDistance { return (index, distance) }
             return closestCenterTuple
         }.0
 
         // set index based on center
         self.selectedIndex = closestCenterIndex
-
-        // reposition thumb to index
-        resetThumb()
-    }
-
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let trackedTouch = trackedTouch, touches.contains(trackedTouch) else { return }
-        self.trackedTouch = nil
-
-        resetThumb()
     }
 
     private func resetThumb() {
@@ -104,10 +84,28 @@ class ExportEditingPickerControl: UIControl {
         maskLayer.position = thumbCenter
     }
 
+    @objc private func handleGesture() {
+        let location = gestureRecognizer.location(in: self)
+        switch gestureRecognizer.state {
+        case .began:
+            moveThumb(to: location, animated: true)
+        case .changed:
+            moveThumb(to: location, animated: false)
+        case .ended:
+            updateIndex(for: location)
+            resetThumb()
+        case .cancelled:
+            resetThumb()
+        case .possible, .failed: break
+        @unknown default: break
+        }
+    }
+
     // MARK: Boilerplate
 
     private static let thumbSize = CGSize(width: 36, height: 36)
 
+    private let gestureRecognizer = ExportEditingPickerControlGestureRecognizer()
     private let images: [UIImage?]
 
     private let backgroundLayer = CALayer()

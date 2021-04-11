@@ -10,8 +10,7 @@ class ExportSettingsViewController: UIViewController, UITableViewDelegate {
     init(document: Document) {
         self.document = document
         super.init(nibName: nil, bundle: nil)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(ExportSettingsViewController.dismissSelf))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: Self.exportButtonTitle, style: .done, target: self, action: #selector(displayShareSheet(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(ExportSettingsViewController.dismissSelf))
         navigationItem.title = Self.navigationTitle
         modalPresentationStyle = .popover
     }
@@ -22,6 +21,14 @@ class ExportSettingsViewController: UIViewController, UITableViewDelegate {
         settingsView.delegate = self
         settingsView.register(SettingsHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: SettingsHeaderFooterView.identifier)
         view = settingsView
+
+
+        contentSizeObservation = settingsView.observe(\.contentSize) { [weak self] _, value in
+            guard let settingsView = self?.view as? ExportSettingsView else { return }
+            var newContentSize = settingsView.contentSize
+            newContentSize.height += 8
+            self?.preferredContentSize = newContentSize
+        }
     }
 
     @objc private func dismissSelf() { // I hate that this works
@@ -57,8 +64,13 @@ class ExportSettingsViewController: UIViewController, UITableViewDelegate {
     private static let exportButtonTitle = NSLocalizedString("ExportSettingsViewController.exportButtonTitle", comment: "Title for the export button on the export settings view")
 
     private let contentProvider = ExportSettingsContentProvider()
+    private var contentSizeObservation: NSKeyValueObservation?
     private lazy var dataSource = ExportSettingsDataSource(contentProvider)
     private let document: Document
+
+    deinit {
+        _ = contentSizeObservation.map(NSKeyValueObservation.invalidate)
+    }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

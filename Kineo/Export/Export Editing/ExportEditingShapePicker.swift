@@ -12,7 +12,7 @@ class ExportEditingShapePicker: ExportEditingPickerControl {
 
     var selectedShape: ExportShape { Self.shapes[selectedIndex] }
 
-    override var intrinsicContentSize: CGSize { return CGSize(width: 212, height: 46) }
+    override var intrinsicContentSize: CGSize { return CGSize(width: 208, height: 46) }
 
     private static let images = [
         Icons.Export.square,

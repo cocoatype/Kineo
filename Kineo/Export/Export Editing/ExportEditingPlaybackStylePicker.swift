@@ -12,7 +12,7 @@ class ExportEditingPlaybackStylePicker: ExportEditingPickerControl {
 
     var selectedStyle: PlaybackStyle { Self.styles[selectedIndex] }
 
-    override var intrinsicContentSize: CGSize { return CGSize(width: 106, height: 46) }
+    override var intrinsicContentSize: CGSize { return CGSize(width: 102, height: 46) }
 
     private static let images = [
         Icons.Export.loop,

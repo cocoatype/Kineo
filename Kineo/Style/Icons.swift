@@ -40,7 +40,7 @@ enum Icons {
         }
 
         static let square = exportPickerImage(systemName: "square")
-        static let squarePlain = exportPickerImage(systemName: "square")
+        static let squarePlain = exportPickerImage(systemName: "square.dashed")
         static let landscape = exportPickerImage(systemName: "rectangle")
         static let portrait = exportPickerImage(systemName: "rectangle.portrait")
 

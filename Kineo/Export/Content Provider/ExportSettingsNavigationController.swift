@@ -5,17 +5,31 @@ import Data
 import UIKit
 
 class ExportSettingsNavigationController: UINavigationController {
+    private(set) lazy var settingsController = ExportSettingsViewController(document: document)
     init(document: Document) {
+        self.document = document
         super.init(navigationBarClass: nil, toolbarClass: nil)
-        setViewControllers([ExportSettingsViewController(document: document)], animated: false)
+
+        setViewControllers([settingsController], animated: false)
         navigationBar.standardAppearance = ExportSettingsNavigationBarAppearance()
+        modalPresentationStyle = .popover
+
+//        updateNavigationBarHidden()
     }
+
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        updateNavigationBarHidden()
+//    }
+
+//    private func updateNavigationBarHidden() {
+//        let isHorizontallyCompact = traitCollection.horizontalSizeClass == .compact
+//        let isVerticallyCompact = traitCollection.verticalSizeClass == .compact
+//        isNavigationBarHidden = (isHorizontallyCompact || isVerticallyCompact) == false
+//    }
 
     // MARK: Boilerplate
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nil, bundle: nil)
-    }
+    private let document: Document
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

@@ -19,7 +19,7 @@ class ExportEditingView: UIView {
         NSLayoutConstraint.activate([
             pickerView.centerXAnchor.constraint(equalTo: centerXAnchor),
             pickerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -57).withPriority(.defaultHigh),
-            safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: pickerView.bottomAnchor, multiplier: 1),
+            safeAreaLayoutGuide.bottomAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: pickerView.bottomAnchor, multiplier: 1),
             previewView.centerXAnchor.constraint(equalTo: centerXAnchor),
             previewView.centerYAnchor.constraint(equalTo: centerYAnchor),
             previewView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: 140).withPriority(.defaultHigh),
