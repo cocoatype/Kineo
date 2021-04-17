@@ -8,6 +8,7 @@ class ExportEditingPickerControl: UIControl {
         didSet {
             guard selectedIndex != oldValue else { return }
             sendActions(for: .valueChanged)
+            feedbackGenerator?.selectionChanged()
         }
     }
 
@@ -88,16 +89,19 @@ class ExportEditingPickerControl: UIControl {
         let location = gestureRecognizer.location(in: self)
         switch gestureRecognizer.state {
         case .began:
+            feedbackGenerator = UISelectionFeedbackGenerator()
+            feedbackGenerator?.prepare()
             moveThumb(to: location, animated: true)
         case .changed:
             moveThumb(to: location, animated: false)
-        case .ended:
             updateIndex(for: location)
+        case .ended, .cancelled:
             resetThumb()
-        case .cancelled:
-            resetThumb()
-        case .possible, .failed: break
-        @unknown default: break
+            fallthrough
+        case .possible, .failed:
+            fallthrough
+        @unknown default:
+            feedbackGenerator = nil
         }
     }
 
@@ -111,6 +115,8 @@ class ExportEditingPickerControl: UIControl {
     private let backgroundLayer = CALayer()
     private let foregroundLayer = CALayer()
     private let maskLayer = CAShapeLayer()
+
+    private var feedbackGenerator: UISelectionFeedbackGenerator?
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
