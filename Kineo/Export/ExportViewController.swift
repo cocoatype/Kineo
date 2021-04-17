@@ -10,10 +10,12 @@ class ExportViewController: UIActivityViewController {
             let videoProvider = try VideoProvider(document: document)
 
             super.init(activityItems: [videoProvider], applicationActivities: [])
-            completionWithItemsHandler = { _, completed, _, _ in
+            completionWithItemsHandler = { [weak self] _, completed, _, _ in
                 guard completed == true else { return }
                 Defaults.incrementNumberOfSaves()
-                AppRatingsPrompter.displayRatingsPrompt()
+                DispatchQueue.main.async {
+                    AppRatingsPrompter.displayRatingsPrompt(in: self?.view.window?.windowScene)
+                }
             }
 
             if let popoverPresentationController = self.popoverPresentationController {
