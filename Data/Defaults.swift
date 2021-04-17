@@ -3,6 +3,7 @@
 
 import CloudKit
 import Foundation
+import UIKit
 
 public enum Defaults {
     public static func initialize() {
@@ -21,10 +22,11 @@ public enum Defaults {
     // MARK: Export Settings
 
     public static var exportSettings: ExportSettings {
-        get { ExportSettings(playbackStyle: exportPlaybackStyle, duration: exportDuration) }
+        get { ExportSettings(playbackStyle: exportPlaybackStyle, duration: exportDuration, shape: exportShape) }
         set(newSettings) {
             Self.exportPlaybackStyle = newSettings.playbackStyle
             Self.exportDuration = newSettings.duration
+            Self.exportShape = newSettings.shape
         }
     }
 
@@ -59,6 +61,47 @@ public enum Defaults {
             case .fiveSeconds: userDefaults.set(exportDurationFiveSeconds, forKey: exportDurationKey)
             case .tenSeconds: userDefaults.set(exportDurationTenSeconds, forKey: exportDurationKey)
             }
+        }
+    }
+
+    public static var exportShape: ExportShape {
+        get {
+            switch userDefaults.string(forKey: exportShapeKey) {
+            case Self.exportShapeSquare?: return .square
+            case Self.exportShapeSquarePlain?: return .squarePlain
+            case Self.exportShapePortrait?: return .portrait
+            case Self.exportShapeLandscape?: return .landscape
+            default: return .square
+            }
+        } set (newShape) {
+            let value: String
+            switch newShape {
+            case .square: value = exportShapeSquare
+            case .squarePlain: value = exportShapeSquarePlain
+            case .portrait: value = exportShapePortrait
+            case .landscape: value = exportShapeLandscape
+            }
+            userDefaults.set(value, forKey: exportShapeKey)
+        }
+    }
+
+    public static var exportBackgroundStyle: UIUserInterfaceStyle {
+        get {
+            switch userDefaults.string(forKey: exportBackgroundKey) {
+            case Self.exportBackgroundUnspecified?: return .unspecified
+            case Self.exportBackgroundLight: return .light
+            case Self.exportBackgroundDark?: return .dark
+            default: return .unspecified
+            }
+        } set (newStyle) {
+            let value: String
+            switch newStyle {
+            case .unspecified: value = exportBackgroundUnspecified
+            case .light: value = exportBackgroundLight
+            case .dark: value = exportBackgroundDark
+            @unknown default: value = exportBackgroundUnspecified
+            }
+            userDefaults.set(value, forKey: exportBackgroundKey)
         }
     }
 
@@ -123,6 +166,15 @@ public enum Defaults {
     private static let exportDurationThreeSeconds = "Defaults.exportDurationThreeSeconds"
     private static let exportDurationFiveSeconds = "Defaults.exportDurationFiveSeconds"
     private static let exportDurationTenSeconds = "Defaults.exportDurationTenSeconds"
+    private static let exportShapeKey = "Defaults.exportShape"
+    private static let exportShapeSquare = "Defaults.exportShapeSquare"
+    private static let exportShapeSquarePlain = "Defaults.exportShapeSquarePlain"
+    private static let exportShapePortrait = "Defaults.exportShapePortrait"
+    private static let exportShapeLandscape = "Defaults.exportShapeLandscape"
+    private static let exportBackgroundKey = "Defaults.exportBackground"
+    private static let exportBackgroundUnspecified = "Defaults.exportBackgroundUnspecified"
+    private static let exportBackgroundLight = "Defaults.exportBackgroundLight"
+    private static let exportBackgroundDark = "Defaults.exportBackgroundDark"
     private static let serverChangeTokenDataKey = "Defaults.serverChangeTokenDataKey"
     private static let updatedDocumentIdentifiersKey = "Defaults.updatedDocumentIdentifiersKey"
     private static let seenTutorialKey = "Defaults.seenTutorialKey"

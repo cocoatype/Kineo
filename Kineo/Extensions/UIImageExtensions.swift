@@ -18,7 +18,7 @@ extension UIImage {
         guard let dataPointer = CVPixelBufferGetBaseAddress(pixelBuffer) else { fatalError("Couldn't get buffer pointer") }
 
         let colorSpace = CGColorSpaceCreateDeviceRGB()
-        guard let context = CGContext(data: dataPointer, width: Int(size.width), height: Int(size.height), bitsPerComponent: 8, bytesPerRow: 4*Int(size.width), space: colorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue) else { fatalError("Couldn't create bitmap context") }
+        guard let context = CGContext(data: dataPointer, width: Int(size.width), height: Int(size.height), bitsPerComponent: 8, bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer), space: colorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue) else { fatalError("Couldn't create bitmap context") }
 
         guard let cgImage = cgImage else { fatalError("Couldn't create cgImage from image") }
         let imageRect = CGRect(origin: .zero, size: size)

@@ -5,11 +5,11 @@ import Data
 import UIKit
 
 class ExportViewController: UIActivityViewController {
-    init?(document: Document, sourceView: UIView?) {
+    init?(document: Document, barButtonItem: UIBarButtonItem?) {
         do {
             let videoProvider = try VideoProvider(document: document)
 
-            super.init(activityItems: [videoProvider], applicationActivities: [ExportSettingsActivity()])
+            super.init(activityItems: [videoProvider], applicationActivities: [])
             completionWithItemsHandler = { _, completed, _, _ in
                 guard completed == true else { return }
                 Defaults.incrementNumberOfSaves()
@@ -17,8 +17,7 @@ class ExportViewController: UIActivityViewController {
             }
 
             if let popoverPresentationController = self.popoverPresentationController {
-                popoverPresentationController.sourceView = sourceView
-                popoverPresentationController.sourceRect = sourceView?.bounds ?? .zero
+                popoverPresentationController.barButtonItem = barButtonItem
             }
         } catch { return nil }
     }

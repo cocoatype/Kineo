@@ -1,20 +1,35 @@
 //  Created by Geoff Pado on 2/8/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import Data
 import UIKit
 
 class ExportSettingsNavigationController: UINavigationController {
-    init() {
+    private(set) lazy var settingsController = ExportSettingsViewController(document: document)
+    init(document: Document) {
+        self.document = document
         super.init(navigationBarClass: nil, toolbarClass: nil)
-        setViewControllers([ExportSettingsViewController()], animated: false)
-        navigationBar.standardAppearance = NavigationBarAppearance()
+
+        setViewControllers([settingsController], animated: false)
+        navigationBar.standardAppearance = ExportSettingsNavigationBarAppearance()
+        modalPresentationStyle = .popover
+
+//        updateNavigationBarHidden()
     }
+
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        updateNavigationBarHidden()
+//    }
+
+//    private func updateNavigationBarHidden() {
+//        let isHorizontallyCompact = traitCollection.horizontalSizeClass == .compact
+//        let isVerticallyCompact = traitCollection.verticalSizeClass == .compact
+//        isNavigationBarHidden = (isHorizontallyCompact || isVerticallyCompact) == false
+//    }
 
     // MARK: Boilerplate
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nil, bundle: nil)
-    }
+    private let document: Document
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
@@ -23,7 +38,7 @@ class ExportSettingsNavigationController: UINavigationController {
     }
 }
 
-class NavigationBarAppearance: UINavigationBarAppearance {
+class ExportSettingsNavigationBarAppearance: UINavigationBarAppearance {
     init() {
         super.init(idiom: UIDevice.current.userInterfaceIdiom)
         setup()
@@ -39,6 +54,8 @@ class NavigationBarAppearance: UINavigationBarAppearance {
         backgroundColor = .appBackground
         shadowColor = .clear
         titleTextAttributes[.font] = UIFont.navigationBarTitleFont
+        buttonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.controlTint
+        buttonAppearance.normal.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
         doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.controlTint
         doneButtonAppearance.normal.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
         doneButtonAppearance.highlighted.titleTextAttributes[.font] = UIFont.navigationBarButtonFont

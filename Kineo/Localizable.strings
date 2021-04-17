@@ -14,7 +14,15 @@
 
 "ExportButton.accessibilityLabel" = "Share";
 
+"ExportEditingViewController.shareTitle" = "Share";
+
 "ExportSettingsActivity.activityTitle" = "Share Settings";
+
+"ExportSettingsBackgroundContentSection.header" = "Video Background";
+
+"ExportSettingsBackgroundContentItem.unspecified.title" = "Use System Setting (%@)";
+"ExportSettingsBackgroundContentItem.light.title" = "Light";
+"ExportSettingsBackgroundContentItem.dark.title" = "Dark";
 
 "ExportSettingsDurationContentSection.header" = "Minimum Length";
 "ExportSettingsDurationContentSection.footer" = "Some social networks require a minimum video length to post. Kineo will play your entire animation enough times to meet the minimum length you choose.";
@@ -23,12 +31,20 @@
 "ExportSettingsDurationContentItem.fiveSeconds.title" = "5 seconds";
 "ExportSettingsDurationContentItem.tenSeconds.title" = "10 seconds";
 
+"ExportSettingsShapeContentSection.header" = "Video Shape";
+
+"ExportSettingsShapeContentItem.squarePlain.title" = "Square (No Frame)";
+"ExportSettingsShapeContentItem.square.title" = "Square";
+"ExportSettingsShapeContentItem.portrait.title" = "Portrait";
+"ExportSettingsShapeContentItem.landscape.title" = "Landscape";
+
 "ExportSettingsStyleContentSection.header" = "Video Effect";
 
 "ExportSettingsStyleContentItem.standard.title" = "Play Once";
 "ExportSettingsStyleContentItem.loop.title" = "Loop";
 "ExportSettingsStyleContentItem.bounce.title" = "Bounce";
 
+"ExportSettingsViewController.exportButtonTitle" = "Share";
 "ExportSettingsViewController.navigationTitle" = "Share Settings";
 
 "FilmStripView.accessibilityHint" = "Navigates and creates new pages";

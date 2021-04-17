@@ -10,6 +10,7 @@ import UIKit
 class VideoProvider: UIActivityItemProvider {
     init(document: Document) throws {
         self.document = DocumentTransformer.transformedDocument(from: document, using: Defaults.exportSettings)
+        self.shape = Defaults.exportSettings.shape
 
         // generate the export URL
         let fileName = UUID().uuidString
@@ -49,8 +50,8 @@ class VideoProvider: UIActivityItemProvider {
         // set up the video writer input
         let writerInput = AVAssetWriterInput(mediaType: .video, outputSettings: [
             AVVideoCodecKey: AVVideoCodecType.h264,
-            AVVideoWidthKey: Self.standardCanvasSize.width,
-            AVVideoHeightKey: Self.standardCanvasSize.height
+            AVVideoWidthKey: shape.size.width,
+            AVVideoHeightKey: shape.size.height
         ])
         videoWriter.add(writerInput)
 
@@ -71,19 +72,63 @@ class VideoProvider: UIActivityItemProvider {
             }
         }
 
+
+        let format = UIGraphicsImageRendererFormat()
+        format.opaque = true
+        format.scale = 1
+
+        let horizontalMargins = (shape.size.width - Self.standardCanvasRect.size.width) / 2
+        let verticalMargins = (shape.size.height - Self.standardCanvasRect.size.height) / 2
+        let canvasPoint = CGPoint(x: horizontalMargins, y: verticalMargins)
+
+        let backgroundTraitCollection = UITraitCollection(userInterfaceStyle: Defaults.exportBackgroundStyle)
+        let backgroundImage = UIGraphicsImageRenderer(size: shape.size, format: format).image { context in
+            backgroundTraitCollection.performAsCurrent {
+                // draw a background
+                UIColor.appBackground.setFill()
+                context.fill(CGRect(origin: .zero, size: shape.size))
+
+                // draw a canvas
+                let cgContext = context.cgContext
+
+                let canvasRect = CGRect(origin: canvasPoint, size: Self.standardCanvasRect.size)
+                let canvasPath = UIBezierPath(roundedRect: canvasRect, cornerRadius: 8).cgPath
+
+                cgContext.setFillColor(UIColor.canvasBackground.cgColor)
+                cgContext.addPath(canvasPath)
+
+                // draw the lower shadow
+                cgContext.saveGState()
+                cgContext.setShadow(offset: CGSize(width: 0, height: 12), blur: 32, color: UIColor.canvasShadowDark.cgColor)
+                cgContext.fillPath()
+                cgContext.restoreGState()
+
+                // draw the upper shadow
+                cgContext.saveGState()
+                cgContext.setShadow(offset: CGSize(width: 0, height: -12), blur: 32, color: UIColor.canvasShadowLight.cgColor)
+                cgContext.fillPath()
+                cgContext.restoreGState()
+            }
+        }
+
         let traitCollection = UITraitCollection(userInterfaceStyle: .light)
         let pages = document.pages
         pages.enumerated().forEach { pageWithIndex in
             let (index, page) = pageWithIndex
             let presentationTime = CMTime(value: CMTimeValue(index), timescale: frameDuration.timescale)
             traitCollection.performAsCurrent {
-                let image = page.drawing.image(from: Self.standardCanvasRect, scale: 1)
+                let pageImage = page.drawing.image(from: Self.standardCanvasRect, scale: 1)
 
                 mediaReadyCondition.lock()
                 while writerInput.isReadyForMoreMediaData == false {
                     mediaReadyCondition.wait()
                 }
                 mediaReadyCondition.unlock()
+
+                let image = UIGraphicsImageRenderer(size: shape.size, format: format).image { context in
+                    backgroundImage.draw(at: .zero)
+                    pageImage.draw(at: canvasPoint)
+                }
 
                 adaptor.append(image.pixelBuffer, withPresentationTime: presentationTime)
             }
@@ -126,10 +171,10 @@ class VideoProvider: UIActivityItemProvider {
 
     private let document: Document
     private let exportURL: URL
+    private let shape: ExportShape
     private let videoWriter: AVAssetWriter
 
-    private static let standardCanvasRect = CGRect(origin: .zero, size: standardCanvasSize)
-    private static let standardCanvasSize = CGSize(width: 512, height: 512)
+    private static let standardCanvasRect = CGRect(origin: .zero, size: CGSize(width: 512, height: 512))
     private static let standardFramesPerSecond = CMTimeScale(12)
     private static let metadataTitle = NSLocalizedString("VideoProvider.metadataTitle", comment: "Title to display when sharing a video")
 

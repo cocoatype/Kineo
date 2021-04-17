@@ -129,8 +129,8 @@ class EditingViewController: UIViewController {
     }
 
     @objc func exportVideo(_ sender: Any) {
-        guard let activityController = ExportViewController(document: documentEditor.document, sourceView: editingView.exportButton) else { return }
-        present(activityController, animated: true, completion: nil)
+        let editingViewController = ExportEditingNavigationController(document: document)
+        present(editingViewController, animated: true)
     }
 
     // MARK: Editing View

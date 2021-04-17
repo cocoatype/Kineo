@@ -16,6 +16,7 @@ extension UIColor {
     static let canvasShadowDark = UIColor.named("Canvas Shadow Dark")
     static let canvasShadowLight = UIColor.named("Canvas Shadow Light")
     static let cellTitle = UIColor.named("Cell Title")
+    static let exportAccent = UIColor.named("Export Accent")
     static let filmStripBackground = UIColor.named("Film Strip Background")
     static let filmStripBorder = UIColor.named("Film Strip Border")
     static let filmStripIndicator = UIColor.named("Film Strip Indicator")
@@ -38,4 +39,6 @@ extension UIColor {
     static let tutorialIntroText = UIColor.named("Tutorial Intro Text")
 
     static let controlTint = UIColor.named("Web Control Tint")
+
+    static let darkSystemBackgroundSecondary = UIColor.secondarySystemBackground.resolvedColor(with: UITraitCollection(userInterfaceStyle: .dark))
 }

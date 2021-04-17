@@ -19,14 +19,36 @@ public enum ExportDuration: CaseIterable {
     }
 }
 
+public enum ExportShape: CaseIterable {
+    case square, squarePlain, portrait, landscape
+
+    public var size: CGSize {
+        switch self {
+        case .square: return CGSize(width: 720, height: 720)
+        case .squarePlain: return CGSize(width: 512, height: 512)
+        case .portrait: return CGSize(width: 720, height: 1280)
+        case .landscape: return CGSize(width: 1280, height: 720)
+        }
+    }
+
+    public var isPlain: Bool {
+        switch self {
+        case .squarePlain: return true
+        case .square, .portrait, .landscape: return false
+        }
+    }
+}
+
 public struct ExportSettings {
-    public init(playbackStyle: PlaybackStyle, duration: ExportDuration) {
+    public init(playbackStyle: PlaybackStyle, duration: ExportDuration, shape: ExportShape) {
         self.playbackStyle = playbackStyle
         self.duration = duration
+        self.shape = shape
     }
 
     public let playbackStyle: PlaybackStyle
     public let duration: ExportDuration
+    public let shape: ExportShape
 
     public var minimumFrameCount: Int { duration.minimumFrameCount }
 }
