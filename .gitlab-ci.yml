@@ -34,5 +34,4 @@ beta:
   tags:
     - xcode
   only:
-    - master
     - /^release\/(.*)$/

@@ -14,6 +14,13 @@ platform :ios do
     build_number = sh "git log --oneline | wc -l"
     increment_build_number(build_number: build_number)
 
+    # Set the marketing number to the release branch name
+    release_branch = sh "git rev-parse --abbrev-ref HEAD"
+    match = /release\/(.*)/.match(release_branch)
+    unless match.nil? do
+      increment_version_number(version_number: match[1])
+    end
+
     # Build the app for App Store
     build_app(
       export_method: "app-store",
