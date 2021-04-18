@@ -37,7 +37,7 @@ class ExportEditingViewController: UIViewController, ExportSettingsViewControlle
     }
 
     @objc func exportVideo(_ sender: UIBarButtonItem) {
-        guard let exportViewController = ExportViewController(document: document, barButtonItem: sender) else { return }
+        guard let exportViewController = ExportViewController(document: document, barButtonItem: sender, completionHandler: { [weak self] in self?.dismissSelf() }) else { return }
         present(exportViewController, animated: true)
     }
 

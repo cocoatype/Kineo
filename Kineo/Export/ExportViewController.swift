@@ -5,7 +5,7 @@ import Data
 import UIKit
 
 class ExportViewController: UIActivityViewController {
-    init?(document: Document, barButtonItem: UIBarButtonItem?) {
+    init?(document: Document, barButtonItem: UIBarButtonItem?, completionHandler: @escaping (() -> Void)) {
         do {
             let videoProvider = try VideoProvider(document: document)
 
@@ -15,6 +15,7 @@ class ExportViewController: UIActivityViewController {
                 Defaults.incrementNumberOfSaves()
                 DispatchQueue.main.async {
                     AppRatingsPrompter.displayRatingsPrompt(in: self?.view.window?.windowScene)
+                    completionHandler()
                 }
             }
 

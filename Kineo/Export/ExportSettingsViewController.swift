@@ -35,11 +35,6 @@ class ExportSettingsViewController: UIViewController, UITableViewDelegate {
         dismiss(animated: true, completion: nil)
     }
 
-    @objc private func displayShareSheet(_ sender: UIBarButtonItem) {
-        guard let exportViewController = ExportViewController(document: document, barButtonItem: sender) else { return }
-        present(exportViewController, animated: true)
-    }
-
     // MARK: UITableViewDelegate
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
