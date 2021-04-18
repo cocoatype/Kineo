@@ -16,6 +16,7 @@ class ExportEditingPreviewView: UIView {
         updateCanvas()
 
         addSubview(playbackView)
+        addSubview(watermarkView)
 
         playbackView.animate(continuously: true)
 
@@ -23,6 +24,8 @@ class ExportEditingPreviewView: UIView {
             playbackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             playbackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             playbackView.widthAnchor.constraint(equalTo: playbackView.heightAnchor),
+            watermarkView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -21),
+            watermarkView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
             edgeLengthConstraint
         ])
 
@@ -62,10 +65,39 @@ class ExportEditingPreviewView: UIView {
     private let document: Document
     private let edgeLengthConstraint: NSLayoutConstraint
     private let playbackView: PlaybackView
+    private let watermarkView = ExportEditingPreviewWatermarkImageView()
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
+    }
+}
+
+class ExportEditingPreviewWatermarkImageView: UIImageView {
+    init() {
+        super.init(frame: .zero)
+        contentMode = .center
+        image = Self.watermarkImage
+        translatesAutoresizingMaskIntoConstraints = false
+
+        setContentHuggingPriority(.required, for: .horizontal)
+        setContentHuggingPriority(.required, for: .vertical)
+        setContentCompressionResistancePriority(.required, for: .horizontal)
+        setContentCompressionResistancePriority(.required, for: .vertical)
+    }
+
+    override var intrinsicContentSize: CGSize { Self.watermarkImage.size }
+
+    // MARK: Boilerplate
+
+    private static let watermarkImage: UIImage = {
+        guard let image = UIImage(named: "Watermark") else { fatalError("Unable to load watermark image") }
+        return image
+    }()
+
+    @available(*, unavailable)
+    required init(coder: NSCoder) {
+        fatalError("\(String(describing: type(of: Self.self))) does not implement init(coder:)")
     }
 }
