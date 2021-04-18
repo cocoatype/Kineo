@@ -95,7 +95,10 @@ class ExportEditingPickerControl: UIControl {
         case .changed:
             moveThumb(to: location, animated: false)
             updateIndex(for: location)
-        case .ended, .cancelled:
+        case .ended:
+            updateIndex(for: location)
+            fallthrough
+        case .cancelled:
             resetThumb()
             fallthrough
         case .possible, .failed:
