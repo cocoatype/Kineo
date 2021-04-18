@@ -32,6 +32,7 @@
 		0436CE8F23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436CE8E23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift */; };
 		0436CE9123E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436CE9023E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift */; };
 		043854F22392246F0041A4AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043854F12392246F0041A4AA /* Localizable.strings */; };
+		04389E33262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04389E32262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift */; };
 		043D71492402695400A1B7D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043D71482402695400A1B7D1 /* InfoPlist.strings */; };
 		043D7618240A702400A1B7D1 /* DrawingImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D7616240A5FE400A1B7D1 /* DrawingImageGenerator.swift */; };
 		043D7619240A726700A1B7D1 /* UITraitCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2B23B2345A006FBABC /* UITraitCollectionExtensions.swift */; };
@@ -298,6 +299,7 @@
 		0436CE9223E53237002BE4EF /* ExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportViewController.swift; sourceTree = "<group>"; };
 		043854E6238CD06F0041A4AA /* SidebarActionButtonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionButtonImageView.swift; sourceTree = "<group>"; };
 		043854F12392246F0041A4AA /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		04389E32262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingPreviewWatermarkImageView.swift; sourceTree = "<group>"; };
 		043D71482402695400A1B7D1 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		043D7616240A5FE400A1B7D1 /* DrawingImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingImageGenerator.swift; sourceTree = "<group>"; };
 		043D761B240A742A00A1B7D1 /* DrawingImageGenerationOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingImageGenerationOperation.swift; sourceTree = "<group>"; };
@@ -1052,6 +1054,7 @@
 				040849352618045200D2AA15 /* ExportEditingPickerStackView.swift */,
 				0408493F2618049A00D2AA15 /* ExportEditingPlaybackStylePicker.swift */,
 				04084944261804CF00D2AA15 /* ExportEditingPreviewView.swift */,
+				04389E32262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift */,
 				040849532618055200D2AA15 /* ExportEditingSettingsBarButtonItem.swift */,
 				0408493A2618047100D2AA15 /* ExportEditingShapePicker.swift */,
 				0408494E2618053E00D2AA15 /* ExportEditingShareBarButtonItem.swift */,
@@ -1455,6 +1458,7 @@
 				0451660323B2467A00D7B535 /* FilmStripNewPageImageView.swift in Sources */,
 				0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */,
 				04791E2C23EC1F3400403BD8 /* PrivacyItem.swift in Sources */,
+				04389E33262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift in Sources */,
 				0408493B2618047100D2AA15 /* ExportEditingShapePicker.swift in Sources */,
 				044484D223A884A200CD0C3C /* GalleryCollectionView.swift in Sources */,
 				049A0451240BBDFC00F5FC17 /* FrameAnimation.swift in Sources */,
