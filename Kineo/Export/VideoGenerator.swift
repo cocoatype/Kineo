@@ -108,6 +108,13 @@ class VideoProvider: UIActivityItemProvider {
                 cgContext.setShadow(offset: CGSize(width: 0, height: -12), blur: 32, color: UIColor.canvasShadowLight.cgColor)
                 cgContext.fillPath()
                 cgContext.restoreGState()
+
+                if let watermark = UIImage(named: "Watermark") {
+                    var point = CGPoint(x: shape.size.width, y: shape.size.height)
+                    point.x -= (watermark.size.width + 21)
+                    point.y -= (watermark.size.height + 15)
+                    watermark.draw(at: point)
+                }
             }
         }
 
