@@ -13,13 +13,13 @@ public struct Document: Codable, Equatable {
         self.uuid = uuid
     }
 
-    func replacingPage(atIndex index: Int, with page: Page) -> Document {
+    public func replacingPage(atIndex index: Int, with page: Page) -> Document {
         var newPages = pages
         newPages[index] = page
         return Document(pages: newPages, uuid: self.uuid)
     }
 
-    func insertingBlankPage(at index: Int) -> Document {
+    public func insertingBlankPage(at index: Int) -> Document {
         var newPages = pages
         newPages.insert(Page(), at: index)
         return Document(pages: newPages, uuid: self.uuid)
@@ -30,7 +30,7 @@ public struct Document: Codable, Equatable {
         return Document(pages: newPages, uuid: self.uuid)
     }
 
-    func duplicating(_ page: Page) -> Document {
+    public func duplicating(_ page: Page) -> Document {
         guard let index = pages.firstIndex(of: page) else { return self }
         let duplicatePage = Page(drawing: page.drawing)
         var newPages = pages
@@ -38,7 +38,7 @@ public struct Document: Codable, Equatable {
         return Document(pages: newPages, uuid: self.uuid)
     }
 
-    func deleting(_ page: Page) -> Document {
+    public func deleting(_ page: Page) -> Document {
         guard let index = pages.firstIndex(of: page) else { return self }
         var newPages = pages
         newPages.remove(at: index)

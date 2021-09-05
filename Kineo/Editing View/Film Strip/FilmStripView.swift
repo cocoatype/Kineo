@@ -1,11 +1,13 @@
 //  Created by Geoff Pado on 12/24/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import Data
 import UIKit
 
 class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDelegate, UICollectionViewDropDelegate {
-    init(dataSource: EditingViewDataSource) {
-        self.dataSource = FilmStripDataSource(dataSource: dataSource)
+    init(statePublisher: EditingStatePublisher) {
+        #warning("Replace with state publisher (can remove Data import)")
+        self.dataSource = FilmStripDataSource(dataSource: EditingViewDataSource(documentEditor: DocumentEditor(document: Document(pages: []))))
         super.init(frame: .zero)
 
         accessibilityHint = NSLocalizedString("FilmStripView.accessibilityHint", comment: "Accessibility hint for the film strip")
@@ -97,11 +99,11 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        sendAction(#selector(EditingViewController.hideSkinsImage(_:)), to: nil, for: nil)
+        sendAction(#selector(EditingViewController.startScrolling), to: nil, for: nil)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        sendAction(#selector(EditingViewController.showSkinsImage(_:)), to: nil, for: nil)
+        sendAction(#selector(EditingViewController.stopScrolling), to: nil, for: nil)
     }
 
     // MARK: Drag Delegate

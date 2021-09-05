@@ -6,8 +6,8 @@ import PencilKit
 import UIKit
 
 class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate {
-    init(page: Page) {
-        self.page = page
+    init(statePublisher: EditingStatePublisher) {
+        self.page = statePublisher.value.currentPage
         super.init(frame: .zero)
 
         isAccessibilityElement = true
@@ -101,7 +101,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
     @objc func handleScroll(_ sender: UIPanGestureRecognizer) {
         switch sender.state {
         case .began:
-            sendAction(#selector(EditingViewController.hideSkinsImage(_:)), to: nil, for: nil)
+            sendAction(#selector(EditingViewController.startScrolling), to: nil, for: nil)
             fallthrough
         case .changed:
             let lastTranslationIndex = Int(floor(lastTranslation.y / 44))
@@ -116,8 +116,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
                 sendAction(#selector(EditingViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(style: .increment))
             }
         case .recognized:
-            sendAction(#selector(EditingViewController.showSkinsImage(_:)), to: nil, for: nil)
-            sendAction(#selector(editingViewController?.updateFilmStrip(_:)), to: nil, for: nil)
+            sendAction(#selector(EditingViewController.stopScrolling), to: nil, for: nil)
             lastTranslation = .zero
         default: break
         }

@@ -8,10 +8,8 @@ enum AppRatingsPrompter {
     static func displayRatingsPrompt(in windowScene: UIWindowScene?) {
         let numberOfSaves = Defaults.numberOfSaves % 40
         if triggeringNumberOfSaves.contains(numberOfSaves) {
-            if #available(iOS 14, *), let windowScene = windowScene {
+            if let windowScene = windowScene {
                 SKStoreReviewController.requestReview(in: windowScene)
-            } else {
-                SKStoreReviewController.requestReview()
             }
         }
     }

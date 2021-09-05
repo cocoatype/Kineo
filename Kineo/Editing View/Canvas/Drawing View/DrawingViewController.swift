@@ -4,8 +4,8 @@
 import UIKit
 
 class DrawingViewController: UIViewController {
-    init(dataSource: EditingViewDataSource) {
-        self.dataSource = dataSource
+    init(publisher: EditingStatePublisher) {
+        self.drawingView = DrawingView(statePublisher: publisher)
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -15,8 +15,7 @@ class DrawingViewController: UIViewController {
 
     // MARK: Boilerplate
 
-    private let dataSource: EditingViewDataSource
-    private(set) lazy var drawingView = DrawingView(page: dataSource.currentPage)
+    let drawingView: DrawingView
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

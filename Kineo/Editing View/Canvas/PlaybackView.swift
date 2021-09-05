@@ -5,7 +5,7 @@ import Data
 import PencilKit
 import UIKit
 
-protocol PlaybackViewDelegate: class {
+protocol PlaybackViewDelegate: AnyObject {
     func playbackViewDidFinishPlayback(_ playbackView: PlaybackView)
 }
 
