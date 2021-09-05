@@ -18,7 +18,8 @@ class EditingViewController: UIViewController {
 
     @objc func drawingViewDidChangePage(_ sender: DrawingView) {
         #warning("Make sure multi-window still works")
-        state = EditingPageReplacement.updatedState(from: state, replacingCurrentPageWith: sender.page)
+        #warning("Make sure saving still works")
+        state = state.replacingCurrentPage(with: sender.page)
     }
 
     // MARK: Keyboard Commands
@@ -35,7 +36,7 @@ class EditingViewController: UIViewController {
 
     @objc func playMultiple() { state = state.playing }
 
-    @objc func addNewPage() { state = EditingPageAddition.updatedState(from: state) }
+    @objc func addNewPage() { state = state.addingNewPage() }
 
     @objc func deletePage(_ sender: UICommand) {
         guard let data = sender.propertyList as? Data,
@@ -46,7 +47,7 @@ class EditingViewController: UIViewController {
 
     @objc func duplicatePage(_ sender: UICommand) {
         guard let data = sender.propertyList as? Data, let page = try? JSONDecoder().decode(Page.self, from: data) else { return }
-        state = EditingPageDuplication.updatedState(from: state, duplicating: page)
+        state = state.duplicating(page)
     }
 
     @objc func navigateToPage(_ sender: Any, for event: PageNavigationEvent) {

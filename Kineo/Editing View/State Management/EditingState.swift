@@ -25,14 +25,6 @@ struct EditingState {
         self.toolPickerShowing = toolPickerShowing
     }
 
-    func removing(_ page: Page) -> EditingState {
-        EditingState(
-            currentPageIndex: min(currentPageIndex, document.pages.count - 1),
-            document: document.deleting(page),
-            mode: mode,
-            toolPickerShowing: toolPickerShowing)
-    }
-
     var playing: EditingState { Lenses.mode.set(.playing, self) }
     var scrolling: EditingState { Lenses.mode.set(.scrolling, self) }
     var editing: EditingState { Lenses.mode.set(.editing, self) }

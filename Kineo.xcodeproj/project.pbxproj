@@ -125,7 +125,7 @@
 		047F9EE126E496C500DD34F5 /* EditingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EE026E496C500DD34F5 /* EditingState.swift */; };
 		047F9EE326E4980E00DD34F5 /* EditingPageNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EE226E4980E00DD34F5 /* EditingPageNavigation.swift */; };
 		047F9EE526E4AC7B00DD34F5 /* Cascading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EE426E4AC7B00DD34F5 /* Cascading.swift */; };
-		047F9EE726E4B8B300DD34F5 /* EditingPageReplacement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EE626E4B8B300DD34F5 /* EditingPageReplacement.swift */; };
+		047F9EE726E4B8B300DD34F5 /* EditingStatePageManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EE626E4B8B300DD34F5 /* EditingStatePageManipulation.swift */; };
 		047F9EE926E4BE2600DD34F5 /* EditingViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EE826E4BE2600DD34F5 /* EditingViewFactory.swift */; };
 		047F9EEB26E4CA2700DD34F5 /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EEA26E4CA2700DD34F5 /* BoolExtensions.swift */; };
 		047F9EED26E4CAA500DD34F5 /* DrawingViewGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EEC26E4CAA500DD34F5 /* DrawingViewGuide.swift */; };
@@ -405,7 +405,7 @@
 		047F9EE026E496C500DD34F5 /* EditingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingState.swift; sourceTree = "<group>"; };
 		047F9EE226E4980E00DD34F5 /* EditingPageNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingPageNavigation.swift; sourceTree = "<group>"; };
 		047F9EE426E4AC7B00DD34F5 /* Cascading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cascading.swift; sourceTree = "<group>"; };
-		047F9EE626E4B8B300DD34F5 /* EditingPageReplacement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingPageReplacement.swift; sourceTree = "<group>"; };
+		047F9EE626E4B8B300DD34F5 /* EditingStatePageManipulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingStatePageManipulation.swift; sourceTree = "<group>"; };
 		047F9EE826E4BE2600DD34F5 /* EditingViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewFactory.swift; sourceTree = "<group>"; };
 		047F9EEA26E4CA2700DD34F5 /* BoolExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtensions.swift; sourceTree = "<group>"; };
 		047F9EEC26E4CAA500DD34F5 /* DrawingViewGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewGuide.swift; sourceTree = "<group>"; };
@@ -821,7 +821,7 @@
 			children = (
 				047F9EE426E4AC7B00DD34F5 /* Cascading.swift */,
 				047F9EE226E4980E00DD34F5 /* EditingPageNavigation.swift */,
-				047F9EE626E4B8B300DD34F5 /* EditingPageReplacement.swift */,
+				047F9EE626E4B8B300DD34F5 /* EditingStatePageManipulation.swift */,
 				047F9EE026E496C500DD34F5 /* EditingState.swift */,
 				047F9EF226E4E59900DD34F5 /* EditingStateLenses.swift */,
 			);
@@ -1452,7 +1452,7 @@
 				046B034325EBB893005AB424 /* FilmStripPageDragItem.swift in Sources */,
 				04791E4923EC1F3400403BD8 /* ReleaseNotesViewController.swift in Sources */,
 				04791E2D23EC1F3400403BD8 /* AcknowledgementsItem.swift in Sources */,
-				047F9EE726E4B8B300DD34F5 /* EditingPageReplacement.swift in Sources */,
+				047F9EE726E4B8B300DD34F5 /* EditingStatePageManipulation.swift in Sources */,
 				04791E5323EC1F3400403BD8 /* AppEntry.swift in Sources */,
 				04E3B63E25FC675B00D2A945 /* ExportEditingNavigationController.swift in Sources */,
 				046C407B2498630A0069E8FB /* DrawingView.swift in Sources */,
