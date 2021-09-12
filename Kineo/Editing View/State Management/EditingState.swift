@@ -6,30 +6,20 @@ import Foundation
 
 typealias EditingStatePublisher = CascadingPublisher<EditingState>
 
-struct EditingState {
+struct EditingState: Equatable {
     let currentPageIndex: Int
     let document: Document
     let mode: Mode
     let toolPickerShowing: Bool
 
     init(document: Document) {
-        self.init(currentPageIndex: 0, document: document, mode: .editing, toolPickerShowing: false)
-    }
-
-    var currentPage: Page { document.pages[currentPageIndex] }
-
-    private init(currentPageIndex: Int, document: Document, mode: Mode, toolPickerShowing: Bool) {
-        self.currentPageIndex = currentPageIndex
+        self.currentPageIndex = 0
         self.document = document
-        self.mode = mode
-        self.toolPickerShowing = toolPickerShowing
+        self.mode = .editing
+        self.toolPickerShowing = false
     }
 
-    var playing: EditingState { Lenses.mode.set(.playing, self) }
-    var scrolling: EditingState { Lenses.mode.set(.scrolling, self) }
-    var editing: EditingState { Lenses.mode.set(.editing, self) }
-
-    enum Mode {
-        case editing, playing, scrolling
-    }
+    var currentPage: Page { page(at: currentPageIndex) }
+    var pageCount: Int { document.pages.count }
+    func page(at index: Int) -> Page { document.pages[index] }
 }

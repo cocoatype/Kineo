@@ -132,6 +132,8 @@
 		047F9EEF26E4D04E00DD34F5 /* CompactEditingViewButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EEE26E4D04E00DD34F5 /* CompactEditingViewButtonBar.swift */; };
 		047F9EF126E4E1E700DD34F5 /* EditingToolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EF026E4E1E700DD34F5 /* EditingToolPicker.swift */; };
 		047F9EF326E4E59900DD34F5 /* EditingStateLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EF226E4E59900DD34F5 /* EditingStateLenses.swift */; };
+		047F9EF826E4EC9F00DD34F5 /* EditingStateModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EF726E4EC9F00DD34F5 /* EditingStateModes.swift */; };
+		047F9EFA26E585D100DD34F5 /* DrawingViewScrollRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EF926E585D100DD34F5 /* DrawingViewScrollRecognizer.swift */; };
 		0485989523F281CB00AFBB3A /* SocialSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989423F281CB00AFBB3A /* SocialSection.swift */; };
 		0485989723F282B500AFBB3A /* TwitterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989623F282B500AFBB3A /* TwitterItem.swift */; };
 		0485989923F2843000AFBB3A /* TwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989823F2843000AFBB3A /* TwitchItem.swift */; };
@@ -412,6 +414,8 @@
 		047F9EEE26E4D04E00DD34F5 /* CompactEditingViewButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactEditingViewButtonBar.swift; sourceTree = "<group>"; };
 		047F9EF026E4E1E700DD34F5 /* EditingToolPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingToolPicker.swift; sourceTree = "<group>"; };
 		047F9EF226E4E59900DD34F5 /* EditingStateLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingStateLenses.swift; sourceTree = "<group>"; };
+		047F9EF726E4EC9F00DD34F5 /* EditingStateModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingStateModes.swift; sourceTree = "<group>"; };
+		047F9EF926E585D100DD34F5 /* DrawingViewScrollRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewScrollRecognizer.swift; sourceTree = "<group>"; };
 		0485989423F281CB00AFBB3A /* SocialSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSection.swift; sourceTree = "<group>"; };
 		0485989623F282B500AFBB3A /* TwitterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterItem.swift; sourceTree = "<group>"; };
 		0485989823F2843000AFBB3A /* TwitchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchItem.swift; sourceTree = "<group>"; };
@@ -823,6 +827,7 @@
 				047F9EE226E4980E00DD34F5 /* EditingPageNavigation.swift */,
 				047F9EE626E4B8B300DD34F5 /* EditingStatePageManipulation.swift */,
 				047F9EE026E496C500DD34F5 /* EditingState.swift */,
+				047F9EF726E4EC9F00DD34F5 /* EditingStateModes.swift */,
 				047F9EF226E4E59900DD34F5 /* EditingStateLenses.swift */,
 			);
 			path = "State Management";
@@ -902,6 +907,7 @@
 			isa = PBXGroup;
 			children = (
 				04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */,
+				047F9EF926E585D100DD34F5 /* DrawingViewScrollRecognizer.swift */,
 				04B0FBCA25008ACF002CE851 /* DrawingViewController.swift */,
 			);
 			path = "Drawing View";
@@ -1532,6 +1538,7 @@
 				04791E3523EC1F3400403BD8 /* SettingsNavigationController.swift in Sources */,
 				04516F7B2418E1320096F852 /* TutorialIntroButtonsStackView.swift in Sources */,
 				04DF241723F88B1F00657160 /* DocumentTransformer.swift in Sources */,
+				047F9EFA26E585D100DD34F5 /* DrawingViewScrollRecognizer.swift in Sources */,
 				04084945261804CF00D2AA15 /* ExportEditingPreviewView.swift in Sources */,
 				047F9EEF26E4D04E00DD34F5 /* CompactEditingViewButtonBar.swift in Sources */,
 				04D36AD82378205F0052A933 /* Color.swift in Sources */,
@@ -1561,6 +1568,7 @@
 				0408493B2618047100D2AA15 /* ExportEditingShapePicker.swift in Sources */,
 				044484D223A884A200CD0C3C /* GalleryCollectionView.swift in Sources */,
 				049A0451240BBDFC00F5FC17 /* FrameAnimation.swift in Sources */,
+				047F9EF826E4EC9F00DD34F5 /* EditingStateModes.swift in Sources */,
 				046C408124986D3E0069E8FB /* FilmStripForegroundView.swift in Sources */,
 				04791E2A23EC1F3400403BD8 /* ContactItem.swift in Sources */,
 				04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */,

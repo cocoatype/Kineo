@@ -3,10 +3,13 @@
 
 import Combine
 
-@propertyWrapper struct Cascading<ValueType> {
+@propertyWrapper struct Cascading<ValueType: Equatable> {
     var wrappedValue: ValueType {
         get { publisher.value }
-        set { publisher.send(newValue) }
+        set {
+            guard newValue != publisher.value else { return }
+            publisher.send(newValue)
+        }
     }
 
     var projectedValue: CascadingPublisher<ValueType> {
@@ -35,40 +38,3 @@ struct CascadingPublisher<ValueType>: Publisher {
     var value: ValueType { currentValueSubject.value }
     private let currentValueSubject: CurrentValueSubject<ValueType, Never>
 }
-
-
-//struct CascadingPublisher<ValueType>: Publisher {
-//    typealias Output = ValueType
-//    typealias Failure = Never
-//
-//    init(_ value: ValueType) {
-//        self.currentValueSubject = CurrentValueSubject(value)
-//    }
-//
-//    func send(_ value: ValueType) {
-//        currentValueSubject.send(value)
-//    }
-//
-//    func receive<S>(subscriber: S) where S : Subscriber, Never == S.Failure, ValueType == S.Input {
-//        currentValueSubject.subscribe(subscriber)
-//    }
-//
-//    private let currentValueSubject: CurrentValueSubject<ValueType, Never>
-//    var value: ValueType { currentValueSubject.value }
-//    var child: Child { Child(self) }
-//
-//    struct Child: Publisher {
-//        typealias Output = ValueType
-//        typealias Failure = Never
-//
-//        fileprivate init(_ parent: CascadingPublisher<ValueType>) {
-//            self.parent = parent
-//        }
-//
-//        func receive<S>(subscriber: S) where S : Subscriber, Never == S.Failure, ValueType == S.Input {
-//            parent.receive(subscriber: subscriber)
-//        }
-//
-//        private let parent: CascadingPublisher<ValueType>
-//    }
-//}

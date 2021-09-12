@@ -13,7 +13,8 @@ extension EditingState {
     func addingNewPage() -> EditingState {
         let newIndex = document.pages.count
         let newDocument = document.insertingBlankPage(at: newIndex)
-        return EditingState.Lenses.document.set(newDocument, self)
+        let midState = EditingState.Lenses.document.set(newDocument, self)
+        return EditingState.Lenses.currentPageIndex.set(newIndex, midState)
     }
 
     func duplicating(_ page: Page) -> EditingState {

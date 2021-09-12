@@ -4,31 +4,34 @@
 import Data
 import UIKit
 
-enum EditingPageNavigation {
-    static func updatedState(from originalState: EditingState, sender: Any, event: UIEvent) -> EditingState {
-        return originalState
-//        let currentIndex = documentEditor.currentIndex
-//        if let keyCommand = (sender as? UIKeyCommand) {
-//            switch keyCommand.input {
-//            case UIKeyCommand.inputLeftArrow?:
-//                documentEditor.navigate(toPageAt: currentIndex - 1)
-//            case UIKeyCommand.inputRightArrow?:
-//                documentEditor.navigate(toPageAt: currentIndex + 1)
-//            default: break
-//            }
-//            editingView.reloadData(includingFilmStrip: true)
-//        } else {
-//            let eventIndex: Int
-//            switch event.style {
-//            case .direct(let pageIndex): eventIndex = pageIndex
-//            case .increment: eventIndex = currentIndex + 1
-//            case .decrement: eventIndex = currentIndex - 1
-//            }
-//            guard currentIndex != eventIndex else { return }
-//            documentEditor.navigate(toPageAt: eventIndex)
-//            editingView.reloadData(includingFilmStrip: false)
-//        }
-//        undoManager?.removeAllActions()
-//        editingView.setupToolPicker()
+extension EditingState {
+    private func boundedIndex(for proposedIndex: Int) -> Int {
+        guard proposedIndex >= 0 else { return 0 }
+        guard proposedIndex < pageCount else { return pageCount - 1 }
+        return proposedIndex
+    }
+
+    func navigating(sender: Any, event: PageNavigationEvent) -> EditingState {
+        let newIndex: Int
+        if let keyCommand = (sender as? UIKeyCommand) {
+            switch keyCommand.input {
+            case UIKeyCommand.inputLeftArrow?:
+                 newIndex = boundedIndex(for: currentPageIndex - 1)
+            case UIKeyCommand.inputRightArrow?:
+                newIndex = boundedIndex(for: currentPageIndex + 1)
+            default: newIndex = currentPageIndex
+            }
+        } else {
+            let eventIndex: Int
+            switch event.style {
+            case .direct(let pageIndex): eventIndex = pageIndex
+            case .increment: eventIndex = currentPageIndex + 1
+            case .decrement: eventIndex = currentPageIndex - 1
+            }
+            newIndex = boundedIndex(for: eventIndex)
+        }
+
+        guard newIndex != currentPageIndex else { return self }
+        return EditingState.Lenses.currentPageIndex.set(newIndex, self)
     }
 }

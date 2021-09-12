@@ -51,11 +51,11 @@ class EditingViewController: UIViewController {
     }
 
     @objc func navigateToPage(_ sender: Any, for event: PageNavigationEvent) {
-        state = EditingPageNavigation.updatedState(from: state, sender: sender, event: event)
+        state = state.navigating(sender: sender, event: event)
     }
 
     @objc func startScrolling() { state = state.scrolling }
-    @objc func stopScrolling() { state = state.editing }
+    @objc func stopScrolling() { let newState = state.editing; state = newState }
 
     @objc func exportVideo(_ sender: Any) {
         present(ExportEditingNavigationController(document: document), animated: true)

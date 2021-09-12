@@ -31,7 +31,12 @@ class FilmStripCollectionView: UICollectionView {
     }
 
     override func scrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
-        guard let layout = filmStripLayout else { return super.scrollToItem(at: indexPath, at: scrollPosition, animated: animated) }
+        guard let layout = filmStripLayout else {
+            return super.scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
+        }
+
+        let currentItem = layout.indexOfItem(atContentOffset: contentOffset)
+        guard indexPath.item != currentItem else { return }
 
         setContentOffset(layout.contentOffset(forItemAt: indexPath.item), animated: true)
     }

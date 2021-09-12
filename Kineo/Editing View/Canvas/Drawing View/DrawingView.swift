@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 7/15/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import Combine
 import Data
 import PencilKit
 import UIKit
@@ -39,7 +40,12 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
             skinsImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
 
-        addScrollRecognizer()
+        addGestureRecognizer(DrawingViewScrollRecognizer())
+
+        statePublisher
+            .map { $0.currentPage }
+            .assign(to: \.page, on: self)
+            .store(in: &cancellables)
     }
 
     override func layoutSubviews() {
@@ -47,16 +53,16 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         updateCanvas()
     }
 
-    func display(page: Page, skinsImage: UIImage?) {
-        if skinsImage != self.skinsImage {
-            self.skinsImage = skinsImage
-        }
-
-        if page != self.page {
-            self.page = page
-            updateCanvas()
-        }
-    }
+//    func display(page: Page, skinsImage: UIImage?) {
+//        if skinsImage != self.skinsImage {
+//            self.skinsImage = skinsImage
+//        }
+//
+//        if page != self.page {
+//            self.page = page
+//            updateCanvas()
+//        }
+//    }
 
     private func updateCanvas() {
         let scale = bounds.width / Constants.canvasSize.width
@@ -73,53 +79,12 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
     private func handleChange() {
         toolWasUsed = false
         updatePage()
-        editingViewController?.drawingViewDidChangePage(self)
+        sendAction(#selector(EditingViewController.drawingViewDidChangePage(_:)), to: nil, for: nil)
     }
 
     func observe(_ toolPicker: PKToolPicker) {
         toolPicker.colorUserInterfaceStyle = .light
         toolPicker.addObserver(canvasView)
-    }
-
-    // MARK: Scroll Recognizer
-
-    private func addScrollRecognizer() {
-        guard #available(iOS 13.4, *) else { return }
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleScroll))
-        panGestureRecognizer.allowedTouchTypes = [NSNumber(integerLiteral: UITouch.TouchType.indirectPointer.rawValue)]
-        panGestureRecognizer.delegate = self
-        panGestureRecognizer.allowedScrollTypesMask = .all
-        addGestureRecognizer(panGestureRecognizer)
-    }
-
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        guard #available(iOS 13.4, *) else { return false }
-        return touch.type == .indirectPointer
-    }
-
-    private var lastTranslation = CGPoint.zero
-    @objc func handleScroll(_ sender: UIPanGestureRecognizer) {
-        switch sender.state {
-        case .began:
-            sendAction(#selector(EditingViewController.startScrolling), to: nil, for: nil)
-            fallthrough
-        case .changed:
-            let lastTranslationIndex = Int(floor(lastTranslation.y / 44))
-            let currentTranslation = sender.translation(in: self)
-            let currentTranslationIndex = Int(floor(currentTranslation.y / 44))
-            lastTranslation = currentTranslation
-
-            guard lastTranslationIndex != currentTranslationIndex else { break }
-            if lastTranslationIndex - currentTranslationIndex < 0 {
-                sendAction(#selector(EditingViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(style: .decrement))
-            } else {
-                sendAction(#selector(EditingViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(style: .increment))
-            }
-        case .recognized:
-            sendAction(#selector(EditingViewController.stopScrolling), to: nil, for: nil)
-            lastTranslation = .zero
-        default: break
-        }
     }
 
     // MARK: Skins Images
@@ -158,10 +123,15 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
 
     private let backgroundView = DrawingBackgroundView()
     private let canvasView = CanvasView()
+    private var cancellables = Set<AnyCancellable>()
     private var redoObserver: Any?
     private var undoObserver: Any?
 
-    private(set) var page: Page
+    private(set) var page: Page {
+        didSet {
+            updateCanvas()
+        }
+    }
 
     private var skinsImage: UIImage? {
         get { return skinsImageView.image }
@@ -174,12 +144,5 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
-    }
-}
-
-private extension UIResponder {
-    var editingViewController: EditingViewController? {
-        guard let editingViewController = (self as? EditingViewController) else { return next?.editingViewController }
-        return editingViewController
     }
 }
