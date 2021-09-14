@@ -51,7 +51,7 @@ public struct Document: Codable, Equatable {
     // MARK: Equatable
 
     public static func == (lhs: Document, rhs: Document) -> Bool {
-        return lhs.uuid == rhs.uuid
+        return lhs.uuid == rhs.uuid && lhs.pages == rhs.pages
     }
 }
 
