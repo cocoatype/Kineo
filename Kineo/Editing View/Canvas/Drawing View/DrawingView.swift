@@ -8,7 +8,7 @@ import UIKit
 
 class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate {
     init(statePublisher: EditingStatePublisher) {
-        self.page = statePublisher.value.currentPage
+        self._page = statePublisher.value.currentPage
         super.init(frame: .zero)
 
         isAccessibilityElement = true
@@ -46,6 +46,12 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
             .map { $0.currentPage }
             .assign(to: \.page, on: self)
             .store(in: &cancellables)
+
+        statePublisher
+            .skinsImage()
+            .receive(on: RunLoop.main)
+            .assign(to: \.skinsImage, on: self)
+            .store(in: &cancellables)
     }
 
     override func layoutSubviews() {
@@ -73,7 +79,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
     private func updatePage() {
         let scale = Constants.canvasSize.width / bounds.width
         let transform = CGAffineTransform(scaleX: scale, y: scale)
-        page = Page(drawing: canvasView.drawing.transformed(using: transform))
+        _page = Page(drawing: canvasView.drawing.transformed(using: transform))
     }
 
     private func handleChange() {
@@ -127,14 +133,18 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
     private var redoObserver: Any?
     private var undoObserver: Any?
 
+    private var _page: Page
     private(set) var page: Page {
-        didSet {
+        get { _page }
+        set(newPage) {
+            guard _page != newPage else { return }
+            _page = newPage
             updateCanvas()
         }
     }
 
-    private var skinsImage: UIImage? {
-        get { return skinsImageView.image }
+    private var skinsImage: UIImage {
+        get { return skinsImageView.image ?? UIImage.emptyImage(withSize: Constants.canvasSize) }
         set(newImage) { skinsImageView.image = newImage }
     }
 

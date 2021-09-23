@@ -4,10 +4,10 @@
 import UIKit
 
 class GalleryKeyCommand: EditingKeyCommand {
-    init() {
-        super.init(title: NSLocalizedString("EditingViewController.galleryKeyCommandTitle", comment: "Key command title for returning to the gallery"),
-                   action: #selector(SceneViewController.showGallery),
-                   input: "W",
-                   modifierFlags: .command)
+    convenience override init() {
+        self.init(title: NSLocalizedString("EditingViewController.galleryKeyCommandTitle", comment: "Key command title for returning to the gallery"),
+                  action: #selector(SceneViewController.showGallery),
+                  input: "W",
+                  modifierFlags: .command)
     }
 }

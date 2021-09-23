@@ -4,10 +4,10 @@
 import UIKit
 
 class PlayKeyCommand: EditingKeyCommand {
-    init() {
-        super.init(title: NSLocalizedString("EditingViewController.playKeyCommandTitle", comment: "Key command title for playing an animation"),
-                   action: #selector(EditingViewController.play),
-                   input: " ",
-                   modifierFlags: [])
+    convenience override init() {
+        self.init(title: NSLocalizedString("EditingViewController.playKeyCommandTitle", comment: "Key command title for playing an animation"),
+                  action: #selector(EditingViewController.play),
+                  input: " ",
+                  modifierFlags: [])
     }
 }

@@ -4,10 +4,10 @@
 import UIKit
 
 class ForwardKeyCommand: EditingKeyCommand {
-    init() {
-        super.init(title: NSLocalizedString("EditingViewController.forwardKeyCommandTitle", comment: "Key command title for going forward one page"),
-                   action: #selector(EditingViewController.navigateToPage(_:for:)),
-                   input: UIKeyCommand.inputRightArrow,
-                   modifierFlags: [])
+    convenience override init() {
+        self.init(title: NSLocalizedString("EditingViewController.forwardKeyCommandTitle", comment: "Key command title for going forward one page"),
+                  action: #selector(EditingViewController.navigateToPage(_:for:)),
+                  input: UIKeyCommand.inputRightArrow,
+                  modifierFlags: [])
     }
 }

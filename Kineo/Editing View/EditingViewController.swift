@@ -69,7 +69,9 @@ class EditingViewController: UIViewController {
 
     // MARK: Undo/Redo
 
-    @objc func undoDrawing() { undoManager?.undo() }
+    @objc func undoDrawing() {
+        undoManager?.undo()
+    }
     @objc func redoDrawing() { undoManager?.redo() }
 
     // MARK: Boilerplate
