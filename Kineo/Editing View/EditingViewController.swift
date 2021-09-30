@@ -12,13 +12,13 @@ class EditingViewController: UIViewController {
         self.state = EditingState(document: document)
         super.init(nibName: nil, bundle: nil)
         embed(drawingViewController, layoutGuide: editingView.drawingViewGuide)
+        _ = persister
     }
 
     override func loadView() { view = editingView }
 
     @objc func drawingViewDidChangePage(_ sender: DrawingView) {
         #warning("Make sure multi-window still works")
-        #warning("Make sure saving still works")
         state = state.replacingCurrentPage(with: sender.page)
     }
 
@@ -83,6 +83,7 @@ class EditingViewController: UIViewController {
             view = editingView
         }
     }
+    private lazy var persister = EditingStatePersister(statePublisher: $state)
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
