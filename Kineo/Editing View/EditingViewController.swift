@@ -17,9 +17,29 @@ class EditingViewController: UIViewController {
 
     override func loadView() { view = editingView }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        editingView = EditingViewFactory.editingView(for: traitCollection, drawingViewController: drawingViewController, statePublisher: $state)
+        embed(drawingViewController, layoutGuide: editingView.drawingViewGuide)
+        drawingViewController.drawingView.becomeFirstResponder()
+
+        guard let parent = parent else { return }
+        editingView.frame = parent.view.bounds
+    }
+
     @objc func drawingViewDidChangePage(_ sender: DrawingView) {
         #warning("Make sure multi-window still works")
         state = state.replacingCurrentPage(with: sender.page)
+    }
+
+    override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
+        super.preferredContentSizeDidChange(forChildContentContainer: container)
+        dump(container.preferredContentSize, name: #function)
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        dump(size, name: #function)
     }
 
     // MARK: Keyboard Commands

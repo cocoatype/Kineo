@@ -18,6 +18,7 @@ class EditingToolPicker: PKToolPicker {
             let toolPickerState = state.toolPickerShowing
             let isVisible = (toolPickerState || picker.alwaysShowsToolPicker)
             picker.setVisible(isVisible, forFirstResponder: drawingView)
+            _ = drawingView.becomeFirstResponder()
         }.store(in: &cancellables)
     }
 
@@ -29,6 +30,10 @@ class EditingToolPicker: PKToolPicker {
         case .unspecified?, .none: fallthrough
         @unknown default: return false
         }
+    }
+
+    deinit {
+        drawingView?.stopObserving(self)
     }
 
     private weak var drawingView: DrawingView?

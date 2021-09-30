@@ -6,7 +6,12 @@ import UIKit
 
 enum EditingViewFactory {
     static func editingView(for traitCollection: UITraitCollection, drawingViewController: DrawingViewController, statePublisher: EditingStatePublisher) -> EditingView {
-        #warning("replace with logic to find view")
-        return CompactEditingView(statePublisher: statePublisher, drawingViewController: drawingViewController)
+        let sizeClass = traitCollection.horizontalSizeClass
+
+        if case .compact = sizeClass {
+            return CompactEditingView(statePublisher: statePublisher, drawingViewController: drawingViewController)
+        }
+
+        return RegularEditingView(statePublisher: statePublisher, drawingViewController: drawingViewController)
     }
 }

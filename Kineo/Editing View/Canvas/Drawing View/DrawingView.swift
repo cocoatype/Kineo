@@ -93,6 +93,10 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         toolPicker.addObserver(canvasView)
     }
 
+    func stopObserving(_ toolPicker: PKToolPicker) {
+        toolPicker.removeObserver(canvasView)
+    }
+
     // MARK: Skins Images
 
     private let skinsImageView = SkinsImageView()
