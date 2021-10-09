@@ -25,4 +25,8 @@ extension EditingState {
         let midState = EditingState.Lenses.document.set(document.deleting(page), self)
         return EditingState.Lenses.currentPageIndex.set(min(currentPageIndex, document.pages.count - 1), midState)
     }
+
+    func movingPage(at sourceIndex: Int, to destinationIndex: Int) -> EditingState {
+        return EditingState.Lenses.document.set(document.movingPage(at: sourceIndex, to: destinationIndex), self)
+    }
 }

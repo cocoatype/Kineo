@@ -25,7 +25,7 @@ public struct Document: Codable, Equatable {
         return Document(pages: newPages, uuid: self.uuid)
     }
 
-    func movingPage(at sourceIndex: Int, to destinationIndex: Int) -> Document {
+    public func movingPage(at sourceIndex: Int, to destinationIndex: Int) -> Document {
         let newPages = pages.moving(from: sourceIndex, to: destinationIndex)
         return Document(pages: newPages, uuid: self.uuid)
     }

@@ -152,6 +152,7 @@
 		049A0455240BCA5000F5FC17 /* DismissalDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0454240BCA5000F5FC17 /* DismissalDirector.swift */; };
 		049A045A240D09E400F5FC17 /* PlayButtonContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0459240D09E400F5FC17 /* PlayButtonContextMenu.swift */; };
 		049A045B240D0C9800F5FC17 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD925E237FFDBD00C8FD09 /* HelpButton.swift */; };
+		049B1A9C27113D7A00E38F5C /* FilmStripMoveEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B1A9B27113D7A00E38F5C /* FilmStripMoveEvent.swift */; };
 		04ACCD2023B21985006FBABC /* FilmStripCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */; };
 		04ACCD2623B21BAE006FBABC /* FilmStripDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2523B21BAE006FBABC /* FilmStripDataSource.swift */; };
 		04ACCD2823B2310B006FBABC /* EditingViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2723B2310B006FBABC /* EditingViewDataSource.swift */; };
@@ -434,6 +435,7 @@
 		049A0452240BBE2200F5FC17 /* OpacityAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpacityAnimation.swift; sourceTree = "<group>"; };
 		049A0454240BCA5000F5FC17 /* DismissalDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissalDirector.swift; sourceTree = "<group>"; };
 		049A0459240D09E400F5FC17 /* PlayButtonContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButtonContextMenu.swift; sourceTree = "<group>"; };
+		049B1A9B27113D7A00E38F5C /* FilmStripMoveEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripMoveEvent.swift; sourceTree = "<group>"; };
 		04ACCD1C23B21334006FBABC /* FilmStripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripView.swift; sourceTree = "<group>"; };
 		04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionView.swift; sourceTree = "<group>"; };
 		04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripExistingPageCell.swift; sourceTree = "<group>"; };
@@ -907,6 +909,7 @@
 			children = (
 				04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */,
 				04ACCD2523B21BAE006FBABC /* FilmStripDataSource.swift */,
+				049B1A9B27113D7A00E38F5C /* FilmStripMoveEvent.swift */,
 				043F06D124AB667D005865BF /* FilmStripExistingPageBackgroundView.swift */,
 				04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */,
 				04ACCD2923B23290006FBABC /* FilmStripExistingPageImageView.swift */,
@@ -1536,6 +1539,7 @@
 				04791E7123EEC0B200403BD8 /* ExportSettingsNavigationController.swift in Sources */,
 				04F44C66241E0CEB001C6531 /* TutorialEditingView.swift in Sources */,
 				04BD92612380081900C8FD09 /* SidebarActionButton.swift in Sources */,
+				049B1A9C27113D7A00E38F5C /* FilmStripMoveEvent.swift in Sources */,
 				04BD925A237FFCA400C8FD09 /* ContainerView.swift in Sources */,
 				04DF241323F888EC00657160 /* SidebarActionButtonImageView.swift in Sources */,
 				04791E2723EC1F3400403BD8 /* OtherAppItem.swift in Sources */,

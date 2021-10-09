@@ -127,10 +127,9 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
 
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
         guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
-        coordinator.items.forEach { /*[weak self]*/ item in
-            #warning("Make this actually move things")
+        coordinator.items.forEach { item in
             guard let sourceIndexPath = item.sourceIndexPath else { return }
-//            self?.dataSource.movePage(at: sourceIndexPath, to: destinationIndexPath)
+            sendAction(#selector(EditingViewController.movePage(_:for:)), to: nil, for: FilmStripMoveEvent(source: sourceIndexPath, destination: destinationIndexPath))
             collectionView.moveItem(at: sourceIndexPath, to: destinationIndexPath)
             coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
         }

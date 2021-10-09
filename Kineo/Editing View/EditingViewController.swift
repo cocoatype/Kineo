@@ -72,6 +72,10 @@ class EditingViewController: UIViewController {
         state = state.duplicating(page)
     }
 
+    @objc func movePage(_ sender: Any, for event: FilmStripMoveEvent) {
+        state = state.movingPage(at: event.source, to: event.destination)
+    }
+
     @objc func navigateToPage(_ sender: Any, for event: PageNavigationEvent) {
         state = state.navigating(sender: sender, event: event)
     }
