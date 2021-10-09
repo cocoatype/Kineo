@@ -12,6 +12,7 @@ class EditingViewController: UIViewController {
         self.state = EditingState(document: document)
         super.init(nibName: nil, bundle: nil)
         embed(drawingViewController, layoutGuide: editingView.drawingViewGuide)
+        view.sendSubviewToBack(drawingViewController.drawingView)
         applicationStateManager.notificationHandler = { [weak self] in
             guard let self = self else { return }
             self.state = EditingState.Lenses.document.set($0.document, self.state)
@@ -24,6 +25,7 @@ class EditingViewController: UIViewController {
         super.traitCollectionDidChange(previousTraitCollection)
         editingView = EditingViewFactory.editingView(for: traitCollection, drawingViewController: drawingViewController, statePublisher: $state)
         embed(drawingViewController, layoutGuide: editingView.drawingViewGuide)
+        view.sendSubviewToBack(drawingViewController.drawingView)
         drawingViewController.drawingView.becomeFirstResponder()
 
         guard let parent = parent else { return }
@@ -52,11 +54,10 @@ class EditingViewController: UIViewController {
 
     @objc func play(_ sender: Any, for event: UIEvent) {
         guard (event.allTouches?.first?.tapCount ?? 1) == 1 else { return }
-        #warning("Handle not playing continuously")
         state = state.playing
     }
 
-    @objc func playMultiple() { state = state.playing }
+    @objc func playMultiple() { state = state.playingContinuously }
 
     @objc func addNewPage() { state = state.addingNewPage() }
 
@@ -78,6 +79,13 @@ class EditingViewController: UIViewController {
 
     @objc func navigateToPage(_ sender: Any, for event: PageNavigationEvent) {
         state = state.navigating(sender: sender, event: event)
+    }
+
+    @objc func restartPlayback(_ sender: Any) {
+        guard case let .playing(continuously: continuously) = state.mode else { return }
+        if continuously == false {
+            state = state.editing
+        }
     }
 
     @objc func startScrolling() { state = state.scrolling }
@@ -117,25 +125,3 @@ class EditingViewController: UIViewController {
         fatalError("\(typeName) does not implement init(coder:)")
     }
 }
-
-/*
- EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10ce639d0 926C 4 strokes>), uuid: 5814926F-9D6B-4A69-82D9-607300F017BE)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false) is equal to EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10dbc4e00 926C 4 strokes>), uuid: 5814926F-9D6B-4A69-82D9-607300F017BE)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false): true
-
- EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10db1a660 EDAD 5 strokes>), uuid: 1CE63E05-BEB5-435A-8C49-B7EEF2180050)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false) is equal to EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10ce639d0 926C 4 strokes>), uuid: 5814926F-9D6B-4A69-82D9-607300F017BE)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false): false
- EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10db1a660 EDAD 5 strokes>), uuid: 1CE63E05-BEB5-435A-8C49-B7EEF2180050)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false) was not equal to EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10ce639d0 926C 4 strokes>), uuid: 5814926F-9D6B-4A69-82D9-607300F017BE)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false)
-
- EditingState(
- currentPageIndex: 0,
- document: Data.Document(
-   pages: [
-     Data.Page(
-       drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10db1a660 EDAD 5 strokes>),
-       uuid: 1CE63E05-BEB5-435A-8C49-B7EEF2180050
-     )
-   ],
-   uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB),
-   mode: Kineo.EditingState.Mode.editing,
-   toolPickerShowing: false) is equal to EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10dbc4e00 926C 4 strokes>), uuid: 5814926F-9D6B-4A69-82D9-607300F017BE)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false): false
- EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10db1a660 EDAD 5 strokes>), uuid: 1CE63E05-BEB5-435A-8C49-B7EEF2180050)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false) was not equal to EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10dbc4e00 926C 4 strokes>), uuid: 5814926F-9D6B-4A69-82D9-607300F017BE)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false)
-
- */

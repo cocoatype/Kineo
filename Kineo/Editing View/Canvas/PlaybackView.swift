@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 7/19/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import Combine
 import Data
 import PencilKit
 import UIKit
@@ -10,6 +11,17 @@ protocol PlaybackViewDelegate: AnyObject {
 }
 
 class PlaybackView: UIView {
+    convenience init(statePublisher: EditingStatePublisher) {
+        self.init(document: statePublisher.value.document)
+
+        statePublisher.sink { [weak self] state in
+            switch state.mode {
+            case .playing: self?.startAnimating()
+            default: self?.stopAnimating()
+            }
+        }.store(in: &cancellables)
+    }
+
     init(document: Document) {
         self.document = document
         self.playbackDocument = Self.transformedDocument(from: document)
@@ -57,21 +69,18 @@ class PlaybackView: UIView {
 
     // MARK: Animation
 
-    private var isAnimatingContinuously = false
     private var displayLink: CADisplayLink? {
         didSet(oldValue) {
             oldValue?.invalidate()
         }
     }
 
-    func animate(continuously: Bool = false) {
-        isAnimatingContinuously = continuously
+    func startAnimating() {
         isHidden = false
         displayLink?.isPaused = false
     }
 
     func stopAnimating() {
-        isAnimatingContinuously = false
         isHidden = true
         displayLink?.isPaused = true
         delegate?.playbackViewDidFinishPlayback(self)
@@ -81,10 +90,9 @@ class PlaybackView: UIView {
         let nextIndex = (currentIndex + 1) % playbackDocument.pages.endIndex
 
         // stop if we are not animating continuously, but the next page would be the first page
-        let shouldStop = (nextIndex == playbackDocument.pages.startIndex && isAnimatingContinuously == false)
-        guard shouldStop == false else {
-            stopAnimating()
-            return
+        let isRestarting = (nextIndex == playbackDocument.pages.startIndex)
+        if isRestarting {
+            UIApplication.shared.sendAction(#selector(EditingViewController.restartPlayback(_:)), to: nil, from: self, for: nil)
         }
 
         currentIndex = nextIndex
@@ -101,6 +109,7 @@ class PlaybackView: UIView {
 
     private static let defaultFramesPerSecond = 12
 
+    private var cancellables = Set<AnyCancellable>()
     private let canvasView = CanvasView()
     private var currentIndex = 0
 

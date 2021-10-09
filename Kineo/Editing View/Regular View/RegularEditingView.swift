@@ -20,7 +20,7 @@ class RegularEditingView: EditingView {
 
         addLayoutGuide(drawingViewGuide)
 
-        [filmStripView, playButton, galleryButton, exportButton].forEach(self.addSubview(_:))
+        [filmStripView, playButton, galleryButton, exportButton, playbackView].forEach(self.addSubview(_:))
 
         NSLayoutConstraint.activate([
             drawingViewGuide.widthAnchor.constraint(equalTo: drawingViewGuide.heightAnchor),
@@ -36,7 +36,11 @@ class RegularEditingView: EditingView {
             galleryButton.topAnchor.constraint(equalTo: topAnchor, constant: 11),
             galleryButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
             playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -11),
-            playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11)
+            playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
+            playbackView.heightAnchor.constraint(equalTo: drawingViewGuide.heightAnchor),
+            playbackView.widthAnchor.constraint(equalTo: drawingViewGuide.widthAnchor),
+            playbackView.centerXAnchor.constraint(equalTo: drawingViewGuide.centerXAnchor),
+            playbackView.centerYAnchor.constraint(equalTo: drawingViewGuide.centerYAnchor)
         ])
     }
 
@@ -48,6 +52,7 @@ class RegularEditingView: EditingView {
     private let playButton = PlayButton()
     private let galleryButton = GalleryButton()
     private let exportButton = ExportButton()
+    private lazy var playbackView = PlaybackView(statePublisher: statePublisher)
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

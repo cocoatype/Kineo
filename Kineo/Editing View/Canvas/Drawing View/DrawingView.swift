@@ -59,17 +59,6 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         updateCanvas()
     }
 
-//    func display(page: Page, skinsImage: UIImage?) {
-//        if skinsImage != self.skinsImage {
-//            self.skinsImage = skinsImage
-//        }
-//
-//        if page != self.page {
-//            self.page = page
-//            updateCanvas()
-//        }
-//    }
-
     private func updateCanvas() {
         let scale = bounds.width / Constants.canvasSize.width
         let transform = CGAffineTransform(scaleX: scale, y: scale)

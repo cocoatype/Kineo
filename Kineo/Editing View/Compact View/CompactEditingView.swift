@@ -20,7 +20,7 @@ class CompactEditingView: EditingView {
 
         addLayoutGuide(drawingViewGuide)
 
-        [filmStripView, playButton, buttonBar].forEach(self.addSubview(_:))
+        [filmStripView, playButton, buttonBar, playbackView].forEach(self.addSubview(_:))
 
         NSLayoutConstraint.activate([
             buttonBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 11),
@@ -35,7 +35,11 @@ class CompactEditingView: EditingView {
             filmStripView.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 11),
             filmStripView.topAnchor.constraint(equalTo: playButton.topAnchor),
             filmStripView.bottomAnchor.constraint(equalTo: playButton.bottomAnchor),
-            filmStripView.trailingAnchor.constraint(equalTo: buttonBar.trailingAnchor)
+            filmStripView.trailingAnchor.constraint(equalTo: buttonBar.trailingAnchor),
+            playbackView.heightAnchor.constraint(equalTo: drawingViewGuide.heightAnchor),
+            playbackView.widthAnchor.constraint(equalTo: drawingViewGuide.widthAnchor),
+            playbackView.centerXAnchor.constraint(equalTo: drawingViewGuide.centerXAnchor),
+            playbackView.centerYAnchor.constraint(equalTo: drawingViewGuide.centerYAnchor)
         ])
     }
 
@@ -46,6 +50,7 @@ class CompactEditingView: EditingView {
     private lazy var filmStripView = FilmStripView(statePublisher: statePublisher)
     private let playButton = PlayButton()
     private lazy var buttonBar = CompactEditingViewButtonBar(statePublisher: statePublisher)
+    private lazy var playbackView = PlaybackView(statePublisher: statePublisher)
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

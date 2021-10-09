@@ -7,9 +7,7 @@ import Combine
     var wrappedValue: ValueType {
         get { publisher.value }
         set {
-            print("\(newValue) is equal to \(publisher.value): \(newValue == publisher.value ? "true" : "false")")
             guard newValue != publisher.value else { return }
-            print("\(newValue) was not equal to \(publisher.value)")
             publisher.send(newValue)
         }
     }
