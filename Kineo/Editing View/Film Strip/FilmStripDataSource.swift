@@ -21,10 +21,6 @@ class FilmStripDataSource: NSObject, UICollectionViewDataSource {
         latestState.page(at: indexPath.item)
     }
 
-//    func movePage(at sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//        dataSource.movePage(at: sourceIndexPath.item, to: destinationIndexPath.item)
-//    }
-
     // MARK: UICollectionViewDataSource
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -57,6 +53,5 @@ class FilmStripDataSource: NSObject, UICollectionViewDataSource {
 
     // MARK: Boilerplate
 
-//    private let dataSource: EditingViewDataSource
     private let statePublisher: EditingStatePublisher
 }

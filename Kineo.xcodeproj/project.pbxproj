@@ -155,7 +155,6 @@
 		049B1A9C27113D7A00E38F5C /* FilmStripMoveEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B1A9B27113D7A00E38F5C /* FilmStripMoveEvent.swift */; };
 		04ACCD2023B21985006FBABC /* FilmStripCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */; };
 		04ACCD2623B21BAE006FBABC /* FilmStripDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2523B21BAE006FBABC /* FilmStripDataSource.swift */; };
-		04ACCD2823B2310B006FBABC /* EditingViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2723B2310B006FBABC /* EditingViewDataSource.swift */; };
 		04ACCD2A23B23290006FBABC /* FilmStripExistingPageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2923B23290006FBABC /* FilmStripExistingPageImageView.swift */; };
 		04ACCD2C23B2345A006FBABC /* UITraitCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2B23B2345A006FBABC /* UITraitCollectionExtensions.swift */; };
 		04B0FBCB25008ACF002CE851 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B0FBCA25008ACF002CE851 /* DrawingViewController.swift */; };
@@ -227,7 +226,6 @@
 		04EC179123D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC179023D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift */; };
 		04EC179323D991A700A42E08 /* FilmStripCollectionLayoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC179223D991A700A42E08 /* FilmStripCollectionLayoutItem.swift */; };
 		04EC179523D991C500A42E08 /* FilmStripCollectionLayoutSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC179423D991C500A42E08 /* FilmStripCollectionLayoutSize.swift */; };
-		04F44C66241E0CEB001C6531 /* TutorialEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F44C65241E0CEB001C6531 /* TutorialEditingView.swift */; };
 		04F44C68241E3FBC001C6531 /* StickersViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F44C67241E3FBC001C6531 /* StickersViewLayout.swift */; };
 		04F44C6A241E40EE001C6531 /* StickersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F44C69241E40EE001C6531 /* StickersCollectionView.swift */; };
 		04F44C6C241E41BA001C6531 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F44C6B241E41BA001C6531 /* Color.swift */; };
@@ -440,7 +438,6 @@
 		04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionView.swift; sourceTree = "<group>"; };
 		04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripExistingPageCell.swift; sourceTree = "<group>"; };
 		04ACCD2523B21BAE006FBABC /* FilmStripDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripDataSource.swift; sourceTree = "<group>"; };
-		04ACCD2723B2310B006FBABC /* EditingViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewDataSource.swift; sourceTree = "<group>"; };
 		04ACCD2923B23290006FBABC /* FilmStripExistingPageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripExistingPageImageView.swift; sourceTree = "<group>"; };
 		04ACCD2B23B2345A006FBABC /* UITraitCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITraitCollectionExtensions.swift; sourceTree = "<group>"; };
 		04B0FBCA25008ACF002CE851 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
@@ -517,7 +514,6 @@
 		04EC179023D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutGroup.swift; sourceTree = "<group>"; };
 		04EC179223D991A700A42E08 /* FilmStripCollectionLayoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutItem.swift; sourceTree = "<group>"; };
 		04EC179423D991C500A42E08 /* FilmStripCollectionLayoutSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutSize.swift; sourceTree = "<group>"; };
-		04F44C65241E0CEB001C6531 /* TutorialEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditingView.swift; sourceTree = "<group>"; };
 		04F44C67241E3FBC001C6531 /* StickersViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersViewLayout.swift; sourceTree = "<group>"; };
 		04F44C69241E40EE001C6531 /* StickersCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersCollectionView.swift; sourceTree = "<group>"; };
 		04F44C6B241E41BA001C6531 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -1027,7 +1023,6 @@
 				044484D323A884D300CD0C3C /* EditingUserActivity.swift */,
 				04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */,
 				04C0A66922DC224B00E4E5D6 /* EditingViewController.swift */,
-				04ACCD2723B2310B006FBABC /* EditingViewDataSource.swift */,
 				047F9EE826E4BE2600DD34F5 /* EditingViewFactory.swift */,
 				049A0458240D09C000F5FC17 /* Buttons */,
 				047F9EF626E4E79A00DD34F5 /* Canvas */,
@@ -1115,7 +1110,6 @@
 			isa = PBXGroup;
 			children = (
 				04D46BD92414E01500DBFB9A /* TutorialEditingViewController.swift */,
-				04F44C65241E0CEB001C6531 /* TutorialEditingView.swift */,
 				04D46BDC2414E0FA00DBFB9A /* TutorialCoordinator.swift */,
 				04516F7C2418E17A0096F852 /* Intro */,
 			);
@@ -1454,7 +1448,6 @@
 				04D46BD7241251C300DBFB9A /* IconSection.swift in Sources */,
 				040D355C2705649500F409A8 /* RegularEditingView.swift in Sources */,
 				04BD9256237FFC4300C8FD09 /* SceneView.swift in Sources */,
-				04ACCD2823B2310B006FBABC /* EditingViewDataSource.swift in Sources */,
 				0408495E261805CF00D2AA15 /* IconsImagePositioning.swift in Sources */,
 				04EC179323D991A700A42E08 /* FilmStripCollectionLayoutItem.swift in Sources */,
 				047F9EDD26E4956500DD34F5 /* ExportKeyCommand.swift in Sources */,
@@ -1537,7 +1530,6 @@
 				047F9EE126E496C500DD34F5 /* EditingState.swift in Sources */,
 				04D36ADA237826D40052A933 /* Fonts.swift in Sources */,
 				04791E7123EEC0B200403BD8 /* ExportSettingsNavigationController.swift in Sources */,
-				04F44C66241E0CEB001C6531 /* TutorialEditingView.swift in Sources */,
 				04BD92612380081900C8FD09 /* SidebarActionButton.swift in Sources */,
 				049B1A9C27113D7A00E38F5C /* FilmStripMoveEvent.swift in Sources */,
 				04BD925A237FFCA400C8FD09 /* ContainerView.swift in Sources */,

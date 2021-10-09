@@ -32,7 +32,6 @@ private struct SkinSubscriber<Upstream: Publisher, Downstream: Subscriber>: Subs
 
     func receive(_ input: Upstream.Output) -> Subscribers.Demand {
         skinGenerator.generateSkinsImage(from: input.document, currentPageIndex: input.currentPageIndex) { image, _ in
-//            dump(image?.pngData()?.base64EncodedString())
             _ = downstream.receive(image)
         }
         return .unlimited
