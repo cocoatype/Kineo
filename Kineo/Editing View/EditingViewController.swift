@@ -12,7 +12,10 @@ class EditingViewController: UIViewController {
         self.state = EditingState(document: document)
         super.init(nibName: nil, bundle: nil)
         embed(drawingViewController, layoutGuide: editingView.drawingViewGuide)
-        _ = persister
+        applicationStateManager.notificationHandler = { [weak self] in
+            guard let self = self else { return }
+            self.state = EditingState.Lenses.document.set($0.document, self.state)
+        }
     }
 
     override func loadView() { view = editingView }
@@ -28,7 +31,6 @@ class EditingViewController: UIViewController {
     }
 
     @objc func drawingViewDidChangePage(_ sender: DrawingView) {
-        #warning("Make sure multi-window still works")
         state = state.replacingCurrentPage(with: sender.page)
     }
 
@@ -103,7 +105,7 @@ class EditingViewController: UIViewController {
             view = editingView
         }
     }
-    private lazy var persister = EditingStatePersister(statePublisher: $state)
+    private lazy var applicationStateManager = ApplicationEditingStateManager(statePublisher: $state)
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
@@ -111,3 +113,25 @@ class EditingViewController: UIViewController {
         fatalError("\(typeName) does not implement init(coder:)")
     }
 }
+
+/*
+ EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10ce639d0 926C 4 strokes>), uuid: 5814926F-9D6B-4A69-82D9-607300F017BE)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false) is equal to EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10dbc4e00 926C 4 strokes>), uuid: 5814926F-9D6B-4A69-82D9-607300F017BE)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false): true
+
+ EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10db1a660 EDAD 5 strokes>), uuid: 1CE63E05-BEB5-435A-8C49-B7EEF2180050)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false) is equal to EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10ce639d0 926C 4 strokes>), uuid: 5814926F-9D6B-4A69-82D9-607300F017BE)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false): false
+ EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10db1a660 EDAD 5 strokes>), uuid: 1CE63E05-BEB5-435A-8C49-B7EEF2180050)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false) was not equal to EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10ce639d0 926C 4 strokes>), uuid: 5814926F-9D6B-4A69-82D9-607300F017BE)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false)
+
+ EditingState(
+ currentPageIndex: 0,
+ document: Data.Document(
+   pages: [
+     Data.Page(
+       drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10db1a660 EDAD 5 strokes>),
+       uuid: 1CE63E05-BEB5-435A-8C49-B7EEF2180050
+     )
+   ],
+   uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB),
+   mode: Kineo.EditingState.Mode.editing,
+   toolPickerShowing: false) is equal to EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10dbc4e00 926C 4 strokes>), uuid: 5814926F-9D6B-4A69-82D9-607300F017BE)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false): false
+ EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10db1a660 EDAD 5 strokes>), uuid: 1CE63E05-BEB5-435A-8C49-B7EEF2180050)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false) was not equal to EditingState(currentPageIndex: 0, document: Data.Document(pages: [Data.Page(drawing: PencilKit.PKDrawing(drawing: <PKDrawingConcrete: 0x10dbc4e00 926C 4 strokes>), uuid: 5814926F-9D6B-4A69-82D9-607300F017BE)], uuid: 2EA8CFC6-6E00-4E22-8137-9C80C9121EBB), mode: Kineo.EditingState.Mode.editing, toolPickerShowing: false)
+
+ */

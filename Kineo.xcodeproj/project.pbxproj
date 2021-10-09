@@ -20,7 +20,7 @@
 		04084959261805B100D2AA15 /* IconsImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04084958261805B100D2AA15 /* IconsImageGenerator.swift */; };
 		0408495E261805CF00D2AA15 /* IconsImagePositioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408495D261805CF00D2AA15 /* IconsImagePositioning.swift */; };
 		0408496326180FD300D2AA15 /* ExportEditingPickerControlGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408496226180FD300D2AA15 /* ExportEditingPickerControlGestureRecognizer.swift */; };
-		040D355A2705616900F409A8 /* EditingStatePersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D35592705616900F409A8 /* EditingStatePersister.swift */; };
+		040D355A2705616900F409A8 /* ApplicationEditingStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D35592705616900F409A8 /* ApplicationEditingStateManager.swift */; };
 		040D355C2705649500F409A8 /* RegularEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D355B2705649500F409A8 /* RegularEditingView.swift */; };
 		0417F09E22E46F410063AD66 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F09D22E46F410063AD66 /* UIImageExtensions.swift */; };
 		0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */; };
@@ -304,7 +304,7 @@
 		04084958261805B100D2AA15 /* IconsImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsImageGenerator.swift; sourceTree = "<group>"; };
 		0408495D261805CF00D2AA15 /* IconsImagePositioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsImagePositioning.swift; sourceTree = "<group>"; };
 		0408496226180FD300D2AA15 /* ExportEditingPickerControlGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingPickerControlGestureRecognizer.swift; sourceTree = "<group>"; };
-		040D35592705616900F409A8 /* EditingStatePersister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingStatePersister.swift; sourceTree = "<group>"; };
+		040D35592705616900F409A8 /* ApplicationEditingStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationEditingStateManager.swift; sourceTree = "<group>"; };
 		040D355B2705649500F409A8 /* RegularEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularEditingView.swift; sourceTree = "<group>"; };
 		0417F09D22E46F410063AD66 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
@@ -1033,7 +1033,7 @@
 				047F9ED326E4924100DD34F5 /* Key Commands */,
 				048A37F726F0586800B02F4F /* Onion Skins */,
 				047F9EF526E4E76B00DD34F5 /* State Management */,
-				040D35592705616900F409A8 /* EditingStatePersister.swift */,
+				040D35592705616900F409A8 /* ApplicationEditingStateManager.swift */,
 				040D355D270564AB00F409A8 /* Regular View */,
 			);
 			path = "Editing View";
@@ -1551,7 +1551,7 @@
 				047F9EFA26E585D100DD34F5 /* DrawingViewScrollRecognizer.swift in Sources */,
 				04084945261804CF00D2AA15 /* ExportEditingPreviewView.swift in Sources */,
 				047F9EEF26E4D04E00DD34F5 /* CompactEditingViewButtonBar.swift in Sources */,
-				040D355A2705616900F409A8 /* EditingStatePersister.swift in Sources */,
+				040D355A2705616900F409A8 /* ApplicationEditingStateManager.swift in Sources */,
 				04D36AD82378205F0052A933 /* Color.swift in Sources */,
 				0445AA632373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift in Sources */,
 				04B52D05237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift in Sources */,
