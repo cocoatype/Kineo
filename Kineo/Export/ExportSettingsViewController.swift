@@ -82,6 +82,6 @@ extension Array {
     }
 }
 
-protocol ExportSettingsViewControllerDelegate: class {
+protocol ExportSettingsViewControllerDelegate: AnyObject {
     func exportSettingsDidChange()
 }

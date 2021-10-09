@@ -80,7 +80,7 @@ public struct DocumentStore {
         return url(for: document.uuid, pathExtension: "png")
     }
 
-    func save(_ document: Document) {
+    public func save(_ document: Document) {
         operationQueue.addOperation(DocumentSaveOperation(document: document))
         Defaults.addUpdatedDocumentIdentifier(document.uuid)
     }

@@ -1,11 +1,12 @@
 //  Created by Geoff Pado on 12/24/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import Combine
 import UIKit
 
 class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDelegate, UICollectionViewDropDelegate {
-    init(dataSource: EditingViewDataSource) {
-        self.dataSource = FilmStripDataSource(dataSource: dataSource)
+    init(statePublisher: EditingStatePublisher) {
+        self.dataSource = FilmStripDataSource(statePublisher: statePublisher)
         super.init(frame: .zero)
 
         accessibilityHint = NSLocalizedString("FilmStripView.accessibilityHint", comment: "Accessibility hint for the film strip")
@@ -39,6 +40,10 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
         ])
 
         installIndicatorConstraints()
+
+        statePublisher.sink { [weak self] _ in
+            self?.reloadData()
+        }.store(in: &cancellables)
     }
 
     override func layoutSubviews() {
@@ -97,11 +102,11 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        sendAction(#selector(EditingViewController.hideSkinsImage(_:)), to: nil, for: nil)
+        sendAction(#selector(EditingViewController.startScrolling), to: nil, for: nil)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        sendAction(#selector(EditingViewController.showSkinsImage(_:)), to: nil, for: nil)
+        sendAction(#selector(EditingViewController.stopScrolling), to: nil, for: nil)
     }
 
     // MARK: Drag Delegate
@@ -122,9 +127,9 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
 
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
         guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
-        coordinator.items.forEach { [weak self] item in
+        coordinator.items.forEach { item in
             guard let sourceIndexPath = item.sourceIndexPath else { return }
-            self?.dataSource.movePage(at: sourceIndexPath, to: destinationIndexPath)
+            sendAction(#selector(EditingViewController.movePage(_:for:)), to: nil, for: FilmStripMoveEvent(source: sourceIndexPath, destination: destinationIndexPath))
             collectionView.moveItem(at: sourceIndexPath, to: destinationIndexPath)
             coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
         }
@@ -179,9 +184,9 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
 
     private static let accessibilityValueFormat = NSLocalizedString("FilmStripView.accessibilityValueFormat", comment: "Format string for the accessibility value of the film strip")
 
+    private var cancellables = Set<AnyCancellable>()
     private let collectionView = FilmStripCollectionView()
     private let dataSource: FilmStripDataSource
-//    private let delegate: FilmStripCollectionViewDelegate
     private let foregroundView = FilmStripForegroundView()
     private let indicator = FilmStripIndicator()
 

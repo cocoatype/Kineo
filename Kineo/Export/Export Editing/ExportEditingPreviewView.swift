@@ -19,7 +19,7 @@ class ExportEditingPreviewView: UIView {
         addSubview(watermarkView)
         addLayoutGuide(watermarkPlacementGuide)
 
-        playbackView.animate(continuously: true)
+        playbackView.startAnimating()
 
         NSLayoutConstraint.activate([
             playbackView.centerXAnchor.constraint(equalTo: centerXAnchor),

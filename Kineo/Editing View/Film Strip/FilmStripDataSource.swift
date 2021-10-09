@@ -5,28 +5,26 @@ import Data
 import UIKit
 
 class FilmStripDataSource: NSObject, UICollectionViewDataSource {
-    init(dataSource: EditingViewDataSource) {
-        self.dataSource = dataSource
+    init(statePublisher: EditingStatePublisher) {
+        self.statePublisher = statePublisher
     }
 
-    var currentPageIndex: Int { return dataSource.currentPageIndex }
+    var latestState: EditingState { statePublisher.value }
+
+    var currentPageIndex: Int { return latestState.currentPageIndex }
 
     func isNewPage(_ indexPath: IndexPath) -> Bool {
-        return indexPath.item == dataSource.pageCount
+        indexPath.item == latestState.pageCount
     }
 
     func page(at indexPath: IndexPath) -> Page {
-        return dataSource.page(at: indexPath.item)
-    }
-
-    func movePage(at sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        dataSource.movePage(at: sourceIndexPath.item, to: destinationIndexPath.item)
+        latestState.page(at: indexPath.item)
     }
 
     // MARK: UICollectionViewDataSource
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.pageCount + 1
+        return latestState.pageCount + 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -45,7 +43,7 @@ class FilmStripDataSource: NSObject, UICollectionViewDataSource {
             return cell
         }
 
-        existingPageCell.page = dataSource.page(at: indexPath.item)
+        existingPageCell.page = latestState.page(at: indexPath.item)
         return existingPageCell
     }
 
@@ -55,5 +53,5 @@ class FilmStripDataSource: NSObject, UICollectionViewDataSource {
 
     // MARK: Boilerplate
 
-    private let dataSource: EditingViewDataSource
+    private let statePublisher: EditingStatePublisher
 }

@@ -18,7 +18,7 @@ class GalleryDocumentPreviewViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        playbackView?.animate(continuously: true)
+        playbackView?.startAnimating()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
