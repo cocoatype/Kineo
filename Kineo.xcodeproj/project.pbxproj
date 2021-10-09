@@ -54,7 +54,6 @@
 		0444850323AB2ABC00CD0C3C /* DocumentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67D22DC522500E4E5D6 /* DocumentStore.swift */; };
 		0444850423AB2ABC00CD0C3C /* DocumentOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A68322DC5DA300E4E5D6 /* DocumentOperationQueue.swift */; };
 		0444850523AB2ABC00CD0C3C /* DocumentSaveOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A68122DC5D3800E4E5D6 /* DocumentSaveOperation.swift */; };
-		0444850623AB2ABC00CD0C3C /* DocumentEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67F22DC531100E4E5D6 /* DocumentEditor.swift */; };
 		0444850723AB2AD200CD0C3C /* SkinGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3222E19AB5003D70C8 /* SkinGenerator.swift */; };
 		0444850823AB2DEB00CD0C3C /* StickerGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044484D523AB210500CD0C3C /* StickerGenerator.swift */; };
 		0445AA5F2373C7A000EB2A7B /* GalleryViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445AA5E2373C7A000EB2A7B /* GalleryViewDataSource.swift */; };
@@ -469,7 +468,6 @@
 		04C0A67822DC436400E4E5D6 /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
 		04C0A67B22DC51E700E4E5D6 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		04C0A67D22DC522500E4E5D6 /* DocumentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentStore.swift; sourceTree = "<group>"; };
-		04C0A67F22DC531100E4E5D6 /* DocumentEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentEditor.swift; sourceTree = "<group>"; };
 		04C0A68122DC5D3800E4E5D6 /* DocumentSaveOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSaveOperation.swift; sourceTree = "<group>"; };
 		04C0A68322DC5DA300E4E5D6 /* DocumentOperationQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentOperationQueue.swift; sourceTree = "<group>"; };
 		04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
@@ -1060,7 +1058,6 @@
 				04C0A67D22DC522500E4E5D6 /* DocumentStore.swift */,
 				04C0A68322DC5DA300E4E5D6 /* DocumentOperationQueue.swift */,
 				04C0A68122DC5D3800E4E5D6 /* DocumentSaveOperation.swift */,
-				04C0A67F22DC531100E4E5D6 /* DocumentEditor.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -1397,7 +1394,6 @@
 				04DF241E23F93F0100657160 /* CloudConstants.swift in Sources */,
 				04DF242623F94AC300657160 /* ExportSettings.swift in Sources */,
 				04DF242423F947F100657160 /* ResultOperation.swift in Sources */,
-				0444850623AB2ABC00CD0C3C /* DocumentEditor.swift in Sources */,
 				043D761C240A742A00A1B7D1 /* DrawingImageGenerationOperation.swift in Sources */,
 				0444850423AB2ABC00CD0C3C /* DocumentOperationQueue.swift in Sources */,
 				045165FD23B236E400D7B535 /* CGGeometryExtensions.swift in Sources */,
