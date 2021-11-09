@@ -8,9 +8,14 @@ public struct Document: Codable, Equatable {
         self.init(pages: pages, uuid: UUID())
     }
 
-    init(pages: [Page] = [Page()], uuid: UUID = UUID()) {
+    init(pages: [Page] = [Page()], uuid: UUID = UUID(), backgroundColorHex: String? = nil) {
+        self.backgroundColorHex = backgroundColorHex
         self.pages = pages
         self.uuid = uuid
+    }
+
+    public func settingBackgroundColorHex(to newHex: String) -> Document {
+        return Document(pages: self.pages, uuid: self.uuid, backgroundColorHex: newHex)
     }
 
     public func replacingPage(atIndex index: Int, with page: Page) -> Document {
@@ -45,14 +50,9 @@ public struct Document: Codable, Equatable {
         return Document(pages: newPages, uuid: self.uuid)
     }
 
+    public let backgroundColorHex: String?
     public let pages: [Page]
     public let uuid: UUID
-
-    // MARK: Equatable
-
-    public static func == (lhs: Document, rhs: Document) -> Bool {
-        return lhs.uuid == rhs.uuid && lhs.pages == rhs.pages
-    }
 }
 
 extension Array {

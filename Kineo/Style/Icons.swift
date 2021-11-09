@@ -4,6 +4,7 @@
 import UIKit
 
 enum Icons {
+    static let background = UIImage(systemName: "paintpalette", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
     static let export = UIImage(systemName: "square.and.arrow.up", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
     static let play = UIImage(systemName: "play", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
     static let pause = UIImage(systemName: "pause", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
