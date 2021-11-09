@@ -5,16 +5,29 @@ import UIKit
 
 class SidebarActionButton: UIControl, UIPointerInteractionDelegate {
     init(icon: UIImage? = nil, auxiliaryIcon: UIImage? = nil, selector: Selector, target: Any? = nil) {
+        self.menu = nil
         super.init(frame: .zero)
+        commonSetup(icon: icon, auxiliaryIcon: auxiliaryIcon)
+        addTarget(target, action: selector, for: .touchUpInside)
+    }
 
+    private let menu: UIMenu?
+    init(icon: UIImage? = nil, auxiliaryIcon: UIImage? = nil, menu: UIMenu) {
+        self.menu = menu
+        super.init(frame: .zero)
+        commonSetup(icon: icon, auxiliaryIcon: auxiliaryIcon)
+
+        isContextMenuInteractionEnabled = true
+        showsMenuAsPrimaryAction = true
+    }
+
+    private func commonSetup(icon: UIImage? = nil, auxiliaryIcon: UIImage? = nil) {
         image = icon
         auxiliaryImage = auxiliaryIcon
         tintColor = .sidebarButtonTint
         translatesAutoresizingMaskIntoConstraints = false
         isAccessibilityElement = true
         accessibilityTraits = [.button]
-
-        addTarget(target, action: selector, for: .touchUpInside)
 
         addSubview(backgroundView)
         addSubview(imageView)
@@ -59,6 +72,15 @@ class SidebarActionButton: UIControl, UIPointerInteractionDelegate {
     private var buttonBackgroundColor: UIColor {
         if isHighlighted { return .sidebarButtonHighlight }
         return .sidebarButtonBackground
+    }
+
+    // MARK: Context Menu Interaction
+
+    override func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        guard let menu = menu else { return nil }
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            return menu
+        }
     }
 
     // MARK: Pointer Interactions

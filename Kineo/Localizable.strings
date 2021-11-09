@@ -68,6 +68,9 @@
 
 "HelpButton.accessibilityLabel" = "Help";
 
+"MenuButton.accessibilityLabel" = "Menu";
+"MenuButton.exportItemTitle" = "Share";
+
 "PlayButton.accessibilityLabel" = "Play";
 
 "PlayButtonContextMenuConfigurationFactory.bounceMenuItemTitle" = "Bounce";
