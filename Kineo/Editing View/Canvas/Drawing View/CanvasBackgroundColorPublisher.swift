@@ -2,6 +2,7 @@
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
 import Combine
+import Data
 import UIKit
 
 struct CanvasBackgroundColorPublisher<PublisherUpstream: Publisher>: Publisher where PublisherUpstream.Output == EditingState, PublisherUpstream.Failure == Never {
@@ -54,6 +55,6 @@ extension Publisher where Self.Output == EditingState, Self.Failure == Never {
 
 extension EditingState {
     var canvasBackgroundColor: UIColor {
-        UIColor(hexString: document.backgroundColorHex) ?? .canvasBackground
+        document.canvasBackgroundColor
     }
 }

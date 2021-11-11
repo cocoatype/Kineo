@@ -38,12 +38,10 @@ class EditingViewController: UIViewController {
 
     override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         super.preferredContentSizeDidChange(forChildContentContainer: container)
-        dump(container.preferredContentSize, name: #function)
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        dump(size, name: #function)
     }
 
     // MARK: Keyboard Commands

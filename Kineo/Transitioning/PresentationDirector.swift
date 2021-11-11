@@ -6,12 +6,13 @@ import UIKit
 
 class PresentationDirector: NSObject {
     func animatePresentation(from galleryViewController: GalleryViewController, to editingViewController: EditingViewController, in sceneViewController: SceneViewController) {
+        let document = editingViewController.document
         guard UIAccessibility.isReduceMotionEnabled == false else {
             return sceneViewController.transition(to: editingViewController)
         }
         guard
           let editingView = (editingViewController.view as? EditingView),
-          let selectedCell = galleryViewController.cell(for: editingViewController.document)
+          let selectedCell = galleryViewController.cell(for: document)
         else {
             sceneViewController.transition(to: editingViewController)
             return
@@ -24,7 +25,7 @@ class PresentationDirector: NSObject {
         }
 
         let cellSnapshot = CALayer()
-        cellSnapshot.backgroundColor = UIColor.canvasBackground.cgColor
+        cellSnapshot.backgroundColor = document.canvasBackgroundColor.cgColor
         if selectedCell is GalleryDocumentCollectionViewCell {
             cellSnapshot.contents = cellSnapshotImage.cgImage
         }

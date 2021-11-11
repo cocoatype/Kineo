@@ -7,7 +7,7 @@ import UIKit
 class StickerCellBackgroundView: UIView {
     init() {
         super.init(frame: .zero)
-        backgroundColor = .canvasBackground
+        backgroundColor = .clear//.canvasBackground
         translatesAutoresizingMaskIntoConstraints = false
         layer.mask = maskLayer
 

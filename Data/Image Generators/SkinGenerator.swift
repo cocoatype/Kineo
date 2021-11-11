@@ -57,7 +57,7 @@ public class SkinGenerator: NSObject {
             let format = UIGraphicsImageRendererFormat(for: traitCollection)
 
             let resultImage = UIGraphicsImageRenderer(size: size, format: format).image { context in
-                UIColor.canvasBackground.setFill()
+                document.canvasBackgroundColor.setFill()
                 context.cgContext.fill(CGRect(origin: .zero, size: size))
 
                 drawables.forEach { drawable in
@@ -78,4 +78,10 @@ public class SkinGenerator: NSObject {
     private static let skinPageCount = 4
     private static let maxOpacity = CGFloat(0.5)
     private static let opacityStep = CGFloat(-0.15)
+}
+
+public extension Document {
+    var canvasBackgroundColor: UIColor {
+        UIColor(hexString: backgroundColorHex) ?? .canvasBackground
+    }
 }
