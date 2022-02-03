@@ -5,6 +5,11 @@ import Data
 import UIKit
 
 extension EditingState {
+    func settingBackgroundColor(to color: UIColor) -> EditingState {
+        let newDocument = document.settingBackgroundColorHex(to: color.hex)
+        return EditingState.Lenses.document.set(newDocument, self)
+    }
+
     func replacingCurrentPage(with newPage: Page) -> EditingState {
         let newDocument = document.replacingPage(atIndex: currentPageIndex, with: newPage)
         return EditingState.Lenses.document.set(newDocument, self)

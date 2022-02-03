@@ -4,30 +4,35 @@
 import Foundation
 
 public struct Document: Codable, Equatable {
-    public init(pages: [Page]) {
-        self.init(pages: pages, uuid: UUID())
+    public init(pages: [Page], backgroundColorHex: String?) {
+        self.init(pages: pages, uuid: UUID(), backgroundColorHex: backgroundColorHex)
     }
 
-    init(pages: [Page] = [Page()], uuid: UUID = UUID()) {
+    init(pages: [Page] = [Page()], uuid: UUID = UUID(), backgroundColorHex: String? = nil) {
+        self.backgroundColorHex = backgroundColorHex
         self.pages = pages
         self.uuid = uuid
+    }
+
+    public func settingBackgroundColorHex(to newHex: String) -> Document {
+        return Document(pages: self.pages, uuid: self.uuid, backgroundColorHex: newHex)
     }
 
     public func replacingPage(atIndex index: Int, with page: Page) -> Document {
         var newPages = pages
         newPages[index] = page
-        return Document(pages: newPages, uuid: self.uuid)
+        return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex)
     }
 
     public func insertingBlankPage(at index: Int) -> Document {
         var newPages = pages
         newPages.insert(Page(), at: index)
-        return Document(pages: newPages, uuid: self.uuid)
+        return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex)
     }
 
     public func movingPage(at sourceIndex: Int, to destinationIndex: Int) -> Document {
         let newPages = pages.moving(from: sourceIndex, to: destinationIndex)
-        return Document(pages: newPages, uuid: self.uuid)
+        return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex)
     }
 
     public func duplicating(_ page: Page) -> Document {
@@ -35,24 +40,19 @@ public struct Document: Codable, Equatable {
         let duplicatePage = Page(drawing: page.drawing)
         var newPages = pages
         newPages.insert(duplicatePage, at: pages.index(after: index))
-        return Document(pages: newPages, uuid: self.uuid)
+        return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex)
     }
 
     public func deleting(_ page: Page) -> Document {
         guard let index = pages.firstIndex(of: page) else { return self }
         var newPages = pages
         newPages.remove(at: index)
-        return Document(pages: newPages, uuid: self.uuid)
+        return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex)
     }
 
+    public let backgroundColorHex: String?
     public let pages: [Page]
     public let uuid: UUID
-
-    // MARK: Equatable
-
-    public static func == (lhs: Document, rhs: Document) -> Bool {
-        return lhs.uuid == rhs.uuid && lhs.pages == rhs.pages
-    }
 }
 
 extension Array {

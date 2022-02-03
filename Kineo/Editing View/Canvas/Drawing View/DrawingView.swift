@@ -19,6 +19,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
 
         addSubview(backgroundView)
 
+        canvasView.backgroundColor = statePublisher.value.canvasBackgroundColor
         canvasView.delegate = self
         canvasView.drawing = page.drawing
         addSubview(canvasView)
@@ -51,6 +52,12 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
             .skinsImage()
             .receive(on: RunLoop.main)
             .assign(to: \.skinsImage, on: self)
+            .store(in: &cancellables)
+
+        statePublisher
+            .canvasBackgroundColor()
+            .receive(on: RunLoop.main)
+            .assign(to: \.backgroundColor, on: canvasView)
             .store(in: &cancellables)
     }
 

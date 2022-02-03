@@ -4,6 +4,7 @@
 import UIKit
 
 enum Icons {
+    static let background = UIImage(systemName: "paintpalette", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
     static let export = UIImage(systemName: "square.and.arrow.up", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
     static let play = UIImage(systemName: "play", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
     static let pause = UIImage(systemName: "pause", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
@@ -14,6 +15,7 @@ enum Icons {
     static let undo = UIImage(systemName: "arrow.uturn.left", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
     static let redo = UIImage(systemName: "arrow.uturn.right", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
     static let help = UIImage(systemName: "questionmark", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
+    static let menu = UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
 
     static let newDocument = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(weight: .bold))
 

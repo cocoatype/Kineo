@@ -94,7 +94,7 @@ class VideoProvider: UIActivityItemProvider {
                 let canvasRect = CGRect(origin: canvasPoint, size: Self.standardCanvasRect.size)
                 let canvasPath = UIBezierPath(roundedRect: canvasRect, cornerRadius: 8).cgPath
 
-                cgContext.setFillColor(UIColor.canvasBackground.cgColor)
+                cgContext.setFillColor(document.canvasBackgroundColor.cgColor)
                 cgContext.addPath(canvasPath)
 
                 // draw the lower shadow

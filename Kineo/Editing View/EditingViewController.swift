@@ -38,12 +38,10 @@ class EditingViewController: UIViewController {
 
     override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         super.preferredContentSizeDidChange(forChildContentContainer: container)
-        dump(container.preferredContentSize, name: #function)
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        dump(size, name: #function)
     }
 
     // MARK: Keyboard Commands
@@ -91,8 +89,18 @@ class EditingViewController: UIViewController {
     @objc func startScrolling() { state = state.scrolling }
     @objc func stopScrolling() { let newState = state.editing; state = newState }
 
+    // MARK: Actions
+
     @objc func exportVideo(_ sender: Any) {
         present(ExportEditingNavigationController(document: document), animated: true)
+    }
+
+    @objc func changeBackgroundColor(_ sender: Any) {
+        let colorPicker = ColorPickerViewController { [weak self] in
+            guard let editingViewController = self else { return }
+            editingViewController.state = editingViewController.state.settingBackgroundColor(to: $0)
+        }
+        present(colorPicker, animated: true)
     }
 
     // MARK: Editing View

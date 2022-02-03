@@ -31,8 +31,14 @@ class StickerGenerator: NSObject {
         traitCollection.performAsCurrent {
             let stickerScale = Self.standardStickerSize / Constants.canvasRect
             document.pages.forEach { page in
-                guard let image = page.drawing.image(from: Constants.canvasRect, scale: stickerScale).cgImage else { return }
-                CGImageDestinationAddImage(destination, image, frameProperties as CFDictionary)
+                let image = UIGraphicsImageRenderer(size: Self.standardStickerSize).image { context in
+                    document.canvasBackgroundColor.setFill()
+                    context.cgContext.fill(CGRect(origin: .zero, size: Self.standardStickerSize))
+                    guard let image = page.drawing.image(from: Constants.canvasRect, scale: stickerScale).cgImage else { return }
+                    context.cgContext.draw(image, in: CGRect(origin: .zero, size: Self.standardStickerSize))
+                }
+                guard let cgImage = image.cgImage else { return }
+                CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
             }
         }
 

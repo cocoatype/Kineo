@@ -20,7 +20,7 @@ class DismissalDirector: NSObject {
         }
 
         let canvasSnapshot = CALayer()
-        canvasSnapshot.backgroundColor = UIColor.canvasBackground.cgColor
+        canvasSnapshot.backgroundColor = editingViewController.document.canvasBackgroundColor.cgColor
         canvasSnapshot.contents = canvasSnapshotImage.cgImage
         canvasSnapshot.cornerRadius = 8
         canvasSnapshot.frame = editingView.drawingView.frame

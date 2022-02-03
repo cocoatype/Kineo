@@ -17,12 +17,12 @@ enum DocumentTransformer {
 
     static func bouncedDocument(from document: Document) -> Document {
         let pages = document.pages + document.pages.reversed().dropLast().dropFirst()
-        return Document(pages: pages)
+        return Document(pages: pages, backgroundColorHex: document.backgroundColorHex)
     }
 
     private static func loopedDocument(from document: Document, minimumFrameCount: Int) -> Document {
         let numberOfLoops = Int(ceil(Double(minimumFrameCount) / Double(document.pages.count)))
         let loopedPages = (0..<numberOfLoops).flatMap { _ in return document.pages }
-        return Document(pages: loopedPages)
+        return Document(pages: loopedPages, backgroundColorHex: document.backgroundColorHex)
     }
 }
