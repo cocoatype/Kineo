@@ -4,6 +4,14 @@
 import UIKit
 
 class EditingKeyCommand: UIKeyCommand {
+    #if CLIP
+    static let all: [UIKeyCommand] = [
+        BackKeyCommand(),
+        ForwardKeyCommand(),
+        ExportKeyCommand(),
+        PlayKeyCommand()
+    ]
+    #else
     static let all: [UIKeyCommand] = [
         GalleryKeyCommand(),
         BackKeyCommand(),
@@ -11,4 +19,5 @@ class EditingKeyCommand: UIKeyCommand {
         ExportKeyCommand(),
         PlayKeyCommand()
     ]
+    #endif
 }
