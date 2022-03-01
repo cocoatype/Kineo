@@ -27,10 +27,10 @@ class SidebarActionButtonBackgroundView: UIView {
         super.traitCollectionDidChange(previousTraitCollection)
 
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
-        darkShadowLayer.fillColor = UIColor.sidebarButtonBackground.cgColor
+        darkShadowLayer.fillColor = buttonBackgroundColor.cgColor
         darkShadowLayer.shadowColor = UIColor.sidebarButtonShadowDark.cgColor
         darkShadowLayer.strokeColor = UIColor.sidebarButtonBorder.cgColor
-        lightShadowLayer.fillColor = UIColor.sidebarButtonBackground.cgColor
+        lightShadowLayer.fillColor = buttonBackgroundColor.cgColor
         lightShadowLayer.shadowColor = UIColor.sidebarButtonShadowLight.cgColor
         lightShadowLayer.strokeColor = UIColor.sidebarButtonBorder.cgColor
     }
@@ -58,6 +58,28 @@ class SidebarActionButtonBackgroundView: UIView {
         layer.shadowRadius = 8
         return layer
     }()
+
+    // MARK: Highlighting/Selecting
+
+    var isHighlighted = false {
+        didSet {
+            darkShadowLayer.fillColor = buttonBackgroundColor.cgColor
+            lightShadowLayer.fillColor = buttonBackgroundColor.cgColor
+        }
+    }
+
+    var isSelected = false {
+        didSet {
+            darkShadowLayer.fillColor = buttonBackgroundColor.cgColor
+            lightShadowLayer.fillColor = buttonBackgroundColor.cgColor
+        }
+    }
+
+    private var buttonBackgroundColor: UIColor {
+        if isHighlighted { return .sidebarButtonHighlight }
+        else if isSelected { return .sidebarButtonBackgroundSelected }
+        return .sidebarButtonBackground
+    }
 
     // MARK: Boilerplate
 
