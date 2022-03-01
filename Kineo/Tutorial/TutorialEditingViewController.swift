@@ -10,7 +10,7 @@ class TutorialEditingViewController: EditingViewController {
     }
 
     private func showIntro() {
-        guard presentedViewController == nil else { return }
+        guard presentedViewController == nil, TutorialCoordinator.shouldStartTutorial else { return }
         present(TutorialIntroViewController(), animated: true, completion: nil)
     }
 
