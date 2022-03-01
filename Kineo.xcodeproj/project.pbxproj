@@ -189,6 +189,8 @@
 		0474B02C27B767FE0031210C /* DocumentThumbnailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491C1DF24F0817300E67660 /* DocumentThumbnailProvider.swift */; };
 		0474B02D27B768050031210C /* IconsImagePositioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408495D261805CF00D2AA15 /* IconsImagePositioning.swift */; };
 		0474B02E27B7680D0031210C /* IconsImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04084958261805B100D2AA15 /* IconsImageGenerator.swift */; };
+		0474B06B27BB53950031210C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043854F12392246F0041A4AA /* Localizable.strings */; };
+		0474B06D27BB5AC10031210C /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0474B06C27BB5AC00031210C /* AuthenticationServices.framework */; };
 		04791E2523EC1F3400403BD8 /* StandardContentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791DE523EC1F3400403BD8 /* StandardContentItem.swift */; };
 		04791E2623EC1F3400403BD8 /* SettingsContentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791DE623EC1F3400403BD8 /* SettingsContentItem.swift */; };
 		04791E2723EC1F3400403BD8 /* OtherAppItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791DE823EC1F3400403BD8 /* OtherAppItem.swift */; };
@@ -514,6 +516,7 @@
 		0474AFAE27B75F030031210C /* SceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneViewController.swift; sourceTree = "<group>"; };
 		0474AFB827B75F050031210C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0474AFB927B75F050031210C /* Clip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clip.entitlements; sourceTree = "<group>"; };
+		0474B06C27BB5AC00031210C /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		04791DE523EC1F3400403BD8 /* StandardContentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardContentItem.swift; sourceTree = "<group>"; };
 		04791DE623EC1F3400403BD8 /* SettingsContentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsContentItem.swift; sourceTree = "<group>"; };
 		04791DE823EC1F3400403BD8 /* OtherAppItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherAppItem.swift; sourceTree = "<group>"; };
@@ -703,6 +706,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0474B06D27BB5AC10031210C /* AuthenticationServices.framework in Frameworks */,
 				044484FB23AB2A7000CD0C3C /* Data.framework in Frameworks */,
 				04DF241923F93B3A00657160 /* CloudKit.framework in Frameworks */,
 			);
@@ -777,6 +781,7 @@
 		044484DC23AB287800CD0C3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0474B06C27BB5AC00031210C /* AuthenticationServices.framework */,
 				04DF241823F93B3A00657160 /* CloudKit.framework */,
 				044484DD23AB287800CD0C3C /* Messages.framework */,
 			);
@@ -1542,6 +1547,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0474AFC327B7605B0031210C /* Assets.xcassets in Resources */,
+				0474B06B27BB53950031210C /* Localizable.strings in Resources */,
 				0474AFC227B75FB30031210C /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2076,7 +2082,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = Clip/Clip.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 287EDDET2B;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2084,7 +2091,6 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Kineo;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -2095,6 +2101,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipbookapp.flickbook.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.flipbookapp.flickbook.Clip";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "CLIP $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -2119,7 +2126,6 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Kineo;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -2257,7 +2263,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Kineo/Kineo.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 287EDDET2B;
 				INFOPLIST_FILE = Kineo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2266,6 +2273,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipbookapp.flickbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.flipbookapp.flickbook";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
