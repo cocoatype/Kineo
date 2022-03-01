@@ -7,6 +7,7 @@ class CompactEditingViewButtonBar: UIView {
     init(statePublisher: EditingStatePublisher) {
         self.undoButton = UndoButton(statePublisher: statePublisher)
         self.redoButton = RedoButton(statePublisher: statePublisher)
+        self.toolsButton = ToolsButton(statePublisher: statePublisher)
         super.init(frame: .zero)
 
         [galleryButton, menuButton, toolsButton, undoButton, redoButton].forEach(self.addSubview(_:))
@@ -47,7 +48,7 @@ class CompactEditingViewButtonBar: UIView {
 
     private let galleryButton = GalleryButton()
     private let menuButton = MenuButton()
-    private let toolsButton = ToolsButton()
+    private let toolsButton: ToolsButton
     private let undoButton: UndoButton
     private let redoButton: RedoButton
     private let centerLayoutGuide = UILayoutGuide()

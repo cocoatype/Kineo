@@ -58,6 +58,14 @@ class SidebarActionButton: UIControl, UIPointerInteractionDelegate {
 
     override var isHighlighted: Bool {
         didSet {
+            backgroundView.isHighlighted = isHighlighted
+            setNeedsDisplay()
+        }
+    }
+
+    override var isSelected: Bool {
+        didSet {
+            backgroundView.isSelected = isSelected
             setNeedsDisplay()
         }
     }
@@ -67,11 +75,6 @@ class SidebarActionButton: UIControl, UIPointerInteractionDelegate {
             alpha = isEnabled ? 1.0 : 0.4
             accessibilityTraits = isEnabled ? [.button] : [.button, .notEnabled]
         }
-    }
-
-    private var buttonBackgroundColor: UIColor {
-        if isHighlighted { return .sidebarButtonHighlight }
-        return .sidebarButtonBackground
     }
 
     // MARK: Context Menu Interaction

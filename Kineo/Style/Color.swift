@@ -64,6 +64,7 @@ extension UIColor {
     static let sidebarBackground = UIColor.named("Sidebar Background")
     static let sidebarBorder = UIColor.named("Sidebar Border")
     static let sidebarButtonBackground = UIColor.named("Sidebar Button Background")
+    static let sidebarButtonBackgroundSelected = UIColor.named("Sidebar Button Background (Selected)")
     static let sidebarButtonBorder = UIColor.named("Sidebar Button Border")
     static let sidebarButtonHighlight = UIColor.named("Sidebar Button Highlight")
     static let sidebarButtonShadowDark = UIColor.named("Sidebar Button Shadow Dark")
