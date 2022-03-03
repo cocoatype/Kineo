@@ -13,6 +13,16 @@ class FilmStripExistingPageBackgroundView: UIView {
         layer.addSublayer(lightShadowLayer)
     }
 
+    var canvasBackgroundColor: UIColor? {
+        didSet {
+            let canvasBackgroundColor = canvasBackgroundColor ?? UIColor.canvasBackground
+            darkShadowLayer.fillColor = canvasBackgroundColor.cgColor
+            lightShadowLayer.fillColor = canvasBackgroundColor.cgColor
+        }
+    }
+
+    // MARK: Redrawing
+
     override func layoutSublayers(of layer: CALayer) {
         super.layoutSublayers(of: layer)
 
