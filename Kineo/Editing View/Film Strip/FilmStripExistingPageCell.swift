@@ -74,6 +74,14 @@ class FilmStripExistingPageCell: UICollectionViewCell, UIPointerInteractionDeleg
         }
     }
 
+    // MARK: Background
+
+    var canvasBackgroundColor: UIColor? {
+        didSet {
+            shadowView.canvasBackgroundColor = canvasBackgroundColor
+        }
+    }
+
     // MARK: Boilerplate
 
     private static let generator = DrawingImageGenerator.shared
