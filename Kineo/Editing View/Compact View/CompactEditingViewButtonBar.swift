@@ -10,16 +10,16 @@ class CompactEditingViewButtonBar: UIView {
         self.toolsButton = ToolsButton(statePublisher: statePublisher)
         super.init(frame: .zero)
 
+        #if CLIP
+        [menuButton, toolsButton, undoButton, redoButton].forEach(self.addSubview(_:))
+        #else
         [galleryButton, menuButton, toolsButton, undoButton, redoButton].forEach(self.addSubview(_:))
+        #endif
         addLayoutGuide(centerLayoutGuide)
 
         translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            galleryButton.topAnchor.constraint(equalTo: topAnchor),
-            galleryButton.bottomAnchor.constraint(equalTo: bottomAnchor),
-            galleryButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-
             centerLayoutGuide.topAnchor.constraint(equalTo: topAnchor),
             centerLayoutGuide.bottomAnchor.constraint(equalTo: bottomAnchor),
             centerLayoutGuide.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -38,6 +38,14 @@ class CompactEditingViewButtonBar: UIView {
             menuButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             menuButton.topAnchor.constraint(equalTo: topAnchor),
         ])
+
+        #if !CLIP
+        NSLayoutConstraint.activate([
+            galleryButton.topAnchor.constraint(equalTo: topAnchor),
+            galleryButton.bottomAnchor.constraint(equalTo: bottomAnchor),
+            galleryButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+        ])
+        #endif
     }
 
     override var intrinsicContentSize: CGSize {
@@ -46,7 +54,9 @@ class CompactEditingViewButtonBar: UIView {
 
     // MARK: Boilerplate
 
+    #if !CLIP
     private let galleryButton = GalleryButton()
+    #endif
     private let menuButton = MenuButton()
     private let toolsButton: ToolsButton
     private let undoButton: UndoButton

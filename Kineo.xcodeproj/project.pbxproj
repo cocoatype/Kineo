@@ -82,6 +82,115 @@
 		046C407D249863220069E8FB /* DrawingBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C407C249863220069E8FB /* DrawingBackgroundView.swift */; };
 		046C407F249868270069E8FB /* SidebarActionButtonBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C407E249868270069E8FB /* SidebarActionButtonBackgroundView.swift */; };
 		046C408124986D3E0069E8FB /* FilmStripForegroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C408024986D3E0069E8FB /* FilmStripForegroundView.swift */; };
+		0474AFAD27B75F030031210C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474AFAC27B75F030031210C /* SceneDelegate.swift */; };
+		0474AFAF27B75F030031210C /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0474AFAE27B75F030031210C /* SceneViewController.swift */; };
+		0474AFBC27B75F050031210C /* Clip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 0474AFA827B75F030031210C /* Clip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0474AFC127B75F790031210C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */; };
+		0474AFC227B75FB30031210C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C0A65022DC208E00E4E5D6 /* LaunchScreen.storyboard */; };
+		0474AFC327B7605B0031210C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C0A64E22DC208E00E4E5D6 /* Assets.xcassets */; };
+		0474AFC427B760FC0031210C /* SceneWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A66C22DC23F700E4E5D6 /* SceneWindow.swift */; };
+		0474AFC527B761770031210C /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044484F423AB2A7000CD0C3C /* Data.framework */; };
+		0474AFC627B761770031210C /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 044484F423AB2A7000CD0C3C /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0474AFCA27B761BA0031210C /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD9255237FFC4300C8FD09 /* SceneView.swift */; };
+		0474AFCB27B761F40031210C /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A66922DC224B00E4E5D6 /* EditingViewController.swift */; };
+		0474AFCC27B762080031210C /* EditingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EE026E496C500DD34F5 /* EditingState.swift */; };
+		0474AFCD27B762120031210C /* Cascading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EE426E4AC7B00DD34F5 /* Cascading.swift */; };
+		0474AFCE27B762210031210C /* EditingStateModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EF726E4EC9F00DD34F5 /* EditingStateModes.swift */; };
+		0474AFCF27B762270031210C /* EditingStateLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EF226E4E59900DD34F5 /* EditingStateLenses.swift */; };
+		0474AFD027B762450031210C /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A66722DC221700E4E5D6 /* UIViewControllerExtensions.swift */; };
+		0474AFD127B762720031210C /* ApplicationEditingStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D35592705616900F409A8 /* ApplicationEditingStateManager.swift */; };
+		0474AFD227B762820031210C /* EditingViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EE826E4BE2600DD34F5 /* EditingViewFactory.swift */; };
+		0474AFD327B762960031210C /* EditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */; };
+		0474AFD427B762A50031210C /* CompactEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9ED126E48F7800DD34F5 /* CompactEditingView.swift */; };
+		0474AFD527B762A70031210C /* CompactEditingViewButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EEE26E4D04E00DD34F5 /* CompactEditingViewButtonBar.swift */; };
+		0474AFD627B762BA0031210C /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */; };
+		0474AFD727B762D00031210C /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B0FBCA25008ACF002CE851 /* DrawingViewController.swift */; };
+		0474AFD827B762DA0031210C /* SkinsImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86C0923BA111C005F65F7 /* SkinsImageView.swift */; };
+		0474AFD927B762E10031210C /* DrawingViewGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EEC26E4CAA500DD34F5 /* DrawingViewGuide.swift */; };
+		0474AFDA27B762F00031210C /* RegularEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D355B2705649500F409A8 /* RegularEditingView.swift */; };
+		0474AFDB27B763180031210C /* EditingToolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EF026E4E1E700DD34F5 /* EditingToolPicker.swift */; };
+		0474AFDC27B763220031210C /* UndoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375F2427676B005894F7 /* UndoButton.swift */; };
+		0474AFDD27B7633E0031210C /* SidebarActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD92602380081900C8FD09 /* SidebarActionButton.swift */; };
+		0474AFDE27B763450031210C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD72378205F0052A933 /* Color.swift */; };
+		0474AFDF27B763510031210C /* DrawingBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C407C249863220069E8FB /* DrawingBackgroundView.swift */; };
+		0474AFE027B7635B0031210C /* RedoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046937612427677D005894F7 /* RedoButton.swift */; };
+		0474AFE127B763620031210C /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */; };
+		0474AFE227B7636A0031210C /* FilmStripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD1C23B21334006FBABC /* FilmStripView.swift */; };
+		0474AFE327B763710031210C /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375B24276735005894F7 /* PlayButton.swift */; };
+		0474AFE427B764280031210C /* PlayButtonContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0459240D09E400F5FC17 /* PlayButtonContextMenu.swift */; };
+		0474AFE527B764390031210C /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3022E18C72003D70C8 /* Icons.swift */; };
+		0474AFE627B7645A0031210C /* CanvasBackgroundColorPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04993EFE273A257100F7BBF2 /* CanvasBackgroundColorPublisher.swift */; };
+		0474AFE927B7648A0031210C /* SidebarActionButtonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043854E6238CD06F0041A4AA /* SidebarActionButtonImageView.swift */; };
+		0474AFEA27B764930031210C /* SidebarActionButtonBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C407E249868270069E8FB /* SidebarActionButtonBackgroundView.swift */; };
+		0474AFEB27B764C30031210C /* EditingStatePageManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EE626E4B8B300DD34F5 /* EditingStatePageManipulation.swift */; };
+		0474AFEC27B764CD0031210C /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B1A9D2715363300E38F5C /* MenuButton.swift */; };
+		0474AFED27B764DC0031210C /* ExportButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375924276724005894F7 /* ExportButton.swift */; };
+		0474AFEE27B764E50031210C /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3422E2EC3C003D70C8 /* PlaybackView.swift */; };
+		0474AFEF27B764F70031210C /* ToolsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375D2427675B005894F7 /* ToolsButton.swift */; };
+		0474AFF027B765000031210C /* DrawingViewScrollRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EF926E585D100DD34F5 /* DrawingViewScrollRecognizer.swift */; };
+		0474AFF127B765210031210C /* SkinPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A37F826F0587F00B02F4F /* SkinPublisher.swift */; };
+		0474AFF227B765700031210C /* FilmStripCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD1F23B21985006FBABC /* FilmStripCollectionView.swift */; };
+		0474AFF327B765760031210C /* FilmStripCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC178C23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift */; };
+		0474AFF427B765860031210C /* FilmStripMoveEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B1A9B27113D7A00E38F5C /* FilmStripMoveEvent.swift */; };
+		0474AFF527B7658E0031210C /* PageNavigationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419751A25EB508800CB0F54 /* PageNavigationEvent.swift */; };
+		0474AFF627B765B80031210C /* FilmStripExistingPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2323B21B4B006FBABC /* FilmStripExistingPageCell.swift */; };
+		0474AFF727B765D20031210C /* EditingKeyCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9ED426E4925200DD34F5 /* EditingKeyCommands.swift */; };
+		0474AFF827B765DF0031210C /* FilmStripDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2523B21BAE006FBABC /* FilmStripDataSource.swift */; };
+		0474AFFA27B765EE0031210C /* BackKeyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EDA26E4955F00DD34F5 /* BackKeyCommand.swift */; };
+		0474AFFB27B765F60031210C /* ForwardKeyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9ED826E4955A00DD34F5 /* ForwardKeyCommand.swift */; };
+		0474AFFC27B765FC0031210C /* ExportKeyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EDC26E4956500DD34F5 /* ExportKeyCommand.swift */; };
+		0474AFFD27B766000031210C /* PlayKeyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EDE26E4956D00DD34F5 /* PlayKeyCommand.swift */; };
+		0474AFFE27B766050031210C /* FilmStripForegroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C408024986D3E0069E8FB /* FilmStripForegroundView.swift */; };
+		0474AFFF27B766190031210C /* FilmStripExistingPageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2923B23290006FBABC /* FilmStripExistingPageImageView.swift */; };
+		0474B00027B7661F0031210C /* FilmStripExistingPageBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043F06D124AB667D005865BF /* FilmStripExistingPageBackgroundView.swift */; };
+		0474B00127B7662A0031210C /* EditingPageNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EE226E4980E00DD34F5 /* EditingPageNavigation.swift */; };
+		0474B00227B766350031210C /* ExportEditingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E3B63D25FC675B00D2A945 /* ExportEditingNavigationController.swift */; };
+		0474B00327B7663C0031210C /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04993EFC273A207500F7BBF2 /* ColorPickerViewController.swift */; };
+		0474B00427B766460031210C /* FilmStripCollectionLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC178E23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift */; };
+		0474B00527B7664C0031210C /* FilmStripCollectionLayoutSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC179423D991C500A42E08 /* FilmStripCollectionLayoutSize.swift */; };
+		0474B00627B7665E0031210C /* DocumentTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF241623F88B1F00657160 /* DocumentTransformer.swift */; };
+		0474B00727B7666C0031210C /* FilmStripNewPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451660023B2441000D7B535 /* FilmStripNewPageCell.swift */; };
+		0474B00827B766710031210C /* ExportEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E3B62925FC647F00D2A945 /* ExportEditingViewController.swift */; };
+		0474B00927B766780031210C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD9237826D40052A933 /* Fonts.swift */; };
+		0474B00A27B766830031210C /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EEA26E4CA2700DD34F5 /* BoolExtensions.swift */; };
+		0474B00B27B766880031210C /* FilmStripNewPageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451660223B2467A00D7B535 /* FilmStripNewPageImageView.swift */; };
+		0474B00C27B7668F0031210C /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436CE9223E53237002BE4EF /* ExportViewController.swift */; };
+		0474B00D27B766960031210C /* ExportEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E3B63225FC64B100D2A945 /* ExportEditingView.swift */; };
+		0474B00E27B7669B0031210C /* ExportSettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E7023EEC0B200403BD8 /* ExportSettingsNavigationController.swift */; };
+		0474B00F27B766A40031210C /* FilmStripIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DAFFE23B3170C00BD2A0C /* FilmStripIndicator.swift */; };
+		0474B01027B766AA0031210C /* ExportEditingPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04084944261804CF00D2AA15 /* ExportEditingPreviewView.swift */; };
+		0474B01127B766AF0031210C /* ExportEditingPickerStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040849352618045200D2AA15 /* ExportEditingPickerStackView.swift */; };
+		0474B01227B766B80031210C /* ExportEditingPreviewWatermarkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04389E32262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift */; };
+		0474B01327B766C40031210C /* VideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */; };
+		0474B01427B766D10031210C /* ExportSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E5E23EE9CBF00403BD8 /* ExportSettingsViewController.swift */; };
+		0474B01527B766D70031210C /* ExportEditingCancelBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040849492618052600D2AA15 /* ExportEditingCancelBarButtonItem.swift */; };
+		0474B01627B766E70031210C /* ExportEditingSettingsBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040849532618055200D2AA15 /* ExportEditingSettingsBarButtonItem.swift */; };
+		0474B01727B766F00031210C /* ExportEditingShareBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408494E2618053E00D2AA15 /* ExportEditingShareBarButtonItem.swift */; };
+		0474B01827B766F70031210C /* FilmStripCollectionLayoutGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC179023D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift */; };
+		0474B01927B766FF0031210C /* SettingsHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B65E224208FA9009AFBD9 /* SettingsHeaderFooterView.swift */; };
+		0474B01A27B7670E0031210C /* ExportSettingsContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6223EEA09300403BD8 /* ExportSettingsContentProvider.swift */; };
+		0474B01B27B767180031210C /* ExportSettingsBackgroundContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408492B261569E100D2AA15 /* ExportSettingsBackgroundContentSection.swift */; };
+		0474B01C27B767200031210C /* ExportSettingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6823EEAB2000403BD8 /* ExportSettingsDataSource.swift */; };
+		0474B01D27B767270031210C /* ExportSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6423EEA71D00403BD8 /* ExportSettingsView.swift */; };
+		0474B01E27B767340031210C /* ExportSettingsDurationContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6E23EEBC9200403BD8 /* ExportSettingsDurationContentSection.swift */; };
+		0474B01F27B767580031210C /* NSLayoutConstraintExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04084930261578FC00D2AA15 /* NSLayoutConstraintExtensions.swift */; };
+		0474B02027B7676A0031210C /* AppRatingsPrompter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D4F3F24E0C780001F86A0 /* AppRatingsPrompter.swift */; };
+		0474B02127B767710031210C /* ExportSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6623EEA97100403BD8 /* ExportSettingsTableViewCell.swift */; };
+		0474B02227B767790031210C /* FilmStripCollectionLayoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC179223D991A700A42E08 /* FilmStripCollectionLayoutItem.swift */; };
+		0474B02327B767830031210C /* UIScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419752025EB50C300CB0F54 /* UIScrollViewExtensions.swift */; };
+		0474B02427B7678B0031210C /* FilmStripPageDragItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B034225EBB893005AB424 /* FilmStripPageDragItem.swift */; };
+		0474B02527B767910031210C /* FilmStripPageItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419752525EB515C00CB0F54 /* FilmStripPageItemProvider.swift */; };
+		0474B02627B767990031210C /* ExportEditingPlaybackStylePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408493F2618049A00D2AA15 /* ExportEditingPlaybackStylePicker.swift */; };
+		0474B02727B767A00031210C /* ExportEditingShapePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408493A2618047100D2AA15 /* ExportEditingShapePicker.swift */; };
+		0474B02827B767CD0031210C /* ExportEditingPickerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04975D01260C309600AA2771 /* ExportEditingPickerControl.swift */; };
+		0474B02927B767D80031210C /* ExportEditingPickerControlGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408496226180FD300D2AA15 /* ExportEditingPickerControlGestureRecognizer.swift */; };
+		0474B02A27B767E20031210C /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F09D22E46F410063AD66 /* UIImageExtensions.swift */; };
+		0474B02B27B767F80031210C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E0F23EC1F3400403BD8 /* WebViewController.swift */; };
+		0474B02C27B767FE0031210C /* DocumentThumbnailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491C1DF24F0817300E67660 /* DocumentThumbnailProvider.swift */; };
+		0474B02D27B768050031210C /* IconsImagePositioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408495D261805CF00D2AA15 /* IconsImagePositioning.swift */; };
+		0474B02E27B7680D0031210C /* IconsImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04084958261805B100D2AA15 /* IconsImageGenerator.swift */; };
+		0474B06B27BB53950031210C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043854F12392246F0041A4AA /* Localizable.strings */; };
+		0474B06D27BB5AC10031210C /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0474B06C27BB5AC00031210C /* AuthenticationServices.framework */; };
 		04791E2523EC1F3400403BD8 /* StandardContentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791DE523EC1F3400403BD8 /* StandardContentItem.swift */; };
 		04791E2623EC1F3400403BD8 /* SettingsContentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791DE623EC1F3400403BD8 /* SettingsContentItem.swift */; };
 		04791E2723EC1F3400403BD8 /* OtherAppItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791DE823EC1F3400403BD8 /* OtherAppItem.swift */; };
@@ -251,6 +360,20 @@
 			remoteGlobalIDString = 044484F323AB2A7000CD0C3C;
 			remoteInfo = Data;
 		};
+		0474AFBA27B75F050031210C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04C0A63A22DC208E00E4E5D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0474AFA727B75F030031210C;
+			remoteInfo = Clip;
+		};
+		0474AFC727B761770031210C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04C0A63A22DC208E00E4E5D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 044484F323AB2A7000CD0C3C;
+			remoteInfo = Data;
+		};
 		04ACCD1A23AB6B68006FBABC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 04C0A63A22DC208E00E4E5D6 /* Project object */;
@@ -286,6 +409,28 @@
 			dstSubfolderSpec = 10;
 			files = (
 				044484FC23AB2A7000CD0C3C /* Data.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0474AFBD27B75F050031210C /* Embed App Clips */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
+			dstSubfolderSpec = 16;
+			files = (
+				0474AFBC27B75F050031210C /* Clip.app in Embed App Clips */,
+			);
+			name = "Embed App Clips";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0474AFC927B761770031210C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0474AFC627B761770031210C /* Data.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +511,12 @@
 		046C407C249863220069E8FB /* DrawingBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBackgroundView.swift; sourceTree = "<group>"; };
 		046C407E249868270069E8FB /* SidebarActionButtonBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionButtonBackgroundView.swift; sourceTree = "<group>"; };
 		046C408024986D3E0069E8FB /* FilmStripForegroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripForegroundView.swift; sourceTree = "<group>"; };
+		0474AFA827B75F030031210C /* Clip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0474AFAC27B75F030031210C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0474AFAE27B75F030031210C /* SceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneViewController.swift; sourceTree = "<group>"; };
+		0474AFB827B75F050031210C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0474AFB927B75F050031210C /* Clip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clip.entitlements; sourceTree = "<group>"; };
+		0474B06C27BB5AC00031210C /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		04791DE523EC1F3400403BD8 /* StandardContentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardContentItem.swift; sourceTree = "<group>"; };
 		04791DE623EC1F3400403BD8 /* SettingsContentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsContentItem.swift; sourceTree = "<group>"; };
 		04791DE823EC1F3400403BD8 /* OtherAppItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherAppItem.swift; sourceTree = "<group>"; };
@@ -543,10 +694,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0474AFA527B75F030031210C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0474AFC527B761770031210C /* Data.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04C0A63F22DC208E00E4E5D6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0474B06D27BB5AC10031210C /* AuthenticationServices.framework in Frameworks */,
 				044484FB23AB2A7000CD0C3C /* Data.framework in Frameworks */,
 				04DF241923F93B3A00657160 /* CloudKit.framework in Frameworks */,
 			);
@@ -621,6 +781,7 @@
 		044484DC23AB287800CD0C3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0474B06C27BB5AC00031210C /* AuthenticationServices.framework */,
 				04DF241823F93B3A00657160 /* CloudKit.framework */,
 				044484DD23AB287800CD0C3C /* Messages.framework */,
 			);
@@ -695,6 +856,17 @@
 				04516F7A2418E1320096F852 /* TutorialIntroButtonsStackView.swift */,
 			);
 			path = Intro;
+			sourceTree = "<group>";
+		};
+		0474AFA927B75F030031210C /* Clip */ = {
+			isa = PBXGroup;
+			children = (
+				0474AFAC27B75F030031210C /* SceneDelegate.swift */,
+				0474AFAE27B75F030031210C /* SceneViewController.swift */,
+				0474AFB827B75F050031210C /* Info.plist */,
+				0474AFB927B75F050031210C /* Clip.entitlements */,
+			);
+			path = Clip;
 			sourceTree = "<group>";
 		};
 		04791DE323EC1F3400403BD8 /* Settings */ = {
@@ -966,6 +1138,7 @@
 				04C0A65B22DC208F00E4E5D6 /* KineoTests */,
 				044484DF23AB287800CD0C3C /* Stickers */,
 				044484F523AB2A7000CD0C3C /* Data */,
+				0474AFA927B75F030031210C /* Clip */,
 				044484DC23AB287800CD0C3C /* Frameworks */,
 				04C0A64322DC208E00E4E5D6 /* Products */,
 			);
@@ -978,6 +1151,7 @@
 				04C0A65822DC208F00E4E5D6 /* KineoTests.xctest */,
 				044484DB23AB287800CD0C3C /* Stickers.appex */,
 				044484F423AB2A7000CD0C3C /* Data.framework */,
+				0474AFA827B75F030031210C /* Clip.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1242,6 +1416,25 @@
 			productReference = 044484F423AB2A7000CD0C3C /* Data.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		0474AFA727B75F030031210C /* Clip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0474AFC027B75F050031210C /* Build configuration list for PBXNativeTarget "Clip" */;
+			buildPhases = (
+				0474AFA427B75F030031210C /* Sources */,
+				0474AFA527B75F030031210C /* Frameworks */,
+				0474AFA627B75F030031210C /* Resources */,
+				0474AFC927B761770031210C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0474AFC827B761770031210C /* PBXTargetDependency */,
+			);
+			name = Clip;
+			productName = Clip;
+			productReference = 0474AFA827B75F030031210C /* Clip.app */;
+			productType = "com.apple.product-type.application.on-demand-install-capable";
+		};
 		04C0A64122DC208E00E4E5D6 /* Kineo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04C0A66122DC208F00E4E5D6 /* Build configuration list for PBXNativeTarget "Kineo" */;
@@ -1251,12 +1444,14 @@
 				04C0A64022DC208E00E4E5D6 /* Resources */,
 				044484EE23AB287A00CD0C3C /* Embed App Extensions */,
 				0444850023AB2A7000CD0C3C /* Embed Frameworks */,
+				0474AFBD27B75F050031210C /* Embed App Clips */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				044484FA23AB2A7000CD0C3C /* PBXTargetDependency */,
 				044484E923AB287A00CD0C3C /* PBXTargetDependency */,
+				0474AFBB27B75F050031210C /* PBXTargetDependency */,
 			);
 			name = Kineo;
 			productName = Kineo;
@@ -1287,7 +1482,7 @@
 		04C0A63A22DC208E00E4E5D6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1120;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Cocoatype, LLC";
 				TargetAttributes = {
@@ -1296,6 +1491,9 @@
 					};
 					044484F323AB2A7000CD0C3C = {
 						CreatedOnToolsVersion = 11.2.1;
+					};
+					0474AFA727B75F030031210C = {
+						CreatedOnToolsVersion = 13.2.1;
 					};
 					04C0A64122DC208E00E4E5D6 = {
 						CreatedOnToolsVersion = 11.0;
@@ -1323,6 +1521,7 @@
 				04C0A65722DC208F00E4E5D6 /* KineoTests */,
 				044484DA23AB287800CD0C3C /* Stickers */,
 				044484F323AB2A7000CD0C3C /* Data */,
+				0474AFA727B75F030031210C /* Clip */,
 			);
 		};
 /* End PBXProject section */
@@ -1340,6 +1539,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0474AFA627B75F030031210C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0474AFC327B7605B0031210C /* Assets.xcassets in Resources */,
+				0474B06B27BB53950031210C /* Localizable.strings in Resources */,
+				0474AFC227B75FB30031210C /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1422,6 +1631,115 @@
 				04DF242523F94A7800657160 /* Defaults.swift in Sources */,
 				0444850323AB2ABC00CD0C3C /* DocumentStore.swift in Sources */,
 				045165FF23B23A2B00D7B535 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0474AFA427B75F030031210C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0474AFDD27B7633E0031210C /* SidebarActionButton.swift in Sources */,
+				0474B02B27B767F80031210C /* WebViewController.swift in Sources */,
+				0474AFE627B7645A0031210C /* CanvasBackgroundColorPublisher.swift in Sources */,
+				0474AFC127B75F790031210C /* AppDelegate.swift in Sources */,
+				0474B02227B767790031210C /* FilmStripCollectionLayoutItem.swift in Sources */,
+				0474B00827B766710031210C /* ExportEditingViewController.swift in Sources */,
+				0474AFE527B764390031210C /* Icons.swift in Sources */,
+				0474B01127B766AF0031210C /* ExportEditingPickerStackView.swift in Sources */,
+				0474AFF427B765860031210C /* FilmStripMoveEvent.swift in Sources */,
+				0474B00C27B7668F0031210C /* ExportViewController.swift in Sources */,
+				0474AFFE27B766050031210C /* FilmStripForegroundView.swift in Sources */,
+				0474B01327B766C40031210C /* VideoGenerator.swift in Sources */,
+				0474B02127B767710031210C /* ExportSettingsTableViewCell.swift in Sources */,
+				0474B00427B766460031210C /* FilmStripCollectionLayoutSection.swift in Sources */,
+				0474AFD027B762450031210C /* UIViewControllerExtensions.swift in Sources */,
+				0474B00627B7665E0031210C /* DocumentTransformer.swift in Sources */,
+				0474AFE427B764280031210C /* PlayButtonContextMenu.swift in Sources */,
+				0474B01627B766E70031210C /* ExportEditingSettingsBarButtonItem.swift in Sources */,
+				0474AFF227B765700031210C /* FilmStripCollectionView.swift in Sources */,
+				0474B01827B766F70031210C /* FilmStripCollectionLayoutGroup.swift in Sources */,
+				0474B02C27B767FE0031210C /* DocumentThumbnailProvider.swift in Sources */,
+				0474B02327B767830031210C /* UIScrollViewExtensions.swift in Sources */,
+				0474B01B27B767180031210C /* ExportSettingsBackgroundContentSection.swift in Sources */,
+				0474AFF027B765000031210C /* DrawingViewScrollRecognizer.swift in Sources */,
+				0474AFF527B7658E0031210C /* PageNavigationEvent.swift in Sources */,
+				0474B02A27B767E20031210C /* UIImageExtensions.swift in Sources */,
+				0474AFDF27B763510031210C /* DrawingBackgroundView.swift in Sources */,
+				0474AFFB27B765F60031210C /* ForwardKeyCommand.swift in Sources */,
+				0474AFCB27B761F40031210C /* EditingViewController.swift in Sources */,
+				0474AFEB27B764C30031210C /* EditingStatePageManipulation.swift in Sources */,
+				0474AFD327B762960031210C /* EditingView.swift in Sources */,
+				0474AFCE27B762210031210C /* EditingStateModes.swift in Sources */,
+				0474AFFA27B765EE0031210C /* BackKeyCommand.swift in Sources */,
+				0474AFF327B765760031210C /* FilmStripCollectionViewLayout.swift in Sources */,
+				0474B02527B767910031210C /* FilmStripPageItemProvider.swift in Sources */,
+				0474B02827B767CD0031210C /* ExportEditingPickerControl.swift in Sources */,
+				0474B02D27B768050031210C /* IconsImagePositioning.swift in Sources */,
+				0474AFE227B7636A0031210C /* FilmStripView.swift in Sources */,
+				0474AFEA27B764930031210C /* SidebarActionButtonBackgroundView.swift in Sources */,
+				0474AFCA27B761BA0031210C /* SceneView.swift in Sources */,
+				0474B02427B7678B0031210C /* FilmStripPageDragItem.swift in Sources */,
+				0474AFF627B765B80031210C /* FilmStripExistingPageCell.swift in Sources */,
+				0474AFDB27B763180031210C /* EditingToolPicker.swift in Sources */,
+				0474B00A27B766830031210C /* BoolExtensions.swift in Sources */,
+				0474B02E27B7680D0031210C /* IconsImageGenerator.swift in Sources */,
+				0474B00B27B766880031210C /* FilmStripNewPageImageView.swift in Sources */,
+				0474B00127B7662A0031210C /* EditingPageNavigation.swift in Sources */,
+				0474B00727B7666C0031210C /* FilmStripNewPageCell.swift in Sources */,
+				0474AFF827B765DF0031210C /* FilmStripDataSource.swift in Sources */,
+				0474AFD427B762A50031210C /* CompactEditingView.swift in Sources */,
+				0474AFE327B763710031210C /* PlayButton.swift in Sources */,
+				0474AFDC27B763220031210C /* UndoButton.swift in Sources */,
+				0474AFAF27B75F030031210C /* SceneViewController.swift in Sources */,
+				0474AFD827B762DA0031210C /* SkinsImageView.swift in Sources */,
+				0474AFFF27B766190031210C /* FilmStripExistingPageImageView.swift in Sources */,
+				0474B00227B766350031210C /* ExportEditingNavigationController.swift in Sources */,
+				0474AFCC27B762080031210C /* EditingState.swift in Sources */,
+				0474AFDA27B762F00031210C /* RegularEditingView.swift in Sources */,
+				0474AFF127B765210031210C /* SkinPublisher.swift in Sources */,
+				0474AFD927B762E10031210C /* DrawingViewGuide.swift in Sources */,
+				0474B02727B767A00031210C /* ExportEditingShapePicker.swift in Sources */,
+				0474B00927B766780031210C /* Fonts.swift in Sources */,
+				0474B00527B7664C0031210C /* FilmStripCollectionLayoutSize.swift in Sources */,
+				0474B01527B766D70031210C /* ExportEditingCancelBarButtonItem.swift in Sources */,
+				0474B00D27B766960031210C /* ExportEditingView.swift in Sources */,
+				0474AFD527B762A70031210C /* CompactEditingViewButtonBar.swift in Sources */,
+				0474B01227B766B80031210C /* ExportEditingPreviewWatermarkImageView.swift in Sources */,
+				0474B01427B766D10031210C /* ExportSettingsViewController.swift in Sources */,
+				0474AFD127B762720031210C /* ApplicationEditingStateManager.swift in Sources */,
+				0474AFEF27B764F70031210C /* ToolsButton.swift in Sources */,
+				0474AFEE27B764E50031210C /* PlaybackView.swift in Sources */,
+				0474B01C27B767200031210C /* ExportSettingsDataSource.swift in Sources */,
+				0474B02627B767990031210C /* ExportEditingPlaybackStylePicker.swift in Sources */,
+				0474B01E27B767340031210C /* ExportSettingsDurationContentSection.swift in Sources */,
+				0474B02027B7676A0031210C /* AppRatingsPrompter.swift in Sources */,
+				0474AFFC27B765FC0031210C /* ExportKeyCommand.swift in Sources */,
+				0474B01027B766AA0031210C /* ExportEditingPreviewView.swift in Sources */,
+				0474AFF727B765D20031210C /* EditingKeyCommands.swift in Sources */,
+				0474B00027B7661F0031210C /* FilmStripExistingPageBackgroundView.swift in Sources */,
+				0474B00327B7663C0031210C /* ColorPickerViewController.swift in Sources */,
+				0474AFED27B764DC0031210C /* ExportButton.swift in Sources */,
+				0474AFC427B760FC0031210C /* SceneWindow.swift in Sources */,
+				0474AFDE27B763450031210C /* Color.swift in Sources */,
+				0474B00E27B7669B0031210C /* ExportSettingsNavigationController.swift in Sources */,
+				0474AFD227B762820031210C /* EditingViewFactory.swift in Sources */,
+				0474B01D27B767270031210C /* ExportSettingsView.swift in Sources */,
+				0474B01727B766F00031210C /* ExportEditingShareBarButtonItem.swift in Sources */,
+				0474B02927B767D80031210C /* ExportEditingPickerControlGestureRecognizer.swift in Sources */,
+				0474AFE027B7635B0031210C /* RedoButton.swift in Sources */,
+				0474AFE127B763620031210C /* CanvasView.swift in Sources */,
+				0474B01A27B7670E0031210C /* ExportSettingsContentProvider.swift in Sources */,
+				0474AFD727B762D00031210C /* DrawingViewController.swift in Sources */,
+				0474AFFD27B766000031210C /* PlayKeyCommand.swift in Sources */,
+				0474B01F27B767580031210C /* NSLayoutConstraintExtensions.swift in Sources */,
+				0474AFE927B7648A0031210C /* SidebarActionButtonImageView.swift in Sources */,
+				0474AFD627B762BA0031210C /* DrawingView.swift in Sources */,
+				0474B00F27B766A40031210C /* FilmStripIndicator.swift in Sources */,
+				0474AFAD27B75F030031210C /* SceneDelegate.swift in Sources */,
+				0474AFEC27B764CD0031210C /* MenuButton.swift in Sources */,
+				0474AFCF27B762270031210C /* EditingStateLenses.swift in Sources */,
+				0474B01927B766FF0031210C /* SettingsHeaderFooterView.swift in Sources */,
+				0474AFCD27B762120031210C /* Cascading.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1621,6 +1939,16 @@
 			target = 044484F323AB2A7000CD0C3C /* Data */;
 			targetProxy = 044484F923AB2A7000CD0C3C /* PBXContainerItemProxy */;
 		};
+		0474AFBB27B75F050031210C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0474AFA727B75F030031210C /* Clip */;
+			targetProxy = 0474AFBA27B75F050031210C /* PBXContainerItemProxy */;
+		};
+		0474AFC827B761770031210C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 044484F323AB2A7000CD0C3C /* Data */;
+			targetProxy = 0474AFC727B761770031210C /* PBXContainerItemProxy */;
+		};
 		04ACCD1B23AB6B68006FBABC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 044484F323AB2A7000CD0C3C /* Data */;
@@ -1746,6 +2074,75 @@
 			};
 			name = Release;
 		};
+		0474AFBE27B75F050031210C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = Clip/Clip.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 287EDDET2B;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Clip/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Kineo;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flipbookapp.flickbook.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.flipbookapp.flickbook.Clip";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "CLIP $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0474AFBF27B75F050031210C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = Clip/Clip.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 287EDDET2B;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Clip/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Kineo;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flipbookapp.flickbook.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "CLIP $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		04C0A65F22DC208F00E4E5D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1866,7 +2263,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Kineo/Kineo.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 287EDDET2B;
 				INFOPLIST_FILE = Kineo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1875,6 +2273,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipbookapp.flickbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.flipbookapp.flickbook";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1961,6 +2360,15 @@
 			buildConfigurations = (
 				044484FE23AB2A7000CD0C3C /* Debug */,
 				044484FF23AB2A7000CD0C3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0474AFC027B75F050031210C /* Build configuration list for PBXNativeTarget "Clip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0474AFBE27B75F050031210C /* Debug */,
+				0474AFBF27B75F050031210C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
