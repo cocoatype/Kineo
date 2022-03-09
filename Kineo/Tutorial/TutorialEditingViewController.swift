@@ -10,7 +10,7 @@ class TutorialEditingViewController: EditingViewController {
     }
 
     private func showIntro() {
-        guard presentedViewController == nil, TutorialCoordinator.shouldStartTutorial else { return }
+        guard presentedViewController == nil, TutorialCoordinator.shouldStartTutorial, #available(iOS 15, *) else { return }
         present(TutorialIntroViewController(), animated: true, completion: nil)
     }
 

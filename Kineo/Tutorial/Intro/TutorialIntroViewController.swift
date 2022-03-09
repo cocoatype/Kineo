@@ -3,26 +3,40 @@
 
 import Data
 import UIKit
+import SwiftUI
 
-class TutorialIntroViewController: UIViewController {
+//class TutorialIntroViewController: UIViewController {
+//    init() {
+//        super.init(nibName: nil, bundle: nil)
+//        modalPresentationStyle = .formSheet
+//        preferredContentSize = CGSize(width: 425, height: 550)
+//    }
+//
+//    override func loadView() {
+//        view = tutorialIntroView
+//    }
+//
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        Defaults.seenTutorial = true
+//    }
+//
+//    // MARK: Boilerplate
+//
+//    private let tutorialIntroView = TutorialIntroView()
+//
+//    @available(*, unavailable)
+//    required init(coder: NSCoder) {
+//        let typeName = NSStringFromClass(type(of: self))
+//        fatalError("\(typeName) does not implement init(coder:)")
+//    }
+//}
+
+@available(iOS 15, *)
+class TutorialIntroViewController: UIHostingController<TutorialOnboardingDrawPage> {
     init() {
-        super.init(nibName: nil, bundle: nil)
-        modalPresentationStyle = .formSheet
-        preferredContentSize = CGSize(width: 425, height: 550)
+        super.init(rootView: TutorialOnboardingDrawPage())
     }
-
-    override func loadView() {
-        view = tutorialIntroView
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        Defaults.seenTutorial = true
-    }
-
-    // MARK: Boilerplate
-
-    private let tutorialIntroView = TutorialIntroView()
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
