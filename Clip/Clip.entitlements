@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>appclips:kineo.app?mode=developer</string>
+		<string>appclips:kineo.app</string>
 	</array>
 	<key>com.apple.developer.parent-application-identifiers</key>
 	<array>
