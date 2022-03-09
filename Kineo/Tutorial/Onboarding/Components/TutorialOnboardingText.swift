@@ -3,21 +3,35 @@
 
 import SwiftUI
 
-@available(iOS 15, *)
-struct TutorialOnboardingText: View {
-    init(_ string: String) {
-        self.string = string
+struct TutorialOnboardingText: UIViewRepresentable {
+    init(_ text: String) {
+        self.text = text
     }
 
-    var body: some View {
-//        Text(AttributedString(string.symbolized).correctlyPronounced)
-        Text(AttributedString("this is a button: \(Image(systemName: "bolt"))"))
-            .font(Font(UIFont.appFont(forTextStyle: .callout)))
+    func makeUIView(context: Context) -> TutorialIntroBodyLabel {
+        TutorialIntroBodyLabel(text: text)
     }
 
-    private let string: String
+    func updateUIView(_ uiView: TutorialIntroBodyLabel, context: Context) {}
+
+    private let text: String
 }
 
+//@available(iOS 15, *)
+//struct TutorialOnboardingText: View {
+//    init(_ string: String) {
+//        self.string = string
+//    }
+//
+//    var body: some View {
+////        Text(AttributedString(string.symbolized).correctlyPronounced)
+//        Text(AttributedString("this is a button: \(Image(systemName: "bolt"))"))
+//            .font(Font(UIFont.appFont(forTextStyle: .callout)))
+//    }
+//
+//    private let string: String
+//}
+//
 @available(iOS 15, *)
 extension AttributedString {
     var correctlyPronounced: AttributedString {
@@ -31,22 +45,22 @@ extension AttributedString {
         return newString
     }
 }
-
-extension String {
-    var symbolized: String {
-        do {
-            let regex = try NSRegularExpression(pattern: "\\$(?<systemName>[a-z\\.]*)\\$", options: [])
-            var newString = self
-            while true {
-                guard let match = regex.firstMatch(in: newString, options: [], range: NSRange(location: 0, length: newString.utf16.count)) else { break }
-                let range = match.range
-                let captureRange = match.range(withName: "systemName")
-                let systemName = (newString as NSString).substring(with: captureRange)
-                newString = (newString as NSString).replacingCharacters(in: range, with: "\(Image(systemName: systemName))")
-            }
-            return newString
-        } catch {
-            return self
-        }
-    }
-}
+//
+//extension String {
+//    var symbolized: String {
+//        do {
+//            let regex = try NSRegularExpression(pattern: "\\$(?<systemName>[a-z\\.]*)\\$", options: [])
+//            var newString = self
+//            while true {
+//                guard let match = regex.firstMatch(in: newString, options: [], range: NSRange(location: 0, length: newString.utf16.count)) else { break }
+//                let range = match.range
+//                let captureRange = match.range(withName: "systemName")
+//                let systemName = (newString as NSString).substring(with: captureRange)
+//                newString = (newString as NSString).replacingCharacters(in: range, with: "\(Image(systemName: systemName))")
+//            }
+//            return newString
+//        } catch {
+//            return self
+//        }
+//    }
+//}

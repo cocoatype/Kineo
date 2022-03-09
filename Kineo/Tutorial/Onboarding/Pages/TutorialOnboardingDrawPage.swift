@@ -9,7 +9,7 @@ struct TutorialOnboardingDrawPage: View {
         VStack(alignment: .leading, spacing: 22) {
             Spacer()
             TutorialOnboardingHeader(Self.headerText)
-            TutorialOnboardingText(Self.bodyText)
+            TutorialOnboardingText(Self.bodyText)//.fixedSize()
             HStack {
                 TutorialOnboardingSecondaryButton("TutorialIntroDismissButton.title", action: {})
                 TutorialOnboardingPrimaryButton("TutorialIntroStartButton.title", action: {})

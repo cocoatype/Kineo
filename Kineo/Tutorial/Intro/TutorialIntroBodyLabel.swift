@@ -6,18 +6,14 @@ import UIKit
 class TutorialIntroBodyLabel: UILabel {
     init(text: String) {
         super.init(frame: .zero)
-        self.font = .appFont(forTextStyle: .callout)
-        self.numberOfLines = 0
-        self.attributedText = correctlyPronounced(text)
-        self.textColor = .tutorialIntroText
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
-
-    private func correctlyPronounced(_ string: String) -> NSAttributedString {
-        let range = (string as NSString).range(of: "Kineo")
-        let attributedString = NSMutableAttributedString(string: string)
-        attributedString.addAttribute(.accessibilitySpeechIPANotation, value: "ˈkɪ.ni.o͡ʊ", range: range)
-        return attributedString.symbolized
+        font = .appFont(forTextStyle: .callout)
+        numberOfLines = 0
+        attributedText = text.correctlyPronounced.symbolized
+        textColor = .tutorialIntroText
+        translatesAutoresizingMaskIntoConstraints = false
+        setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        setContentHuggingPriority(.defaultHigh, for: .vertical)
     }
 
     // MARK: Boilerplate
@@ -26,6 +22,15 @@ class TutorialIntroBodyLabel: UILabel {
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
+    }
+}
+
+extension String {
+    var correctlyPronounced: NSAttributedString {
+        let range = (self as NSString).range(of: "Kineo")
+        let attributedString = NSMutableAttributedString(string: self)
+        attributedString.addAttribute(.accessibilitySpeechIPANotation, value: "ˈkɪ.ni.o͡ʊ", range: range)
+        return attributedString
     }
 }
 

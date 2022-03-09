@@ -3,7 +3,7 @@
 
 import UIKit
 
-class TutorialIntroView: UIView {
+class TutorialIntroPageView: UIView {
     init() {
         super.init(frame: .zero)
         backgroundColor = .appBackground

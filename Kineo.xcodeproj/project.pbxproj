@@ -31,6 +31,11 @@
 		04318A3122E18C72003D70C8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3022E18C72003D70C8 /* Icons.swift */; };
 		04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3422E2EC3C003D70C8 /* PlaybackView.swift */; };
 		04318A3722E2FCC3003D70C8 /* VideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */; };
+		0435867127D85BB70037BA5F /* TutorialOnboardingIntroPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435867027D85BB70037BA5F /* TutorialOnboardingIntroPageViewController.swift */; };
+		0435867327D85D210037BA5F /* TutorialOnboardingDrawPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435867227D85D210037BA5F /* TutorialOnboardingDrawPageViewController.swift */; };
+		0435867727D860D50037BA5F /* TutorialOnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435867627D860D50037BA5F /* TutorialOnboardingPageView.swift */; };
+		0435867B27D8638F0037BA5F /* TutorialOnboardingPlayPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435867A27D8638F0037BA5F /* TutorialOnboardingPlayPageViewController.swift */; };
+		0435867D27D863B40037BA5F /* TutorialOnboardingSharePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435867C27D863B40037BA5F /* TutorialOnboardingSharePageViewController.swift */; };
 		0436CE8F23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436CE8E23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift */; };
 		0436CE9123E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436CE9023E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift */; };
 		043854F22392246F0041A4AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043854F12392246F0041A4AA /* Localizable.strings */; };
@@ -65,7 +70,7 @@
 		045165FF23B23A2B00D7B535 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045165FE23B23A2B00D7B535 /* Constants.swift */; };
 		0451660123B2441000D7B535 /* FilmStripNewPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451660023B2441000D7B535 /* FilmStripNewPageCell.swift */; };
 		0451660323B2467A00D7B535 /* FilmStripNewPageImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451660223B2467A00D7B535 /* FilmStripNewPageImageView.swift */; };
-		04516F712418E09F0096F852 /* TutorialIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F702418E09F0096F852 /* TutorialIntroView.swift */; };
+		04516F712418E09F0096F852 /* TutorialIntroPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F702418E09F0096F852 /* TutorialIntroPageView.swift */; };
 		04516F732418E0C20096F852 /* TutorialIntroHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F722418E0C20096F852 /* TutorialIntroHeaderLabel.swift */; };
 		04516F752418E0DB0096F852 /* TutorialIntroBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F742418E0DB0096F852 /* TutorialIntroBodyLabel.swift */; };
 		04516F772418E0FC0096F852 /* TutorialIntroDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F762418E0FC0096F852 /* TutorialIntroDismissButton.swift */; };
@@ -210,7 +215,7 @@
 		04D46BD7241251C300DBFB9A /* IconSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D46BD6241251C300DBFB9A /* IconSection.swift */; };
 		04D46BDA2414E01500DBFB9A /* TutorialEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D46BD92414E01500DBFB9A /* TutorialEditingViewController.swift */; };
 		04D46BDD2414E0FA00DBFB9A /* TutorialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D46BDC2414E0FA00DBFB9A /* TutorialCoordinator.swift */; };
-		04D46BDF2414EC8100DBFB9A /* TutorialIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D46BDE2414EC8100DBFB9A /* TutorialIntroViewController.swift */; };
+		04D46BDF2414EC8100DBFB9A /* TutorialOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D46BDE2414EC8100DBFB9A /* TutorialOnboardingViewController.swift */; };
 		04D4884324EE22F8005CCBC8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD72378205F0052A933 /* Color.swift */; };
 		04DF241123F888DA00657160 /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436CE9223E53237002BE4EF /* ExportViewController.swift */; };
 		04DF241223F888E000657160 /* FilmStripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD1C23B21334006FBABC /* FilmStripView.swift */; };
@@ -324,6 +329,11 @@
 		04318A3222E19AB5003D70C8 /* SkinGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinGenerator.swift; sourceTree = "<group>"; };
 		04318A3422E2EC3C003D70C8 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
 		04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGenerator.swift; sourceTree = "<group>"; };
+		0435867027D85BB70037BA5F /* TutorialOnboardingIntroPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingIntroPageViewController.swift; sourceTree = "<group>"; };
+		0435867227D85D210037BA5F /* TutorialOnboardingDrawPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingDrawPageViewController.swift; sourceTree = "<group>"; };
+		0435867627D860D50037BA5F /* TutorialOnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingPageView.swift; sourceTree = "<group>"; };
+		0435867A27D8638F0037BA5F /* TutorialOnboardingPlayPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingPlayPageViewController.swift; sourceTree = "<group>"; };
+		0435867C27D863B40037BA5F /* TutorialOnboardingSharePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingSharePageViewController.swift; sourceTree = "<group>"; };
 		0436CE8E23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentCollectionViewCellMenuInteraction.swift; sourceTree = "<group>"; };
 		0436CE9023E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentPreviewViewController.swift; sourceTree = "<group>"; };
 		0436CE9223E53237002BE4EF /* ExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportViewController.swift; sourceTree = "<group>"; };
@@ -356,7 +366,7 @@
 		045165FE23B23A2B00D7B535 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0451660023B2441000D7B535 /* FilmStripNewPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripNewPageCell.swift; sourceTree = "<group>"; };
 		0451660223B2467A00D7B535 /* FilmStripNewPageImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripNewPageImageView.swift; sourceTree = "<group>"; };
-		04516F702418E09F0096F852 /* TutorialIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroView.swift; sourceTree = "<group>"; };
+		04516F702418E09F0096F852 /* TutorialIntroPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroPageView.swift; sourceTree = "<group>"; };
 		04516F722418E0C20096F852 /* TutorialIntroHeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroHeaderLabel.swift; sourceTree = "<group>"; };
 		04516F742418E0DB0096F852 /* TutorialIntroBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroBodyLabel.swift; sourceTree = "<group>"; };
 		04516F762418E0FC0096F852 /* TutorialIntroDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroDismissButton.swift; sourceTree = "<group>"; };
@@ -514,7 +524,7 @@
 		04D46BD6241251C300DBFB9A /* IconSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSection.swift; sourceTree = "<group>"; };
 		04D46BD92414E01500DBFB9A /* TutorialEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialEditingViewController.swift; sourceTree = "<group>"; };
 		04D46BDC2414E0FA00DBFB9A /* TutorialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCoordinator.swift; sourceTree = "<group>"; };
-		04D46BDE2414EC8100DBFB9A /* TutorialIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroViewController.swift; sourceTree = "<group>"; };
+		04D46BDE2414EC8100DBFB9A /* TutorialOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingViewController.swift; sourceTree = "<group>"; };
 		04DF241623F88B1F00657160 /* DocumentTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTransformer.swift; sourceTree = "<group>"; };
 		04DF241823F93B3A00657160 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		04DF241B23F93E9D00657160 /* DocumentRecordTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRecordTransformer.swift; sourceTree = "<group>"; };
@@ -698,8 +708,7 @@
 		04516F7C2418E17A0096F852 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
-				04D46BDE2414EC8100DBFB9A /* TutorialIntroViewController.swift */,
-				04516F702418E09F0096F852 /* TutorialIntroView.swift */,
+				04D46BDE2414EC8100DBFB9A /* TutorialOnboardingViewController.swift */,
 				04516F722418E0C20096F852 /* TutorialIntroHeaderLabel.swift */,
 				04516F742418E0DB0096F852 /* TutorialIntroBodyLabel.swift */,
 				04516F762418E0FC0096F852 /* TutorialIntroDismissButton.swift */,
@@ -898,6 +907,12 @@
 			children = (
 				047F9F6B27D06283004EEEBC /* TutorialOnboardingIntroPage.swift */,
 				047F9F7727D07875004EEEBC /* TutorialOnboardingDrawPage.swift */,
+				04516F702418E09F0096F852 /* TutorialIntroPageView.swift */,
+				0435867627D860D50037BA5F /* TutorialOnboardingPageView.swift */,
+				0435867027D85BB70037BA5F /* TutorialOnboardingIntroPageViewController.swift */,
+				0435867227D85D210037BA5F /* TutorialOnboardingDrawPageViewController.swift */,
+				0435867A27D8638F0037BA5F /* TutorialOnboardingPlayPageViewController.swift */,
+				0435867C27D863B40037BA5F /* TutorialOnboardingSharePageViewController.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -1481,6 +1496,8 @@
 				0419752125EB50C300CB0F54 /* UIScrollViewExtensions.swift in Sources */,
 				04791E6723EEA97100403BD8 /* ExportSettingsTableViewCell.swift in Sources */,
 				040849542618055200D2AA15 /* ExportEditingSettingsBarButtonItem.swift in Sources */,
+				0435867727D860D50037BA5F /* TutorialOnboardingPageView.swift in Sources */,
+				0435867327D85D210037BA5F /* TutorialOnboardingDrawPageViewController.swift in Sources */,
 				04791E6323EEA09300403BD8 /* ExportSettingsContentProvider.swift in Sources */,
 				04791E3F23EC1F3400403BD8 /* ContactWebViewController.swift in Sources */,
 				04791E4723EC1F3400403BD8 /* AcknowledgementsViewController.swift in Sources */,
@@ -1542,7 +1559,7 @@
 				04EC179123D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift in Sources */,
 				047F9F6E27D07109004EEEBC /* TutorialOnboardingHeader.swift in Sources */,
 				0408494F2618053E00D2AA15 /* ExportEditingShareBarButtonItem.swift in Sources */,
-				04516F712418E09F0096F852 /* TutorialIntroView.swift in Sources */,
+				04516F712418E09F0096F852 /* TutorialIntroPageView.swift in Sources */,
 				047F9EE526E4AC7B00DD34F5 /* Cascading.swift in Sources */,
 				047F9EED26E4CAA500DD34F5 /* DrawingViewGuide.swift in Sources */,
 				04791E2E23EC1F3400403BD8 /* AboutSection.swift in Sources */,
@@ -1575,14 +1592,16 @@
 				047F9F6C27D06283004EEEBC /* TutorialOnboardingIntroPage.swift in Sources */,
 				04791E3323EC1F3400403BD8 /* SettingsContentProvider.swift in Sources */,
 				04791E4D23EC1F3400403BD8 /* SettingsStandardTableViewCell.swift in Sources */,
-				04D46BDF2414EC8100DBFB9A /* TutorialIntroViewController.swift in Sources */,
+				04D46BDF2414EC8100DBFB9A /* TutorialOnboardingViewController.swift in Sources */,
 				049A0455240BCA5000F5FC17 /* DismissalDirector.swift in Sources */,
 				044484D423A884D300CD0C3C /* EditingUserActivity.swift in Sources */,
+				0435867D27D863B40037BA5F /* TutorialOnboardingSharePageViewController.swift in Sources */,
 				047F9EF326E4E59900DD34F5 /* EditingStateLenses.swift in Sources */,
 				04084931261578FC00D2AA15 /* NSLayoutConstraintExtensions.swift in Sources */,
 				04791E3123EC1F3400403BD8 /* SettingsSection.swift in Sources */,
 				048D4F4024E0C780001F86A0 /* AppRatingsPrompter.swift in Sources */,
 				046937602427676B005894F7 /* UndoButton.swift in Sources */,
+				0435867127D85BB70037BA5F /* TutorialOnboardingIntroPageViewController.swift in Sources */,
 				047F9EE126E496C500DD34F5 /* EditingState.swift in Sources */,
 				04D36ADA237826D40052A933 /* Fonts.swift in Sources */,
 				04791E7123EEC0B200403BD8 /* ExportSettingsNavigationController.swift in Sources */,
@@ -1624,6 +1643,7 @@
 				044DAFFF23B3170C00BD2A0C /* FilmStripIndicator.swift in Sources */,
 				04791E2623EC1F3400403BD8 /* SettingsContentItem.swift in Sources */,
 				04791E4823EC1F3400403BD8 /* PrivacyViewController.swift in Sources */,
+				0435867B27D8638F0037BA5F /* TutorialOnboardingPlayPageViewController.swift in Sources */,
 				047F9ED226E48F7800DD34F5 /* CompactEditingView.swift in Sources */,
 				048A37F926F0587F00B02F4F /* SkinPublisher.swift in Sources */,
 				0451660323B2467A00D7B535 /* FilmStripNewPageImageView.swift in Sources */,

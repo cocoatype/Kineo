@@ -103,8 +103,14 @@
 "TutorialIntroView.bodyText" = "Thanks for downloading Kineo! I hope you have a great time creating and sharing your own animations.\n\nIf you have any questions or comments, you can contact me from the help menu at any time.\n\n—Geoff, Kineo Developer";
 "TutorialIntroView.headerText" = "Welcome to\nKineo";
 
-"TutorialOnboardingDrawPage.headerText" = "Draw";
-"TutorialOnboardingDrawPage.bodyText" = "Draw using your finger or Apple Pencil in the center canvas.\n\nWant to change color, pen type, or erase? Tap the $pencil.tip.crop.circle$ button to bring up the tool picker.\n\nWhen you’ve finished one page, tap $plus$ in the page strip to create another; the last few pages will appear faintly over your new one.";
+"TutorialOnboardingDrawPageView.headerText" = "Draw";
+"TutorialOnboardingDrawPageView.bodyText" = "Draw using your finger or Apple Pencil in the center canvas.\n\nWant to change color, pen type, or erase? Tap the $pencil.tip.crop.circle$ button to bring up the tool picker.\n\nWhen you’ve finished one page, tap $plus$ in the page strip to create another; the last few pages will appear faintly over your new one.";
+
+"TutorialOnboardingPlayPageView.headerText" = "Play";
+"TutorialOnboardingPlayPageView.bodyText" = "Insert text about playback here.";
+
+"TutorialOnboardingSharePageView.headerText" = "Share";
+"TutorialOnboardingSharePageView.bodyText" = "Insert text about exporting/sharing here.";
 
 "UndoButton.accessibilityLabel" = "Undo";
 
