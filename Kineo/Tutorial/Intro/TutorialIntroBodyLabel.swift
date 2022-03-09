@@ -17,7 +17,7 @@ class TutorialIntroBodyLabel: UILabel {
         let range = (string as NSString).range(of: "Kineo")
         let attributedString = NSMutableAttributedString(string: string)
         attributedString.addAttribute(.accessibilitySpeechIPANotation, value: "ˈkɪ.ni.o͡ʊ", range: range)
-        return attributedString
+        return attributedString.symbolized
     }
 
     // MARK: Boilerplate
@@ -28,3 +28,29 @@ class TutorialIntroBodyLabel: UILabel {
         fatalError("\(typeName) does not implement init(coder:)")
     }
 }
+
+extension NSAttributedString {
+    var symbolized: NSAttributedString {
+        do {
+            let regex = try NSRegularExpression(pattern: "\\$(?<systemName>[a-z\\.]*)\\$", options: [])
+            let newString = NSMutableAttributedString(attributedString: self)
+            while true {
+                guard let match = regex.firstMatch(in: newString.string, options: [], range: NSRange(location: 0, length: newString.length)) else { break }
+                let range = match.range
+
+                let captureRange = match.range(withName: "systemName")
+                let systemName = newString.attributedSubstring(from: captureRange).string
+                if let systemImage = UIImage(systemName: systemName) {
+                    let symbolString = NSAttributedString(attachment: NSTextAttachment(image: systemImage))
+                    newString.replaceCharacters(in: range, with: symbolString)
+                } else {
+                    newString.replaceCharacters(in: range, with: "")
+                }
+            }
+            return newString
+        } catch {
+            return self
+        }
+    }
+}
+

@@ -10,7 +10,8 @@ struct TutorialOnboardingText: View {
     }
 
     var body: some View {
-        Text(AttributedString(string.symbolized).correctlyPronounced)
+//        Text(AttributedString(string.symbolized).correctlyPronounced)
+        Text(AttributedString("this is a button: \(Image(systemName: "bolt"))"))
             .font(Font(UIFont.appFont(forTextStyle: .callout)))
     }
 
