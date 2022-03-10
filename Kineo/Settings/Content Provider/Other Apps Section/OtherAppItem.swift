@@ -11,15 +11,15 @@ struct OtherAppItem: SettingsContentItem, IconProvidingContentItem {
     var icon: UIImage? { appEntry.icon }
 
     func performSelectedAction(_ sender: Any) {
-        UIApplication.shared.sendAction(#selector(SettingsViewController.displayAppOverlay(_:event:)), to: nil, from: sender, for: AppOverlayEvent(appEntry.bundleID))
+        UIApplication.shared.sendAction(#selector(SettingsViewController.displayAppOverlay(_:event:)), to: nil, from: sender, for: AppOverlayEvent(appEntry.appleID))
     }
 }
 
 class AppOverlayEvent: UIEvent {
-    let bundleID: String
+    let appleID: String
 
-    init(_ bundleID: String) {
-        self.bundleID = bundleID
+    init(_ appleID: String) {
+        self.appleID = appleID
     }
 }
 
