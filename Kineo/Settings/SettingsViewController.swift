@@ -4,7 +4,7 @@
 import StoreKit
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, SKOverlayDelegate {
     init() {
         super.init(nibName: nil, bundle: nil)
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(SceneViewController.dismissSettingsViewController))
@@ -51,8 +51,15 @@ class SettingsViewController: UIViewController {
 
     @objc func displayAppOverlay(_ sender: Any, event: AppOverlayEvent) {
         guard let scene = view.window?.windowScene else { return }
-        let configuration = SKOverlay.AppConfiguration(appIdentifier: event.bundleID, position: .bottom)
-        SKOverlay(configuration: configuration).present(in: scene)
+        let configuration = SKOverlay.AppConfiguration(appIdentifier: event.appleID, position: .bottom)
+        let overlay = SKOverlay(configuration: configuration)
+        overlay.delegate = self
+        overlay.present(in: scene)
+    }
+
+    func storeOverlayDidFailToLoad(_ overlay: SKOverlay, error: Error) {
+        guard let identifier = (overlay.configuration as? SKOverlay.AppConfiguration)?.appIdentifier, let url = URL(string: "https://apps.apple.com/us/app/cocoatype/id\(identifier)?uo=4") else { return }
+        UIApplication.shared.open(url)
     }
 
     // MARK: Boilerplate
