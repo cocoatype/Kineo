@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 4/27/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import StoreKit
 import UIKit
 
 class SettingsViewController: UIViewController {
@@ -44,6 +45,14 @@ class SettingsViewController: UIViewController {
         else { return }
 
         tableView.deselectRow(at: selectedRowIndex, animated: true)
+    }
+
+    // MARK: Overlays
+
+    @objc func displayAppOverlay(_ sender: Any, event: AppOverlayEvent) {
+        guard let scene = view.window?.windowScene else { return }
+        let configuration = SKOverlay.AppConfiguration(appIdentifier: event.bundleID, position: .bottom)
+        SKOverlay(configuration: configuration).present(in: scene)
     }
 
     // MARK: Boilerplate

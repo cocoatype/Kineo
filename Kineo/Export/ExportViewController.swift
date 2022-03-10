@@ -2,6 +2,7 @@
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
 import Data
+import StoreKit
 import UIKit
 
 class ExportViewController: UIActivityViewController {
@@ -13,8 +14,17 @@ class ExportViewController: UIActivityViewController {
             completionWithItemsHandler = { [weak self] _, completed, _, _ in
                 guard completed == true else { return }
                 Defaults.incrementNumberOfSaves()
+                let window = self?.window
                 DispatchQueue.main.async {
-                    AppRatingsPrompter.displayRatingsPrompt(in: self?.view.window?.windowScene)
+                    #if CLIP
+                    if let scene = window?.windowScene {
+                        let config = SKOverlay.AppClipConfiguration(position: .bottom)
+                        let overlay = SKOverlay(configuration: config)
+                        overlay.present(in: scene)
+                    }
+                    #else
+                    AppRatingsPrompter.displayRatingsPrompt(in: window?.windowScene)
+                    #endif
                     completionHandler()
                 }
             }
@@ -25,5 +35,11 @@ class ExportViewController: UIActivityViewController {
         } catch { return nil }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        guard let window = self.view.window else { return }
+        self.window = window
+    }
+
     private static let exportPromoText = NSLocalizedString("EditingViewController.exportPromoText", comment: "Promo text shared when exporting videos")
+    private weak var window: UIWindow?
 }
