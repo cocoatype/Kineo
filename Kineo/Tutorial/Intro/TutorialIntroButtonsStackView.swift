@@ -12,13 +12,14 @@ class TutorialIntroButtonsStackView: UIStackView {
         translatesAutoresizingMaskIntoConstraints = false
         setContentCompressionResistancePriority(.required, for: .horizontal)
 
+        addArrangedSubview(dismissButton)
         addArrangedSubview(startButton)
     }
 
     // MARK: Boilerplate
 
     private let dismissButton = TutorialIntroDismissButton()
-    private let startButton = TutorialIntroStartButton()
+    private let startButton = TutorialIntroContinueButton(style: .start)
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

@@ -13,7 +13,7 @@ class TutorialOnboardingPageView: UIView {
 
         addSubview(headerLabel)
         addSubview(bodyLabel)
-        addSubview(buttonsView)
+        addSubview(continueButton)
 
         NSLayoutConstraint.activate([
             headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 22),
@@ -21,12 +21,12 @@ class TutorialOnboardingPageView: UIView {
             bodyLabel.leadingAnchor.constraint(equalTo: headerLabel.leadingAnchor),
             bodyLabel.trailingAnchor.constraint(equalTo: headerLabel.trailingAnchor),
             bodyLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 11),
-            buttonsView.topAnchor.constraint(greaterThanOrEqualTo: bodyLabel.bottomAnchor, constant: 22),
-            buttonsView.leadingAnchor.constraint(equalTo: headerLabel.leadingAnchor),
-            buttonsView.trailingAnchor.constraint(equalTo: headerLabel.trailingAnchor),
-            buttonsView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -22),
-            buttonsView.heightAnchor.constraint(equalToConstant: 44),
-            buttonsView.centerXAnchor.constraint(equalTo: centerXAnchor)
+            continueButton.topAnchor.constraint(greaterThanOrEqualTo: bodyLabel.bottomAnchor, constant: 22),
+            continueButton.leadingAnchor.constraint(equalTo: headerLabel.leadingAnchor),
+            continueButton.trailingAnchor.constraint(equalTo: headerLabel.trailingAnchor),
+            continueButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -22),
+            continueButton.heightAnchor.constraint(equalToConstant: 44),
+            continueButton.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
 
@@ -34,7 +34,7 @@ class TutorialOnboardingPageView: UIView {
 
     private let headerLabel: TutorialIntroHeaderLabel
     private let bodyLabel: TutorialIntroBodyLabel
-    private let buttonsView = TutorialIntroButtonsStackView()
+    private let continueButton = TutorialIntroContinueButton(style: .continue)
 
     @available(*, unavailable)
     required init(coder: NSCoder) {

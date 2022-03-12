@@ -74,8 +74,9 @@
 		04516F732418E0C20096F852 /* TutorialIntroHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F722418E0C20096F852 /* TutorialIntroHeaderLabel.swift */; };
 		04516F752418E0DB0096F852 /* TutorialIntroBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F742418E0DB0096F852 /* TutorialIntroBodyLabel.swift */; };
 		04516F772418E0FC0096F852 /* TutorialIntroDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F762418E0FC0096F852 /* TutorialIntroDismissButton.swift */; };
-		04516F792418E11B0096F852 /* TutorialIntroStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F782418E11B0096F852 /* TutorialIntroStartButton.swift */; };
+		04516F792418E11B0096F852 /* TutorialIntroContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F782418E11B0096F852 /* TutorialIntroContinueButton.swift */; };
 		04516F7B2418E1320096F852 /* TutorialIntroButtonsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F7A2418E1320096F852 /* TutorialIntroButtonsStackView.swift */; };
+		045B2FC827DC4C07007779DF /* TutorialOnboardingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FC727DC4C07007779DF /* TutorialOnboardingDataSource.swift */; };
 		04693758242766F2005894F7 /* GalleryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04693757242766F2005894F7 /* GalleryButton.swift */; };
 		0469375A24276724005894F7 /* ExportButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375924276724005894F7 /* ExportButton.swift */; };
 		0469375C24276735005894F7 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375B24276735005894F7 /* PlayButton.swift */; };
@@ -140,12 +141,6 @@
 		047F9EF326E4E59900DD34F5 /* EditingStateLenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EF226E4E59900DD34F5 /* EditingStateLenses.swift */; };
 		047F9EF826E4EC9F00DD34F5 /* EditingStateModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EF726E4EC9F00DD34F5 /* EditingStateModes.swift */; };
 		047F9EFA26E585D100DD34F5 /* DrawingViewScrollRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9EF926E585D100DD34F5 /* DrawingViewScrollRecognizer.swift */; };
-		047F9F6C27D06283004EEEBC /* TutorialOnboardingIntroPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9F6B27D06283004EEEBC /* TutorialOnboardingIntroPage.swift */; };
-		047F9F6E27D07109004EEEBC /* TutorialOnboardingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9F6D27D07109004EEEBC /* TutorialOnboardingHeader.swift */; };
-		047F9F7027D077D3004EEEBC /* TutorialOnboardingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9F6F27D077D2004EEEBC /* TutorialOnboardingText.swift */; };
-		047F9F7227D07804004EEEBC /* TutorialOnboardingPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9F7127D07804004EEEBC /* TutorialOnboardingPrimaryButton.swift */; };
-		047F9F7427D07834004EEEBC /* TutorialOnboardingSecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9F7327D07834004EEEBC /* TutorialOnboardingSecondaryButton.swift */; };
-		047F9F7827D07875004EEEBC /* TutorialOnboardingDrawPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9F7727D07875004EEEBC /* TutorialOnboardingDrawPage.swift */; };
 		0485989523F281CB00AFBB3A /* SocialSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989423F281CB00AFBB3A /* SocialSection.swift */; };
 		0485989723F282B500AFBB3A /* TwitterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989623F282B500AFBB3A /* TwitterItem.swift */; };
 		0485989923F2843000AFBB3A /* TwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485989823F2843000AFBB3A /* TwitchItem.swift */; };
@@ -370,8 +365,9 @@
 		04516F722418E0C20096F852 /* TutorialIntroHeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroHeaderLabel.swift; sourceTree = "<group>"; };
 		04516F742418E0DB0096F852 /* TutorialIntroBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroBodyLabel.swift; sourceTree = "<group>"; };
 		04516F762418E0FC0096F852 /* TutorialIntroDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroDismissButton.swift; sourceTree = "<group>"; };
-		04516F782418E11B0096F852 /* TutorialIntroStartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroStartButton.swift; sourceTree = "<group>"; };
+		04516F782418E11B0096F852 /* TutorialIntroContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroContinueButton.swift; sourceTree = "<group>"; };
 		04516F7A2418E1320096F852 /* TutorialIntroButtonsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroButtonsStackView.swift; sourceTree = "<group>"; };
+		045B2FC727DC4C07007779DF /* TutorialOnboardingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingDataSource.swift; sourceTree = "<group>"; };
 		04693757242766F2005894F7 /* GalleryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryButton.swift; sourceTree = "<group>"; };
 		0469375924276724005894F7 /* ExportButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportButton.swift; sourceTree = "<group>"; };
 		0469375B24276735005894F7 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
@@ -437,12 +433,6 @@
 		047F9EF226E4E59900DD34F5 /* EditingStateLenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingStateLenses.swift; sourceTree = "<group>"; };
 		047F9EF726E4EC9F00DD34F5 /* EditingStateModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingStateModes.swift; sourceTree = "<group>"; };
 		047F9EF926E585D100DD34F5 /* DrawingViewScrollRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewScrollRecognizer.swift; sourceTree = "<group>"; };
-		047F9F6B27D06283004EEEBC /* TutorialOnboardingIntroPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingIntroPage.swift; sourceTree = "<group>"; };
-		047F9F6D27D07109004EEEBC /* TutorialOnboardingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingHeader.swift; sourceTree = "<group>"; };
-		047F9F6F27D077D2004EEEBC /* TutorialOnboardingText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingText.swift; sourceTree = "<group>"; };
-		047F9F7127D07804004EEEBC /* TutorialOnboardingPrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingPrimaryButton.swift; sourceTree = "<group>"; };
-		047F9F7327D07834004EEEBC /* TutorialOnboardingSecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingSecondaryButton.swift; sourceTree = "<group>"; };
-		047F9F7727D07875004EEEBC /* TutorialOnboardingDrawPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingDrawPage.swift; sourceTree = "<group>"; };
 		0485989423F281CB00AFBB3A /* SocialSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSection.swift; sourceTree = "<group>"; };
 		0485989623F282B500AFBB3A /* TwitterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterItem.swift; sourceTree = "<group>"; };
 		0485989823F2843000AFBB3A /* TwitchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchItem.swift; sourceTree = "<group>"; };
@@ -709,10 +699,11 @@
 			isa = PBXGroup;
 			children = (
 				04D46BDE2414EC8100DBFB9A /* TutorialOnboardingViewController.swift */,
+				045B2FC727DC4C07007779DF /* TutorialOnboardingDataSource.swift */,
 				04516F722418E0C20096F852 /* TutorialIntroHeaderLabel.swift */,
 				04516F742418E0DB0096F852 /* TutorialIntroBodyLabel.swift */,
 				04516F762418E0FC0096F852 /* TutorialIntroDismissButton.swift */,
-				04516F782418E11B0096F852 /* TutorialIntroStartButton.swift */,
+				04516F782418E11B0096F852 /* TutorialIntroContinueButton.swift */,
 				04516F7A2418E1320096F852 /* TutorialIntroButtonsStackView.swift */,
 			);
 			path = Intro;
@@ -885,28 +876,14 @@
 		047F9F6927D0626B004EEEBC /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				047F9F7527D07859004EEEBC /* Components */,
 				047F9F7627D0785F004EEEBC /* Pages */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		047F9F7527D07859004EEEBC /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				047F9F6D27D07109004EEEBC /* TutorialOnboardingHeader.swift */,
-				047F9F7127D07804004EEEBC /* TutorialOnboardingPrimaryButton.swift */,
-				047F9F7327D07834004EEEBC /* TutorialOnboardingSecondaryButton.swift */,
-				047F9F6F27D077D2004EEEBC /* TutorialOnboardingText.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		047F9F7627D0785F004EEEBC /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				047F9F6B27D06283004EEEBC /* TutorialOnboardingIntroPage.swift */,
-				047F9F7727D07875004EEEBC /* TutorialOnboardingDrawPage.swift */,
 				04516F702418E09F0096F852 /* TutorialIntroPageView.swift */,
 				0435867627D860D50037BA5F /* TutorialOnboardingPageView.swift */,
 				0435867027D85BB70037BA5F /* TutorialOnboardingIntroPageViewController.swift */,
@@ -1491,7 +1468,6 @@
 				046C407F249868270069E8FB /* SidebarActionButtonBackgroundView.swift in Sources */,
 				046937622427677D005894F7 /* RedoButton.swift in Sources */,
 				0469375C24276735005894F7 /* PlayButton.swift in Sources */,
-				047F9F7427D07834004EEEBC /* TutorialOnboardingSecondaryButton.swift in Sources */,
 				04C0A66822DC221700E4E5D6 /* UIViewControllerExtensions.swift in Sources */,
 				0419752125EB50C300CB0F54 /* UIScrollViewExtensions.swift in Sources */,
 				04791E6723EEA97100403BD8 /* ExportSettingsTableViewCell.swift in Sources */,
@@ -1522,6 +1498,7 @@
 				04EC179323D991A700A42E08 /* FilmStripCollectionLayoutItem.swift in Sources */,
 				047F9EDD26E4956500DD34F5 /* ExportKeyCommand.swift in Sources */,
 				0408492C261569E100D2AA15 /* ExportSettingsBackgroundContentSection.swift in Sources */,
+				045B2FC827DC4C07007779DF /* TutorialOnboardingDataSource.swift in Sources */,
 				04084927261569B700D2AA15 /* ExportSettingsShapeContentSection.swift in Sources */,
 				04791E5123EC1F3400403BD8 /* SettingsTableView.swift in Sources */,
 				047F9EE926E4BE2600DD34F5 /* EditingViewFactory.swift in Sources */,
@@ -1553,11 +1530,9 @@
 				04693758242766F2005894F7 /* GalleryButton.swift in Sources */,
 				049A045A240D09E400F5FC17 /* PlayButtonContextMenu.swift in Sources */,
 				04791E6523EEA71D00403BD8 /* ExportSettingsView.swift in Sources */,
-				047F9F7027D077D3004EEEBC /* TutorialOnboardingText.swift in Sources */,
 				0485989523F281CB00AFBB3A /* SocialSection.swift in Sources */,
 				0445AA612373C7B700EB2A7B /* GalleryViewLayout.swift in Sources */,
 				04EC179123D9918A00A42E08 /* FilmStripCollectionLayoutGroup.swift in Sources */,
-				047F9F6E27D07109004EEEBC /* TutorialOnboardingHeader.swift in Sources */,
 				0408494F2618053E00D2AA15 /* ExportEditingShareBarButtonItem.swift in Sources */,
 				04516F712418E09F0096F852 /* TutorialIntroPageView.swift in Sources */,
 				047F9EE526E4AC7B00DD34F5 /* Cascading.swift in Sources */,
@@ -1589,7 +1564,6 @@
 				04C0A67022DC2A2500E4E5D6 /* EditingView.swift in Sources */,
 				043F06D224AB667D005865BF /* FilmStripExistingPageBackgroundView.swift in Sources */,
 				04DF241423F888F800657160 /* FilmStripExistingPageCell.swift in Sources */,
-				047F9F6C27D06283004EEEBC /* TutorialOnboardingIntroPage.swift in Sources */,
 				04791E3323EC1F3400403BD8 /* SettingsContentProvider.swift in Sources */,
 				04791E4D23EC1F3400403BD8 /* SettingsStandardTableViewCell.swift in Sources */,
 				04D46BDF2414EC8100DBFB9A /* TutorialOnboardingViewController.swift in Sources */,
@@ -1659,9 +1633,7 @@
 				04791E2A23EC1F3400403BD8 /* ContactItem.swift in Sources */,
 				04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */,
 				04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */,
-				047F9F7227D07804004EEEBC /* TutorialOnboardingPrimaryButton.swift in Sources */,
-				04516F792418E11B0096F852 /* TutorialIntroStartButton.swift in Sources */,
-				047F9F7827D07875004EEEBC /* TutorialOnboardingDrawPage.swift in Sources */,
+				04516F792418E11B0096F852 /* TutorialIntroContinueButton.swift in Sources */,
 				04084959261805B100D2AA15 /* IconsImageGenerator.swift in Sources */,
 				04791E5923EC1F3400403BD8 /* SettingsViewController.swift in Sources */,
 				047F9EE326E4980E00DD34F5 /* EditingPageNavigation.swift in Sources */,

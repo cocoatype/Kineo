@@ -14,6 +14,15 @@ class TutorialEditingViewController: EditingViewController {
         present(TutorialOnboardingViewController(), animated: true, completion: nil)
     }
 
+    @objc func advanceIntro(_ sender: Any) {
+        guard let onboardingViewController = presentedViewController as? TutorialOnboardingViewController else { return }
+        if onboardingViewController.hasNextPage {
+            onboardingViewController.advance()
+        } else {
+            dismissIntro(sender)
+        }
+    }
+
     @objc func dismissIntro(_ sender: Any) {
         guard presentedViewController is TutorialOnboardingViewController else { return }
         dismiss(animated: true, completion: nil)

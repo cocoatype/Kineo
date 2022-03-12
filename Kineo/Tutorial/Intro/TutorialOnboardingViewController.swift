@@ -20,6 +20,18 @@ class TutorialOnboardingViewController: UIPageViewController {
         Defaults.seenTutorial = true
     }
 
+    // MARK: Page Controls
+
+    var hasNextPage: Bool {
+        guard let current = viewControllers?.first else { return false }
+        return tutorialDataSource.pageViewController(self, viewControllerAfter: current) != nil
+    }
+
+    func advance() {
+        guard let current = viewControllers?.first, let next = tutorialDataSource.pageViewController(self, viewControllerAfter: current) else { return }
+        setViewControllers([next], direction: .forward, animated: true)
+    }
+
     // MARK: Boilerplate
 
     private let tutorialDataSource = TutorialOnboardingDataSource()
@@ -28,31 +40,5 @@ class TutorialOnboardingViewController: UIPageViewController {
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
-    }
-}
-
-class TutorialOnboardingDataSource: NSObject, UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        if viewController is TutorialOnboardingSharePageViewController {
-            return TutorialOnboardingPlayPageViewController()
-        } else if viewController is TutorialOnboardingPlayPageViewController {
-            return TutorialOnboardingDrawPageViewController()
-        } else if viewController is TutorialOnboardingDrawPageViewController {
-            return TutorialOnboardingIntroPageViewController()
-        } else {
-            return nil
-        }
-    }
-
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if viewController is TutorialOnboardingIntroPageViewController {
-            return TutorialOnboardingDrawPageViewController()
-        } else if viewController is TutorialOnboardingDrawPageViewController {
-            return TutorialOnboardingPlayPageViewController()
-        } else if viewController is TutorialOnboardingPlayPageViewController {
-            return TutorialOnboardingSharePageViewController()
-        } else {
-            return nil
-        }
     }
 }

@@ -37,7 +37,7 @@ extension String {
 extension NSAttributedString {
     var symbolized: NSAttributedString {
         do {
-            let regex = try NSRegularExpression(pattern: "\\$(?<systemName>[a-z\\.]*)\\$", options: [])
+            let regex = try NSRegularExpression(pattern: "\\$(?<systemName>[a-z0-9\\.]*)\\$", options: [])
             let newString = NSMutableAttributedString(attributedString: self)
             while true {
                 guard let match = regex.firstMatch(in: newString.string, options: [], range: NSRange(location: 0, length: newString.length)) else { break }

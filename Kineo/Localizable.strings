@@ -98,19 +98,38 @@
 
 "ToolsButton.accessibilityLabel" = "Tool Picker";
 
+"TutorialIntroContinueButton.continueTitle" = "Continue";
+"TutorialIntroContinueButton.startTitle" = "Get Started";
+
 "TutorialIntroDismissButton.title" = "Skip Tour";
-"TutorialIntroStartButton.title" = "Get Started";
-"TutorialIntroView.bodyText" = "Thanks for downloading Kineo! I hope you have a great time creating and sharing your own animations.\n\nIf you have any questions or comments, you can contact me from the help menu at any time.\n\n—Geoff, Kineo Developer";
+
+"TutorialIntroView.bodyText" = "Thanks for downloading Kineo!
+
+To help get you started using Kineo to make animations, I’ve put together a short tour. If you’ve used Kineo before, or would rather just get started, feel free to skip it and jump right into action!
+
+Either way, I hope you have a great time using Kineo! If you have any questions or concerns, you can contact me from the help menu at any time.
+
+—Geoff, Kineo Developer";
 "TutorialIntroView.headerText" = "Welcome to\nKineo";
 
 "TutorialOnboardingDrawPageView.headerText" = "Draw";
-"TutorialOnboardingDrawPageView.bodyText" = "Draw using your finger or Apple Pencil in the center canvas.\n\nWant to change color, pen type, or erase? Tap the $pencil.tip.crop.circle$ button to bring up the tool picker.\n\nWhen you’ve finished one page, tap $plus$ in the page strip to create another; the last few pages will appear faintly over your new one.";
+"TutorialOnboardingDrawPageView.bodyText" = "Draw using your finger or Apple Pencil in the center canvas.
+
+Want to change color, pen type, or erase? Tap the $pencil.tip.crop.circle$ button to bring up the tool picker.
+
+When you’ve finished one page, tap $plus$ in the page strip to create another; the last few pages will appear faintly over your new one.";
 
 "TutorialOnboardingPlayPageView.headerText" = "Play";
-"TutorialOnboardingPlayPageView.bodyText" = "Insert text about playback here.";
+"TutorialOnboardingPlayPageView.bodyText" = "All of your pages are available in a strip on the screen. You can scroll them back and forth to preview your animation.
+
+Tap the $play$ button to play your animation once, or double-tap it to play in a loop. You can hold down the button to choose between a normal loop and a “bounce” loop that reverses back to the beginning.";
 
 "TutorialOnboardingSharePageView.headerText" = "Share";
-"TutorialOnboardingSharePageView.bodyText" = "Insert text about exporting/sharing here.";
+"TutorialOnboardingSharePageView.bodyText" = "Tap the $square.and.arrow.up$ button to begin sharing your animation. Here, you can change how it looks:
+
+You can change the shape of the video you share with $square$/$rectangle$/$rectangle.portrait$/$square.dashed$. Different shapes look better in different apps!
+
+You can choose between looping and bouncing your animation with $arrow.2.circlepath$/$arrow.left.arrow.right$.";
 
 "UndoButton.accessibilityLabel" = "Undo";
 
