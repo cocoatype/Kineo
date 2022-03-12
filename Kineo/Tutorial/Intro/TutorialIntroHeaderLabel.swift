@@ -13,6 +13,7 @@ class TutorialIntroHeaderLabel: UILabel {
         numberOfLines = 0
         textColor = .tutorialIntroText
         translatesAutoresizingMaskIntoConstraints = false
+        setContentCompressionResistancePriority(.required, for: .vertical)
 
         let lines = text.split(separator: "\n")
         var attributedLines = lines.compactMap { String($0).correctlyPronounced.mutableCopy() as? NSMutableAttributedString }

@@ -11,9 +11,7 @@ class TutorialIntroBodyLabel: UILabel {
         attributedText = text.correctlyPronounced.symbolized
         textColor = .tutorialIntroText
         translatesAutoresizingMaskIntoConstraints = false
-        setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-        setContentHuggingPriority(.defaultHigh, for: .vertical)
+        setContentCompressionResistancePriority(.required, for: .vertical)
     }
 
     // MARK: Boilerplate

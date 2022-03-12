@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -77,6 +77,9 @@
 		04516F792418E11B0096F852 /* TutorialIntroContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F782418E11B0096F852 /* TutorialIntroContinueButton.swift */; };
 		04516F7B2418E1320096F852 /* TutorialIntroButtonsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04516F7A2418E1320096F852 /* TutorialIntroButtonsStackView.swift */; };
 		045B2FC827DC4C07007779DF /* TutorialOnboardingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FC727DC4C07007779DF /* TutorialOnboardingDataSource.swift */; };
+		045B2FCA27DC5251007779DF /* TutorialOnboardingSlideshowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FC927DC5251007779DF /* TutorialOnboardingSlideshowImageView.swift */; };
+		045B2FCD27DC801E007779DF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 045B2FCC27DC801E007779DF /* Lottie */; };
+		045B2FD027DC820C007779DF /* OnboardingDraw.json in Resources */ = {isa = PBXBuildFile; fileRef = 045B2FCF27DC820C007779DF /* OnboardingDraw.json */; };
 		04693758242766F2005894F7 /* GalleryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04693757242766F2005894F7 /* GalleryButton.swift */; };
 		0469375A24276724005894F7 /* ExportButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375924276724005894F7 /* ExportButton.swift */; };
 		0469375C24276735005894F7 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375B24276735005894F7 /* PlayButton.swift */; };
@@ -368,6 +371,8 @@
 		04516F782418E11B0096F852 /* TutorialIntroContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroContinueButton.swift; sourceTree = "<group>"; };
 		04516F7A2418E1320096F852 /* TutorialIntroButtonsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroButtonsStackView.swift; sourceTree = "<group>"; };
 		045B2FC727DC4C07007779DF /* TutorialOnboardingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingDataSource.swift; sourceTree = "<group>"; };
+		045B2FC927DC5251007779DF /* TutorialOnboardingSlideshowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingSlideshowImageView.swift; sourceTree = "<group>"; };
+		045B2FCF27DC820C007779DF /* OnboardingDraw.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OnboardingDraw.json; sourceTree = "<group>"; };
 		04693757242766F2005894F7 /* GalleryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryButton.swift; sourceTree = "<group>"; };
 		0469375924276724005894F7 /* ExportButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportButton.swift; sourceTree = "<group>"; };
 		0469375B24276735005894F7 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
@@ -561,6 +566,7 @@
 			files = (
 				044484FB23AB2A7000CD0C3C /* Data.framework in Frameworks */,
 				04DF241923F93B3A00657160 /* CloudKit.framework in Frameworks */,
+				045B2FCD27DC801E007779DF /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,8 +711,17 @@
 				04516F762418E0FC0096F852 /* TutorialIntroDismissButton.swift */,
 				04516F782418E11B0096F852 /* TutorialIntroContinueButton.swift */,
 				04516F7A2418E1320096F852 /* TutorialIntroButtonsStackView.swift */,
+				045B2FC927DC5251007779DF /* TutorialOnboardingSlideshowImageView.swift */,
 			);
 			path = Intro;
+			sourceTree = "<group>";
+		};
+		045B2FCE27DC81FC007779DF /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				045B2FCF27DC820C007779DF /* OnboardingDraw.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		04791DE323EC1F3400403BD8 /* Settings */ = {
@@ -876,6 +891,7 @@
 		047F9F6927D0626B004EEEBC /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				045B2FCE27DC81FC007779DF /* Animations */,
 				047F9F7627D0785F004EEEBC /* Pages */,
 			);
 			path = Onboarding;
@@ -1293,6 +1309,9 @@
 				044484E923AB287A00CD0C3C /* PBXTargetDependency */,
 			);
 			name = Kineo;
+			packageProductDependencies = (
+				045B2FCC27DC801E007779DF /* Lottie */,
+			);
 			productName = Kineo;
 			productReference = 04C0A64222DC208E00E4E5D6 /* Kineo.app */;
 			productType = "com.apple.product-type.application";
@@ -1349,6 +1368,9 @@
 				Base,
 			);
 			mainGroup = 04C0A63922DC208E00E4E5D6;
+			packageReferences = (
+				045B2FCB27DC801E007779DF /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 04C0A64322DC208E00E4E5D6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1401,6 +1423,7 @@
 				04D46BCA24124F9500DBFB9A /* Icon-App-40x40.png in Resources */,
 				04D46BD424124F9500DBFB9A /* Icon-App-60x60@3x.png in Resources */,
 				043D71492402695400A1B7D1 /* InfoPlist.strings in Resources */,
+				045B2FD027DC820C007779DF /* OnboardingDraw.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1618,6 +1641,7 @@
 				04791E2623EC1F3400403BD8 /* SettingsContentItem.swift in Sources */,
 				04791E4823EC1F3400403BD8 /* PrivacyViewController.swift in Sources */,
 				0435867B27D8638F0037BA5F /* TutorialOnboardingPlayPageViewController.swift in Sources */,
+				045B2FCA27DC5251007779DF /* TutorialOnboardingSlideshowImageView.swift in Sources */,
 				047F9ED226E48F7800DD34F5 /* CompactEditingView.swift in Sources */,
 				048A37F926F0587F00B02F4F /* SkinPublisher.swift in Sources */,
 				0451660323B2467A00D7B535 /* FilmStripNewPageImageView.swift in Sources */,
@@ -1907,6 +1931,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Kineo/Kineo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 287EDDET2B;
 				INFOPLIST_FILE = Kineo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1928,6 +1953,7 @@
 				CODE_SIGN_ENTITLEMENTS = Kineo/Kineo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 287EDDET2B;
 				INFOPLIST_FILE = Kineo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2033,6 +2059,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		045B2FCB27DC801E007779DF /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		045B2FCC27DC801E007779DF /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 045B2FCB27DC801E007779DF /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 04C0A63A22DC208E00E4E5D6 /* Project object */;
 }
