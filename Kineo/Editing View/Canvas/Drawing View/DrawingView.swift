@@ -59,6 +59,12 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
             .receive(on: RunLoop.main)
             .assign(to: \.backgroundColor, on: canvasView)
             .store(in: &cancellables)
+
+        statePublisher
+            .map { $0.mode == .scrolling }
+            .receive(on: RunLoop.main)
+            .assign(to: \.hidingSkinsImage, on: self)
+            .store(in: &cancellables)
     }
 
     override func layoutSubviews() {
@@ -96,14 +102,12 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
     // MARK: Skins Images
 
     private let skinsImageView = SkinsImageView()
-    func showSkinsImage() {
-        UIView.animate(withDuration: 0.15) { [weak self] in
-            self?.skinsImageView.alpha = 1
-        }
-    }
-    func hideSkinsImage() {
-        UIView.animate(withDuration: 0.15) { [weak self] in
-            self?.skinsImageView.alpha = 0
+    private var hidingSkinsImage = false {
+        didSet {
+            UIView.animate(withDuration: 0.15) { [weak self] in
+                guard let drawingView = self else { return }
+                drawingView.skinsImageView.alpha = (drawingView.hidingSkinsImage ? 0 : 1)
+            }
         }
     }
 
