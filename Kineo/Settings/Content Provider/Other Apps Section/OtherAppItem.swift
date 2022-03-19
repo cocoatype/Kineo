@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 8/12/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import StoreKit
 import UIKit
 
 struct OtherAppItem: SettingsContentItem, IconProvidingContentItem {
@@ -10,8 +11,15 @@ struct OtherAppItem: SettingsContentItem, IconProvidingContentItem {
     var icon: UIImage? { appEntry.icon }
 
     func performSelectedAction(_ sender: Any) {
-        guard let appStoreURL = appEntry.appStoreURL else { return }
-        UIApplication.shared.open(appStoreURL)
+        UIApplication.shared.sendAction(#selector(SettingsViewController.displayAppOverlay(_:event:)), to: nil, from: sender, for: AppOverlayEvent(appEntry.appleID))
+    }
+}
+
+class AppOverlayEvent: UIEvent {
+    let appleID: String
+
+    init(_ appleID: String) {
+        self.appleID = appleID
     }
 }
 

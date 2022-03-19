@@ -8,9 +8,9 @@ struct AppEntry: Equatable {
     let subtitle: String
     let icon: UIImage?
     let appStoreURL: URL?
-    let bundleID: String
+    let appleID: String
 
     static func == (lhs: AppEntry, rhs: AppEntry) -> Bool {
-        return lhs.bundleID == rhs.bundleID
+        return lhs.appleID == rhs.appleID
     }
 }

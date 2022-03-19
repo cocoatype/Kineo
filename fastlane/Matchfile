@@ -6,7 +6,8 @@ type("appstore") # The default type, can be: appstore, adhoc, enterprise or deve
 
 app_identifier([
   "com.flipbookapp.flickbook",
-  "com.flipbookapp.flickbook.Stickers"
+  "com.flipbookapp.flickbook.Stickers",
+  "com.flipbookapp.flickbook.Clip"
 ])
 
 username("buddybuild@cocoatype.com")
