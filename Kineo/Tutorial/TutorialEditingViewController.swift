@@ -10,12 +10,21 @@ class TutorialEditingViewController: EditingViewController {
     }
 
     private func showIntro() {
-        guard presentedViewController == nil, TutorialCoordinator.shouldStartTutorial else { return }
-        present(TutorialIntroViewController(), animated: true, completion: nil)
+        guard presentedViewController == nil, TutorialCoordinator.shouldStartTutorial, #available(iOS 15, *) else { return }
+        present(TutorialOnboardingViewController(), animated: true, completion: nil)
+    }
+
+    @objc func advanceIntro(_ sender: Any) {
+        guard let onboardingViewController = presentedViewController as? TutorialOnboardingViewController else { return }
+        if onboardingViewController.hasNextPage {
+            onboardingViewController.advance()
+        } else {
+            dismissIntro(sender)
+        }
     }
 
     @objc func dismissIntro(_ sender: Any) {
-        guard presentedViewController is TutorialIntroViewController else { return }
+        guard presentedViewController is TutorialOnboardingViewController else { return }
         dismiss(animated: true, completion: nil)
     }
 }

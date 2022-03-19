@@ -6,22 +6,30 @@ import UIKit
 class TutorialIntroHeaderLabel: UILabel {
     init(text: String) {
         super.init(frame: .zero)
-        self.adjustsFontSizeToFitWidth = true
-        self.allowsDefaultTighteningForTruncation = true
-        self.font = .appFont(forTextStyle: .largeTitle)
-        self.minimumScaleFactor = 0.9
-        self.numberOfLines = 0
-        self.textColor = .tutorialIntroText
-        self.translatesAutoresizingMaskIntoConstraints = false
+        adjustsFontSizeToFitWidth = true
+        allowsDefaultTighteningForTruncation = true
+        font = .appFont(forTextStyle: .largeTitle)
+        minimumScaleFactor = 0.9
+        numberOfLines = 0
+        textColor = .tutorialIntroText
+        translatesAutoresizingMaskIntoConstraints = false
+        setContentCompressionResistancePriority(.required, for: .vertical)
 
         let lines = text.split(separator: "\n")
-        let firstLine = NSAttributedString(string: String(lines[0]))
-        let secondLine = NSAttributedString(string: String(lines[1]), attributes: [.foregroundColor: UIColor.tutorialIntroAccent, .accessibilitySpeechIPANotation: "ˈkɪ.ni.o͡ʊ"])
+        var attributedLines = lines.compactMap { String($0).correctlyPronounced.mutableCopy() as? NSMutableAttributedString }
 
-        let tintedString = NSMutableAttributedString(attributedString: firstLine)
-        tintedString.append(NSAttributedString(string: "\n"))
-        tintedString.append(secondLine)
-        self.attributedText = tintedString
+        if let lastLine = attributedLines.popLast() {
+            lastLine.addAttribute(.foregroundColor, value: UIColor.tutorialIntroAccent, range: NSRange(location: 0, length: lastLine.length))
+            attributedLines.append(lastLine)
+        }
+
+        attributedText = attributedLines.reduce(into: NSMutableAttributedString()) { partialResult, attributedLine in
+            if partialResult.length != 0 {
+                partialResult.append(NSAttributedString(string: "\n"))
+            }
+
+            partialResult.append(attributedLine)
+        }
     }
 
     // MARK: Boilerplate
