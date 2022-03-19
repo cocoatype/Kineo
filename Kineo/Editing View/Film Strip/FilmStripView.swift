@@ -4,7 +4,7 @@
 import Combine
 import UIKit
 
-class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDelegate, UICollectionViewDropDelegate {
+class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDelegate, UICollectionViewDropDelegate, UIGestureRecognizerDelegate {
     init(statePublisher: EditingStatePublisher) {
         self.dataSource = FilmStripDataSource(statePublisher: statePublisher)
         super.init(frame: .zero)
@@ -23,6 +23,8 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
         collectionView.delegate = self
         collectionView.dragDelegate = self
         collectionView.dropDelegate = self
+
+        addGestureRecognizer(gestureRecognizer)
 
         addSubview(collectionView)
         addSubview(indicator)
@@ -168,6 +170,28 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
         let itemsCount = dataSource.collectionView(collectionView, numberOfItemsInSection: 0) - 1
         return String(format: Self.accessibilityValueFormat, currentPage, itemsCount)
     }
+
+    // MARK: Gesture Recognizer
+
+    private lazy var gestureRecognizer: UILongPressGestureRecognizer = {
+        let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(userDidTouchFilmStrip(_:)))
+        gestureRecognizer.delegate = self
+        gestureRecognizer.minimumPressDuration = 0.1
+        return gestureRecognizer
+    }()
+
+    @objc private func userDidTouchFilmStrip(_ recognizer: UILongPressGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            sendAction(#selector(EditingViewController.startScrolling), to: nil, for: nil)
+        case .ended, .failed:
+            guard collectionView.isDecelerating == false else { break }
+            sendAction(#selector(EditingViewController.stopScrolling), to: nil, for: nil)
+        default: break
+        }
+    }
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool { true }
 
     // MARK: Enabled
 
