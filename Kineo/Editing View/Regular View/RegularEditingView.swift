@@ -21,9 +21,9 @@ class RegularEditingView: EditingView {
         addLayoutGuide(drawingViewGuide)
 
         #if CLIP
-        [filmStripView, playButton, exportButton, playbackView].forEach(self.addSubview(_:))
+        [filmStripView, backgroundButton, playButton, exportButton, playbackView].forEach(self.addSubview(_:))
         #else
-        [filmStripView, playButton, galleryButton, exportButton, playbackView].forEach(self.addSubview(_:))
+        [filmStripView, backgroundButton, playButton, galleryButton, exportButton, playbackView].forEach(self.addSubview(_:))
         #endif
 
         NSLayoutConstraint.activate([
@@ -36,6 +36,8 @@ class RegularEditingView: EditingView {
             filmStripView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
             exportButton.topAnchor.constraint(equalTo: topAnchor, constant: 11),
             exportButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11),
+            backgroundButton.trailingAnchor.constraint(equalTo: exportButton.leadingAnchor, constant: -11),
+            backgroundButton.centerYAnchor.constraint(equalTo: exportButton.centerYAnchor),
             playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -11),
             playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
             playbackView.heightAnchor.constraint(equalTo: drawingViewGuide.heightAnchor),
@@ -62,6 +64,7 @@ class RegularEditingView: EditingView {
     private let toolPicker: EditingToolPicker
 
     private lazy var filmStripView = FilmStripView(statePublisher: statePublisher)
+    private let backgroundButton = BackgroundButton()
     private let playButton = PlayButton()
     #if !CLIP
     private let galleryButton = GalleryButton()
