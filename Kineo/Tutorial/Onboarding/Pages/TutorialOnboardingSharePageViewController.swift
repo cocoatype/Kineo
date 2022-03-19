@@ -11,7 +11,7 @@ class TutorialOnboardingSharePageViewController: UIViewController {
     override func loadView() {
         view = TutorialOnboardingPageView(header: NSLocalizedString("TutorialOnboardingSharePageView.headerText", comment: "Text for the header of the tutorial draw page"),
                                           body: NSLocalizedString("TutorialOnboardingSharePageView.bodyText", comment: "Text for the body of the tutorial draw page"),
-                                          images: [])
+                                          animationName: "OnboardingShare")
     }
 
     // MARK: Boilerplate

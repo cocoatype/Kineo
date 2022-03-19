@@ -11,7 +11,7 @@ class TutorialOnboardingPlayPageViewController: UIViewController {
     override func loadView() {
         view = TutorialOnboardingPageView(header: NSLocalizedString("TutorialOnboardingPlayPageView.headerText", comment: "Text for the header of the tutorial draw page"),
                                           body: NSLocalizedString("TutorialOnboardingPlayPageView.bodyText", comment: "Text for the body of the tutorial draw page"),
-                                          images: [])
+                                          animationName: "OnboardingPlay")
     }
 
     // MARK: Boilerplate
