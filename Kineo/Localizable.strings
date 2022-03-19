@@ -1,6 +1,8 @@
 //  Created by Geoff Pado on 11/29/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+"BackgroundButton.accessibilityLabel" = "Background Color";
+
 "ContactMailViewController.emailSubject" = "Hello!";
 
 "DrawingView.accessibilityLabel" = "Canvas";

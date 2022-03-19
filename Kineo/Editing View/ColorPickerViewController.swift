@@ -9,6 +9,7 @@ class ColorPickerViewController: UIColorPickerViewController, UIColorPickerViewC
         super.init()
 
         delegate = self
+        modalPresentationStyle = .popover
         supportsAlpha = false
     }
 
