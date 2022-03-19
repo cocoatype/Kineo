@@ -100,6 +100,10 @@ class EditingViewController: UIViewController {
             guard let editingViewController = self else { return }
             editingViewController.state = editingViewController.state.settingBackgroundColor(to: $0)
         }
+        if let backgroundButton = sender as? BackgroundButton {
+            colorPicker.popoverPresentationController?.sourceView = backgroundButton
+            colorPicker.popoverPresentationController?.sourceRect = backgroundButton.bounds
+        }
         present(colorPicker, animated: true)
     }
 
