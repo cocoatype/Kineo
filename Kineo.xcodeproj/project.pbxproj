@@ -84,6 +84,13 @@
 		045B2FDC27E57E7A007779DF /* OnboardingPlay.json in Resources */ = {isa = PBXBuildFile; fileRef = 045B2FDB27E57E7A007779DF /* OnboardingPlay.json */; };
 		045B2FDE27E59161007779DF /* BackgroundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FDD27E59161007779DF /* BackgroundButton.swift */; };
 		045B2FDF27E5923B007779DF /* BackgroundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FDD27E59161007779DF /* BackgroundButton.swift */; };
+		045B2FE827E97D4C007779DF /* TransactionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FE727E97D4C007779DF /* TransactionObserver.swift */; };
+		045B2FEC27EC0D20007779DF /* Purchaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FEB27EC0D20007779DF /* Purchaser.swift */; };
+		045B2FEE27EC0D3A007779DF /* PurchaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FED27EC0D3A007779DF /* PurchaseError.swift */; };
+		045B2FF027EC0D5B007779DF /* StubPurchaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FEF27EC0D5B007779DF /* StubPurchaser.swift */; };
+		045B2FF227EC0D8E007779DF /* RealPurchaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FF127EC0D8E007779DF /* RealPurchaser.swift */; };
+		045B2FF527EC0EB2007779DF /* PurchaseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FF427EC0EB2007779DF /* PurchaseSection.swift */; };
+		045B2FF727EC0EE3007779DF /* PurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FF627EC0EE3007779DF /* PurchaseItem.swift */; };
 		04693758242766F2005894F7 /* GalleryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04693757242766F2005894F7 /* GalleryButton.swift */; };
 		0469375A24276724005894F7 /* ExportButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375924276724005894F7 /* ExportButton.swift */; };
 		0469375C24276735005894F7 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375B24276735005894F7 /* PlayButton.swift */; };
@@ -525,6 +532,14 @@
 		045B2FD327E04184007779DF /* OnboardingShare.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OnboardingShare.json; sourceTree = "<group>"; };
 		045B2FDB27E57E7A007779DF /* OnboardingPlay.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OnboardingPlay.json; sourceTree = "<group>"; };
 		045B2FDD27E59161007779DF /* BackgroundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundButton.swift; sourceTree = "<group>"; };
+		045B2FE727E97D4C007779DF /* TransactionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionObserver.swift; sourceTree = "<group>"; };
+		045B2FE927E98406007779DF /* StoreKitConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfig.storekit; sourceTree = "<group>"; };
+		045B2FEB27EC0D20007779DF /* Purchaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchaser.swift; sourceTree = "<group>"; };
+		045B2FED27EC0D3A007779DF /* PurchaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseError.swift; sourceTree = "<group>"; };
+		045B2FEF27EC0D5B007779DF /* StubPurchaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPurchaser.swift; sourceTree = "<group>"; };
+		045B2FF127EC0D8E007779DF /* RealPurchaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealPurchaser.swift; sourceTree = "<group>"; };
+		045B2FF427EC0EB2007779DF /* PurchaseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseSection.swift; sourceTree = "<group>"; };
+		045B2FF627EC0EE3007779DF /* PurchaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItem.swift; sourceTree = "<group>"; };
 		04693757242766F2005894F7 /* GalleryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryButton.swift; sourceTree = "<group>"; };
 		0469375924276724005894F7 /* ExportButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportButton.swift; sourceTree = "<group>"; };
 		0469375B24276735005894F7 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
@@ -894,6 +909,27 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
+		045B2FEA27EC0CAB007779DF /* Purchasing */ = {
+			isa = PBXGroup;
+			children = (
+				045B2FE727E97D4C007779DF /* TransactionObserver.swift */,
+				045B2FEB27EC0D20007779DF /* Purchaser.swift */,
+				045B2FED27EC0D3A007779DF /* PurchaseError.swift */,
+				045B2FEF27EC0D5B007779DF /* StubPurchaser.swift */,
+				045B2FF127EC0D8E007779DF /* RealPurchaser.swift */,
+			);
+			path = Purchasing;
+			sourceTree = "<group>";
+		};
+		045B2FF327EC0E97007779DF /* Purchase Section */ = {
+			isa = PBXGroup;
+			children = (
+				045B2FF427EC0EB2007779DF /* PurchaseSection.swift */,
+				045B2FF627EC0EE3007779DF /* PurchaseItem.swift */,
+			);
+			path = "Purchase Section";
+			sourceTree = "<group>";
+		};
 		0474AFA927B75F030031210C /* Clip */ = {
 			isa = PBXGroup;
 			children = (
@@ -931,6 +967,7 @@
 				04791DE523EC1F3400403BD8 /* StandardContentItem.swift */,
 				04791DEB23EC1F3400403BD8 /* About Section */,
 				04D46BD52412518000DBFB9A /* Icon Section */,
+				045B2FF327EC0E97007779DF /* Purchase Section */,
 				04791DE723EC1F3400403BD8 /* Other Apps Section */,
 				04791DF423EC1F3400403BD8 /* Settings Section */,
 				0485989323F281BC00AFBB3A /* Social Section */,
@@ -1218,6 +1255,7 @@
 		04C0A64422DC208E00E4E5D6 /* Kineo */ = {
 			isa = PBXGroup;
 			children = (
+				045B2FEA27EC0CAB007779DF /* Purchasing */,
 				04C0A67822DC436400E4E5D6 /* example.json */,
 				0419751625EB507700CB0F54 /* Application */,
 				04C0A66B22DC23EA00E4E5D6 /* Default Scene */,
@@ -1232,6 +1270,7 @@
 				044DB00123B31AE800BD2A0C /* Supporting Files */,
 				049A044F240BBDE300F5FC17 /* Transitioning */,
 				04D46BD82414DEF100DBFB9A /* Tutorial */,
+				045B2FE927E98406007779DF /* StoreKitConfig.storekit */,
 			);
 			path = Kineo;
 			sourceTree = "<group>";
@@ -1851,6 +1890,7 @@
 				0408495E261805CF00D2AA15 /* IconsImagePositioning.swift in Sources */,
 				04EC179323D991A700A42E08 /* FilmStripCollectionLayoutItem.swift in Sources */,
 				047F9EDD26E4956500DD34F5 /* ExportKeyCommand.swift in Sources */,
+				045B2FEE27EC0D3A007779DF /* PurchaseError.swift in Sources */,
 				0408492C261569E100D2AA15 /* ExportSettingsBackgroundContentSection.swift in Sources */,
 				045B2FC827DC4C07007779DF /* TutorialOnboardingDataSource.swift in Sources */,
 				04084927261569B700D2AA15 /* ExportSettingsShapeContentSection.swift in Sources */,
@@ -1870,6 +1910,7 @@
 				04791E2D23EC1F3400403BD8 /* AcknowledgementsItem.swift in Sources */,
 				047F9EE726E4B8B300DD34F5 /* EditingStatePageManipulation.swift in Sources */,
 				04791E5323EC1F3400403BD8 /* AppEntry.swift in Sources */,
+				045B2FF527EC0EB2007779DF /* PurchaseSection.swift in Sources */,
 				04E3B63E25FC675B00D2A945 /* ExportEditingNavigationController.swift in Sources */,
 				046C407B2498630A0069E8FB /* DrawingView.swift in Sources */,
 				04791E4F23EC1F3400403BD8 /* SettingsTableViewCellLabel.swift in Sources */,
@@ -1895,7 +1936,9 @@
 				0485989723F282B500AFBB3A /* TwitterItem.swift in Sources */,
 				04791E2523EC1F3400403BD8 /* StandardContentItem.swift in Sources */,
 				04D36ADD237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift in Sources */,
+				045B2FF227EC0D8E007779DF /* RealPurchaser.swift in Sources */,
 				0436CE8F23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift in Sources */,
+				045B2FEC27EC0D20007779DF /* Purchaser.swift in Sources */,
 				04E3B63325FC64B100D2A945 /* ExportEditingView.swift in Sources */,
 				04B0FBCB25008ACF002CE851 /* DrawingViewController.swift in Sources */,
 				049A0453240BBE2200F5FC17 /* OpacityAnimation.swift in Sources */,
@@ -1915,6 +1958,7 @@
 				04DF241123F888DA00657160 /* ExportViewController.swift in Sources */,
 				04EC178D23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift in Sources */,
 				0408496326180FD300D2AA15 /* ExportEditingPickerControlGestureRecognizer.swift in Sources */,
+				045B2FE827E97D4C007779DF /* TransactionObserver.swift in Sources */,
 				04C0A67022DC2A2500E4E5D6 /* EditingView.swift in Sources */,
 				043F06D224AB667D005865BF /* FilmStripExistingPageBackgroundView.swift in Sources */,
 				04DF241423F888F800657160 /* FilmStripExistingPageCell.swift in Sources */,
@@ -1928,6 +1972,7 @@
 				04084931261578FC00D2AA15 /* NSLayoutConstraintExtensions.swift in Sources */,
 				04791E3123EC1F3400403BD8 /* SettingsSection.swift in Sources */,
 				048D4F4024E0C780001F86A0 /* AppRatingsPrompter.swift in Sources */,
+				045B2FF727EC0EE3007779DF /* PurchaseItem.swift in Sources */,
 				046937602427676B005894F7 /* UndoButton.swift in Sources */,
 				0435867127D85BB70037BA5F /* TutorialOnboardingIntroPageViewController.swift in Sources */,
 				047F9EE126E496C500DD34F5 /* EditingState.swift in Sources */,
@@ -1979,6 +2024,7 @@
 				0451660323B2467A00D7B535 /* FilmStripNewPageImageView.swift in Sources */,
 				049B1AA02715382E00E38F5C /* SidebarActionContextMenuInteraction.swift in Sources */,
 				0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */,
+				045B2FF027EC0D5B007779DF /* StubPurchaser.swift in Sources */,
 				04791E2C23EC1F3400403BD8 /* PrivacyItem.swift in Sources */,
 				04389E33262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift in Sources */,
 				0408493B2618047100D2AA15 /* ExportEditingShapePicker.swift in Sources */,
