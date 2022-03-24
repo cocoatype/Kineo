@@ -91,6 +91,21 @@
 		045B2FF227EC0D8E007779DF /* RealPurchaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FF127EC0D8E007779DF /* RealPurchaser.swift */; };
 		045B2FF527EC0EB2007779DF /* PurchaseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FF427EC0EB2007779DF /* PurchaseSection.swift */; };
 		045B2FF727EC0EE3007779DF /* PurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FF627EC0EE3007779DF /* PurchaseItem.swift */; };
+		045B2FFA27EC13CD007779DF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FF927EC13CD007779DF /* SettingsViewController.swift */; };
+		045B2FFC27EC13F5007779DF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FFB27EC13F5007779DF /* SettingsView.swift */; };
+		045B2FFE27EC1702007779DF /* SettingsNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FFD27EC1702007779DF /* SettingsNavigationView.swift */; };
+		045B300027EC172D007779DF /* SettingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FFF27EC172D007779DF /* SettingsList.swift */; };
+		045B300227EC175F007779DF /* SettingsDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B300127EC175F007779DF /* SettingsDoneButton.swift */; };
+		045B300427EC17B0007779DF /* SettingsContentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B300327EC17B0007779DF /* SettingsContentGenerator.swift */; };
+		045B300627EC19FC007779DF /* WebURLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B300527EC19FC007779DF /* WebURLButton.swift */; };
+		045B300827EC1A33007779DF /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B300727EC1A33007779DF /* WebView.swift */; };
+		045B300C27EC1ACB007779DF /* SettingsSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B300B27EC1ACB007779DF /* SettingsSectionHeader.swift */; };
+		045B300F27EC1CA1007779DF /* OtherAppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B300E27EC1CA1007779DF /* OtherAppButton.swift */; };
+		045B301127EC1D14007779DF /* ContinuousCornerRadiusViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B301027EC1D14007779DF /* ContinuousCornerRadiusViewModifier.swift */; };
+		045B301327EC1D68007779DF /* OtherAppNameText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B301227EC1D68007779DF /* OtherAppNameText.swift */; };
+		045B301527EC1D94007779DF /* OtherAppSubtitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B301427EC1D94007779DF /* OtherAppSubtitleText.swift */; };
+		045B301627EC1DE8007779DF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E0F23EC1F3400403BD8 /* WebViewController.swift */; };
+		045B301927EC1F14007779DF /* 🐎IconToggleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B301827EC1F14007779DF /* 🐎IconToggleSwitch.swift */; };
 		04693758242766F2005894F7 /* GalleryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04693757242766F2005894F7 /* GalleryButton.swift */; };
 		0469375A24276724005894F7 /* ExportButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375924276724005894F7 /* ExportButton.swift */; };
 		0469375C24276735005894F7 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469375B24276735005894F7 /* PlayButton.swift */; };
@@ -205,7 +220,6 @@
 		0474B02827B767CD0031210C /* ExportEditingPickerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04975D01260C309600AA2771 /* ExportEditingPickerControl.swift */; };
 		0474B02927B767D80031210C /* ExportEditingPickerControlGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408496226180FD300D2AA15 /* ExportEditingPickerControlGestureRecognizer.swift */; };
 		0474B02A27B767E20031210C /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417F09D22E46F410063AD66 /* UIImageExtensions.swift */; };
-		0474B02B27B767F80031210C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E0F23EC1F3400403BD8 /* WebViewController.swift */; };
 		0474B02C27B767FE0031210C /* DocumentThumbnailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0491C1DF24F0817300E67660 /* DocumentThumbnailProvider.swift */; };
 		0474B02D27B768050031210C /* IconsImagePositioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408495D261805CF00D2AA15 /* IconsImagePositioning.swift */; };
 		0474B02E27B7680D0031210C /* IconsImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04084958261805B100D2AA15 /* IconsImageGenerator.swift */; };
@@ -236,7 +250,7 @@
 		04791E5123EC1F3400403BD8 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E1B23EC1F3400403BD8 /* SettingsTableView.swift */; };
 		04791E5223EC1F3400403BD8 /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E1C23EC1F3400403BD8 /* SettingsTableViewDataSource.swift */; };
 		04791E5323EC1F3400403BD8 /* AppEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E1E23EC1F3400403BD8 /* AppEntry.swift */; };
-		04791E5923EC1F3400403BD8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E2423EC1F3400403BD8 /* SettingsViewController.swift */; };
+		04791E5923EC1F3400403BD8 /* LegacySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E2423EC1F3400403BD8 /* LegacySettingsViewController.swift */; };
 		04791E5F23EE9CBF00403BD8 /* ExportSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E5E23EE9CBF00403BD8 /* ExportSettingsViewController.swift */; };
 		04791E6323EEA09300403BD8 /* ExportSettingsContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6223EEA09300403BD8 /* ExportSettingsContentProvider.swift */; };
 		04791E6523EEA71D00403BD8 /* ExportSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6423EEA71D00403BD8 /* ExportSettingsView.swift */; };
@@ -540,6 +554,20 @@
 		045B2FF127EC0D8E007779DF /* RealPurchaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealPurchaser.swift; sourceTree = "<group>"; };
 		045B2FF427EC0EB2007779DF /* PurchaseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseSection.swift; sourceTree = "<group>"; };
 		045B2FF627EC0EE3007779DF /* PurchaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseItem.swift; sourceTree = "<group>"; };
+		045B2FF927EC13CD007779DF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		045B2FFB27EC13F5007779DF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		045B2FFD27EC1702007779DF /* SettingsNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationView.swift; sourceTree = "<group>"; };
+		045B2FFF27EC172D007779DF /* SettingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsList.swift; sourceTree = "<group>"; };
+		045B300127EC175F007779DF /* SettingsDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDoneButton.swift; sourceTree = "<group>"; };
+		045B300327EC17B0007779DF /* SettingsContentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentGenerator.swift; sourceTree = "<group>"; };
+		045B300527EC19FC007779DF /* WebURLButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebURLButton.swift; sourceTree = "<group>"; };
+		045B300727EC1A33007779DF /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		045B300B27EC1ACB007779DF /* SettingsSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionHeader.swift; sourceTree = "<group>"; };
+		045B300E27EC1CA1007779DF /* OtherAppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherAppButton.swift; sourceTree = "<group>"; };
+		045B301027EC1D14007779DF /* ContinuousCornerRadiusViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousCornerRadiusViewModifier.swift; sourceTree = "<group>"; };
+		045B301227EC1D68007779DF /* OtherAppNameText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherAppNameText.swift; sourceTree = "<group>"; };
+		045B301427EC1D94007779DF /* OtherAppSubtitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherAppSubtitleText.swift; sourceTree = "<group>"; };
+		045B301827EC1F14007779DF /* 🐎IconToggleSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🐎IconToggleSwitch.swift"; sourceTree = "<group>"; };
 		04693757242766F2005894F7 /* GalleryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryButton.swift; sourceTree = "<group>"; };
 		0469375924276724005894F7 /* ExportButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportButton.swift; sourceTree = "<group>"; };
 		0469375B24276735005894F7 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
@@ -581,7 +609,7 @@
 		04791E1B23EC1F3400403BD8 /* SettingsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
 		04791E1C23EC1F3400403BD8 /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		04791E1E23EC1F3400403BD8 /* AppEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppEntry.swift; sourceTree = "<group>"; };
-		04791E2423EC1F3400403BD8 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		04791E2423EC1F3400403BD8 /* LegacySettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegacySettingsViewController.swift; sourceTree = "<group>"; };
 		04791E5C23EE9CA400403BD8 /* ExportSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettings.swift; sourceTree = "<group>"; };
 		04791E5E23EE9CBF00403BD8 /* ExportSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsViewController.swift; sourceTree = "<group>"; };
 		04791E6223EEA09300403BD8 /* ExportSettingsContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsContentProvider.swift; sourceTree = "<group>"; };
@@ -930,6 +958,44 @@
 			path = "Purchase Section";
 			sourceTree = "<group>";
 		};
+		045B2FF827EC13BB007779DF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				045B2FF927EC13CD007779DF /* SettingsViewController.swift */,
+				045B2FFB27EC13F5007779DF /* SettingsView.swift */,
+				045B300327EC17B0007779DF /* SettingsContentGenerator.swift */,
+				045B300B27EC1ACB007779DF /* SettingsSectionHeader.swift */,
+				045B300D27EC1C8F007779DF /* Web URLs */,
+				045B2FFD27EC1702007779DF /* SettingsNavigationView.swift */,
+				045B2FFF27EC172D007779DF /* SettingsList.swift */,
+				045B300127EC175F007779DF /* SettingsDoneButton.swift */,
+				045B301727EC1EF9007779DF /* Other Apps */,
+				045B301027EC1D14007779DF /* ContinuousCornerRadiusViewModifier.swift */,
+				045B301827EC1F14007779DF /* 🐎IconToggleSwitch.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		045B300D27EC1C8F007779DF /* Web URLs */ = {
+			isa = PBXGroup;
+			children = (
+				045B300527EC19FC007779DF /* WebURLButton.swift */,
+				04791E0F23EC1F3400403BD8 /* WebViewController.swift */,
+				045B300727EC1A33007779DF /* WebView.swift */,
+			);
+			path = "Web URLs";
+			sourceTree = "<group>";
+		};
+		045B301727EC1EF9007779DF /* Other Apps */ = {
+			isa = PBXGroup;
+			children = (
+				045B300E27EC1CA1007779DF /* OtherAppButton.swift */,
+				045B301227EC1D68007779DF /* OtherAppNameText.swift */,
+				045B301427EC1D94007779DF /* OtherAppSubtitleText.swift */,
+			);
+			path = "Other Apps";
+			sourceTree = "<group>";
+		};
 		0474AFA927B75F030031210C /* Clip */ = {
 			isa = PBXGroup;
 			children = (
@@ -941,13 +1007,13 @@
 			path = Clip;
 			sourceTree = "<group>";
 		};
-		04791DE323EC1F3400403BD8 /* Settings */ = {
+		04791DE323EC1F3400403BD8 /* Legacy Settings */ = {
 			isa = PBXGroup;
 			children = (
 				04791DF923EC1F3400403BD8 /* SettingsNavigationController.swift */,
 				04791E1B23EC1F3400403BD8 /* SettingsTableView.swift */,
 				04791E1C23EC1F3400403BD8 /* SettingsTableViewDataSource.swift */,
-				04791E2423EC1F3400403BD8 /* SettingsViewController.swift */,
+				04791E2423EC1F3400403BD8 /* LegacySettingsViewController.swift */,
 				042B65E224208FA9009AFBD9 /* SettingsHeaderFooterView.swift */,
 				04791DE423EC1F3400403BD8 /* Content Provider */,
 				04791E1D23EC1F3400403BD8 /* Other Apps */,
@@ -955,7 +1021,7 @@
 				04791DFA23EC1F3400403BD8 /* Table View */,
 				04791E1323EC1F3400403BD8 /* Table View Cells */,
 			);
-			path = Settings;
+			path = "Legacy Settings";
 			sourceTree = "<group>";
 		};
 		04791DE423EC1F3400403BD8 /* Content Provider */ = {
@@ -1016,7 +1082,6 @@
 			children = (
 				04791E0723EC1F3400403BD8 /* ContactWebViewController.swift */,
 				04791E0E23EC1F3400403BD8 /* ContactMailViewController.swift */,
-				04791E0F23EC1F3400403BD8 /* WebViewController.swift */,
 				04791E1023EC1F3400403BD8 /* AcknowledgementsViewController.swift */,
 				04791E1123EC1F3400403BD8 /* PrivacyViewController.swift */,
 				04791E1223EC1F3400403BD8 /* ReleaseNotesViewController.swift */,
@@ -1265,7 +1330,8 @@
 				0417F09F22E4A0860063AD66 /* Gallery */,
 				04D46BB024124F6A00DBFB9A /* Legacy Icon Assets */,
 				04DF241523F88AF400657160 /* Playback */,
-				04791DE323EC1F3400403BD8 /* Settings */,
+				045B2FF827EC13BB007779DF /* Settings */,
+				04791DE323EC1F3400403BD8 /* Legacy Settings */,
 				044DB00223B31B0C00BD2A0C /* Style */,
 				044DB00123B31AE800BD2A0C /* Supporting Files */,
 				049A044F240BBDE300F5FC17 /* Transitioning */,
@@ -1748,7 +1814,6 @@
 			files = (
 				045B2FDF27E5923B007779DF /* BackgroundButton.swift in Sources */,
 				0474AFDD27B7633E0031210C /* SidebarActionButton.swift in Sources */,
-				0474B02B27B767F80031210C /* WebViewController.swift in Sources */,
 				0474AFE627B7645A0031210C /* CanvasBackgroundColorPublisher.swift in Sources */,
 				0474AFC127B75F790031210C /* AppDelegate.swift in Sources */,
 				0474B02227B767790031210C /* FilmStripCollectionLayoutItem.swift in Sources */,
@@ -1847,6 +1912,7 @@
 				0474AFAD27B75F030031210C /* SceneDelegate.swift in Sources */,
 				0474AFEC27B764CD0031210C /* MenuButton.swift in Sources */,
 				0474AFCF27B762270031210C /* EditingStateLenses.swift in Sources */,
+				045B301627EC1DE8007779DF /* WebViewController.swift in Sources */,
 				0474B01927B766FF0031210C /* SettingsHeaderFooterView.swift in Sources */,
 				0474AFCD27B762120031210C /* Cascading.swift in Sources */,
 			);
@@ -1860,17 +1926,20 @@
 				04E3B62A25FC647F00D2A945 /* ExportEditingViewController.swift in Sources */,
 				046C407F249868270069E8FB /* SidebarActionButtonBackgroundView.swift in Sources */,
 				046937622427677D005894F7 /* RedoButton.swift in Sources */,
+				045B300427EC17B0007779DF /* SettingsContentGenerator.swift in Sources */,
 				0469375C24276735005894F7 /* PlayButton.swift in Sources */,
 				04C0A66822DC221700E4E5D6 /* UIViewControllerExtensions.swift in Sources */,
 				0419752125EB50C300CB0F54 /* UIScrollViewExtensions.swift in Sources */,
 				04791E6723EEA97100403BD8 /* ExportSettingsTableViewCell.swift in Sources */,
 				040849542618055200D2AA15 /* ExportEditingSettingsBarButtonItem.swift in Sources */,
+				045B300627EC19FC007779DF /* WebURLButton.swift in Sources */,
 				0435867727D860D50037BA5F /* TutorialOnboardingPageView.swift in Sources */,
 				0435867327D85D210037BA5F /* TutorialOnboardingDrawPageViewController.swift in Sources */,
 				04791E6323EEA09300403BD8 /* ExportSettingsContentProvider.swift in Sources */,
 				04791E3F23EC1F3400403BD8 /* ContactWebViewController.swift in Sources */,
 				04791E4723EC1F3400403BD8 /* AcknowledgementsViewController.swift in Sources */,
 				047F9EF126E4E1E700DD34F5 /* EditingToolPicker.swift in Sources */,
+				045B2FFA27EC13CD007779DF /* SettingsViewController.swift in Sources */,
 				04791E2B23EC1F3400403BD8 /* ReleaseNotesItem.swift in Sources */,
 				04D46BDA2414E01500DBFB9A /* TutorialEditingViewController.swift in Sources */,
 				0451660123B2441000D7B535 /* FilmStripNewPageCell.swift in Sources */,
@@ -1879,15 +1948,18 @@
 				04993EFD273A207500F7BBF2 /* ColorPickerViewController.swift in Sources */,
 				047F9EDB26E4955F00DD34F5 /* BackKeyCommand.swift in Sources */,
 				0417F09E22E46F410063AD66 /* UIImageExtensions.swift in Sources */,
+				045B301327EC1D68007779DF /* OtherAppNameText.swift in Sources */,
 				04791E2923EC1F3400403BD8 /* SettingsContentSection.swift in Sources */,
 				0445AA652373CB9400EB2A7B /* GallerySelectionEvent.swift in Sources */,
 				047F9EDF26E4956D00DD34F5 /* PlayKeyCommand.swift in Sources */,
+				045B301127EC1D14007779DF /* ContinuousCornerRadiusViewModifier.swift in Sources */,
 				04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */,
 				04791E4E23EC1F3400403BD8 /* SettingsTableViewCellImageView.swift in Sources */,
 				04D46BD7241251C300DBFB9A /* IconSection.swift in Sources */,
 				040D355C2705649500F409A8 /* RegularEditingView.swift in Sources */,
 				04BD9256237FFC4300C8FD09 /* SceneView.swift in Sources */,
 				0408495E261805CF00D2AA15 /* IconsImagePositioning.swift in Sources */,
+				045B2FFE27EC1702007779DF /* SettingsNavigationView.swift in Sources */,
 				04EC179323D991A700A42E08 /* FilmStripCollectionLayoutItem.swift in Sources */,
 				047F9EDD26E4956500DD34F5 /* ExportKeyCommand.swift in Sources */,
 				045B2FEE27EC0D3A007779DF /* PurchaseError.swift in Sources */,
@@ -1931,10 +2003,12 @@
 				0408494F2618053E00D2AA15 /* ExportEditingShareBarButtonItem.swift in Sources */,
 				04516F712418E09F0096F852 /* TutorialIntroPageView.swift in Sources */,
 				047F9EE526E4AC7B00DD34F5 /* Cascading.swift in Sources */,
+				045B300027EC172D007779DF /* SettingsList.swift in Sources */,
 				047F9EED26E4CAA500DD34F5 /* DrawingViewGuide.swift in Sources */,
 				04791E2E23EC1F3400403BD8 /* AboutSection.swift in Sources */,
 				0485989723F282B500AFBB3A /* TwitterItem.swift in Sources */,
 				04791E2523EC1F3400403BD8 /* StandardContentItem.swift in Sources */,
+				045B2FFC27EC13F5007779DF /* SettingsView.swift in Sources */,
 				04D36ADD237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift in Sources */,
 				045B2FF227EC0D8E007779DF /* RealPurchaser.swift in Sources */,
 				0436CE8F23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift in Sources */,
@@ -1973,6 +2047,7 @@
 				04791E3123EC1F3400403BD8 /* SettingsSection.swift in Sources */,
 				048D4F4024E0C780001F86A0 /* AppRatingsPrompter.swift in Sources */,
 				045B2FF727EC0EE3007779DF /* PurchaseItem.swift in Sources */,
+				045B300F27EC1CA1007779DF /* OtherAppButton.swift in Sources */,
 				046937602427676B005894F7 /* UndoButton.swift in Sources */,
 				0435867127D85BB70037BA5F /* TutorialOnboardingIntroPageViewController.swift in Sources */,
 				047F9EE126E496C500DD34F5 /* EditingState.swift in Sources */,
@@ -2012,12 +2087,15 @@
 				049A0448240B8CDC00F5FC17 /* PresentationDirector.swift in Sources */,
 				04C0A66A22DC224B00E4E5D6 /* EditingViewController.swift in Sources */,
 				04516F752418E0DB0096F852 /* TutorialIntroBodyLabel.swift in Sources */,
+				045B301527EC1D94007779DF /* OtherAppSubtitleText.swift in Sources */,
 				04975D02260C309600AA2771 /* ExportEditingPickerControl.swift in Sources */,
 				04318A3122E18C72003D70C8 /* Icons.swift in Sources */,
 				044DAFFF23B3170C00BD2A0C /* FilmStripIndicator.swift in Sources */,
+				045B300C27EC1ACB007779DF /* SettingsSectionHeader.swift in Sources */,
 				04791E2623EC1F3400403BD8 /* SettingsContentItem.swift in Sources */,
 				04791E4823EC1F3400403BD8 /* PrivacyViewController.swift in Sources */,
 				0435867B27D8638F0037BA5F /* TutorialOnboardingPlayPageViewController.swift in Sources */,
+				045B300827EC1A33007779DF /* WebView.swift in Sources */,
 				045B2FCA27DC5251007779DF /* TutorialOnboardingSlideshowImageView.swift in Sources */,
 				047F9ED226E48F7800DD34F5 /* CompactEditingView.swift in Sources */,
 				048A37F926F0587F00B02F4F /* SkinPublisher.swift in Sources */,
@@ -2026,6 +2104,7 @@
 				0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */,
 				045B2FF027EC0D5B007779DF /* StubPurchaser.swift in Sources */,
 				04791E2C23EC1F3400403BD8 /* PrivacyItem.swift in Sources */,
+				045B300227EC175F007779DF /* SettingsDoneButton.swift in Sources */,
 				04389E33262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift in Sources */,
 				0408493B2618047100D2AA15 /* ExportEditingShapePicker.swift in Sources */,
 				044484D223A884A200CD0C3C /* GalleryCollectionView.swift in Sources */,
@@ -2035,9 +2114,10 @@
 				04791E2A23EC1F3400403BD8 /* ContactItem.swift in Sources */,
 				04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */,
 				04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */,
+				045B301927EC1F14007779DF /* 🐎IconToggleSwitch.swift in Sources */,
 				04516F792418E11B0096F852 /* TutorialIntroContinueButton.swift in Sources */,
 				04084959261805B100D2AA15 /* IconsImageGenerator.swift in Sources */,
-				04791E5923EC1F3400403BD8 /* SettingsViewController.swift in Sources */,
+				04791E5923EC1F3400403BD8 /* LegacySettingsViewController.swift in Sources */,
 				047F9EE326E4980E00DD34F5 /* EditingPageNavigation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

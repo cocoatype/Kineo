@@ -5,7 +5,7 @@ import UIKit
 
 class SettingsNavigationController: UINavigationController {
     init() {
-        let settingsViewController = SettingsViewController()
+        let settingsViewController = LegacySettingsViewController()
         super.init(rootViewController: settingsViewController)
         modalPresentationStyle = .formSheet
         navigationBar.standardAppearance = ExportSettingsNavigationBarAppearance()
@@ -47,7 +47,7 @@ class SettingsNavigationController: UINavigationController {
 
     // MARK: Boilerplate
 
-    private var settingsViewController: SettingsViewController? { return viewControllers.first as? SettingsViewController }
+    private var settingsViewController: LegacySettingsViewController? { return viewControllers.first as? LegacySettingsViewController }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)

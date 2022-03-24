@@ -43,11 +43,11 @@ class SceneViewController: UIViewController {
     }
 
     @objc func presentHelp() {
-        present(SettingsNavigationController(), animated: true)
+        present(SettingsViewController(), animated: true)
     }
 
-    @objc func dismissSettingsViewController(_ sender: SettingsViewController) {
-        guard presentedViewController is SettingsNavigationController else { return }
+    @objc func dismissSettingsViewController(_ sender: Any) {
+        guard presentedViewController is SettingsViewController else { return }
         dismiss(animated: true, completion: nil)
     }
 

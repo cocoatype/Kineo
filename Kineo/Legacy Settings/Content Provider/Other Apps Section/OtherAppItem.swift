@@ -11,7 +11,7 @@ struct OtherAppItem: SettingsContentItem, IconProvidingContentItem {
     var icon: UIImage? { appEntry.icon }
 
     func performSelectedAction(_ sender: Any) {
-        UIApplication.shared.sendAction(#selector(SettingsViewController.displayAppOverlay(_:event:)), to: nil, from: sender, for: AppOverlayEvent(appEntry.appleID))
+        UIApplication.shared.sendAction(#selector(LegacySettingsViewController.displayAppOverlay(_:event:)), to: nil, from: sender, for: AppOverlayEvent(appEntry.appleID))
     }
 }
 
