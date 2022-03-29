@@ -60,6 +60,7 @@ extension UIColor {
     static let filmStripShadowDark = UIColor.named("Film Strip Shadow Dark")
     static let filmStripShadowLight = UIColor.named("Film Strip Shadow Light")
     static let newCellTint = UIColor.named("New Document Cell Tint")
+    static let settingsCellBackground = UIColor.named("Settings Cell Background")
     static let settingsRowTint = UIColor.named("Settings Row Tint")
     static let sidebarBackground = UIColor.named("Sidebar Background")
     static let sidebarBorder = UIColor.named("Sidebar Border")

@@ -71,19 +71,30 @@ public extension UIFont {
 }
 
 public extension Font {
-    static func appFont(forTextStyle textStyle: UIFont.TextStyle) -> Font {
-        Font(UIFont.appFont(forTextStyle: textStyle))
+    private static func weight(for textStyle: TextStyle) -> Font.Weight {
+        switch textStyle {
+        case .largeTitle:
+            return .black
+        case .headline, .title2:
+            return .bold
+        default:
+            return .regular
+        }
+    }
+
+    static func appFont(for textStyle: TextStyle) -> Font {
+        .system(textStyle, design: .rounded).weight(weight(for: textStyle))
     }
 
     static var navigationBarTitleFont: Font {
-        Font(UIFont.navigationBarTitleFont)
+        appFont(for: .headline).weight(.bold)
     }
 
     static var navigationBarButtonFont: Font {
-        Font(UIFont.navigationBarButtonFont)
+        appFont(for: .subheadline).weight(.regular)
     }
 
     static var navigationBarDoneButtonFont: Font {
-        Font(UIFont.navigationBarDoneButtonFont)
+        appFont(for: .subheadline).weight(.bold)
     }
 }

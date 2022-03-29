@@ -42,19 +42,6 @@ struct WebURLButton: View {
     private let url: URL
 }
 
-struct WebURLTitleText: View {
-    private let key: LocalizedStringKey
-    init(_ key: LocalizedStringKey) {
-        self.key = key
-    }
-
-    var body: some View {
-        Text(key)
-            .font(.appFont(forTextStyle: .body))
-            .foregroundColor(.primary)
-    }
-}
-
 struct WebURLSubtitleText: View {
     private let key: LocalizedStringKey
     init(_ key: LocalizedStringKey) {
@@ -63,7 +50,7 @@ struct WebURLSubtitleText: View {
 
     var body: some View {
         Text(key)
-            .font(.appFont(forTextStyle: .caption1))
+            .font(.appFont(for: .caption))
             .foregroundColor(.primary)
     }
 }

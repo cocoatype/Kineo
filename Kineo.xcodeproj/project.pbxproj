@@ -65,6 +65,8 @@
 		0445AA612373C7B700EB2A7B /* GalleryViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445AA602373C7B700EB2A7B /* GalleryViewLayout.swift */; };
 		0445AA632373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445AA622373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift */; };
 		0445AA652373CB9400EB2A7B /* GallerySelectionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445AA642373CB9400EB2A7B /* GallerySelectionEvent.swift */; };
+		044AFA0D27F2A3D200119459 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 044AFA0C27F2A3D200119459 /* Introspect */; };
+		044AFA0F27F2A88800119459 /* WebURLTitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AFA0E27F2A88800119459 /* WebURLTitleText.swift */; };
 		044DAFFF23B3170C00BD2A0C /* FilmStripIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DAFFE23B3170C00BD2A0C /* FilmStripIndicator.swift */; };
 		045165FD23B236E400D7B535 /* CGGeometryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045165FB23B2360300D7B535 /* CGGeometryExtensions.swift */; };
 		045165FF23B23A2B00D7B535 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045165FE23B23A2B00D7B535 /* Constants.swift */; };
@@ -531,6 +533,7 @@
 		0445AA602373C7B700EB2A7B /* GalleryViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewLayout.swift; sourceTree = "<group>"; };
 		0445AA622373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentCollectionViewCell.swift; sourceTree = "<group>"; };
 		0445AA642373CB9400EB2A7B /* GallerySelectionEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallerySelectionEvent.swift; sourceTree = "<group>"; };
+		044AFA0E27F2A88800119459 /* WebURLTitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebURLTitleText.swift; sourceTree = "<group>"; };
 		044DAFFE23B3170C00BD2A0C /* FilmStripIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripIndicator.swift; sourceTree = "<group>"; };
 		045165FB23B2360300D7B535 /* CGGeometryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGGeometryExtensions.swift; sourceTree = "<group>"; };
 		045165FE23B23A2B00D7B535 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -779,6 +782,7 @@
 			files = (
 				0474B06D27BB5AC10031210C /* AuthenticationServices.framework in Frameworks */,
 				044484FB23AB2A7000CD0C3C /* Data.framework in Frameworks */,
+				044AFA0D27F2A3D200119459 /* Introspect in Frameworks */,
 				04DF241923F93B3A00657160 /* CloudKit.framework in Frameworks */,
 				045B2FCD27DC801E007779DF /* Lottie in Frameworks */,
 			);
@@ -985,6 +989,7 @@
 			isa = PBXGroup;
 			children = (
 				045B300527EC19FC007779DF /* WebURLButton.swift */,
+				044AFA0E27F2A88800119459 /* WebURLTitleText.swift */,
 				04791E0F23EC1F3400403BD8 /* WebViewController.swift */,
 				045B300727EC1A33007779DF /* WebView.swift */,
 			);
@@ -1635,6 +1640,7 @@
 			name = Kineo;
 			packageProductDependencies = (
 				045B2FCC27DC801E007779DF /* Lottie */,
+				044AFA0C27F2A3D200119459 /* Introspect */,
 			);
 			productName = Kineo;
 			productReference = 04C0A64222DC208E00E4E5D6 /* Kineo.app */;
@@ -1697,6 +1703,7 @@
 			mainGroup = 04C0A63922DC208E00E4E5D6;
 			packageReferences = (
 				045B2FCB27DC801E007779DF /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				044AFA0B27F2A3D200119459 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 04C0A64322DC208E00E4E5D6 /* Products */;
 			projectDirPath = "";
@@ -2112,6 +2119,7 @@
 				04791E4823EC1F3400403BD8 /* PrivacyViewController.swift in Sources */,
 				0435867B27D8638F0037BA5F /* TutorialOnboardingPlayPageViewController.swift in Sources */,
 				045B300827EC1A33007779DF /* WebView.swift in Sources */,
+				044AFA0F27F2A88800119459 /* WebURLTitleText.swift in Sources */,
 				045B2FCA27DC5251007779DF /* TutorialOnboardingSlideshowImageView.swift in Sources */,
 				047F9ED226E48F7800DD34F5 /* CompactEditingView.swift in Sources */,
 				048A37F926F0587F00B02F4F /* SkinPublisher.swift in Sources */,
@@ -2625,6 +2633,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		044AFA0B27F2A3D200119459 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.1.4;
+			};
+		};
 		045B2FCB27DC801E007779DF /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -2636,6 +2652,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		044AFA0C27F2A3D200119459 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 044AFA0B27F2A3D200119459 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
 		045B2FCC27DC801E007779DF /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 045B2FCB27DC801E007779DF /* XCRemoteSwiftPackageReference "lottie-ios" */;

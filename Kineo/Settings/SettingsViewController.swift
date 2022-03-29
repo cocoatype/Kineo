@@ -13,4 +13,6 @@ class SettingsViewController: UIHostingController<SettingsView> {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
     }
+
+    static let dismissNotification = Notification.Name("SettingsViewController.dismissNotification")
 }

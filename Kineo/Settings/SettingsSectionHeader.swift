@@ -11,7 +11,7 @@ struct SettingsSectionHeader: View {
 
     var body: some View {
         Text(titleKey)
-//            .font(.app(textStyle: .footnote))
+            .font(.appFont(for: .footnote))
 //            .foregroundColor(Color(.primaryExtraLight))
 //            .settingsHeaderTextCase()
     }

@@ -15,6 +15,9 @@ struct SettingsView: View {
 
 struct SettingsPreviews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        Group {
+            SettingsView()
+            SettingsView().preferredColorScheme(.dark)
+        }
     }
 }

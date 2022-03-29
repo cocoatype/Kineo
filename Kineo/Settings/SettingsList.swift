@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 3/23/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+import Introspect
 import SwiftUI
 
 struct SettingsList<Content>: View where Content: View {
@@ -14,10 +15,9 @@ struct SettingsList<Content>: View where Content: View {
         List(content: content)
             .settingsListStyle()
             .navigationBarItems(trailing: SettingsDoneButton())
-//            .introspectTableView {
-//                $0.backgroundColor = .primary
-//                $0.indicatorStyle = .white
-//            }
+            .introspectTableView {
+                $0.backgroundColor = .appBackground
+            }
     }
 }
 

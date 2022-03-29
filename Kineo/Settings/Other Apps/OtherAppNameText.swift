@@ -11,6 +11,6 @@ struct OtherAppNameText: View {
 
     var body: some View {
         Text(text)
-            .font(.appFont(forTextStyle: .body))
+            .font(.appFont(for: .body))
     }
 }

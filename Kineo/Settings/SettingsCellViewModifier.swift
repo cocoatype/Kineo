@@ -6,9 +6,8 @@ import SwiftUI
 struct SettingsCellViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         AnyView(content)
-            .font(.appFont(forTextStyle: .subheadline))
-            .foregroundColor(.white)
-//            .listRowBackground(Color(.sidebarButtonBackground))
+            .foregroundColor(.primary)
+            .listRowBackground(Color(.settingsCellBackground))
 //            .introspectTableViewCell { cell in
 //                cell.selectedBackgroundView = {
 //                    let view = UIView()

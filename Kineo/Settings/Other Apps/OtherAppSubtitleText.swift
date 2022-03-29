@@ -11,6 +11,6 @@ struct OtherAppSubtitleText: View {
 
     var body: some View {
         Text(text)
-            .font(.appFont(forTextStyle: .caption1))
+            .font(.appFont(for: .caption))
     }
 }

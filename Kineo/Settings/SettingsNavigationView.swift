@@ -10,7 +10,11 @@ struct SettingsNavigationView<Content: View>: View {
     }
 
     var body: some View {
-        NavigationView(content: content)//.appNavigationBarAppearance()
+        NavigationView(content: content).introspectNavigationController { navigationController in
+            navigationController.navigationBar.standardAppearance = ExportSettingsNavigationBarAppearance()
+            navigationController.navigationBar.scrollEdgeAppearance = ExportSettingsNavigationBarAppearance()
+            navigationController.navigationBar.prefersLargeTitles = false
+        }
     }
 }
 

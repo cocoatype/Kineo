@@ -16,11 +16,12 @@ struct 🐎IconToggleSwitch: View {
         Button(action: { 🐶🐮.toggle() }) {
             HStack {
                 Toggle("Use Legacy App Icon", isOn: $🐶🐮)
+                    .toggleStyle(SwitchToggleStyle(tint: Color(.tutorialIntroAccent)))
             }
         }.onChange(of: 🐶🐮) { newValue in
             let iconName = newValue ? "Legacy" : nil
             UIApplication.shared.setAlternateIconName(iconName)
-        }
+        }.settingsCell()
     }
 }
 

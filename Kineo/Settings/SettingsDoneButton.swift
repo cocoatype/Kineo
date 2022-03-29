@@ -4,11 +4,13 @@
 import SwiftUI
 
 struct SettingsDoneButton: View {
-    @Environment(\.presentationMode) private var presentationMode
+//    @Environment(\.presentationMode) private var presentationMode
 
     var body: some View {
-        Button("SettingsDoneButton.label", action: { presentationMode.wrappedValue.dismiss() })
-            .foregroundColor(.primary)
+        Button("SettingsDoneButton.label") {
+            NotificationCenter.default.post(name: SettingsViewController.dismissNotification, object: nil)
+//            presentationMode.wrappedValue.dismiss()
+        }.foregroundColor(.primary)
             .font(Font.navigationBarButtonFont)
     }
 }
