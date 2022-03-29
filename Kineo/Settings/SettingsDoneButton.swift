@@ -8,7 +8,20 @@ struct SettingsDoneButton: View {
 
     var body: some View {
         Button("SettingsDoneButton.label", action: { presentationMode.wrappedValue.dismiss() })
-            .foregroundColor(.white)
-//            .font(Font.navigationBarButtonFont)
+            .foregroundColor(.primary)
+            .font(Font.navigationBarButtonFont)
+    }
+}
+
+struct SettingsDoneButtonPreviews: PreviewProvider {
+    static var previews: some View {
+        SettingsNavigationView {
+            Text("Hello, world!")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        SettingsDoneButton()
+                    }
+                }.navigationBarTitle("yolo", displayMode: .inline)
+        }
     }
 }

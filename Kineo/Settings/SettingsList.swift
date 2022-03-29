@@ -12,7 +12,7 @@ struct SettingsList<Content>: View where Content: View {
 
     var body: some View {
         List(content: content)
-//            .settingsListStyle()
+            .settingsListStyle()
             .navigationBarItems(trailing: SettingsDoneButton())
 //            .introspectTableView {
 //                $0.backgroundColor = .primary

@@ -11,7 +11,6 @@ struct OtherAppSubtitleText: View {
 
     var body: some View {
         Text(text)
-//            .font(.app(textStyle: .footnote))
-//            .foregroundColor(.primaryExtraLight)
+            .font(.appFont(forTextStyle: .caption1))
     }
 }

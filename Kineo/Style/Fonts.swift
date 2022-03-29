@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 11/10/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import SwiftUI
 import UIKit
 
 public extension UIFont {
@@ -69,3 +70,20 @@ public extension UIFont {
     }
 }
 
+public extension Font {
+    static func appFont(forTextStyle textStyle: UIFont.TextStyle) -> Font {
+        Font(UIFont.appFont(forTextStyle: textStyle))
+    }
+
+    static var navigationBarTitleFont: Font {
+        Font(UIFont.navigationBarTitleFont)
+    }
+
+    static var navigationBarButtonFont: Font {
+        Font(UIFont.navigationBarButtonFont)
+    }
+
+    static var navigationBarDoneButtonFont: Font {
+        Font(UIFont.navigationBarDoneButtonFont)
+    }
+}

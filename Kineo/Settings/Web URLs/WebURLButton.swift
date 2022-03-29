@@ -5,9 +5,9 @@ import SwiftUI
 
 struct WebURLButton: View {
     @State private var selected = false
-    init(_ titleKey: LocalizedStringKey, _ subtitle: String? = nil, path: String) {
+    init(_ titleKey: LocalizedStringKey, _ subtitleKey: LocalizedStringKey? = nil, path: String) {
         self.titleKey = titleKey
-        self.subtitle = subtitle
+        self.subtitleKey = subtitleKey
         self.url = Self.url(forPath: path)
     }
 
@@ -17,28 +17,28 @@ struct WebURLButton: View {
         }) {
             VStack(alignment: .leading) {
                 WebURLTitleText(titleKey)
-                if let subtitle = subtitle {
+                if let subtitle = subtitleKey {
                     WebURLSubtitleText(subtitle)
                 }
             }
         }.sheet(isPresented: $selected) {
             WebView(url: url)
-        }//.settingsCell()
+        }.settingsCell()
     }
 
-    static let baseURL: URL = {
-        guard let url = URL(string: "https://kineo.app/") else { fatalError("Invalid base URL for settings") }
-        return url
-    }()
+    private static let baseURL = URL(string: "https://kineo.app/")
 
-    static func url(forPath path: String) -> URL {
-        Self.baseURL.appendingPathComponent(path)
+    private static func url(forPath path: String) -> URL {
+        guard let url = URL(string: path, relativeTo: baseURL) else {
+            fatalError("Invalid path for web URL: \(path)")
+        }
+        return url
     }
 
     // MARK: Boilerplate
 
     private let titleKey: LocalizedStringKey
-    private let subtitle: String?
+    private let subtitleKey: LocalizedStringKey?
     private let url: URL
 }
 
@@ -50,21 +50,21 @@ struct WebURLTitleText: View {
 
     var body: some View {
         Text(key)
-//            .font(.app(textStyle: .subheadline))
-//            .foregroundColor(.white)
+            .font(.appFont(forTextStyle: .body))
+            .foregroundColor(.primary)
     }
 }
 
 struct WebURLSubtitleText: View {
-    private let text: String
-    init(_ text: String) {
-        self.text = text
+    private let key: LocalizedStringKey
+    init(_ key: LocalizedStringKey) {
+        self.key = key
     }
 
     var body: some View {
-        Text(text)
-//            .font(.app(textStyle: .footnote))
-//            .foregroundColor(.primaryExtraLight)
+        Text(key)
+            .font(.appFont(forTextStyle: .caption1))
+            .foregroundColor(.primary)
     }
 }
 

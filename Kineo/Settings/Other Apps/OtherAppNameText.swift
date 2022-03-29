@@ -11,7 +11,6 @@ struct OtherAppNameText: View {
 
     var body: some View {
         Text(text)
-//            .font(.app(textStyle: .subheadline))
-//            .foregroundColor(.white)
+            .font(.appFont(forTextStyle: .body))
     }
 }

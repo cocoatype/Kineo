@@ -83,7 +83,7 @@
 
 "ReleaseNotesItem.subtitleFormat" = "Version %@";
 
-"SettingsContentGenerator.versionStringFormat" = "Version %@";
+"SettingsContentGenerator.versionStringFormat%@" = "Version %@";
 
 "SettingsContentProvider.Item.acknowledgements" = "Acknowledgements";
 "SettingsContentProvider.Item.contact" = "Contact the Developer";
