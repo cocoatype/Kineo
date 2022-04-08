@@ -1,46 +1,42 @@
 //  Created by Geoff Pado on 3/23/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+import Combine
 import StoreKit
 
 @available(iOS 15, *)
-class RealPurchaser: Purchaser {
-    var products: [Product]? = nil
-    var productsTask: Task<Void, Never>? = nil
-    var zugzwang: Bool { products != nil }
-
+final class RealPurchaser: Purchaser {
     init() {
-        productsTask = Task { [weak self] in
-            self?.products = try? await fetchProducts()
+        zugzwang = AsyncStream { continuation in
+            continuation.yield(.loading)
+
+            Task.detached {
+                do {
+                    let products = try await Product.products(for: [Self.productIdentifier])
+                    guard let product = products.first else { throw PurchaseError.noProduct }
+
+                    // check to see if the product is already purchased
+                    if let transactionResult = await product.latestTransaction,
+                       case .verified(let transaction) = transactionResult,
+                       transaction.revocationDate == nil {
+                        continuation.yield(.purchased)
+                    } else {
+                        // if not, switch to ready
+                        continuation.yield(.ready(product.displayPrice, purchase: {
+                            continuation.yield(.purchasing)
+                            let purchaseResult = try await product.purchase()
+                            if case .success(_) = purchaseResult {
+                                continuation.yield(.purchased)
+                            }
+                        }))
+                    }
+                } catch {
+                    continuation.yield(.notAvailable)
+                }
+            }
         }
     }
 
-    func fetchProducts() async throws -> [Product] {
-        return try await Product.products(for: [Self.productIdentifier])
-    }
-
-    func initiatePurchase() async throws {
-        let currentProducts: [Product]
-        if let products = products {
-            currentProducts = products
-        } else {
-            currentProducts = try await fetchProducts()
-        }
-
-        guard let product = currentProducts.first else { throw PurchaseError.noProduct }
-
-        let purchaseResult = try await product.purchase()
-        switch purchaseResult {
-        case .pending:
-            print("pending")
-        case .success(_):
-            print("success")
-        case .userCancelled:
-            print("cancelled")
-        @unknown default:
-            print("unknown")
-        }
-    }
-
+    var zugzwang: AsyncStream<PurchaseState>
     private static let productIdentifier = "com.flipbookapp.flickbook.kineo-pro"
 }

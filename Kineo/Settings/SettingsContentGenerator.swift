@@ -11,22 +11,18 @@ struct SettingsContentGenerator {
         return versionString ?? "???"
     }
 
+    private let purchaser: Purchaser
+    init() {
+        if #available(iOS 15, *) {
+            purchaser = RealPurchaser()
+        } else {
+            purchaser = StubPurchaser()
+        }
+    }
+
     var content: some View {
         Group {
-//            Section {
-//                if purchaseState != .purchased {
-//                    PurchaseNavigationLink(state: purchaseState, destination: PurchaseMarketingView())
-//                }
-//
-//                if purchaseState != .purchased && hideAutoRedactions == false {
-//                    SettingsAlertButton("SettingsContentProvider.Item.autoRedactions")
-//                }
-//
-//                if purchaseState == .purchased {
-//                    SettingsNavigationLink("SettingsContentProvider.Item.autoRedactions", destination: AutoRedactionsEditView().background(Color.appPrimary.edgesIgnoringSafeArea(.all)))
-//                }
-//            }
-//
+            PurchaseButton(purchaser: purchaser)
             Section(header: SettingsSectionHeader("SettingsContentProvider.Section.webURLs.header")) {
                 WebURLButton("SettingsContentProvider.Item.new", "SettingsContentGenerator.versionStringFormat\(versionString)", path: "releases")
                 WebURLButton("SettingsContentProvider.Item.privacy", path: "privacy")
@@ -51,6 +47,4 @@ struct SettingsContentGenerator {
             }
         }
     }
-
-//    @Defaults.Value(key: .hideAutoRedactions) private var hideAutoRedactions: Bool
 }

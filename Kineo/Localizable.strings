@@ -79,6 +79,11 @@
 "PlayButtonContextMenuConfigurationFactory.bounceMenuItemTitle" = "Bounce";
 "PlayButtonContextMenuConfigurationFactory.loopMenuItemTitle" = "Loop";
 
+"PurchaseButton.loadingTitle" = "Purchase";
+"PurchaseButton.readyTitle%@" = "Purchase for %@";
+"PurchaseButton.purchasingTitle" = "Purchasing…";
+"PurchaseButton.purchasedTitle" = "Purchased";
+
 "RedoButton.accessibilityLabel" = "Redo";
 
 "ReleaseNotesItem.subtitleFormat" = "Version %@";
