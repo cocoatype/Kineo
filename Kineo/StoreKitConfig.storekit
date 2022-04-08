@@ -1,0 +1,33 @@
+{
+  "identifier" : "04E8205A",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "EB183D1D",
+      "localizations" : [
+        {
+          "description" : "The pro version of Kineo",
+          "displayName" : "Kineo Pro",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.flipbookapp.flickbook.kineo-pro",
+      "referenceName" : "Kineo Pro",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 2
+  }
+}

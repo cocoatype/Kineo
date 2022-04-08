@@ -17,7 +17,16 @@ class SceneViewController: UIViewController {
             return GalleryViewController()
         }()
 
+        settingsDismissObserver = NotificationCenter.default.addObserver(forName: SettingsViewController.dismissNotification, object: nil, queue: nil) { [weak self] _ in
+            guard let sceneViewController = self else { return }
+            sceneViewController.dismissSettingsViewController(sceneViewController)
+        }
+
         embed(initialViewController)
+    }
+
+    deinit {
+        settingsDismissObserver.map { NotificationCenter.default.removeObserver($0) }
     }
 
     override func loadView() {
@@ -43,11 +52,11 @@ class SceneViewController: UIViewController {
     }
 
     @objc func presentHelp() {
-        present(SettingsNavigationController(), animated: true)
+        present(SettingsViewController(), animated: true)
     }
 
-    @objc func dismissSettingsViewController(_ sender: SettingsViewController) {
-        guard presentedViewController is SettingsNavigationController else { return }
+    @objc func dismissSettingsViewController(_ sender: Any) {
+        guard presentedViewController is SettingsViewController else { return }
         dismiss(animated: true, completion: nil)
     }
 
@@ -60,6 +69,7 @@ class SceneViewController: UIViewController {
     private let documentStore = DocumentStore()
     private let presentationDirector = PresentationDirector()
     private let dismissalDirector = DismissalDirector()
+    private var settingsDismissObserver: Any?
 
     private var sceneView: SceneView {
         guard let sceneView = view as? SceneView else { fatalError("Incorrect view type: \(String(describing: view))") }

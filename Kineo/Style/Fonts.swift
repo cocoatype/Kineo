@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 11/10/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import SwiftUI
 import UIKit
 
 public extension UIFont {
@@ -69,3 +70,31 @@ public extension UIFont {
     }
 }
 
+public extension Font {
+    private static func weight(for textStyle: TextStyle) -> Font.Weight {
+        switch textStyle {
+        case .largeTitle:
+            return .black
+        case .headline, .title2:
+            return .bold
+        default:
+            return .regular
+        }
+    }
+
+    static func appFont(for textStyle: TextStyle) -> Font {
+        .system(textStyle, design: .rounded).weight(weight(for: textStyle))
+    }
+
+    static var navigationBarTitleFont: Font {
+        appFont(for: .headline).weight(.bold)
+    }
+
+    static var navigationBarButtonFont: Font {
+        appFont(for: .subheadline).weight(.regular)
+    }
+
+    static var navigationBarDoneButtonFont: Font {
+        appFont(for: .subheadline).weight(.bold)
+    }
+}

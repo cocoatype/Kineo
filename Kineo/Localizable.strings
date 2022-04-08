@@ -79,13 +79,22 @@
 "PlayButtonContextMenuConfigurationFactory.bounceMenuItemTitle" = "Bounce";
 "PlayButtonContextMenuConfigurationFactory.loopMenuItemTitle" = "Loop";
 
+"PurchaseButton.loadingTitle" = "Purchase";
+"PurchaseButton.readyTitle%@" = "Purchase for %@";
+"PurchaseButton.purchasingTitle" = "Purchasing…";
+"PurchaseButton.purchasedTitle" = "Purchased";
+
 "RedoButton.accessibilityLabel" = "Redo";
 
 "ReleaseNotesItem.subtitleFormat" = "Version %@";
 
+"SettingsContentGenerator.versionStringFormat%@" = "Version %@";
+
+"SettingsContentProvider.Item.acknowledgements" = "Acknowledgements";
 "SettingsContentProvider.Item.contact" = "Contact the Developer";
 "SettingsContentProvider.Item.instagram" = "Instagram";
 "SettingsContentProvider.Item.instagram.subtitle" = "@kineoapp";
+"SettingsContentProvider.Item.new" = "What's New?";
 "SettingsContentProvider.Item.privacy" = "Privacy Policy";
 "SettingsContentProvider.Item.releaseNotes" = "What's New?";
 "SettingsContentProvider.Item.twitch" = "Twitch";
@@ -95,6 +104,9 @@
 
 "SettingsContentProvider.Section.otherApps.header" = "Other Apps by Cocoatype";
 "SettingsContentProvider.Section.social.header" = "Social Media";
+"SettingsContentProvider.Section.webURLs.header" = "Important Information";
+
+"SettingsDoneButton.label" = "Done";
 
 "SettingsViewController.navigationTitle" = "Kineo Help";
 
