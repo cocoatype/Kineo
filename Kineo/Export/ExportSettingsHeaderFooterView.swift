@@ -3,8 +3,8 @@
 
 import UIKit
 
-class SettingsHeaderFooterView: UITableViewHeaderFooterView {
-    static let identifier = "TableViewHeaderView.identifier"
+class ExportSettingsHeaderFooterView: UITableViewHeaderFooterView {
+    static let identifier = "ExportSettingsHeaderFooterView.identifier"
 
     override func layoutSubviews() {
         super.layoutSubviews()

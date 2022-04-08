@@ -19,7 +19,7 @@ class ExportSettingsViewController: UIViewController, UITableViewDelegate {
         let settingsView = ExportSettingsView()
         settingsView.dataSource = dataSource
         settingsView.delegate = self
-        settingsView.register(SettingsHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: SettingsHeaderFooterView.identifier)
+        settingsView.register(ExportSettingsHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: ExportSettingsHeaderFooterView.identifier)
         view = settingsView
 
 
@@ -46,11 +46,11 @@ class ExportSettingsViewController: UIViewController, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingsHeaderFooterView.identifier)
+        return tableView.dequeueReusableHeaderFooterView(withIdentifier: ExportSettingsHeaderFooterView.identifier)
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingsHeaderFooterView.identifier)
+        return tableView.dequeueReusableHeaderFooterView(withIdentifier: ExportSettingsHeaderFooterView.identifier)
     }
 
     // MARK: Boilerplate
