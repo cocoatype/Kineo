@@ -346,6 +346,8 @@
 		04EC179523D991C500A42E08 /* FilmStripCollectionLayoutSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EC179423D991C500A42E08 /* FilmStripCollectionLayoutSize.swift */; };
 		04F2C0C227FFF29500023244 /* ExportSettingsHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2C0C127FFF29500023244 /* ExportSettingsHeaderFooterView.swift */; };
 		04F2C0C327FFF2BE00023244 /* ExportSettingsHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2C0C127FFF29500023244 /* ExportSettingsHeaderFooterView.swift */; };
+		04F2C0C5280124A200023244 /* EditingZoomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2C0C4280124A200023244 /* EditingZoomScrollView.swift */; };
+		04F2C0C6280124E900023244 /* EditingZoomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2C0C4280124A200023244 /* EditingZoomScrollView.swift */; };
 		04F44C68241E3FBC001C6531 /* StickersViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F44C67241E3FBC001C6531 /* StickersViewLayout.swift */; };
 		04F44C6A241E40EE001C6531 /* StickersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F44C69241E40EE001C6531 /* StickersCollectionView.swift */; };
 		04F44C6C241E41BA001C6531 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F44C6B241E41BA001C6531 /* Color.swift */; };
@@ -685,6 +687,7 @@
 		04EC179223D991A700A42E08 /* FilmStripCollectionLayoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutItem.swift; sourceTree = "<group>"; };
 		04EC179423D991C500A42E08 /* FilmStripCollectionLayoutSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutSize.swift; sourceTree = "<group>"; };
 		04F2C0C127FFF29500023244 /* ExportSettingsHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportSettingsHeaderFooterView.swift; sourceTree = "<group>"; };
+		04F2C0C4280124A200023244 /* EditingZoomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingZoomScrollView.swift; sourceTree = "<group>"; };
 		04F44C67241E3FBC001C6531 /* StickersViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersViewLayout.swift; sourceTree = "<group>"; };
 		04F44C69241E40EE001C6531 /* StickersCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersCollectionView.swift; sourceTree = "<group>"; };
 		04F44C6B241E41BA001C6531 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -755,6 +758,7 @@
 			isa = PBXGroup;
 			children = (
 				040D355B2705649500F409A8 /* RegularEditingView.swift */,
+				04F2C0C4280124A200023244 /* EditingZoomScrollView.swift */,
 			);
 			path = "Regular View";
 			sourceTree = "<group>";
@@ -1680,6 +1684,7 @@
 				0474B01B27B767180031210C /* ExportSettingsBackgroundContentSection.swift in Sources */,
 				0474AFF027B765000031210C /* DrawingViewScrollRecognizer.swift in Sources */,
 				0474AFF527B7658E0031210C /* PageNavigationEvent.swift in Sources */,
+				04F2C0C6280124E900023244 /* EditingZoomScrollView.swift in Sources */,
 				0474B02A27B767E20031210C /* UIImageExtensions.swift in Sources */,
 				0474AFDF27B763510031210C /* DrawingBackgroundView.swift in Sources */,
 				0474AFFB27B765F60031210C /* ForwardKeyCommand.swift in Sources */,
@@ -1768,6 +1773,7 @@
 				04E3B62A25FC647F00D2A945 /* ExportEditingViewController.swift in Sources */,
 				046C407F249868270069E8FB /* SidebarActionButtonBackgroundView.swift in Sources */,
 				046937622427677D005894F7 /* RedoButton.swift in Sources */,
+				04F2C0C5280124A200023244 /* EditingZoomScrollView.swift in Sources */,
 				045B300427EC17B0007779DF /* SettingsContentGenerator.swift in Sources */,
 				0469375C24276735005894F7 /* PlayButton.swift in Sources */,
 				04C0A66822DC221700E4E5D6 /* UIViewControllerExtensions.swift in Sources */,

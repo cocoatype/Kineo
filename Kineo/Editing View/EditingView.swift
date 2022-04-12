@@ -7,6 +7,7 @@ import UIKit
 
 protocol Editing {
     var drawingFrame: CGRect { get }
+    var drawingSuperview: UIView { get }
     var drawingView: DrawingView { get }
     var drawingViewGuide: DrawingViewGuide { get }
 

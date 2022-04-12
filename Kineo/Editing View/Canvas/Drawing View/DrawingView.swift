@@ -73,9 +73,29 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
     }
 
     private func updateCanvas() {
+        updateDrawingScale()
+        updateToolScale()
+    }
+
+    private func updateDrawingScale() {
         let scale = bounds.width / Constants.canvasSize.width
         let transform = CGAffineTransform(scaleX: scale, y: scale)
         canvasView.drawing = page.drawing.transformed(using: transform)
+    }
+
+    private func updateToolScale() {
+//        guard var tool = canvasView.tool as? PKInkingTool else { return }
+//        let scale = frame.width / Constants.canvasSize.width
+//        print("scale: \(scale)")
+//        print("current width: \(tool.width)")
+//        let defaultWidth = tool.inkType.defaultWidth
+//        print("range: \(tool.inkType.validWidthRange)")
+//        print("default width: \(defaultWidth)")
+//        let scaledWidth = (1 / scale) * defaultWidth
+//        print("scaled width: \(scaledWidth)")
+//        tool.width = scaledWidth
+//        canvasView.tool = tool
+//        print("------------")
     }
 
     private func updatePage() {

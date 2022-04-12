@@ -7,6 +7,7 @@ import UIKit
 
 class CompactEditingView: EditingView {
     var drawingFrame: CGRect { drawingView.frame }
+    var drawingSuperview: UIView { self }
     var drawingView: DrawingView { drawingViewController.drawingView }
     let drawingViewGuide = DrawingViewGuide()
 
