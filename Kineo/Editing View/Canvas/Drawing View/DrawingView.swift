@@ -31,10 +31,6 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
             backgroundView.heightAnchor.constraint(equalTo: heightAnchor),
             backgroundView.centerXAnchor.constraint(equalTo: centerXAnchor),
             backgroundView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            canvasView.widthAnchor.constraint(equalTo: widthAnchor),
-            canvasView.heightAnchor.constraint(equalTo: heightAnchor),
-            canvasView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            canvasView.centerYAnchor.constraint(equalTo: centerYAnchor),
             skinsImageView.widthAnchor.constraint(equalTo: widthAnchor),
             skinsImageView.heightAnchor.constraint(equalTo: heightAnchor),
             skinsImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -72,34 +68,35 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         updateCanvas()
     }
 
+    // MARK: Canvas
+
+    var zoomScale: CGFloat = 1.0 {
+        didSet {
+            updateCanvas()
+        }
+    }
+
+    var canvasScale: CGFloat {
+        (bounds.width / Constants.canvasSize.width) * zoomScale
+    }
+
     private func updateCanvas() {
-        updateDrawingScale()
-        updateToolScale()
-    }
-
-    private func updateDrawingScale() {
-        let scale = bounds.width / Constants.canvasSize.width
-        let transform = CGAffineTransform(scaleX: scale, y: scale)
+        let transform = CGAffineTransform(scaleX: canvasScale, y: canvasScale)
         canvasView.drawing = page.drawing.transformed(using: transform)
-    }
 
-    private func updateToolScale() {
-//        guard var tool = canvasView.tool as? PKInkingTool else { return }
-//        let scale = frame.width / Constants.canvasSize.width
-//        print("scale: \(scale)")
-//        print("current width: \(tool.width)")
-//        let defaultWidth = tool.inkType.defaultWidth
-//        print("range: \(tool.inkType.validWidthRange)")
-//        print("default width: \(defaultWidth)")
-//        let scaledWidth = (1 / scale) * defaultWidth
-//        print("scaled width: \(scaledWidth)")
-//        tool.width = scaledWidth
-//        canvasView.tool = tool
-//        print("------------")
+        // make the canvas view huge
+        let canvasSize = Constants.canvasSize * canvasScale
+        canvasView.frame = CGRect(origin: .zero, size: canvasSize)
+
+        // render the canvas view small
+        let inverseScale = 1 / canvasScale
+        let scaleTransform = CATransform3DMakeScale(inverseScale, inverseScale, inverseScale)
+        canvasView.layer.transform = scaleTransform
+        canvasView.layer.position = bounds.center
     }
 
     private func updatePage() {
-        let scale = Constants.canvasSize.width / bounds.width
+        let scale = 1 / canvasScale
         let transform = CGAffineTransform(scaleX: scale, y: scale)
         _page = Page(drawing: canvasView.drawing.transformed(using: transform))
     }

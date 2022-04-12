@@ -83,7 +83,9 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
 
     // see also https://stackoverflow.com/a/19597755 for zooming from center
     func viewForZooming(in scrollView: UIScrollView) -> UIView? { zoomContentView }
-    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {}
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        drawingView.zoomScale = scale
+    }
 
     // MARK: Boilerplate
 
