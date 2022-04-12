@@ -11,7 +11,7 @@ class EditingViewController: UIViewController {
     init(document: Document) {
         self.state = EditingState(document: document)
         super.init(nibName: nil, bundle: nil)
-        embed(drawingViewController, layoutGuide: editingView.drawingViewGuide)
+        embed(drawingViewController, embedView: editingView.drawingSuperview, layoutGuide: editingView.drawingViewGuide)
         view.sendSubviewToBack(drawingViewController.drawingView)
         applicationStateManager.notificationHandler = { [weak self] in
             guard let self = self else { return }
@@ -24,7 +24,7 @@ class EditingViewController: UIViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         editingView = EditingViewFactory.editingView(for: traitCollection, drawingViewController: drawingViewController, statePublisher: $state)
-        embed(drawingViewController, layoutGuide: editingView.drawingViewGuide)
+        embed(drawingViewController, embedView: editingView.drawingSuperview, layoutGuide: editingView.drawingViewGuide)
         view.sendSubviewToBack(drawingViewController.drawingView)
         drawingViewController.drawingView.becomeFirstResponder()
 
