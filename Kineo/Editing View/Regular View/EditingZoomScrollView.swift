@@ -11,6 +11,8 @@ class EditingZoomScrollView: UIScrollView {
 
         contentInsetAdjustmentBehavior = .never
         maximumZoomScale = 4.0
+        showsHorizontalScrollIndicator = false
+        showsVerticalScrollIndicator = false
         translatesAutoresizingMaskIntoConstraints = false
 
         panGestureRecognizer.minimumNumberOfTouches = 2
@@ -20,40 +22,6 @@ class EditingZoomScrollView: UIScrollView {
             contentLayoutGuide.heightAnchor.constraint(equalTo: heightAnchor)
         ])
     }
-
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        updateZoomScale()
-//    }
-//
-//    private func updateZoomScale() {
-//        guard let drawingView = drawingView else { return }
-//        drawingView.canv
-//        let oldMinimumZoomScale = minimumZoomScale
-//        minimumZoomScale = minimumZoomScaleForCurrentImage
-//
-//        if zoomScale == oldMinimumZoomScale {
-//            zoomScale = minimumZoomScaleForCurrentImage
-//        }
-//
-//        updateScrollViewContentInsets()
-//    }
-
-//    private func updateScrollViewContentInsets() {
-//        guard let drawingView = drawingView else { return }
-//        let zoomedImageSize = drawingView.bounds.size * zoomScale
-//        let scrollSize = bounds.size
-//
-//        let widthPadding = max(scrollSize.width - zoomedImageSize.width, 0) / -2
-//        let heightPadding = max(scrollSize.height - zoomedImageSize.height, 0) / -2
-//
-////        print("content inset before: \(contentInset)")
-//        contentInset = UIEdgeInsets(top: heightPadding, left: widthPadding, bottom: heightPadding, right: widthPadding)
-////        contentOffset = .zero
-//        delegate?.scrollViewDidZoom?(self)
-////        print("content inset after: \(contentInset)")
-//        drawingView.setNeedsLayout()
-//    }
 
     var drawingView: DrawingView? {
         subviews.first(where: { $0 is DrawingView }) as? DrawingView

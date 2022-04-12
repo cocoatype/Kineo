@@ -348,6 +348,8 @@
 		04F2C0C327FFF2BE00023244 /* ExportSettingsHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2C0C127FFF29500023244 /* ExportSettingsHeaderFooterView.swift */; };
 		04F2C0C5280124A200023244 /* EditingZoomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2C0C4280124A200023244 /* EditingZoomScrollView.swift */; };
 		04F2C0C6280124E900023244 /* EditingZoomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2C0C4280124A200023244 /* EditingZoomScrollView.swift */; };
+		04F2C0C828051AD400023244 /* EditingZoomContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2C0C728051AD400023244 /* EditingZoomContentView.swift */; };
+		04F2C0C928051B0900023244 /* EditingZoomContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2C0C728051AD400023244 /* EditingZoomContentView.swift */; };
 		04F44C68241E3FBC001C6531 /* StickersViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F44C67241E3FBC001C6531 /* StickersViewLayout.swift */; };
 		04F44C6A241E40EE001C6531 /* StickersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F44C69241E40EE001C6531 /* StickersCollectionView.swift */; };
 		04F44C6C241E41BA001C6531 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F44C6B241E41BA001C6531 /* Color.swift */; };
@@ -688,6 +690,7 @@
 		04EC179423D991C500A42E08 /* FilmStripCollectionLayoutSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripCollectionLayoutSize.swift; sourceTree = "<group>"; };
 		04F2C0C127FFF29500023244 /* ExportSettingsHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportSettingsHeaderFooterView.swift; sourceTree = "<group>"; };
 		04F2C0C4280124A200023244 /* EditingZoomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingZoomScrollView.swift; sourceTree = "<group>"; };
+		04F2C0C728051AD400023244 /* EditingZoomContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingZoomContentView.swift; sourceTree = "<group>"; };
 		04F44C67241E3FBC001C6531 /* StickersViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersViewLayout.swift; sourceTree = "<group>"; };
 		04F44C69241E40EE001C6531 /* StickersCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersCollectionView.swift; sourceTree = "<group>"; };
 		04F44C6B241E41BA001C6531 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -758,6 +761,7 @@
 			isa = PBXGroup;
 			children = (
 				040D355B2705649500F409A8 /* RegularEditingView.swift */,
+				04F2C0C728051AD400023244 /* EditingZoomContentView.swift */,
 				04F2C0C4280124A200023244 /* EditingZoomScrollView.swift */,
 			);
 			path = "Regular View";
@@ -1698,6 +1702,7 @@
 				0474B02827B767CD0031210C /* ExportEditingPickerControl.swift in Sources */,
 				0474B02D27B768050031210C /* IconsImagePositioning.swift in Sources */,
 				0474AFE227B7636A0031210C /* FilmStripView.swift in Sources */,
+				04F2C0C928051B0900023244 /* EditingZoomContentView.swift in Sources */,
 				0474AFEA27B764930031210C /* SidebarActionButtonBackgroundView.swift in Sources */,
 				0474AFCA27B761BA0031210C /* SceneView.swift in Sources */,
 				0474B02427B7678B0031210C /* FilmStripPageDragItem.swift in Sources */,
@@ -1904,6 +1909,7 @@
 				04ACCD2C23B2345A006FBABC /* UITraitCollectionExtensions.swift in Sources */,
 				04ACCD2023B21985006FBABC /* FilmStripCollectionView.swift in Sources */,
 				0445AA5F2373C7A000EB2A7B /* GalleryViewDataSource.swift in Sources */,
+				04F2C0C828051AD400023244 /* EditingZoomContentView.swift in Sources */,
 				045B2FDE27E59161007779DF /* BackgroundButton.swift in Sources */,
 				04993EFF273A257100F7BBF2 /* CanvasBackgroundColorPublisher.swift in Sources */,
 				04EC179523D991C500A42E08 /* FilmStripCollectionLayoutSize.swift in Sources */,
