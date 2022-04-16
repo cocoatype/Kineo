@@ -79,10 +79,60 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
         #endif
     }
 
+    // MARK: Hiding Buttons
+
+    private var effectiveCanvasFrame: CGRect {
+        let viewSize = drawingView.bounds.size * zoomView.zoomScale
+
+        var origin = drawingView.frame.origin
+        origin.x *= zoomView.zoomScale
+        origin.y *= zoomView.zoomScale
+        origin.x -= zoomView.contentOffset.x
+        origin.y -= zoomView.contentOffset.y
+
+        return CGRect(origin: origin, size: viewSize)
+    }
+
+    private var controls: [UIControl] {
+        #if CLIP
+        [filmStripView, backgroundButton, playButton, exportButton]
+        #else
+        [filmStripView, backgroundButton, playButton, galleryButton, exportButton]
+        #endif
+    }
+
+    private var controlsAlpha: Float {
+        get { return playButton.layer.opacity }
+        set {
+            CATransaction.begin()
+            let alphaAnimation = CABasicAnimation(keyPath: "opacity")
+            alphaAnimation.duration = 0.3
+            alphaAnimation.fromValue = controlsAlpha
+            alphaAnimation.toValue = newValue
+            controls.forEach { $0.layer.add(alphaAnimation, forKey: "opacity")}
+            CATransaction.commit()
+            controls.forEach { $0.layer.opacity = newValue }
+        }
+    }
+
+    private func updateButtonHidingState() {
+        setNeedsDisplay()
+        let controls = [filmStripView, backgroundButton, playButton, exportButton]
+        let intersectsCanvas = controls.contains(where: { $0.frame.intersects(effectiveCanvasFrame) })
+        if intersectsCanvas && controlsAlpha == 1 {
+            controlsAlpha = 0
+        } else if intersectsCanvas == false && controlsAlpha == 0 {
+            controlsAlpha = 1
+        }
+    }
+
     // MARK: Scroll View Delegate
 
     // see also https://stackoverflow.com/a/19597755 for zooming from center
     func viewForZooming(in scrollView: UIScrollView) -> UIView? { zoomContentView }
+    func scrollViewDidZoom(_ scrollView: UIScrollView) { updateButtonHidingState() }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) { updateButtonHidingState() }
+
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
         drawingView.zoomScale = scale
     }
