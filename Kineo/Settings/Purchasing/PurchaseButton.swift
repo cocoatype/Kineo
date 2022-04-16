@@ -1,9 +1,9 @@
 //  Created by Geoff Pado on 3/28/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
-//
 
 import SwiftUI
 
+@available(iOS 15, *)
 struct PurchaseButton: View {
     @State private var purchaseState = PurchaseState.loading
     private var purchaser: Purchaser
@@ -21,7 +21,7 @@ struct PurchaseButton: View {
             for await newState in purchaser.zugzwang {
                 purchaseState = newState
             }
-        }
+        }.purchaseMarketingStyle()
     }
 
     private func title(for purchaseState: PurchaseState) -> LocalizedStringKey {
@@ -49,6 +49,7 @@ struct PurchaseButton: View {
     }
 }
 
+@available(iOS 15, *)
 struct PurchaseButtonPreviews: PreviewProvider {
     static var previews: some View {
         VStack {
@@ -63,27 +64,5 @@ struct PurchaseButtonPreviews: PreviewProvider {
             PurchaseButton(purchaser: StubPurchaser(purchaseState: .purchasing))
             PurchaseButton(purchaser: StubPurchaser(purchaseState: .purchased))
         }.preferredColorScheme(.dark)
-    }
-}
-
-struct BackportTaskViewModifier: ViewModifier {
-    init(action: @escaping () async -> Void) {
-        self.action = action
-    }
-
-    func body(content: Content) -> some View {
-        content.onAppear {
-            Task {
-                await action()
-            }
-        }
-    }
-
-    private let action: () async -> Void
-}
-
-extension View {
-    func backportTask(perform action: @escaping () async -> Void) -> some View {
-        modifier(BackportTaskViewModifier(action: action))
     }
 }

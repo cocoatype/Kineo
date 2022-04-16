@@ -11,18 +11,8 @@ struct SettingsContentGenerator {
         return versionString ?? "???"
     }
 
-    private let purchaser: Purchaser
-    init() {
-        if #available(iOS 15, *) {
-            purchaser = RealPurchaser()
-        } else {
-            purchaser = StubPurchaser()
-        }
-    }
-
     var content: some View {
         Group {
-            PurchaseButton(purchaser: purchaser)
             Section(header: SettingsSectionHeader("SettingsContentProvider.Section.webURLs.header")) {
                 WebURLButton("SettingsContentProvider.Item.new", "SettingsContentGenerator.versionStringFormat\(versionString)", path: "releases")
                 WebURLButton("SettingsContentProvider.Item.privacy", path: "privacy")
