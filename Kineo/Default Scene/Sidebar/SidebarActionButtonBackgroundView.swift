@@ -11,79 +11,48 @@ class SidebarActionButtonBackgroundView: UIView {
 
         layer.addSublayer(darkShadowLayer)
         layer.addSublayer(lightShadowLayer)
+        layer.addSublayer(fillLayer)
     }
 
     override func layoutSublayers(of layer: CALayer) {
         super.layoutSublayers(of: layer)
         darkShadowLayer.frame = layer.bounds
-        darkShadowLayer.path = UIBezierPath(roundedRect: darkShadowLayer.bounds, cornerRadius: Self.cornerRadius).cgPath
-        darkShadowLayer.shadowPath = darkShadowLayer.path
         lightShadowLayer.frame = darkShadowLayer.frame
-        lightShadowLayer.path = darkShadowLayer.path
-        lightShadowLayer.shadowPath = darkShadowLayer.shadowPath
+        fillLayer.frame = darkShadowLayer.frame
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
-        darkShadowLayer.fillColor = buttonBackgroundColor.cgColor
-        darkShadowLayer.shadowColor = UIColor.sidebarButtonShadowDark.cgColor
-        darkShadowLayer.strokeColor = UIColor.sidebarButtonBorder.cgColor
-        lightShadowLayer.fillColor = buttonBackgroundColor.cgColor
-        lightShadowLayer.shadowColor = UIColor.sidebarButtonShadowLight.cgColor
-        lightShadowLayer.strokeColor = UIColor.sidebarButtonBorder.cgColor
+        darkShadowLayer.traitCollection = traitCollection
+        lightShadowLayer.traitCollection = traitCollection
+        fillLayer.traitCollection = traitCollection
     }
 
     // MARK: Shadow Layers
 
-    private let darkShadowLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        layer.fillColor = UIColor.sidebarButtonBackground.cgColor
-        layer.strokeColor = UIColor.sidebarButtonBorder.cgColor
-        layer.shadowColor = UIColor.sidebarButtonShadowDark.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 3)
-        layer.shadowOpacity = 1
-        layer.shadowRadius = 8
-        return layer
-    }()
-
-    private let lightShadowLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        layer.fillColor = UIColor.sidebarButtonBackground.cgColor
-        layer.strokeColor = UIColor.sidebarButtonBorder.cgColor
-        layer.shadowColor = UIColor.sidebarButtonShadowLight.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: -3)
-        layer.shadowOpacity = 1
-        layer.shadowRadius = 8
-        return layer
-    }()
+    private let darkShadowLayer = SidebarActionButtonBackgroundDarkShadowLayer()
+    private let lightShadowLayer = SidebarActionButtonBackgroundLightShadowLayer()
+    private let fillLayer = SidebarActionButtonBackgroundFillLayer()
 
     // MARK: Highlighting/Selecting
 
     var isHighlighted = false {
         didSet {
-            darkShadowLayer.fillColor = buttonBackgroundColor.cgColor
-            lightShadowLayer.fillColor = buttonBackgroundColor.cgColor
+            fillLayer.isHighlighted = isHighlighted
         }
     }
 
     var isSelected = false {
         didSet {
-            darkShadowLayer.fillColor = buttonBackgroundColor.cgColor
-            lightShadowLayer.fillColor = buttonBackgroundColor.cgColor
+            fillLayer.isSelected = isSelected
         }
-    }
-
-    private var buttonBackgroundColor: UIColor {
-        if isHighlighted { return .sidebarButtonHighlight }
-        else if isSelected { return .sidebarButtonBackgroundSelected }
-        return .sidebarButtonBackground
     }
 
     // MARK: Boilerplate
 
-    private static let cornerRadius = CGFloat(8)
+    static let cornerRadius = CGFloat(8)
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
