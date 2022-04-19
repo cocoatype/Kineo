@@ -2,11 +2,13 @@
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
 import UIKit
+import Data
 
 class ExportEditingPreviewWatermarkImageView: UIImageView {
     init() {
         super.init(frame: .zero)
         contentMode = .scaleAspectFill
+        isHidden = Defaults.exportHideWatermark
         image = Self.watermarkImage
         translatesAutoresizingMaskIntoConstraints = false
 

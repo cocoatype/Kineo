@@ -109,7 +109,7 @@ class VideoProvider: UIActivityItemProvider {
                 cgContext.fillPath()
                 cgContext.restoreGState()
 
-                if let watermark = UIImage(named: "Watermark") {
+                if let watermark = UIImage(named: "Watermark"), Defaults.exportHideWatermark == false {
                     let point = CGPoint(x: canvasRect.midX, y: canvasRect.maxY + 16 + (watermark.size.height / 2))
                     let rect = CGRect(center: point, size: watermark.size)
                     watermark.draw(in: rect)
