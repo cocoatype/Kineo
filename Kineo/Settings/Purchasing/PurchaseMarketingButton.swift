@@ -5,10 +5,10 @@ import SwiftUI
 
 @available(iOS 15, *)
 struct PurchaseMarketingButton: View {
-    @State private var purchaseState = PurchaseState.loading
+    @Binding private var purchaseState: PurchaseState
     @State private var selected = false
-    init(purchaser: Purchaser) {
-        self.purchaser = purchaser
+    init(purchaseState: Binding<PurchaseState>) {
+        _purchaseState = purchaseState
     }
 
     var body: some View {
@@ -25,24 +25,15 @@ struct PurchaseMarketingButton: View {
             }
         }.sheet(isPresented: $selected) {
             PurchaseMarketingView(purchaseState: $purchaseState)
-        }.settingsCell().task {
-            for await state in purchaser.zugzwang {
-                dump(state)
-                purchaseState = state
-            }
-        }
+        }.settingsCell()
     }
-
-    // MARK: Boilerplate
-
-    private let purchaser: Purchaser
 }
 
 @available(iOS 15, *)
 struct PurchaseMarketingButtonPreviews: PreviewProvider {
     static var previews: some View {
         Group {
-            PurchaseMarketingButton(purchaser: StubPurchaser())
+            PurchaseMarketingButton(purchaseState: .constant(.loading))
         }.preferredColorScheme(.dark).previewLayout(.sizeThatFits)
     }
 }

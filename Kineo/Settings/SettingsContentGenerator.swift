@@ -4,7 +4,7 @@
 import SafariServices
 import SwiftUI
 
-struct SettingsContentGenerator {
+struct SettingsContent: View {
     private var versionString: String {
         let infoDictionary = Bundle.main.infoDictionary
         let versionString = infoDictionary?["CFBundleShortVersionString"] as? String
@@ -15,11 +15,12 @@ struct SettingsContentGenerator {
         self.purchaser = purchaser
     }
 
-    var content: some View {
+    @ViewBuilder
+    var body: some View {
         Group {
-            if #available(iOS 15, *) {
+            if #available(iOS 15, *), purchaseState != .purchased && purchaseState != .notAvailable {
                 Section {
-                    PurchaseMarketingButton(purchaser: purchaser)
+                    PurchaseMarketingButton(purchaseState: $purchaseState)
                 }
             }
 
@@ -45,8 +46,14 @@ struct SettingsContentGenerator {
                 WebURLButton("SettingsContentProvider.Item.twitch", "SettingsContentProvider.Item.twitch.subtitle", path: "https://twitch.tv/cocoatype")
                 WebURLButton("SettingsContentProvider.Item.instagram", "SettingsContentProvider.Item.instagram.subtitle", path: "https://instagram.com/kineoapp")
             }
+        }.backportTask {
+            for await state in purchaser.zugzwang {
+                dump(state)
+                purchaseState = state
+            }
         }
     }
 
+    @State private var purchaseState = PurchaseState.loading
     private let purchaser: Purchaser
 }

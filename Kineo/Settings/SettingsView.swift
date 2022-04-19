@@ -17,7 +17,7 @@ struct SettingsView: View {
     var body: some View {
         SettingsNavigationView {
             SettingsList {
-                SettingsContentGenerator(purchaser: purchaser).content
+                SettingsContent(purchaser: purchaser)
             }.navigationBarTitle("SettingsViewController.navigationTitle", displayMode: .inline)
         }
     }
