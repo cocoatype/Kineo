@@ -33,6 +33,9 @@ struct SettingsContent: View {
 
             Section {
                 🐎IconToggleSwitch()
+                if purchaseState == .purchased {
+                    HideWatermarkToggleSwitch()
+                }
             }
 
             Section(header: SettingsSectionHeader("SettingsContentProvider.Section.otherApps.header")) {
