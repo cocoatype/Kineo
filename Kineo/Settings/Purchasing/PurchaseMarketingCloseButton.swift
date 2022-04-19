@@ -17,7 +17,6 @@ struct PurchaseMarketingCloseButton: View {
             Image(systemName: "xmark")
                 .font(.appFont(for: .headline))
                 .foregroundColor(.white)
-//                .padding(20)
         }.purchaseMarketingStyle()
         #endif
     }

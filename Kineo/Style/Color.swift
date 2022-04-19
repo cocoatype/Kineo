@@ -89,6 +89,7 @@ extension Color {
     static let purchaseMarketingTopBarHeadline = Color("Purchase Marketing Top Bar Headline")
     static let purchaseMarketingTopBarSubheadline = Color("Purchase Marketing Top Bar Subheadline")
     static let purchaseMarketingCellBackground = Color("Purchase Marketing Cell Background")
+    static let purchaseMarketingCellText = Color("Purchase Marketing Cell Text")
     static let purchaseMarketingButtonShadowLight = Color("Purchase Marketing Button Shadow Light")
     static let purchaseMarketingButtonShadowDark = Color("Purchase Marketing Button Shadow Dark")
     static let purchaseMarketingButtonPressedGradientLight = Color("Purchase Marketing Button Pressed Gradient Light")

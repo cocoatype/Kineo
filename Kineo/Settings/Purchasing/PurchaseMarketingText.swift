@@ -11,9 +11,8 @@ struct PurchaseMarketingText: View {
 
     var body: some View {
         Text(titleKey)
-//            .lineSpacing(3)
             .font(.appFont(for: .body))
-            .foregroundColor(Color(.white))
+            .foregroundColor(.purchaseMarketingCellText)
     }
 }
 

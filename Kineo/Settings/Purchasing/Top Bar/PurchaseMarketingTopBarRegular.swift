@@ -5,8 +5,6 @@ import SwiftUI
 
 @available(iOS 15, *)
 struct PurchaseMarketingTopBar: View {
-    @State private var textWidth: CGFloat?
-
     private let purchaser: Purchaser
     init() {
         purchaser = RealPurchaser()
