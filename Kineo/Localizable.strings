@@ -84,6 +84,10 @@
 "PurchaseButton.purchasingTitle" = "Purchasing…";
 "PurchaseButton.purchasedTitle" = "Purchased";
 
+"PurchaseMarketingButton.title" = "Kineo Pro";
+"PurchaseMarketingButton.subtitle" = "Unlock more features";
+"PurchaseMarketingButton.subtitle%@" = "Unlock more features for just %@";
+
 "PurchaseMarketingItem.support.header" = "Support the software arts.";
 "PurchaseMarketingItem.support.text" = "Your support helps keep updates to Kineo coming.";
 "PurchaseMarketingItem.watermark.header" = "PurchaseMarketingItem.watermark.header";

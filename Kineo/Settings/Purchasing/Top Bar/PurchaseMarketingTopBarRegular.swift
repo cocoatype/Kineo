@@ -5,9 +5,9 @@ import SwiftUI
 
 @available(iOS 15, *)
 struct PurchaseMarketingTopBar: View {
-    private let purchaser: Purchaser
-    init() {
-        purchaser = RealPurchaser()
+    @Binding private var purchaseState: PurchaseState
+    init(purchaseState: Binding<PurchaseState>) {
+        _purchaseState = purchaseState
     }
 
     var body: some View {
@@ -16,12 +16,12 @@ struct PurchaseMarketingTopBar: View {
                 PurchaseMarketingTopBarHeadline()
                 PurchaseMarketingTopBarSubheadline()
             }
-            HStack {
-                PurchaseButton(purchaser: purchaser)
+            HStack(spacing: 12) {
+                PurchaseButton(purchaseState: $purchaseState)
                 PurchaseRestoreButton()
             }
         }
-        .padding(40)
+        .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color.purchaseMarketingTopBarBackground)
     }
@@ -31,8 +31,8 @@ struct PurchaseMarketingTopBar: View {
 struct PurchaseMarketingTopBarPreviews: PreviewProvider {
     static var previews: some View {
         Group {
-            PurchaseMarketingTopBar().preferredColorScheme(.dark)
-            PurchaseMarketingTopBar()
+            PurchaseMarketingTopBar(purchaseState: .constant(.loading)).preferredColorScheme(.dark)
+            PurchaseMarketingTopBar(purchaseState: .constant(.loading))
         }.previewLayout(.sizeThatFits)
     }
 }

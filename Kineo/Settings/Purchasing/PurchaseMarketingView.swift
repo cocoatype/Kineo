@@ -5,12 +5,16 @@ import SwiftUI
 
 @available(iOS 15, *)
 struct PurchaseMarketingView: View {
+    init(purchaseState: Binding<PurchaseState>) {
+        _purchaseState = purchaseState
+    }
+
     var body: some View {
         GeometryReader { proxy in
             ScrollView {
                 VStack {
                     ZStack(alignment: .topTrailing) {
-                        PurchaseMarketingTopBar()
+                        PurchaseMarketingTopBar(purchaseState: $purchaseState)
                         PurchaseMarketingCloseButton().padding(12)
                     }
                     LazyVGrid(columns: columns(forWidth: proxy.size.width), spacing: 20) {
@@ -35,6 +39,8 @@ struct PurchaseMarketingView: View {
             return [GridItem(spacing: 20), GridItem(spacing: 20)]
         }
     }
+
+    @Binding private var purchaseState: PurchaseState
 }
 
 @available(iOS 15, *)
@@ -42,15 +48,15 @@ struct PurchaseMarketingView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             Group {
-                PurchaseMarketingView()
+                PurchaseMarketingView(purchaseState: .constant(.loading))
                     .preferredColorScheme(.dark)
-                PurchaseMarketingView()
+                PurchaseMarketingView(purchaseState: .constant(.loading))
                     .preferredColorScheme(.light)
             }.previewLayout(.fixed(width: 640, height: 1024))
             Group {
-                PurchaseMarketingView()
+                PurchaseMarketingView(purchaseState: .constant(.loading))
                     .preferredColorScheme(.dark)
-                PurchaseMarketingView()
+                PurchaseMarketingView(purchaseState: .constant(.loading))
                     .preferredColorScheme(.light)
             }.previewLayout(.fixed(width: 375, height: 1024))
         }

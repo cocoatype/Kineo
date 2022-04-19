@@ -11,8 +11,18 @@ struct SettingsContentGenerator {
         return versionString ?? "???"
     }
 
+    init(purchaser: Purchaser) {
+        self.purchaser = purchaser
+    }
+
     var content: some View {
         Group {
+            if #available(iOS 15, *) {
+                Section {
+                    PurchaseMarketingButton(purchaser: purchaser)
+                }
+            }
+
             Section(header: SettingsSectionHeader("SettingsContentProvider.Section.webURLs.header")) {
                 WebURLButton("SettingsContentProvider.Item.new", "SettingsContentGenerator.versionStringFormat\(versionString)", path: "releases")
                 WebURLButton("SettingsContentProvider.Item.privacy", path: "privacy")
@@ -20,9 +30,9 @@ struct SettingsContentGenerator {
                 WebURLButton("SettingsContentProvider.Item.contact", path: "contact")
             }
 
-            Section(content: {
+            Section {
                 🐎IconToggleSwitch()
-            })
+            }
 
             Section(header: SettingsSectionHeader("SettingsContentProvider.Section.otherApps.header")) {
                 OtherAppButton(name: "Black Highlighter", subtitle: "Share pictures, not secrets", id: "1215283742")
@@ -37,4 +47,6 @@ struct SettingsContentGenerator {
             }
         }
     }
+
+    private let purchaser: Purchaser
 }

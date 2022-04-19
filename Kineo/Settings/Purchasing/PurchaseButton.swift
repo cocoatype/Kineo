@@ -5,21 +5,16 @@ import SwiftUI
 
 @available(iOS 15, *)
 struct PurchaseButton: View {
-    @State private var purchaseState = PurchaseState.loading
-    private var purchaser: Purchaser
+    @Binding private var purchaseState: PurchaseState// = PurchaseState.loading
 
-    init(purchaser: Purchaser) {
-        self.purchaser = purchaser
+    init(purchaseState: Binding<PurchaseState>) {
+        _purchaseState = purchaseState
     }
 
     var body: some View {
         Button(title(for: purchaseState)) {
             Task {
                 try await action(for: purchaseState)()
-            }
-        }.backportTask {
-            for await newState in purchaser.zugzwang {
-                purchaseState = newState
             }
         }.purchaseMarketingStyle()
     }
@@ -53,16 +48,16 @@ struct PurchaseButton: View {
 struct PurchaseButtonPreviews: PreviewProvider {
     static var previews: some View {
         VStack {
-            PurchaseButton(purchaser: StubPurchaser())
-            PurchaseButton(purchaser: StubPurchaser(purchaseState: .ready("$2.99", purchase: { })))
-            PurchaseButton(purchaser: StubPurchaser(purchaseState: .purchasing))
-            PurchaseButton(purchaser: StubPurchaser(purchaseState: .purchased))
+            PurchaseButton(purchaseState: .constant(.loading))
+            PurchaseButton(purchaseState: .constant(.ready("$2.99", purchase: { })))
+            PurchaseButton(purchaseState: .constant(.purchasing))
+            PurchaseButton(purchaseState: .constant(.purchased))
         }
         VStack {
-            PurchaseButton(purchaser: StubPurchaser())
-            PurchaseButton(purchaser: StubPurchaser(purchaseState: .ready("$2.99", purchase: { })))
-            PurchaseButton(purchaser: StubPurchaser(purchaseState: .purchasing))
-            PurchaseButton(purchaser: StubPurchaser(purchaseState: .purchased))
+            PurchaseButton(purchaseState: .constant(.loading))
+            PurchaseButton(purchaseState: .constant(.ready("$2.99", purchase: { })))
+            PurchaseButton(purchaseState: .constant(.purchasing))
+            PurchaseButton(purchaseState: .constant(.purchased))
         }.preferredColorScheme(.dark)
     }
 }
