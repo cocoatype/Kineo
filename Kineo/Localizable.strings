@@ -84,6 +84,23 @@
 "PurchaseButton.purchasingTitle" = "Purchasing…";
 "PurchaseButton.purchasedTitle" = "Purchased";
 
+"PurchaseMarketingButton.title" = "Kineo Pro";
+"PurchaseMarketingButton.subtitle" = "Unlock more features";
+"PurchaseMarketingButton.subtitle%@" = "Unlock more features for just %@";
+
+"PurchaseMarketingItem.support.header" = "Support the software arts.";
+"PurchaseMarketingItem.support.text" = "Your support helps keep updates to Kineo coming.";
+"PurchaseMarketingItem.watermark.header" = "PurchaseMarketingItem.watermark.header";
+"PurchaseMarketingItem.watermark.text" = "PurchaseMarketingItem.watermark.text";
+"PurchaseMarketingItem.zoom.header" = "Embiggen your view.";
+"PurchaseMarketingItem.zoom.text" = "Zoom the canvas to work on the finest details.";
+
+"PurchaseMarketingTopBarHeadlineLabel.text" = "Kineo Pro";
+
+"PurchaseMarketingTopBarSubheadlineLabel.text" = "Unlock these powerful\nnew abilities for Kineo.";
+
+"PurchaseRestoreButton.title" = "Restore";
+
 "RedoButton.accessibilityLabel" = "Redo";
 
 "ReleaseNotesItem.subtitleFormat" = "Version %@";

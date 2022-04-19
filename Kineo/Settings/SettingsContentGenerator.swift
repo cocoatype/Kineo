@@ -4,25 +4,26 @@
 import SafariServices
 import SwiftUI
 
-struct SettingsContentGenerator {
+struct SettingsContent: View {
     private var versionString: String {
         let infoDictionary = Bundle.main.infoDictionary
         let versionString = infoDictionary?["CFBundleShortVersionString"] as? String
         return versionString ?? "???"
     }
 
-    private let purchaser: Purchaser
-    init() {
-        if #available(iOS 15, *) {
-            purchaser = RealPurchaser()
-        } else {
-            purchaser = StubPurchaser()
-        }
+    init(purchaser: Purchaser) {
+        self.purchaser = purchaser
     }
 
-    var content: some View {
+    @ViewBuilder
+    var body: some View {
         Group {
-            PurchaseButton(purchaser: purchaser)
+            if #available(iOS 15, *), purchaseState != .purchased && purchaseState != .notAvailable {
+                Section {
+                    PurchaseMarketingButton(purchaseState: $purchaseState)
+                }
+            }
+
             Section(header: SettingsSectionHeader("SettingsContentProvider.Section.webURLs.header")) {
                 WebURLButton("SettingsContentProvider.Item.new", "SettingsContentGenerator.versionStringFormat\(versionString)", path: "releases")
                 WebURLButton("SettingsContentProvider.Item.privacy", path: "privacy")
@@ -30,9 +31,9 @@ struct SettingsContentGenerator {
                 WebURLButton("SettingsContentProvider.Item.contact", path: "contact")
             }
 
-            Section(content: {
+            Section {
                 🐎IconToggleSwitch()
-            })
+            }
 
             Section(header: SettingsSectionHeader("SettingsContentProvider.Section.otherApps.header")) {
                 OtherAppButton(name: "Black Highlighter", subtitle: "Share pictures, not secrets", id: "1215283742")
@@ -45,6 +46,14 @@ struct SettingsContentGenerator {
                 WebURLButton("SettingsContentProvider.Item.twitch", "SettingsContentProvider.Item.twitch.subtitle", path: "https://twitch.tv/cocoatype")
                 WebURLButton("SettingsContentProvider.Item.instagram", "SettingsContentProvider.Item.instagram.subtitle", path: "https://instagram.com/kineoapp")
             }
+        }.backportTask {
+            for await state in purchaser.zugzwang {
+                dump(state)
+                purchaseState = state
+            }
         }
     }
+
+    @State private var purchaseState = PurchaseState.loading
+    private let purchaser: Purchaser
 }

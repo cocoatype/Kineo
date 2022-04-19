@@ -27,6 +27,16 @@
 		0419751B25EB508800CB0F54 /* PageNavigationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419751A25EB508800CB0F54 /* PageNavigationEvent.swift */; };
 		0419752125EB50C300CB0F54 /* UIScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419752025EB50C300CB0F54 /* UIScrollViewExtensions.swift */; };
 		0419752625EB515C00CB0F54 /* FilmStripPageItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419752525EB515C00CB0F54 /* FilmStripPageItemProvider.swift */; };
+		042BB7F4280A969D00100E82 /* ZoomPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F3280A969D00100E82 /* ZoomPurchaseMarketingItem.swift */; };
+		042BB7F6280A96A600100E82 /* SupportPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F5280A96A600100E82 /* SupportPurchaseMarketingItem.swift */; };
+		042BB7F8280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F7280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift */; };
+		042BB7FA280A96BB00100E82 /* KeyboardPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F9280A96BB00100E82 /* KeyboardPurchaseMarketingItem.swift */; };
+		042BB7FC280A96C300100E82 /* BackgroundsPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7FB280A96C300100E82 /* BackgroundsPurchaseMarketingItem.swift */; };
+		042BB7FE280A989F00100E82 /* PurchaseMarketingCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7FD280A989F00100E82 /* PurchaseMarketingCloseButton.swift */; };
+		042BB800280A992D00100E82 /* BackportTaskViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7FF280A992D00100E82 /* BackportTaskViewModifier.swift */; };
+		042E6E86280E521400EC5255 /* PurchaseMarketingTopBarButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6E85280E521400EC5255 /* PurchaseMarketingTopBarButtonStyle.swift */; };
+		042E6E88280E580700EC5255 /* WebURLSubtitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6E87280E580700EC5255 /* WebURLSubtitleText.swift */; };
+		042E6E8A280E582F00EC5255 /* PurchaseMarketingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6E89280E582F00EC5255 /* PurchaseMarketingButton.swift */; };
 		04318A3122E18C72003D70C8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3022E18C72003D70C8 /* Icons.swift */; };
 		04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3422E2EC3C003D70C8 /* PlaybackView.swift */; };
 		04318A3722E2FCC3003D70C8 /* VideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */; };
@@ -236,6 +246,14 @@
 		04791E6B23EEAB6C00403BD8 /* ExportSettingsStyleContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6A23EEAB6B00403BD8 /* ExportSettingsStyleContentSection.swift */; };
 		04791E6F23EEBC9200403BD8 /* ExportSettingsDurationContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E6E23EEBC9200403BD8 /* ExportSettingsDurationContentSection.swift */; };
 		04791E7123EEC0B200403BD8 /* ExportSettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E7023EEC0B200403BD8 /* ExportSettingsNavigationController.swift */; };
+		047BF5F9280A6ADC00BC672F /* PurchaseMarketingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BF5F8280A6ADC00BC672F /* PurchaseMarketingView.swift */; };
+		047BF5FB280A6B3200BC672F /* PurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BF5FA280A6B3200BC672F /* PurchaseMarketingItem.swift */; };
+		047BF5FD280A6B5700BC672F /* PurchaseMarketingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BF5FC280A6B5700BC672F /* PurchaseMarketingHeader.swift */; };
+		047BF5FF280A6B7300BC672F /* PurchaseMarketingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BF5FE280A6B7300BC672F /* PurchaseMarketingText.swift */; };
+		047BF602280A6BD000BC672F /* PurchaseMarketingTopBarRegular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BF601280A6BD000BC672F /* PurchaseMarketingTopBarRegular.swift */; };
+		047BF606280A6C0C00BC672F /* PurchaseMarketingTopBarHeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BF605280A6C0C00BC672F /* PurchaseMarketingTopBarHeadline.swift */; };
+		047BF608280A6C3600BC672F /* PurchaseMarketingTopBarSubheadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BF607280A6C3500BC672F /* PurchaseMarketingTopBarSubheadline.swift */; };
+		047BF60A280A6E1E00BC672F /* FillViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BF609280A6E1E00BC672F /* FillViewModifier.swift */; };
 		047F9ED226E48F7800DD34F5 /* CompactEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9ED126E48F7800DD34F5 /* CompactEditingView.swift */; };
 		047F9ED526E4925200DD34F5 /* EditingKeyCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9ED426E4925200DD34F5 /* EditingKeyCommands.swift */; };
 		047F9ED726E4955500DD34F5 /* GalleryKeyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F9ED626E4955500DD34F5 /* GalleryKeyCommand.swift */; };
@@ -297,6 +315,8 @@
 		04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */; };
 		04C0A67722DC406B00E4E5D6 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A67622DC406B00E4E5D6 /* DataExtensions.swift */; };
 		04C0A67922DC436400E4E5D6 /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C0A67822DC436400E4E5D6 /* example.json */; };
+		04C2684F280A8030009965BD /* PurchaseMarketingTopBarButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2684E280A8030009965BD /* PurchaseMarketingTopBarButtonViewModifier.swift */; };
+		04C26851280A809F009965BD /* PurchaseRestoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C26850280A809F009965BD /* PurchaseRestoreButton.swift */; };
 		04C5FA2923AB322C00DDFC40 /* StickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5FA2823AB322C00DDFC40 /* StickerDataSource.swift */; };
 		04D36AD82378205F0052A933 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD72378205F0052A933 /* Color.swift */; };
 		04D36ADA237826D40052A933 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD9237826D40052A933 /* Fonts.swift */; };
@@ -470,6 +490,16 @@
 		0419751A25EB508800CB0F54 /* PageNavigationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNavigationEvent.swift; sourceTree = "<group>"; };
 		0419752025EB50C300CB0F54 /* UIScrollViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensions.swift; sourceTree = "<group>"; };
 		0419752525EB515C00CB0F54 /* FilmStripPageItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripPageItemProvider.swift; sourceTree = "<group>"; };
+		042BB7F3280A969D00100E82 /* ZoomPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomPurchaseMarketingItem.swift; sourceTree = "<group>"; };
+		042BB7F5280A96A600100E82 /* SupportPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportPurchaseMarketingItem.swift; sourceTree = "<group>"; };
+		042BB7F7280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkPurchaseMarketingItem.swift; sourceTree = "<group>"; };
+		042BB7F9280A96BB00100E82 /* KeyboardPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPurchaseMarketingItem.swift; sourceTree = "<group>"; };
+		042BB7FB280A96C300100E82 /* BackgroundsPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundsPurchaseMarketingItem.swift; sourceTree = "<group>"; };
+		042BB7FD280A989F00100E82 /* PurchaseMarketingCloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingCloseButton.swift; sourceTree = "<group>"; };
+		042BB7FF280A992D00100E82 /* BackportTaskViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackportTaskViewModifier.swift; sourceTree = "<group>"; };
+		042E6E85280E521400EC5255 /* PurchaseMarketingTopBarButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingTopBarButtonStyle.swift; sourceTree = "<group>"; };
+		042E6E87280E580700EC5255 /* WebURLSubtitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebURLSubtitleText.swift; sourceTree = "<group>"; };
+		042E6E89280E582F00EC5255 /* PurchaseMarketingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingButton.swift; sourceTree = "<group>"; };
 		04318A3022E18C72003D70C8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		04318A3222E19AB5003D70C8 /* SkinGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinGenerator.swift; sourceTree = "<group>"; };
 		04318A3422E2EC3C003D70C8 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
@@ -575,6 +605,14 @@
 		04791E6C23EEB98000403BD8 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		04791E6E23EEBC9200403BD8 /* ExportSettingsDurationContentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsDurationContentSection.swift; sourceTree = "<group>"; };
 		04791E7023EEC0B200403BD8 /* ExportSettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsNavigationController.swift; sourceTree = "<group>"; };
+		047BF5F8280A6ADC00BC672F /* PurchaseMarketingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingView.swift; sourceTree = "<group>"; };
+		047BF5FA280A6B3200BC672F /* PurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingItem.swift; sourceTree = "<group>"; };
+		047BF5FC280A6B5700BC672F /* PurchaseMarketingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingHeader.swift; sourceTree = "<group>"; };
+		047BF5FE280A6B7300BC672F /* PurchaseMarketingText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingText.swift; sourceTree = "<group>"; };
+		047BF601280A6BD000BC672F /* PurchaseMarketingTopBarRegular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingTopBarRegular.swift; sourceTree = "<group>"; };
+		047BF605280A6C0C00BC672F /* PurchaseMarketingTopBarHeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingTopBarHeadline.swift; sourceTree = "<group>"; };
+		047BF607280A6C3500BC672F /* PurchaseMarketingTopBarSubheadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingTopBarSubheadline.swift; sourceTree = "<group>"; };
+		047BF609280A6E1E00BC672F /* FillViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillViewModifier.swift; sourceTree = "<group>"; };
 		047F9ED126E48F7800DD34F5 /* CompactEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactEditingView.swift; sourceTree = "<group>"; };
 		047F9ED426E4925200DD34F5 /* EditingKeyCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingKeyCommands.swift; sourceTree = "<group>"; };
 		047F9ED626E4955500DD34F5 /* GalleryKeyCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryKeyCommand.swift; sourceTree = "<group>"; };
@@ -648,6 +686,8 @@
 		04C0A68122DC5D3800E4E5D6 /* DocumentSaveOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSaveOperation.swift; sourceTree = "<group>"; };
 		04C0A68322DC5DA300E4E5D6 /* DocumentOperationQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentOperationQueue.swift; sourceTree = "<group>"; };
 		04C0A68522DC5EBD00E4E5D6 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		04C2684E280A8030009965BD /* PurchaseMarketingTopBarButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingTopBarButtonViewModifier.swift; sourceTree = "<group>"; };
+		04C26850280A809F009965BD /* PurchaseRestoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseRestoreButton.swift; sourceTree = "<group>"; };
 		04C5FA2823AB322C00DDFC40 /* StickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerDataSource.swift; sourceTree = "<group>"; };
 		04D36AD72378205F0052A933 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		04D36AD9237826D40052A933 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -792,6 +832,19 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		042BB7F2280A966100100E82 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				042BB7FB280A96C300100E82 /* BackgroundsPurchaseMarketingItem.swift */,
+				042BB7F9280A96BB00100E82 /* KeyboardPurchaseMarketingItem.swift */,
+				047BF5FA280A6B3200BC672F /* PurchaseMarketingItem.swift */,
+				042BB7F5280A96A600100E82 /* SupportPurchaseMarketingItem.swift */,
+				042BB7F7280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift */,
+				042BB7F3280A969D00100E82 /* ZoomPurchaseMarketingItem.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
 		043D761A240A73FD00A1B7D1 /* Image Generators */ = {
 			isa = PBXGroup;
 			children = (
@@ -848,7 +901,17 @@
 		044AFA1027F2B72D00119459 /* Purchasing */ = {
 			isa = PBXGroup;
 			children = (
+				047BF609280A6E1E00BC672F /* FillViewModifier.swift */,
 				044AFA1127F2B74400119459 /* PurchaseButton.swift */,
+				042BB7FD280A989F00100E82 /* PurchaseMarketingCloseButton.swift */,
+				047BF5FC280A6B5700BC672F /* PurchaseMarketingHeader.swift */,
+				047BF5FE280A6B7300BC672F /* PurchaseMarketingText.swift */,
+				047BF5F8280A6ADC00BC672F /* PurchaseMarketingView.swift */,
+				04C26850280A809F009965BD /* PurchaseRestoreButton.swift */,
+				042BB7F2280A966100100E82 /* Items */,
+				047BF600280A6B9B00BC672F /* Top Bar */,
+				042BB7FF280A992D00100E82 /* BackportTaskViewModifier.swift */,
+				042E6E89280E582F00EC5255 /* PurchaseMarketingButton.swift */,
 			);
 			path = Purchasing;
 			sourceTree = "<group>";
@@ -917,19 +980,19 @@
 		045B2FF827EC13BB007779DF /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				044AFA1027F2B72D00119459 /* Purchasing */,
+				045B301D27ECF6DD007779DF /* SettingsCellViewModifier.swift */,
 				045B300327EC17B0007779DF /* SettingsContentGenerator.swift */,
 				045B300127EC175F007779DF /* SettingsDoneButton.swift */,
 				045B2FFF27EC172D007779DF /* SettingsList.swift */,
+				045B301B27ECF675007779DF /* SettingsListStyleModifier.swift */,
 				045B2FFD27EC1702007779DF /* SettingsNavigationView.swift */,
 				045B300B27EC1ACB007779DF /* SettingsSectionHeader.swift */,
 				045B2FFB27EC13F5007779DF /* SettingsView.swift */,
 				045B2FF927EC13CD007779DF /* SettingsViewController.swift */,
 				045B301A27ECF63F007779DF /* Icon */,
 				045B301727EC1EF9007779DF /* Other Apps */,
+				044AFA1027F2B72D00119459 /* Purchasing */,
 				045B300D27EC1C8F007779DF /* Web URLs */,
-				045B301B27ECF675007779DF /* SettingsListStyleModifier.swift */,
-				045B301D27ECF6DD007779DF /* SettingsCellViewModifier.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -938,6 +1001,7 @@
 			isa = PBXGroup;
 			children = (
 				045B300527EC19FC007779DF /* WebURLButton.swift */,
+				042E6E87280E580700EC5255 /* WebURLSubtitleText.swift */,
 				044AFA0E27F2A88800119459 /* WebURLTitleText.swift */,
 				04791E0F23EC1F3400403BD8 /* WebViewController.swift */,
 				045B300727EC1A33007779DF /* WebView.swift */,
@@ -990,6 +1054,18 @@
 				04E3B62E25FC648300D2A945 /* Export Editing */,
 			);
 			path = Export;
+			sourceTree = "<group>";
+		};
+		047BF600280A6B9B00BC672F /* Top Bar */ = {
+			isa = PBXGroup;
+			children = (
+				047BF601280A6BD000BC672F /* PurchaseMarketingTopBarRegular.swift */,
+				047BF605280A6C0C00BC672F /* PurchaseMarketingTopBarHeadline.swift */,
+				047BF607280A6C3500BC672F /* PurchaseMarketingTopBarSubheadline.swift */,
+				04C2684E280A8030009965BD /* PurchaseMarketingTopBarButtonViewModifier.swift */,
+				042E6E85280E521400EC5255 /* PurchaseMarketingTopBarButtonStyle.swift */,
+			);
+			path = "Top Bar";
 			sourceTree = "<group>";
 		};
 		047F9ED326E4924100DD34F5 /* Key Commands */ = {
@@ -1223,6 +1299,8 @@
 		04C0A66E22DC292E00E4E5D6 /* Editing View */ = {
 			isa = PBXGroup;
 			children = (
+				040D35592705616900F409A8 /* ApplicationEditingStateManager.swift */,
+				04993EFC273A207500F7BBF2 /* ColorPickerViewController.swift */,
 				047F9EF026E4E1E700DD34F5 /* EditingToolPicker.swift */,
 				044484D323A884D300CD0C3C /* EditingUserActivity.swift */,
 				04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */,
@@ -1234,10 +1312,8 @@
 				04ACCD1E23B21975006FBABC /* Film Strip */,
 				047F9ED326E4924100DD34F5 /* Key Commands */,
 				048A37F726F0586800B02F4F /* Onion Skins */,
-				047F9EF526E4E76B00DD34F5 /* State Management */,
-				040D35592705616900F409A8 /* ApplicationEditingStateManager.swift */,
 				040D355D270564AB00F409A8 /* Regular View */,
-				04993EFC273A207500F7BBF2 /* ColorPickerViewController.swift */,
+				047F9EF526E4E76B00DD34F5 /* State Management */,
 			);
 			path = "Editing View";
 			sourceTree = "<group>";
@@ -1790,6 +1866,7 @@
 				044AFA1427F2C0CD00119459 /* PurchaseState.swift in Sources */,
 				0435867327D85D210037BA5F /* TutorialOnboardingDrawPageViewController.swift in Sources */,
 				04791E6323EEA09300403BD8 /* ExportSettingsContentProvider.swift in Sources */,
+				047BF5F9280A6ADC00BC672F /* PurchaseMarketingView.swift in Sources */,
 				047F9EF126E4E1E700DD34F5 /* EditingToolPicker.swift in Sources */,
 				045B2FFA27EC13CD007779DF /* SettingsViewController.swift in Sources */,
 				04D46BDA2414E01500DBFB9A /* TutorialEditingViewController.swift in Sources */,
@@ -1797,15 +1874,19 @@
 				049B1A9E2715363300E38F5C /* MenuButton.swift in Sources */,
 				045B301E27ECF6DD007779DF /* SettingsCellViewModifier.swift in Sources */,
 				04993EFD273A207500F7BBF2 /* ColorPickerViewController.swift in Sources */,
+				042BB7FA280A96BB00100E82 /* KeyboardPurchaseMarketingItem.swift in Sources */,
 				047F9EDB26E4955F00DD34F5 /* BackKeyCommand.swift in Sources */,
+				047BF608280A6C3600BC672F /* PurchaseMarketingTopBarSubheadline.swift in Sources */,
 				0417F09E22E46F410063AD66 /* UIImageExtensions.swift in Sources */,
 				045B301327EC1D68007779DF /* OtherAppNameText.swift in Sources */,
 				0445AA652373CB9400EB2A7B /* GallerySelectionEvent.swift in Sources */,
 				047F9EDF26E4956D00DD34F5 /* PlayKeyCommand.swift in Sources */,
 				045B301127EC1D14007779DF /* ContinuousCornerRadiusViewModifier.swift in Sources */,
+				042E6E86280E521400EC5255 /* PurchaseMarketingTopBarButtonStyle.swift in Sources */,
 				04F2C0C227FFF29500023244 /* ExportSettingsHeaderFooterView.swift in Sources */,
 				04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */,
 				040D355C2705649500F409A8 /* RegularEditingView.swift in Sources */,
+				04C26851280A809F009965BD /* PurchaseRestoreButton.swift in Sources */,
 				04BD9256237FFC4300C8FD09 /* SceneView.swift in Sources */,
 				0408495E261805CF00D2AA15 /* IconsImagePositioning.swift in Sources */,
 				045B2FFE27EC1702007779DF /* SettingsNavigationView.swift in Sources */,
@@ -1823,6 +1904,7 @@
 				04791E5F23EE9CBF00403BD8 /* ExportSettingsViewController.swift in Sources */,
 				0469375A24276724005894F7 /* ExportButton.swift in Sources */,
 				040849402618049A00D2AA15 /* ExportEditingPlaybackStylePicker.swift in Sources */,
+				042E6E88280E580700EC5255 /* WebURLSubtitleText.swift in Sources */,
 				046B034325EBB893005AB424 /* FilmStripPageDragItem.swift in Sources */,
 				047F9EE726E4B8B300DD34F5 /* EditingStatePageManipulation.swift in Sources */,
 				045B301C27ECF675007779DF /* SettingsListStyleModifier.swift in Sources */,
@@ -1859,13 +1941,18 @@
 				04C0A67222DC2C2700E4E5D6 /* CanvasView.swift in Sources */,
 				04D36AE123782A1A0052A933 /* GalleryNewCollectionViewCell.swift in Sources */,
 				04DF241223F888E000657160 /* FilmStripView.swift in Sources */,
+				04C2684F280A8030009965BD /* PurchaseMarketingTopBarButtonViewModifier.swift in Sources */,
+				047BF602280A6BD000BC672F /* PurchaseMarketingTopBarRegular.swift in Sources */,
 				0491C1E024F0817300E67660 /* DocumentThumbnailProvider.swift in Sources */,
 				04C0A67722DC406B00E4E5D6 /* DataExtensions.swift in Sources */,
+				042BB7FC280A96C300100E82 /* BackgroundsPurchaseMarketingItem.swift in Sources */,
 				04C0A64622DC208E00E4E5D6 /* AppDelegate.swift in Sources */,
 				04318A3722E2FCC3003D70C8 /* VideoGenerator.swift in Sources */,
 				047F9EEB26E4CA2700DD34F5 /* BoolExtensions.swift in Sources */,
 				0419751B25EB508800CB0F54 /* PageNavigationEvent.swift in Sources */,
+				042BB7F4280A969D00100E82 /* ZoomPurchaseMarketingItem.swift in Sources */,
 				047F9ED926E4955A00DD34F5 /* ForwardKeyCommand.swift in Sources */,
+				042E6E8A280E582F00EC5255 /* PurchaseMarketingButton.swift in Sources */,
 				04DF241123F888DA00657160 /* ExportViewController.swift in Sources */,
 				04EC178D23D9805B00A42E08 /* FilmStripCollectionViewLayout.swift in Sources */,
 				0408496326180FD300D2AA15 /* ExportEditingPickerControlGestureRecognizer.swift in Sources */,
@@ -1874,6 +1961,7 @@
 				043F06D224AB667D005865BF /* FilmStripExistingPageBackgroundView.swift in Sources */,
 				04DF241423F888F800657160 /* FilmStripExistingPageCell.swift in Sources */,
 				04D46BDF2414EC8100DBFB9A /* TutorialOnboardingViewController.swift in Sources */,
+				047BF5FB280A6B3200BC672F /* PurchaseMarketingItem.swift in Sources */,
 				049A0455240BCA5000F5FC17 /* DismissalDirector.swift in Sources */,
 				044484D423A884D300CD0C3C /* EditingUserActivity.swift in Sources */,
 				0435867D27D863B40037BA5F /* TutorialOnboardingSharePageViewController.swift in Sources */,
@@ -1885,6 +1973,8 @@
 				0435867127D85BB70037BA5F /* TutorialOnboardingIntroPageViewController.swift in Sources */,
 				047F9EE126E496C500DD34F5 /* EditingState.swift in Sources */,
 				04D36ADA237826D40052A933 /* Fonts.swift in Sources */,
+				042BB7FE280A989F00100E82 /* PurchaseMarketingCloseButton.swift in Sources */,
+				047BF606280A6C0C00BC672F /* PurchaseMarketingTopBarHeadline.swift in Sources */,
 				04791E7123EEC0B200403BD8 /* ExportSettingsNavigationController.swift in Sources */,
 				04BD92612380081900C8FD09 /* SidebarActionButton.swift in Sources */,
 				049B1A9C27113D7A00E38F5C /* FilmStripMoveEvent.swift in Sources */,
@@ -1903,15 +1993,18 @@
 				047F9EEF26E4D04E00DD34F5 /* CompactEditingViewButtonBar.swift in Sources */,
 				040D355A2705616900F409A8 /* ApplicationEditingStateManager.swift in Sources */,
 				04D36AD82378205F0052A933 /* Color.swift in Sources */,
+				042BB800280A992D00100E82 /* BackportTaskViewModifier.swift in Sources */,
 				0445AA632373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift in Sources */,
 				04B52D05237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift in Sources */,
 				04516F772418E0FC0096F852 /* TutorialIntroDismissButton.swift in Sources */,
 				04ACCD2C23B2345A006FBABC /* UITraitCollectionExtensions.swift in Sources */,
 				04ACCD2023B21985006FBABC /* FilmStripCollectionView.swift in Sources */,
+				042BB7F6280A96A600100E82 /* SupportPurchaseMarketingItem.swift in Sources */,
 				0445AA5F2373C7A000EB2A7B /* GalleryViewDataSource.swift in Sources */,
 				04F2C0C828051AD400023244 /* EditingZoomContentView.swift in Sources */,
 				045B2FDE27E59161007779DF /* BackgroundButton.swift in Sources */,
 				04993EFF273A257100F7BBF2 /* CanvasBackgroundColorPublisher.swift in Sources */,
+				047BF60A280A6E1E00BC672F /* FillViewModifier.swift in Sources */,
 				04EC179523D991C500A42E08 /* FilmStripCollectionLayoutSize.swift in Sources */,
 				040849362618045200D2AA15 /* ExportEditingPickerStackView.swift in Sources */,
 				0469375E2427675B005894F7 /* ToolsButton.swift in Sources */,
@@ -1933,6 +2026,8 @@
 				0451660323B2467A00D7B535 /* FilmStripNewPageImageView.swift in Sources */,
 				049B1AA02715382E00E38F5C /* SidebarActionContextMenuInteraction.swift in Sources */,
 				0417F0A122E4A3AC0063AD66 /* GalleryViewController.swift in Sources */,
+				042BB7F8280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift in Sources */,
+				047BF5FD280A6B5700BC672F /* PurchaseMarketingHeader.swift in Sources */,
 				045B2FF027EC0D5B007779DF /* StubPurchaser.swift in Sources */,
 				045B300227EC175F007779DF /* SettingsDoneButton.swift in Sources */,
 				04389E33262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift in Sources */,
@@ -1940,6 +2035,7 @@
 				044484D223A884A200CD0C3C /* GalleryCollectionView.swift in Sources */,
 				049A0451240BBDFC00F5FC17 /* FrameAnimation.swift in Sources */,
 				047F9EF826E4EC9F00DD34F5 /* EditingStateModes.swift in Sources */,
+				047BF5FF280A6B7300BC672F /* PurchaseMarketingText.swift in Sources */,
 				046C408124986D3E0069E8FB /* FilmStripForegroundView.swift in Sources */,
 				04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */,
 				04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */,

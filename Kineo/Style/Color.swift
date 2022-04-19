@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 11/10/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import SwiftUI
 import UIKit
 
 extension UIColor {
@@ -80,4 +81,17 @@ extension UIColor {
     static let controlTint = UIColor.named("Web Control Tint")
 
     static let darkSystemBackgroundSecondary = UIColor.secondarySystemBackground.resolvedColor(with: UITraitCollection(userInterfaceStyle: .dark))
+}
+
+extension Color {
+    // Purchase Marketing
+    static let purchaseMarketingTopBarBackground = Color("Purchase Marketing Top Bar Background")
+    static let purchaseMarketingTopBarHeadline = Color("Purchase Marketing Top Bar Headline")
+    static let purchaseMarketingTopBarSubheadline = Color("Purchase Marketing Top Bar Subheadline")
+    static let purchaseMarketingCellBackground = Color("Purchase Marketing Cell Background")
+    static let purchaseMarketingCellText = Color("Purchase Marketing Cell Text")
+    static let purchaseMarketingButtonShadowLight = Color("Purchase Marketing Button Shadow Light")
+    static let purchaseMarketingButtonShadowDark = Color("Purchase Marketing Button Shadow Dark")
+    static let purchaseMarketingButtonPressedGradientLight = Color("Purchase Marketing Button Pressed Gradient Light")
+    static let purchaseMarketingButtonPressedGradientDark = Color("Purchase Marketing Button Pressed Gradient Dark")
 }

@@ -4,10 +4,20 @@
 import SwiftUI
 
 struct SettingsView: View {
+    private var purchaser: Purchaser
+
+    init() {
+        if #available(iOS 15, *) {
+            self.purchaser = RealPurchaser()
+        } else {
+            self.purchaser = StubPurchaser()
+        }
+    }
+
     var body: some View {
         SettingsNavigationView {
             SettingsList {
-                SettingsContentGenerator().content
+                SettingsContent(purchaser: purchaser)
             }.navigationBarTitle("SettingsViewController.navigationTitle", displayMode: .inline)
         }
     }

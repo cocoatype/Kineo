@@ -42,20 +42,6 @@ struct WebURLButton: View {
     private let url: URL
 }
 
-struct WebURLSubtitleText: View {
-    private let key: LocalizedStringKey
-    init(_ key: LocalizedStringKey) {
-        self.key = key
-    }
-
-    var body: some View {
-        Text(key)
-            .font(.appFont(for: .caption))
-            .foregroundColor(.primary)
-    }
-}
-
-
 struct WebURLButtonPreviews: PreviewProvider {
     static var previews: some View {
         Group {
