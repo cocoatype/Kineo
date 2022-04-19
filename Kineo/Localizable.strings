@@ -99,6 +99,8 @@
 
 "PurchaseMarketingTopBarSubheadlineLabel.text" = "Unlock these powerful\nnew abilities for Kineo.";
 
+"PurchaseRestoreButton.title" = "Restore";
+
 "RedoButton.accessibilityLabel" = "Redo";
 
 "ReleaseNotesItem.subtitleFormat" = "Version %@";
