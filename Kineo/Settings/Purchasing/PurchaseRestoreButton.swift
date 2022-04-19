@@ -9,3 +9,12 @@ struct PurchaseRestoreButton: View {
         Button("Restore") {}.purchaseMarketingStyle()
     }
 }
+
+@available(iOS 15, *)
+struct PurchaseRestoreButtonPreviews: PreviewProvider {
+    static var previews: some View {
+        VStack(spacing: 20) {
+            PurchaseRestoreButton()
+        }.fill().background(Color.purchaseMarketingTopBarBackground)
+    }
+}

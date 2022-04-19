@@ -34,6 +34,7 @@
 		042BB7FC280A96C300100E82 /* BackgroundsPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7FB280A96C300100E82 /* BackgroundsPurchaseMarketingItem.swift */; };
 		042BB7FE280A989F00100E82 /* PurchaseMarketingCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7FD280A989F00100E82 /* PurchaseMarketingCloseButton.swift */; };
 		042BB800280A992D00100E82 /* BackportTaskViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7FF280A992D00100E82 /* BackportTaskViewModifier.swift */; };
+		042E6E86280E521400EC5255 /* PurchaseMarketingTopBarButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6E85280E521400EC5255 /* PurchaseMarketingTopBarButtonStyle.swift */; };
 		04318A3122E18C72003D70C8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3022E18C72003D70C8 /* Icons.swift */; };
 		04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3422E2EC3C003D70C8 /* PlaybackView.swift */; };
 		04318A3722E2FCC3003D70C8 /* VideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */; };
@@ -495,6 +496,7 @@
 		042BB7FB280A96C300100E82 /* BackgroundsPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundsPurchaseMarketingItem.swift; sourceTree = "<group>"; };
 		042BB7FD280A989F00100E82 /* PurchaseMarketingCloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingCloseButton.swift; sourceTree = "<group>"; };
 		042BB7FF280A992D00100E82 /* BackportTaskViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackportTaskViewModifier.swift; sourceTree = "<group>"; };
+		042E6E85280E521400EC5255 /* PurchaseMarketingTopBarButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingTopBarButtonStyle.swift; sourceTree = "<group>"; };
 		04318A3022E18C72003D70C8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		04318A3222E19AB5003D70C8 /* SkinGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinGenerator.swift; sourceTree = "<group>"; };
 		04318A3422E2EC3C003D70C8 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
@@ -1058,6 +1060,7 @@
 				047BF605280A6C0C00BC672F /* PurchaseMarketingTopBarHeadline.swift */,
 				047BF607280A6C3500BC672F /* PurchaseMarketingTopBarSubheadline.swift */,
 				04C2684E280A8030009965BD /* PurchaseMarketingTopBarButtonViewModifier.swift */,
+				042E6E85280E521400EC5255 /* PurchaseMarketingTopBarButtonStyle.swift */,
 			);
 			path = "Top Bar";
 			sourceTree = "<group>";
@@ -1876,6 +1879,7 @@
 				0445AA652373CB9400EB2A7B /* GallerySelectionEvent.swift in Sources */,
 				047F9EDF26E4956D00DD34F5 /* PlayKeyCommand.swift in Sources */,
 				045B301127EC1D14007779DF /* ContinuousCornerRadiusViewModifier.swift in Sources */,
+				042E6E86280E521400EC5255 /* PurchaseMarketingTopBarButtonStyle.swift in Sources */,
 				04F2C0C227FFF29500023244 /* ExportSettingsHeaderFooterView.swift in Sources */,
 				04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */,
 				040D355C2705649500F409A8 /* RegularEditingView.swift in Sources */,

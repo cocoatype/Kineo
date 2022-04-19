@@ -18,10 +18,3 @@ struct PurchaseMarketingTopBarButtonViewModifier: ViewModifier {
             })
     }
 }
-
-@available(iOS 15, *)
-extension View {
-    public func purchaseMarketingStyle() -> some View {
-        return self.modifier(PurchaseMarketingTopBarButtonViewModifier())
-    }
-}
