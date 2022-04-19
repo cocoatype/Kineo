@@ -15,7 +15,7 @@ struct 🐎IconToggleSwitch: View {
     var body: some View {
         Button(action: { 🐶🐮.toggle() }) {
             HStack {
-                Toggle("Use Legacy App Icon", isOn: $🐶🐮)
+                Toggle("🐎IconToggleSwitch.title", isOn: $🐶🐮)
                     .toggleStyle(SwitchToggleStyle(tint: Color(.tutorialIntroAccent)))
             }
         }.onChange(of: 🐶🐮) { newValue in

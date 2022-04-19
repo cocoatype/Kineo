@@ -105,6 +105,14 @@ public enum Defaults {
         }
     }
 
+    public static var exportHideWatermark: Bool {
+        get {
+            userDefaults.bool(forKey: Self.exportHideWatermarkKey)
+        } set (newValue) {
+            userDefaults.set(newValue, forKey: Self.exportHideWatermarkKey)
+        }
+    }
+
     // MARK: Cloud
 
     static private(set) var updatedDocumentIdentifiers: [UUID] {
@@ -156,6 +164,12 @@ public enum Defaults {
         numberOfSaves += 1
     }
 
+    // MARK: Purchasing
+
+    public static func enablePurchasedSettings() {
+        exportHideWatermark = true
+    }
+
     // MARK: Keys and Values
 
     private static let exportPlaybackStyleKey = "Defaults.exportPlaybackStyle"
@@ -175,6 +189,7 @@ public enum Defaults {
     private static let exportBackgroundUnspecified = "Defaults.exportBackgroundUnspecified"
     private static let exportBackgroundLight = "Defaults.exportBackgroundLight"
     private static let exportBackgroundDark = "Defaults.exportBackgroundDark"
+    private static let exportHideWatermarkKey = "Defaults.exportHideWatermarkKey"
     private static let serverChangeTokenDataKey = "Defaults.serverChangeTokenDataKey"
     private static let updatedDocumentIdentifiersKey = "Defaults.updatedDocumentIdentifiersKey"
     private static let seenTutorialKey = "Defaults.seenTutorialKey"

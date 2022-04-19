@@ -3,6 +3,7 @@
 
 import Combine
 import StoreKit
+import Data
 
 @available(iOS 15, *)
 final class RealPurchaser: Purchaser {
@@ -28,6 +29,7 @@ final class RealPurchaser: Purchaser {
                             if case .success(let verificationResult) = purchaseResult, case .verified(let transaction) = verificationResult {
                                 await transaction.finish()
                                 continuation.yield(.purchased)
+                                Defaults.enablePurchasedSettings()
                             }
                         }))
                     }

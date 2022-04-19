@@ -70,6 +70,10 @@
 
 "HelpButton.accessibilityLabel" = "Help";
 
+"HideWatermarkToggleSwitch.title" = "Hide Watermark";
+
+"🐎IconToggleSwitch.title" = "Use Legacy App Icon";
+
 "MenuButton.accessibilityLabel" = "Menu";
 "MenuButton.backgroundItemTitle" = "Background Color";
 "MenuButton.exportItemTitle" = "Share";
