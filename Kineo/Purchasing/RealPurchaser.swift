@@ -25,7 +25,8 @@ final class RealPurchaser: Purchaser {
                         continuation.yield(.ready(product.displayPrice, purchase: {
                             continuation.yield(.purchasing)
                             let purchaseResult = try await product.purchase()
-                            if case .success(_) = purchaseResult {
+                            if case .success(let verificationResult) = purchaseResult, case .verified(let transaction) = verificationResult {
+                                await transaction.finish()
                                 continuation.yield(.purchased)
                             }
                         }))
