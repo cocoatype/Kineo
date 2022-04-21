@@ -137,7 +137,7 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
             drawingView.zoomScale = scale
         } else {
             unzoom()
-            // display alert
+            UIApplication.shared.sendAction(#selector(EditingViewController.displayZoomPurchaseAlert(_:)), to: nil, from: self, for: nil)
         }
     }
 

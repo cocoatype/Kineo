@@ -171,3 +171,9 @@ You can choose between looping and bouncing your animation with $arrow.2.circlep
 "UseLegacyIconItem.title" = "Use Legacy App Icon";
 
 "VideoProvider.metadataTitle" = "Animation";
+
+"ZoomNotPurchasedAlertController.title" = "Requires Kineo Pro";
+"ZoomNotPurchasedAlertController.message" = "Zooming requires Kineo Pro, a one-time purchase.";
+"ZoomNotPurchasedAlertController.learnMoreButton" = "Learn More…";
+"ZoomNotPurchasedAlertController.hideButton" = "Never Show This";
+"ZoomNotPurchasedAlertController.dismissButton" = "Okay";
