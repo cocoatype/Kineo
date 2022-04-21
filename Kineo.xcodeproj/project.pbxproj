@@ -44,6 +44,9 @@
 		042E6E93280F623800EC5255 /* SidebarActionButtonBackgroundLightShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6E8F280F616600EC5255 /* SidebarActionButtonBackgroundLightShadowLayer.swift */; };
 		042E6E94280F623800EC5255 /* SidebarActionButtonBackgroundFillLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6E91280F618600EC5255 /* SidebarActionButtonBackgroundFillLayer.swift */; };
 		042E6E95280F623800EC5255 /* SidebarActionButtonBackgroundDarkShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6E8D280F614600EC5255 /* SidebarActionButtonBackgroundDarkShadowLayer.swift */; };
+		042E6E982810F61C00EC5255 /* PurchaseMarketingButtonTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6E972810F61C00EC5255 /* PurchaseMarketingButtonTitle.swift */; };
+		042E6E992810F64700EC5255 /* PurchaseMarketingButtonTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6E972810F61C00EC5255 /* PurchaseMarketingButtonTitle.swift */; };
+		042E6E9B2810F65D00EC5255 /* PurchaseMarketingButtonSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6E9A2810F65D00EC5255 /* PurchaseMarketingButtonSubtitle.swift */; };
 		04318A3122E18C72003D70C8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3022E18C72003D70C8 /* Icons.swift */; };
 		04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3422E2EC3C003D70C8 /* PlaybackView.swift */; };
 		04318A3722E2FCC3003D70C8 /* VideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */; };
@@ -511,6 +514,8 @@
 		042E6E8D280F614600EC5255 /* SidebarActionButtonBackgroundDarkShadowLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionButtonBackgroundDarkShadowLayer.swift; sourceTree = "<group>"; };
 		042E6E8F280F616600EC5255 /* SidebarActionButtonBackgroundLightShadowLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionButtonBackgroundLightShadowLayer.swift; sourceTree = "<group>"; };
 		042E6E91280F618600EC5255 /* SidebarActionButtonBackgroundFillLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionButtonBackgroundFillLayer.swift; sourceTree = "<group>"; };
+		042E6E972810F61C00EC5255 /* PurchaseMarketingButtonTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingButtonTitle.swift; sourceTree = "<group>"; };
+		042E6E9A2810F65D00EC5255 /* PurchaseMarketingButtonSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingButtonSubtitle.swift; sourceTree = "<group>"; };
 		04318A3022E18C72003D70C8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		04318A3222E19AB5003D70C8 /* SkinGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinGenerator.swift; sourceTree = "<group>"; };
 		04318A3422E2EC3C003D70C8 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
@@ -856,6 +861,16 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
+		042E6E962810F60200EC5255 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				042E6E89280E582F00EC5255 /* PurchaseMarketingButton.swift */,
+				042E6E972810F61C00EC5255 /* PurchaseMarketingButtonTitle.swift */,
+				042E6E9A2810F65D00EC5255 /* PurchaseMarketingButtonSubtitle.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 		043D761A240A73FD00A1B7D1 /* Image Generators */ = {
 			isa = PBXGroup;
 			children = (
@@ -922,7 +937,7 @@
 				042BB7F2280A966100100E82 /* Items */,
 				047BF600280A6B9B00BC672F /* Top Bar */,
 				042BB7FF280A992D00100E82 /* BackportTaskViewModifier.swift */,
-				042E6E89280E582F00EC5255 /* PurchaseMarketingButton.swift */,
+				042E6E962810F60200EC5255 /* Button */,
 			);
 			path = Purchasing;
 			sourceTree = "<group>";
@@ -1849,6 +1864,7 @@
 				0474B02927B767D80031210C /* ExportEditingPickerControlGestureRecognizer.swift in Sources */,
 				0474AFE027B7635B0031210C /* RedoButton.swift in Sources */,
 				0474AFE127B763620031210C /* CanvasView.swift in Sources */,
+				042E6E992810F64700EC5255 /* PurchaseMarketingButtonTitle.swift in Sources */,
 				0474B01A27B7670E0031210C /* ExportSettingsContentProvider.swift in Sources */,
 				0474AFD727B762D00031210C /* DrawingViewController.swift in Sources */,
 				0474AFFD27B766000031210C /* PlayKeyCommand.swift in Sources */,
@@ -1892,6 +1908,7 @@
 				0451660123B2441000D7B535 /* FilmStripNewPageCell.swift in Sources */,
 				049B1A9E2715363300E38F5C /* MenuButton.swift in Sources */,
 				045B301E27ECF6DD007779DF /* SettingsCellViewModifier.swift in Sources */,
+				042E6E9B2810F65D00EC5255 /* PurchaseMarketingButtonSubtitle.swift in Sources */,
 				04993EFD273A207500F7BBF2 /* ColorPickerViewController.swift in Sources */,
 				042BB7FA280A96BB00100E82 /* KeyboardPurchaseMarketingItem.swift in Sources */,
 				047F9EDB26E4955F00DD34F5 /* BackKeyCommand.swift in Sources */,
@@ -1932,6 +1949,7 @@
 				04D46BDD2414E0FA00DBFB9A /* TutorialCoordinator.swift in Sources */,
 				04BD9251237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift in Sources */,
 				046C407D249863220069E8FB /* DrawingBackgroundView.swift in Sources */,
+				042E6E982810F61C00EC5255 /* PurchaseMarketingButtonTitle.swift in Sources */,
 				04EC178F23D9916C00A42E08 /* FilmStripCollectionLayoutSection.swift in Sources */,
 				04791E4623EC1F3400403BD8 /* WebViewController.swift in Sources */,
 				04B86C0A23BA111C005F65F7 /* SkinsImageView.swift in Sources */,

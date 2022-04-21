@@ -8,13 +8,6 @@ struct SettingsCellViewModifier: ViewModifier {
         AnyView(content)
             .foregroundColor(.primary)
             .listRowBackground(Color(.settingsCellBackground))
-//            .introspectTableViewCell { cell in
-//                cell.selectedBackgroundView = {
-//                    let view = UIView()
-//                    view.backgroundColor = .sidebarButtonHighlight
-//                    return view
-//                }()
-//            }
     }
 }
 
