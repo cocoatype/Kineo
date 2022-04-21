@@ -89,7 +89,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         canvasView.frame = CGRect(origin: .zero, size: canvasSize)
 
         // render the canvas view small
-        let inverseScale = 1 / canvasScale
+        let inverseScale = 1 / zoomScale
         let scaleTransform = CATransform3DMakeScale(inverseScale, inverseScale, inverseScale)
         canvasView.layer.transform = scaleTransform
         canvasView.layer.position = bounds.center
