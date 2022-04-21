@@ -133,17 +133,38 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) { updateButtonHidingState() }
 
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        if AppPurchaseStateObserver.shared.isPurchased {
-            drawingView.zoomScale = scale
-        } else {
-            unzoom()
-            UIApplication.shared.sendAction(#selector(EditingViewController.displayZoomPurchaseAlert(_:)), to: nil, from: self, for: nil)
+        drawingView.zoomScale = scale
+
+        if (abs(scale - 1.0) < 0.001) {
+            unzoomContinuation?.resume()
+        }
+
+        if AppPurchaseStateObserver.shared.isPurchased == false {
+            Task {
+                await unzoom()
+                UIApplication.shared.sendAction(#selector(EditingViewController.displayZoomPurchaseAlert(_:)), to: nil, from: self, for: nil)
+            }
         }
     }
 
-    func unzoom() {
-        zoomView.setZoomScale(1.0, animated: true)
+    var unzoomContinuation: CheckedContinuation<Void, Never>?
+    func unzoom() async {
+        guard abs(zoomView.zoomScale - 1.0) > 0.001 else { return }
+
+        return await withCheckedContinuation { [weak self] continuation in
+            self?.unzoomContinuation = continuation
+            zoomView.setZoomScale(1.0, animated: true)
+        }
     }
+
+#if !CLIP
+    @objc func showGallery() {
+        Task {
+            await unzoom()
+            chain(selector: #selector(SceneViewController.showGallery), object: nil, ignoreSelf: true)
+        }
+    }
+#endif
 
     // MARK: Boilerplate
 
