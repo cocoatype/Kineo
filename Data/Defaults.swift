@@ -170,6 +170,13 @@ public enum Defaults {
         exportHideWatermark = true
     }
 
+    public static var hideZoomPurchaseAlert: Bool {
+        get { return userDefaults.bool(forKey: Self.hideZoomPurchaseAlertKey) }
+        set(newHideZoomPurchaseAlert) {
+            userDefaults.set(newHideZoomPurchaseAlert, forKey: Self.hideZoomPurchaseAlertKey)
+        }
+    }
+
     // MARK: Keys and Values
 
     private static let exportPlaybackStyleKey = "Defaults.exportPlaybackStyle"
@@ -194,4 +201,5 @@ public enum Defaults {
     private static let updatedDocumentIdentifiersKey = "Defaults.updatedDocumentIdentifiersKey"
     private static let seenTutorialKey = "Defaults.seenTutorialKey"
     private static let numberOfSavesKey = "Defaults.numberOfSavesKey"
+    private static let hideZoomPurchaseAlertKey = "Defaults.hideZoomPurchaseAlertKey"
 }

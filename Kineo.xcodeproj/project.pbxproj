@@ -54,6 +54,9 @@
 		042E6EA02811057F00EC5255 /* PurchaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B2FED27EC0D3A007779DF /* PurchaseError.swift */; };
 		042E6EA22811064A00EC5255 /* AppPurchaseStateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6EA12811064A00EC5255 /* AppPurchaseStateObserver.swift */; };
 		042E6EA32811082800EC5255 /* AppPurchaseStateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6EA12811064A00EC5255 /* AppPurchaseStateObserver.swift */; };
+		042E6EA728110F2600EC5255 /* ZoomNotPurchasedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6EA628110F2600EC5255 /* ZoomNotPurchasedAlertController.swift */; };
+		042E6EA82811110C00EC5255 /* ZoomNotPurchasedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6EA628110F2600EC5255 /* ZoomNotPurchasedAlertController.swift */; };
+		042E6EAA281111D700EC5255 /* PurchaseMarketingHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6EA9281111D700EC5255 /* PurchaseMarketingHostingController.swift */; };
 		04318A3122E18C72003D70C8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3022E18C72003D70C8 /* Icons.swift */; };
 		04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3422E2EC3C003D70C8 /* PlaybackView.swift */; };
 		04318A3722E2FCC3003D70C8 /* VideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */; };
@@ -524,6 +527,8 @@
 		042E6E972810F61C00EC5255 /* PurchaseMarketingButtonTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingButtonTitle.swift; sourceTree = "<group>"; };
 		042E6E9A2810F65D00EC5255 /* PurchaseMarketingButtonSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingButtonSubtitle.swift; sourceTree = "<group>"; };
 		042E6EA12811064A00EC5255 /* AppPurchaseStateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPurchaseStateObserver.swift; sourceTree = "<group>"; };
+		042E6EA628110F2600EC5255 /* ZoomNotPurchasedAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomNotPurchasedAlertController.swift; sourceTree = "<group>"; };
+		042E6EA9281111D700EC5255 /* PurchaseMarketingHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingHostingController.swift; sourceTree = "<group>"; };
 		04318A3022E18C72003D70C8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		04318A3222E19AB5003D70C8 /* SkinGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinGenerator.swift; sourceTree = "<group>"; };
 		04318A3422E2EC3C003D70C8 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
@@ -827,6 +832,7 @@
 				040D355B2705649500F409A8 /* RegularEditingView.swift */,
 				04F2C0C728051AD400023244 /* EditingZoomContentView.swift */,
 				04F2C0C4280124A200023244 /* EditingZoomScrollView.swift */,
+				042E6EA628110F2600EC5255 /* ZoomNotPurchasedAlertController.swift */,
 			);
 			path = "Regular View";
 			sourceTree = "<group>";
@@ -947,6 +953,7 @@
 				047BF600280A6B9B00BC672F /* Top Bar */,
 				042BB7FF280A992D00100E82 /* BackportTaskViewModifier.swift */,
 				042E6E962810F60200EC5255 /* Button */,
+				042E6EA9281111D700EC5255 /* PurchaseMarketingHostingController.swift */,
 			);
 			path = Purchasing;
 			sourceTree = "<group>";
@@ -1839,6 +1846,7 @@
 				0474AFAF27B75F030031210C /* SceneViewController.swift in Sources */,
 				0474AFD827B762DA0031210C /* SkinsImageView.swift in Sources */,
 				042E6EA32811082800EC5255 /* AppPurchaseStateObserver.swift in Sources */,
+				042E6EA82811110C00EC5255 /* ZoomNotPurchasedAlertController.swift in Sources */,
 				0474AFFF27B766190031210C /* FilmStripExistingPageImageView.swift in Sources */,
 				0474B00227B766350031210C /* ExportEditingNavigationController.swift in Sources */,
 				0474AFCC27B762080031210C /* EditingState.swift in Sources */,
@@ -1959,6 +1967,7 @@
 				046B034325EBB893005AB424 /* FilmStripPageDragItem.swift in Sources */,
 				047F9EE726E4B8B300DD34F5 /* EditingStatePageManipulation.swift in Sources */,
 				045B301C27ECF675007779DF /* SettingsListStyleModifier.swift in Sources */,
+				042E6EAA281111D700EC5255 /* PurchaseMarketingHostingController.swift in Sources */,
 				04E3B63E25FC675B00D2A945 /* ExportEditingNavigationController.swift in Sources */,
 				046C407B2498630A0069E8FB /* DrawingView.swift in Sources */,
 				04D46BDD2414E0FA00DBFB9A /* TutorialCoordinator.swift in Sources */,
@@ -2045,6 +2054,7 @@
 				04084945261804CF00D2AA15 /* ExportEditingPreviewView.swift in Sources */,
 				047F9EEF26E4D04E00DD34F5 /* CompactEditingViewButtonBar.swift in Sources */,
 				040D355A2705616900F409A8 /* ApplicationEditingStateManager.swift in Sources */,
+				042E6EA728110F2600EC5255 /* ZoomNotPurchasedAlertController.swift in Sources */,
 				04D36AD82378205F0052A933 /* Color.swift in Sources */,
 				042BB800280A992D00100E82 /* BackportTaskViewModifier.swift in Sources */,
 				042E6E8C280E6F8C00EC5255 /* HideWatermarkToggleSwitch.swift in Sources */,
