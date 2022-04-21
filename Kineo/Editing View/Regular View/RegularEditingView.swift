@@ -126,15 +126,23 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
         }
     }
 
-    // MARK: Scroll View Delegate
+    // MARK: Scroll View
 
-    // see also https://stackoverflow.com/a/19597755 for zooming from center
     func viewForZooming(in scrollView: UIScrollView) -> UIView? { zoomContentView }
     func scrollViewDidZoom(_ scrollView: UIScrollView) { updateButtonHidingState() }
     func scrollViewDidScroll(_ scrollView: UIScrollView) { updateButtonHidingState() }
 
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        drawingView.zoomScale = scale
+        if AppPurchaseStateObserver.shared.isPurchased {
+            drawingView.zoomScale = scale
+        } else {
+            unzoom()
+            // display alert
+        }
+    }
+
+    func unzoom() {
+        zoomView.setZoomScale(1.0, animated: true)
     }
 
     // MARK: Boilerplate

@@ -8,6 +8,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         Defaults.initialize()
+        AppPurchaseStateObserver.shared.startObserving()
         return true
     }
 
