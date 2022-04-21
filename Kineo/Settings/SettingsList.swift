@@ -17,6 +17,7 @@ struct SettingsList<Content>: View where Content: View {
             .navigationBarItems(trailing: SettingsDoneButton())
             .introspectTableView {
                 $0.backgroundColor = .appBackground
+                $0.tableHeaderView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: Double.leastNonzeroMagnitude)))
             }
     }
 }

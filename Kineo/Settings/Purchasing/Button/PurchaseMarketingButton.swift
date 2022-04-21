@@ -16,16 +16,14 @@ struct PurchaseMarketingButton: View {
             selected = true
         }) {
             VStack(alignment: .leading) {
-                WebURLTitleText("PurchaseMarketingButton.title")
-                if case let PurchaseState.ready(price, _) = purchaseState {
-                    WebURLSubtitleText("PurchaseMarketingButton.subtitle\(price)")
-                } else {
-                    WebURLSubtitleText("PurchaseMarketingButton.subtitle")
-                }
+                PurchaseMarketingButtonTitle()
+                PurchaseMarketingButtonSubtitle(purchaseState: $purchaseState)
             }
         }.sheet(isPresented: $selected) {
             PurchaseMarketingView(purchaseState: $purchaseState)
-        }.settingsCell()
+        }
+        .listRowBackground(Color.purchaseMarketingTopBarBackground)
+        .padding(.vertical, 8)
     }
 }
 
@@ -34,6 +32,7 @@ struct PurchaseMarketingButtonPreviews: PreviewProvider {
     static var previews: some View {
         Group {
             PurchaseMarketingButton(purchaseState: .constant(.loading))
+            PurchaseMarketingButton(purchaseState: .constant(.ready("$4.99", purchase: {})))
         }.preferredColorScheme(.dark).previewLayout(.sizeThatFits)
     }
 }
