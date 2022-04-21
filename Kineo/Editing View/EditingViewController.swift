@@ -3,6 +3,7 @@
 
 import Combine
 import Data
+import StoreKit
 import UIKit
 
 class EditingViewController: UIViewController {
@@ -105,6 +106,24 @@ class EditingViewController: UIViewController {
             colorPicker.popoverPresentationController?.sourceRect = backgroundButton.bounds
         }
         present(colorPicker, animated: true)
+    }
+
+    // MARK: Purchase Alerts
+
+    @objc func displayZoomPurchaseAlert(_ sender: Any) {
+        guard Defaults.hideZoomPurchaseAlert == false, #available(iOS 15, *) else { return }
+        #if CLIP
+        if let scene = view?.window?.windowScene {
+            let config = SKOverlay.AppClipConfiguration(position: .bottom)
+            let overlay = SKOverlay(configuration: config)
+            overlay.present(in: scene)
+        }
+        #else
+        let zoomPurchaseAlert = ZoomNotPurchasedAlertController { [weak self] in
+            self?.present(PurchaseMarketingHostingController(), animated: true)
+        }
+        present(zoomPurchaseAlert, animated: true)
+        #endif
     }
 
     // MARK: Editing View
