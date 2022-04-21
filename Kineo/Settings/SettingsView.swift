@@ -28,6 +28,6 @@ struct SettingsPreviews: PreviewProvider {
         Group {
             SettingsView()
             SettingsView().preferredColorScheme(.dark)
-        }
+        }.previewDevice(.chonkyiPad)
     }
 }

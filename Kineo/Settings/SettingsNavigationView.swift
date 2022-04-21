@@ -14,12 +14,14 @@ struct SettingsNavigationView<Content: View>: View {
             navigationController.navigationBar.standardAppearance = ExportSettingsNavigationBarAppearance()
             navigationController.navigationBar.scrollEdgeAppearance = ExportSettingsNavigationBarAppearance()
             navigationController.navigationBar.prefersLargeTitles = false
-        }
+        }.navigationViewStyle(.stack)
     }
 }
 
 struct SettingsNavigationViewPreviews: PreviewProvider {
     static var previews: some View {
-        SettingsNavigationView() {}.preferredColorScheme(.dark)
+        SettingsNavigationView() {}
+            .preferredColorScheme(.dark)
+            .previewDevice(.chonkyiPad)
     }
 }
