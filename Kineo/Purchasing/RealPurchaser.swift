@@ -29,7 +29,7 @@ final class RealPurchaser: Purchaser {
                             if case .success(let verificationResult) = purchaseResult, case .verified(let transaction) = verificationResult {
                                 await transaction.finish()
                                 continuation.yield(.purchased)
-                                Defaults.enablePurchasedSettings()
+                                AppPurchaseStateObserver.shared.userCompletedPurchase()
                             }
                         }))
                     }

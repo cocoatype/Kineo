@@ -144,6 +144,7 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
 
         if (abs(scale - 1.0) < 0.001) {
             unzoomContinuation?.resume()
+            unzoomContinuation = nil
         }
 
         if AppPurchaseStateObserver.shared.isPurchased == false {

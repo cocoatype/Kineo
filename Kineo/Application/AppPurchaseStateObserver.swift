@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 4/20/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+import Data
 import Foundation
 
 final class AppPurchaseStateObserver {
@@ -22,7 +23,12 @@ final class AppPurchaseStateObserver {
         }
     }
 
-    var latestState: PurchaseState = .loading
+    func userCompletedPurchase() {
+        latestState = .purchased
+        Defaults.enablePurchasedSettings()
+    }
+
+    private(set) var latestState: PurchaseState = .loading
     var isPurchased: Bool {
         switch latestState {
         case .loading, .ready, .purchasing, .notAvailable: return false
