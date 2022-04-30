@@ -87,6 +87,7 @@ extension UIColor {
 
 extension Color {
     // Purchase Marketing
+    static let purchaseMarketingBackground = Color("Purchase Marketing Background")
     static let purchaseMarketingTopBarBackground = Color("Purchase Marketing Top Bar Background")
     static let purchaseMarketingTopBarHeadline = Color("Purchase Marketing Top Bar Headline")
     static let purchaseMarketingTopBarSubheadline = Color("Purchase Marketing Top Bar Subheadline")
