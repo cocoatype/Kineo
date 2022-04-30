@@ -92,7 +92,7 @@ class VideoProvider: UIActivityItemProvider {
                 let cgContext = context.cgContext
 
                 let canvasRect = CGRect(origin: canvasPoint, size: Self.standardCanvasRect.size)
-                let canvasPath = UIBezierPath(roundedRect: canvasRect, cornerRadius: 8).cgPath
+                let canvasPath = UIBezierPath(roundedRect: canvasRect, cornerRadius: Constants.canvasCornerRadius).cgPath
 
                 cgContext.setFillColor(document.canvasBackgroundColor.cgColor)
                 cgContext.addPath(canvasPath)
