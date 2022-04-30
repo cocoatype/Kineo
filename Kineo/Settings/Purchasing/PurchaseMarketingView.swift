@@ -25,7 +25,7 @@ struct PurchaseMarketingView: View {
                 }
             }
             .fill()
-            .background(Color(.appBackground).ignoresSafeArea())
+            .background(Color.purchaseMarketingBackground.ignoresSafeArea())
             .navigationBarHidden(true)
         }
     }

@@ -8,7 +8,7 @@ struct WatermarkPurchaseMarketingItem: View {
         PurchaseMarketingItem(
             header: Self.header,
             text: Self.text,
-            imageName: "RemoveWatermark")
+            imageName: "WatermarkRemove")
     }
 
     private static let header = LocalizedStringKey("PurchaseMarketingItem.watermark.header")

@@ -94,8 +94,8 @@
 
 "PurchaseMarketingItem.support.header" = "Support the software arts.";
 "PurchaseMarketingItem.support.text" = "Your support helps keep updates to Kineo coming.";
-"PurchaseMarketingItem.watermark.header" = "PurchaseMarketingItem.watermark.header";
-"PurchaseMarketingItem.watermark.text" = "PurchaseMarketingItem.watermark.text";
+"PurchaseMarketingItem.watermark.header" = "Ad? Subtracted.";
+"PurchaseMarketingItem.watermark.text" = "Remove the Kineo ad from the bottom of shared videos.";
 "PurchaseMarketingItem.zoom.header" = "Embiggen your view.";
 "PurchaseMarketingItem.zoom.text" = "Zoom the canvas to work on the finest details.";
 
