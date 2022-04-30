@@ -25,6 +25,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         addSubview(canvasView)
 
         addSubview(skinsImageView)
+        addSubview(canvasSnapshotView)
 
         NSLayoutConstraint.activate([
             backgroundView.widthAnchor.constraint(equalTo: widthAnchor),
@@ -34,7 +35,11 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
             skinsImageView.widthAnchor.constraint(equalTo: widthAnchor),
             skinsImageView.heightAnchor.constraint(equalTo: heightAnchor),
             skinsImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            skinsImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            skinsImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            canvasSnapshotView.widthAnchor.constraint(equalTo: widthAnchor),
+            canvasSnapshotView.heightAnchor.constraint(equalTo: heightAnchor),
+            canvasSnapshotView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            canvasSnapshotView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
 
         addGestureRecognizer(DrawingViewScrollRecognizer())
@@ -78,6 +83,10 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
 
     var canvasScale: CGFloat {
         (bounds.width / Constants.canvasSize.width) * zoomScale
+    }
+
+    func startZooming() {
+        canvasSnapshotView.setSnapshot(from: page.drawing)
     }
 
     private func updateCanvas() {
@@ -146,10 +155,17 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         toolWasUsed = true
     }
 
+    func canvasViewDidFinishRendering(_ canvasView: PKCanvasView) {
+        DispatchQueue.main.async {
+            self.canvasSnapshotView.clearSnapshot()
+        }
+    }
+
     // MARK: Boilerplate
 
     private let backgroundView = DrawingBackgroundView()
     private let canvasView = CanvasView()
+    private let canvasSnapshotView = CanvasSnapshotView()
     private var cancellables = Set<AnyCancellable>()
     private var redoObserver: Any?
     private var undoObserver: Any?

@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 6/15/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import Data
 import UIKit
 
 class DrawingBackgroundView: UIView {
@@ -53,7 +54,7 @@ class DrawingBackgroundView: UIView {
 
     // MARK: Boilerplate
 
-    private static let cornerRadius = CGFloat(8)
+    private static let cornerRadius = Constants.canvasCornerRadius
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
