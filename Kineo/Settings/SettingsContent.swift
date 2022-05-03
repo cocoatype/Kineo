@@ -28,7 +28,7 @@ struct SettingsContent: View {
                 WebURLButton("SettingsContentProvider.Item.new", "SettingsContentGenerator.versionStringFormat\(versionString)", path: "releases")
                 WebURLButton("SettingsContentProvider.Item.privacy", path: "privacy")
                 WebURLButton("SettingsContentProvider.Item.acknowledgements", path: "acknowledgements")
-                WebURLButton("SettingsContentProvider.Item.contact", path: "contact")
+                WebURLButton("SettingsContentProvider.Item.contact", path: "support")
             }
 
             Section {
