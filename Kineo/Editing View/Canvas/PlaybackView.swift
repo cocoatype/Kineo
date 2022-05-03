@@ -126,6 +126,13 @@ class PlaybackView: UIView {
         }
     }
 
+    var canvasCornerRadius: CGFloat {
+        get { canvasView.layer.cornerRadius }
+        set(newRadius) {
+            canvasView.layer.cornerRadius = newRadius
+        }
+    }
+
     private var currentPage: Page {
         return playbackDocument.pages[currentIndex]
     }
