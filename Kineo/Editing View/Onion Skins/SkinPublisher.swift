@@ -6,14 +6,14 @@ import Data
 import UIKit
 
 struct SkinPublisher<PublisherUpstream: Publisher>: Publisher where PublisherUpstream.Output == EditingState, PublisherUpstream.Failure == Never {
-    typealias Output = UIImage
+    typealias Output = UIImage?
     typealias Failure = Never
 
     init(upstream: PublisherUpstream) {
         self.upstream = upstream
     }
 
-    func receive<S>(subscriber: S) where S : Subscriber, Never == S.Failure, UIImage == S.Input {
+    func receive<S>(subscriber: S) where S : Subscriber, Never == S.Failure, UIImage? == S.Input {
         let skinSubscriber = SkinSubscriber(upstream: upstream, downstream: subscriber)
         upstream.subscribe(skinSubscriber)
     }
@@ -21,7 +21,7 @@ struct SkinPublisher<PublisherUpstream: Publisher>: Publisher where PublisherUps
     private let upstream: PublisherUpstream
 }
 
-private struct SkinSubscriber<Upstream: Publisher, Downstream: Subscriber>: Subscriber where Upstream.Failure == Downstream.Failure, Upstream.Output == EditingState, Downstream.Input == UIImage, Upstream.Failure == Never {
+private struct SkinSubscriber<Upstream: Publisher, Downstream: Subscriber>: Subscriber where Upstream.Failure == Downstream.Failure, Upstream.Output == EditingState, Downstream.Input == UIImage?, Upstream.Failure == Never {
     typealias Input = Upstream.Output
     typealias Failure = Never
 
@@ -31,6 +31,8 @@ private struct SkinSubscriber<Upstream: Publisher, Downstream: Subscriber>: Subs
     }
 
     func receive(_ input: Upstream.Output) -> Subscribers.Demand {
+        guard input.mode != .scrolling else { _ = downstream.receive(nil); return .unlimited }
+
         skinGenerator.generateSkinsImage(from: input.document, currentPageIndex: input.currentPageIndex) { image, _ in
             _ = downstream.receive(image)
         }

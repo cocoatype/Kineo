@@ -177,9 +177,12 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         }
     }
 
-    private var skinsImage: UIImage {
-        get { return skinsImageView.image ?? UIImage.emptyImage(withSize: Constants.canvasSize) }
-        set(newImage) { skinsImageView.image = newImage }
+    private var skinsImage: UIImage? {
+        get { return skinsImageView.image }
+        set(newImage) {
+            guard let newImage = newImage else { return }
+            skinsImageView.image = newImage
+        }
     }
 
     override var canBecomeFirstResponder: Bool { return true }
