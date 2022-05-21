@@ -1,21 +1,26 @@
 //  Created by Geoff Pado on 7/14/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
-import Foundation
+import UIKit
 
 public struct Document: Codable, Equatable {
-    public init(pages: [Page], backgroundColorHex: String?) {
-        self.init(pages: pages, uuid: UUID(), backgroundColorHex: backgroundColorHex)
+    public init(pages: [Page], backgroundColorHex: String?, backgroundImageData: Data?) {
+        self.init(pages: pages, uuid: UUID(), backgroundColorHex: backgroundColorHex, backgroundImageData: backgroundImageData)
     }
 
-    init(pages: [Page] = [Page()], uuid: UUID = UUID(), backgroundColorHex: String? = nil) {
+    init(pages: [Page] = [Page()], uuid: UUID = UUID(), backgroundColorHex: String? = nil, backgroundImageData: Data? = nil) {
         self.backgroundColorHex = backgroundColorHex
+        self.backgroundImageData = backgroundImageData
         self.pages = pages
         self.uuid = uuid
     }
 
     public func settingBackgroundColorHex(to newHex: String) -> Document {
-        return Document(pages: self.pages, uuid: self.uuid, backgroundColorHex: newHex)
+        return Document(pages: self.pages, uuid: self.uuid, backgroundColorHex: newHex, backgroundImageData: backgroundImageData)
+    }
+
+    public func settingBackgroundImage(from imageData: Data) -> Document {
+        return Document(pages: pages, uuid: uuid, backgroundColorHex: self.backgroundColorHex, backgroundImageData: imageData)
     }
 
     public func replacingPage(atIndex index: Int, with page: Page) -> Document {
@@ -51,6 +56,7 @@ public struct Document: Codable, Equatable {
     }
 
     public let backgroundColorHex: String?
+    public let backgroundImageData: Data?
     public let pages: [Page]
     public let uuid: UUID
 }

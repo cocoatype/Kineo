@@ -11,6 +11,8 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
     var drawingView: DrawingView { drawingViewController.drawingView }
     let drawingViewGuide = DrawingViewGuide()
 
+    var backgroundPopoverSourceView: UIView? { backgroundButton }
+
     required init(statePublisher: EditingStatePublisher, drawingViewController: DrawingViewController) {
         self.drawingViewController = drawingViewController
         self.statePublisher = statePublisher

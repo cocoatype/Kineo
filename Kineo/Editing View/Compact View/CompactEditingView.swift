@@ -11,6 +11,8 @@ class CompactEditingView: EditingView {
     var drawingView: DrawingView { drawingViewController.drawingView }
     let drawingViewGuide = DrawingViewGuide()
 
+    var backgroundPopoverSourceView: UIView? { nil }
+
     required init(statePublisher: EditingStatePublisher, drawingViewController: DrawingViewController) {
         self.drawingViewController = drawingViewController
         self.statePublisher = statePublisher

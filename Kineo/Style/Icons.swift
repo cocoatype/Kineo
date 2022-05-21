@@ -4,7 +4,7 @@
 import UIKit
 
 enum Icons {
-    static let background = standardIcon(named: "square.2.stack.3d.bottom.filled")
+    static let background = standardIcon(named: "square.2.stack.3d.bottom.fill")
     static let colorBackground = standardIcon(named: "paintpalette")
     static let imageBackground = standardIcon(named: "photo")
 
