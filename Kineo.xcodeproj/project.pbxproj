@@ -345,8 +345,6 @@
 		04C26851280A809F009965BD /* PurchaseRestoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C26850280A809F009965BD /* PurchaseRestoreButton.swift */; };
 		04C5FA2923AB322C00DDFC40 /* StickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5FA2823AB322C00DDFC40 /* StickerDataSource.swift */; };
 		04CEA23B283892AD0080E510 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23A283892AD0080E510 /* PhotoPicker.swift */; };
-		04CEA23D283892CC0080E510 /* CanvasBackgroundEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23C283892CC0080E510 /* CanvasBackgroundEditing.swift */; };
-		04CEA23E283893170080E510 /* CanvasBackgroundEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23C283892CC0080E510 /* CanvasBackgroundEditing.swift */; };
 		04CEA240283896760080E510 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23A283892AD0080E510 /* PhotoPicker.swift */; };
 		04CEA24228389A770080E510 /* CanvasBackgroundImageDataPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA24128389A770080E510 /* CanvasBackgroundImageDataPublisher.swift */; };
 		04CEA24328389C020080E510 /* CanvasBackgroundImageDataPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA24128389A770080E510 /* CanvasBackgroundImageDataPublisher.swift */; };
@@ -736,7 +734,6 @@
 		04C26850280A809F009965BD /* PurchaseRestoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseRestoreButton.swift; sourceTree = "<group>"; };
 		04C5FA2823AB322C00DDFC40 /* StickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerDataSource.swift; sourceTree = "<group>"; };
 		04CEA23A283892AD0080E510 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
-		04CEA23C283892CC0080E510 /* CanvasBackgroundEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasBackgroundEditing.swift; sourceTree = "<group>"; };
 		04CEA24128389A770080E510 /* CanvasBackgroundImageDataPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasBackgroundImageDataPublisher.swift; sourceTree = "<group>"; };
 		04CEA24428389D4F0080E510 /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
 		04D36AD72378205F0052A933 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -1370,7 +1367,6 @@
 			isa = PBXGroup;
 			children = (
 				040D35592705616900F409A8 /* ApplicationEditingStateManager.swift */,
-				04CEA23C283892CC0080E510 /* CanvasBackgroundEditing.swift */,
 				04993EFC273A207500F7BBF2 /* ColorPickerViewController.swift */,
 				047F9EF026E4E1E700DD34F5 /* EditingToolPicker.swift */,
 				044484D323A884D300CD0C3C /* EditingUserActivity.swift */,
@@ -1855,7 +1851,6 @@
 				042E6EAF28111E3E00EC5255 /* UIResponderExtensions.swift in Sources */,
 				0474AFF327B765760031210C /* FilmStripCollectionViewLayout.swift in Sources */,
 				0474B02527B767910031210C /* FilmStripPageItemProvider.swift in Sources */,
-				04CEA23E283893170080E510 /* CanvasBackgroundEditing.swift in Sources */,
 				0474B02827B767CD0031210C /* ExportEditingPickerControl.swift in Sources */,
 				042E6E95280F623800EC5255 /* SidebarActionButtonBackgroundDarkShadowLayer.swift in Sources */,
 				0474B02D27B768050031210C /* IconsImagePositioning.swift in Sources */,
@@ -1963,7 +1958,6 @@
 				04791E6323EEA09300403BD8 /* ExportSettingsContentProvider.swift in Sources */,
 				047BF5F9280A6ADC00BC672F /* PurchaseMarketingView.swift in Sources */,
 				047F9EF126E4E1E700DD34F5 /* EditingToolPicker.swift in Sources */,
-				04CEA23D283892CC0080E510 /* CanvasBackgroundEditing.swift in Sources */,
 				045B2FFA27EC13CD007779DF /* SettingsViewController.swift in Sources */,
 				04D46BDA2414E01500DBFB9A /* TutorialEditingViewController.swift in Sources */,
 				0451660123B2441000D7B535 /* FilmStripNewPageCell.swift in Sources */,

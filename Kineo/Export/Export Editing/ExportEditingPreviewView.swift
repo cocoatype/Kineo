@@ -41,7 +41,6 @@ class ExportEditingPreviewView: UIView {
     func updateCanvas() {
         backgroundColor = Defaults.exportShape.isPlain ? .clear : .appBackground
         playbackView.canvasCornerRadius = Defaults.exportShape.isPlain ? 0 : Constants.canvasCornerRadius
-        playbackView.canvasBackgroundColor = document.canvasBackgroundColor
         watermarkView.alpha = Defaults.exportShape.isPlain ? 0 : 1
     }
 

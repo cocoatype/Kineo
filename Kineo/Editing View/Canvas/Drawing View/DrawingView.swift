@@ -73,9 +73,15 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
             .store(in: &cancellables)
 
         statePublisher
-            .map { $0.mode == .scrolling }
+            .map { $0.mode.shouldHideSkinsImage }
             .receive(on: RunLoop.main)
             .assign(to: \.hidingSkinsImage, on: self)
+            .store(in: &cancellables)
+
+        statePublisher
+            .map { $0.mode.shouldHideCanvas }
+            .receive(on: RunLoop.main)
+            .assign(to: \.hidingCanvas, on: self)
             .store(in: &cancellables)
     }
 
@@ -134,6 +140,11 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
 
     func stopObserving(_ toolPicker: PKToolPicker) {
         toolPicker.removeObserver(canvasView)
+    }
+
+    private var hidingCanvas: Bool {
+        get { canvasView.isHidden }
+        set { canvasView.isHidden = newValue }
     }
 
     // MARK: Skins Images
@@ -214,5 +225,21 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
+    }
+}
+
+private extension EditingState.Mode {
+    var shouldHideSkinsImage: Bool {
+        switch self {
+        case .playing, .scrolling: return true
+        default: return false
+        }
+    }
+
+    var shouldHideCanvas: Bool {
+        switch self {
+        case .playing: return true
+        default: return false
+        }
     }
 }

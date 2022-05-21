@@ -35,7 +35,6 @@ class PlaybackView: UIView {
         overrideUserInterfaceStyle = .light
         translatesAutoresizingMaskIntoConstraints = false
 
-//        canvasView.backgroundColor = document.canvasBackgroundColor
         canvasView.drawing = currentDrawing
         canvasView.isUserInteractionEnabled = false
         addSubview(canvasView)
@@ -57,7 +56,6 @@ class PlaybackView: UIView {
     private var playbackDocument: Document
     var document: Document {
         didSet(oldDocument) {
-            canvasBackgroundColor = document.canvasBackgroundColor
             playbackDocument = Self.transformedDocument(from: document)
             if currentIndex > playbackDocument.pages.count { currentIndex = 0 }
             canvasView.drawing = currentDrawing
@@ -118,13 +116,6 @@ class PlaybackView: UIView {
     private var cancellables = Set<AnyCancellable>()
     private let canvasView = CanvasView()
     private var currentIndex = 0
-
-    var canvasBackgroundColor: UIColor? {
-        get { canvasView.backgroundColor }
-        set(newColor) {
-            canvasView.backgroundColor = newColor
-        }
-    }
 
     var canvasCornerRadius: CGFloat {
         get { canvasView.layer.cornerRadius }

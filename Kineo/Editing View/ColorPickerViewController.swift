@@ -3,7 +3,7 @@
 
 import UIKit
 
-class ColorPickerViewController: UIColorPickerViewController, UIColorPickerViewControllerDelegate, CanvasBackgroundEditing {
+class ColorPickerViewController: UIColorPickerViewController, UIColorPickerViewControllerDelegate {
     init(colorChangeHandler: @escaping ((UIColor) -> Void)) {
         self.colorChangeHandler = colorChangeHandler
         super.init()

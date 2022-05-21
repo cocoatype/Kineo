@@ -18,13 +18,6 @@ class CanvasView: PKCanvasView {
         }
     }
 
-    override var backgroundColor: UIColor? {
-        get { super.backgroundColor }
-        set {
-            super.backgroundColor = newValue
-        }
-    }
-
     // MARK: Boilerplate
 
     @available(*, unavailable)
