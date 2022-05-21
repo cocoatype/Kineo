@@ -102,11 +102,24 @@ class EditingViewController: UIViewController {
             editingViewController.state = editingViewController.state.settingBackgroundColor(to: $0)
         }
 
-        if let sourceView = editingView.backgroundPopoverSourceView {
-            colorPicker.popoverPresentationController?.sourceView = sourceView
-            colorPicker.popoverPresentationController?.sourceRect = sourceView.bounds
+        present(colorPicker)
+    }
+
+    @objc func changeBackgroundImage(_ sender: Any) {
+        let picker = PhotoPicker()
+        Task {
+            let data = try? await picker.present(from: self, sourceView: editingView.backgroundPopoverSourceView)
+            print(data ?? "(null)")
         }
-        present(colorPicker, animated: true)
+    }
+
+    private func present(_ viewController: UIViewController & CanvasBackgroundEditing) {
+        if let sourceView = editingView.backgroundPopoverSourceView {
+            viewController.popoverPresentationController?.sourceView = sourceView
+            viewController.popoverPresentationController?.sourceRect = sourceView.bounds
+        }
+
+        present(viewController, animated: true)
     }
 
     // MARK: Purchase Alerts

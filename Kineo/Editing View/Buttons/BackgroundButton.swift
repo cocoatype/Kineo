@@ -10,8 +10,8 @@ class BackgroundButton: SidebarActionButton {
     }
 
     private static let menu = UIMenu(title: BackgroundButton.menuTitle, children: [
-        UICommand(title: BackgroundButton.colorItemTitle, image: Icons.colorBackground, action: #selector(EditingViewController.exportVideo)),
-        UICommand(title: BackgroundButton.imageItemTitle, image: Icons.imageBackground, action: #selector(EditingViewController.changeBackgroundColor))
+        UICommand(title: BackgroundButton.colorItemTitle, image: Icons.colorBackground, action: #selector(EditingViewController.changeBackgroundColor)),
+        UICommand(title: BackgroundButton.imageItemTitle, image: Icons.imageBackground, action: #selector(EditingViewController.changeBackgroundImage))
     ])
 
     private static let menuTitle = NSLocalizedString("BackgroundButton.menuTitle", comment: "Title for the background button's menu")
