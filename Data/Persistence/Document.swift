@@ -19,7 +19,7 @@ public struct Document: Codable, Equatable {
         return Document(pages: self.pages, uuid: self.uuid, backgroundColorHex: newHex, backgroundImageData: backgroundImageData)
     }
 
-    public func settingBackgroundImage(from imageData: Data) -> Document {
+    public func settingBackgroundImage(from imageData: Data?) -> Document {
         return Document(pages: pages, uuid: uuid, backgroundColorHex: self.backgroundColorHex, backgroundImageData: imageData)
     }
 

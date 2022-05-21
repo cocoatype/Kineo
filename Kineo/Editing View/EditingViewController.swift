@@ -109,7 +109,10 @@ class EditingViewController: UIViewController {
         let picker = PhotoPicker()
         Task {
             let data = try? await picker.present(from: self, sourceView: editingView.backgroundPopoverSourceView)
-            print(data ?? "(null)")
+
+            await MainActor.run {
+                state = state.settingBackgroundImageData(to: data)
+            }
         }
     }
 

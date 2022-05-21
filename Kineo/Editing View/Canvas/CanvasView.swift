@@ -7,13 +7,21 @@ import PencilKit
 class CanvasView: PKCanvasView {
     init() {
         super.init(frame: .zero)
-        backgroundColor = .canvasBackground
+        backgroundColor = .clear
+        isOpaque = false
         layer.cornerRadius = Constants.canvasCornerRadius
         overrideUserInterfaceStyle = .light
         translatesAutoresizingMaskIntoConstraints = false
 
         if #available(iOS 14.0, *) {
             drawingPolicy = .anyInput
+        }
+    }
+
+    override var backgroundColor: UIColor? {
+        get { super.backgroundColor }
+        set {
+            super.backgroundColor = newValue
         }
     }
 

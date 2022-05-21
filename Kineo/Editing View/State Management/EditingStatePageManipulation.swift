@@ -10,6 +10,11 @@ extension EditingState {
         return EditingState.Lenses.document.set(newDocument, self)
     }
 
+    func settingBackgroundImageData(to data: Data?) -> EditingState {
+        let newDocument = document.settingBackgroundImage(from: data)
+        return EditingState.Lenses.document.set(newDocument, self)
+    }
+
     func replacingCurrentPage(with newPage: Page) -> EditingState {
         let newDocument = document.replacingPage(atIndex: currentPageIndex, with: newPage)
         return EditingState.Lenses.document.set(newDocument, self)

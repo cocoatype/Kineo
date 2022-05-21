@@ -9,6 +9,7 @@ class PhotoPicker: NSObject, PHPickerViewControllerDelegate {
     func present(from viewController: UIViewController, sourceView: UIView?) async throws -> Data? {
         let picker = PHPickerViewController(configuration: PHPickerConfiguration())
         picker.delegate = self
+        picker.modalPresentationStyle = .popover
 
         if let sourceView = sourceView {
             picker.popoverPresentationController?.sourceView = sourceView

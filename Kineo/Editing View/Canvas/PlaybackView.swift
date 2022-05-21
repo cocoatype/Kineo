@@ -35,7 +35,7 @@ class PlaybackView: UIView {
         overrideUserInterfaceStyle = .light
         translatesAutoresizingMaskIntoConstraints = false
 
-        canvasView.backgroundColor = document.canvasBackgroundColor
+//        canvasView.backgroundColor = document.canvasBackgroundColor
         canvasView.drawing = currentDrawing
         canvasView.isUserInteractionEnabled = false
         addSubview(canvasView)
