@@ -41,5 +41,5 @@ final class RealPurchaser: Purchaser {
     }
 
     let zugzwang: AsyncStream<PurchaseState>
-    private static let productIdentifier = "com.flipbookapp.flickbook.kineo-pro"
+    private static let productIdentifier = "com.flipbookapp.flickbook.kineopro"
 }
