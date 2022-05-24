@@ -31,7 +31,8 @@ class DocumentSaveOperation: Operation {
     }
 
     func save(_ document: Document, completionHandler: @escaping ((Result<Document, Error>) -> Void)) {
-        SkinGenerator().generatePreviewImage(from: document) { previewImage in
+        Task {
+            let previewImage = await SkinGenerator().generatePreviewImage(from: document)
             do {
                 let encodedData = try JSONEncoder().encode(document)
                 try encodedData.write(to: DocumentStore.url(for: document))
