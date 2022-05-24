@@ -78,7 +78,8 @@
 "🐎IconToggleSwitch.title" = "Use Legacy App Icon";
 
 "MenuButton.accessibilityLabel" = "Menu";
-"MenuButton.backgroundItemTitle" = "Background Color";
+"MenuButton.backgroundColorItemTitle" = "Change Background Color…";
+"MenuButton.backgroundImageItemTitle" = "Change Background Image…";
 "MenuButton.exportItemTitle" = "Share";
 
 "PlayButton.accessibilityLabel" = "Play";
