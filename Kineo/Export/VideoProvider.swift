@@ -72,50 +72,11 @@ class VideoProvider: UIActivityItemProvider {
             }
         }
 
-
-        let format = UIGraphicsImageRendererFormat()
-        format.opaque = true
-        format.scale = 1
-
         let horizontalMargins = (shape.size.width - Self.standardCanvasRect.size.width) / 2
         let verticalMargins = (shape.size.height - Self.standardCanvasRect.size.height) / 2
         let canvasPoint = CGPoint(x: horizontalMargins, y: verticalMargins)
 
-        let backgroundTraitCollection = UITraitCollection(userInterfaceStyle: Defaults.exportBackgroundStyle)
-        let backgroundImage = UIGraphicsImageRenderer(size: shape.size, format: format).image { context in
-            backgroundTraitCollection.performAsCurrent {
-                // draw a background
-                UIColor.appBackground.setFill()
-                context.fill(CGRect(origin: .zero, size: shape.size))
-
-                // draw a canvas
-                let cgContext = context.cgContext
-
-                let canvasRect = CGRect(origin: canvasPoint, size: Self.standardCanvasRect.size)
-                let canvasPath = UIBezierPath(roundedRect: canvasRect, cornerRadius: Constants.canvasCornerRadius).cgPath
-
-                cgContext.setFillColor(document.canvasBackgroundColor.cgColor)
-                cgContext.addPath(canvasPath)
-
-                // draw the lower shadow
-                cgContext.saveGState()
-                cgContext.setShadow(offset: CGSize(width: 0, height: 12), blur: 32, color: UIColor.canvasShadowDark.cgColor)
-                cgContext.fillPath()
-                cgContext.restoreGState()
-
-                // draw the upper shadow
-                cgContext.saveGState()
-                cgContext.setShadow(offset: CGSize(width: 0, height: -12), blur: 32, color: UIColor.canvasShadowLight.cgColor)
-                cgContext.fillPath()
-                cgContext.restoreGState()
-
-                if let watermark = UIImage(named: "Watermark"), Defaults.exportHideWatermark == false {
-                    let point = CGPoint(x: canvasRect.midX, y: canvasRect.maxY + 16 + (watermark.size.height / 2))
-                    let rect = CGRect(center: point, size: watermark.size)
-                    watermark.draw(in: rect)
-                }
-            }
-        }
+        let backgroundImage = VideoBackgroundImageGenerator.backgroundImage(for: document, shape: shape)
 
         let traitCollection = UITraitCollection(userInterfaceStyle: .light)
         let pages = document.pages
@@ -131,7 +92,7 @@ class VideoProvider: UIActivityItemProvider {
                 }
                 mediaReadyCondition.unlock()
 
-                let image = UIGraphicsImageRenderer(size: shape.size, format: format).image { context in
+                let image = UIGraphicsImageRenderer(size: shape.size, format: VideoRendererFormat()).image { context in
                     backgroundImage.draw(at: .zero)
                     pageImage.draw(at: canvasPoint)
                 }
