@@ -11,6 +11,7 @@ class FilmStripExistingPageCell: UICollectionViewCell, UIPointerInteractionDeleg
         super.init(frame: frame)
 
         contentView.addSubview(shadowView)
+        contentView.addSubview(canvasBackgroundImageView)
         contentView.addSubview(imageView)
 
         NSLayoutConstraint.activate([
@@ -21,7 +22,11 @@ class FilmStripExistingPageCell: UICollectionViewCell, UIPointerInteractionDeleg
             imageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
             imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor),
             imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            canvasBackgroundImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            canvasBackgroundImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor),
+            canvasBackgroundImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            canvasBackgroundImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
 
         addPointerInteraction()
@@ -82,9 +87,19 @@ class FilmStripExistingPageCell: UICollectionViewCell, UIPointerInteractionDeleg
         }
     }
 
+    var canvasBackgroundImageData: Data? {
+        didSet {
+            guard let data = canvasBackgroundImageData,
+                  let backgroundImage = UIImage(data: data)
+            else { return }
+            canvasBackgroundImageView.image = backgroundImage
+        }
+    }
+
     // MARK: Boilerplate
 
     private static let generator = DrawingImageGenerator.shared
+    private let canvasBackgroundImageView = FilmStripExistingPageImageView()
     private let imageView = FilmStripExistingPageImageView()
     private let shadowView = FilmStripExistingPageBackgroundView()
 

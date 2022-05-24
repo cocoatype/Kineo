@@ -44,6 +44,7 @@ class FilmStripDataSource: NSObject, UICollectionViewDataSource {
         }
 
         existingPageCell.canvasBackgroundColor = latestState.canvasBackgroundColor
+        existingPageCell.canvasBackgroundImageData = latestState.canvasBackgroundImageData
         existingPageCell.page = latestState.page(at: indexPath.item)
         return existingPageCell
     }
