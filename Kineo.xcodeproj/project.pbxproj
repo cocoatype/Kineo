@@ -344,6 +344,12 @@
 		04C2684F280A8030009965BD /* PurchaseMarketingTopBarButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2684E280A8030009965BD /* PurchaseMarketingTopBarButtonViewModifier.swift */; };
 		04C26851280A809F009965BD /* PurchaseRestoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C26850280A809F009965BD /* PurchaseRestoreButton.swift */; };
 		04C5FA2923AB322C00DDFC40 /* StickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5FA2823AB322C00DDFC40 /* StickerDataSource.swift */; };
+		04CEA23B283892AD0080E510 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23A283892AD0080E510 /* PhotoPicker.swift */; };
+		04CEA240283896760080E510 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23A283892AD0080E510 /* PhotoPicker.swift */; };
+		04CEA24228389A770080E510 /* CanvasBackgroundImageDataPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA24128389A770080E510 /* CanvasBackgroundImageDataPublisher.swift */; };
+		04CEA24328389C020080E510 /* CanvasBackgroundImageDataPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA24128389A770080E510 /* CanvasBackgroundImageDataPublisher.swift */; };
+		04CEA24528389D4F0080E510 /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA24428389D4F0080E510 /* BackgroundImageView.swift */; };
+		04CEA24628389D750080E510 /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA24428389D4F0080E510 /* BackgroundImageView.swift */; };
 		04D36AD82378205F0052A933 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD72378205F0052A933 /* Color.swift */; };
 		04D36ADA237826D40052A933 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD9237826D40052A933 /* Fonts.swift */; };
 		04D36ADD237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36ADC237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift */; };
@@ -727,6 +733,9 @@
 		04C2684E280A8030009965BD /* PurchaseMarketingTopBarButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMarketingTopBarButtonViewModifier.swift; sourceTree = "<group>"; };
 		04C26850280A809F009965BD /* PurchaseRestoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseRestoreButton.swift; sourceTree = "<group>"; };
 		04C5FA2823AB322C00DDFC40 /* StickerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerDataSource.swift; sourceTree = "<group>"; };
+		04CEA23A283892AD0080E510 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		04CEA24128389A770080E510 /* CanvasBackgroundImageDataPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasBackgroundImageDataPublisher.swift; sourceTree = "<group>"; };
+		04CEA24428389D4F0080E510 /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
 		04D36AD72378205F0052A933 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		04D36AD9237826D40052A933 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		04D36ADC237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentCollectionViewCellBackgroundView.swift; sourceTree = "<group>"; };
@@ -1158,6 +1167,7 @@
 		047F9EF626E4E79A00DD34F5 /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
+				04CEA24428389D4F0080E510 /* BackgroundImageView.swift */,
 				04C0A67122DC2C2700E4E5D6 /* CanvasView.swift */,
 				042E6EB1281CEE2D00EC5255 /* CanvasSnapshotView.swift */,
 				04B0FBC925008AC0002CE851 /* Drawing View */,
@@ -1255,6 +1265,7 @@
 				047F9EF926E585D100DD34F5 /* DrawingViewScrollRecognizer.swift */,
 				04B0FBCA25008ACF002CE851 /* DrawingViewController.swift */,
 				04993EFE273A257100F7BBF2 /* CanvasBackgroundColorPublisher.swift */,
+				04CEA24128389A770080E510 /* CanvasBackgroundImageDataPublisher.swift */,
 			);
 			path = "Drawing View";
 			sourceTree = "<group>";
@@ -1362,6 +1373,7 @@
 				04C0A66F22DC2A2500E4E5D6 /* EditingView.swift */,
 				04C0A66922DC224B00E4E5D6 /* EditingViewController.swift */,
 				047F9EE826E4BE2600DD34F5 /* EditingViewFactory.swift */,
+				04CEA23A283892AD0080E510 /* PhotoPicker.swift */,
 				049A0458240D09C000F5FC17 /* Buttons */,
 				047F9EF626E4E79A00DD34F5 /* Canvas */,
 				047F9EF426E4E74100DD34F5 /* Compact View */,
@@ -1805,6 +1817,7 @@
 				0474B02227B767790031210C /* FilmStripCollectionLayoutItem.swift in Sources */,
 				0474B00827B766710031210C /* ExportEditingViewController.swift in Sources */,
 				0474AFE527B764390031210C /* Icons.swift in Sources */,
+				04CEA24328389C020080E510 /* CanvasBackgroundImageDataPublisher.swift in Sources */,
 				0474B01127B766AF0031210C /* ExportEditingPickerStackView.swift in Sources */,
 				0474AFF427B765860031210C /* FilmStripMoveEvent.swift in Sources */,
 				0474B00C27B7668F0031210C /* ExportViewController.swift in Sources */,
@@ -1823,6 +1836,7 @@
 				0474B01B27B767180031210C /* ExportSettingsBackgroundContentSection.swift in Sources */,
 				0474AFF027B765000031210C /* DrawingViewScrollRecognizer.swift in Sources */,
 				0474AFF527B7658E0031210C /* PageNavigationEvent.swift in Sources */,
+				04CEA24628389D750080E510 /* BackgroundImageView.swift in Sources */,
 				04F2C0C6280124E900023244 /* EditingZoomScrollView.swift in Sources */,
 				0474B02A27B767E20031210C /* UIImageExtensions.swift in Sources */,
 				0474AFDF27B763510031210C /* DrawingBackgroundView.swift in Sources */,
@@ -1848,6 +1862,7 @@
 				0474B02427B7678B0031210C /* FilmStripPageDragItem.swift in Sources */,
 				0474AFF627B765B80031210C /* FilmStripExistingPageCell.swift in Sources */,
 				0474AFDB27B763180031210C /* EditingToolPicker.swift in Sources */,
+				04CEA240283896760080E510 /* PhotoPicker.swift in Sources */,
 				0474B00A27B766830031210C /* BoolExtensions.swift in Sources */,
 				042E6E9D2811055F00EC5255 /* PurchaseState.swift in Sources */,
 				0474B02E27B7680D0031210C /* IconsImageGenerator.swift in Sources */,
@@ -1925,6 +1940,7 @@
 			files = (
 				04E3B62A25FC647F00D2A945 /* ExportEditingViewController.swift in Sources */,
 				046C407F249868270069E8FB /* SidebarActionButtonBackgroundView.swift in Sources */,
+				04CEA24528389D4F0080E510 /* BackgroundImageView.swift in Sources */,
 				046937622427677D005894F7 /* RedoButton.swift in Sources */,
 				04F2C0C5280124A200023244 /* EditingZoomScrollView.swift in Sources */,
 				045B300427EC17B0007779DF /* SettingsContent.swift in Sources */,
@@ -2043,6 +2059,7 @@
 				049A0455240BCA5000F5FC17 /* DismissalDirector.swift in Sources */,
 				044484D423A884D300CD0C3C /* EditingUserActivity.swift in Sources */,
 				0435867D27D863B40037BA5F /* TutorialOnboardingSharePageViewController.swift in Sources */,
+				04CEA23B283892AD0080E510 /* PhotoPicker.swift in Sources */,
 				047F9EF326E4E59900DD34F5 /* EditingStateLenses.swift in Sources */,
 				04084931261578FC00D2AA15 /* NSLayoutConstraintExtensions.swift in Sources */,
 				048D4F4024E0C780001F86A0 /* AppRatingsPrompter.swift in Sources */,
@@ -2122,6 +2139,7 @@
 				046C408124986D3E0069E8FB /* FilmStripForegroundView.swift in Sources */,
 				04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */,
 				04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */,
+				04CEA24228389A770080E510 /* CanvasBackgroundImageDataPublisher.swift in Sources */,
 				045B301927EC1F14007779DF /* 🐎IconToggleSwitch.swift in Sources */,
 				042E6E8E280F614600EC5255 /* SidebarActionButtonBackgroundDarkShadowLayer.swift in Sources */,
 				04516F792418E11B0096F852 /* TutorialIntroContinueButton.swift in Sources */,
@@ -2514,8 +2532,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 287EDDET2B;
+				CODE_SIGN_STYLE = Manual;
 				INFOPLIST_FILE = KineoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2524,6 +2541,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cocoatype.KineoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kineo.app/Kineo";
@@ -2536,7 +2555,6 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 287EDDET2B;
 				INFOPLIST_FILE = KineoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

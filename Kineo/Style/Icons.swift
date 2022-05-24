@@ -4,24 +4,31 @@
 import UIKit
 
 enum Icons {
-    static let background = UIImage(systemName: "paintpalette", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
-    static let export = UIImage(systemName: "square.and.arrow.up", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
-    static let play = UIImage(systemName: "play", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
-    static let pause = UIImage(systemName: "pause", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
-    static let nextPage = UIImage(systemName: "arrowshape.turn.up.right", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
-    static let previousPage = UIImage(systemName: "arrowshape.turn.up.left", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
-    static let gallery = UIImage(systemName: "square.grid.2x2", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
-    static let tools = UIImage(systemName: "pencil.tip.crop.circle", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
-    static let undo = UIImage(systemName: "arrow.uturn.left", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
-    static let redo = UIImage(systemName: "arrow.uturn.right", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
-    static let help = UIImage(systemName: "questionmark", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
-    static let menu = UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
+    static let background = standardIcon(named: "square.2.stack.3d.bottom.fill")
+    static let colorBackground = standardIcon(named: "paintpalette")
+    static let imageBackground = standardIcon(named: "photo")
+
+    static let export = standardIcon(named: "square.and.arrow.up")
+    static let play = standardIcon(named: "play")
+    static let pause = standardIcon(named: "pause")
+    static let nextPage = standardIcon(named: "arrowshape.turn.up.right")
+    static let previousPage = standardIcon(named: "arrowshape.turn.up.left")
+    static let gallery = standardIcon(named: "square.grid.2x2")
+    static let tools = standardIcon(named: "pencil.tip.crop.circle")
+    static let undo = standardIcon(named: "arrow.uturn.left")
+    static let redo = standardIcon(named: "arrow.uturn.right")
+    static let help = standardIcon(named: "questionmark")
+    static let menu = standardIcon(named: "ellipsis.circle")
 
     static let newDocument = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(weight: .bold))
 
     static let newPage = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 14, weight: .medium))
 
     static let exportSettings = UIImage(systemName: "gear", withConfiguration: UIImage.SymbolConfiguration(pointSize: activityIconSize))
+
+    private static func standardIcon(named systemName: String) -> UIImage? {
+        UIImage(systemName: systemName, withConfiguration: UIImage.SymbolConfiguration.sidebarIconConfiguration)
+    }
 
     enum ContextMenu {
         private static func contextMenuImage(systemName: String) -> UIImage? {

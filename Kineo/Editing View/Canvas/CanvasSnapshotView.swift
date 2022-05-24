@@ -8,7 +8,7 @@ import UIKit
 class CanvasSnapshotView: UIImageView {
     init() {
         super.init(frame: .zero)
-        backgroundColor = .canvasBackground
+        backgroundColor = .clear
         contentMode = .scaleAspectFill
         layer.cornerRadius = Constants.canvasCornerRadius
         isHidden = true

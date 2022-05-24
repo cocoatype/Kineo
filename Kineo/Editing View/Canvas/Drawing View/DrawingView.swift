@@ -18,8 +18,9 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         translatesAutoresizingMaskIntoConstraints = false
 
         addSubview(backgroundView)
+        addSubview(backgroundImageView)
 
-        canvasView.backgroundColor = statePublisher.value.canvasBackgroundColor
+        backgroundImageView.backgroundColor = statePublisher.value.canvasBackgroundColor
         canvasView.delegate = self
         canvasView.drawing = page.drawing
         addSubview(canvasView)
@@ -36,6 +37,10 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
             skinsImageView.heightAnchor.constraint(equalTo: heightAnchor),
             skinsImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             skinsImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            backgroundImageView.widthAnchor.constraint(equalTo: widthAnchor),
+            backgroundImageView.heightAnchor.constraint(equalTo: heightAnchor),
+            backgroundImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            backgroundImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             canvasSnapshotView.widthAnchor.constraint(equalTo: widthAnchor),
             canvasSnapshotView.heightAnchor.constraint(equalTo: heightAnchor),
             canvasSnapshotView.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -58,13 +63,25 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         statePublisher
             .canvasBackgroundColor()
             .receive(on: RunLoop.main)
-            .assign(to: \.backgroundColor, on: canvasView)
+            .assign(to: \.backgroundColor, on: backgroundImageView)
             .store(in: &cancellables)
 
         statePublisher
-            .map { $0.mode == .scrolling }
+            .canvasBackgroundImageData()
+            .receive(on: RunLoop.main)
+            .assign(to: \.backgroundImageData, on: self)
+            .store(in: &cancellables)
+
+        statePublisher
+            .map { $0.mode.shouldHideSkinsImage }
             .receive(on: RunLoop.main)
             .assign(to: \.hidingSkinsImage, on: self)
+            .store(in: &cancellables)
+
+        statePublisher
+            .map { $0.mode.shouldHideCanvas }
+            .receive(on: RunLoop.main)
+            .assign(to: \.hidingCanvas, on: self)
             .store(in: &cancellables)
     }
 
@@ -125,6 +142,11 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         toolPicker.removeObserver(canvasView)
     }
 
+    private var hidingCanvas: Bool {
+        get { canvasView.isHidden }
+        set { canvasView.isHidden = newValue }
+    }
+
     // MARK: Skins Images
 
     private let skinsImageView = SkinsImageView()
@@ -134,6 +156,26 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
                 guard let drawingView = self else { return }
                 drawingView.skinsImageView.alpha = (drawingView.hidingSkinsImage ? 0 : 1)
             }
+        }
+    }
+
+    private var skinsImage: UIImage? {
+        get { return skinsImageView.image }
+        set(newImage) {
+            guard let newImage = newImage else { return }
+            skinsImageView.image = newImage
+        }
+    }
+
+    // MARK: Background Image
+
+    private let backgroundImageView = BackgroundImageView()
+    private var backgroundImageData: Data? {
+        didSet {
+            guard let data = backgroundImageData,
+                  let backgroundImage = UIImage(data: data)
+            else { return }
+            backgroundImageView.image = backgroundImage
         }
     }
 
@@ -177,19 +219,27 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         }
     }
 
-    private var skinsImage: UIImage? {
-        get { return skinsImageView.image }
-        set(newImage) {
-            guard let newImage = newImage else { return }
-            skinsImageView.image = newImage
-        }
-    }
-
     override var canBecomeFirstResponder: Bool { return true }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
         let typeName = NSStringFromClass(type(of: self))
         fatalError("\(typeName) does not implement init(coder:)")
+    }
+}
+
+private extension EditingState.Mode {
+    var shouldHideSkinsImage: Bool {
+        switch self {
+        case .playing, .scrolling: return true
+        default: return false
+        }
+    }
+
+    var shouldHideCanvas: Bool {
+        switch self {
+        case .playing: return true
+        default: return false
+        }
     }
 }

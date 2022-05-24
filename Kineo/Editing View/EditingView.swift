@@ -11,6 +11,8 @@ protocol Editing {
     var drawingView: DrawingView { get }
     var drawingViewGuide: DrawingViewGuide { get }
 
+    var backgroundPopoverSourceView: UIView? { get }
+
     init(statePublisher: EditingStatePublisher, drawingViewController: DrawingViewController)
 }
 typealias EditingView = (Editing & UIView)
