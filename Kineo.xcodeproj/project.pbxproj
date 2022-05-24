@@ -65,7 +65,7 @@
 		042E6EB3281CEE2F00EC5255 /* CanvasSnapshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E6EB1281CEE2D00EC5255 /* CanvasSnapshotView.swift */; };
 		04318A3122E18C72003D70C8 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3022E18C72003D70C8 /* Icons.swift */; };
 		04318A3522E2EC3C003D70C8 /* PlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3422E2EC3C003D70C8 /* PlaybackView.swift */; };
-		04318A3722E2FCC3003D70C8 /* VideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */; };
+		04318A3722E2FCC3003D70C8 /* VideoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3622E2FCC3003D70C8 /* VideoProvider.swift */; };
 		0435867127D85BB70037BA5F /* TutorialOnboardingIntroPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435867027D85BB70037BA5F /* TutorialOnboardingIntroPageViewController.swift */; };
 		0435867327D85D210037BA5F /* TutorialOnboardingDrawPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435867227D85D210037BA5F /* TutorialOnboardingDrawPageViewController.swift */; };
 		0435867727D860D50037BA5F /* TutorialOnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435867627D860D50037BA5F /* TutorialOnboardingPageView.swift */; };
@@ -235,7 +235,7 @@
 		0474B01027B766AA0031210C /* ExportEditingPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04084944261804CF00D2AA15 /* ExportEditingPreviewView.swift */; };
 		0474B01127B766AF0031210C /* ExportEditingPickerStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040849352618045200D2AA15 /* ExportEditingPickerStackView.swift */; };
 		0474B01227B766B80031210C /* ExportEditingPreviewWatermarkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04389E32262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift */; };
-		0474B01327B766C40031210C /* VideoGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */; };
+		0474B01327B766C40031210C /* VideoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04318A3622E2FCC3003D70C8 /* VideoProvider.swift */; };
 		0474B01427B766D10031210C /* ExportSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791E5E23EE9CBF00403BD8 /* ExportSettingsViewController.swift */; };
 		0474B01527B766D70031210C /* ExportEditingCancelBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040849492618052600D2AA15 /* ExportEditingCancelBarButtonItem.swift */; };
 		0474B01627B766E70031210C /* ExportEditingSettingsBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040849532618055200D2AA15 /* ExportEditingSettingsBarButtonItem.swift */; };
@@ -350,6 +350,12 @@
 		04CEA24328389C020080E510 /* CanvasBackgroundImageDataPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA24128389A770080E510 /* CanvasBackgroundImageDataPublisher.swift */; };
 		04CEA24528389D4F0080E510 /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA24428389D4F0080E510 /* BackgroundImageView.swift */; };
 		04CEA24628389D750080E510 /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA24428389D4F0080E510 /* BackgroundImageView.swift */; };
+		04CEA248283C7CBD0080E510 /* VideoBackgroundImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA247283C7CBD0080E510 /* VideoBackgroundImageGenerator.swift */; };
+		04CEA24A283C7D4B0080E510 /* VideoRendererFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA249283C7D4B0080E510 /* VideoRendererFormat.swift */; };
+		04CEA24B283C7DE00080E510 /* VideoRendererFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA249283C7D4B0080E510 /* VideoRendererFormat.swift */; };
+		04CEA24C283C7DE20080E510 /* VideoBackgroundImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA247283C7CBD0080E510 /* VideoBackgroundImageGenerator.swift */; };
+		04CEA24E283C84260080E510 /* ExportEditingCanvasBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA24D283C84260080E510 /* ExportEditingCanvasBackgroundView.swift */; };
+		04CEA24F283C85010080E510 /* ExportEditingCanvasBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA24D283C84260080E510 /* ExportEditingCanvasBackgroundView.swift */; };
 		04D36AD82378205F0052A933 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD72378205F0052A933 /* Color.swift */; };
 		04D36ADA237826D40052A933 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD9237826D40052A933 /* Fonts.swift */; };
 		04D36ADD237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36ADC237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift */; };
@@ -547,7 +553,7 @@
 		04318A3022E18C72003D70C8 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		04318A3222E19AB5003D70C8 /* SkinGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinGenerator.swift; sourceTree = "<group>"; };
 		04318A3422E2EC3C003D70C8 /* PlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackView.swift; sourceTree = "<group>"; };
-		04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGenerator.swift; sourceTree = "<group>"; };
+		04318A3622E2FCC3003D70C8 /* VideoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProvider.swift; sourceTree = "<group>"; };
 		0435867027D85BB70037BA5F /* TutorialOnboardingIntroPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingIntroPageViewController.swift; sourceTree = "<group>"; };
 		0435867227D85D210037BA5F /* TutorialOnboardingDrawPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingDrawPageViewController.swift; sourceTree = "<group>"; };
 		0435867627D860D50037BA5F /* TutorialOnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialOnboardingPageView.swift; sourceTree = "<group>"; };
@@ -736,6 +742,9 @@
 		04CEA23A283892AD0080E510 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		04CEA24128389A770080E510 /* CanvasBackgroundImageDataPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasBackgroundImageDataPublisher.swift; sourceTree = "<group>"; };
 		04CEA24428389D4F0080E510 /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
+		04CEA247283C7CBD0080E510 /* VideoBackgroundImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoBackgroundImageGenerator.swift; sourceTree = "<group>"; };
+		04CEA249283C7D4B0080E510 /* VideoRendererFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRendererFormat.swift; sourceTree = "<group>"; };
+		04CEA24D283C84260080E510 /* ExportEditingCanvasBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingCanvasBackgroundView.swift; sourceTree = "<group>"; };
 		04D36AD72378205F0052A933 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		04D36AD9237826D40052A933 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		04D36ADC237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentCollectionViewCellBackgroundView.swift; sourceTree = "<group>"; };
@@ -1110,7 +1119,9 @@
 				04791E5E23EE9CBF00403BD8 /* ExportSettingsViewController.swift */,
 				0436CE9223E53237002BE4EF /* ExportViewController.swift */,
 				04F2C0C127FFF29500023244 /* ExportSettingsHeaderFooterView.swift */,
-				04318A3622E2FCC3003D70C8 /* VideoGenerator.swift */,
+				04318A3622E2FCC3003D70C8 /* VideoProvider.swift */,
+				04CEA249283C7D4B0080E510 /* VideoRendererFormat.swift */,
+				04CEA247283C7CBD0080E510 /* VideoBackgroundImageGenerator.swift */,
 				040849222615699600D2AA15 /* Content Provider */,
 				04E3B62E25FC648300D2A945 /* Export Editing */,
 			);
@@ -1494,6 +1505,7 @@
 				040849352618045200D2AA15 /* ExportEditingPickerStackView.swift */,
 				0408493F2618049A00D2AA15 /* ExportEditingPlaybackStylePicker.swift */,
 				04084944261804CF00D2AA15 /* ExportEditingPreviewView.swift */,
+				04CEA24D283C84260080E510 /* ExportEditingCanvasBackgroundView.swift */,
 				04389E32262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift */,
 				040849532618055200D2AA15 /* ExportEditingSettingsBarButtonItem.swift */,
 				0408493A2618047100D2AA15 /* ExportEditingShapePicker.swift */,
@@ -1812,6 +1824,7 @@
 				042E6EB3281CEE2F00EC5255 /* CanvasSnapshotView.swift in Sources */,
 				045B2FDF27E5923B007779DF /* BackgroundButton.swift in Sources */,
 				0474AFDD27B7633E0031210C /* SidebarActionButton.swift in Sources */,
+				04CEA24C283C7DE20080E510 /* VideoBackgroundImageGenerator.swift in Sources */,
 				0474AFE627B7645A0031210C /* CanvasBackgroundColorPublisher.swift in Sources */,
 				0474AFC127B75F790031210C /* AppDelegate.swift in Sources */,
 				0474B02227B767790031210C /* FilmStripCollectionLayoutItem.swift in Sources */,
@@ -1822,7 +1835,7 @@
 				0474AFF427B765860031210C /* FilmStripMoveEvent.swift in Sources */,
 				0474B00C27B7668F0031210C /* ExportViewController.swift in Sources */,
 				0474AFFE27B766050031210C /* FilmStripForegroundView.swift in Sources */,
-				0474B01327B766C40031210C /* VideoGenerator.swift in Sources */,
+				0474B01327B766C40031210C /* VideoProvider.swift in Sources */,
 				0474B02127B767710031210C /* ExportSettingsTableViewCell.swift in Sources */,
 				0474B00427B766460031210C /* FilmStripCollectionLayoutSection.swift in Sources */,
 				0474AFD027B762450031210C /* UIViewControllerExtensions.swift in Sources */,
@@ -1863,8 +1876,10 @@
 				0474AFF627B765B80031210C /* FilmStripExistingPageCell.swift in Sources */,
 				0474AFDB27B763180031210C /* EditingToolPicker.swift in Sources */,
 				04CEA240283896760080E510 /* PhotoPicker.swift in Sources */,
+				04CEA24B283C7DE00080E510 /* VideoRendererFormat.swift in Sources */,
 				0474B00A27B766830031210C /* BoolExtensions.swift in Sources */,
 				042E6E9D2811055F00EC5255 /* PurchaseState.swift in Sources */,
+				04CEA24F283C85010080E510 /* ExportEditingCanvasBackgroundView.swift in Sources */,
 				0474B02E27B7680D0031210C /* IconsImageGenerator.swift in Sources */,
 				0474B00B27B766880031210C /* FilmStripNewPageImageView.swift in Sources */,
 				0474B00127B7662A0031210C /* EditingPageNavigation.swift in Sources */,
@@ -1945,6 +1960,7 @@
 				04F2C0C5280124A200023244 /* EditingZoomScrollView.swift in Sources */,
 				045B300427EC17B0007779DF /* SettingsContent.swift in Sources */,
 				0469375C24276735005894F7 /* PlayButton.swift in Sources */,
+				04CEA248283C7CBD0080E510 /* VideoBackgroundImageGenerator.swift in Sources */,
 				04C0A66822DC221700E4E5D6 /* UIViewControllerExtensions.swift in Sources */,
 				0419752125EB50C300CB0F54 /* UIScrollViewExtensions.swift in Sources */,
 				04791E6723EEA97100403BD8 /* ExportSettingsTableViewCell.swift in Sources */,
@@ -1960,6 +1976,7 @@
 				047F9EF126E4E1E700DD34F5 /* EditingToolPicker.swift in Sources */,
 				045B2FFA27EC13CD007779DF /* SettingsViewController.swift in Sources */,
 				04D46BDA2414E01500DBFB9A /* TutorialEditingViewController.swift in Sources */,
+				04CEA24E283C84260080E510 /* ExportEditingCanvasBackgroundView.swift in Sources */,
 				0451660123B2441000D7B535 /* FilmStripNewPageCell.swift in Sources */,
 				049B1A9E2715363300E38F5C /* MenuButton.swift in Sources */,
 				045B301E27ECF6DD007779DF /* SettingsCellViewModifier.swift in Sources */,
@@ -1998,6 +2015,7 @@
 				042E6E88280E580700EC5255 /* WebURLSubtitleText.swift in Sources */,
 				046B034325EBB893005AB424 /* FilmStripPageDragItem.swift in Sources */,
 				047F9EE726E4B8B300DD34F5 /* EditingStatePageManipulation.swift in Sources */,
+				04CEA24A283C7D4B0080E510 /* VideoRendererFormat.swift in Sources */,
 				045B301C27ECF675007779DF /* SettingsListStyleModifier.swift in Sources */,
 				042E6EAA281111D700EC5255 /* PurchaseMarketingHostingController.swift in Sources */,
 				04E3B63E25FC675B00D2A945 /* ExportEditingNavigationController.swift in Sources */,
@@ -2040,7 +2058,7 @@
 				04C0A67722DC406B00E4E5D6 /* DataExtensions.swift in Sources */,
 				042BB7FC280A96C300100E82 /* BackgroundsPurchaseMarketingItem.swift in Sources */,
 				04C0A64622DC208E00E4E5D6 /* AppDelegate.swift in Sources */,
-				04318A3722E2FCC3003D70C8 /* VideoGenerator.swift in Sources */,
+				04318A3722E2FCC3003D70C8 /* VideoProvider.swift in Sources */,
 				047F9EEB26E4CA2700DD34F5 /* BoolExtensions.swift in Sources */,
 				0419751B25EB508800CB0F54 /* PageNavigationEvent.swift in Sources */,
 				042BB7F4280A969D00100E82 /* ZoomPurchaseMarketingItem.swift in Sources */,
