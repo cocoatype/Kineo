@@ -7,6 +7,7 @@ import UIKit
 class ExportEditingPreviewView: UIView {
     init(document: Document) {
         self.document = document
+        self.canvasBackgroundView = ExportEditingCanvasBackgroundView(document: document)
         self.playbackView = PlaybackView(document: document)
         self.edgeLengthConstraint = playbackView.heightAnchor.constraint(equalToConstant: 720)
         super.init(frame: .zero)
@@ -15,6 +16,7 @@ class ExportEditingPreviewView: UIView {
 
         updateCanvas()
 
+        addSubview(canvasBackgroundView)
         addSubview(playbackView)
         addSubview(watermarkView)
         addLayoutGuide(watermarkPlacementGuide)
@@ -25,6 +27,10 @@ class ExportEditingPreviewView: UIView {
             playbackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             playbackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             playbackView.widthAnchor.constraint(equalTo: playbackView.heightAnchor),
+            canvasBackgroundView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            canvasBackgroundView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            canvasBackgroundView.widthAnchor.constraint(equalTo: playbackView.widthAnchor),
+            canvasBackgroundView.heightAnchor.constraint(equalTo: playbackView.heightAnchor),
             watermarkPlacementGuide.topAnchor.constraint(equalTo: playbackView.bottomAnchor),
             watermarkPlacementGuide.centerXAnchor.constraint(equalTo: playbackView.centerXAnchor),
             watermarkPlacementGuide.heightAnchor.constraint(equalTo: playbackView.heightAnchor, multiplier: 16/512),
@@ -68,6 +74,7 @@ class ExportEditingPreviewView: UIView {
 
     private static let sizeMultiplier = CGFloat(512.0/720.0)
 
+    private let canvasBackgroundView: ExportEditingCanvasBackgroundView
     private let document: Document
     private let edgeLengthConstraint: NSLayoutConstraint
     private let playbackView: PlaybackView

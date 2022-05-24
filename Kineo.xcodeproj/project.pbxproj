@@ -354,6 +354,8 @@
 		04CEA24A283C7D4B0080E510 /* VideoRendererFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA249283C7D4B0080E510 /* VideoRendererFormat.swift */; };
 		04CEA24B283C7DE00080E510 /* VideoRendererFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA249283C7D4B0080E510 /* VideoRendererFormat.swift */; };
 		04CEA24C283C7DE20080E510 /* VideoBackgroundImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA247283C7CBD0080E510 /* VideoBackgroundImageGenerator.swift */; };
+		04CEA24E283C84260080E510 /* ExportEditingCanvasBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA24D283C84260080E510 /* ExportEditingCanvasBackgroundView.swift */; };
+		04CEA24F283C85010080E510 /* ExportEditingCanvasBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA24D283C84260080E510 /* ExportEditingCanvasBackgroundView.swift */; };
 		04D36AD82378205F0052A933 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD72378205F0052A933 /* Color.swift */; };
 		04D36ADA237826D40052A933 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36AD9237826D40052A933 /* Fonts.swift */; };
 		04D36ADD237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D36ADC237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift */; };
@@ -742,6 +744,7 @@
 		04CEA24428389D4F0080E510 /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
 		04CEA247283C7CBD0080E510 /* VideoBackgroundImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoBackgroundImageGenerator.swift; sourceTree = "<group>"; };
 		04CEA249283C7D4B0080E510 /* VideoRendererFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRendererFormat.swift; sourceTree = "<group>"; };
+		04CEA24D283C84260080E510 /* ExportEditingCanvasBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingCanvasBackgroundView.swift; sourceTree = "<group>"; };
 		04D36AD72378205F0052A933 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		04D36AD9237826D40052A933 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		04D36ADC237829CA0052A933 /* GalleryDocumentCollectionViewCellBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentCollectionViewCellBackgroundView.swift; sourceTree = "<group>"; };
@@ -1502,6 +1505,7 @@
 				040849352618045200D2AA15 /* ExportEditingPickerStackView.swift */,
 				0408493F2618049A00D2AA15 /* ExportEditingPlaybackStylePicker.swift */,
 				04084944261804CF00D2AA15 /* ExportEditingPreviewView.swift */,
+				04CEA24D283C84260080E510 /* ExportEditingCanvasBackgroundView.swift */,
 				04389E32262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift */,
 				040849532618055200D2AA15 /* ExportEditingSettingsBarButtonItem.swift */,
 				0408493A2618047100D2AA15 /* ExportEditingShapePicker.swift */,
@@ -1875,6 +1879,7 @@
 				04CEA24B283C7DE00080E510 /* VideoRendererFormat.swift in Sources */,
 				0474B00A27B766830031210C /* BoolExtensions.swift in Sources */,
 				042E6E9D2811055F00EC5255 /* PurchaseState.swift in Sources */,
+				04CEA24F283C85010080E510 /* ExportEditingCanvasBackgroundView.swift in Sources */,
 				0474B02E27B7680D0031210C /* IconsImageGenerator.swift in Sources */,
 				0474B00B27B766880031210C /* FilmStripNewPageImageView.swift in Sources */,
 				0474B00127B7662A0031210C /* EditingPageNavigation.swift in Sources */,
@@ -1971,6 +1976,7 @@
 				047F9EF126E4E1E700DD34F5 /* EditingToolPicker.swift in Sources */,
 				045B2FFA27EC13CD007779DF /* SettingsViewController.swift in Sources */,
 				04D46BDA2414E01500DBFB9A /* TutorialEditingViewController.swift in Sources */,
+				04CEA24E283C84260080E510 /* ExportEditingCanvasBackgroundView.swift in Sources */,
 				0451660123B2441000D7B535 /* FilmStripNewPageCell.swift in Sources */,
 				049B1A9E2715363300E38F5C /* MenuButton.swift in Sources */,
 				045B301E27ECF6DD007779DF /* SettingsCellViewModifier.swift in Sources */,
