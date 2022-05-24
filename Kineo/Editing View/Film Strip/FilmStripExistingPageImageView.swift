@@ -6,7 +6,11 @@ import UIKit
 class FilmStripExistingPageImageView: UIImageView {
     init() {
         super.init(frame: .zero)
+        contentMode = .scaleAspectFill
         translatesAutoresizingMaskIntoConstraints = false
+
+        layer.cornerRadius = 8.0
+        layer.masksToBounds = true
     }
 
     @available(*, unavailable)
