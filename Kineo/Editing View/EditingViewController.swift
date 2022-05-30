@@ -111,6 +111,10 @@ class EditingViewController: UIViewController {
     }
 
     @objc func changeBackgroundImage(_ sender: Any) {
+        if AppPurchaseStateObserver.shared.isPurchased == false {
+            displayBackgroundImagePurchaseAlert(sender)
+        }
+
         let picker = PhotoPicker()
         Task {
             let data = try? await picker.present(from: self, sourceView: editingView.backgroundPopoverSourceView)
@@ -123,19 +127,35 @@ class EditingViewController: UIViewController {
 
     // MARK: Purchase Alerts
 
-    @objc func displayZoomPurchaseAlert(_ sender: Any) {
-        guard Defaults.hideZoomPurchaseAlert == false, #available(iOS 15, *) else { return }
-        #if CLIP
+    private func displayClipOverlay() {
         if let scene = view?.window?.windowScene {
             let config = SKOverlay.AppClipConfiguration(position: .bottom)
             let overlay = SKOverlay(configuration: config)
             overlay.present(in: scene)
         }
+    }
+
+    @objc func displayZoomPurchaseAlert(_ sender: Any) {
+        guard Defaults.hideZoomPurchaseAlert == false, #available(iOS 15, *) else { return }
+        #if CLIP
+        displayClipOverlay()
         #else
         let zoomPurchaseAlert = ZoomNotPurchasedAlertController { [weak self] in
             self?.present(PurchaseMarketingHostingController(), animated: true)
         }
         present(zoomPurchaseAlert, animated: true)
+        #endif
+    }
+
+    @objc func displayBackgroundImagePurchaseAlert(_ sender: Any) {
+        guard Defaults.hideBackgroundImagePurchaseAlert == false, #available(iOS 15, *) else { return }
+        #if CLIP
+        displayClipOverlay()
+        #else
+        let backgroundPurchaseAlert = BackgroundImageNotPurchasedAlertController { [weak self] in
+            self?.present(PurchaseMarketingHostingController(), animated: true)
+        }
+        present(backgroundPurchaseAlert, animated: true)
         #endif
     }
 

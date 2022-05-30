@@ -131,18 +131,15 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
     // MARK: Scroll View
 
     func viewForZooming(in scrollView: UIScrollView) -> UIView? { zoomContentView }
-    func scrollViewDidZoom(_ scrollView: UIScrollView) {
-//        drawingView.zoomScale = scrollView.zoomScale
-        updateButtonHidingState() }
+    func scrollViewDidZoom(_ scrollView: UIScrollView) { updateButtonHidingState() }
     func scrollViewDidScroll(_ scrollView: UIScrollView) { updateButtonHidingState() }
 
     func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
         drawingView.startZooming()
     }
+
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        print("finished zooming")
         drawingView.zoomScale = scale
-        print("updated zoom scale")
 
         if (abs(scale - 1.0) < 0.001) {
             unzoomContinuation?.resume()

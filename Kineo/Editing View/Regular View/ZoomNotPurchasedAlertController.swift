@@ -1,8 +1,8 @@
 //  Created by Geoff Pado on 4/20/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
-import UIKit
 import Data
+import UIKit
 
 class ZoomNotPurchasedAlertController: UIAlertController {
     convenience init(learnMoreAction: @escaping () -> Void) {
@@ -33,4 +33,3 @@ class ZoomNotPurchasedAlertController: UIAlertController {
                 handler: { _ in }))
     }
 }
-
