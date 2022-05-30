@@ -12,6 +12,9 @@
 "BackgroundImageNotPurchasedAlertController.hideButton" = "Never Show This";
 "BackgroundImageNotPurchasedAlertController.dismissButton" = "Okay";
 
+"BackgroundsPurchaseMarketingItem.header" = "A change of scenery.";
+"BackgroundsPurchaseMarketingItem.text" = "Use photos or screenshots as the backdrop for your animations.";
+
 "ContactMailViewController.emailSubject" = "Hello!";
 
 "DrawingView.accessibilityLabel" = "Canvas";
