@@ -5,7 +5,7 @@ import UIKit
 
 class BackgroundButton: SidebarActionButton {
     init() {
-        super.init(icon: Icons.background, menu: Self.menu)
+        super.init(icon: Icons.background)
         accessibilityLabel = NSLocalizedString("BackgroundButton.accessibilityLabel", comment: "Accessibility label for the background color button")
     }
 
@@ -13,6 +13,7 @@ class BackgroundButton: SidebarActionButton {
         UICommand(title: BackgroundButton.colorItemTitle, image: Icons.colorBackground, action: #selector(EditingViewController.changeBackgroundColor)),
         UICommand(title: BackgroundButton.imageItemTitle, image: Icons.imageBackground, action: #selector(EditingViewController.changeBackgroundImage))
     ])
+    override var menu: UIMenu { Self.menu }
 
     private static let menuTitle = NSLocalizedString("BackgroundButton.menuTitle", comment: "Title for the background button's menu")
     private static let colorItemTitle = NSLocalizedString("BackgroundButton.colorItemTitle", comment: "Title for the background button's color item")

@@ -6,6 +6,12 @@
 "BackgroundButton.colorItemTitle" = "Color";
 "BackgroundButton.imageItemTitle" = "Image";
 
+"BackgroundImageNotPurchasedAlertController.title" = "Requires Kineo Pro";
+"BackgroundImageNotPurchasedAlertController.message" = "Changing the background image requires Kineo Pro, a one-time purchase.";
+"BackgroundImageNotPurchasedAlertController.learnMoreButton" = "Learn More…";
+"BackgroundImageNotPurchasedAlertController.hideButton" = "Never Show This";
+"BackgroundImageNotPurchasedAlertController.dismissButton" = "Okay";
+
 "ContactMailViewController.emailSubject" = "Hello!";
 
 "DrawingView.accessibilityLabel" = "Canvas";

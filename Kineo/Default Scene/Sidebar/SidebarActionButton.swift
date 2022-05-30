@@ -5,15 +5,13 @@ import UIKit
 
 class SidebarActionButton: UIControl, UIPointerInteractionDelegate {
     init(icon: UIImage? = nil, auxiliaryIcon: UIImage? = nil, selector: Selector, target: Any? = nil) {
-        self.menu = nil
         super.init(frame: .zero)
         commonSetup(icon: icon, auxiliaryIcon: auxiliaryIcon)
         addTarget(target, action: selector, for: .touchUpInside)
     }
 
-    private let menu: UIMenu?
-    init(icon: UIImage? = nil, auxiliaryIcon: UIImage? = nil, menu: UIMenu) {
-        self.menu = menu
+    var menu: UIMenu? { nil }
+    init(icon: UIImage? = nil, auxiliaryIcon: UIImage? = nil) {
         super.init(frame: .zero)
         commonSetup(icon: icon, auxiliaryIcon: auxiliaryIcon)
 

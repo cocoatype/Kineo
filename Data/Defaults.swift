@@ -177,6 +177,13 @@ public enum Defaults {
         }
     }
 
+    public static var hideBackgroundImagePurchaseAlert: Bool {
+        get { return userDefaults.bool(forKey: Self.hideBackgroundImagePurchaseAlertKey) }
+        set(newHideBackgroundImagePurchaseAlert) {
+            userDefaults.set(newHideBackgroundImagePurchaseAlert, forKey: Self.hideBackgroundImagePurchaseAlertKey)
+        }
+    }
+
     // MARK: Keys and Values
 
     private static let exportPlaybackStyleKey = "Defaults.exportPlaybackStyle"
@@ -202,4 +209,5 @@ public enum Defaults {
     private static let seenTutorialKey = "Defaults.seenTutorialKey"
     private static let numberOfSavesKey = "Defaults.numberOfSavesKey"
     private static let hideZoomPurchaseAlertKey = "Defaults.hideZoomPurchaseAlertKey"
+    private static let hideBackgroundImagePurchaseAlertKey = "Defaults.hideBackgroundImagePurchaseAlertKey"
 }
