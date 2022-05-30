@@ -19,6 +19,7 @@ struct PurchaseMarketingView: View {
                     }
                     LazyVGrid(columns: columns(forWidth: proxy.size.width), spacing: 20) {
                         ZoomPurchaseMarketingItem()
+                        BackgroundsPurchaseMarketingItem()
                         WatermarkPurchaseMarketingItem()
                         SupportPurchaseMarketingItem()
                     }.padding(EdgeInsets(top: 24, leading: 20, bottom: 24, trailing: 20))
