@@ -171,11 +171,22 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
 
     private let backgroundImageView = BackgroundImageView()
     private var backgroundImageData: Data? {
-        didSet {
-            guard let data = backgroundImageData,
-                  let backgroundImage = UIImage(data: data)
-            else { return }
-            backgroundImageView.image = backgroundImage
+        didSet(oldBackgroundImageData) {
+            guard let data = backgroundImageData else {
+                backgroundImageView.image = nil; return
+            }
+
+            guard data != oldBackgroundImageData else { return }
+
+            Task.detached(priority: .userInitiated) {
+                guard let backgroundImage = UIImage(data: data)
+                else { return }
+
+                await MainActor.run { [weak self] in
+                    guard self?.backgroundImageData == data else { return }
+                    self?.backgroundImageView.image = backgroundImage
+                }
+            }
         }
     }
 

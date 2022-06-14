@@ -9,8 +9,8 @@
 "BackgroundImageNotPurchasedAlertController.title" = "Requires Kineo Pro";
 "BackgroundImageNotPurchasedAlertController.message" = "Changing the background image requires Kineo Pro, a one-time purchase.";
 "BackgroundImageNotPurchasedAlertController.learnMoreButton" = "Learn More…";
-"BackgroundImageNotPurchasedAlertController.hideButton" = "Never Show This";
-"BackgroundImageNotPurchasedAlertController.dismissButton" = "Okay";
+"BackgroundImageNotPurchasedAlertController.hideButton" = "Hide This Feature";
+"BackgroundImageNotPurchasedAlertController.dismissButton" = "Never Mind";
 
 "BackgroundsPurchaseMarketingItem.header" = "A change of scenery.";
 "BackgroundsPurchaseMarketingItem.text" = "Use photos or screenshots as the backdrop for your animations.";
@@ -188,5 +188,5 @@ You can choose between looping and bouncing your animation with $arrow.2.circlep
 "ZoomNotPurchasedAlertController.title" = "Requires Kineo Pro";
 "ZoomNotPurchasedAlertController.message" = "Zooming requires Kineo Pro, a one-time purchase.";
 "ZoomNotPurchasedAlertController.learnMoreButton" = "Learn More…";
-"ZoomNotPurchasedAlertController.hideButton" = "Never Show This";
-"ZoomNotPurchasedAlertController.dismissButton" = "Okay";
+"ZoomNotPurchasedAlertController.hideButton" = "Hide This Feature";
+"ZoomNotPurchasedAlertController.dismissButton" = "Never Mind";

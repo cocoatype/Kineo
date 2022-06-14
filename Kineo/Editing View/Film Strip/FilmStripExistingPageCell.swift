@@ -88,11 +88,22 @@ class FilmStripExistingPageCell: UICollectionViewCell, UIPointerInteractionDeleg
     }
 
     var canvasBackgroundImageData: Data? {
-        didSet {
-            guard let data = canvasBackgroundImageData,
-                  let backgroundImage = UIImage(data: data)
-            else { return }
-            canvasBackgroundImageView.image = backgroundImage
+        didSet(oldData) {
+            guard let data = canvasBackgroundImageData else {
+                canvasBackgroundImageView.image = nil; return
+            }
+
+            guard data != oldData else { return }
+
+            Task.detached(priority: .userInitiated) {
+                guard let backgroundImage = UIImage(data: data)
+                else { return }
+
+                await MainActor.run { [weak self] in
+                    guard self?.canvasBackgroundImageData == data else { return }
+                    self?.canvasBackgroundImageView.image = backgroundImage
+                }
+            }
         }
     }
 
