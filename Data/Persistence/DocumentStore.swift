@@ -58,7 +58,9 @@ public struct DocumentStore {
 
     public func previewImage(at index: Int) -> UIImage? {
         let storedDocument = storedDocuments[index]
-        guard let imageData = try? Data(contentsOf: storedDocument.imagePreviewURL), let image = UIImage(data: imageData) else { return nil }
+        guard let imageData = try? Data(contentsOf: storedDocument.imagePreviewURL),
+              let image = UIImage(data: imageData)
+        else { return nil }
         return image
     }
 
