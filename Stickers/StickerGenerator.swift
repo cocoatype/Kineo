@@ -13,20 +13,20 @@ class StickerGenerator: NSObject {
         let fileName = document.uuid.uuidString
         let exportURL = FileManager.default.temporaryDirectory
           .appendingPathComponent(fileName)
-          .appendingPathExtension("png")
+          .appendingPathExtension("gif")
 
         // create the parent directory
         try FileManager.default.createDirectory(at: exportURL.deletingLastPathComponent(), withIntermediateDirectories: true, attributes: nil)
 
         // magic happens here
-        let fileProperties = [kCGImagePropertyPNGDictionary: [
-            kCGImagePropertyAPNGLoopCount: 0
+        let fileProperties = [kCGImagePropertyGIFDictionary: [
+            kCGImagePropertyGIFLoopCount: 0
         ]]
-        let frameProperties = [kCGImagePropertyPNGDictionary: [
-            kCGImagePropertyAPNGDelayTime: 1 / Constants.framesPerSecond
+        let frameProperties = [kCGImagePropertyGIFDictionary: [
+            kCGImagePropertyGIFDelayTime: 1 / Constants.framesPerSecond
         ]] as CFDictionary
 
-        guard let destination = CGImageDestinationCreateWithURL(exportURL as CFURL, kUTTypePNG, document.pages.count, nil) else { throw Error.destinationCreationError }
+        guard let destination = CGImageDestinationCreateWithURL(exportURL as CFURL, kUTTypeGIF, document.pages.count, nil) else { throw Error.destinationCreationError }
         CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
 
         let backgroundImage = StickerBackgroundImageGenerator.backgroundImage(for: document)
