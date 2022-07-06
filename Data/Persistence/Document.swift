@@ -26,18 +26,18 @@ public struct Document: Codable, Equatable {
     public func replacingPage(atIndex index: Int, with page: Page) -> Document {
         var newPages = pages
         newPages[index] = page
-        return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex)
+        return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex, backgroundImageData: self.backgroundImageData)
     }
 
     public func insertingBlankPage(at index: Int) -> Document {
         var newPages = pages
         newPages.insert(Page(), at: index)
-        return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex)
+        return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex, backgroundImageData: self.backgroundImageData)
     }
 
     public func movingPage(at sourceIndex: Int, to destinationIndex: Int) -> Document {
         let newPages = pages.moving(from: sourceIndex, to: destinationIndex)
-        return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex)
+        return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex, backgroundImageData: self.backgroundImageData)
     }
 
     public func duplicating(_ page: Page) -> Document {
@@ -45,14 +45,14 @@ public struct Document: Codable, Equatable {
         let duplicatePage = Page(drawing: page.drawing)
         var newPages = pages
         newPages.insert(duplicatePage, at: pages.index(after: index))
-        return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex)
+        return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex, backgroundImageData: self.backgroundImageData)
     }
 
     public func deleting(_ page: Page) -> Document {
         guard let index = pages.firstIndex(of: page) else { return self }
         var newPages = pages
         newPages.remove(at: index)
-        return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex)
+        return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex, backgroundImageData: self.backgroundImageData)
     }
 
     public let backgroundColorHex: String?

@@ -6,40 +6,41 @@ import MobileCoreServices
 import UIKit
 
 class StickerGenerator: NSObject {
+    static let standardStickerSize = CGSize(width: 408, height: 408)
+
     static func sticker(from document: Document) throws -> URL {
         // generate the export URL
         let fileName = document.uuid.uuidString
         let exportURL = FileManager.default.temporaryDirectory
           .appendingPathComponent(fileName)
-          .appendingPathExtension("png")
+          .appendingPathExtension("gif")
 
         // create the parent directory
         try FileManager.default.createDirectory(at: exportURL.deletingLastPathComponent(), withIntermediateDirectories: true, attributes: nil)
 
         // magic happens here
-        let fileProperties = [kCGImagePropertyPNGDictionary: [
-            kCGImagePropertyAPNGLoopCount: 0
+        let fileProperties = [kCGImagePropertyGIFDictionary: [
+            kCGImagePropertyGIFLoopCount: 0
         ]]
-        let frameProperties = [kCGImagePropertyPNGDictionary: [
-            kCGImagePropertyAPNGDelayTime: 1 / Constants.framesPerSecond
-        ]]
+        let frameProperties = [kCGImagePropertyGIFDictionary: [
+            kCGImagePropertyGIFDelayTime: 1 / Constants.framesPerSecond
+        ]] as CFDictionary
 
-        guard let destination = CGImageDestinationCreateWithURL(exportURL as CFURL, kUTTypePNG, document.pages.count, nil) else { throw Error.destinationCreationError }
+        guard let destination = CGImageDestinationCreateWithURL(exportURL as CFURL, kUTTypeGIF, document.pages.count, nil) else { throw Error.destinationCreationError }
         CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
+
+        let backgroundImage = StickerBackgroundImageGenerator.backgroundImage(for: document)
 
         let traitCollection = UITraitCollection(userInterfaceStyle: .light)
         traitCollection.performAsCurrent {
             let stickerScale = Self.standardStickerSize / Constants.canvasRect
             document.pages.forEach { page in
                 let image = UIGraphicsImageRenderer(size: Self.standardStickerSize).image { context in
-                    context.cgContext.scaleBy(x: 1, y: -1)
-                    context.cgContext.translateBy(x: 0, y: -Self.standardStickerSize.height)
-                    
-                    document.canvasBackgroundColor.setFill()
-                    context.cgContext.fill(CGRect(origin: .zero, size: Self.standardStickerSize))
+
+                    backgroundImage.draw(at: .zero)
+
                     let pageImage = page.drawing.image(from: Constants.canvasRect, scale: stickerScale)
-                    guard let pageCGImage = pageImage.cgImage else { return }
-                    context.cgContext.draw(pageCGImage, in: CGRect(origin: .zero, size: Self.standardStickerSize))
+                    pageImage.draw(at: .zero)
                 }
                 guard let cgImage = image.cgImage else { return }
                 CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
@@ -56,8 +57,4 @@ class StickerGenerator: NSObject {
         case imageCreationError
         case finalizeError
     }
-
-    // MARK: Boilerplate
-
-    private static let standardStickerSize = CGSize(width: 408, height: 408)
 }
