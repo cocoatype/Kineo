@@ -337,6 +337,10 @@
 		04BEB77828A2030B00E10EB1 /* FeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB77628A2030B00E10EB1 /* FeatureFlag.swift */; };
 		04BEB77A28A207FC00E10EB1 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB77928A207FC00E10EB1 /* EditingViewController.swift */; };
 		04BEB77B28A2083000E10EB1 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB77928A207FC00E10EB1 /* EditingViewController.swift */; };
+		04BEB77F28A20FAF00E10EB1 /* EditingPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB77E28A20FAF00E10EB1 /* EditingPlayViewController.swift */; };
+		04BEB78028A2104C00E10EB1 /* EditingPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB77E28A20FAF00E10EB1 /* EditingPlayViewController.swift */; };
+		04BEB78228A210CC00E10EB1 /* EditPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB78128A210CC00E10EB1 /* EditPlayView.swift */; };
+		04BEB78328A2112500E10EB1 /* EditPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB78128A210CC00E10EB1 /* EditPlayView.swift */; };
 		04C0A64622DC208E00E4E5D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */; };
 		04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64722DC208E00E4E5D6 /* SceneDelegate.swift */; };
 		04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64922DC208E00E4E5D6 /* SceneViewController.swift */; };
@@ -728,6 +732,8 @@
 		04BEB77228A1FC9400E10EB1 /* DisplayMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMode.swift; sourceTree = "<group>"; };
 		04BEB77628A2030B00E10EB1 /* FeatureFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlag.swift; sourceTree = "<group>"; };
 		04BEB77928A207FC00E10EB1 /* EditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
+		04BEB77E28A20FAF00E10EB1 /* EditingPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingPlayViewController.swift; sourceTree = "<group>"; };
+		04BEB78128A210CC00E10EB1 /* EditPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlayView.swift; sourceTree = "<group>"; };
 		04C0A64222DC208E00E4E5D6 /* Kineo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kineo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C0A64722DC208E00E4E5D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -1324,6 +1330,24 @@
 			path = Sidebar;
 			sourceTree = "<group>";
 		};
+		04BEB77C28A20F8400E10EB1 /* Draw */ = {
+			isa = PBXGroup;
+			children = (
+				04C0A66F22DC2A2500E4E5D6 /* EditingDrawView.swift */,
+				04C0A66922DC224B00E4E5D6 /* EditingDrawViewController.swift */,
+			);
+			path = Draw;
+			sourceTree = "<group>";
+		};
+		04BEB77D28A20F9200E10EB1 /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				04BEB77E28A20FAF00E10EB1 /* EditingPlayViewController.swift */,
+				04BEB78128A210CC00E10EB1 /* EditPlayView.swift */,
+			);
+			path = Play;
+			sourceTree = "<group>";
+		};
 		04C0A63922DC208E00E4E5D6 = {
 			isa = PBXGroup;
 			children = (
@@ -1397,12 +1421,12 @@
 		04C0A66E22DC292E00E4E5D6 /* Editing View */ = {
 			isa = PBXGroup;
 			children = (
+				04BEB77D28A20F9200E10EB1 /* Play */,
 				040D35592705616900F409A8 /* ApplicationEditingStateManager.swift */,
 				04993EFC273A207500F7BBF2 /* ColorPickerViewController.swift */,
 				047F9EF026E4E1E700DD34F5 /* EditingToolPicker.swift */,
 				044484D323A884D300CD0C3C /* EditingUserActivity.swift */,
-				04C0A66F22DC2A2500E4E5D6 /* EditingDrawView.swift */,
-				04C0A66922DC224B00E4E5D6 /* EditingDrawViewController.swift */,
+				04BEB77C28A20F8400E10EB1 /* Draw */,
 				04BEB77928A207FC00E10EB1 /* EditingViewController.swift */,
 				047F9EE826E4BE2600DD34F5 /* EditingViewFactory.swift */,
 				04CEA23A283892AD0080E510 /* PhotoPicker.swift */,
@@ -1892,7 +1916,9 @@
 				042E6E95280F623800EC5255 /* SidebarActionButtonBackgroundDarkShadowLayer.swift in Sources */,
 				0474B02D27B768050031210C /* IconsImagePositioning.swift in Sources */,
 				0474AFE227B7636A0031210C /* FilmStripView.swift in Sources */,
+				04BEB78328A2112500E10EB1 /* EditPlayView.swift in Sources */,
 				042E6E93280F623800EC5255 /* SidebarActionButtonBackgroundLightShadowLayer.swift in Sources */,
+				04BEB78028A2104C00E10EB1 /* EditingPlayViewController.swift in Sources */,
 				04F2C0C928051B0900023244 /* EditingZoomContentView.swift in Sources */,
 				04BEB77828A2030B00E10EB1 /* FeatureFlag.swift in Sources */,
 				0474AFEA27B764930031210C /* SidebarActionButtonBackgroundView.swift in Sources */,
@@ -2075,6 +2101,7 @@
 				045B2FEC27EC0D20007779DF /* Purchaser.swift in Sources */,
 				04E3B63325FC64B100D2A945 /* ExportEditingView.swift in Sources */,
 				04B0FBCB25008ACF002CE851 /* DrawingViewController.swift in Sources */,
+				04BEB78228A210CC00E10EB1 /* EditPlayView.swift in Sources */,
 				049A0453240BBE2200F5FC17 /* OpacityAnimation.swift in Sources */,
 				04ACCD2A23B23290006FBABC /* FilmStripExistingPageImageView.swift in Sources */,
 				0408494A2618052600D2AA15 /* ExportEditingCancelBarButtonItem.swift in Sources */,
@@ -2119,6 +2146,7 @@
 				047BF606280A6C0C00BC672F /* PurchaseMarketingTopBarHeadline.swift in Sources */,
 				04791E7123EEC0B200403BD8 /* ExportSettingsNavigationController.swift in Sources */,
 				04BD92612380081900C8FD09 /* SidebarActionButton.swift in Sources */,
+				04BEB77F28A20FAF00E10EB1 /* EditingPlayViewController.swift in Sources */,
 				049B1A9C27113D7A00E38F5C /* FilmStripMoveEvent.swift in Sources */,
 				04BD925A237FFCA400C8FD09 /* ContainerView.swift in Sources */,
 				04DF241323F888EC00657160 /* SidebarActionButtonImageView.swift in Sources */,

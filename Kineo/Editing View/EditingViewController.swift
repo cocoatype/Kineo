@@ -27,8 +27,15 @@ class EditingViewController: UIViewController {
 
     // MARK: Display Mode
 
-    @objc func setDrawDisplayMode(_ sender: Any) {}
-    @objc func setPlayDisplayMode(_ sender: Any) {}
+    @objc func setDrawDisplayMode(_ sender: Any) {
+        transition(to: EditingDrawViewController(document: document))
+    }
+
+    @objc func setPlayDisplayMode(_ sender: Any) {
+        transition(to: EditingPlayViewController())
+    }
+
     @objc func setFramesDisplayMode(_ sender: Any) {}
+
     @objc func setCompareDisplayMode(_ sender: Any) {}
 }
