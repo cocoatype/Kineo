@@ -62,6 +62,16 @@ enum Icons {
         static let bounce = "arrow.right.arrow.left"
     }
 
+    enum DisplayMode {
+        static let `internal` = standardIcon(named: "display")
+        static let external = standardIcon(named: "display.2")
+
+        static let compare = standardIcon(named: "rectangle.2.swap")
+        static let draw = standardIcon(named: "pencil.and.outline")
+        static let frames = standardIcon(named: "scissors")
+        static let play = standardIcon(named: "film")
+    }
+
     private static var activityIconSize = CGFloat(24)
 }
 

@@ -17,6 +17,11 @@
 
 "ContactMailViewController.emailSubject" = "Hello!";
 
+"DisplayModeButton.drawItemTitle" = "Draw";
+"DisplayModeButton.playItemTitle" = "Play";
+"DisplayModeButton.framesItemTitle" = "Edit";
+"DisplayModeButton.compareItemTitle" = "Compare";
+
 "DrawingView.accessibilityLabel" = "Canvas";
 
 "EditingViewController.exportPromoText" = "Made with Kineo: https://kineo.app";

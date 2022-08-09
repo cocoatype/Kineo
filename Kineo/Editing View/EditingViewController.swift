@@ -159,6 +159,13 @@ class EditingViewController: UIViewController {
         #endif
     }
 
+    // MARK: Display Mode
+
+    @objc func setDrawDisplayMode(_ sender: Any) {}
+    @objc func setPlayDisplayMode(_ sender: Any) {}
+    @objc func setFramesDisplayMode(_ sender: Any) {}
+    @objc func setCompareDisplayMode(_ sender: Any) {}
+
     // MARK: Editing View
 
     @objc func toggleToolPicker() {

@@ -26,9 +26,9 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
         zoomContentView.addLayoutGuide(drawingViewGuide)
 
         #if CLIP
-        [zoomView, filmStripView, backgroundButton, playButton, exportButton, playbackView].forEach(self.addSubview(_:))
+        [zoomView, filmStripView, backgroundButton, playButton, displayModeButton, exportButton, playbackView].forEach(self.addSubview(_:))
         #else
-        [zoomView, filmStripView, backgroundButton, playButton, galleryButton, exportButton, playbackView].forEach(self.addSubview(_:))
+        [zoomView, filmStripView, backgroundButton, playButton, galleryButton, displayModeButton, exportButton, playbackView].forEach(self.addSubview(_:))
         #endif
 
         NSLayoutConstraint.activate([
@@ -70,13 +70,17 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
 
         #if CLIP
         NSLayoutConstraint.activate([
-            filmStripView.topAnchor.constraint(equalTo: topAnchor, constant: 11)
+            filmStripView.topAnchor.constraint(equalTo: displayModeButton.bottomAnchor, constant: 11),
+            displayModeButton.topAnchor.constraint(equalTo: topAnchor, constant: 11),
+            displayModeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
         ])
         #else
         NSLayoutConstraint.activate([
             filmStripView.topAnchor.constraint(equalTo: galleryButton.bottomAnchor, constant: 11),
             galleryButton.topAnchor.constraint(equalTo: topAnchor, constant: 11),
             galleryButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
+            displayModeButton.topAnchor.constraint(equalTo: galleryButton.topAnchor),
+            displayModeButton.leadingAnchor.constraint(equalTo: galleryButton.trailingAnchor, constant: 11),
         ])
         #endif
     }
@@ -185,6 +189,7 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
     #if !CLIP
     private let galleryButton = GalleryButton()
     #endif
+    private let displayModeButton = DisplayModeButton()
     private let exportButton = ExportButton()
     private lazy var playbackView = PlaybackView(statePublisher: statePublisher)
     private let zoomView = EditingZoomScrollView()

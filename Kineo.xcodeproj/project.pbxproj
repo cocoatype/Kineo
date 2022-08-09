@@ -329,6 +329,10 @@
 		04BD9256237FFC4300C8FD09 /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD9255237FFC4300C8FD09 /* SceneView.swift */; };
 		04BD925A237FFCA400C8FD09 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD9259237FFCA400C8FD09 /* ContainerView.swift */; };
 		04BD92612380081900C8FD09 /* SidebarActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD92602380081900C8FD09 /* SidebarActionButton.swift */; };
+		04BEB77128A1FBF200E10EB1 /* DisplayModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB77028A1FBF200E10EB1 /* DisplayModeButton.swift */; };
+		04BEB77328A1FC9400E10EB1 /* DisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB77228A1FC9400E10EB1 /* DisplayMode.swift */; };
+		04BEB77428A2011300E10EB1 /* DisplayModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB77028A1FBF200E10EB1 /* DisplayModeButton.swift */; };
+		04BEB77528A2017100E10EB1 /* DisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB77228A1FC9400E10EB1 /* DisplayMode.swift */; };
 		04C0A64622DC208E00E4E5D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */; };
 		04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64722DC208E00E4E5D6 /* SceneDelegate.swift */; };
 		04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64922DC208E00E4E5D6 /* SceneViewController.swift */; };
@@ -716,6 +720,8 @@
 		04BD9259237FFCA400C8FD09 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		04BD925E237FFDBD00C8FD09 /* HelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
 		04BD92602380081900C8FD09 /* SidebarActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionButton.swift; sourceTree = "<group>"; };
+		04BEB77028A1FBF200E10EB1 /* DisplayModeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModeButton.swift; sourceTree = "<group>"; };
+		04BEB77228A1FC9400E10EB1 /* DisplayMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMode.swift; sourceTree = "<group>"; };
 		04C0A64222DC208E00E4E5D6 /* Kineo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kineo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C0A64722DC208E00E4E5D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -1241,6 +1247,7 @@
 			isa = PBXGroup;
 			children = (
 				045B2FDD27E59161007779DF /* BackgroundButton.swift */,
+				04BEB77028A1FBF200E10EB1 /* DisplayModeButton.swift */,
 				0469375924276724005894F7 /* ExportButton.swift */,
 				04693757242766F2005894F7 /* GalleryButton.swift */,
 				04BD925E237FFDBD00C8FD09 /* HelpButton.swift */,
@@ -1399,6 +1406,7 @@
 				048A37F726F0586800B02F4F /* Onion Skins */,
 				040D355D270564AB00F409A8 /* Regular View */,
 				047F9EF526E4E76B00DD34F5 /* State Management */,
+				04BEB77228A1FC9400E10EB1 /* DisplayMode.swift */,
 			);
 			path = "Editing View";
 			sourceTree = "<group>";
@@ -1859,6 +1867,7 @@
 				04CEA24628389D750080E510 /* BackgroundImageView.swift in Sources */,
 				04F2C0C6280124E900023244 /* EditingZoomScrollView.swift in Sources */,
 				0474B02A27B767E20031210C /* UIImageExtensions.swift in Sources */,
+				04BEB77428A2011300E10EB1 /* DisplayModeButton.swift in Sources */,
 				0474AFDF27B763510031210C /* DrawingBackgroundView.swift in Sources */,
 				042E6E94280F623800EC5255 /* SidebarActionButtonBackgroundFillLayer.swift in Sources */,
 				0474AFFB27B765F60031210C /* ForwardKeyCommand.swift in Sources */,
@@ -1930,6 +1939,7 @@
 				0474B00327B7663C0031210C /* ColorPickerViewController.swift in Sources */,
 				0474AFED27B764DC0031210C /* ExportButton.swift in Sources */,
 				0474AFC427B760FC0031210C /* SceneWindow.swift in Sources */,
+				04BEB77528A2017100E10EB1 /* DisplayMode.swift in Sources */,
 				0474AFDE27B763450031210C /* Color.swift in Sources */,
 				0474B00E27B7669B0031210C /* ExportSettingsNavigationController.swift in Sources */,
 				042E6E9F2811057600EC5255 /* StubPurchaser.swift in Sources */,
@@ -1977,6 +1987,7 @@
 				045B300627EC19FC007779DF /* WebURLButton.swift in Sources */,
 				0435867727D860D50037BA5F /* TutorialOnboardingPageView.swift in Sources */,
 				044AFA1427F2C0CD00119459 /* PurchaseState.swift in Sources */,
+				04BEB77128A1FBF200E10EB1 /* DisplayModeButton.swift in Sources */,
 				0435867327D85D210037BA5F /* TutorialOnboardingDrawPageViewController.swift in Sources */,
 				04791E6323EEA09300403BD8 /* ExportSettingsContentProvider.swift in Sources */,
 				047BF5F9280A6ADC00BC672F /* PurchaseMarketingView.swift in Sources */,
@@ -2166,6 +2177,7 @@
 				04C0A66D22DC23F700E4E5D6 /* SceneWindow.swift in Sources */,
 				04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */,
 				04CEA24228389A770080E510 /* CanvasBackgroundImageDataPublisher.swift in Sources */,
+				04BEB77328A1FC9400E10EB1 /* DisplayMode.swift in Sources */,
 				045B301927EC1F14007779DF /* 🐎IconToggleSwitch.swift in Sources */,
 				042E6E8E280F614600EC5255 /* SidebarActionButtonBackgroundDarkShadowLayer.swift in Sources */,
 				04516F792418E11B0096F852 /* TutorialIntroContinueButton.swift in Sources */,
