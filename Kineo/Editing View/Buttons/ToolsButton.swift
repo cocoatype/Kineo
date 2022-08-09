@@ -6,7 +6,7 @@ import Foundation
 
 class ToolsButton: SidebarActionButton {
     init(statePublisher: EditingStatePublisher) {
-        super.init(icon: Icons.tools, selector: #selector(EditingViewController.toggleToolPicker))
+        super.init(icon: Icons.tools, selector: #selector(EditingDrawViewController.toggleToolPicker))
         accessibilityLabel = NSLocalizedString("ToolsButton.accessibilityLabel", comment: "Accessibility label for the help button")
 
         statePublisher

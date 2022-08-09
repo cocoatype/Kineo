@@ -72,8 +72,8 @@ class FilmStripExistingPageCell: UICollectionViewCell, UIPointerInteractionDeleg
         guard let page = page, let pageData = try? JSONEncoder().encode(page) else { return nil }
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
             let menu = UIMenu(children: [
-                UICommand(title: "Duplicate", image: UIImage(systemName: "plus.square.on.square"), action: #selector(EditingViewController.duplicatePage(_:)), propertyList: pageData),
-                UICommand(title: "Delete", image: UIImage(systemName: "trash"), action: #selector(EditingViewController.deletePage(_:)), propertyList: pageData, attributes: .destructive)
+                UICommand(title: "Duplicate", image: UIImage(systemName: "plus.square.on.square"), action: #selector(EditingDrawViewController.duplicatePage(_:)), propertyList: pageData),
+                UICommand(title: "Delete", image: UIImage(systemName: "trash"), action: #selector(EditingDrawViewController.deletePage(_:)), propertyList: pageData, attributes: .destructive)
             ])
             return menu
         }

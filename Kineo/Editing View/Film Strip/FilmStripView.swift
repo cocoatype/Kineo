@@ -88,9 +88,9 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if dataSource.isNewPage(indexPath) {
-            sendAction(#selector(EditingViewController.addNewPage), to: nil, for: nil)
+            sendAction(#selector(EditingDrawViewController.addNewPage), to: nil, for: nil)
         } else {
-            sendAction(#selector(EditingViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(pageIndex: indexPath.item))
+            sendAction(#selector(EditingDrawViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(pageIndex: indexPath.item))
         }
 
         collectionView.scrollToItem(at: indexPath, at: .top, animated: true)
@@ -100,15 +100,15 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
         accessibilityValue = accessibilityValueForCurrentIndex()
         guard scrollView.isScrollUserInitiated, let layout = collectionView.collectionViewLayout as? FilmStripCollectionViewLayout else { return }
         let pageIndex = layout.indexOfItem(atContentOffset: scrollView.contentOffset)
-        sendAction(#selector(EditingViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(pageIndex: pageIndex))
+        sendAction(#selector(EditingDrawViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(pageIndex: pageIndex))
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        sendAction(#selector(EditingViewController.startScrolling), to: nil, for: nil)
+        sendAction(#selector(EditingDrawViewController.startScrolling), to: nil, for: nil)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        sendAction(#selector(EditingViewController.stopScrolling), to: nil, for: nil)
+        sendAction(#selector(EditingDrawViewController.stopScrolling), to: nil, for: nil)
     }
 
     // MARK: Drag Delegate
@@ -131,7 +131,7 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
         guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
         coordinator.items.forEach { item in
             guard let sourceIndexPath = item.sourceIndexPath else { return }
-            sendAction(#selector(EditingViewController.movePage(_:for:)), to: nil, for: FilmStripMoveEvent(source: sourceIndexPath, destination: destinationIndexPath))
+            sendAction(#selector(EditingDrawViewController.movePage(_:for:)), to: nil, for: FilmStripMoveEvent(source: sourceIndexPath, destination: destinationIndexPath))
             collectionView.moveItem(at: sourceIndexPath, to: destinationIndexPath)
             coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
         }
@@ -183,10 +183,10 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
     @objc private func userDidTouchFilmStrip(_ recognizer: UILongPressGestureRecognizer) {
         switch recognizer.state {
         case .began:
-            sendAction(#selector(EditingViewController.startScrolling), to: nil, for: nil)
+            sendAction(#selector(EditingDrawViewController.startScrolling), to: nil, for: nil)
         case .ended, .failed:
             guard collectionView.isDecelerating == false else { break }
-            sendAction(#selector(EditingViewController.stopScrolling), to: nil, for: nil)
+            sendAction(#selector(EditingDrawViewController.stopScrolling), to: nil, for: nil)
         default: break
         }
     }

@@ -6,11 +6,11 @@ import UIKit
 
 class PlayButton: SidebarActionButton {
     init() {
-        super.init(icon: Icons.play, selector: #selector(EditingViewController.play))
+        super.init(icon: Icons.play, selector: #selector(EditingDrawViewController.play))
         accessibilityLabel = NSLocalizedString("PlayButton.accessibilityLabel", comment: "Accessibility label for the help button")
         updateAccessibilityActions()
 
-        addTarget(nil, action: #selector(EditingViewController.playMultiple), for: .touchDownRepeat)
+        addTarget(nil, action: #selector(EditingDrawViewController.playMultiple), for: .touchDownRepeat)
         addInteraction(PlayButtonContextMenuFactory.interaction(button: self))
     }
 

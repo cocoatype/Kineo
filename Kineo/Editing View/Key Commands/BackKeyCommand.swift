@@ -6,7 +6,7 @@ import UIKit
 class BackKeyCommand: EditingKeyCommand {
     convenience override init() {
         self.init(title: NSLocalizedString("EditingViewController.backKeyCommandTitle", comment: "Key command title for going back one page"),
-                  action: #selector(EditingViewController.navigateToPage(_:for:)),
+                  action: #selector(EditingDrawViewController.navigateToPage(_:for:)),
                   input: UIKeyCommand.inputLeftArrow,
                   modifierFlags: [])
     }

@@ -5,7 +5,7 @@ import Data
 import PencilKit
 import UIKit
 
-class CompactEditingView: EditingView {
+class CompactEditingView: EditingDrawView {
     var drawingFrame: CGRect { drawingView.frame }
     var drawingSuperview: UIView { self }
     var drawingView: DrawingView { drawingViewController.drawingView }

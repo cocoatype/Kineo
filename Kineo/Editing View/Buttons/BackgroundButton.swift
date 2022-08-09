@@ -10,8 +10,8 @@ class BackgroundButton: SidebarActionButton {
     }
 
     private static let menu = UIMenu(title: BackgroundButton.menuTitle, children: [
-        UICommand(title: BackgroundButton.colorItemTitle, image: Icons.colorBackground, action: #selector(EditingViewController.changeBackgroundColor)),
-        UICommand(title: BackgroundButton.imageItemTitle, image: Icons.imageBackground, action: #selector(EditingViewController.changeBackgroundImage))
+        UICommand(title: BackgroundButton.colorItemTitle, image: Icons.colorBackground, action: #selector(EditingDrawViewController.changeBackgroundColor)),
+        UICommand(title: BackgroundButton.imageItemTitle, image: Icons.imageBackground, action: #selector(EditingDrawViewController.changeBackgroundImage))
     ])
     override var menu: UIMenu { Self.menu }
 

@@ -5,7 +5,7 @@ import Data
 import PencilKit
 import UIKit
 
-class RegularEditingView: EditingView, UIScrollViewDelegate {
+class RegularEditingView: EditingDrawView, UIScrollViewDelegate {
     var drawingFrame: CGRect { drawingView.frame }
     var drawingSuperview: UIView { zoomContentView }
     var drawingView: DrawingView { drawingViewController.drawingView }
@@ -153,7 +153,7 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
         if AppPurchaseStateObserver.shared.isPurchased == false {
             Task {
                 await unzoom()
-                UIApplication.shared.sendAction(#selector(EditingViewController.displayZoomPurchaseAlert(_:)), to: nil, from: self, for: nil)
+                UIApplication.shared.sendAction(#selector(EditingDrawViewController.displayZoomPurchaseAlert(_:)), to: nil, from: self, for: nil)
             }
         }
     }

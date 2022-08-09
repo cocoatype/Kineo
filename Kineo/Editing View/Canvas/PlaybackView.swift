@@ -96,7 +96,7 @@ class PlaybackView: UIView {
         // stop if we are not animating continuously, but the next page would be the first page
         let isRestarting = (nextIndex == playbackDocument.pages.startIndex)
         if isRestarting {
-            UIApplication.shared.sendAction(#selector(EditingViewController.restartPlayback(_:)), to: nil, from: self, for: nil)
+            UIApplication.shared.sendAction(#selector(EditingDrawViewController.restartPlayback(_:)), to: nil, from: self, for: nil)
         }
 
         currentIndex = nextIndex

@@ -5,7 +5,7 @@ import Foundation
 
 class ExportButton: SidebarActionButton {
     init() {
-        super.init(icon: Icons.export, selector: #selector(EditingViewController.exportVideo))
+        super.init(icon: Icons.export, selector: #selector(EditingDrawViewController.exportVideo))
         accessibilityLabel = NSLocalizedString("ExportButton.accessibilityLabel", comment: "Accessibility label for the help button")
     }
 }

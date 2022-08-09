@@ -12,16 +12,16 @@ class MenuButton: SidebarActionButton {
 
     override var menu: UIMenu {
         UIMenu(children: [
-            UICommand(title: MenuButton.exportItemTitle, image: Icons.export, action: #selector(EditingViewController.exportVideo)),
+            UICommand(title: MenuButton.exportItemTitle, image: Icons.export, action: #selector(EditingDrawViewController.exportVideo)),
             backgroundSubmenu
         ])
     }
 
     private var backgroundSubmenu: UIMenu {
-        var childItems = [UICommand(title: MenuButton.backgroundColorItemTitle, image: Icons.colorBackground, action: #selector(EditingViewController.changeBackgroundColor))]
+        var childItems = [UICommand(title: MenuButton.backgroundColorItemTitle, image: Icons.colorBackground, action: #selector(EditingDrawViewController.changeBackgroundColor))]
 
         if (Defaults.hideBackgroundImagePurchaseAlert == false || AppPurchaseStateObserver.shared.isPurchased == true), #available(iOS 15, *) {
-            childItems.append(UICommand(title: MenuButton.backgroundImageItemTitle, image: Icons.imageBackground, action: #selector(EditingViewController.changeBackgroundImage)))
+            childItems.append(UICommand(title: MenuButton.backgroundImageItemTitle, image: Icons.imageBackground, action: #selector(EditingDrawViewController.changeBackgroundImage)))
         }
 
         return UIMenu(options: [.displayInline], children: childItems)

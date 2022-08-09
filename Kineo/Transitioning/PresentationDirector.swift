@@ -10,9 +10,8 @@ class PresentationDirector: NSObject {
         guard UIAccessibility.isReduceMotionEnabled == false else {
             return sceneViewController.transition(to: editingViewController)
         }
-        guard
-          let editingView = (editingViewController.view as? EditingView),
-          let selectedCell = galleryViewController.cell(for: document)
+        guard let editingView = editingViewController.view,
+              let selectedCell = galleryViewController.cell(for: document)
         else {
             sceneViewController.transition(to: editingViewController)
             return
@@ -23,6 +22,7 @@ class PresentationDirector: NSObject {
             let rect = CGRect(origin: .zero, size: cellSnapshotSize)
             selectedCell.drawHierarchy(in: rect, afterScreenUpdates: true)
         }
+        selectedCell.layer.opacity = 0
 
         let cellSnapshot = CALayer()
         cellSnapshot.backgroundColor = document.canvasBackgroundColor.cgColor
@@ -46,7 +46,7 @@ class PresentationDirector: NSObject {
             self.performPresentationAnimation(from: galleryViewController, to: editingViewController, in: sceneViewController, with: cellSnapshot)
         }
         // hide the editing view's drawing view
-        editingView.drawingView.isHidden = true
+        editingViewController.drawView?.drawingView.isHidden = true
 
         // set the editing view's alpha to 0%
         editingView.layer.opacity = 0
@@ -62,13 +62,13 @@ class PresentationDirector: NSObject {
     }
 
     private func performPresentationAnimation(from galleryViewController: GalleryViewController, to editingViewController: EditingViewController, in sceneViewController: SceneViewController, with cellSnapshot: CALayer) {
-        guard let editingView = (editingViewController.view as? EditingView) else { return }
+        guard let editingView = editingViewController.view, let drawView = editingViewController.drawView else { return }
         let document = editingViewController.document
 
         DrawingImageGenerator.shared.generateFirstSkinLayer(for: document) { skinsImage, _ in
             DispatchQueue.main.async {
                 // grab the drawing frame
-                let drawingFrame = editingView.drawingFrame
+                let drawingFrame = drawView.drawingFrame
 
                 CATransaction.begin()
                 CATransaction.setAnimationDuration(0.35)
@@ -98,7 +98,7 @@ class PresentationDirector: NSObject {
     }
 
     private func cleanupPresentationAnimation(from galleryViewController: GalleryViewController, to editingViewController: EditingViewController, in sceneViewController: SceneViewController, with cellSnapshot: CALayer) {
-        guard let editingView = (editingViewController.view as? EditingView) else { return }
+        guard let editingView = editingViewController.drawView else { return }
         editingView.drawingView.isHidden = false
 
         CATransaction.begin()
