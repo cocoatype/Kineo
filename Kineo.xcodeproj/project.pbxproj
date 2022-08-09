@@ -333,6 +333,8 @@
 		04BEB77328A1FC9400E10EB1 /* DisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB77228A1FC9400E10EB1 /* DisplayMode.swift */; };
 		04BEB77428A2011300E10EB1 /* DisplayModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB77028A1FBF200E10EB1 /* DisplayModeButton.swift */; };
 		04BEB77528A2017100E10EB1 /* DisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB77228A1FC9400E10EB1 /* DisplayMode.swift */; };
+		04BEB77728A2030B00E10EB1 /* FeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB77628A2030B00E10EB1 /* FeatureFlag.swift */; };
+		04BEB77828A2030B00E10EB1 /* FeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEB77628A2030B00E10EB1 /* FeatureFlag.swift */; };
 		04C0A64622DC208E00E4E5D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */; };
 		04C0A64822DC208E00E4E5D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64722DC208E00E4E5D6 /* SceneDelegate.swift */; };
 		04C0A64A22DC208E00E4E5D6 /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0A64922DC208E00E4E5D6 /* SceneViewController.swift */; };
@@ -722,6 +724,7 @@
 		04BD92602380081900C8FD09 /* SidebarActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionButton.swift; sourceTree = "<group>"; };
 		04BEB77028A1FBF200E10EB1 /* DisplayModeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModeButton.swift; sourceTree = "<group>"; };
 		04BEB77228A1FC9400E10EB1 /* DisplayMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMode.swift; sourceTree = "<group>"; };
+		04BEB77628A2030B00E10EB1 /* FeatureFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlag.swift; sourceTree = "<group>"; };
 		04C0A64222DC208E00E4E5D6 /* Kineo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kineo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C0A64522DC208E00E4E5D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C0A64722DC208E00E4E5D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -897,6 +900,7 @@
 				048D4F3F24E0C780001F86A0 /* AppRatingsPrompter.swift */,
 				0419751A25EB508800CB0F54 /* PageNavigationEvent.swift */,
 				042E6EA12811064A00EC5255 /* AppPurchaseStateObserver.swift */,
+				04BEB77628A2030B00E10EB1 /* FeatureFlag.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -1886,6 +1890,7 @@
 				0474AFE227B7636A0031210C /* FilmStripView.swift in Sources */,
 				042E6E93280F623800EC5255 /* SidebarActionButtonBackgroundLightShadowLayer.swift in Sources */,
 				04F2C0C928051B0900023244 /* EditingZoomContentView.swift in Sources */,
+				04BEB77828A2030B00E10EB1 /* FeatureFlag.swift in Sources */,
 				0474AFEA27B764930031210C /* SidebarActionButtonBackgroundView.swift in Sources */,
 				0474AFCA27B761BA0031210C /* SceneView.swift in Sources */,
 				0474B02427B7678B0031210C /* FilmStripPageDragItem.swift in Sources */,
@@ -2128,6 +2133,7 @@
 				042E6EA728110F2600EC5255 /* ZoomNotPurchasedAlertController.swift in Sources */,
 				04D36AD82378205F0052A933 /* Color.swift in Sources */,
 				042BB800280A992D00100E82 /* BackportTaskViewModifier.swift in Sources */,
+				04BEB77728A2030B00E10EB1 /* FeatureFlag.swift in Sources */,
 				042E6E8C280E6F8C00EC5255 /* HideWatermarkToggleSwitch.swift in Sources */,
 				0445AA632373C7D100EB2A7B /* GalleryDocumentCollectionViewCell.swift in Sources */,
 				04B52D05237D07FE00C300B8 /* GalleryDocumentPreviewImageView.swift in Sources */,

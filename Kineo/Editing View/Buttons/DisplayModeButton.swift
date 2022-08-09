@@ -6,6 +6,12 @@ import UIKit
 class DisplayModeButton: SidebarActionButton {
     init(mode: DisplayMode = .draw) {
         super.init(icon: mode.icon)
+
+        if FeatureFlag.displayMode == false {
+            isHidden = true
+            isUserInteractionEnabled = false
+        }
+
         accessibilityLabel = NSLocalizedString("DisplayModeButton.accessibilityLabel", comment: "Accessiblity label for the display mode button")
     }
 
