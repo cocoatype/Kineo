@@ -10,6 +10,8 @@ class BackgroundImageNotPurchasedAlertController: UIAlertController {
         let message = NSLocalizedString("BackgroundImageNotPurchasedAlertController.message", comment: "Message for the document scanner not purchased alert")
         self.init(title: title, message: message, preferredStyle: .alert)
 
+        view.tintColor = .appAccent
+
         addAction(
             UIAlertAction(
                 title: NSLocalizedString("BackgroundImageNotPurchasedAlertController.learnMoreButton", comment: ""),

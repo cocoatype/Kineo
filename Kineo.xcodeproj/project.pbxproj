@@ -27,6 +27,8 @@
 		0419751B25EB508800CB0F54 /* PageNavigationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419751A25EB508800CB0F54 /* PageNavigationEvent.swift */; };
 		0419752125EB50C300CB0F54 /* UIScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419752025EB50C300CB0F54 /* UIScrollViewExtensions.swift */; };
 		0419752625EB515C00CB0F54 /* FilmStripPageItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419752525EB515C00CB0F54 /* FilmStripPageItemProvider.swift */; };
+		042A3D3728A7461F00951216 /* GalleryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04693757242766F2005894F7 /* GalleryButton.swift */; };
+		042A3D3928A7470C00951216 /* GalleryNotImplementedAlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A3D3828A7470C00951216 /* GalleryNotImplementedAlertFactory.swift */; };
 		042BB7F4280A969D00100E82 /* ZoomPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F3280A969D00100E82 /* ZoomPurchaseMarketingItem.swift */; };
 		042BB7F6280A96A600100E82 /* SupportPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F5280A96A600100E82 /* SupportPurchaseMarketingItem.swift */; };
 		042BB7F8280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F7280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift */; };
@@ -542,6 +544,7 @@
 		0419751A25EB508800CB0F54 /* PageNavigationEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNavigationEvent.swift; sourceTree = "<group>"; };
 		0419752025EB50C300CB0F54 /* UIScrollViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensions.swift; sourceTree = "<group>"; };
 		0419752525EB515C00CB0F54 /* FilmStripPageItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripPageItemProvider.swift; sourceTree = "<group>"; };
+		042A3D3828A7470C00951216 /* GalleryNotImplementedAlertFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryNotImplementedAlertFactory.swift; sourceTree = "<group>"; };
 		042BB7F3280A969D00100E82 /* ZoomPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomPurchaseMarketingItem.swift; sourceTree = "<group>"; };
 		042BB7F5280A96A600100E82 /* SupportPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportPurchaseMarketingItem.swift; sourceTree = "<group>"; };
 		042BB7F7280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkPurchaseMarketingItem.swift; sourceTree = "<group>"; };
@@ -1128,6 +1131,7 @@
 			children = (
 				0474AFAC27B75F030031210C /* SceneDelegate.swift */,
 				0474AFAE27B75F030031210C /* SceneViewController.swift */,
+				042A3D3828A7470C00951216 /* GalleryNotImplementedAlertFactory.swift */,
 				0474AFB827B75F050031210C /* Info.plist */,
 				0474AFB927B75F050031210C /* Clip.entitlements */,
 			);
@@ -1918,6 +1922,7 @@
 				0474AFE227B7636A0031210C /* FilmStripView.swift in Sources */,
 				04BEB78328A2112500E10EB1 /* EditPlayView.swift in Sources */,
 				042E6E93280F623800EC5255 /* SidebarActionButtonBackgroundLightShadowLayer.swift in Sources */,
+				042A3D3728A7461F00951216 /* GalleryButton.swift in Sources */,
 				04BEB78028A2104C00E10EB1 /* EditingPlayViewController.swift in Sources */,
 				04F2C0C928051B0900023244 /* EditingZoomContentView.swift in Sources */,
 				04BEB77828A2030B00E10EB1 /* FeatureFlag.swift in Sources */,
@@ -1958,6 +1963,7 @@
 				0474AFD527B762A70031210C /* CompactEditingViewButtonBar.swift in Sources */,
 				0474B01227B766B80031210C /* ExportEditingPreviewWatermarkImageView.swift in Sources */,
 				0474B01427B766D10031210C /* ExportSettingsViewController.swift in Sources */,
+				042A3D3928A7470C00951216 /* GalleryNotImplementedAlertFactory.swift in Sources */,
 				0474AFD127B762720031210C /* ApplicationEditingStateManager.swift in Sources */,
 				0474AFEF27B764F70031210C /* ToolsButton.swift in Sources */,
 				0474AFEE27B764E50031210C /* PlaybackView.swift in Sources */,
@@ -2446,6 +2452,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "App Accent";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2509,6 +2516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "App Accent";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
