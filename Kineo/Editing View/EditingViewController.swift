@@ -32,7 +32,7 @@ class EditingViewController: UIViewController {
     }
 
     @objc func setPlayDisplayMode(_ sender: Any) {
-        transition(to: EditingPlayViewController())
+        transition(to: EditingPlayViewController(document: document))
     }
 
     @objc func setFramesDisplayMode(_ sender: Any) {}
