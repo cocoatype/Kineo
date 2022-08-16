@@ -29,6 +29,8 @@
 		0419752625EB515C00CB0F54 /* FilmStripPageItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419752525EB515C00CB0F54 /* FilmStripPageItemProvider.swift */; };
 		042A3D3728A7461F00951216 /* GalleryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04693757242766F2005894F7 /* GalleryButton.swift */; };
 		042A3D3928A7470C00951216 /* GalleryNotImplementedAlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A3D3828A7470C00951216 /* GalleryNotImplementedAlertFactory.swift */; };
+		042A3D3B28AB411E00951216 /* CanvasDisplayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A3D3A28AB411E00951216 /* CanvasDisplayingView.swift */; };
+		042A3D3C28AB422300951216 /* CanvasDisplayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A3D3A28AB411E00951216 /* CanvasDisplayingView.swift */; };
 		042BB7F4280A969D00100E82 /* ZoomPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F3280A969D00100E82 /* ZoomPurchaseMarketingItem.swift */; };
 		042BB7F6280A96A600100E82 /* SupportPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F5280A96A600100E82 /* SupportPurchaseMarketingItem.swift */; };
 		042BB7F8280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F7280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift */; };
@@ -545,6 +547,7 @@
 		0419752025EB50C300CB0F54 /* UIScrollViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensions.swift; sourceTree = "<group>"; };
 		0419752525EB515C00CB0F54 /* FilmStripPageItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripPageItemProvider.swift; sourceTree = "<group>"; };
 		042A3D3828A7470C00951216 /* GalleryNotImplementedAlertFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryNotImplementedAlertFactory.swift; sourceTree = "<group>"; };
+		042A3D3A28AB411E00951216 /* CanvasDisplayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasDisplayingView.swift; sourceTree = "<group>"; };
 		042BB7F3280A969D00100E82 /* ZoomPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomPurchaseMarketingItem.swift; sourceTree = "<group>"; };
 		042BB7F5280A96A600100E82 /* SupportPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportPurchaseMarketingItem.swift; sourceTree = "<group>"; };
 		042BB7F7280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkPurchaseMarketingItem.swift; sourceTree = "<group>"; };
@@ -1443,6 +1446,7 @@
 				040D355D270564AB00F409A8 /* Regular View */,
 				047F9EF526E4E76B00DD34F5 /* State Management */,
 				04BEB77228A1FC9400E10EB1 /* DisplayMode.swift */,
+				042A3D3A28AB411E00951216 /* CanvasDisplayingView.swift */,
 			);
 			path = "Editing View";
 			sourceTree = "<group>";
@@ -1880,6 +1884,7 @@
 				0474AFC127B75F790031210C /* AppDelegate.swift in Sources */,
 				0474B02227B767790031210C /* FilmStripCollectionLayoutItem.swift in Sources */,
 				0474B00827B766710031210C /* ExportEditingViewController.swift in Sources */,
+				042A3D3C28AB422300951216 /* CanvasDisplayingView.swift in Sources */,
 				0474AFE527B764390031210C /* Icons.swift in Sources */,
 				04CEA24328389C020080E510 /* CanvasBackgroundImageDataPublisher.swift in Sources */,
 				0474B01127B766AF0031210C /* ExportEditingPickerStackView.swift in Sources */,
@@ -2104,6 +2109,7 @@
 				045B2FF227EC0D8E007779DF /* RealPurchaser.swift in Sources */,
 				04CEA274284571170080E510 /* BackgroundImageNotPurchasedAlertController.swift in Sources */,
 				0436CE8F23DE9D01002BE4EF /* GalleryDocumentCollectionViewCellMenuInteraction.swift in Sources */,
+				042A3D3B28AB411E00951216 /* CanvasDisplayingView.swift in Sources */,
 				045B2FEC27EC0D20007779DF /* Purchaser.swift in Sources */,
 				04E3B63325FC64B100D2A945 /* ExportEditingView.swift in Sources */,
 				04B0FBCB25008ACF002CE851 /* DrawingViewController.swift in Sources */,

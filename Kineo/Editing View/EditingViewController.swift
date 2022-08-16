@@ -21,8 +21,8 @@ class EditingViewController: UIViewController {
 
     // MARK: Drawing
 
-    var drawView: EditingDrawView? {
-        (children.first as? EditingDrawViewController)?.view as? EditingDrawView
+    var canvasDisplayView: CanvasDisplayingView? {
+        children.compactMap { $0.view as? CanvasDisplayingView }.first
     }
 
     // MARK: Display Mode

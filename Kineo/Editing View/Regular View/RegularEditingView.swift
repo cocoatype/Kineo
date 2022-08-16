@@ -5,7 +5,7 @@ import Data
 import PencilKit
 import UIKit
 
-class RegularEditingView: EditingDrawView, UIScrollViewDelegate {
+class RegularEditingView: EditingDrawView, CanvasDisplayingView, UIScrollViewDelegate {
     var drawingFrame: CGRect { drawingView.frame }
     var drawingSuperview: UIView { zoomContentView }
     var drawingView: DrawingView { drawingViewController.drawingView }
@@ -157,6 +157,10 @@ class RegularEditingView: EditingDrawView, UIScrollViewDelegate {
         }
     }
 #endif
+
+    // MARK: Canvas
+
+    var canvasView: UIView { drawingView }
 
     // MARK: Boilerplate
 

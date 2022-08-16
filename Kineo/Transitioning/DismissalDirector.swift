@@ -8,7 +8,7 @@ class DismissalDirector: NSObject {
     func animateDismissal(from editingViewController: EditingViewController, to galleryViewController: GalleryViewController, in sceneViewController: SceneViewController) {
         guard UIAccessibility.isReduceMotionEnabled == false else { return sceneViewController.transition(to: galleryViewController) }
         guard let editingView = editingViewController.view,
-              let drawView = editingViewController.drawView,
+              let canvasDisplayView = editingViewController.canvasDisplayView,
               let galleryView = galleryViewController.view
         else {
             assertionFailure("dismissal setup failure")
@@ -16,17 +16,17 @@ class DismissalDirector: NSObject {
             return
         }
 
-        let canvasSnapshotSize = drawView.drawingView.bounds.size
+        let canvasSnapshotSize = canvasDisplayView.canvasView.bounds.size
         let canvasSnapshotImage = UIGraphicsImageRenderer(size: canvasSnapshotSize).image { context in
             let rect = CGRect(origin: .zero, size: canvasSnapshotSize)
-            drawView.drawingView.drawHierarchy(in: rect, afterScreenUpdates: true)
+            canvasDisplayView.canvasView.drawHierarchy(in: rect, afterScreenUpdates: true)
         }
 
         let canvasSnapshot = CALayer()
         canvasSnapshot.backgroundColor = editingViewController.document.canvasBackgroundColor.cgColor
         canvasSnapshot.contents = canvasSnapshotImage.cgImage
         canvasSnapshot.cornerRadius = 8
-        canvasSnapshot.frame = drawView.drawingView.frame
+        canvasSnapshot.frame = canvasDisplayView.canvasView.frame
 
         editingViewController.willMove(toParent: nil)
         sceneViewController.addChild(galleryViewController)
@@ -45,7 +45,7 @@ class DismissalDirector: NSObject {
         sceneViewController.view.layer.addSublayer(canvasSnapshot)
 
         // hide the editing view's drawing view
-        drawView.drawingView.isHidden = true
+        canvasDisplayView.canvasView.isHidden = true
 
         // add the editing view and lay out
         sceneViewController.view.insertSubview(galleryView, belowSubview: editingView)

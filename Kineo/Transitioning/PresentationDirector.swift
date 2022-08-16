@@ -46,7 +46,7 @@ class PresentationDirector: NSObject {
             self.performPresentationAnimation(from: galleryViewController, to: editingViewController, in: sceneViewController, with: cellSnapshot)
         }
         // hide the editing view's drawing view
-        editingViewController.drawView?.drawingView.isHidden = true
+        editingViewController.canvasDisplayView?.canvasView.isHidden = true
 
         // set the editing view's alpha to 0%
         editingView.layer.opacity = 0
@@ -62,13 +62,13 @@ class PresentationDirector: NSObject {
     }
 
     private func performPresentationAnimation(from galleryViewController: GalleryViewController, to editingViewController: EditingViewController, in sceneViewController: SceneViewController, with cellSnapshot: CALayer) {
-        guard let editingView = editingViewController.view, let drawView = editingViewController.drawView else { return }
+        guard let editingView = editingViewController.view, let drawView = editingViewController.canvasDisplayView else { return }
         let document = editingViewController.document
 
         DrawingImageGenerator.shared.generateFirstSkinLayer(for: document) { skinsImage, _ in
             DispatchQueue.main.async {
                 // grab the drawing frame
-                let drawingFrame = drawView.drawingFrame
+                let drawingFrame = drawView.canvasView.frame
 
                 CATransaction.begin()
                 CATransaction.setAnimationDuration(0.35)
@@ -98,8 +98,8 @@ class PresentationDirector: NSObject {
     }
 
     private func cleanupPresentationAnimation(from galleryViewController: GalleryViewController, to editingViewController: EditingViewController, in sceneViewController: SceneViewController, with cellSnapshot: CALayer) {
-        guard let editingView = editingViewController.drawView else { return }
-        editingView.drawingView.isHidden = false
+        guard let canvasDisplayView = editingViewController.canvasDisplayView else { return }
+        canvasDisplayView.canvasView.isHidden = false
 
         CATransaction.begin()
         CATransaction.setAnimationDuration(0.05)
