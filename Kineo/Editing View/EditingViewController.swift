@@ -25,6 +25,12 @@ class EditingViewController: UIViewController {
         children.compactMap { $0.view as? CanvasDisplayingView }.first
     }
 
+    // MARK: Exporting
+
+    @objc func exportVideo(_ sender: Any) {
+        present(ExportEditingNavigationController(document: document), animated: true)
+    }
+
     // MARK: Display Mode
 
     @objc func setDrawDisplayMode(_ sender: Any) {

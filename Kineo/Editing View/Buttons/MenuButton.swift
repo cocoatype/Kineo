@@ -12,7 +12,7 @@ class MenuButton: SidebarActionButton {
 
     override var menu: UIMenu {
         UIMenu(children: [
-            UICommand(title: MenuButton.exportItemTitle, image: Icons.export, action: #selector(EditingDrawViewController.exportVideo)),
+            UICommand(title: MenuButton.exportItemTitle, image: Icons.export, action: #selector(EditingViewController.exportVideo)),
             backgroundSubmenu
         ])
     }

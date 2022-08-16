@@ -92,10 +92,6 @@ class EditingDrawViewController: UIViewController {
 
     // MARK: Actions
 
-    @objc func exportVideo(_ sender: Any) {
-        present(ExportEditingNavigationController(document: document), animated: true)
-    }
-
     @objc func changeBackgroundColor(_ sender: Any) {
         let colorPicker = ColorPickerViewController { [weak self] in
             guard let editingViewController = self else { return }
