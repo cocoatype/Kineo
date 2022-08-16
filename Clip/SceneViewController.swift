@@ -20,6 +20,13 @@ class SceneViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool { return UIDevice.current.userInterfaceIdiom == .pad }
 
+    // MARK: Actions
+
+    @objc func showGallery() {
+        let alert = GalleryNotImplementedAlertFactory.newAlert()
+        present(alert, animated: true)
+    }
+
     // MARK: Boilerplate
 
     private let documentStore = DocumentStore()

@@ -10,6 +10,8 @@ class ZoomNotPurchasedAlertController: UIAlertController {
         let message = NSLocalizedString("ZoomNotPurchasedAlertController.message", comment: "Message for the document scanner not purchased alert")
         self.init(title: title, message: message, preferredStyle: .alert)
 
+        view.tintColor = .appAccent
+
         addAction(
             UIAlertAction(
                 title: NSLocalizedString("ZoomNotPurchasedAlertController.learnMoreButton", comment: ""),

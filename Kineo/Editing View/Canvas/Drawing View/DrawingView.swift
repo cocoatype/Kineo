@@ -130,7 +130,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
     private func handleChange() {
         toolWasUsed = false
         updatePage()
-        sendAction(#selector(EditingViewController.drawingViewDidChangePage(_:)), to: nil, for: nil)
+        sendAction(#selector(EditingDrawViewController.drawingViewDidChangePage(_:)), to: nil, for: nil)
     }
 
     func observe(_ toolPicker: PKToolPicker) {

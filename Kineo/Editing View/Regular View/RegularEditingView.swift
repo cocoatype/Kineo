@@ -5,7 +5,7 @@ import Data
 import PencilKit
 import UIKit
 
-class RegularEditingView: EditingView, UIScrollViewDelegate {
+class RegularEditingView: EditingDrawView, CanvasDisplayingView, UIScrollViewDelegate {
     var drawingFrame: CGRect { drawingView.frame }
     var drawingSuperview: UIView { zoomContentView }
     var drawingView: DrawingView { drawingViewController.drawingView }
@@ -25,11 +25,7 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
         zoomView.addSubview(zoomContentView)
         zoomContentView.addLayoutGuide(drawingViewGuide)
 
-        #if CLIP
-        [zoomView, filmStripView, backgroundButton, playButton, displayModeButton, exportButton, playbackView].forEach(self.addSubview(_:))
-        #else
         [zoomView, filmStripView, backgroundButton, playButton, galleryButton, displayModeButton, exportButton, playbackView].forEach(self.addSubview(_:))
-        #endif
 
         NSLayoutConstraint.activate([
             zoomView.frameLayoutGuide.widthAnchor.constraint(equalTo: widthAnchor),
@@ -65,24 +61,13 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
             playbackView.heightAnchor.constraint(equalTo: drawingViewGuide.heightAnchor),
             playbackView.widthAnchor.constraint(equalTo: drawingViewGuide.widthAnchor),
             playbackView.centerXAnchor.constraint(equalTo: drawingViewGuide.centerXAnchor),
-            playbackView.centerYAnchor.constraint(equalTo: drawingViewGuide.centerYAnchor)
-        ])
-
-        #if CLIP
-        NSLayoutConstraint.activate([
-            filmStripView.topAnchor.constraint(equalTo: displayModeButton.bottomAnchor, constant: 11),
-            displayModeButton.topAnchor.constraint(equalTo: topAnchor, constant: 11),
-            displayModeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
-        ])
-        #else
-        NSLayoutConstraint.activate([
+            playbackView.centerYAnchor.constraint(equalTo: drawingViewGuide.centerYAnchor),
             filmStripView.topAnchor.constraint(equalTo: galleryButton.bottomAnchor, constant: 11),
             galleryButton.topAnchor.constraint(equalTo: topAnchor, constant: 11),
             galleryButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
             displayModeButton.topAnchor.constraint(equalTo: galleryButton.topAnchor),
             displayModeButton.leadingAnchor.constraint(equalTo: galleryButton.trailingAnchor, constant: 11),
         ])
-        #endif
     }
 
     // MARK: Hiding Buttons
@@ -100,11 +85,7 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
     }
 
     private var controls: [UIControl] {
-        #if CLIP
-        [filmStripView, backgroundButton, playButton, exportButton]
-        #else
-        [filmStripView, backgroundButton, playButton, galleryButton, exportButton]
-        #endif
+        [filmStripView, backgroundButton, playButton, galleryButton, displayModeButton, exportButton]
     }
 
     private var controlsAlpha: Float {
@@ -153,7 +134,7 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
         if AppPurchaseStateObserver.shared.isPurchased == false {
             Task {
                 await unzoom()
-                UIApplication.shared.sendAction(#selector(EditingViewController.displayZoomPurchaseAlert(_:)), to: nil, from: self, for: nil)
+                UIApplication.shared.sendAction(#selector(EditingDrawViewController.displayZoomPurchaseAlert(_:)), to: nil, from: self, for: nil)
             }
         }
     }
@@ -177,6 +158,10 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
     }
 #endif
 
+    // MARK: Canvas
+
+    var canvasView: UIView { drawingView }
+
     // MARK: Boilerplate
 
     private let drawingViewController: DrawingViewController
@@ -186,9 +171,7 @@ class RegularEditingView: EditingView, UIScrollViewDelegate {
     private lazy var filmStripView = FilmStripView(statePublisher: statePublisher)
     private let backgroundButton = BackgroundButton()
     private let playButton = PlayButton()
-    #if !CLIP
     private let galleryButton = GalleryButton()
-    #endif
     private let displayModeButton = DisplayModeButton()
     private let exportButton = ExportButton()
     private lazy var playbackView = PlaybackView(statePublisher: statePublisher)

@@ -29,7 +29,7 @@ class DrawingViewScrollRecognizer: UIPanGestureRecognizer {
             guard let control = recognizer?.view as? UIControl else { return }
             switch sender.state {
             case .began:
-                control.sendAction(#selector(EditingViewController.startScrolling), to: nil, for: nil)
+                control.sendAction(#selector(EditingDrawViewController.startScrolling), to: nil, for: nil)
                 fallthrough
             case .changed:
                 let lastTranslationIndex = Int(floor(lastTranslation.y / 44))
@@ -39,12 +39,12 @@ class DrawingViewScrollRecognizer: UIPanGestureRecognizer {
 
                 guard lastTranslationIndex != currentTranslationIndex else { break }
                 if lastTranslationIndex - currentTranslationIndex < 0 {
-                    control.sendAction(#selector(EditingViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(style: .decrement))
+                    control.sendAction(#selector(EditingDrawViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(style: .decrement))
                 } else {
-                    control.sendAction(#selector(EditingViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(style: .increment))
+                    control.sendAction(#selector(EditingDrawViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(style: .increment))
                 }
             case .recognized:
-                control.sendAction(#selector(EditingViewController.stopScrolling), to: nil, for: nil)
+                control.sendAction(#selector(EditingDrawViewController.stopScrolling), to: nil, for: nil)
                 lastTranslation = .zero
             default: break
             }

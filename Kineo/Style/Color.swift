@@ -47,6 +47,7 @@ extension UIColor {
         return color
     }
 
+    static let appAccent = UIColor.named("App Accent")
     static let appBackground = UIColor.named("Background")
     static let appShadow = UIColor.named("Shadow")
     static let canvasBackground = UIColor.named("Canvas Background")

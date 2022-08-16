@@ -5,7 +5,7 @@ import Data
 import PencilKit
 import UIKit
 
-protocol Editing {
+protocol EditingDraw {
     var drawingFrame: CGRect { get }
     var drawingSuperview: UIView { get }
     var drawingView: DrawingView { get }
@@ -15,4 +15,4 @@ protocol Editing {
 
     init(statePublisher: EditingStatePublisher, drawingViewController: DrawingViewController)
 }
-typealias EditingView = (Editing & UIView)
+typealias EditingDrawView = (EditingDraw & UIView)

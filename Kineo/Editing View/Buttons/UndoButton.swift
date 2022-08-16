@@ -6,7 +6,7 @@ import Foundation
 
 class UndoButton: SidebarActionButton {
     init(statePublisher: EditingStatePublisher) {
-        super.init(icon: Icons.undo, selector: #selector(EditingViewController.undoDrawing))
+        super.init(icon: Icons.undo, selector: #selector(EditingDrawViewController.undoDrawing))
         accessibilityLabel = NSLocalizedString("UndoButton.accessibilityLabel", comment: "Accessibility label for the help button")
 
         let handler = { [weak self] (_: Any) -> Void in

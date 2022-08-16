@@ -5,7 +5,7 @@ import Data
 import UIKit
 
 enum EditingViewFactory {
-    static func editingView(for traitCollection: UITraitCollection, drawingViewController: DrawingViewController, statePublisher: EditingStatePublisher) -> EditingView {
+    static func editingView(for traitCollection: UITraitCollection, drawingViewController: DrawingViewController, statePublisher: EditingStatePublisher) -> EditingDrawView {
         let sizeClass = traitCollection.horizontalSizeClass
 
         if case .compact = sizeClass {

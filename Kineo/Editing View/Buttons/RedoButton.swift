@@ -6,7 +6,7 @@ import Foundation
 
 class RedoButton: SidebarActionButton {
     init(statePublisher: EditingStatePublisher) {
-        super.init(icon: Icons.redo, selector: #selector(EditingViewController.redoDrawing))
+        super.init(icon: Icons.redo, selector: #selector(EditingDrawViewController.redoDrawing))
         accessibilityLabel = NSLocalizedString("RedoButton.accessibilityLabel", comment: "Accessibility label for the help button")
 
         let handler = { [weak self] (_: Any) -> Void in
