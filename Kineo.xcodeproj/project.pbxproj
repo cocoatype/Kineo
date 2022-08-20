@@ -33,6 +33,8 @@
 		042A3D3C28AB422300951216 /* CanvasDisplayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A3D3A28AB411E00951216 /* CanvasDisplayingView.swift */; };
 		042A3D4528B0832700951216 /* GalleryDocumentPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A3D4428B0832700951216 /* GalleryDocumentPreviewView.swift */; };
 		042A3D4728B0887500951216 /* GalleryDocumentBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A3D4628B0887500951216 /* GalleryDocumentBackgroundView.swift */; };
+		042A3D4928B08C5D00951216 /* ExportEditingNavigationBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A3D4828B08C5D00951216 /* ExportEditingNavigationBarAppearance.swift */; };
+		042A3D4A28B08C5D00951216 /* ExportEditingNavigationBarAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A3D4828B08C5D00951216 /* ExportEditingNavigationBarAppearance.swift */; };
 		042BB7F4280A969D00100E82 /* ZoomPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F3280A969D00100E82 /* ZoomPurchaseMarketingItem.swift */; };
 		042BB7F6280A96A600100E82 /* SupportPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F5280A96A600100E82 /* SupportPurchaseMarketingItem.swift */; };
 		042BB7F8280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F7280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift */; };
@@ -552,6 +554,7 @@
 		042A3D3A28AB411E00951216 /* CanvasDisplayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasDisplayingView.swift; sourceTree = "<group>"; };
 		042A3D4428B0832700951216 /* GalleryDocumentPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentPreviewView.swift; sourceTree = "<group>"; };
 		042A3D4628B0887500951216 /* GalleryDocumentBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentBackgroundView.swift; sourceTree = "<group>"; };
+		042A3D4828B08C5D00951216 /* ExportEditingNavigationBarAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingNavigationBarAppearance.swift; sourceTree = "<group>"; };
 		042BB7F3280A969D00100E82 /* ZoomPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomPurchaseMarketingItem.swift; sourceTree = "<group>"; };
 		042BB7F5280A96A600100E82 /* SupportPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportPurchaseMarketingItem.swift; sourceTree = "<group>"; };
 		042BB7F7280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkPurchaseMarketingItem.swift; sourceTree = "<group>"; };
@@ -1558,6 +1561,7 @@
 			children = (
 				040849492618052600D2AA15 /* ExportEditingCancelBarButtonItem.swift */,
 				04E3B63D25FC675B00D2A945 /* ExportEditingNavigationController.swift */,
+				042A3D4828B08C5D00951216 /* ExportEditingNavigationBarAppearance.swift */,
 				04975D01260C309600AA2771 /* ExportEditingPickerControl.swift */,
 				0408496226180FD300D2AA15 /* ExportEditingPickerControlGestureRecognizer.swift */,
 				0408495D261805CF00D2AA15 /* IconsImagePositioning.swift */,
@@ -1945,6 +1949,7 @@
 				04CEA240283896760080E510 /* PhotoPicker.swift in Sources */,
 				04CEA24B283C7DE00080E510 /* VideoRendererFormat.swift in Sources */,
 				0474B00A27B766830031210C /* BoolExtensions.swift in Sources */,
+				042A3D4A28B08C5D00951216 /* ExportEditingNavigationBarAppearance.swift in Sources */,
 				042E6E9D2811055F00EC5255 /* PurchaseState.swift in Sources */,
 				04CEA24F283C85010080E510 /* ExportEditingCanvasBackgroundView.swift in Sources */,
 				0474B02E27B7680D0031210C /* IconsImageGenerator.swift in Sources */,
@@ -2061,6 +2066,7 @@
 				045B301327EC1D68007779DF /* OtherAppNameText.swift in Sources */,
 				0445AA652373CB9400EB2A7B /* GallerySelectionEvent.swift in Sources */,
 				047F9EDF26E4956D00DD34F5 /* PlayKeyCommand.swift in Sources */,
+				042A3D4928B08C5D00951216 /* ExportEditingNavigationBarAppearance.swift in Sources */,
 				045B301127EC1D14007779DF /* ContinuousCornerRadiusViewModifier.swift in Sources */,
 				042E6E86280E521400EC5255 /* PurchaseMarketingTopBarButtonStyle.swift in Sources */,
 				04F2C0C227FFF29500023244 /* ExportSettingsHeaderFooterView.swift in Sources */,

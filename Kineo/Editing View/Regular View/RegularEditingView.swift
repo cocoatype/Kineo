@@ -19,6 +19,7 @@ class RegularEditingView: EditingDrawView, CanvasDisplayingView, UIScrollViewDel
         self.toolPicker = EditingToolPicker(statePublisher: statePublisher, drawingView: drawingViewController.drawingView)
         super.init(frame: .zero)
 
+        autoresizingMask = [.flexibleWidth, .flexibleHeight]
         backgroundColor = .appBackground
 
         zoomView.delegate = self

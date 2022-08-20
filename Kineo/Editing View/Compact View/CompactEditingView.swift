@@ -19,6 +19,7 @@ class CompactEditingView: EditingDrawView {
         self.toolPicker = EditingToolPicker(statePublisher: statePublisher, drawingView: drawingViewController.drawingView)
         super.init(frame: .zero)
 
+        autoresizingMask = [.flexibleWidth, .flexibleHeight]
         backgroundColor = .appBackground
 
         addLayoutGuide(drawingViewGuide)
