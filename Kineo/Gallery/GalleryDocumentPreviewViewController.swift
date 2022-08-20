@@ -7,23 +7,22 @@ import UIKit
 class GalleryDocumentPreviewViewController: UIViewController {
     init(document: Document) {
         self.document = document
+        self.previewView = GalleryDocumentPreviewView(document: document)
         super.init(nibName: nil, bundle: nil)
     }
 
     override func loadView() {
-        let playbackView = PlaybackView(document: document)
-        playbackView.translatesAutoresizingMaskIntoConstraints = true
-        view = playbackView
+        view = previewView
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        playbackView?.startAnimating()
+        previewView.startAnimating()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        playbackView?.stopAnimating()
+        previewView.stopAnimating()
     }
 
     override var preferredContentSize: CGSize {
@@ -34,7 +33,7 @@ class GalleryDocumentPreviewViewController: UIViewController {
     // MARK: Boilerplate
 
     private let document: Document
-    private var playbackView: PlaybackView? { return view as? PlaybackView }
+    private let previewView: GalleryDocumentPreviewView
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
