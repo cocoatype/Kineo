@@ -31,6 +31,8 @@
 		042A3D3928A7470C00951216 /* GalleryNotImplementedAlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A3D3828A7470C00951216 /* GalleryNotImplementedAlertFactory.swift */; };
 		042A3D3B28AB411E00951216 /* CanvasDisplayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A3D3A28AB411E00951216 /* CanvasDisplayingView.swift */; };
 		042A3D3C28AB422300951216 /* CanvasDisplayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A3D3A28AB411E00951216 /* CanvasDisplayingView.swift */; };
+		042A3D4528B0832700951216 /* GalleryDocumentPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A3D4428B0832700951216 /* GalleryDocumentPreviewView.swift */; };
+		042A3D4728B0887500951216 /* GalleryDocumentBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A3D4628B0887500951216 /* GalleryDocumentBackgroundView.swift */; };
 		042BB7F4280A969D00100E82 /* ZoomPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F3280A969D00100E82 /* ZoomPurchaseMarketingItem.swift */; };
 		042BB7F6280A96A600100E82 /* SupportPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F5280A96A600100E82 /* SupportPurchaseMarketingItem.swift */; };
 		042BB7F8280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042BB7F7280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift */; };
@@ -548,6 +550,8 @@
 		0419752525EB515C00CB0F54 /* FilmStripPageItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripPageItemProvider.swift; sourceTree = "<group>"; };
 		042A3D3828A7470C00951216 /* GalleryNotImplementedAlertFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryNotImplementedAlertFactory.swift; sourceTree = "<group>"; };
 		042A3D3A28AB411E00951216 /* CanvasDisplayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasDisplayingView.swift; sourceTree = "<group>"; };
+		042A3D4428B0832700951216 /* GalleryDocumentPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentPreviewView.swift; sourceTree = "<group>"; };
+		042A3D4628B0887500951216 /* GalleryDocumentBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentBackgroundView.swift; sourceTree = "<group>"; };
 		042BB7F3280A969D00100E82 /* ZoomPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomPurchaseMarketingItem.swift; sourceTree = "<group>"; };
 		042BB7F5280A96A600100E82 /* SupportPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportPurchaseMarketingItem.swift; sourceTree = "<group>"; };
 		042BB7F7280A96B000100E82 /* WatermarkPurchaseMarketingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatermarkPurchaseMarketingItem.swift; sourceTree = "<group>"; };
@@ -898,6 +902,8 @@
 			children = (
 				044484D123A884A200CD0C3C /* GalleryCollectionView.swift */,
 				0436CE9023E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift */,
+				042A3D4428B0832700951216 /* GalleryDocumentPreviewView.swift */,
+				042A3D4628B0887500951216 /* GalleryDocumentBackgroundView.swift */,
 				0445AA642373CB9400EB2A7B /* GallerySelectionEvent.swift */,
 				0417F0A022E4A3AC0063AD66 /* GalleryViewController.swift */,
 				0445AA5E2373C7A000EB2A7B /* GalleryViewDataSource.swift */,
@@ -2033,6 +2039,7 @@
 				042E6EAE28111E2C00EC5255 /* UIResponderExtensions.swift in Sources */,
 				045B300627EC19FC007779DF /* WebURLButton.swift in Sources */,
 				0435867727D860D50037BA5F /* TutorialOnboardingPageView.swift in Sources */,
+				042A3D4528B0832700951216 /* GalleryDocumentPreviewView.swift in Sources */,
 				044AFA1427F2C0CD00119459 /* PurchaseState.swift in Sources */,
 				04BEB77128A1FBF200E10EB1 /* DisplayModeButton.swift in Sources */,
 				0435867327D85D210037BA5F /* TutorialOnboardingDrawPageViewController.swift in Sources */,
@@ -2084,6 +2091,7 @@
 				045B301C27ECF675007779DF /* SettingsListStyleModifier.swift in Sources */,
 				042E6EAA281111D700EC5255 /* PurchaseMarketingHostingController.swift in Sources */,
 				04E3B63E25FC675B00D2A945 /* ExportEditingNavigationController.swift in Sources */,
+				042A3D4728B0887500951216 /* GalleryDocumentBackgroundView.swift in Sources */,
 				046C407B2498630A0069E8FB /* DrawingView.swift in Sources */,
 				04D46BDD2414E0FA00DBFB9A /* TutorialCoordinator.swift in Sources */,
 				04BD9251237EAB3500C8FD09 /* GalleryNewDocumentImageView.swift in Sources */,
