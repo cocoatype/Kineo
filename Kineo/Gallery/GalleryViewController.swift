@@ -66,9 +66,9 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
 
     func exportAnimation(at indexPath: IndexPath) {
-//        guard let document = try? dataSource.document(at: indexPath), let activityController = ExportViewController(document: document, sourceView: galleryView?.cellForItem(at: indexPath)) else { return }
-
-//        present(activityController, animated: true, completion: nil)
+        guard let document = try? dataSource.document(at: indexPath) else { return }
+        let editingViewController = ExportEditingNavigationController(document: document)
+        present(editingViewController, animated: true, completion: nil)
     }
 
     func openAnimationInNewWindow(at indexPath: IndexPath) {
