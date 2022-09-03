@@ -3,7 +3,7 @@
 
 import UIKit
 
-extension UITraitCollection {
+public extension UITraitCollection {
     var withLightInterfaceStyle: UITraitCollection {
         let lightTraitCollection = UITraitCollection(userInterfaceStyle: .light)
         return UITraitCollection(traitsFrom: [self, lightTraitCollection])

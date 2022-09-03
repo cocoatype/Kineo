@@ -27,7 +27,6 @@ let project = Project(
       bundleId: "com.flipbookapp.flickbook.Clip",
       infoPlist: "Clip/Info.plist",
       sources: ["Clip/Sources/**"],
-      resources: ["Clip/Resources/**"],
       entitlements: "Clip/Clip.entitlements",
       dependencies: [
         .target(name: "Data"),
@@ -41,10 +40,19 @@ let project = Project(
       bundleId: "com.flipbookapp.flickbook.Data",
       infoPlist: "Data/Info.plist",
       sources: ["Data/Sources/**"],
-      resources: ["Data/Resources/**"],
       headers: .headers(
         public: ["Sources/Data.h"]
-      )
+      ),
+      dependencies: [
+        .target(name: "Shared")
+      ]
+    ),
+    Target(
+      name: "Shared",
+      platform: .iOS,
+      product: .framework,
+      bundleId: "com.flipbookapp.flickbook.Shared",
+      sources: ["Shared/Sources/**"]
     ),
     Target(
       name: "Stickers",

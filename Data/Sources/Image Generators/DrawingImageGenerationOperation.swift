@@ -2,6 +2,7 @@
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
 import PencilKit
+import Shared
 
 class DrawingImageGenerationOperation: Operation {
     init(drawing: PKDrawing, size: CGSize, usesDisplayScale: Bool, completionHandler: DrawingImageGenerator.Handler?) {
