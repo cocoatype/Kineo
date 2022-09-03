@@ -16,7 +16,8 @@ let project = Project(
         .external(name: "Introspect"),
         .external(name: "Lottie"),
         .target(name: "Clip"),
-        .target(name: "Data")
+        .target(name: "Data"),
+        .target(name: "Stickers")
       ]
     ),
     Target(
@@ -40,7 +41,10 @@ let project = Project(
       bundleId: "com.flipbookapp.flickbook.Data",
       infoPlist: "Data/Info.plist",
       sources: ["Data/Sources/**"],
-      resources: ["Data/Resources/**"]
+      resources: ["Data/Resources/**"],
+      headers: .headers(
+        public: ["Sources/Data.h"]
+      )
     ),
     Target(
       name: "Stickers",
@@ -49,7 +53,8 @@ let project = Project(
       bundleId: "com.flipbookapp.flickbook.Stickers",
       infoPlist: "Stickers/Info.plist",
       sources: ["Stickers/Sources/**"],
-      resources: ["Stickers/Resources/**"]
+      resources: ["Stickers/Resources/**"],
+      entitlements: "Stickers/Stickers.entitlements"
     ),
     Target(
       name: "Tests",
