@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,6 @@
 		02D67FF80FCD98748D7CE8A7 /* SidebarActionContextMenuInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC105A7A1CD4E10D6B5DD9 /* SidebarActionContextMenuInteraction.swift */; };
 		03C92B1ACD51B122B9A2D978 /* GalleryViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD36B31B05F1B5EB3CB4822 /* GalleryViewLayout.swift */; };
 		04C26FE7D29DCC54B449DDE9 /* BackgroundsPurchaseMarketingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3EC9916B5AF877B902672B /* BackgroundsPurchaseMarketingItem.swift */; };
-		04F0E25228C65BB7003B52D4 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F0E25128C65BB7003B52D4 /* GalleryView.swift */; };
 		06EE755D49530D0256BD808F /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3CB8672FC0D3C65DAE2717 /* EditingViewController.swift */; };
 		072EA32401AD9B4A0EF43EE1 /* AppPurchaseStateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04BF2E963301DA57CFA6148 /* AppPurchaseStateObserver.swift */; };
 		07916346C1E899B27BC1ED04 /* SettingsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0AE991BE74F78396D93679 /* SettingsContent.swift */; };
@@ -210,6 +209,7 @@
 		9EFECBF22A32C49669672968 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167C2A5A690B8A3B6F7773DB /* WebViewController.swift */; };
 		A0B7223ECBE8262F25D41FB7 /* OpacityAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EF53D89F535FAC25DA408E /* OpacityAnimation.swift */; };
 		A1EC86EE7A274B7C3DA72866 /* CanvasSnapshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED327EBADC6F396FDEBC0E9 /* CanvasSnapshotView.swift */; };
+		A2326CEBDD4E4910411C4528 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0B03F349E596FA87306B7E /* Data.framework */; };
 		A23821FA2F22EDC5B143754C /* Icon-App-29x29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 523FE6F874A87A8B7F2EB28F /* Icon-App-29x29@3x.png */; };
 		A283A7B710F406DA588810F4 /* TutorialIntroDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F198BB4F53BB34FAFFFFF8D4 /* TutorialIntroDismissButton.swift */; };
 		A2BCB24EA3C5085E82366FEB /* DrawingImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA446850412111F2359C0A0 /* DrawingImageGenerator.swift */; };
@@ -245,6 +245,7 @@
 		BDDE830DC8472B0E283820AA /* GalleryNotImplementedAlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61172E727A42FE7A9A5B0490 /* GalleryNotImplementedAlertFactory.swift */; };
 		BEC645B6861A6ED489E0EAA3 /* FilmStripIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021CB1ABCF464F0392C2A72 /* FilmStripIndicator.swift */; };
 		BF7B3764E197A74923007B12 /* OtherAppNameText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C8E5548230DE5AE77ADDD /* OtherAppNameText.swift */; };
+		BFFA89E8AF66092C5BF9BEA4 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84AE4FA904FC9AD2775CC1A /* GalleryView.swift */; };
 		C373FA6F4217FF5F969F1B3B /* GalleryViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA4C17FF063E913A7E5815 /* GalleryViewDataSource.swift */; };
 		C48C3A60CC5A46F1015FF59C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F028A45229BDDE22641A9C /* SettingsViewController.swift */; };
 		C5377EC37D78575BA11DEA6A /* TutorialOnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17276D39DF196E1FFFD5B695 /* TutorialOnboardingPageView.swift */; };
@@ -313,6 +314,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		40EC357828CB5593929BA546 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4B9B4978D5F03A060BBB1AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAA7DFC15F3E4A0001ECED21;
+			remoteInfo = Data;
+		};
 		4C24DB24C1B8C336E6CB8EF2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B4B9B4978D5F03A060BBB1AC /* Project object */;
@@ -475,7 +483,6 @@
 		00D0DC03B2E9B3870A31D646 /* EditingZoomContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingZoomContentView.swift; sourceTree = "<group>"; };
 		01CC87FEBF8627245FBDD8FC /* Core-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Core-Info.plist"; sourceTree = "<group>"; };
 		02BABD10EF5FBE643373FEC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		04F0E25128C65BB7003B52D4 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		06CA5541F7FD9BB837D08C83 /* FilmStripForegroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripForegroundView.swift; sourceTree = "<group>"; };
 		082524E4DF58ED1C4AB2A09C /* SettingsCellViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellViewModifier.swift; sourceTree = "<group>"; };
 		0949F6731B5425DCA2EAD7F7 /* DocumentSaveOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSaveOperation.swift; sourceTree = "<group>"; };
@@ -558,6 +565,7 @@
 		48F97FD98E8EFA0D8469C63B /* GalleryDocumentBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentBackgroundView.swift; sourceTree = "<group>"; };
 		4992AA83AC630111972BF9B6 /* TutorialIntroBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialIntroBodyLabel.swift; sourceTree = "<group>"; };
 		4A6736EBE070381A7B7B0243 /* EditingDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingDrawView.swift; sourceTree = "<group>"; };
+		4B0E651CE0AD1D525999ABF8 /* Kineo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kineo.entitlements; sourceTree = "<group>"; };
 		4B2CA173AE8EE523B320392D /* VideoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProvider.swift; sourceTree = "<group>"; };
 		4C77EE1DC1B7B31D4AA7052F /* FilmStripExistingPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStripExistingPageCell.swift; sourceTree = "<group>"; };
 		4CD785CF612B4DEF3A0BF1C1 /* Kineo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kineo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -676,6 +684,7 @@
 		A531C19B71C135DB7E79D903 /* FeatureFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlag.swift; sourceTree = "<group>"; };
 		A5E0BD31E03E0F40E60FD902 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		A7A2FE04C65ECD566667A773 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		A84AE4FA904FC9AD2775CC1A /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		A85076C3F5A1A8D3F885F800 /* GalleryDocumentPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDocumentPreviewView.swift; sourceTree = "<group>"; };
 		A920B83E68EB60CEFB5CD980 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A921D4D4FEBBF09B43DFE5E0 /* BackportTaskViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackportTaskViewModifier.swift; sourceTree = "<group>"; };
@@ -816,6 +825,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2326CEBDD4E4910411C4528 /* Data.framework in Frameworks */,
 				BC2210B9BF6AA579A0903892 /* Introspect.framework in Frameworks */,
 				3103B242465C3BE409B37342 /* Lottie.framework in Frameworks */,
 			);
@@ -904,6 +914,7 @@
 				062AFC3FE7FA6CE7B040B738 /* Resources */,
 				97046C3488743A98E9CD8254 /* Sources */,
 				66581EA174579ABC97904E0E /* Info.plist */,
+				4B0E651CE0AD1D525999ABF8 /* Kineo.entitlements */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -1570,11 +1581,11 @@
 				79E4C46D3A5F52B147B4231C /* Document Cell */,
 				245A16239DBC6DCE61F6A980 /* New Document Cell */,
 				6D644F615CD75700F900BC26 /* GalleryCollectionView.swift */,
-				04F0E25128C65BB7003B52D4 /* GalleryView.swift */,
 				48F97FD98E8EFA0D8469C63B /* GalleryDocumentBackgroundView.swift */,
 				A85076C3F5A1A8D3F885F800 /* GalleryDocumentPreviewView.swift */,
 				C209FF59EC9AEE8E8A3E502B /* GalleryDocumentPreviewViewController.swift */,
 				908A6379274E0A2DE73569AE /* GallerySelectionEvent.swift */,
+				A84AE4FA904FC9AD2775CC1A /* GalleryView.swift */,
 				99539BEFC3E093DD1EF682BC /* GalleryViewController.swift */,
 				A0AA4C17FF063E913A7E5815 /* GalleryViewDataSource.swift */,
 				DCD36B31B05F1B5EB3CB4822 /* GalleryViewLayout.swift */,
@@ -1749,6 +1760,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A1338FA9374D06AF6B9934EF /* PBXTargetDependency */,
 			);
 			name = Core;
 			productName = Core;
@@ -1843,6 +1855,8 @@
 			isa = PBXProject;
 			attributes = {
 				ORGANIZATIONNAME = "Cocoatype, LLC";
+				TargetAttributes = {
+				};
 			};
 			buildConfigurationList = F645AC324DE6987FC8F32143 /* Build configuration list for PBXProject "Kineo" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -1985,6 +1999,7 @@
 				2F4CE05CCCCB7792CA559A07 /* GalleryDocumentPreviewView.swift in Sources */,
 				459960C54A0E0B75632560C1 /* GalleryDocumentPreviewViewController.swift in Sources */,
 				49846BEB440893AB2898362F /* GallerySelectionEvent.swift in Sources */,
+				BFFA89E8AF66092C5BF9BEA4 /* GalleryView.swift in Sources */,
 				654D66E751040676F5361535 /* GalleryViewController.swift in Sources */,
 				C373FA6F4217FF5F969F1B3B /* GalleryViewDataSource.swift in Sources */,
 				03C92B1ACD51B122B9A2D978 /* GalleryViewLayout.swift in Sources */,
@@ -1997,7 +2012,6 @@
 				252BB8533808E8448DF97FB7 /* TuistAssets+Kineo.swift in Sources */,
 				851FF7C1B11B4E56017A9BAB /* TuistBundle+Kineo.swift in Sources */,
 				9B080372A9BE99DA66AC1168 /* TuistStrings+Kineo.swift in Sources */,
-				04F0E25228C65BB7003B52D4 /* GalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2289,6 +2303,12 @@
 			target = 9BA7C1D784D7C7A16F1DD891 /* Shared */;
 			targetProxy = BFBDB27B8C68E1DD78042C22 /* PBXContainerItemProxy */;
 		};
+		A1338FA9374D06AF6B9934EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Data;
+			target = DAA7DFC15F3E4A0001ECED21 /* Data */;
+			targetProxy = 40EC357828CB5593929BA546 /* PBXContainerItemProxy */;
+		};
 		E91139A64765021AD078D329 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Data;
@@ -2324,6 +2344,7 @@
 		112C876E0323AB4712989153 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -2404,6 +2425,7 @@
 		2B7D7C9C0DC3CA8AF2829281 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -2486,8 +2508,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development: Buddy Build (D47V8Y25W5)";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 287EDDET2B;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2504,6 +2529,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2514,7 +2540,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/Stickers/Stickers.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
 				INFOPLIST_FILE = Stickers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2523,6 +2549,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipbookapp.flickbook.Stickers;
 				PRODUCT_NAME = Stickers;
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.flipbookapp.flickbook.Stickers";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2535,6 +2562,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/App/Kineo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = App/Info.plist;
@@ -2544,6 +2572,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipbookapp.flickbook;
 				PRODUCT_NAME = Kineo;
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.flipbookapp.flickbook";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_COMPILATION_MODE = singlefile;
@@ -2588,7 +2617,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 287EDDET2B;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2599,6 +2630,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
@@ -2608,6 +2640,7 @@
 		A6837A37CCF716EB7EF00958 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -2639,7 +2672,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/Clip/Clip.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Clip/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2648,6 +2681,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipbookapp.flickbook.Clip;
 				PRODUCT_NAME = Clip;
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.flipbookapp.flickbook.Clip";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2660,7 +2694,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/Stickers/Stickers.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development: Buddy Build (D47V8Y25W5)";
 				INFOPLIST_FILE = Stickers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2669,6 +2703,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipbookapp.flickbook.Stickers;
 				PRODUCT_NAME = Stickers;
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.flipbookapp.flickbook.Stickers";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_COMPILATION_MODE = singlefile;
@@ -2682,7 +2717,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/App/Kineo.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2691,6 +2727,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipbookapp.flickbook;
 				PRODUCT_NAME = Kineo;
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.flipbookapp.flickbook";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2702,6 +2739,7 @@
 		D81B49FA1B210B17B447F9F7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -2762,7 +2800,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/Clip/Clip.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development: Buddy Build (D47V8Y25W5)";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Clip/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2771,6 +2809,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.flipbookapp.flickbook.Clip;
 				PRODUCT_NAME = Clip;
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.flipbookapp.flickbook.Clip";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_COMPILATION_MODE = singlefile;

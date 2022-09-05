@@ -3,6 +3,16 @@ import ProjectDescription
 let project = Project(
   name: "Kineo",
   organizationName: "Cocoatype, LLC",
+  settings: .settings(
+    base: [
+      "CURRENT_PROJECT_VERSION": "0",
+      "DEVELOPMENT_TEAM": "287EDDET2B",
+      "IPHONEOS_DEPLOYMENT_TARGET": "14.0"
+    ],
+    debug: [
+      "CODE_SIGN_IDENTITY": "Apple Development: Buddy Build (D47V8Y25W5)"
+    ]
+  ),
   targets: [
     Target(
       name: "Kineo",
@@ -12,12 +22,22 @@ let project = Project(
       infoPlist: "App/Info.plist",
       sources: ["App/Sources/**"],
       resources: ["App/Resources/**"],
+      entitlements: "App/Kineo.entitlements",
       dependencies: [
         .target(name: "Clip"),
         .target(name: "Core"),
         .target(name: "Data"),
         .target(name: "Stickers")
-      ]
+      ],
+      settings: .settings(
+        debug: [
+          "PROVISIONING_PROFILE_SPECIFIER": "match Development com.flipbookapp.flickbook"
+        ],
+        release: [
+          "CODE_SIGN_IDENTITY": "iPhone Distribution",
+          "PROVISIONING_PROFILE_SPECIFIER": "match AppStore com.flipbookapp.flickbook"
+        ]
+      )
     ),
     Target(
       name: "Clip",
@@ -31,7 +51,17 @@ let project = Project(
         .target(name: "Core"),
         .target(name: "Data"),
         .sdk(name: "AppClip", type: .framework, status: .required)
-      ]
+      ],
+      settings: .settings(
+        debug: [
+          "CODE_SIGN_IDENTITY": "Apple Development: Buddy Build (D47V8Y25W5)",
+          "PROVISIONING_PROFILE_SPECIFIER": "match Development com.flipbookapp.flickbook.Clip"
+        ],
+        release: [
+          "CODE_SIGN_IDENTITY": "Apple Distribution",
+          "PROVISIONING_PROFILE_SPECIFIER": "match AppStore com.flipbookapp.flickbook.Clip"
+        ]        
+      )
     ),
     Target(
       name: "Core",
@@ -41,7 +71,8 @@ let project = Project(
       sources: ["Core/Sources/**"],
       dependencies: [
         .external(name: "Introspect"),
-        .external(name: "Lottie")
+        .external(name: "Lottie"),
+        .target(name: "Data")
       ]
     ),
     Target(
@@ -56,14 +87,24 @@ let project = Project(
       ),
       dependencies: [
         .target(name: "Shared")
-      ]
+      ],
+      settings: .settings(
+        base: [
+          "APPLICATION_EXTENSION_API_ONLY": "YES"
+        ]
+      )
     ),
     Target(
       name: "Shared",
       platform: .iOS,
       product: .framework,
       bundleId: "com.flipbookapp.flickbook.Shared",
-      sources: ["Shared/Sources/**"]
+      sources: ["Shared/Sources/**"],
+      settings: .settings(
+        base: [
+          "APPLICATION_EXTENSION_API_ONLY": "YES"
+        ]
+      )
     ),
     Target(
       name: "Stickers",
@@ -76,7 +117,17 @@ let project = Project(
       entitlements: "Stickers/Stickers.entitlements",
       dependencies: [
         .target(name: "Data")
-      ]
+      ],
+      settings: .settings(
+        debug: [
+          "CODE_SIGN_IDENTITY": "Apple Development: Buddy Build (D47V8Y25W5)",
+          "PROVISIONING_PROFILE_SPECIFIER": "match Development com.flipbookapp.flickbook.Stickers"
+        ],
+        release: [
+          "CODE_SIGN_IDENTITY": "Apple Distribution",
+          "PROVISIONING_PROFILE_SPECIFIER": "match AppStore com.flipbookapp.flickbook.Stickers"
+        ]        
+      )
     ),
     Target(
       name: "Tests",
