@@ -135,8 +135,7 @@ let project = Project(
       product: .unitTests,
       bundleId: "com.flipbookapp.flickbook.Tests",
       infoPlist: "Tests/Info.plist",
-      sources: ["Tests/Sources/**"],
-      resources: ["Tests/Sources/**"]
+      sources: ["Tests/Sources/**"]
     )
   ],
   schemes: [

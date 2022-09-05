@@ -65,7 +65,6 @@
 		2F4CE05CCCCB7792CA559A07 /* GalleryDocumentPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85076C3F5A1A8D3F885F800 /* GalleryDocumentPreviewView.swift */; };
 		2FFB3DF957CB4170703E6FFE /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D644F615CD75700F900BC26 /* GalleryCollectionView.swift */; };
 		3103B242465C3BE409B37342 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282BD7BE5C4385BDAFBE9410 /* Lottie.framework */; platformFilter = ios; };
-		3363B5B7AE7473DF983DF81F /* KineoTests.swift in Resources */ = {isa = PBXBuildFile; fileRef = B8C67CEFD9BE52A3731D32A0 /* KineoTests.swift */; };
 		33D8194AF6A387ADC873A6D9 /* ExportEditingCanvasBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EB735BED32317640C18BCC /* ExportEditingCanvasBackgroundView.swift */; };
 		33F5209FFAF28006A2CDAF30 /* FeatureFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A531C19B71C135DB7E79D903 /* FeatureFlag.swift */; };
 		342FD5C7C5E82CBFB0DA2A6E /* FilmStripCollectionLayoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B54C87A19C9B96A4D69D50 /* FilmStripCollectionLayoutItem.swift */; };
@@ -308,7 +307,6 @@
 		F73F9317274F4B0D1AC7FB03 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C0600E318937B358D16D67 /* DataExtensions.swift */; };
 		F7804090B1D82AEB462F18B0 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E752E7DF0061C082DC15CCF /* ColorPickerViewController.swift */; };
 		F98C2329CC85318E9CEDF349 /* SidebarActionButtonBackgroundLightShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13690387D8132CF51C8A48CC /* SidebarActionButtonBackgroundLightShadowLayer.swift */; };
-		FB54B14C61771B278F54DBF6 /* TuistBundle+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2C73A55A653607018FE198 /* TuistBundle+Tests.swift */; };
 		FBB952460EA6AA7C89E7E886 /* StickerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51FC631ACDAA26DE0E9DED3 /* StickerDataSource.swift */; };
 		FBC89C4ADA39D4F60B9CE36B /* Icon-App-20x20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56718CC1484DB7E52E2595D5 /* Icon-App-20x20@3x.png */; };
 /* End PBXBuildFile section */
@@ -609,7 +607,6 @@
 		6B3F22D0C508378F3AFC5003 /* DocumentOperationQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentOperationQueue.swift; sourceTree = "<group>"; };
 		6B4455968E3D5E9CE1FFB0C5 /* Icon-App-40x40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-40x40@3x.png"; sourceTree = "<group>"; };
 		6CE9A09AC64C279185C812B7 /* TuistBundle+Kineo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+Kineo.swift"; sourceTree = "<group>"; };
-		6D2C73A55A653607018FE198 /* TuistBundle+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+Tests.swift"; sourceTree = "<group>"; };
 		6D644F615CD75700F900BC26 /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
 		6DFECD203132D7BA9846D0D3 /* ExportSettingsDurationContentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsDurationContentSection.swift; sourceTree = "<group>"; };
 		6E771F11C3CD724D975A6ECC /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1659,7 +1656,6 @@
 				6A0E26E9DA6AE6F6D9C22DC0 /* TuistAssets+Stickers.swift */,
 				6CE9A09AC64C279185C812B7 /* TuistBundle+Kineo.swift */,
 				3662937E4438459DF392246B /* TuistBundle+Stickers.swift */,
-				6D2C73A55A653607018FE198 /* TuistBundle+Tests.swift */,
 				2D8E1657553583A47E398AD6 /* TuistStrings+Kineo.swift */,
 			);
 			path = Sources;
@@ -1949,7 +1945,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3363B5B7AE7473DF983DF81F /* KineoTests.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1978,7 +1973,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB54B14C61771B278F54DBF6 /* TuistBundle+Tests.swift in Sources */,
 				AE5A3CEE88DF9188B22E9170 /* KineoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

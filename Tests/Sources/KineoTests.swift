@@ -2,7 +2,8 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 import XCTest
-@testable import Kineo
+
+@testable import Core
 
 class IconTests: XCTestCase {
     func testCreatingEveryIcon() {
