@@ -13,9 +13,8 @@ let project = Project(
       sources: ["App/Sources/**"],
       resources: ["App/Resources/**"],
       dependencies: [
-        .external(name: "Introspect"),
-        .external(name: "Lottie"),
         .target(name: "Clip"),
+        .target(name: "Core"),
         .target(name: "Data"),
         .target(name: "Stickers")
       ]
@@ -29,8 +28,20 @@ let project = Project(
       sources: ["Clip/Sources/**"],
       entitlements: "Clip/Clip.entitlements",
       dependencies: [
+        .target(name: "Core"),
         .target(name: "Data"),
         .sdk(name: "AppClip", type: .framework, status: .required)
+      ]
+    ),
+    Target(
+      name: "Core",
+      platform: .iOS,
+      product: .framework,
+      bundleId: "com.flipbookapp.flickbook.Core",
+      sources: ["Core/Sources/**"],
+      dependencies: [
+        .external(name: "Introspect"),
+        .external(name: "Lottie")
       ]
     ),
     Target(
@@ -62,7 +73,10 @@ let project = Project(
       infoPlist: "Stickers/Info.plist",
       sources: ["Stickers/Sources/**"],
       resources: ["Stickers/Resources/**"],
-      entitlements: "Stickers/Stickers.entitlements"
+      entitlements: "Stickers/Stickers.entitlements",
+      dependencies: [
+        .target(name: "Data")
+      ]
     ),
     Target(
       name: "Tests",

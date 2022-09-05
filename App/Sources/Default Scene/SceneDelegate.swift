@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 7/14/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import Core
 import Data
 import UIKit
 
@@ -22,7 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             initialDocument = nil
         }
 
-        let window = SceneWindow(windowScene: windowScene, document: initialDocument)
+        let window = SceneWindow(windowScene: windowScene)
+        window.rootViewController = SceneViewController(document: initialDocument)
         window.makeKeyAndVisible()
         self.window = window
     }

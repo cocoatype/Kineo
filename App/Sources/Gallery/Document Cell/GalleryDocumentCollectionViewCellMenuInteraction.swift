@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 1/26/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import Core
 import UIKit
 
 enum GalleryDocumentCollectionViewCellContextMenuConfigurationFactory {

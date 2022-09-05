@@ -2,8 +2,8 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 import Data
-import MobileCoreServices
 import UIKit
+import UniformTypeIdentifiers
 
 class StickerGenerator: NSObject {
     static let standardStickerSize = CGSize(width: 408, height: 408)
@@ -26,7 +26,7 @@ class StickerGenerator: NSObject {
             kCGImagePropertyGIFDelayTime: 1 / Constants.framesPerSecond
         ]] as CFDictionary
 
-        guard let destination = CGImageDestinationCreateWithURL(exportURL as CFURL, kUTTypeGIF, document.pages.count, nil) else { throw Error.destinationCreationError }
+        guard let destination = CGImageDestinationCreateWithURL(exportURL as CFURL, UTType.gif.identifier as CFString, document.pages.count, nil) else { throw Error.destinationCreationError }
         CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
 
         let backgroundImage = StickerBackgroundImageGenerator.backgroundImage(for: document)

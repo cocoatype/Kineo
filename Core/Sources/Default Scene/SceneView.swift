@@ -1,16 +1,12 @@
-//  Created by Geoff Pado on 11/15/19.
+//  Created by Geoff Pado on 11/16/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
-import Core
 import UIKit
 
-class GalleryNewDocumentImageView: UIImageView {
-    init() {
+public class SceneView: UIView {
+    public init() {
         super.init(frame: .zero)
-        backgroundColor = .clear
-        image = Icons.newDocument
-        tintColor = .newCellTint
-        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .appBackground
     }
 
     // MARK: Boilerplate

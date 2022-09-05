@@ -1,7 +1,6 @@
 //  Created by Geoff Pado on 7/14/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
-import Core
 import Data
 import UIKit
 
@@ -9,7 +8,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         Defaults.initialize()
-        AppPurchaseStateObserver.shared.startObserving()
         return true
     }
 
