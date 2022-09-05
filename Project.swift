@@ -138,5 +138,14 @@ let project = Project(
       sources: ["Tests/Sources/**"],
       resources: ["Tests/Sources/**"]
     )
+  ],
+  schemes: [
+    Scheme(
+      name: "Kineo",
+      shared: true,
+      buildAction: .buildAction(targets: ["Kineo"]),
+      testAction: .targets(["Tests"]),
+      runAction: .runAction(executable: "Kineo")
+    )
   ]
 )
