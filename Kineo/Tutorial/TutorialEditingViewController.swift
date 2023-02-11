@@ -3,7 +3,7 @@
 
 import UIKit
 
-class TutorialEditingViewController: EditingDrawViewController {
+class TutorialEditingViewController: EditingViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showIntro()
