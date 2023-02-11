@@ -114,6 +114,8 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
     // MARK: Drag Delegate
 
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        guard indexPath.item < dataSource.latestState.pageCount else { return [] }
+
         let page = dataSource.page(at: indexPath)
         return [FilmStripPageDragItem(page: page)]
     }
