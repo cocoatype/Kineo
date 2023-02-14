@@ -6,8 +6,8 @@ cache:
   paths:
     - vendor/bundle
 before_script:
-  - "bundle install --path vendor/bundle"
   - "echo $PATH"
+  - "bundle install --path vendor/bundle"
 variables:
   LC_ALL: "en_US.UTF-8"
   LANG: "en_US.UTF-8"
