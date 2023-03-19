@@ -66,7 +66,9 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
 
     func reloadData() {
         collectionView.reloadData()
-        collectionView.scrollToItem(at: IndexPath(item: dataSource.currentPageIndex, section: 0), at: .top, animated: true)
+        Task { @MainActor in
+            collectionView.scrollToItem(at: IndexPath(item: dataSource.currentPageIndex, section: 0), at: .top, animated: true)
+        }
         accessibilityValue = accessibilityValueForCurrentIndex()
     }
 
