@@ -52,6 +52,9 @@ public struct Document: Codable, Equatable {
         guard let index = pages.firstIndex(of: page) else { return self }
         var newPages = pages
         newPages.remove(at: index)
+        if newPages.count == 0 {
+            newPages.append(Page())
+        }
         return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex, backgroundImageData: self.backgroundImageData)
     }
 
