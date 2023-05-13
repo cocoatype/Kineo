@@ -9,8 +9,8 @@ import UIKit
 
 class VideoProvider: UIActivityItemProvider {
     init(document: Document) throws {
-        self.document = DocumentTransformer.transformedDocument(from: document, using: Defaults.exportSettings)
-        self.shape = Defaults.exportSettings.shape
+        self.document = DocumentTransformer.transformedDocument(from: document, playbackStyle: Defaults.exportPlaybackStyle, duration: Defaults.exportDuration)
+        self.shape = Defaults.exportShape
 
         // generate the export URL
         let fileName = UUID().uuidString

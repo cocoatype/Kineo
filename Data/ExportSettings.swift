@@ -19,6 +19,10 @@ public enum ExportDuration: CaseIterable {
     }
 }
 
+public enum ExportFormat: CaseIterable {
+    case video, gif
+}
+
 public enum ExportShape: CaseIterable {
     case square, squarePlain, portrait, landscape
 
@@ -37,18 +41,4 @@ public enum ExportShape: CaseIterable {
         case .square, .portrait, .landscape: return false
         }
     }
-}
-
-public struct ExportSettings {
-    public init(playbackStyle: PlaybackStyle, duration: ExportDuration, shape: ExportShape) {
-        self.playbackStyle = playbackStyle
-        self.duration = duration
-        self.shape = shape
-    }
-
-    public let playbackStyle: PlaybackStyle
-    public let duration: ExportDuration
-    public let shape: ExportShape
-
-    public var minimumFrameCount: Int { duration.minimumFrameCount }
 }

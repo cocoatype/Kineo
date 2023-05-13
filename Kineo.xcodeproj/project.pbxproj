@@ -83,6 +83,8 @@
 		0436CE9123E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436CE9023E52D63002BE4EF /* GalleryDocumentPreviewViewController.swift */; };
 		043854F22392246F0041A4AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043854F12392246F0041A4AA /* Localizable.strings */; };
 		04389E33262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04389E32262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift */; };
+		043CC2E42A0F1F4E00DEE5B6 /* ExportSettingsFormatContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043CC2E32A0F1F4E00DEE5B6 /* ExportSettingsFormatContentSection.swift */; };
+		043CC2E52A0F24D400DEE5B6 /* ExportSettingsFormatContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043CC2E32A0F1F4E00DEE5B6 /* ExportSettingsFormatContentSection.swift */; };
 		043D71492402695400A1B7D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043D71482402695400A1B7D1 /* InfoPlist.strings */; };
 		043D7618240A702400A1B7D1 /* DrawingImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D7616240A5FE400A1B7D1 /* DrawingImageGenerator.swift */; };
 		043D7619240A726700A1B7D1 /* UITraitCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2B23B2345A006FBABC /* UITraitCollectionExtensions.swift */; };
@@ -592,6 +594,7 @@
 		043854E6238CD06F0041A4AA /* SidebarActionButtonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarActionButtonImageView.swift; sourceTree = "<group>"; };
 		043854F12392246F0041A4AA /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		04389E32262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingPreviewWatermarkImageView.swift; sourceTree = "<group>"; };
+		043CC2E32A0F1F4E00DEE5B6 /* ExportSettingsFormatContentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsFormatContentSection.swift; sourceTree = "<group>"; };
 		043D71482402695400A1B7D1 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		043D7616240A5FE400A1B7D1 /* DrawingImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingImageGenerator.swift; sourceTree = "<group>"; };
 		043D761B240A742A00A1B7D1 /* DrawingImageGenerationOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingImageGenerationOperation.swift; sourceTree = "<group>"; };
@@ -884,6 +887,7 @@
 				04791E6A23EEAB6B00403BD8 /* ExportSettingsStyleContentSection.swift */,
 				04084926261569B700D2AA15 /* ExportSettingsShapeContentSection.swift */,
 				0408492B261569E100D2AA15 /* ExportSettingsBackgroundContentSection.swift */,
+				043CC2E32A0F1F4E00DEE5B6 /* ExportSettingsFormatContentSection.swift */,
 			);
 			path = "Content Provider";
 			sourceTree = "<group>";
@@ -1893,6 +1897,7 @@
 				0474AFE627B7645A0031210C /* CanvasBackgroundColorPublisher.swift in Sources */,
 				0474AFC127B75F790031210C /* AppDelegate.swift in Sources */,
 				0474B02227B767790031210C /* FilmStripCollectionLayoutItem.swift in Sources */,
+				043CC2E52A0F24D400DEE5B6 /* ExportSettingsFormatContentSection.swift in Sources */,
 				0474B00827B766710031210C /* ExportEditingViewController.swift in Sources */,
 				042A3D3C28AB422300951216 /* CanvasDisplayingView.swift in Sources */,
 				0474AFE527B764390031210C /* Icons.swift in Sources */,
@@ -2141,6 +2146,7 @@
 				042BB7FC280A96C300100E82 /* BackgroundsPurchaseMarketingItem.swift in Sources */,
 				04C0A64622DC208E00E4E5D6 /* AppDelegate.swift in Sources */,
 				04318A3722E2FCC3003D70C8 /* VideoProvider.swift in Sources */,
+				043CC2E42A0F1F4E00DEE5B6 /* ExportSettingsFormatContentSection.swift in Sources */,
 				047F9EEB26E4CA2700DD34F5 /* BoolExtensions.swift in Sources */,
 				0419751B25EB508800CB0F54 /* PageNavigationEvent.swift in Sources */,
 				042BB7F4280A969D00100E82 /* ZoomPurchaseMarketingItem.swift in Sources */,

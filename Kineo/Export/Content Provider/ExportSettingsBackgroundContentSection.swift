@@ -34,7 +34,7 @@ struct ExportSettingsBackgroundContentItem: ExportSettingsContentItem {
         }
     }
 
-    func isChecked(for settings: ExportSettings) -> Bool {
+    var isChecked: Bool {
         return style == Defaults.exportBackgroundStyle
     }
 

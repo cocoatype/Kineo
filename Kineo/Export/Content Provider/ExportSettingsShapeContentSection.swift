@@ -28,13 +28,12 @@ struct ExportSettingsShapeContentItem: ExportSettingsContentItem {
         }
     }
 
-    func isChecked(for settings: ExportSettings) -> Bool {
-        return shape == settings.shape
+    var isChecked: Bool {
+        return shape == Defaults.exportShape
     }
 
     func updateExportSettings() {
-        let newExportSettings = ExportSettings(playbackStyle: Defaults.exportSettings.playbackStyle, duration: Defaults.exportSettings.duration, shape: shape)
-        Defaults.exportSettings = newExportSettings
+        Defaults.exportShape = shape
     }
 
     private let shape: ExportShape

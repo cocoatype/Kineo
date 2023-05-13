@@ -50,6 +50,11 @@
 "ExportSettingsDurationContentItem.fiveSeconds.title" = "5 seconds";
 "ExportSettingsDurationContentItem.tenSeconds.title" = "10 seconds";
 
+"ExportSettingsFormatContentItem.gif.title" = "Animated GIF";
+"ExportSettingsFormatContentItem.video.title" = "Video";
+
+"ExportSettingsFormatContentSection.header" = "Format";
+
 "ExportSettingsShapeContentSection.header" = "Video Shape";
 
 "ExportSettingsShapeContentItem.squarePlain.title" = "Square (No Frame)";

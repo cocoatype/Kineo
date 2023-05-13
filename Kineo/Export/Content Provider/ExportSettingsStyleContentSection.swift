@@ -27,13 +27,12 @@ struct ExportSettingsStyleContentItem: ExportSettingsContentItem {
         }
     }
 
-    func isChecked(for settings: ExportSettings) -> Bool {
-        return playbackStyle == settings.playbackStyle
+    var isChecked: Bool {
+        return playbackStyle == Defaults.exportPlaybackStyle
     }
 
     func updateExportSettings() {
-        let newExportSettings = ExportSettings(playbackStyle: playbackStyle, duration: Defaults.exportSettings.duration, shape: Defaults.exportSettings.shape)
-        Defaults.exportSettings = newExportSettings
+        Defaults.exportPlaybackStyle = playbackStyle
     }
 
     private let playbackStyle: PlaybackStyle

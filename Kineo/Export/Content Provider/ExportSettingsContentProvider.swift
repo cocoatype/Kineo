@@ -13,19 +13,16 @@ struct ExportSettingsContentProvider {
     func checkedIndexPaths(inSection section: Int) -> [IndexPath] {
         return (0..<sections[section].items.count)
           .map { IndexPath(row: $0, section: section) }
-          .filter { item(at: $0).isChecked(for: exportSettings) }
+          .filter { item(at: $0).isChecked }
     }
 
     private var sections: [ExportSettingsContentSection] {
         return [
             ExportSettingsBackgroundContentSection(),
-            ExportSettingsDurationContentSection()
+            ExportSettingsDurationContentSection(),
+            ExportSettingsFormatContentSection()
         ]
     }
-
-    // MARK: Boilerplate
-
-    private var exportSettings: ExportSettings { Defaults.exportSettings }
 }
 
 protocol ExportSettingsContentSection {
@@ -36,6 +33,6 @@ protocol ExportSettingsContentSection {
 
 protocol ExportSettingsContentItem {
     var title: String { get }
-    func isChecked(for settings: ExportSettings) -> Bool
+    var isChecked: Bool { get }
     func updateExportSettings()
 }
