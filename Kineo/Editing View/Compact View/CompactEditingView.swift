@@ -5,11 +5,12 @@ import Data
 import PencilKit
 import UIKit
 
-class CompactEditingView: EditingDrawView {
+class CompactEditingView: EditingDrawView, CanvasDisplayingView {
     var drawingFrame: CGRect { drawingView.frame }
     var drawingSuperview: UIView { self }
     var drawingView: DrawingView { drawingViewController.drawingView }
     let drawingViewGuide = DrawingViewGuide()
+    var canvasView: UIView { drawingView }
 
     var backgroundPopoverSourceView: UIView? { nil }
 

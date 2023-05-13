@@ -62,7 +62,12 @@ class PresentationDirector: NSObject {
     }
 
     private func performPresentationAnimation(from galleryViewController: GalleryViewController, to editingViewController: EditingViewController, in sceneViewController: SceneViewController, with cellSnapshot: CALayer) {
-        guard let editingView = editingViewController.view, let drawView = editingViewController.canvasDisplayView else { return }
+        guard let editingView = editingViewController.view,
+              let drawView = editingViewController.canvasDisplayView
+        else {
+            return sceneViewController.transition(to: editingViewController)
+        }
+
         let document = editingViewController.document
 
         DrawingImageGenerator.shared.generateFirstSkinLayer(for: document) { skinsImage, _ in
