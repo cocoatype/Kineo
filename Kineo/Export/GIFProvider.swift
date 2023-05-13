@@ -10,7 +10,7 @@ class GIFProvider: UIActivityItemProvider {
 
     static func exportedURL(from document: Document) throws -> URL {
         // generate the export URL
-        let fileName = "Animation"
+        let fileName = NSLocalizedString("GIFProvider.fileName", comment: "File name for an exported animated GIF")
         let exportURL = FileManager.default.temporaryDirectory
           .appendingPathComponent(fileName)
           .appendingPathExtension("gif")
@@ -32,11 +32,12 @@ class GIFProvider: UIActivityItemProvider {
         let backgroundImage = GIFBackgroundImageGenerator.backgroundImage(for: document)
 
         let traitCollection = UITraitCollection(userInterfaceStyle: .light)
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
         traitCollection.performAsCurrent {
             let stickerScale = Self.standardStickerSize / Constants.canvasRect
             document.pages.forEach { page in
-                let image = UIGraphicsImageRenderer(size: Self.standardStickerSize).image { context in
-
+                let image = UIGraphicsImageRenderer(size: Self.standardStickerSize, format: format).image { context in
                     backgroundImage.draw(at: .zero)
 
                     let pageImage = page.drawing.image(from: Constants.canvasRect, scale: stickerScale)

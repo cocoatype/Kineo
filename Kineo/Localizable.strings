@@ -90,6 +90,8 @@
 "GalleryViewController.settingsKeyCommandTitle" = "Settings";
 "GalleryViewController.newDocumentKeyCommandTitle" = "New Animation";
 
+"GIFProvider.fileName" = "Animation";
+
 "HelpButton.accessibilityLabel" = "Help";
 
 "HideWatermarkToggleSwitch.title" = "Hide Watermark";
