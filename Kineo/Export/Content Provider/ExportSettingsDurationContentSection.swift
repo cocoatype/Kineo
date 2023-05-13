@@ -27,13 +27,12 @@ struct ExportSettingsDurationContentItem: ExportSettingsContentItem {
         }
     }
 
-    func isChecked(for settings: ExportSettings) -> Bool {
-        return duration == settings.duration
+    var isChecked: Bool {
+        return duration == Defaults.exportDuration
     }
 
     func updateExportSettings() {
-        let newExportSettings = ExportSettings(playbackStyle: Defaults.exportSettings.playbackStyle, duration: duration, shape: Defaults.exportSettings.shape)
-        Defaults.exportSettings = newExportSettings
+        Defaults.exportDuration = duration
     }
 
     private let duration: ExportDuration

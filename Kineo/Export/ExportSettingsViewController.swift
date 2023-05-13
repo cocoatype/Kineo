@@ -21,14 +21,13 @@ class ExportSettingsViewController: UIViewController, UITableViewDelegate {
         settingsView.delegate = self
         settingsView.register(ExportSettingsHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: ExportSettingsHeaderFooterView.identifier)
         view = settingsView
+    }
 
-
-        contentSizeObservation = settingsView.observe(\.contentSize) { [weak self] _, value in
-            guard let settingsView = self?.view as? ExportSettingsView else { return }
-            var newContentSize = settingsView.contentSize
-            newContentSize.height += 8
-            self?.preferredContentSize = newContentSize
-        }
+    override func viewDidLayoutSubviews() {
+        guard let settingsView = view as? ExportSettingsView else { return }
+        var newContentSize = settingsView.contentSize
+        newContentSize.height += 8
+        preferredContentSize = newContentSize
     }
 
     @objc private func dismissSelf() { // I hate that this works
@@ -42,7 +41,7 @@ class ExportSettingsViewController: UIViewController, UITableViewDelegate {
         let reloadIndexPaths = contentProvider.checkedIndexPaths(inSection: indexPath.section) + indexPath
         contentProvider.item(at: indexPath).updateExportSettings()
         delegate?.exportSettingsDidChange()
-        tableView.reloadRows(at: reloadIndexPaths, with: .automatic)
+        tableView.reloadRows(at: reloadIndexPaths, with: .fade)
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

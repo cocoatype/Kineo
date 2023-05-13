@@ -7,7 +7,6 @@ import UIKit
 class StickerBackgroundImageGenerator: NSObject {
     static func backgroundImage(for document: Document) -> UIImage {
         let stickerSize = StickerGenerator.standardStickerSize
-        let stickerScale = stickerSize / Constants.canvasRect
         return UIGraphicsImageRenderer(size: stickerSize).image { context in
             UITraitCollection(userInterfaceStyle: .light).performAsCurrent {
                 // draw a canvas
@@ -19,7 +18,6 @@ class StickerBackgroundImageGenerator: NSObject {
                 cgContext.setFillColor(document.canvasBackgroundColor.cgColor)
                 cgContext.addPath(canvasPath)
                 cgContext.fillPath()
-//                cgContext.fill(canvasRect)
 
                 // draw the background image
                 if let backgroundImageData = document.backgroundImageData,

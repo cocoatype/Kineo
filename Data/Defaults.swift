@@ -21,12 +21,22 @@ public enum Defaults {
 
     // MARK: Export Settings
 
-    public static var exportSettings: ExportSettings {
-        get { ExportSettings(playbackStyle: exportPlaybackStyle, duration: exportDuration, shape: exportShape) }
-        set(newSettings) {
-            Self.exportPlaybackStyle = newSettings.playbackStyle
-            Self.exportDuration = newSettings.duration
-            Self.exportShape = newSettings.shape
+    public static var exportFormat: ExportFormat {
+        get {
+            switch userDefaults.string(forKey: Self.exportFormatKey) {
+            case Self.exportFormatGIF: return .gif
+            case Self.exportFormatVideo: return .video
+            default: return .video
+            }
+        }
+
+        set(newFormat) {
+            switch newFormat {
+            case .gif:
+                userDefaults.set(Self.exportFormatGIF, forKey: Self.exportFormatKey)
+            case .video:
+                userDefaults.set(Self.exportFormatVideo, forKey: Self.exportFormatKey)
+            }
         }
     }
 
@@ -47,7 +57,7 @@ public enum Defaults {
         }
     }
 
-    private static var exportDuration: ExportDuration {
+    public static var exportDuration: ExportDuration {
         get {
             switch userDefaults.string(forKey: Self.exportDurationKey) {
             case Self.exportDurationThreeSeconds?: return .threeSeconds
@@ -203,6 +213,9 @@ public enum Defaults {
     private static let exportBackgroundUnspecified = "Defaults.exportBackgroundUnspecified"
     private static let exportBackgroundLight = "Defaults.exportBackgroundLight"
     private static let exportBackgroundDark = "Defaults.exportBackgroundDark"
+    private static let exportFormatKey = "Defaults.exportFormat"
+    private static let exportFormatGIF = "Defaults.exportFormatGIF"
+    private static let exportFormatVideo = "Defaults.exportFormatVideo"
     private static let exportHideWatermarkKey = "Defaults.exportHideWatermarkKey"
     private static let serverChangeTokenDataKey = "Defaults.serverChangeTokenDataKey"
     private static let updatedDocumentIdentifiersKey = "Defaults.updatedDocumentIdentifiersKey"

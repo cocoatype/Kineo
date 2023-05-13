@@ -5,13 +5,13 @@ import Data
 import Foundation
 
 enum DocumentTransformer {
-    static func transformedDocument(from document: Document, using settings: ExportSettings) -> Document {
-        switch settings.playbackStyle {
+    static func transformedDocument(from document: Document, playbackStyle: PlaybackStyle, duration: ExportDuration) -> Document {
+        switch playbackStyle {
         case .standard: return document
-        case .loop: return loopedDocument(from: document, minimumFrameCount: settings.minimumFrameCount)
+        case .loop: return loopedDocument(from: document, minimumFrameCount: duration.minimumFrameCount)
         case .bounce:
             let base = bouncedDocument(from: document)
-            return loopedDocument(from: base, minimumFrameCount: settings.minimumFrameCount)
+            return loopedDocument(from: base, minimumFrameCount: duration.minimumFrameCount)
         }
     }
 
