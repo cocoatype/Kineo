@@ -85,6 +85,8 @@
 		04389E33262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04389E32262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift */; };
 		043CC2E42A0F1F4E00DEE5B6 /* ExportSettingsFormatContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043CC2E32A0F1F4E00DEE5B6 /* ExportSettingsFormatContentSection.swift */; };
 		043CC2E52A0F24D400DEE5B6 /* ExportSettingsFormatContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043CC2E32A0F1F4E00DEE5B6 /* ExportSettingsFormatContentSection.swift */; };
+		043CC2E72A0F2FCE00DEE5B6 /* GIFProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043CC2E62A0F2FCE00DEE5B6 /* GIFProvider.swift */; };
+		043CC2E82A0F322700DEE5B6 /* GIFProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043CC2E62A0F2FCE00DEE5B6 /* GIFProvider.swift */; };
 		043D71492402695400A1B7D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 043D71482402695400A1B7D1 /* InfoPlist.strings */; };
 		043D7618240A702400A1B7D1 /* DrawingImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D7616240A5FE400A1B7D1 /* DrawingImageGenerator.swift */; };
 		043D7619240A726700A1B7D1 /* UITraitCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACCD2B23B2345A006FBABC /* UITraitCollectionExtensions.swift */; };
@@ -595,6 +597,7 @@
 		043854F12392246F0041A4AA /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		04389E32262CE0B5004D49B7 /* ExportEditingPreviewWatermarkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportEditingPreviewWatermarkImageView.swift; sourceTree = "<group>"; };
 		043CC2E32A0F1F4E00DEE5B6 /* ExportSettingsFormatContentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportSettingsFormatContentSection.swift; sourceTree = "<group>"; };
+		043CC2E62A0F2FCE00DEE5B6 /* GIFProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFProvider.swift; sourceTree = "<group>"; };
 		043D71482402695400A1B7D1 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		043D7616240A5FE400A1B7D1 /* DrawingImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingImageGenerator.swift; sourceTree = "<group>"; };
 		043D761B240A742A00A1B7D1 /* DrawingImageGenerationOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingImageGenerationOperation.swift; sourceTree = "<group>"; };
@@ -1165,6 +1168,7 @@
 				0436CE9223E53237002BE4EF /* ExportViewController.swift */,
 				04F2C0C127FFF29500023244 /* ExportSettingsHeaderFooterView.swift */,
 				04318A3622E2FCC3003D70C8 /* VideoProvider.swift */,
+				043CC2E62A0F2FCE00DEE5B6 /* GIFProvider.swift */,
 				04CEA249283C7D4B0080E510 /* VideoRendererFormat.swift */,
 				04CEA247283C7CBD0080E510 /* VideoBackgroundImageGenerator.swift */,
 				040849222615699600D2AA15 /* Content Provider */,
@@ -1950,6 +1954,7 @@
 				0474AFCA27B761BA0031210C /* SceneView.swift in Sources */,
 				0474B02427B7678B0031210C /* FilmStripPageDragItem.swift in Sources */,
 				0474AFF627B765B80031210C /* FilmStripExistingPageCell.swift in Sources */,
+				043CC2E82A0F322700DEE5B6 /* GIFProvider.swift in Sources */,
 				0474AFDB27B763180031210C /* EditingToolPicker.swift in Sources */,
 				04CEA240283896760080E510 /* PhotoPicker.swift in Sources */,
 				04CEA24B283C7DE00080E510 /* VideoRendererFormat.swift in Sources */,
@@ -2053,6 +2058,7 @@
 				044AFA1427F2C0CD00119459 /* PurchaseState.swift in Sources */,
 				04BEB77128A1FBF200E10EB1 /* DisplayModeButton.swift in Sources */,
 				0435867327D85D210037BA5F /* TutorialOnboardingDrawPageViewController.swift in Sources */,
+				043CC2E72A0F2FCE00DEE5B6 /* GIFProvider.swift in Sources */,
 				04791E6323EEA09300403BD8 /* ExportSettingsContentProvider.swift in Sources */,
 				047BF5F9280A6ADC00BC672F /* PurchaseMarketingView.swift in Sources */,
 				047F9EF126E4E1E700DD34F5 /* EditingToolPicker.swift in Sources */,

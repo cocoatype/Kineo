@@ -8,9 +8,16 @@ import UIKit
 class ExportViewController: UIActivityViewController {
     init?(document: Document, barButtonItem: UIBarButtonItem?, completionHandler: @escaping (() -> Void)) {
         do {
-            let videoProvider = try VideoProvider(document: document)
+            let activityItems: [Any]
+            switch Defaults.exportFormat {
+            case .gif:
+                activityItems = try [GIFProvider.exportedURL(from: document)]
+            case .video:
+                let videoProvider = try VideoProvider(document: document)
+                activityItems = [videoProvider]
+            }
 
-            super.init(activityItems: [videoProvider], applicationActivities: [])
+            super.init(activityItems: activityItems, applicationActivities: [])
             completionWithItemsHandler = { [weak self] _, completed, _, _ in
                 guard completed == true else { return }
                 Defaults.incrementNumberOfSaves()
