@@ -3,18 +3,18 @@
 
 import UIKit
 
-class PageNavigationEvent: UIEvent {
-    enum Style {
+public class PageNavigationEvent: UIEvent {
+    public enum Style {
         case direct(pageIndex: Int)
         case increment, decrement
     }
 
-    let style: Style
-    convenience init(pageIndex: Int) {
+    public let style: Style
+    public convenience init(pageIndex: Int) {
         self.init(style: .direct(pageIndex: pageIndex))
     }
 
-    init(style: Style) {
+    public init(style: Style) {
         self.style = style
     }
 }

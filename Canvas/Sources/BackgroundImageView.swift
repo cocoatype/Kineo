@@ -4,8 +4,8 @@
 import Data
 import UIKit
 
-class BackgroundImageView: UIImageView {
-    init() {
+public class BackgroundImageView: UIImageView {
+    public init() {
         super.init(frame: .zero)
         contentMode = .scaleAspectFill
         translatesAutoresizingMaskIntoConstraints = false

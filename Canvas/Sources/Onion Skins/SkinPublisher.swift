@@ -3,6 +3,7 @@
 
 import Combine
 import Data
+import EditingState
 import UIKit
 
 struct SkinPublisher<PublisherUpstream: Publisher>: Publisher where PublisherUpstream.Output == EditingState, PublisherUpstream.Failure == Never {

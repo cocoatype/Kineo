@@ -3,10 +3,11 @@
 
 import Combine
 import Data
+import EditingState
 import PencilKit
 import UIKit
 
-class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate {
+public class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate {
     init(statePublisher: EditingStatePublisher) {
         self._page = statePublisher.value.currentPage
         super.init(frame: .zero)
@@ -85,14 +86,14 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
             .store(in: &cancellables)
     }
 
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         updateCanvas()
     }
 
     // MARK: Canvas
 
-    var zoomScale: CGFloat = 1.0 {
+    public var zoomScale: CGFloat = 1.0 {
         didSet {
             updateCanvas()
         }
@@ -102,7 +103,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         (bounds.width / Constants.canvasSize.width) * zoomScale
     }
 
-    func startZooming() {
+    public func startZooming() {
         canvasSnapshotView.setSnapshot(from: page.drawing)
     }
 
@@ -130,15 +131,15 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
     private func handleChange() {
         toolWasUsed = false
         updatePage()
-        sendAction(#selector(EditingDrawViewController.drawingViewDidChangePage(_:)), to: nil, for: nil)
+        sendAction(#selector(DrawingViewActions.drawingViewDidChangePage(_:)), to: nil, for: nil)
     }
 
-    func observe(_ toolPicker: PKToolPicker) {
+    public func observe(_ toolPicker: PKToolPicker) {
         toolPicker.colorUserInterfaceStyle = .light
         toolPicker.addObserver(canvasView)
     }
 
-    func stopObserving(_ toolPicker: PKToolPicker) {
+    public func stopObserving(_ toolPicker: PKToolPicker) {
         toolPicker.removeObserver(canvasView)
     }
 
@@ -194,18 +195,18 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
 
     var toolWasUsed = false
 
-    func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
+    public func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
         let isUndoing = undoManager?.isUndoing ?? false
         let isRedoing = undoManager?.isRedoing ?? false
         guard toolWasUsed || isUndoing || isRedoing else { return }
         handleChange()
     }
 
-    func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView) {
+    public func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView) {
         toolWasUsed = true
     }
 
-    func canvasViewDidFinishRendering(_ canvasView: PKCanvasView) {
+    public func canvasViewDidFinishRendering(_ canvasView: PKCanvasView) {
         DispatchQueue.main.async {
             self.canvasSnapshotView.clearSnapshot()
         }
@@ -221,7 +222,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
     private var undoObserver: Any?
 
     private var _page: Page
-    private(set) var page: Page {
+    private(set) public var page: Page {
         get { _page }
         set(newPage) {
             guard _page != newPage else { return }
@@ -230,7 +231,7 @@ class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDelegate 
         }
     }
 
-    override var canBecomeFirstResponder: Bool { return true }
+    public override var canBecomeFirstResponder: Bool { return true }
 
     @available(*, unavailable)
     required init(coder: NSCoder) {
@@ -253,4 +254,8 @@ private extension EditingState.Mode {
         default: return false
         }
     }
+}
+
+@objc public protocol DrawingViewActions {
+    func drawingViewDidChangePage(_ sender: DrawingView)
 }

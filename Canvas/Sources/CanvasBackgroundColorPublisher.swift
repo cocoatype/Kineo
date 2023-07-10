@@ -3,6 +3,7 @@
 
 import Combine
 import Data
+import EditingState
 import UIKit
 
 struct CanvasBackgroundColorPublisher<PublisherUpstream: Publisher>: Publisher where PublisherUpstream.Output == EditingState, PublisherUpstream.Failure == Never {
@@ -54,7 +55,7 @@ extension Publisher where Self.Output == EditingState, Self.Failure == Never {
 }
 
 extension EditingState {
-    var canvasBackgroundColor: UIColor {
+    public var canvasBackgroundColor: UIColor {
         document.canvasBackgroundColor
     }
 }

@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 9/5/21.
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
+import DocumentNavigation
 import UIKit
 
 class DrawingViewScrollRecognizer: UIPanGestureRecognizer {
@@ -29,7 +30,7 @@ class DrawingViewScrollRecognizer: UIPanGestureRecognizer {
             guard let control = recognizer?.view as? UIControl else { return }
             switch sender.state {
             case .began:
-                control.sendAction(#selector(EditingDrawViewController.startScrolling), to: nil, for: nil)
+                control.sendAction(#selector(DrawingViewScrollActions.startScrolling), to: nil, for: nil)
                 fallthrough
             case .changed:
                 let lastTranslationIndex = Int(floor(lastTranslation.y / 44))
@@ -39,15 +40,20 @@ class DrawingViewScrollRecognizer: UIPanGestureRecognizer {
 
                 guard lastTranslationIndex != currentTranslationIndex else { break }
                 if lastTranslationIndex - currentTranslationIndex < 0 {
-                    control.sendAction(#selector(EditingDrawViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(style: .decrement))
+                    control.sendAction(#selector(DocumentNavigationActions.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(style: .decrement))
                 } else {
-                    control.sendAction(#selector(EditingDrawViewController.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(style: .increment))
+                    control.sendAction(#selector(DocumentNavigationActions.navigateToPage(_:for:)), to: nil, for: PageNavigationEvent(style: .increment))
                 }
             case .recognized:
-                control.sendAction(#selector(EditingDrawViewController.stopScrolling), to: nil, for: nil)
+                control.sendAction(#selector(DrawingViewScrollActions.stopScrolling), to: nil, for: nil)
                 lastTranslation = .zero
             default: break
             }
         }
     }
+}
+
+@objc public protocol DrawingViewScrollActions {
+    func startScrolling()
+    func stopScrolling()
 }

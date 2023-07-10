@@ -4,8 +4,8 @@
 import Data
 import UIKit
 
-class DrawingBackgroundView: UIView {
-    init() {
+public class DrawingBackgroundView: UIView {
+    public init() {
         super.init(frame: .zero)
         isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
@@ -14,7 +14,7 @@ class DrawingBackgroundView: UIView {
         layer.addSublayer(lightShadowLayer)
     }
 
-    override func layoutSublayers(of layer: CALayer) {
+    public override func layoutSublayers(of layer: CALayer) {
         super.layoutSublayers(of: layer)
         darkShadowLayer.frame = layer.bounds
         darkShadowLayer.shadowPath = UIBezierPath(roundedRect: darkShadowLayer.bounds, cornerRadius: Self.cornerRadius).cgPath
@@ -22,7 +22,7 @@ class DrawingBackgroundView: UIView {
         lightShadowLayer.shadowPath = darkShadowLayer.shadowPath
     }
 
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }

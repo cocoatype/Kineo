@@ -2,6 +2,7 @@
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
 import Data
+import DocumentNavigation
 import UIKit
 
 extension EditingState {
@@ -11,7 +12,7 @@ extension EditingState {
         return proposedIndex
     }
 
-    func navigating(sender: Any, event: PageNavigationEvent) -> EditingState {
+    public func navigating(sender: Any, event: PageNavigationEvent) -> EditingState {
         let newIndex: Int
         if let keyCommand = (sender as? UIKeyCommand) {
             switch keyCommand.input {

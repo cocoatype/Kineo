@@ -1,7 +1,9 @@
 //  Created by Geoff Pado on 9/29/21.
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
+import Canvas
 import Data
+import EditingState
 import PencilKit
 import UIKit
 
@@ -146,7 +148,7 @@ class RegularEditingView: EditingDrawView, CanvasDisplayingView, UIScrollViewDel
 
         return await withCheckedContinuation { [weak self] continuation in
             self?.unzoomContinuation = continuation
-            zoomView.setZoomScale(1.0, animated: true)
+            self?.zoomView.setZoomScale(1.0, animated: true)
         }
     }
 

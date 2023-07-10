@@ -2,6 +2,7 @@
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
 import Combine
+import EditingState
 import Foundation
 import Data
 

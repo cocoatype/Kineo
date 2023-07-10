@@ -1,12 +1,15 @@
 //  Created by Geoff Pado on 7/14/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import Canvas
 import Combine
 import Data
+import DocumentNavigation
+import EditingState
 import StoreKit
 import UIKit
 
-public class EditingDrawViewController: UIViewController {
+public class EditingDrawViewController: UIViewController, DrawingViewActions, DrawingViewScrollActions, DocumentNavigationActions {
     var document: Document { state.document }
 
     public init(document: Document) {
@@ -33,7 +36,7 @@ public class EditingDrawViewController: UIViewController {
         editingView.frame = parent.view.bounds
     }
 
-    @objc func drawingViewDidChangePage(_ sender: DrawingView) {
+    @objc public func drawingViewDidChangePage(_ sender: DrawingView) {
         state = state.replacingCurrentPage(with: sender.page)
     }
 
@@ -76,7 +79,7 @@ public class EditingDrawViewController: UIViewController {
         state = state.movingPage(at: event.source, to: event.destination)
     }
 
-    @objc func navigateToPage(_ sender: Any, for event: PageNavigationEvent) {
+    @objc public func navigateToPage(_ sender: Any, for event: PageNavigationEvent) {
         state = state.navigating(sender: sender, event: event)
     }
 
@@ -87,8 +90,8 @@ public class EditingDrawViewController: UIViewController {
         }
     }
 
-    @objc func startScrolling() { state = state.scrolling }
-    @objc func stopScrolling() { let newState = state.editing; state = newState }
+    @objc public func startScrolling() { state = state.scrolling }
+    @objc public func stopScrolling() { let newState = state.editing; state = newState }
 
     // MARK: Actions
 

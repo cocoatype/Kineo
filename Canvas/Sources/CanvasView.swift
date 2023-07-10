@@ -4,8 +4,8 @@
 import Data
 import PencilKit
 
-class CanvasView: PKCanvasView {
-    init() {
+public class CanvasView: PKCanvasView {
+    public init() {
         super.init(frame: .zero)
         backgroundColor = .clear
         isOpaque = false

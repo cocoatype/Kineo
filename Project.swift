@@ -40,6 +40,18 @@ let project = Project(
       )
     ),
     Target(
+      name: "Canvas",
+      platform: .iOS,
+      product: .framework,
+      bundleId: "com.flipbookapp.flickbook.Canvas",
+      sources: ["Canvas/Sources/**"],
+      dependencies: [
+        .target(name: "Data"),
+        .target(name: "DocumentNavigation"),
+        .target(name: "EditingState")
+      ]
+    ),
+    Target(
       name: "Clip",
       platform: .iOS,
       product: .appClip,
@@ -72,7 +84,10 @@ let project = Project(
       dependencies: [
         .external(name: "Introspect"),
         .external(name: "Lottie"),
-        .target(name: "Data")
+        .target(name: "Canvas"),
+        .target(name: "Data"),
+        .target(name: "DocumentNavigation"),
+        .target(name: "EditingState")
       ]
     ),
     Target(
@@ -93,6 +108,25 @@ let project = Project(
           "APPLICATION_EXTENSION_API_ONLY": "YES"
         ]
       )
+    ),
+    Target(
+      name: "DocumentNavigation",
+      platform: .iOS,
+      product: .framework,
+      bundleId: "com.flipbookapp.flickbook.DocumentNavigation",
+      sources: ["DocumentNavigation/Sources/**"],
+      dependencies: []
+    ),
+    Target(
+      name: "EditingState",
+      platform: .iOS,
+      product: .framework,
+      bundleId: "com.flipbookapp.flickbook.EditingState",
+      sources: ["EditingState/Sources/**"],
+      dependencies: [
+        .target(name: "Data"),
+        .target(name: "DocumentNavigation")
+      ]
     ),
     Target(
       name: "Shared",
