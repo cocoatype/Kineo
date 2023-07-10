@@ -76,6 +76,7 @@ class GalleryView: UIControl {
     }
 
     func scroll(to indexPath: IndexPath) {
+        guard collectionView.numberOfItems(inSection: 0) > indexPath.item else { return }
         collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: false)
         collectionView.layoutIfNeeded()
     }

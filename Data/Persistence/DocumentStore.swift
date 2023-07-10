@@ -28,8 +28,14 @@ public struct DocumentStore {
 
     public func deleteDocument(at index: Int) throws {
         let storedDocument = storedDocuments[index]
-        try FileManager.default.removeItem(at: storedDocument.imagePreviewURL)
-        try FileManager.default.removeItem(at: storedDocument.url)
+        try deleteFile(at: storedDocument.imagePreviewURL)
+        try deleteFile(at: storedDocument.url)
+    }
+
+    private func deleteFile(at url: URL) throws {
+        if FileManager.default.fileExists(atPath: url.path) {
+            try FileManager.default.removeItem(at: url)
+        }
     }
 
     public func newDocument() -> Document {
