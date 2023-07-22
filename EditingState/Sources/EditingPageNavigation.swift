@@ -1,8 +1,13 @@
 //  Created by Geoff Pado on 9/4/21.
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
-import Data
-import DocumentNavigation
+#if os(iOS) && !os(visionOS)
+import DataPhone
+import DocumentNavigationPhone
+#elseif os(visionOS)
+import DataVision
+import DocumentNavigationVision
+#endif
 import UIKit
 
 extension EditingState {

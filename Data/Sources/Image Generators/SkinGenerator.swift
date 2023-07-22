@@ -1,7 +1,12 @@
 //  Created by Geoff Pado on 7/18/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
-import Shared
+#if os(iOS) && !os(visionOS)
+import SharedPhone
+#elseif os(visionOS)
+import SharedVision
+#endif
+
 import UIKit
 
 public class SkinGenerator: NSObject {

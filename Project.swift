@@ -1,109 +1,139 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
 
-let project = Project(
-  name: "Kineo",
-  organizationName: "Cocoatype, LLC",
-  settings: .settings(
-    base: [
-      "CURRENT_PROJECT_VERSION": "0",
-      "DEVELOPMENT_TEAM": "287EDDET2B",
-      "IPHONEOS_DEPLOYMENT_TARGET": "14.0"
-    ],
-    debug: [
-      "CODE_SIGN_IDENTITY": "Apple Development: Buddy Build (D47V8Y25W5)"
+let targets: [Target] = {
+    var targets = [
+        Target(
+          name: "Kineo",
+          platform: .iOS,
+          product: .app,
+          bundleId: "com.flipbookapp.flickbook",
+          infoPlist: "App/Info.plist",
+          sources: ["App/Sources/**"],
+          resources: ["App/Resources/**"],
+          entitlements: "App/Kineo.entitlements",
+          dependencies: [
+            .target(name: "Clip"),
+            .target(name: "Core"),
+            .target(name: "DataPhone"),
+            .target(name: "Stickers")
+          ],
+          settings: .settings(
+            debug: [
+              "PROVISIONING_PROFILE_SPECIFIER": "match Development com.flipbookapp.flickbook"
+            ],
+            release: [
+              "CODE_SIGN_IDENTITY": "iPhone Distribution",
+              "PROVISIONING_PROFILE_SPECIFIER": "match AppStore com.flipbookapp.flickbook"
+            ]
+          )
+        ),
+        Target(
+          name: "Clip",
+          platform: .iOS,
+          product: .appClip,
+          bundleId: "com.flipbookapp.flickbook.Clip",
+          infoPlist: "Clip/Info.plist",
+          sources: ["Clip/Sources/**"],
+          entitlements: "Clip/Clip.entitlements",
+          dependencies: [
+            .target(name: "Core"),
+            .target(name: "DataPhone"),
+            .sdk(name: "AppClip", type: .framework, status: .required)
+          ],
+          settings: .settings(
+            debug: [
+              "CODE_SIGN_IDENTITY": "Apple Development: Buddy Build (D47V8Y25W5)",
+              "PROVISIONING_PROFILE_SPECIFIER": "match Development com.flipbookapp.flickbook.Clip"
+            ],
+            release: [
+              "CODE_SIGN_IDENTITY": "Apple Distribution",
+              "PROVISIONING_PROFILE_SPECIFIER": "match AppStore com.flipbookapp.flickbook.Clip"
+            ]
+          )
+        ),
+        Target(
+          name: "Core",
+          platform: .iOS,
+          product: .framework,
+          bundleId: "com.flipbookapp.flickbook.Core",
+          sources: ["Core/Sources/**"],
+          dependencies: [
+            .external(name: "Introspect"),
+            .external(name: "Lottie"),
+            .target(name: "CanvasPhone"),
+            .target(name: "DataPhone"),
+            .target(name: "DocumentNavigationPhone"),
+            .target(name: "EditingStatePhone")
+          ]
+        ),
+        Target(
+          name: "Stickers",
+          platform: .iOS,
+          product: .appExtension,
+          bundleId: "com.flipbookapp.flickbook.Stickers",
+          infoPlist: "Stickers/Info.plist",
+          sources: ["Stickers/Sources/**"],
+          resources: ["Stickers/Resources/**"],
+          entitlements: "Stickers/Stickers.entitlements",
+          dependencies: [
+            .target(name: "DataPhone")
+          ],
+          settings: .settings(
+            debug: [
+              "CODE_SIGN_IDENTITY": "Apple Development: Buddy Build (D47V8Y25W5)",
+              "PROVISIONING_PROFILE_SPECIFIER": "match Development com.flipbookapp.flickbook.Stickers"
+            ],
+            release: [
+              "CODE_SIGN_IDENTITY": "Apple Distribution",
+              "PROVISIONING_PROFILE_SPECIFIER": "match AppStore com.flipbookapp.flickbook.Stickers"
+            ]
+          )
+        ),
+        Target(
+          name: "Tests",
+          platform: .iOS,
+          product: .unitTests,
+          bundleId: "com.flipbookapp.flickbook.Tests",
+          infoPlist: "Tests/Info.plist",
+          sources: ["Tests/Sources/**"]
+        )
     ]
-  ),
-  targets: [
-    Target(
-      name: "Kineo",
-      platform: .iOS,
-      product: .app,
-      bundleId: "com.flipbookapp.flickbook",
-      infoPlist: "App/Info.plist",
-      sources: ["App/Sources/**"],
-      resources: ["App/Resources/**"],
-      entitlements: "App/Kineo.entitlements",
-      dependencies: [
-        .target(name: "Clip"),
-        .target(name: "Core"),
-        .target(name: "Data"),
-        .target(name: "Stickers")
-      ],
-      settings: .settings(
-        debug: [
-          "PROVISIONING_PROFILE_SPECIFIER": "match Development com.flipbookapp.flickbook"
+
+    targets.append(contentsOf: MultiPlatformTarget(
+        name: "Kineo",
+        platforms: [.visionOS],
+        product: .app,
+        bundleId: "com.flipbookapp.flickbook",
+        infoPlist: "KineoVision/Info.plist",
+        sources: ["KineoVision/Sources/**"],
+        resources: ["KineoVision/Resources/**"],
+        dependencies: [
+            .multiPlatformTarget(namePrefix: "Canvas")
         ],
-        release: [
-          "CODE_SIGN_IDENTITY": "iPhone Distribution",
-          "PROVISIONING_PROFILE_SPECIFIER": "match AppStore com.flipbookapp.flickbook"
+        settings: .settings(
+          base: [
+            "GENERATE_INFOPLIST_FILE": "YES"
+          ]
+        )
+    ).targets)
+
+    targets.append(contentsOf: MultiPlatformTarget(
+        name: "Canvas",
+        platforms: [.iOS, .visionOS],
+        product: .framework,
+        bundleId: "com.flipbookapp.flickbook.Canvas",
+        sources: ["Canvas/Sources/**"],
+        dependencies: [
+            .multiPlatformTarget(namePrefix: "Data"),
+            .multiPlatformTarget(namePrefix: "DocumentNavigation"),
+            .multiPlatformTarget(namePrefix: "EditingState"),
         ]
-      )
-    ),
-    Target(
-      name: "KineoVision",
-      platform: .visionOS,
-      product: .app,
-      bundleId: "com.flipbookapp.flickbook",
-      infoPlist: "KineoVision/Info.plist",
-      sources: ["KineoVision/Sources/**"],
-      resources: ["KineoVision/Resources/**"],
-      dependencies: [
-      ]
-    ),
-    Target(
-      name: "Canvas",
-      platform: .iOS,
-      product: .framework,
-      bundleId: "com.flipbookapp.flickbook.Canvas",
-      sources: ["Canvas/Sources/**"],
-      dependencies: [
-        .target(name: "Data"),
-        .target(name: "DocumentNavigation"),
-        .target(name: "EditingState")
-      ]
-    ),
-    Target(
-      name: "Clip",
-      platform: .iOS,
-      product: .appClip,
-      bundleId: "com.flipbookapp.flickbook.Clip",
-      infoPlist: "Clip/Info.plist",
-      sources: ["Clip/Sources/**"],
-      entitlements: "Clip/Clip.entitlements",
-      dependencies: [
-        .target(name: "Core"),
-        .target(name: "Data"),
-        .sdk(name: "AppClip", type: .framework, status: .required)
-      ],
-      settings: .settings(
-        debug: [
-          "CODE_SIGN_IDENTITY": "Apple Development: Buddy Build (D47V8Y25W5)",
-          "PROVISIONING_PROFILE_SPECIFIER": "match Development com.flipbookapp.flickbook.Clip"
-        ],
-        release: [
-          "CODE_SIGN_IDENTITY": "Apple Distribution",
-          "PROVISIONING_PROFILE_SPECIFIER": "match AppStore com.flipbookapp.flickbook.Clip"
-        ]        
-      )
-    ),
-    Target(
-      name: "Core",
-      platform: .iOS,
-      product: .framework,
-      bundleId: "com.flipbookapp.flickbook.Core",
-      sources: ["Core/Sources/**"],
-      dependencies: [
-        .external(name: "Introspect"),
-        .external(name: "Lottie"),
-        .target(name: "Canvas"),
-        .target(name: "Data"),
-        .target(name: "DocumentNavigation"),
-        .target(name: "EditingState")
-      ]
-    ),
-    Target(
+    ).targets)
+
+    targets.append(contentsOf: MultiPlatformTarget(
       name: "Data",
-      platform: .iOS,
+      platforms: [.iOS, .visionOS],
       product: .framework,
       bundleId: "com.flipbookapp.flickbook.Data",
       infoPlist: "Data/Info.plist",
@@ -112,77 +142,67 @@ let project = Project(
         public: ["Sources/Data.h"]
       ),
       dependencies: [
-        .target(name: "Shared")
+        .multiPlatformTarget(namePrefix: "Shared")
       ],
       settings: .settings(
         base: [
           "APPLICATION_EXTENSION_API_ONLY": "YES"
         ]
       )
-    ),
-    Target(
-      name: "DocumentNavigation",
-      platform: .iOS,
-      product: .framework,
-      bundleId: "com.flipbookapp.flickbook.DocumentNavigation",
-      sources: ["DocumentNavigation/Sources/**"],
-      dependencies: []
-    ),
-    Target(
-      name: "EditingState",
-      platform: .iOS,
-      product: .framework,
-      bundleId: "com.flipbookapp.flickbook.EditingState",
-      sources: ["EditingState/Sources/**"],
-      dependencies: [
-        .target(name: "Data"),
-        .target(name: "DocumentNavigation")
-      ]
-    ),
-    Target(
-      name: "Shared",
-      platform: .iOS,
-      product: .framework,
-      bundleId: "com.flipbookapp.flickbook.Shared",
-      sources: ["Shared/Sources/**"],
-      settings: .settings(
-        base: [
-          "APPLICATION_EXTENSION_API_ONLY": "YES"
+    ).targets)
+
+    targets.append(contentsOf: MultiPlatformTarget(
+        name: "DocumentNavigation",
+        platforms: [.iOS, .visionOS],
+        product: .framework,
+        bundleId: "com.flipbookapp.flickbook.DocumentNavigation",
+        sources: ["DocumentNavigation/Sources/**"],
+        dependencies: []
+    ).targets)
+
+    targets.append(contentsOf: MultiPlatformTarget(
+        name: "EditingState",
+        platforms: [.iOS, .visionOS],
+        product: .framework,
+        bundleId: "com.flipbookapp.flickbook.EditingState",
+        sources: ["EditingState/Sources/**"],
+        dependencies: [
+            .multiPlatformTarget(namePrefix: "Data"),
+            .multiPlatformTarget(namePrefix: "DocumentNavigation")
         ]
-      )
-    ),
-    Target(
-      name: "Stickers",
-      platform: .iOS,
-      product: .appExtension,
-      bundleId: "com.flipbookapp.flickbook.Stickers",
-      infoPlist: "Stickers/Info.plist",
-      sources: ["Stickers/Sources/**"],
-      resources: ["Stickers/Resources/**"],
-      entitlements: "Stickers/Stickers.entitlements",
-      dependencies: [
-        .target(name: "Data")
-      ],
-      settings: .settings(
-        debug: [
-          "CODE_SIGN_IDENTITY": "Apple Development: Buddy Build (D47V8Y25W5)",
-          "PROVISIONING_PROFILE_SPECIFIER": "match Development com.flipbookapp.flickbook.Stickers"
-        ],
-        release: [
-          "CODE_SIGN_IDENTITY": "Apple Distribution",
-          "PROVISIONING_PROFILE_SPECIFIER": "match AppStore com.flipbookapp.flickbook.Stickers"
-        ]        
-      )
-    ),
-    Target(
-      name: "Tests",
-      platform: .iOS,
-      product: .unitTests,
-      bundleId: "com.flipbookapp.flickbook.Tests",
-      infoPlist: "Tests/Info.plist",
-      sources: ["Tests/Sources/**"]
-    )
-  ],
+    ).targets)
+
+    targets.append(contentsOf: MultiPlatformTarget(
+        name: "Shared",
+        platforms: [.iOS, .visionOS],
+        product: .framework,
+        bundleId: "com.flipbookapp.flickbook.Shared",
+        sources: ["Shared/Sources/**"],
+        settings: .settings(
+          base: [
+            "APPLICATION_EXTENSION_API_ONLY": "YES"
+          ]
+        )
+    ).targets)
+
+    return targets
+}()
+
+let project = Project(
+  name: "Kineo",
+  organizationName: "Cocoatype, LLC",
+  settings: .settings(
+    base: [
+      "CURRENT_PROJECT_VERSION": "0",
+      "DEVELOPMENT_TEAM": "287EDDET2B",
+      "IPHONEOS_DEPLOYMENT_TARGET": "14.0",
+      "MARKETING_VERSION": "23.0",
+    ],
+    debug: [
+      "CODE_SIGN_IDENTITY": "Apple Development: Buddy Build (D47V8Y25W5)"
+    ]
+  ),
+  targets: targets,
   schemes: [
     Scheme(
       name: "Kineo",

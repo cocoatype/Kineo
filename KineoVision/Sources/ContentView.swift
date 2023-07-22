@@ -23,7 +23,7 @@ struct ContentView: View {
                     } label: {
                         Image(systemName: "square.grid.2x2")
                             .resizable()
-                            .frame(width: 40, height: 40)
+                            .frame(width: 48, height: 48)
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 120, height: 120)
                             .glassBackgroundEffect(in: .rect(cornerRadius: 25))
@@ -72,109 +72,24 @@ struct ContentView: View {
 }
 
 struct FilmStrip: View {
+    private static let frameWidth: Double = 120
+    private static let buttonWidth: Double = 110
+    private static let outerRadius: Double = 25
+    private static var inset: Double { frameWidth - buttonWidth }
+    private static var innerRadius: Double { outerRadius - inset }
+
     var body: some View {
         ScrollView {
             VStack {
-                Color.white
-                    .frame(width: 110, height: 110)
-                    .glassBackgroundEffect(in: .rect(cornerRadius: 20), displayMode: .always)
-//                    .glassBackgroundEffect()
-                    .padding(.top, 10)
-                Color.white
-                    .frame(width: 110, height: 110)
-                    .glassBackgroundEffect(in: .rect(cornerRadius: 20), displayMode: .always)
-                Color.white
-                    .frame(width: 110, height: 110)
-                    .glassBackgroundEffect(in: .rect(cornerRadius: 20), displayMode: .always)
-            }.frame(width: 120)
+                ForEach(0..<30) { _ in
+                    Color.white
+                        .frame(width: Self.buttonWidth, height: Self.buttonWidth)
+                        .clipShape(.rect(cornerRadius: Self.innerRadius))
+                }
+            }.frame(width: Self.frameWidth)
         }
-        .glassBackgroundEffect(in: .rect(cornerRadius: 25))
-    }
-}
-
-class ResponsiveCanvasView: PKCanvasView {
-    var onFirstResponderChange: (() -> Void)?
-
-    override func becomeFirstResponder() -> Bool {
-        let value = super.becomeFirstResponder()
-        onFirstResponderChange?()
-        return value
-    }
-
-    override func resignFirstResponder() -> Bool {
-        let value = super.resignFirstResponder()
-        onFirstResponderChange?()
-        return value
-    }
-}
-
-struct Canvas: UIViewRepresentable {
-    private let canvasView: ResponsiveCanvasView
-    private let toolPicker: PKToolPicker
-    let isToolPickerVisible: CurrentValueSubject<Bool, Never>
-
-    init() {
-        let toolPicker = PKToolPicker()
-        let canvasView = ResponsiveCanvasView()
-        self.toolPicker = toolPicker
-        self.canvasView = canvasView
-
-        canvasView.overrideUserInterfaceStyle = .light
-        canvasView.drawingPolicy = .anyInput
-        canvasView.backgroundColor = .white
-        canvasView.tool = PKInkingTool(ink: PKInk(.pen, color: .red), width: 15)
-        toolPicker.setVisible(true, forFirstResponder: canvasView)
-
-        let isToolPickerVisible = CurrentValueSubject<Bool, Never>(toolPicker.isVisible && canvasView.isFirstResponder)
-        self.isToolPickerVisible = isToolPickerVisible
-
-        canvasView.onFirstResponderChange = {
-            isToolPickerVisible.send(toolPicker.isVisible && canvasView.isFirstResponder)
-        }
-    }
-
-    func setToolPickerVisible() {
-        toolPicker.addObserver(canvasView)
-        toolPicker.setVisible(true, forFirstResponder: canvasView)
-        DispatchQueue.main.async {
-            _ = canvasView.becomeFirstResponder()
-        }
-    }
-
-    func updateToolPickerVisibility() {
-        isToolPickerVisible.send(toolPicker.isVisible && canvasView.isFirstResponder)
-    }
-
-    func makeCoordinator() -> Coordinator {
-        return Coordinator(canvas: canvasView, toolPicker: toolPicker, isToolPickerVisible: isToolPickerVisible)
-    }
-
-    func makeUIView(context: Context) -> some UIView {
-        return canvasView
-    }
-
-    func updateUIView(_ uiView: UIViewType, context: Context) {}
-
-    final class Coordinator: NSObject, PKToolPickerObserver {
-        private let isToolPickerVisible: CurrentValueSubject<Bool, Never>
-        private let canvas: PKCanvasView
-        private let toolPicker: PKToolPicker
-        init(canvas: PKCanvasView, toolPicker: PKToolPicker, isToolPickerVisible: CurrentValueSubject<Bool, Never>) {
-            self.canvas = canvas
-            self.isToolPickerVisible = isToolPickerVisible
-            self.toolPicker = toolPicker
-            super.init()
-            toolPicker.addObserver(self)
-            canvas.addObserver(self, forKeyPath: #keyPath(PKCanvasView.isFirstResponder), context: nil)
-        }
-
-        func toolPickerVisibilityDidChange(_ toolPicker: PKToolPicker) {
-            updateToolPickerVisibility()
-        }
-
-        func updateToolPickerVisibility() {
-            isToolPickerVisible.send(toolPicker.isVisible && canvas.isFirstResponder)
-        }
+        .glassBackgroundEffect(in: .rect(cornerRadius: Self.outerRadius))
+        .contentMargins(.top, Self.inset)
     }
 }
 

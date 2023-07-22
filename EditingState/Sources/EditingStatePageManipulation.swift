@@ -1,7 +1,12 @@
 //  Created by Geoff Pado on 9/5/21.
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
-import Data
+#if os(iOS) && !os(visionOS)
+import DataPhone
+#elseif os(visionOS)
+import DataVision
+#endif
+
 import UIKit
 
 extension EditingState {
