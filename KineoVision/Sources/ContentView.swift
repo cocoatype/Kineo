@@ -17,8 +17,21 @@ struct ContentView: View {
     @State private var isToolPickerVisible: Bool = false
 
     init() {
-        let editingState = EditingState(document: Document(pages: [], backgroundColorHex: nil, backgroundImageData: nil))
-        _editingState = State(initialValue: editingState)
+        let document: Document
+        if let json = UserDefaults.standard.data(forKey: "jsonBlob") {
+            print("got json")
+            do {
+                document = try JSONDecoder().decode(Document.self, from: json)
+                print("decoded json")
+            } catch {
+                print("json error: \(String(describing: error))")
+                document = Document(pages: [Page()], backgroundColorHex: nil, backgroundImageData: nil)
+            }
+        } else {
+            print("no json")
+            document = Document(pages: [Page()], backgroundColorHex: nil, backgroundImageData: nil)
+        }
+        _editingState = State(initialValue: EditingState(document: document))
     }
 
     var body: some View {
@@ -72,6 +85,10 @@ struct ContentView: View {
                         }
                     }
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        }.onChange(of: editingState) { oldValue, newValue in
+            print("yo")
+            let jsonBlob = try? JSONEncoder().encode(newValue.document)
+            UserDefaults.standard.set(jsonBlob, forKey: "jsonBlob")
         }
     }
 }

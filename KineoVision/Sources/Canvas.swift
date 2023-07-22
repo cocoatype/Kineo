@@ -2,6 +2,7 @@
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
 import CanvasVision
+import DataVision
 import EditingStateVision
 import Combine
 import PencilKit
@@ -36,6 +37,7 @@ struct Canvas: UIViewRepresentable {
         let toolPicker = PKToolPicker()
         let canvasView = CanvasView()
 
+        canvasView.drawing = editingState.currentPage.drawing
         canvasView.overrideUserInterfaceStyle = .light
         canvasView.drawingPolicy = .anyInput
         canvasView.backgroundColor = .white
@@ -82,6 +84,8 @@ struct Canvas: UIViewRepresentable {
             _isToolPickerVisible = isToolPickerVisible
         }
 
+        // MARK: PKToolPickerObserver
+
         func toolPickerVisibilityDidChange(_ toolPicker: PKToolPicker) {
             updateToolPickerVisibility()
         }
@@ -90,5 +94,15 @@ struct Canvas: UIViewRepresentable {
             guard let toolPicker, let canvas else { return }
             isToolPickerVisible = (toolPicker.isVisible && canvas.isFirstResponder)
         }
+
+        // MARK: PKCanvasViewDelegate
+
+        public func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
+            editingState = editingState.replacingCurrentPage(with: Page(drawing: canvasView.drawing))
+        }
+
+        public func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView) {}
+
+        public func canvasViewDidFinishRendering(_ canvasView: PKCanvasView) {}
     }
 }
