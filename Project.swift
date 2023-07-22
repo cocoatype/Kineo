@@ -40,6 +40,17 @@ let project = Project(
       )
     ),
     Target(
+      name: "KineoVision",
+      platform: .visionOS,
+      product: .app,
+      bundleId: "com.flipbookapp.flickbook",
+      infoPlist: "KineoVision/Info.plist",
+      sources: ["KineoVision/Sources/**"],
+      resources: ["KineoVision/Resources/**"],
+      dependencies: [
+      ]
+    ),
+    Target(
       name: "Canvas",
       platform: .iOS,
       product: .framework,
