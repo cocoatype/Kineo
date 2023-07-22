@@ -7,13 +7,20 @@
 //
 
 import Combine
+import DataVision
+import EditingStateVision
 import PencilKit
 import SwiftUI
 
 struct ContentView: View {
-    @State var isToolPickerVisible: Bool = false
+    @State private var editingState: EditingState
+    @State private var isToolPickerVisible: Bool = false
 
-    let canvas = Canvas()
+    init() {
+        let editingState = EditingState(document: Document(pages: [], backgroundColorHex: nil, backgroundImageData: nil))
+        _editingState = State(initialValue: editingState)
+    }
+
     var body: some View {
         GeometryReader { proxy in
             HStack {
@@ -31,13 +38,13 @@ struct ContentView: View {
                     FilmStrip()
                 }
                 .frame(width: 120, height: proxy.size.height)
-                canvas
+                Canvas(editingState: $editingState, isToolPickerVisible: $isToolPickerVisible)
                     .aspectRatio(1, contentMode: .fit).glassBackgroundEffect(in: .rect(cornerRadius: 25))
                     .toolbar {
                         if isToolPickerVisible == false {
                             ToolbarItem(placement: .bottomOrnament) {
                                 Button(action: {
-                                    canvas.setToolPickerVisible()
+                                    isToolPickerVisible = true
                                 }, label: {
                                     Image(systemName: "play")
                                 })
@@ -47,25 +54,23 @@ struct ContentView: View {
                             }
                             ToolbarItemGroup(placement: .bottomOrnament) {
                                 Button(action: {
-                                    canvas.setToolPickerVisible()
+                                    isToolPickerVisible = true
                                 }, label: {
                                     Image(systemName: "pencil.tip.crop.circle")
                                 })
                                 Button(action: {
-                                    canvas.setToolPickerVisible()
+                                    isToolPickerVisible = true
                                 }, label: {
                                     Image(systemName: "square.2.stack.3d.bottom.fill")
                                 })
                                 Button(action: {
-                                    canvas.setToolPickerVisible()
+                                    isToolPickerVisible = true
                                 }, label: {
                                     Image(systemName: "square.and.arrow.up")
                                 })
                             }
                         }
-                    }.onReceive(canvas.isToolPickerVisible, perform: { newVisibility in
-                        isToolPickerVisible = newVisibility
-                    })
+                    }
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
