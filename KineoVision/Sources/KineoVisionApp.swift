@@ -14,7 +14,7 @@ struct KineoVisionApp: App {
         WindowGroup {
             ContentView()
         }
-        .defaultSize(width: 1.77, height: 1, depth: 0.1, in: .meters)
+        .defaultSize(width: 1.77, height: 1, depth: 1, in: .meters)
         .windowStyle(.volumetric)
     }
 }

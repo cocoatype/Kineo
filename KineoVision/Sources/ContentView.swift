@@ -14,7 +14,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var editingState: EditingState
-    @State private var isToolPickerVisible: Bool = false
+    @State private var isLayerModeActive = false
+    @State private var isToolPickerVisible = false
 
     init() {
         let document: Document
@@ -34,30 +35,33 @@ struct ContentView: View {
         _editingState = State(initialValue: EditingState(document: document))
     }
 
+    @State private var isAnimating = false
+    private static let fullTransform = Rotation3D(angle: Angle2D(degrees: 30), axis: .y).rotated(by: Rotation3D(angle: Angle2D(degrees: 0), axis: .x))
+
     var body: some View {
-        GeometryReader { proxy in
+        GeometryReader3D { proxy in
             HStack {
                 VStack {
-                    Button {
-                        print("hello gallery")
-                    } label: {
-                        Image(systemName: "square.grid.2x2")
-                            .resizable()
-                            .frame(width: 48, height: 48)
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 120, height: 120)
-                            .glassBackgroundEffect(in: .rect(cornerRadius: 25))
-                    }
+                    GalleryButton()
                     FilmStrip()
-                }
-                .frame(width: 120, height: proxy.size.height)
+                }.frame(width: 120, height: proxy.size.height)
+                    .opacity(self.isAnimating ? 0 : 1)
+                    .animation(.easeInOut(duration: 1).repeatForever(), value: isAnimating)
                 Canvas(editingState: $editingState, isToolPickerVisible: $isToolPickerVisible)
-                    .aspectRatio(1, contentMode: .fit).glassBackgroundEffect(in: .rect(cornerRadius: 25))
+                    .aspectRatio(1, contentMode: .fit)
+                    .glassBackgroundEffect(in: .rect(cornerRadius: 25))
+                    .rotation3DEffect((self.isAnimating ? Self.fullTransform : .identity), anchor: .leading)
+//                    .transform3DEffect(
+//                        self.isAnimating ? Self.fullTransform : AffineTransform3D.identity
+//                    )
+                    .animation(.easeInOut(duration: 1).repeatForever(), value: isAnimating)
+                    .onAppear { isAnimating = true }
                     .toolbar {
                         if isToolPickerVisible == false {
                             ToolbarItem(placement: .bottomOrnament) {
                                 Button(action: {
-                                    isToolPickerVisible = true
+                                    dump(proxy.size)
+//                                    isToolPickerVisible = true
                                 }, label: {
                                     Image(systemName: "play")
                                 })
@@ -71,11 +75,7 @@ struct ContentView: View {
                                 }, label: {
                                     Image(systemName: "pencil.tip.crop.circle")
                                 })
-                                Button(action: {
-                                    isToolPickerVisible = true
-                                }, label: {
-                                    Image(systemName: "square.2.stack.3d.bottom.fill")
-                                })
+                                LayerButton(isLayerModeActive: $isLayerModeActive)
                                 Button(action: {
                                     isToolPickerVisible = true
                                 }, label: {
@@ -85,11 +85,12 @@ struct ContentView: View {
                         }
                     }
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                .frame(depth: proxy.size.depth, alignment: .center)
         }.onChange(of: editingState) { oldValue, newValue in
             print("yo")
             let jsonBlob = try? JSONEncoder().encode(newValue.document)
             UserDefaults.standard.set(jsonBlob, forKey: "jsonBlob")
-        }
+        }.transform3DEffect(AffineTransform3D(translation: Vector3D.forward))
     }
 }
 
