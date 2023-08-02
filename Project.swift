@@ -109,7 +109,8 @@ let targets: [Target] = {
         sources: ["KineoVision/Sources/**"],
         resources: ["KineoVision/Resources/**"],
         dependencies: [
-            .multiPlatformTarget(namePrefix: "Canvas")
+            .multiPlatformTarget(namePrefix: "Canvas"),
+            .external(name: "SwiftUIIntrospect"),
         ],
         settings: .settings(
           base: [

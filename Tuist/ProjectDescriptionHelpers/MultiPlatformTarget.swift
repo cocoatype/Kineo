@@ -97,6 +97,7 @@ public struct MultiPlatformTarget {
 public enum MultiPlatformDependency {
     case multiPlatformTarget(namePrefix: String)
     case target(name: String)
+    case external(name: String)
 
     func targetDependency(for platform: Platform) -> TargetDependency {
         switch self {
@@ -104,6 +105,8 @@ public enum MultiPlatformDependency {
             .target(name: namePrefix + platform.nameSuffix)
         case .target(let name):
             .target(name: name)
+        case .external(let name):
+            .external(name: name)
         }
     }
 }

@@ -10,10 +10,10 @@ struct GalleryButton: View {
         } label: {
             Image(systemName: "square.grid.2x2")
                 .resizable()
-                .frame(width: 48, height: 48)
+                .frame(width: 32, height: 32)
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 120, height: 120)
-                .glassBackgroundEffect(in: .rect(cornerRadius: 25))
+                .frame(width: 80, height: 80)
+                .glassBackgroundEffect(in: .rect(cornerRadius: 16))
         }
     }
 }

@@ -40,7 +40,7 @@ struct Canvas: UIViewRepresentable {
         canvasView.drawing = editingState.currentPage.drawing
         canvasView.overrideUserInterfaceStyle = .light
         canvasView.drawingPolicy = .anyInput
-        canvasView.backgroundColor = .white
+//        canvasView.backgroundColor = .white
         canvasView.tool = PKInkingTool(ink: PKInk(.pen, color: .red), width: 15)
         toolPicker.setVisible(true, forFirstResponder: canvasView)
 
