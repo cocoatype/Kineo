@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var editingState: EditingState
     @State private var isLayerModeActive = false
     @State private var isToolPickerVisible = false
+    @State private var placements = [StickerPlacement]()
 
     init() {
         _editingState = State(initialValue: EditingState(document: TemporaryPersistence.persistedDocument))
@@ -26,14 +27,27 @@ struct ContentView: View {
 
     var body: some View {
         GeometryReader3D { proxy in
-//            ZStack {
-//                CanvasLayer(editingState: $editingState)
-//                CanvasLayer(editingState: $editingState)
-//                CanvasLayer(editingState: $editingState)
-//            }
-//            .rotation3DEffect(.identity, anchor: .trailing)
-            Canvas(editingState: $editingState, isToolPickerVisible: $isToolPickerVisible)
-                .background(.white)
+            ZStack {
+                //                CanvasLayer(editingState: $editingState)
+                //                CanvasLayer(editingState: $editingState)
+                //                CanvasLayer(editingState: $editingState)
+                //            }
+                //            .rotation3DEffect(.identity, anchor: .trailing)
+                Canvas(editingState: $editingState, isToolPickerVisible: $isToolPickerVisible)
+                    .background(.white)
+
+                ForEach(placements) { placement in
+                    placement
+                }
+            }
+            .dropDestination(for: Data.self) { items, location in
+                guard let firstItem = items.first,
+                      let placement = StickerPlacement(data: firstItem, location: location)
+                else { return false }
+
+                placements.append(placement)
+                return true
+            }
             .ornament(attachmentAnchor: OrnamentAttachmentAnchor.scene(alignment: .leading)) { CanvasSidebar(height: proxy.size.height) }
             .toolbar {
                 CanvasToolbarContent(isToolPickerVisible: $isToolPickerVisible, isLayerModeActive: $isLayerModeActive)

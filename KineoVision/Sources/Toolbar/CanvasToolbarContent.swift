@@ -27,6 +27,7 @@ struct CanvasToolbarContent: ToolbarContent {
                 ToolPickerButton(isToolPickerVisible: $isToolPickerVisible)
                 LayerButton(isLayerModeActive: $isLayerModeActive)
                 ShareButton()
+                InsertButton()
             }
         }
     }
