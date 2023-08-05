@@ -16,7 +16,9 @@ struct ContentView: View {
     @State private var editingState: EditingState
     @State private var isLayerModeActive = false
     @State private var isToolPickerVisible = false
-    @State private var placements = [StickerPlacement]()
+    @State private var placements = [
+        StickerPlacement(data: UIImage(resource: .mochaCutout).pngData()!, location: CGPoint(x: 200, y: 200))!
+    ]
 
     init() {
         _editingState = State(initialValue: EditingState(document: TemporaryPersistence.persistedDocument))
@@ -28,11 +30,6 @@ struct ContentView: View {
     var body: some View {
         GeometryReader3D { proxy in
             ZStack {
-                //                CanvasLayer(editingState: $editingState)
-                //                CanvasLayer(editingState: $editingState)
-                //                CanvasLayer(editingState: $editingState)
-                //            }
-                //            .rotation3DEffect(.identity, anchor: .trailing)
                 Canvas(editingState: $editingState, isToolPickerVisible: $isToolPickerVisible)
                     .background(.white)
 
