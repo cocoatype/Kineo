@@ -51,9 +51,11 @@ struct Canvas: UIViewRepresentable {
         return canvasView
     }
 
-    func updateUIView(_ uiView: CanvasView, context: Context) {
+    func updateUIView(_ canvasView: CanvasView, context: Context) {
+        canvasView.drawing = editingState.currentPage.drawing
+    
         if isToolPickerVisible, let toolPicker = context.coordinator.toolPicker {
-            setToolPickerVisible(canvasView: uiView, toolPicker: toolPicker)
+            setToolPickerVisible(canvasView: canvasView, toolPicker: toolPicker)
         }
     }
 

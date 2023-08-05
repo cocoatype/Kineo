@@ -16,9 +16,7 @@ struct ContentView: View {
     @State private var editingState: EditingState
     @State private var isLayerModeActive = false
     @State private var isToolPickerVisible = false
-    @State private var placements = [
-        StickerPlacement(data: UIImage(resource: .mochaCutout).pngData()!, location: CGPoint(x: 200, y: 200))!
-    ]
+    @State private var placements = [StickerPlacement]()
 
     init() {
         _editingState = State(initialValue: EditingState(document: TemporaryPersistence.persistedDocument))
@@ -45,7 +43,9 @@ struct ContentView: View {
                 placements.append(placement)
                 return true
             }
-            .ornament(attachmentAnchor: OrnamentAttachmentAnchor.scene(alignment: .leading)) { CanvasSidebar(height: proxy.size.height) }
+            .ornament(attachmentAnchor: OrnamentAttachmentAnchor.scene(alignment: .leading)) {
+                CanvasSidebar(editingState: $editingState, height: proxy.size.height)
+            }
             .toolbar {
                 CanvasToolbarContent(isToolPickerVisible: $isToolPickerVisible, isLayerModeActive: $isLayerModeActive)
             }

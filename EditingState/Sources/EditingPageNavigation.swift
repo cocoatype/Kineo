@@ -40,4 +40,9 @@ extension EditingState {
         guard newIndex != currentPageIndex else { return self }
         return EditingState.Lenses.currentPageIndex.set(newIndex, self)
     }
+
+    public func navigating(to page: Page) -> EditingState {
+        guard page != currentPage, let pageIndex = document.pages.firstIndex(of: page) else { return self }
+        return EditingState.Lenses.currentPageIndex.set(pageIndex, self)
+    }
 }
