@@ -15,7 +15,6 @@ import SwiftUI
 struct ContentView: View {
     @State private var editingState: EditingState
     @State private var isLayerModeActive = false
-    @State private var isToolPickerVisible = false
     @State private var placements = [StickerPlacement]()
 
     init() {
@@ -28,11 +27,16 @@ struct ContentView: View {
     var body: some View {
         GeometryReader3D { proxy in
             ZStack {
-                Canvas(editingState: $editingState, isToolPickerVisible: $isToolPickerVisible)
-                    .background(.white)
-
-                ForEach(placements) { placement in
-                    placement
+                if editingState.mode == .editing {
+                    DrawingCanvas(editingState: $editingState)
+                        .background(.white)
+                    
+                    ForEach(placements) { placement in
+                        placement
+                    }
+                } else if case .playing = editingState.mode {
+                    Player(editingState: $editingState)
+                        .background(.white)
                 }
             }
             .dropDestination(for: Data.self) { items, location in
@@ -47,7 +51,7 @@ struct ContentView: View {
                 CanvasSidebar(editingState: $editingState, height: proxy.size.height)
             }
             .toolbar {
-                CanvasToolbarContent(isToolPickerVisible: $isToolPickerVisible, isLayerModeActive: $isLayerModeActive)
+                CanvasToolbarContent(editingState: $editingState, isLayerModeActive: $isLayerModeActive)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }

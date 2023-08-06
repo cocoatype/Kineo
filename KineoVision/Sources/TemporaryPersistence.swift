@@ -22,6 +22,10 @@ enum TemporaryPersistence {
             UserDefaults.standard.set(jsonBlob, forKey: "jsonBlob")
         }
     }
+
+    static func reset() {
+        persistedDocument = Document(pages: [Page()], backgroundColorHex: nil, backgroundImageData: nil)
+    }
 }
 
 private enum TemporaryPersistenceError: Error {

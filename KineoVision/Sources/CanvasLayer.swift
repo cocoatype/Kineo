@@ -20,7 +20,7 @@ struct CanvasLayer: View {
             .aspectRatio(1, contentMode: .fit)
             .frame(depth: Self.layerDepth)
             .overlay {
-                Canvas(editingState: $editingState, isToolPickerVisible: .constant(false))
+                Canvas(drawing: editingState.currentPage.drawing)
             }
     }
 }

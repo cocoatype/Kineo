@@ -8,12 +8,40 @@ import Combine
 import PencilKit
 import SwiftUI
 
-struct Canvas: UIViewRepresentable {
+struct DrawingCanvas: View {
     @Binding private var editingState: EditingState
+    @State private var drawing: PKDrawing
+    @State private var isToolPickerVisible: Bool
+
+    init(editingState: Binding<EditingState>) {
+        _editingState = editingState
+        _drawing = State(initialValue: editingState.wrappedValue.currentPage.drawing)
+        _isToolPickerVisible = State(initialValue: editingState.wrappedValue.toolPickerShowing)
+    }
+
+    var body: some View {
+        Canvas(drawing: $drawing, isToolPickerVisible: $isToolPickerVisible)
+            .onChange(of: drawing) { _, newDrawing in
+                editingState = editingState.replacingCurrentPage(with: Page(drawing: newDrawing))
+            }.onChange(of: isToolPickerVisible) { _, newVisibility in
+                editingState = editingState.settingToolPickerVisible()
+            }.onChange(of: editingState) {
+                drawing = editingState.currentPage.drawing
+                isToolPickerVisible = editingState.toolPickerShowing
+            }
+    }
+}
+
+struct Canvas: UIViewRepresentable {
+    @Binding private var drawing: PKDrawing
     @Binding private var isToolPickerVisible: Bool
 
-    init(editingState: Binding<EditingState>, isToolPickerVisible: Binding<Bool>) {
-        _editingState = editingState
+    init(drawing: PKDrawing) {
+        self.init(drawing: .constant(drawing), isToolPickerVisible: .constant(false))
+    }
+
+    init(drawing: Binding<PKDrawing>, isToolPickerVisible: Binding<Bool>) {
+        _drawing = drawing
         _isToolPickerVisible = isToolPickerVisible
     }
 
@@ -30,14 +58,14 @@ struct Canvas: UIViewRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        return Coordinator(editingState: $editingState, isToolPickerVisible: $isToolPickerVisible)
+        return Coordinator(drawing: $drawing, isToolPickerVisible: $isToolPickerVisible)
     }
 
     func makeUIView(context: Context) -> CanvasView {
         let toolPicker = PKToolPicker()
         let canvasView = CanvasView()
 
-        canvasView.drawing = editingState.currentPage.drawing
+        canvasView.drawing = drawing
         canvasView.overrideUserInterfaceStyle = .light
         canvasView.drawingPolicy = .anyInput
 //        canvasView.backgroundColor = .white
@@ -52,7 +80,7 @@ struct Canvas: UIViewRepresentable {
     }
 
     func updateUIView(_ canvasView: CanvasView, context: Context) {
-        canvasView.drawing = editingState.currentPage.drawing
+        canvasView.drawing = drawing
     
         if isToolPickerVisible, let toolPicker = context.coordinator.toolPicker {
             setToolPickerVisible(canvasView: canvasView, toolPicker: toolPicker)
@@ -60,7 +88,7 @@ struct Canvas: UIViewRepresentable {
     }
 
     final class Coordinator: NSObject, PKToolPickerObserver, PKCanvasViewDelegate {
-        @Binding var editingState: EditingState
+        @Binding var drawing: PKDrawing
         @Binding var isToolPickerVisible: Bool
         var canvas: CanvasView? {
             didSet {
@@ -81,8 +109,8 @@ struct Canvas: UIViewRepresentable {
             }
         }
 
-        init(editingState: Binding<EditingState>, isToolPickerVisible: Binding<Bool>) {
-            _editingState = editingState
+        init(drawing: Binding<PKDrawing>, isToolPickerVisible: Binding<Bool>) {
+            _drawing = drawing
             _isToolPickerVisible = isToolPickerVisible
         }
 
@@ -100,7 +128,7 @@ struct Canvas: UIViewRepresentable {
         // MARK: PKCanvasViewDelegate
 
         public func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
-            editingState = editingState.replacingCurrentPage(with: Page(drawing: canvasView.drawing))
+            drawing = canvasView.drawing
         }
 
         public func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView) {}

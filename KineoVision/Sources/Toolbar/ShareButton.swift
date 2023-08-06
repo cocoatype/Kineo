@@ -6,7 +6,7 @@ import SwiftUI
 struct ShareButton: View {
     var body: some View {
         Button(action: {
-            print("share")
+            TemporaryPersistence.reset()
         }, label: {
             Image(systemName: "square.and.arrow.up")
         })
