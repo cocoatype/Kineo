@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var editingState: EditingState
     @State private var isLayerModeActive = false
     @State private var placements = [StickerPlacement]()
+    @State private var skinImage: Image?
 
     init() {
         _editingState = State(initialValue: EditingState(document: TemporaryPersistence.persistedDocument))
@@ -34,6 +35,8 @@ struct ContentView: View {
                     ForEach(placements) { placement in
                         placement
                     }
+
+                    if let skinImage { skinImage.allowsHitTesting(false) }
                 } else if case .playing = editingState.mode {
                     Player(editingState: $editingState)
                         .background(.white)
@@ -55,10 +58,19 @@ struct ContentView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .onChange(of: editingState) {
-            TemporaryPersistence.persistedDocument = $1.document
+        .onChange(of: editingState) { _, newState in
+            TemporaryPersistence.persistedDocument = newState.document
+
+            Task {
+                let (image, skinPageIndex) = await Self.skinGenerator.generateSkinsImage(from: newState.document, currentPageIndex: newState.currentPageIndex)
+                if self.editingState.currentPageIndex == skinPageIndex {
+                    skinImage = Image(uiImage: image)
+                }
+            }
         }
     }
+
+    private static let skinGenerator = SkinGenerator()
 }
 
 #Preview {
