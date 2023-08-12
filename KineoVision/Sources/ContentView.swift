@@ -38,7 +38,7 @@ struct ContentView: View {
 
                     if let skinImage { skinImage.allowsHitTesting(false) }
                 } else if case .playing = editingState.mode {
-                    Player(editingState: $editingState)
+                    Player(editingState: editingState)
                         .background(.white)
                 }
             }
