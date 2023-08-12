@@ -6,7 +6,10 @@ import UIKit
 struct DisplayLink: AsyncSequence {
     typealias Element = Void
     class AsyncIterator: AsyncIteratorProtocol {
-        let semaphore = AsyncSemaphore(value: 0)
+        enum State {
+            case running
+            case suspended(UnsafeContinuation<Void?, Never>)
+        }
 
         init() {
             let displayLink = CADisplayLink(target: self, selector: #selector(tick))
@@ -14,14 +17,22 @@ struct DisplayLink: AsyncSequence {
             displayLink.add(to: .main, forMode: .common)
         }
 
+        private var state = State.running
         func next() async -> Element? {
-            while true {
-                do {
-                    try await semaphore.waitUnlessCancelled()
-                    return ()
-                } catch {
-                    return nil
-                }
+            return await withUnsafeContinuation {
+                state = .suspended($0)
+            }
+        }
+
+        private func resume() {
+            guard case .suspended(let continuation) = state
+            else { return }
+
+            do {
+                try Task.checkCancellation()
+                continuation.resume(returning: ())
+            } catch {
+                continuation.resume(returning: nil)
             }
         }
 
@@ -32,7 +43,7 @@ struct DisplayLink: AsyncSequence {
             else { return }
 
             lastTickTime = sender.targetTimestamp
-            semaphore.signal()
+            resume()
         }
     }
 
