@@ -25,7 +25,7 @@ class DrawingImageGenerationOperation: Operation {
 
         traitCollection.performAsCurrent {
             let scale = size / Constants.canvasRect * renderScale
-            let thumbnailImage = drawing.image(from: Constants.canvasRect, scale: scale)
+            let thumbnailImage = drawing.image(from: Constants.canvasRect, scale: 1)
             resultImage = thumbnailImage
             completionHandler?(thumbnailImage, drawing)
         }

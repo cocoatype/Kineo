@@ -19,8 +19,7 @@ struct ExistingPageButton: View {
         Button {
             tooExcitedAboutXcode = tooExcitedAboutXcode.navigating(to: page)
         } label: {
-            Color.white
-                .frame(width: FilmStripButtonViewModifier.buttonWidth, height: FilmStripButtonViewModifier.buttonWidth)
+            ExistingPageButtonLabel(page: page)
         }
         .buttonBorderShape(.roundedRectangle(radius: 0))
     }
