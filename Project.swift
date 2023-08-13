@@ -58,6 +58,7 @@ let project = Project(
       bundleId: "com.flipbookapp.flickbook.Clip",
       infoPlist: "Clip/Info.plist",
       sources: ["Clip/Sources/**"],
+      resources: ["App/Resources/**"],
       entitlements: "Clip/Clip.entitlements",
       dependencies: [
         .target(name: "Core"),
@@ -153,6 +154,10 @@ let project = Project(
         .target(name: "Data")
       ],
       settings: .settings(
+        base: [
+          "ASSETCATALOG_COMPILER_APPICON_NAME": "iMessage App Icon",
+          "ASSETCATALOG_COMPILER_TARGET_STICKERS_ICON_ROLE": "extension",
+        ],
         debug: [
           "CODE_SIGN_IDENTITY": "Apple Development: Buddy Build (D47V8Y25W5)",
           "PROVISIONING_PROFILE_SPECIFIER": "match Development com.flipbookapp.flickbook.Stickers"
