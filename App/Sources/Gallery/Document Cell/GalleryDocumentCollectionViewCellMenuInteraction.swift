@@ -33,14 +33,19 @@ enum GalleryDocumentCollectionViewCellContextMenuConfigurationFactory {
                 delegate.openAnimationInNewWindow(at: indexPath)
             }
 
+            let backupElement = UIAction(title: Self.backupMenuItemTitle, image: Icons.ContextMenu.backup) { _ in
+                delegate.backupAnimation(at: indexPath)
+            }
+
             let menuItems = (UIApplication.shared.supportsMultipleScenes ?
-                [shareElement, windowElement, deleteSection] :
-                [shareElement, deleteSection])
+                [shareElement, windowElement, backupElement, deleteSection] :
+                [shareElement, backupElement, deleteSection])
 
             return UIMenu(title: "", children: menuItems)
         }
     }
 
+    private static let backupMenuItemTitle = NSLocalizedString("GalleryDocumentCollectionViewCellMenuConfigurationProvider.backupMenuItemTitle", comment: "Menu item title for backing up an animation")
     private static let deleteMenuItemTitle = NSLocalizedString("GalleryDocumentCollectionViewCellMenuConfigurationProvider.deleteMenuItemTitle", comment: "Menu item title for deleting an animation")
     private static let exportMenuItemTitle = NSLocalizedString("GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle", comment: "Menu item title for exporting an animation")
     private static let windowMenuItemTitle = NSLocalizedString("GalleryDocumentCollectionViewCellMenuConfigurationProvider.windowMenuItemTitle", comment: "Menu item title for exporting an animation")
