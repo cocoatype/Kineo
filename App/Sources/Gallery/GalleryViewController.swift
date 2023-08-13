@@ -58,6 +58,13 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     // MARK: Context Menu Actions
 
+    func backupAnimation(at indexPath: IndexPath) {
+        let documentURL = dataSource.url(forDocumentAt: indexPath)
+        let shareController = UIActivityViewController(activityItems: [documentURL], applicationActivities: nil)
+        shareController.popoverPresentationController?.sourceView = galleryView?.cellForItem(at: indexPath)
+        present(shareController, animated: true)
+    }
+
     func deleteAnimation(at indexPath: IndexPath) {
         do {
             try dataSource.deleteDocument(at: indexPath)

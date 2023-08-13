@@ -35,6 +35,7 @@ public enum Icons {
             return UIImage(systemName: systemName, withConfiguration: UIImage.SymbolConfiguration.contextMenuIconConfiguration)
         }
 
+        public static let backup = contextMenuImage(systemName: "square.and.arrow.down")
         public static let delete = contextMenuImage(systemName: "trash")
         public static let export = contextMenuImage(systemName: "square.and.arrow.up")
         public static let window = contextMenuImage(systemName: "square.split.2x1")
