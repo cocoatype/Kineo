@@ -24,7 +24,7 @@ struct DrawingCanvas: View {
             .onChange(of: drawing) { _, newDrawing in
                 editingState = editingState.replacingCurrentPage(with: Page(drawing: newDrawing))
             }.onChange(of: isToolPickerVisible) { _, newVisibility in
-                editingState = editingState.settingToolPickerVisible()
+                editingState = editingState.settingToolPickerVisible(visible: newVisibility)
             }.onChange(of: editingState) {
                 drawing = editingState.currentPage.drawing
                 isToolPickerVisible = editingState.toolPickerShowing
@@ -68,7 +68,6 @@ struct Canvas: UIViewRepresentable {
         canvasView.drawing = drawing
         canvasView.overrideUserInterfaceStyle = .light
         canvasView.drawingPolicy = .anyInput
-//        canvasView.backgroundColor = .white
         canvasView.tool = PKInkingTool(ink: PKInk(.pen, color: .red), width: 15)
         toolPicker.setVisible(true, forFirstResponder: canvasView)
 
@@ -90,15 +89,14 @@ struct Canvas: UIViewRepresentable {
     final class Coordinator: NSObject, PKToolPickerObserver, PKCanvasViewDelegate {
         @Binding var drawing: PKDrawing
         @Binding var isToolPickerVisible: Bool
+
         var canvas: CanvasView? {
             didSet {
-                oldValue?.removeObserver(self, forKeyPath: #keyPath(PKCanvasView.isFirstResponder))
                 canvas?.delegate = self
                 canvas?.onFirstResponderChange = { [weak self] in
                     guard let self, let toolPicker, let canvas else { return }
                     isToolPickerVisible = (toolPicker.isVisible && canvas.isFirstResponder)
                 }
-                canvas?.addObserver(self, forKeyPath: #keyPath(PKCanvasView.isFirstResponder), context: nil)
             }
         }
 
