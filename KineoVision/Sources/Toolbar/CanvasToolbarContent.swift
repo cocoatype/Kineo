@@ -27,6 +27,7 @@ struct CanvasToolbarContent: ToolbarContent {
             ToolbarItemGroup(placement: .bottomOrnament) {
                 ToolPickerButton(editingState: $editingState)
                 LayerButton(isLayerModeActive: $isLayerModeActive)
+                FillButton(editingState: $editingState)
                 ShareButton()
                 InsertButton()
             }

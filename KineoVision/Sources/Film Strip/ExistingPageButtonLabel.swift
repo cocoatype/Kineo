@@ -13,7 +13,6 @@ struct ExistingPageButtonLabel: View {
     @State private var image: Image?
     var body: some View {
         ZStack {
-            Color.white
             if let image {
                 ExistingPageButtonThumbnail(image: image)
             }

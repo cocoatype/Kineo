@@ -30,8 +30,10 @@ struct ContentView: View {
             ZStack {
                 if editingState.mode == .editing {
                     DrawingCanvas(editingState: $editingState)
-                        .background(.white)
-                    
+                        .background(
+                            Color(uiColor: editingState.canvasBackgroundColor)
+                        )
+
                     ForEach(placements) { placement in
                         placement
                     }
@@ -42,6 +44,7 @@ struct ContentView: View {
                         .background(.white)
                 }
             }
+            .clipShape(RoundedRectangle(cornerRadius: 16))
             .dropDestination(for: Data.self) { items, location in
                 guard let firstItem = items.first,
                       let placement = StickerPlacement(data: firstItem, location: location)
