@@ -15,23 +15,18 @@ struct GalleryView: View {
             LazyVGrid(columns: [
                 GridItem(.adaptive(minimum: 202, maximum: 220), spacing: 25)
             ], spacing: 25, content: {
-                ForEach(0..<50) { _ in
-                    Button {
-                        currentDocument = Document(pages: [Page()], backgroundColorHex: "ff3b30", backgroundImageData: nil)
-                    } label: {
-                        Color.white
-                            .clipShape(RoundedRectangle(cornerRadius: 25))
-                            .aspectRatio(1, contentMode: .fill)
-                    }
-                    .buttonBorderShape(.roundedRectangle(radius: 25))
-                    .aspectRatio(1, contentMode: .fill)
-                    .hoverEffect(.lift)
+                ForEach(documentStore.storedDocuments) { storedDocument in
+                    StoredDocumentButton(storedDocument: storedDocument, currentDocument: $currentDocument)
                 }
             })
         }
         .contentMargins(.all, 25)
         .glassBackgroundEffect()
     }
+
+    // MARK: Boilerplate
+
+    private let documentStore = DocumentStore()
 }
 
 #Preview {

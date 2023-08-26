@@ -15,9 +15,7 @@ public struct DocumentStore {
     }
 
     public func document(at index: Int) throws -> Document {
-        let storedDocument = storedDocuments[index]
-        let data = try Data(contentsOf: storedDocument.url)
-        return try JSONDecoder().decode(Document.self, from: data)
+        try storedDocuments[index].document
     }
 
     public func document(with identifier: UUID) throws -> Document {
@@ -44,11 +42,14 @@ public struct DocumentStore {
         return newDocument
     }
 
-    private var storedDocuments: [StoredDocument] {
+    public var storedDocuments: [StoredDocument] {
         do {
             let storeDirectoryURL = DocumentStore.storeDirectoryURL
             let urls = try FileManager.default.contentsOfDirectory(at: storeDirectoryURL, includingPropertiesForKeys: [.contentModificationDateKey], options: [])
-            return urls.filter { $0.pathExtension == "kineo" }.compactMap(StoredDocument.init(url:)).sorted { $0.modifiedDate > $1.modifiedDate }
+            return urls
+                .filter { $0.pathExtension == "kineo" }
+                .compactMap(StoredDocument.init(url:))
+                .sorted { $0.modifiedDate > $1.modifiedDate }
         } catch {
             return []
         }
@@ -110,23 +111,4 @@ public struct DocumentStore {
     }()
 
     private let operationQueue = DocumentOperationQueue()
-}
-
-struct StoredDocument {
-    init?(url: URL) {
-        self.url = url
-
-        let modifiedDate = try? url.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate
-        self.modifiedDate = modifiedDate ?? .distantPast
-
-        guard let uuid = UUID(uuidString: url.deletingPathExtension().lastPathComponent) else { return nil }
-        self.uuid = uuid
-    }
-
-    let modifiedDate: Date
-    let uuid: UUID
-    let url: URL
-    var imagePreviewURL: URL {
-        return url.deletingPathExtension().appendingPathExtension("png")
-    }
 }

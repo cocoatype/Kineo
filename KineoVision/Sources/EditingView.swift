@@ -62,7 +62,7 @@ struct EditingView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .onChange(of: editingState) { _, newState in
-            TemporaryPersistence.persistedDocument = newState.document
+            documentStore.save(newState.document)
 
             Task {
                 let (image, skinPageIndex) = await Self.skinGenerator.generateSkinsImage(from: newState.document, currentPageIndex: newState.currentPageIndex)
@@ -85,6 +85,7 @@ struct EditingView: View {
     }
 
     private static let skinGenerator = SkinGenerator()
+    private let documentStore = DocumentStore()
 }
 
 #Preview {
