@@ -4,9 +4,11 @@
 import SwiftUI
 
 struct GalleryButton: View {
+    @Environment(\.showGallery) private var showGallery
+
     var body: some View {
         Button {
-            print("hello gallery")
+            showGallery()
         } label: {
             Image(systemName: "square.grid.2x2")
                 .resizable()

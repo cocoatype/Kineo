@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  EditingView.swift
 //  KineoVision
 //
 //  Created by Geoff Pado on 7/10/23.
@@ -12,14 +12,14 @@ import EditingStateVision
 import PencilKit
 import SwiftUI
 
-struct ContentView: View {
+struct EditingView: View {
     @State private var editingState: EditingState
     @State private var isLayerModeActive = false
     @State private var placements = [StickerPlacement]()
     @State private var skinImage: Image?
 
-    init() {
-        _editingState = State(initialValue: EditingState(document: TemporaryPersistence.persistedDocument))
+    init(document: Document) {
+        _editingState = State(initialValue: EditingState(document: document))
     }
 
     @State private var isAnimating = false
@@ -71,11 +71,22 @@ struct ContentView: View {
                 }
             }
         }
+        .introspect(.window, on: .iOS(.v17)) { window in
+            // mologging by @CompileSwift on 7/31/23
+            // the window scene of the main window
+            guard let mologging = window.windowScene else { return }
+
+            // phoneHealthKinect by @nutterfi on 7/28/23
+            // the geometry that fixes the main window to a square
+            let phoneHealthKinect = UIWindowScene.GeometryPreferences.Reality(resizingRestrictions: .uniform)
+
+            mologging.requestGeometryUpdate(phoneHealthKinect)
+        }
     }
 
     private static let skinGenerator = SkinGenerator()
 }
 
 #Preview {
-    ContentView()
+    EditingView(document: Document(pages: [Page()], backgroundColorHex: nil, backgroundImageData: nil))
 }
