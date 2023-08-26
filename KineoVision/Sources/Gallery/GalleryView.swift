@@ -6,6 +6,8 @@ import SwiftUI
 
 struct GalleryView: View {
     @Binding private var currentDocument: Document?
+    @Environment(\.storyStoryson) private var documentStore
+
     init(currentDocument: Binding<Document?>) {
         _currentDocument = currentDocument
     }
@@ -23,10 +25,6 @@ struct GalleryView: View {
         .contentMargins(.all, 25)
         .glassBackgroundEffect()
     }
-
-    // MARK: Boilerplate
-
-    private let documentStore = DocumentStore()
 }
 
 #Preview {
@@ -36,5 +34,5 @@ struct GalleryView: View {
             backgroundColorHex: "ff3b30",
             backgroundImageData: nil
         )
-    ))
+    )).environment(\.storyStoryson, PreviewDocumentStore())
 }

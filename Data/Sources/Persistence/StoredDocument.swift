@@ -4,25 +4,27 @@
 import Foundation
 
 public struct StoredDocument: Identifiable {
+    public var id: UUID { uuid }
+    public let imagePreviewURL: URL
+
     init?(url: URL) {
+        let modifiedDate = (try? url.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate) ?? .distantPast
+        guard let uuid = UUID(uuidString: url.deletingPathExtension().lastPathComponent) else { return nil }
+
+        self.init(modifiedDate: modifiedDate, uuid: uuid, url: url)
+    }
+
+    init(modifiedDate: Date, uuid: UUID, url: URL) {
+        self.modifiedDate = modifiedDate
+        self.uuid = uuid
         self.url = url
 
-        let modifiedDate = try? url.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate
-        self.modifiedDate = modifiedDate ?? .distantPast
-
-        guard let uuid = UUID(uuidString: url.deletingPathExtension().lastPathComponent) else { return nil }
-        self.uuid = uuid
+        self.imagePreviewURL = url.deletingPathExtension().appendingPathExtension("png")
     }
 
     let modifiedDate: Date
     let uuid: UUID
     let url: URL
-
-    public var id: UUID { uuid }
-
-    public var imagePreviewURL: URL {
-        return url.deletingPathExtension().appendingPathExtension("png")
-    }
 
     public var document: Document {
         get throws {

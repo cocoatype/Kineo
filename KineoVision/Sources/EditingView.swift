@@ -17,6 +17,7 @@ struct EditingView: View {
     @State private var isLayerModeActive = false
     @State private var placements = [StickerPlacement]()
     @State private var skinImage: Image?
+    @Environment(\.storyStoryson) private var documentStore
 
     init(document: Document) {
         _editingState = State(initialValue: EditingState(document: document))
@@ -85,7 +86,7 @@ struct EditingView: View {
     }
 
     private static let skinGenerator = SkinGenerator()
-    private let documentStore = DocumentStore()
+//    @Environprivate 
 }
 
 #Preview {

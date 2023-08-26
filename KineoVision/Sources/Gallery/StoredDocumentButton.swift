@@ -21,9 +21,17 @@ struct StoredDocumentButton: View {
                 fatalError(String(describing: error))
             }
         } label: {
-            Color.white
-                .clipShape(RoundedRectangle(cornerRadius: 25))
-                .aspectRatio(1, contentMode: .fill)
+            AsyncImage(url: storedDocument.imagePreviewURL) {
+                $0.resizable()
+                    .clipShape(RoundedRectangle(cornerRadius: 25))
+                    .aspectRatio(1, contentMode: .fit)
+            } placeholder: {
+                Color(.canvasBackground).opacity(0.6)
+                    .clipShape(RoundedRectangle(cornerRadius: 25))
+                    .aspectRatio(1, contentMode: .fit)
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 25))
+            .aspectRatio(1, contentMode: .fit)
         }
         .buttonBorderShape(.roundedRectangle(radius: 25))
         .aspectRatio(1, contentMode: .fill)
