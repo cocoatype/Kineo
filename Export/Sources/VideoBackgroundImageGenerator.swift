@@ -1,8 +1,13 @@
 //  Created by Geoff Pado on 5/23/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+#if os(iOS)
+import DataPhone
+#elseif os(visionOS)
+import DataVision
+#endif
+
 import UIKit
-import Data
 
 class VideoBackgroundImageGenerator: NSObject {
     static func backgroundImage(for document: Document, shape: ExportShape) -> UIImage {

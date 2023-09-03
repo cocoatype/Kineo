@@ -4,11 +4,17 @@
 import SwiftUI
 
 struct ShareButton: View {
+    @Binding private var isExporting: Bool
+
+    init(isExporting: Binding<Bool>) {
+        _isExporting = isExporting
+    }
+
     var body: some View {
-        Button(action: {
-            TemporaryPersistence.reset()
-        }, label: {
+        Button {
+            isExporting = true
+        } label: {
             Image(systemName: "square.and.arrow.up")
-        })
+        }
     }
 }

@@ -110,6 +110,7 @@ let targets: [Target] = {
         resources: ["KineoVision/Resources/**"],
         dependencies: [
             .multiPlatformTarget(namePrefix: "Canvas"),
+            .multiPlatformTarget(namePrefix: "Export"),
             .external(name: "SwiftUIIntrospect"),
         ],
         settings: .settings(
@@ -170,6 +171,18 @@ let targets: [Target] = {
         dependencies: [
             .multiPlatformTarget(namePrefix: "Data"),
             .multiPlatformTarget(namePrefix: "DocumentNavigation")
+        ]
+    ).targets)
+
+    targets.append(contentsOf: MultiPlatformTarget(
+        name: "Export",
+        platforms: [.iOS, .visionOS],
+        product: .framework,
+        bundleId: "com.flipbookapp.flickbook.Export",
+        sources: ["Export/Sources/**"],
+        resources: ["Export/Resources/**"],
+        dependencies: [
+          .multiPlatformTarget(namePrefix: "Data"),
         ]
     ).targets)
 
