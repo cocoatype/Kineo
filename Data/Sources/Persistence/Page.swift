@@ -6,15 +6,29 @@ import PencilKit
 
 public struct Page: Codable, Equatable {
     public init(drawing: PKDrawing? = nil, uuid: UUID = UUID()) {
-        self.drawing = drawing ?? PKDrawing()
+        self.drawingData = (drawing ?? PKDrawing()).dataRepresentation()
         self.uuid = uuid
     }
 
-    public let drawing: PKDrawing
+    public var drawing: PKDrawing {
+        do {
+            return try PKDrawing(data: drawingData)
+        } catch {
+            print(String(describing: error))
+            return PKDrawing()
+        }
+     }
+
+    public let drawingData: Data
     var hasDrawing: Bool { return drawing.bounds.size != .zero }
     private let uuid: UUID
 
     public static func == (lhs: Page, rhs: Page) -> Bool {
         return lhs.uuid == rhs.uuid
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case drawingData = "drawing"
+        case uuid
     }
 }
