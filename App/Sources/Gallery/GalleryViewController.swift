@@ -33,10 +33,14 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     private func presentAnimation(at indexPath: IndexPath) {
         // TODO (#18): Show some kind of error if reading the document throws
-        guard let document = try? dataSource.document(at: indexPath) else { return }
-        let selectionEvent = GallerySelectionEvent(document: document)
+        do {
+            let document = try dataSource.document(at: indexPath)
+            let selectionEvent = GallerySelectionEvent(document: document)
 
-        galleryView?.sendAction(#selector(SceneViewController.showEditingView(_:for:)), to: nil, for: selectionEvent)
+            galleryView?.sendAction(#selector(SceneViewController.showEditingView(_:for:)), to: nil, for: selectionEvent)
+        } catch {
+            print(String(describing: error))
+        }
     }
 
     // MARK: Key Commands
