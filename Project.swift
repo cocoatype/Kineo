@@ -7,7 +7,7 @@ let project = Project(
     base: [
       "CURRENT_PROJECT_VERSION": "0",
       "DEVELOPMENT_TEAM": "287EDDET2B",
-      "IPHONEOS_DEPLOYMENT_TARGET": "14.0"
+      "IPHONEOS_DEPLOYMENT_TARGET": "16.0"
     ],
     debug: [
       "CODE_SIGN_IDENTITY": "Apple Development: Buddy Build (D47V8Y25W5)"
@@ -130,11 +130,22 @@ let project = Project(
       ]
     ),
     Target(
+      name: "FilmStrip",
+      platform: .iOS,
+      product: .framework,
+      bundleId: "com.flipbookapp.flickbook.FilmStrip",
+      sources: ["FilmStrip/Sources/**"],
+      dependencies: [
+        .target(name: "EditingState")
+      ]
+    ),
+    Target(
       name: "Shared",
       platform: .iOS,
       product: .framework,
       bundleId: "com.flipbookapp.flickbook.Shared",
       sources: ["Shared/Sources/**"],
+      resources: ["Shared/Resources/**"],
       settings: .settings(
         base: [
           "APPLICATION_EXTENSION_API_ONLY": "YES"
