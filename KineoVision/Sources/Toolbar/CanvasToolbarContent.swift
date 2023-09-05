@@ -18,11 +18,7 @@ struct CanvasToolbarContent: ToolbarContent {
     var body: some ToolbarContent {
         if editingState.toolPickerShowing == false {
             ToolbarItem(placement: .bottomOrnament) {
-                Button(action: {
-                    editingState = editingState.playingContinuously
-                }, label: {
-                    Image(systemName: "play")
-                })
+                PlayButton(editingState: $editingState)
             }
             ToolbarItem(placement: .bottomOrnament) {
                 Divider()
