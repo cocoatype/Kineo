@@ -9,8 +9,9 @@ import DataVision
 
 import AVFoundation
 import UIKit
+import VideoToolbox
 
-public enum VideoExporter {
+public enum VideoExporter3D {
     public static func exportVideo(from document: Document) async throws -> URL {
         let transformedDocument = DocumentTransformer.transformedDocument(from: document, playbackStyle: Defaults.exportPlaybackStyle, duration: Defaults.exportDuration)
         let shape = Defaults.exportShape
@@ -27,15 +28,18 @@ public enum VideoExporter {
         try FileManager.default.createDirectory(at: exportURL.deletingLastPathComponent(), withIntermediateDirectories: true, attributes: nil)
 
         // set up the video writer input
-        let writerInput = AVAssetWriterInput(mediaType: .video, outputSettings: [
-            AVVideoCodecKey: AVVideoCodecType.h264,
+        let writerInput = AVAssetWriterInput(mediaType: .muxed, outputSettings: [
+            AVVideoCodecKey: AVVideoCodecType.hevc,
             AVVideoWidthKey: shape.size.width,
-            AVVideoHeightKey: shape.size.height
+            AVVideoHeightKey: shape.size.height,
+            AVVideoCompressionPropertiesKey: [
+//                kVTCompressionPropertyKey_MVHEVCVideoLayerIDs as String: [2 as CFNumber],
+            ]
         ])
         videoWriter.add(writerInput)
 
         // start a session
-        let adaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: writerInput)
+        let adaptor = AVAssetWriterInputTaggedPixelBufferGroupAdaptor(assetWriterInput: writerInput)
         videoWriter.startWriting()
         videoWriter.startSession(atSourceTime: .zero)
 
@@ -76,7 +80,11 @@ public enum VideoExporter {
                     pageImage.draw(at: canvasPoint)
                 }
 
-                adaptor.append(image.pixelBuffer, withPresentationTime: presentationTime)
+                let leftTaggedBuffer = CMTaggedBuffer(tags: [.stereoView(.leftEye)], pixelBuffer: image.pixelBuffer)
+                let rightTaggedBuffer = CMTaggedBuffer(tags: [.stereoView(.rightEye)], pixelBuffer: image.pixelBuffer)
+                if adaptor.appendTaggedBuffers([leftTaggedBuffer, rightTaggedBuffer], withPresentationTime: presentationTime) == false {
+                    print("uh oh!")
+                }
             }
         }
 
@@ -90,7 +98,7 @@ public enum VideoExporter {
         switch videoWriter.status {
         case .completed:
             return exportURL
-        case .failed: 
+        case .failed:
             throw videoWriter.error ?? VideoExportError.unexpectedExportFailure
         default:
             throw VideoExportError.writingNotFinished
@@ -99,9 +107,4 @@ public enum VideoExporter {
 
     private static let standardCanvasRect = CGRect(origin: .zero, size: CGSize(width: 512, height: 512))
     private static let standardFramesPerSecond = CMTimeScale(12)
-}
-
-enum VideoExportError: Error {
-    case unexpectedExportFailure
-    case writingNotFinished
 }

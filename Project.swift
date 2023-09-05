@@ -180,7 +180,6 @@ let targets: [Target] = {
         product: .framework,
         bundleId: "com.flipbookapp.flickbook.Export",
         sources: ["Export/Sources/**"],
-        resources: ["Export/Resources/**"],
         dependencies: [
           .multiPlatformTarget(namePrefix: "Data"),
         ]
