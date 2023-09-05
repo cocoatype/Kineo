@@ -102,11 +102,11 @@ public enum MultiPlatformDependency {
     func targetDependency(for platform: Platform) -> TargetDependency {
         switch self {
         case .multiPlatformTarget(let namePrefix):
-            TargetDependency.target(name: namePrefix + platform.nameSuffix)
+            return .target(name: namePrefix + platform.nameSuffix)
         case .target(let name):
-            TargetDependency.target(name: name)
+            return .target(name: name)
         case .external(let name):
-            TargetDependency.external(name: name)
+            return .external(name: name)
         }
     }
 }
@@ -114,12 +114,12 @@ public enum MultiPlatformDependency {
 private extension Platform {
     var nameSuffix: String {
         switch self {
-        case .iOS: "Phone"
-        case .macOS: "Mac"
-        case .watchOS: "Watch"
-        case .tvOS: "TV"
-        case .visionOS: "Vision"
-        @unknown default: ""
+        case .iOS: return "Phone"
+        case .macOS: return "Mac"
+        case .watchOS: return "Watch"
+        case .tvOS: return "TV"
+        case .visionOS: return "Vision"
+        @unknown default: return ""
         }
     }
 }

@@ -28,7 +28,7 @@ struct EditingView: View {
     var body: some View {
         GeometryReader3D { proxy in
             ZStack {
-                DrawingView(editingState: $editingState).frame(depth: 60)
+                DrawingView(editingState: $editingState)
             }
 //            .dropDestination(for: Data.self) { items, location in
 //                guard let firstItem = items.first,
@@ -38,7 +38,7 @@ struct EditingView: View {
 //                placements.append(placement)
 //                return true
 //            }
-            .ornament(attachmentAnchor: OrnamentAttachmentAnchor.scene(alignment: .leading)) {
+            .ornament(attachmentAnchor: OrnamentAttachmentAnchor.scene(.leading)) {
                 CanvasSidebar(editingState: $editingState, height: proxy.size.height)
             }
             .toolbar {
@@ -49,7 +49,7 @@ struct EditingView: View {
         .sheet(isPresented: $isExporting) {
             ExportView(editingState: editingState)
         }
-        .introspect(.window, on: .iOS(.v17)) { window in
+        .introspect(.window, on: .visionOS(.v1)) { window in
             // mologging by @CompileSwift on 7/31/23
             // the window scene of the main window
             guard let mologging = window.windowScene else { return }
