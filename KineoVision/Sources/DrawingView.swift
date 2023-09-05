@@ -17,8 +17,8 @@ struct DrawingView: View {
     var body: some View {
         ZStack {
             if editingState.mode == .editing {
-                RoundedRectangle(cornerRadius: 16)
-                    .glassBackgroundEffect()
+                Rectangle()
+                    .glassBackgroundEffect(in: RoundedRectangle(cornerRadius: 16))
                     .opacity(0.2).offset(z: -2)
 
                 DrawingCanvas(editingState: $editingState)

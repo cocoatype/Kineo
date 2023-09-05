@@ -64,6 +64,8 @@ struct Canvas: UIViewRepresentable {
     func makeUIView(context: Context) -> CanvasView {
         let toolPicker = PKToolPicker()
         let canvasView = CanvasView()
+        canvasView.layer.cornerRadius = 16
+        canvasView.layer.cornerCurve = .continuous
 
         canvasView.drawing = drawing
         canvasView.overrideUserInterfaceStyle = .light
