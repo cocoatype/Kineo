@@ -8,7 +8,7 @@ cache:
 before_script:
   - "bundle install --path vendor/bundle"
   - "tuist fetch"
-  - "tuist generate"
+  - "tuist generate --no-open"
 variables:
   LC_ALL: "en_US.UTF-8"
   LANG: "en_US.UTF-8"
