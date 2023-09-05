@@ -11,6 +11,7 @@ import AVFoundation
 import UIKit
 import VideoToolbox
 
+#if os(visionOS)
 @available(visionOS 1.0, iOS 17.0, *)
 public enum VideoExporter3D {
     public static func exportVideo(from document: Document) async throws -> URL {
@@ -109,3 +110,4 @@ public enum VideoExporter3D {
     private static let standardCanvasRect = CGRect(origin: .zero, size: CGSize(width: 512, height: 512))
     private static let standardFramesPerSecond = CMTimeScale(12)
 }
+#endif
