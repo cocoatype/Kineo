@@ -102,11 +102,11 @@ public enum MultiPlatformDependency {
     func targetDependency(for platform: Platform) -> TargetDependency {
         switch self {
         case .multiPlatformTarget(let namePrefix):
-            .target(name: namePrefix + platform.nameSuffix)
+            TargetDependency.target(name: namePrefix + platform.nameSuffix)
         case .target(let name):
-            .target(name: name)
+            TargetDependency.target(name: name)
         case .external(let name):
-            .external(name: name)
+            TargetDependency.external(name: name)
         }
     }
 }
