@@ -1,7 +1,7 @@
 //  Created by Geoff Pado on 11/6/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
-import Data
+import DataPhone
 import UIKit
 
 class GalleryViewDataSource: NSObject, UICollectionViewDataSource {
@@ -72,6 +72,6 @@ class GalleryViewDataSource: NSObject, UICollectionViewDataSource {
 
     // MARK: Boilerplate
 
-    private let documentStore = DocumentStore()
+    private let documentStore = FileDocumentStore()
     private static let newDocumentIndexPath = IndexPath(item: 0, section: 0)
 }

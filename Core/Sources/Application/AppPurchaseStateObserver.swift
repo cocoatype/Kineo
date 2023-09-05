@@ -1,7 +1,7 @@
 //  Created by Geoff Pado on 4/20/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
-import Data
+import DataPhone
 import Foundation
 
 public final class AppPurchaseStateObserver {

@@ -1,8 +1,8 @@
 //  Created by Geoff Pado on 5/23/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
-import Canvas
-import Data
+import CanvasPhone
+import DataPhone
 import UIKit
 
 class ExportEditingCanvasBackgroundView: UIView {

@@ -1,7 +1,7 @@
 //  Created by Geoff Pado on 2/7/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
-import Data
+import DataPhone
 import UIKit
 
 class ExportSettingsViewController: UIViewController, UITableViewDelegate {

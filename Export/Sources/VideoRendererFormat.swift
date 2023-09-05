@@ -3,8 +3,8 @@
 
 import UIKit
 
-class VideoRendererFormat: UIGraphicsImageRendererFormat {
-    override init() {
+public class VideoRendererFormat: UIGraphicsImageRendererFormat {
+    public override init() {
         super.init()
         opaque = true
         scale = 1

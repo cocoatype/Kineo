@@ -2,9 +2,9 @@
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
 import Combine
-import EditingState
+import EditingStatePhone
 import Foundation
-import Data
+import DataPhone
 
 class ApplicationEditingStateManager: NSObject {
     var notificationHandler: ((EditingState) -> Void)?
@@ -39,7 +39,7 @@ class ApplicationEditingStateManager: NSObject {
     }
 
     private var cancellables = Set<AnyCancellable>()
-    private let documentStore = DocumentStore()
+    private let documentStore = FileDocumentStore()
     private var notificationObserver: Any?
 
     private static let editingStateDidChange = NSNotification.Name("ApplicationEditingStateManager.editingStateDidChange")

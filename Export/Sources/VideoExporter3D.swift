@@ -11,6 +11,7 @@ import AVFoundation
 import UIKit
 import VideoToolbox
 
+@available(visionOS 1.0, iOS 17.0, *)
 public enum VideoExporter3D {
     public static func exportVideo(from document: Document) async throws -> URL {
         let transformedDocument = DocumentTransformer.transformedDocument(from: document, playbackStyle: Defaults.exportPlaybackStyle, duration: Defaults.exportDuration)

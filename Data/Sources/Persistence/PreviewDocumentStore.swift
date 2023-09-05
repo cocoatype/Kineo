@@ -3,6 +3,7 @@
 
 import Foundation
 
+@available(iOS 16.0, *)
 public struct PreviewDocumentStore: DocumentStore {
     public var storedDocuments: [StoredDocument] {
         [

@@ -1,7 +1,7 @@
 //  Created by Geoff Pado on 9/2/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
-#if os(iOS) && !os(visionOS)
+#if os(iOS)
 import EditingStatePhone
 #elseif os(visionOS)
 import EditingStateVision

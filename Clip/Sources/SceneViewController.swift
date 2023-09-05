@@ -2,7 +2,7 @@
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
 import Core
-import Data
+import DataPhone
 import UIKit
 
 class SceneViewController: UIViewController {
@@ -30,7 +30,7 @@ class SceneViewController: UIViewController {
 
     // MARK: Boilerplate
 
-    private let documentStore = DocumentStore()
+    private let documentStore = FileDocumentStore()
 
     private var sceneView: SceneView {
         guard let sceneView = view as? SceneView else { fatalError("Incorrect view type: \(String(describing: view))") }

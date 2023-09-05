@@ -2,7 +2,7 @@
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
 import CoreGraphics
-import Data
+import DataPhone
 
 class ExportEditingPlaybackStylePicker: ExportEditingPickerControl {
     init() {

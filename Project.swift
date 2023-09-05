@@ -63,7 +63,8 @@ let targets = ([
         .target(name: "CanvasPhone"),
         .target(name: "DataPhone"),
         .target(name: "DocumentNavigationPhone"),
-        .target(name: "EditingStatePhone")
+        .target(name: "EditingStatePhone"),
+        .target(name: "ExportPhone"),
       ]
     ),
     Target(
@@ -204,7 +205,7 @@ let project = Project(
     base: [
       "CURRENT_PROJECT_VERSION": "0",
       "DEVELOPMENT_TEAM": "287EDDET2B",
-      "IPHONEOS_DEPLOYMENT_TARGET": "14.0",
+      "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
       "MARKETING_VERSION": "23.0",
     ],
     debug: [

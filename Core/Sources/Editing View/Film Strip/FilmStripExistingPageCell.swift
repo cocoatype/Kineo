@@ -37,10 +37,11 @@ class FilmStripExistingPageCell: UICollectionViewCell, UIPointerInteractionDeleg
         didSet(oldPage) {
             guard page != oldPage else { return }
             guard let page = page else { imageView.image = nil; return }
-            Self.generator.generateThumbnail(for: page.drawing) { [weak self] image, drawing in
-                guard self?.page == page else { return }
-                DispatchQueue.main.async {
-                    self?.imageView.image = image
+            Task {
+                let (image, _) = await Self.generator.generateThumbnail(for: page.drawing)
+                await MainActor.run {
+                    guard self.page == page else { return }
+                    self.imageView.image = image
                 }
             }
         }

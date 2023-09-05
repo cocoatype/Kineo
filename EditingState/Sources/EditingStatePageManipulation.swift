@@ -1,7 +1,7 @@
 //  Created by Geoff Pado on 9/5/21.
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
-#if os(iOS) && !os(visionOS)
+#if os(iOS)
 import DataPhone
 #elseif os(visionOS)
 import DataVision

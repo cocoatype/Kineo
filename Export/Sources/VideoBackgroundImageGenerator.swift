@@ -9,8 +9,8 @@ import DataVision
 
 import UIKit
 
-class VideoBackgroundImageGenerator: NSObject {
-    static func backgroundImage(for document: Document, shape: ExportShape) -> UIImage {
+public class VideoBackgroundImageGenerator: NSObject {
+    public static func backgroundImage(for document: Document, shape: ExportShape) -> UIImage {
         let horizontalMargins = (shape.size.width - Constants.canvasSize.width) / 2
         let verticalMargins = (shape.size.height - Constants.canvasSize.height) / 2
         let canvasPoint = CGPoint(x: horizontalMargins, y: verticalMargins)

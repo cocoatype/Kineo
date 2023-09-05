@@ -2,7 +2,7 @@
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
 import Combine
-import EditingState
+import EditingStatePhone
 import Foundation
 
 class RedoButton: SidebarActionButton {
