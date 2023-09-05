@@ -22,9 +22,9 @@ struct DrawingView: View {
                     .opacity(0.2).offset(z: -2)
 
                 DrawingCanvas(editingState: $editingState)
-//                    .background(
-//                        Color(uiColor: editingState.canvasBackgroundColor)
-//                    )
+                    .background(
+                        Color(uiColor: editingState.canvasBackgroundColor)
+                    )
 
 //                    ForEach(placements) { placement in
 //                        placement
@@ -33,7 +33,9 @@ struct DrawingView: View {
                 if let skinImage { skinImage.allowsHitTesting(false) }
             } else if case .playing = editingState.mode {
                 Player(editingState: editingState)
-                    .background(.white)
+                    .background(
+                        Color(uiColor: editingState.canvasBackgroundColor)
+                    )
             }
         }
         .clipShape(RoundedRectangle(cornerRadius: 16))
