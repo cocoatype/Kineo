@@ -1,6 +1,6 @@
 import ProjectDescription
 
-public struct MultiPlatformTarget {
+public struct MultiPlatformTarget: TargetProducer {
     private let name: String
     private let platforms: [Platform]
     private let product: Product
