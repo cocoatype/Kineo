@@ -18,7 +18,16 @@ struct RootView: View {
                     self.currentDocument = nil
                 })
         } else {
-            GalleryView(currentDocument: $currentDocument)
+            NavigationStack {
+                GalleryView(currentDocument: $currentDocument)
+                    .toolbar {
+                        ToolbarItem(placement: .navigation) {
+                            Button("New Document", systemImage: "plus") {
+                                print("Create new document")
+                            }
+                        }
+                    }
+            }
         }
     }
 }

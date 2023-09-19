@@ -98,6 +98,7 @@ let targets = ([
       infoPlist: "Tests/Info.plist",
       sources: ["Tests/Sources/**"]
     ),
+
     Target(
         name: "KineoVision",
         platform: .visionOS,
@@ -117,7 +118,6 @@ let targets = ([
             ]
         )
     ),
-
 
     MultiPlatformTarget(
         name: "Canvas",

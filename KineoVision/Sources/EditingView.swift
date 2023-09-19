@@ -38,9 +38,13 @@ struct EditingView: View {
 //                placements.append(placement)
 //                return true
 //            }
+            .ornament(attachmentAnchor: OrnamentAttachmentAnchor.scene(.top), ornament: {
+                EditingMenu(isExporting: $isExporting)
+            })
             .ornament(attachmentAnchor: OrnamentAttachmentAnchor.scene(.leading)) {
                 CanvasSidebar(editingState: $editingState, height: proxy.size.height)
             }
+            .toolbarRole(.browser)
             .toolbar {
                 CanvasToolbarContent(editingState: $editingState, isLayerModeActive: $isLayerModeActive, isExporting: $isExporting)
             }
