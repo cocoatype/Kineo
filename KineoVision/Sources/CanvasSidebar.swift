@@ -11,10 +11,7 @@ struct CanvasSidebar: View {
     }
 
     var body: some View {
-        VStack {
-            GalleryButton()
-            FilmStrip(editingState: $editingState)
-        }
+        FilmStrip(editingState: $editingState)
         .frame(width: 80, height: height)
         .padding(.trailing, 100)
     }

@@ -2,8 +2,15 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 import Foundation
+import SwiftUI
+import UniformTypeIdentifiers
 
-public struct Document: Codable, Equatable {
+public struct Document: Codable, Equatable, FileDocument {
+    public let backgroundColorHex: String?
+    public let backgroundImageData: Data?
+    public let pages: [Page]
+    public let uuid: UUID
+
     public init(pages: [Page], backgroundColorHex: String?, backgroundImageData: Data?) {
         self.init(pages: pages, uuid: UUID(), backgroundColorHex: backgroundColorHex, backgroundImageData: backgroundImageData)
     }
@@ -58,10 +65,22 @@ public struct Document: Codable, Equatable {
         return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex, backgroundImageData: self.backgroundImageData)
     }
 
-    public let backgroundColorHex: String?
-    public let backgroundImageData: Data?
-    public let pages: [Page]
-    public let uuid: UUID
+    // MARK: FileDocument
+
+    public static let uniformType = UTType(exportedAs: "com.cocoatype.kineo.flipbook")
+    public static let readableContentTypes = [uniformType]
+
+    public init(configuration: ReadConfiguration) throws {
+        guard let data = configuration.file.regularFileContents else {
+            throw CocoaError(.fileReadNoSuchFile)
+        }
+
+        self = try JSONDecoder().decode(Self.self.self.self.self.self.self.self, from: data)
+    }
+
+    public func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+        try FileWrapper(regularFileWithContents: JSONEncoder().encode(self))
+    }
 }
 
 extension Array {

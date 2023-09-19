@@ -14,7 +14,7 @@ struct ShareButton: View {
         Button {
             isExporting = true
         } label: {
-            Image(systemName: "square.and.arrow.up")
+            Label("ShareButton.title", systemImage: "square.and.arrow.up")
         }
     }
 }

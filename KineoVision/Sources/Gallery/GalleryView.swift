@@ -23,7 +23,6 @@ struct GalleryView: View {
             })
         }
         .contentMargins(.all, 25)
-        .glassBackgroundEffect()
     }
 }
 
