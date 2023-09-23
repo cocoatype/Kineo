@@ -4,6 +4,13 @@
 extension EditingState {
     public enum Mode: Equatable {
         case editing, playing(continuously: Bool), scrolling
+
+        public var isPlaying: Bool {
+            switch self {
+            case .editing, .scrolling: false
+            case .playing: true
+            }
+        }
     }
 
     public var playing: EditingState { Lenses.mode.set(.playing(continuously: false), self) }

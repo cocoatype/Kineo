@@ -22,7 +22,6 @@ struct EditingView: View {
         _editingState = State(initialValue: EditingState(document: document))
     }
 
-    @State private var isAnimating = false
     private static let fullTransform = Rotation3D(angle: Angle2D(degrees: 10), axis: .y)
 
     var body: some View {
@@ -38,9 +37,9 @@ struct EditingView: View {
 //                placements.append(placement)
 //                return true
 //            }
-            .ornament(attachmentAnchor: OrnamentAttachmentAnchor.scene(.top), ornament: {
-                EditingMenu(isExporting: $isExporting)
-            })
+            .ornament(attachmentAnchor: OrnamentAttachmentAnchor.scene(.top)) {
+                EditingMenu(editingState: editingState)
+            }
             .ornament(attachmentAnchor: OrnamentAttachmentAnchor.scene(.leading)) {
                 CanvasSidebar(editingState: $editingState, height: proxy.size.height)
             }
@@ -50,9 +49,7 @@ struct EditingView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .sheet(isPresented: $isExporting) {
-            ExportView(editingState: editingState)
-        }
+        .preferredSurroundingsEffect(editingState.mode.isPlaying ? .systemDark : nil)
         .introspect(.window, on: .visionOS(.v1)) { window in
             // mologging by @CompileSwift on 7/31/23
             // the window scene of the main window

@@ -1,18 +1,19 @@
 //  Created by Geoff Pado on 9/16/23.
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
+import EditingStateVision
 import SwiftUI
 
 struct EditingMenu: View {
-    @Binding private var isExporting: Bool
+    private let editingState: EditingState
 
-    init(isExporting: Binding<Bool>) {
-        _isExporting = isExporting
+    init(editingState: EditingState) {
+        self.editingState = editingState
     }
 
     var body: some View {
         Menu {
-            ShareButton(isExporting: $isExporting)
+            ShareButton(editingState: editingState)
             GalleryButton()
         } label: {
             Image(systemName: "square.and.arrow.up")

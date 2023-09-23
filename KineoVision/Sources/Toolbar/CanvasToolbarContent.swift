@@ -27,7 +27,7 @@ struct CanvasToolbarContent: ToolbarContent {
                 ToolPickerButton(editingState: $editingState)
                 LayerButton(isLayerModeActive: $isLayerModeActive)
                 FillButton(editingState: $editingState)
-                ShareButton(isExporting: $isExporting)
+                ShareButton(editingState: editingState)
                 InsertButton()
             }
         }
