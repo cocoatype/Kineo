@@ -13,10 +13,12 @@ struct RootView: View {
 
     var body: some View {
         if let currentDocument {
-            EditingView(document: currentDocument)
-                .environment(\.showGallery, ShowGalleryAction {
-                    self.currentDocument = nil
-                })
+            NavigationStack {
+                EditingView(document: currentDocument)
+                    .environment(\.showGallery, ShowGalleryAction {
+                        self.currentDocument = nil
+                    })
+            }
         } else {
             NavigationStack {
                 GalleryView(currentDocument: $currentDocument)

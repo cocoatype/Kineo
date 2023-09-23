@@ -21,6 +21,7 @@ struct Player: View {
 
     var body: some View {
         Canvas(drawing: currentDrawing)
+            .allowsHitTesting(false)
             .task {
                 for await _ in DisplayLink() {
                     currentPageIndex = (currentPageIndex + 1) % playbackDocument.pages.endIndex
