@@ -7,8 +7,8 @@ extension EditingState {
 
         public var isPlaying: Bool {
             switch self {
-            case .editing, .scrolling: false
-            case .playing: true
+            case .editing, .scrolling: return false
+            case .playing: return true
             }
         }
     }
