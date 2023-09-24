@@ -114,7 +114,8 @@ let targets = ([
         ],
         settings: .settings(
             base: [
-                "GENERATE_INFOPLIST_FILE": "YES"
+                "GENERATE_INFOPLIST_FILE": "YES",
+                "LD_RUNPATH_SEARCH_PATHS": ["$(inherited)", "@executable_path/Frameworks"],
             ]
         )
     ),
