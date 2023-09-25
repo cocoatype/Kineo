@@ -12,23 +12,31 @@ struct DrawingCanvas: View {
     @Binding private var editingState: EditingState
     @State private var drawing: PKDrawing
     @State private var isToolPickerVisible: Bool
+    private let layerID: UUID
 
-    init(editingState: Binding<EditingState>) {
+    init(editingState: Binding<EditingState>, layerID: UUID) {
         _editingState = editingState
-        _drawing = State(initialValue: editingState.wrappedValue.currentPage.drawing)
+        _drawing = State(initialValue: editingState.wrappedValue.currentPage.layers[layerID].drawing)
         _isToolPickerVisible = State(initialValue: editingState.wrappedValue.toolPickerShowing)
+        self.layerID = layerID
     }
 
     var body: some View {
         Canvas(drawing: $drawing, isToolPickerVisible: $isToolPickerVisible)
             .onChange(of: drawing) { _, newDrawing in
-                editingState = editingState.replacingCurrentPage(with: Page(drawing: newDrawing))
+                editingState = editingState.replacingCurrentActiveDrawing(with: newDrawing)
             }.onChange(of: isToolPickerVisible) { _, newVisibility in
                 editingState = editingState.settingToolPickerVisible(visible: newVisibility)
             }.onChange(of: editingState) {
-                drawing = editingState.currentPage.drawing
+                drawing = editingState.currentPage.layers[layerID].drawing
                 isToolPickerVisible = editingState.toolPickerShowing
             }
+            .allowsHitTesting(representsActiveLayer)
+    }
+
+    private var representsActiveLayer: Bool {
+        let activeLayer = editingState.currentPage.layers[editingState.activeLayerIndex]
+        return layerID == activeLayer.id
     }
 }
 

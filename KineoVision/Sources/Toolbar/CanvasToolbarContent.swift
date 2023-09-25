@@ -6,12 +6,10 @@ import SwiftUI
 
 struct CanvasToolbarContent: ToolbarContent {
     @Binding private var editingState: EditingState
-    @Binding private var isLayerModeActive: Bool
     @Binding private var isExporting: Bool
 
-    init(editingState: Binding<EditingState>, isLayerModeActive: Binding<Bool>, isExporting: Binding<Bool>) {
+    init(editingState: Binding<EditingState>, isExporting: Binding<Bool>) {
         _editingState = editingState
-        _isLayerModeActive = isLayerModeActive
         _isExporting = isExporting
     }
 
@@ -25,7 +23,7 @@ struct CanvasToolbarContent: ToolbarContent {
             }
             ToolbarItemGroup(placement: .bottomOrnament) {
                 ToolPickerButton(editingState: $editingState)
-                LayerButton(isLayerModeActive: $isLayerModeActive)
+                LayerButton(editingState: $editingState)
                 FillButton(editingState: $editingState)
                 ShareButton(editingState: editingState)
                 InsertButton()

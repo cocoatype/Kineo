@@ -152,6 +152,16 @@ let targets = ([
             ]
         )
     ),
+    MultiPlatformTarget(
+        name: "DataTests",
+        platforms: [.iOS, .visionOS],
+        product: .unitTests,
+        bundleId: "com.flipbookapp.flickbook.DataTests",
+        sources: ["Data/Tests/**"],
+        dependencies: [
+            .multiPlatformTarget(namePrefix: "Data")
+        ]
+    ),
 
     MultiPlatformTarget(
         name: "DocumentNavigation",

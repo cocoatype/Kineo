@@ -1,10 +1,5 @@
-//
-//  EditingView.swift
-//  KineoVision
-//
 //  Created by Geoff Pado on 7/10/23.
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
-//
 
 import Combine
 import DataVision
@@ -14,7 +9,6 @@ import SwiftUI
 
 struct EditingView: View {
     @State private var editingState: EditingState
-    @State private var isLayerModeActive = false
     @State private var placements = [StickerPlacement]()
     @State private var isExporting = false
 
@@ -45,7 +39,7 @@ struct EditingView: View {
             }
             .toolbarRole(.browser)
             .toolbar {
-                CanvasToolbarContent(editingState: $editingState, isLayerModeActive: $isLayerModeActive, isExporting: $isExporting)
+                CanvasToolbarContent(editingState: $editingState, isExporting: $isExporting)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }

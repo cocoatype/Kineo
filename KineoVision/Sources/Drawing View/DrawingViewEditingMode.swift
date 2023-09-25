@@ -1,11 +1,11 @@
-//  Created by Geoff Pado on 8/28/23.
+//  Created by Geoff Pado on 9/24/23.
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
 import DataVision
 import EditingStateVision
 import SwiftUI
 
-struct DrawingView: View {
+struct DrawingViewEditingMode: View {
     @Binding private var editingState: EditingState
     @State private var skinImage: Image? = nil
     @Environment(\.storyStoryson) private var documentStore
@@ -16,29 +16,18 @@ struct DrawingView: View {
 
     var body: some View {
         ZStack {
-            if editingState.mode == .editing {
-                Rectangle()
-                    .glassBackgroundEffect(in: RoundedRectangle(cornerRadius: 16))
-                    .opacity(0.2).offset(z: -2)
+            CanvasLayerBackground()
 
-                DrawingCanvas(editingState: $editingState)
-                    .background(
-                        Color(uiColor: editingState.canvasBackgroundColor)
-                    )
-
-//                    ForEach(placements) { placement in
-//                        placement
-//                    }
-
-                if let skinImage { skinImage.allowsHitTesting(false) }
-            } else if case .playing = editingState.mode {
-                Player(editingState: editingState)
-                    .background(
-                        Color(uiColor: editingState.canvasBackgroundColor)
-                    )
+            ForEach(editingState.currentPage.layers) { layer in
+                DrawingCanvas(editingState: $editingState, layerID: layer.id)
             }
+
+//            ForEach(placements) { placement in
+//                placement
+//            }
+//
+            if let skinImage { skinImage.allowsHitTesting(false) }
         }
-        .clipShape(RoundedRectangle(cornerRadius: 16))
         .onChange(of: editingState) { _, newState in
             documentStore.save(newState.document)
 
