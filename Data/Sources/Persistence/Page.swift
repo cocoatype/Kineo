@@ -5,12 +5,16 @@ import Foundation
 import PencilKit
 
 public struct Page: Codable, Equatable, Identifiable {
-    public init(drawing: PKDrawing? = nil, uuid: UUID = UUID()) {
-        let layer = Layer(drawing: drawing ?? PKDrawing())
+    public init(drawing: PKDrawing, uuid: UUID = UUID()) {
+        let layer = Layer(drawing: drawing)
         self.init(layers: [layer], uuid: uuid)
     }
 
-    init(layers: [Layer], uuid: UUID = UUID()) {
+    public init() {
+        self.init(layers: [Layer](generating: Layer(), count: 5))
+    }
+
+    public init(layers: [Layer], uuid: UUID = UUID()) {
         self.layers = layers
         self.uuid = uuid
     }
@@ -56,5 +60,12 @@ public struct Page: Codable, Equatable, Identifiable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(layers, forKey: .layers)
         try container.encode(uuid, forKey: .uuid)
+    }
+}
+
+extension Array {
+    init(generating generator: @autoclosure () -> Element, count: Int) {
+        let sequence = (0..<count).map { _ in generator() }
+        self.init(sequence)
     }
 }

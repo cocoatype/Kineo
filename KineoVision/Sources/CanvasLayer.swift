@@ -8,13 +8,15 @@ struct CanvasLayer: View {
     static let layerDepth = 10.0
 
     @Binding var editingState: EditingState
+    private let layerID: UUID
 
-    init(editingState: Binding<EditingState>) {
+    init(editingState: Binding<EditingState>, layerID: UUID) {
         _editingState = editingState
+        self.layerID = layerID
     }
 
     var body: some View {
-        Canvas(drawing: editingState.currentPage.drawing)
+        Canvas(drawing: editingState.currentPage.layers[layerID].drawing)
             .allowsHitTesting(false)
             .frame(depth: Self.layerDepth)
     }

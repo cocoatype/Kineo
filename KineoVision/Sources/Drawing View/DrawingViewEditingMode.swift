@@ -17,7 +17,10 @@ struct DrawingViewEditingMode: View {
     var body: some View {
         ZStack {
             CanvasLayerBackground()
-            DrawingCanvas(editingState: $editingState)
+
+            ForEach(editingState.currentPage.layers) { layer in
+                DrawingCanvas(editingState: $editingState, layerID: layer.id)
+            }
 
 //            ForEach(placements) { placement in
 //                placement

@@ -12,12 +12,14 @@ import Foundation
 public typealias EditingStatePublisher = CascadingPublisher<EditingState>
 
 public struct EditingState: Equatable {
+    public let activeLayerIndex: Int
     public let currentPageIndex: Int
     public let document: Document
     public let mode: Mode
     public let toolPickerShowing: Bool
 
     public init(document: Document) {
+        self.activeLayerIndex = 0
         self.currentPageIndex = 0
         self.document = document
         self.mode = .editing
