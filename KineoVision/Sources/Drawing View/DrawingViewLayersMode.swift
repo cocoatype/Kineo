@@ -18,7 +18,7 @@ struct DrawingViewLayersMode: View {
                 let index = Double(indexedLayer.index)
                 let offset = Double(index) * Self.offset2D
                 Button {
-                    print("selected layer at index \(index)")
+                    editingState = editingState.settingActiveLayerIndex(to: indexedLayer.index)
                 } label: {
                     CanvasLayer(editingState: $editingState, layerID: indexedLayer.id)
                 }
