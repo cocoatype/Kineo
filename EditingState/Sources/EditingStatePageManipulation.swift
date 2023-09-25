@@ -24,7 +24,15 @@ extension EditingState {
     public func replacingCurrentActiveDrawing(with newDrawing: PKDrawing) -> EditingState {
         let currentLayer = currentPage.layers[activeLayerIndex]
         let newLayer = Layer(drawing: newDrawing, uuid: currentLayer.id)
-        let newLayers = currentPage.layers.replacing([currentLayer], with: [newLayer], maxReplacements: 1)
+        let newLayers = currentPage.layers.reduce([Layer]()) { result, layer in
+            var newResult = result
+            if layer.id == newLayer.id {
+                newResult.append(newLayer)
+            } else {
+                newResult.append(layer)
+            }
+            return newResult
+        }
         let newPage = Page(layers: newLayers)
         let newDocument = document.replacingPage(atIndex: currentPageIndex, with: newPage)
         return EditingState.Lenses.document.set(newDocument, self)
