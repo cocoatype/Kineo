@@ -5,7 +5,7 @@ import EditingStateVision
 import SwiftUI
 
 struct CanvasLayer: View {
-    private static let layerDepth: CGFloat = 20
+    static let layerDepth = 10.0
 
     @Binding var editingState: EditingState
 
@@ -14,13 +14,8 @@ struct CanvasLayer: View {
     }
 
     var body: some View {
-        Rectangle()
-            .glassBackgroundEffect()
-            .opacity(0.3)
-            .aspectRatio(1, contentMode: .fit)
+        Canvas(drawing: editingState.currentPage.drawing)
+            .allowsHitTesting(false)
             .frame(depth: Self.layerDepth)
-            .overlay {
-                Canvas(drawing: editingState.currentPage.drawing)
-            }
     }
 }
