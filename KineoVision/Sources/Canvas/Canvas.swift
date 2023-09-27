@@ -8,38 +8,6 @@ import Combine
 import PencilKit
 import SwiftUI
 
-struct DrawingCanvas: View {
-    @Binding private var editingState: EditingState
-    @State private var drawing: PKDrawing
-    @State private var isToolPickerVisible: Bool
-    private let layerID: UUID
-
-    init(editingState: Binding<EditingState>, layerID: UUID) {
-        _editingState = editingState
-        _drawing = State(initialValue: editingState.wrappedValue.currentPage.layers[layerID].drawing)
-        _isToolPickerVisible = State(initialValue: editingState.wrappedValue.toolPickerShowing)
-        self.layerID = layerID
-    }
-
-    var body: some View {
-        Canvas(drawing: $drawing, isToolPickerVisible: $isToolPickerVisible)
-            .onChange(of: drawing) { _, newDrawing in
-                editingState = editingState.replacingCurrentActiveDrawing(with: newDrawing)
-            }.onChange(of: isToolPickerVisible) { _, newVisibility in
-                editingState = editingState.settingToolPickerVisible(visible: newVisibility)
-            }.onChange(of: editingState) {
-                drawing = editingState.currentPage.layers[layerID].drawing
-                isToolPickerVisible = editingState.toolPickerShowing
-            }
-            .allowsHitTesting(representsActiveLayer)
-    }
-
-    private var representsActiveLayer: Bool {
-        let activeLayer = editingState.currentPage.layers[editingState.activeLayerIndex]
-        return layerID == activeLayer.id
-    }
-}
-
 struct Canvas: UIViewRepresentable {
     @Binding private var drawing: PKDrawing
     @Binding private var isToolPickerVisible: Bool
@@ -70,7 +38,7 @@ struct Canvas: UIViewRepresentable {
     }
 
     func makeUIView(context: Context) -> CanvasView {
-        let toolPicker = PKToolPicker()
+        let toolPicker = context.environment.toolPicker
         let canvasView = CanvasView()
         canvasView.layer.cornerRadius = 16
         canvasView.layer.cornerCurve = .continuous
