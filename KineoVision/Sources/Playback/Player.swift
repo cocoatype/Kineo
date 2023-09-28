@@ -15,17 +15,22 @@ struct Player: View {
         _currentPageIndex = State(initialValue: editingState.currentPageIndex)
     }
 
-    private var currentDrawing: PKDrawing {
-        playbackDocument.pages[currentPageIndex].drawing
+    private var currentLayers: [Layer] {
+        playbackDocument.pages[currentPageIndex].layers
     }
 
     var body: some View {
-        Canvas(drawing: currentDrawing)
-            .allowsHitTesting(false)
-            .task {
-                for await _ in DisplayLink() {
-                    currentPageIndex = (currentPageIndex + 1) % playbackDocument.pages.endIndex
-                }
+        ZStack {
+            ForEach(currentLayers) { layer in
+                Canvas(drawing: layer.drawing)
+                    .frame(depth: 10)
             }
+        }
+        .allowsHitTesting(false)
+        .task {
+            for await _ in DisplayLink() {
+                currentPageIndex = (currentPageIndex + 1) % playbackDocument.pages.endIndex
+            }
+        }
     }
 }

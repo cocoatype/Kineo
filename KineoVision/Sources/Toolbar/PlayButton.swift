@@ -11,10 +11,15 @@ struct PlayButton: View {
     }
 
     var body: some View {
-        Button(action: {
-            editingState = editingState.playingContinuously
-        }, label: {
+        Button {
+            switch editingState.mode {
+            case .editing, .scrolling, .layers:
+                editingState = editingState.playingContinuously
+            case .playing:
+                editingState = editingState.editing
+            }
+        } label: {
             Image(systemName: "play")
-        })
+        }
     }
 }
