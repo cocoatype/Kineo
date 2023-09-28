@@ -22,8 +22,7 @@ struct Player: View {
     var body: some View {
         ZStack {
             ForEach(currentLayers) { layer in
-                Canvas(drawing: layer.drawing)
-                    .frame(depth: 10)
+                PlayerLayer(drawing: layer.drawing)
             }
         }
         .allowsHitTesting(false)
