@@ -40,7 +40,18 @@ public enum VideoExporter3D {
             try FileManager.default.createDirectory(at: exportURL.deletingLastPathComponent(), withIntermediateDirectories: true, attributes: nil)
 
             // set up the video writer input
-            let assistantSettings = AVOutputSettingsAssistant(preset: .mvhevc1440x1440)!.videoSettings
+            // = AVOutputSettingsAssistant(preset: .mvhevc1440x1440)!.videoSettings
+            let assistantSettings: [String: Any] = [
+                AVVideoWidthKey: 720,
+                AVVideoHeightKey: 720,
+                AVVideoScalingModeKey: AVVideoScalingModeResizeAspectFill,
+                AVVideoCompressionPropertiesKey: [
+                    kVTCompressionPropertyKey_MVHEVCLeftAndRightViewIDs: [0, 1],
+                    kVTCompressionPropertyKey_MVHEVCVideoLayerIDs: [0, 1],
+                    kVTCompressionPropertyKey_MVHEVCViewIDs: [0, 1]
+                ],
+                AVVideoCodecKey: AVVideoCodecType.hevc,
+            ]
             let writerInput = AVAssetWriterInput(mediaType: .video, outputSettings: assistantSettings)
             videoWriter.add(writerInput)
 
@@ -61,17 +72,14 @@ public enum VideoExporter3D {
                 }
             }
 
-//            let horizontalMargins = (shape.size.width - Self.standardCanvasRect.size.width) / 2
-//            let verticalMargins = (shape.size.height - Self.standardCanvasRect.size.height) / 2
-//            let canvasPoint = CGPoint(x: horizontalMargins, y: verticalMargins)
-
             let traitCollection = UITraitCollection(userInterfaceStyle: .light)
             let pages = transformedDocument.pages
             pages.enumerated().forEach { pageWithIndex in
-                let (index, _) = pageWithIndex
+                let (index, page) = pageWithIndex
                 let presentationTime = CMTime(value: CMTimeValue(index), timescale: frameDuration.timescale)
                 traitCollection.performAsCurrent {
-//                    let pageImage = page.drawing.image(from: Self.standardCanvasRect, scale: 1)
+                    let pageImageLeft = PageImageRenderer.image(for: page, eye: .left)
+                    let pageImageRight = PageImageRenderer.image(for: page, eye: .right)
 
                     mediaReadyCondition.lock()
                     while writerInput.isReadyForMoreMediaData == false {
@@ -79,13 +87,20 @@ public enum VideoExporter3D {
                     }
                     mediaReadyCondition.unlock()
 
-//                    let image = UIGraphicsImageRenderer(size: shape.size, format: VideoRendererFormat()).image { context in
-//                        backgroundImage.draw(at: .zero)
-//                        pageImage.draw(at: canvasPoint)
-//                    }
-
-                    let leftTaggedBuffer = CMTaggedBuffer(tags: [.stereoView(.leftEye), .videoLayerID(0)], pixelBuffer: UIColor.systemRed.pixelBuffer(size: shape.size))
-                    let rightTaggedBuffer = CMTaggedBuffer(tags: [.stereoView(.rightEye), .videoLayerID(1)], pixelBuffer: UIColor.systemBlue.pixelBuffer(size: shape.size))
+                    let leftTaggedBuffer = CMTaggedBuffer(
+                        tags: [
+                            .stereoView(.leftEye),
+                            .videoLayerID(0)
+                        ],
+                        pixelBuffer: pageImageLeft.surfacePixelBuffer
+                    )
+                    let rightTaggedBuffer = CMTaggedBuffer(
+                        tags: [
+                            .stereoView(.rightEye),
+                            .videoLayerID(1)
+                        ],
+                        pixelBuffer: pageImageRight.surfacePixelBuffer
+                    )
                     if adaptor.appendTaggedBuffers([leftTaggedBuffer, rightTaggedBuffer], withPresentationTime: presentationTime) == false {
                         print("uh oh!")
                     }
@@ -114,6 +129,6 @@ public enum VideoExporter3D {
         }
     }
 
-    private static let standardCanvasRect = CGRect(origin: .zero, size: CGSize(width: 512, height: 512))
+    static let standardCanvasRect = CGRect(origin: .zero, size: CGSize(width: 512, height: 512))
     private static let standardFramesPerSecond = CMTimeScale(12)
 }
