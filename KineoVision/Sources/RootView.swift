@@ -12,24 +12,32 @@ struct RootView: View {
     }
 
     var body: some View {
-        if let currentDocument {
-            SometimesNavigationStack {
-                EditingView(document: currentDocument)
-                    .environment(\.showGallery, ShowGalleryAction {
-                        self.currentDocument = nil
-                    })
-            }
-        } else {
-            NavigationStack {
-                GalleryView(currentDocument: $currentDocument)
-                    .toolbar {
-                        ToolbarItem(placement: .navigation) {
-                            Button("New Document", systemImage: "plus") {
-                                print("Create new document")
+        Group {
+            if let currentDocument {
+                SometimesNavigationStack {
+                    EditingView(document: currentDocument)
+                        .environment(\.showGallery, ShowGalleryAction {
+                            self.currentDocument = nil
+                        })
+                }
+            } else {
+                NavigationStack {
+                    GalleryView(currentDocument: $currentDocument)
+                        .toolbar {
+                            ToolbarItem(placement: .navigation) {
+                                Button("New Document", systemImage: "plus") {
+                                    print("Create new document")
+                                }
                             }
                         }
-                    }
+                }
             }
         }
+        .environment(\.uiWindow, window)
+        .introspect(.window, on: .visionOS(.v1)) { window in
+            self.window = window
+        }
     }
+
+    @State private var window = UIWindow()
 }

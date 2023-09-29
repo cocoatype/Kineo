@@ -19,11 +19,22 @@ struct GalleryView: View {
             ], spacing: 25, content: {
                 ForEach(documentStore.storedDocuments) { storedDocument in
                     StoredDocumentButton(storedDocument: storedDocument, currentDocument: $currentDocument)
+                        .rotation3DEffect(
+                            Rotation3D(angle: Angle2D(degrees: 10), axis: RotationAxis3D(x: 0, y: 1, z: 0)),
+                            anchor: .trailing)
                 }
             })
         }
+        .onAppear {
+            guard let windowScene = window.windowScene else { return }
+            let geometryPreferences = UIWindowScene.GeometryPreferences.Vision(size: CGSize(width: 1024, height: 768))
+
+            windowScene.requestGeometryUpdate(geometryPreferences)
+        }
         .contentMargins(.all, 25)
     }
+
+    @Environment(\.uiWindow) private var window
 }
 
 #Preview {
