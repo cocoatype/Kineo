@@ -43,7 +43,7 @@ public extension UIColor {
     }
 
     private static func named(_ name: String) -> UIColor {
-        guard let color = self.init(named: name) else { fatalError("Couldn't load color named: \(name)") }
+        guard let color = self.init(named: name, in: Bundle(for: BundleFinder.self), compatibleWith: nil) else { fatalError("Couldn't load color named: \(name)") }
         return color
     }
 
@@ -85,3 +85,5 @@ public extension UIColor {
 
     static let darkSystemBackgroundSecondary = UIColor.secondarySystemBackground.resolvedColor(with: UITraitCollection(userInterfaceStyle: .dark))
 }
+
+private class BundleFinder {}
