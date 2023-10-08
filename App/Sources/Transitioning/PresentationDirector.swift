@@ -2,7 +2,7 @@
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
 import Core
-import Data
+import DataPhone
 import UIKit
 
 class PresentationDirector: NSObject {
@@ -43,8 +43,10 @@ class PresentationDirector: NSObject {
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         CATransaction.setCompletionBlock { [weak galleryViewController, weak editingViewController, weak sceneViewController, weak cellSnapshot] in
-            guard let galleryViewController = galleryViewController, let editingViewController = editingViewController, let sceneViewController = sceneViewController, let cellSnapshot = cellSnapshot else { return }
-            self.performPresentationAnimation(from: galleryViewController, to: editingViewController, in: sceneViewController, with: cellSnapshot)
+            guard let galleryViewController, let editingViewController, let sceneViewController, let cellSnapshot else { return }
+            Task { @MainActor in
+                await self.performPresentationAnimation(from: galleryViewController, to: editingViewController, in: sceneViewController, with: cellSnapshot)
+            }
         }
         // hide the editing view's drawing view
         editingViewController.canvasDisplayView?.canvasView.isHidden = true
@@ -62,7 +64,8 @@ class PresentationDirector: NSObject {
         CATransaction.commit()
     }
 
-    private func performPresentationAnimation(from galleryViewController: GalleryViewController, to editingViewController: EditingViewController, in sceneViewController: SceneViewController, with cellSnapshot: CALayer) {
+    @MainActor
+    private func performPresentationAnimation(from galleryViewController: GalleryViewController, to editingViewController: EditingViewController, in sceneViewController: SceneViewController, with cellSnapshot: CALayer) async {
         guard let editingView = editingViewController.view,
               let drawView = editingViewController.canvasDisplayView
         else {
@@ -71,36 +74,33 @@ class PresentationDirector: NSObject {
 
         let document = editingViewController.document
 
-        DrawingImageGenerator.shared.generateFirstSkinLayer(for: document) { skinsImage, _ in
-            DispatchQueue.main.async {
-                // grab the drawing frame
-                let drawingFrame = drawView.canvasView.frame
+        let (skinsImage, _) = await DrawingImageGenerator.shared.generateFirstSkinLayer(for: document)
+        // grab the drawing frame
+        let drawingFrame = drawView.canvasView.frame
 
-                CATransaction.begin()
-                CATransaction.setAnimationDuration(0.35)
-                CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: .easeInEaseOut))
-                CATransaction.setCompletionBlock { [weak galleryViewController, weak editingViewController, weak sceneViewController, weak cellSnapshot] in
-                    guard let galleryViewController = galleryViewController, let editingViewController = editingViewController, let sceneViewController = sceneViewController, let cellSnapshot = cellSnapshot else { return }
-                    self.cleanupPresentationAnimation(from: galleryViewController, to: editingViewController, in: sceneViewController, with: cellSnapshot)
-                }
-
-                // animate snapshot frame from current to drawing frame
-                let snapshotFrame = cellSnapshot.frame
-                cellSnapshot.frame = drawingFrame
-                cellSnapshot.add(FrameAnimation(from: snapshotFrame, to: drawingFrame), forKey: "snapshotFrame")
-
-                let currentContents = cellSnapshot.contents
-                let newContents = skinsImage.cgImage
-                cellSnapshot.contents = newContents
-                cellSnapshot.add(ContentsAnimation(from: currentContents, to: newContents), forKey: "skinsImage")
-
-                // fade in editing view
-                editingView.layer.opacity = 1
-                editingView.layer.add(OpacityAnimation(from: 0, to: 1), forKey: "editingOpacity")
-
-                CATransaction.commit()
-            }
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(0.35)
+        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: .easeInEaseOut))
+        CATransaction.setCompletionBlock { [weak galleryViewController, weak editingViewController, weak sceneViewController, weak cellSnapshot] in
+            guard let galleryViewController = galleryViewController, let editingViewController = editingViewController, let sceneViewController = sceneViewController, let cellSnapshot = cellSnapshot else { return }
+            self.cleanupPresentationAnimation(from: galleryViewController, to: editingViewController, in: sceneViewController, with: cellSnapshot)
         }
+
+        // animate snapshot frame from current to drawing frame
+        let snapshotFrame = cellSnapshot.frame
+        cellSnapshot.frame = drawingFrame
+        cellSnapshot.add(FrameAnimation(from: snapshotFrame, to: drawingFrame), forKey: "snapshotFrame")
+
+        let currentContents = cellSnapshot.contents
+        let newContents = skinsImage.cgImage
+        cellSnapshot.contents = newContents
+        cellSnapshot.add(ContentsAnimation(from: currentContents, to: newContents), forKey: "skinsImage")
+
+        // fade in editing view
+        editingView.layer.opacity = 1
+        editingView.layer.add(OpacityAnimation(from: 0, to: 1), forKey: "editingOpacity")
+
+        CATransaction.commit()
     }
 
     private func cleanupPresentationAnimation(from galleryViewController: GalleryViewController, to editingViewController: EditingViewController, in sceneViewController: SceneViewController, with cellSnapshot: CALayer) {

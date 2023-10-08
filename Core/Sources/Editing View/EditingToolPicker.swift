@@ -1,9 +1,9 @@
 //  Created by Geoff Pado on 9/5/21.
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
-import Canvas
+import CanvasPhone
 import Combine
-import EditingState
+import EditingStatePhone
 import PencilKit
 
 class EditingToolPicker: PKToolPicker {

@@ -1,11 +1,11 @@
 //  Created by Geoff Pado on 7/14/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
-import Canvas
+import CanvasPhone
 import Combine
-import Data
-import DocumentNavigation
-import EditingState
+import DataPhone
+import DocumentNavigationPhone
+import EditingStatePhone
 import StoreKit
 import UIKit
 
@@ -37,7 +37,7 @@ public class EditingDrawViewController: UIViewController, DrawingViewActions, Dr
     }
 
     @objc public func drawingViewDidChangePage(_ sender: DrawingView) {
-        state = state.replacingCurrentPage(with: sender.page)
+        state = state.replacingCurrentActiveDrawing(with: sender.page.drawing)
     }
 
     public override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {

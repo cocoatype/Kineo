@@ -2,7 +2,7 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 import Core
-import Data
+import DataPhone
 import UIKit
 
 class SceneViewController: UIViewController {
@@ -67,7 +67,7 @@ class SceneViewController: UIViewController {
 
     // MARK: Boilerplate
 
-    private let documentStore = DocumentStore()
+    private let documentStore = FileDocumentStore()
     private let presentationDirector = PresentationDirector()
     private let dismissalDirector = DismissalDirector()
     private var settingsDismissObserver: Any?

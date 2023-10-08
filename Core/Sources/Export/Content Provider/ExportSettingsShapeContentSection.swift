@@ -1,7 +1,7 @@
 //  Created by Geoff Pado on 3/31/21.
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
-import Data
+import DataPhone
 import Foundation
 
 struct ExportSettingsShapeContentSection: ExportSettingsContentSection {

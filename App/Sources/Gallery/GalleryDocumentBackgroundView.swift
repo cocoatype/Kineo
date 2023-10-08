@@ -1,7 +1,7 @@
 //  Created by Geoff Pado on 8/19/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
-import Data
+import DataPhone
 import UIKit
 
 class GalleryDocumentBackgroundView: UIImageView {

@@ -3,7 +3,8 @@
 
 import AVFoundation
 import CoreServices
-import Data
+import DataPhone
+import ExportPhone
 import LinkPresentation
 import UIKit
 

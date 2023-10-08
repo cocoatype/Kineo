@@ -2,7 +2,7 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 import Core
-import Data
+import DataPhone
 import UIKit
 
 @UIApplicationMain

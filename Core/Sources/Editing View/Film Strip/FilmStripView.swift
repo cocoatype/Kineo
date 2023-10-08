@@ -2,8 +2,8 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 import Combine
-import DocumentNavigation
-import EditingState
+import DocumentNavigationPhone
+import EditingStatePhone
 import UIKit
 
 class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDelegate, UICollectionViewDropDelegate, UIGestureRecognizerDelegate {

@@ -1,7 +1,7 @@
 //  Created by Geoff Pado on 12/18/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
-import Data
+import DataPhone
 import Messages
 
 class StickerDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -38,5 +38,5 @@ class StickerDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
     }
 
     // MARK: Boilerplate
-    private let documentStore = DocumentStore()
+    private let documentStore = FileDocumentStore()
 }

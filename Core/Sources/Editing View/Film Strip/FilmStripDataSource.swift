@@ -1,8 +1,8 @@
 //  Created by Geoff Pado on 12/24/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
-import Data
-import EditingState
+import DataPhone
+import EditingStatePhone
 import UIKit
 
 class FilmStripDataSource: NSObject, UICollectionViewDataSource {

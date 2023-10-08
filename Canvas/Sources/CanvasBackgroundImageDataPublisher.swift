@@ -1,9 +1,15 @@
 //  Created by Geoff Pado on 5/20/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+#if os(iOS) && !os(visionOS)
+import DataPhone
+import EditingStatePhone
+#elseif os(visionOS)
+import DataVision
+import EditingStateVision
+#endif
+
 import Combine
-import Data
-import EditingState
 import UIKit
 
 struct CanvasBackgroundImageDataPublisher<PublisherUpstream: Publisher>: Publisher where PublisherUpstream.Output == EditingState, PublisherUpstream.Failure == Never {

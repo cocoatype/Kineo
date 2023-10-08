@@ -1,7 +1,7 @@
 //  Created by Geoff Pado on 9/5/21.
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
-import EditingState
+import EditingStatePhone
 import UIKit
 
 class CompactEditingViewButtonBar: UIView {

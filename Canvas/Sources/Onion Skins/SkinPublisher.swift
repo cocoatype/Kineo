@@ -1,9 +1,15 @@
 //  Created by Geoff Pado on 9/13/21.
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
+#if os(iOS) && !os(visionOS)
+import DataPhone
+import EditingStatePhone
+#elseif os(visionOS)
+import DataVision
+import EditingStateVision
+#endif
+
 import Combine
-import Data
-import EditingState
 import UIKit
 
 struct SkinPublisher<PublisherUpstream: Publisher>: Publisher where PublisherUpstream.Output == EditingState, PublisherUpstream.Failure == Never {
@@ -34,9 +40,11 @@ private struct SkinSubscriber<Upstream: Publisher, Downstream: Subscriber>: Subs
     func receive(_ input: Upstream.Output) -> Subscribers.Demand {
         guard input.mode != .scrolling else { _ = downstream.receive(nil); return .unlimited }
 
-        skinGenerator.generateSkinsImage(from: input.document, currentPageIndex: input.currentPageIndex) { image, _ in
+        Task {
+            let (image, _) = await skinGenerator.generateSkinsImage(from: input.document, currentPageIndex: input.currentPageIndex)
             _ = downstream.receive(image)
         }
+
         return .unlimited
     }
 
