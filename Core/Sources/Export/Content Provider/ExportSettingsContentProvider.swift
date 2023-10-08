@@ -2,7 +2,6 @@
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
 import CoreGraphics
-import Data
 import Foundation
 
 struct ExportSettingsContentProvider {

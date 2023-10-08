@@ -1,7 +1,7 @@
 //  Created by Geoff Pado on 6/27/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
-import Data
+import DataPhone
 import UIKit
 
 class StickerBackgroundImageGenerator: NSObject {

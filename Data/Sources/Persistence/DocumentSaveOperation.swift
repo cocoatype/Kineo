@@ -35,11 +35,11 @@ class DocumentSaveOperation: Operation {
             let previewImage = await SkinGenerator().generatePreviewImage(from: document)
             do {
                 let encodedData = try JSONEncoder().encode(document)
-                try encodedData.write(to: DocumentStore.url(for: document))
+                try encodedData.write(to: FileDocumentStore.url(for: document))
 
                 guard let imageEncodedData = previewImage?.pngData() else { return }
 
-                try imageEncodedData.write(to: DocumentStore.previewImageURL(for: document))
+                try imageEncodedData.write(to: FileDocumentStore.previewImageURL(for: document))
                 completionHandler(.success(document))
             } catch {
                 completionHandler(.failure(error))

@@ -1,8 +1,13 @@
 //  Created by Geoff Pado on 9/4/21.
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
-import Data
-import DocumentNavigation
+#if os(iOS) && !os(visionOS)
+import DataPhone
+import DocumentNavigationPhone
+#elseif os(visionOS)
+import DataVision
+import DocumentNavigationVision
+#endif
 import UIKit
 
 extension EditingState {
@@ -34,5 +39,10 @@ extension EditingState {
 
         guard newIndex != currentPageIndex else { return self }
         return EditingState.Lenses.currentPageIndex.set(newIndex, self)
+    }
+
+    public func navigating(to page: Page) -> EditingState {
+        guard page != currentPage, let pageIndex = document.pages.firstIndex(of: page) else { return self }
+        return EditingState.Lenses.currentPageIndex.set(pageIndex, self)
     }
 }

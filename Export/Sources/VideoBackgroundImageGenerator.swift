@@ -1,11 +1,16 @@
 //  Created by Geoff Pado on 5/23/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
-import UIKit
-import Data
+#if os(iOS)
+import DataPhone
+#elseif os(visionOS)
+import DataVision
+#endif
 
-class VideoBackgroundImageGenerator: NSObject {
-    static func backgroundImage(for document: Document, shape: ExportShape) -> UIImage {
+import UIKit
+
+public class VideoBackgroundImageGenerator: NSObject {
+    public static func backgroundImage(for document: Document, shape: ExportShape) -> UIImage {
         let horizontalMargins = (shape.size.width - Constants.canvasSize.width) / 2
         let verticalMargins = (shape.size.height - Constants.canvasSize.height) / 2
         let canvasPoint = CGPoint(x: horizontalMargins, y: verticalMargins)

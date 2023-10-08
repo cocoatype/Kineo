@@ -1,9 +1,15 @@
 //  Created by Geoff Pado on 7/15/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+#if os(iOS) && !os(visionOS)
+import DataPhone
+import EditingStatePhone
+#elseif os(visionOS)
+import DataVision
+import EditingStateVision
+#endif
+
 import Combine
-import Data
-import EditingState
 import PencilKit
 import UIKit
 

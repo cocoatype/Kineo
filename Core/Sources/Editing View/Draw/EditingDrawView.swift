@@ -1,9 +1,9 @@
 //  Created by Geoff Pado on 7/14/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
-import Canvas
-import Data
-import EditingState
+import CanvasPhone
+import DataPhone
+import EditingStatePhone
 import PencilKit
 import UIKit
 

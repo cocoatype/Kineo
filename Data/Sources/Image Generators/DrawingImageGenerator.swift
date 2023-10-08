@@ -8,39 +8,37 @@ public class DrawingImageGenerator: NSObject {
     public static let shared = DrawingImageGenerator()
 
     private static let thumbnailSize = CGSize(width: 36, height: 36)
-    public func generateThumbnail(for drawing: PKDrawing, completionHandler: @escaping Handler) {
-        generateImage(for: drawing, size: Self.thumbnailSize, usesDisplayScale: true, completionHandler: completionHandler)
+    public func generateThumbnail(for drawing: PKDrawing) async -> (UIImage, PKDrawing) {
+        await generateImage(for: drawing, size: Self.thumbnailSize, usesDisplayScale: true)
     }
 
     private static let skinLayerSize = CGSize(width: 512, height: 512)
-    public func generateSkinLayers(for drawings: [PKDrawing], completionHandler: @escaping (([UIImage], [PKDrawing]) -> Void)) {
-        let operations = drawings.map { DrawingImageGenerationOperation(drawing: $0, size: Self.skinLayerSize, usesDisplayScale: true, completionHandler: nil) }
-        let finishOperation = BlockOperation {
-            let images = operations.compactMap { $0.resultImage }
-            assert(images.count == operations.count)
-            completionHandler(images, drawings)
-        }
-
-        operations.forEach(finishOperation.addDependency(_:))
-        operationQueue.addOperations(operations, waitUntilFinished: false)
-        operationQueue.addOperation(finishOperation)
-    }
-
-    public func generateSkinLayers(for drawings: [PKDrawing]) async -> [UIImage] {
+    public func generateSkinLayers(for drawings: [PKDrawing]) async -> ([UIImage], [PKDrawing]) {
         return await withCheckedContinuation { continuation in
-            generateSkinLayers(for: drawings) { images, _ in
-                continuation.resume(returning: images)
+            let operations = drawings.map { DrawingImageGenerationOperation(drawing: $0, size: Self.skinLayerSize, usesDisplayScale: true, completionHandler: nil) }
+            let finishOperation = BlockOperation {
+                let images = operations.compactMap { $0.resultImage }
+                assert(images.count == operations.count)
+                continuation.resume(returning: (images, drawings))
             }
+            
+            operations.forEach(finishOperation.addDependency(_:))
+            operationQueue.addOperations(operations, waitUntilFinished: false)
+            operationQueue.addOperation(finishOperation)
         }
     }
 
-    public func generateFirstSkinLayer(for document: Document, completionHandler: @escaping Handler) {
+    public func generateFirstSkinLayer(for document: Document) async -> (UIImage, PKDrawing) {
         guard let drawing = document.pages.first?.drawing else { fatalError("Tried to generate layer for a document with no pages") }
-        generateImage(for: drawing, size: Self.skinLayerSize, usesDisplayScale: true, completionHandler: completionHandler)
+        return await generateImage(for: drawing, size: Self.skinLayerSize, usesDisplayScale: true)
     }
 
-    private func generateImage(for drawing: PKDrawing, size: CGSize, usesDisplayScale: Bool, completionHandler: @escaping Handler) {
-        operationQueue.addOperation(DrawingImageGenerationOperation(drawing: drawing, size: size, usesDisplayScale: usesDisplayScale, completionHandler: completionHandler))
+    private func generateImage(for drawing: PKDrawing, size: CGSize, usesDisplayScale: Bool) async -> (UIImage, PKDrawing) {
+        return await withCheckedContinuation { continuation in
+            operationQueue.addOperation(DrawingImageGenerationOperation(drawing: drawing, size: size, usesDisplayScale: usesDisplayScale, completionHandler: { image, drawing in
+                continuation.resume(returning: (image, drawing))
+            }))
+        }
     }
 
     private let operationQueue = GeneratorQueue()

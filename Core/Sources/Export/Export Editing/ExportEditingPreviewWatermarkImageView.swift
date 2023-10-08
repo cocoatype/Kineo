@@ -1,8 +1,8 @@
 //  Created by Geoff Pado on 4/18/21.
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
+import DataPhone
 import UIKit
-import Data
 
 class ExportEditingPreviewWatermarkImageView: UIImageView {
     init() {

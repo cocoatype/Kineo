@@ -4,7 +4,7 @@
 import UIKit
 
 extension UIImage {
-    var pixelBuffer: CVPixelBuffer {
+    public var pixelBuffer: CVPixelBuffer {
         let pixelBufferOptions = [
             kCVPixelBufferCGImageCompatibilityKey: true,
             kCVPixelBufferCGBitmapContextCompatibilityKey: true

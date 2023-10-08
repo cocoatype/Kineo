@@ -1,7 +1,12 @@
 //  Created by Geoff Pado on 9/5/21.
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
-import DocumentNavigation
+#if os(iOS) && !os(visionOS)
+import DocumentNavigationPhone
+#elseif os(visionOS)
+import DocumentNavigationVision
+#endif
+
 import UIKit
 
 class DrawingViewScrollRecognizer: UIPanGestureRecognizer {

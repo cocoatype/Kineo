@@ -1,7 +1,7 @@
 //  Created by Geoff Pado on 12/16/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
-import Data
+import DataPhone
 import Foundation
 
 public class EditingUserActivity: NSUserActivity {

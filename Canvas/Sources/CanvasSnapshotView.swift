@@ -1,7 +1,12 @@
 //  Created by Geoff Pado on 4/29/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
-import Data
+#if os(iOS) && !os(visionOS)
+import DataPhone
+#elseif os(visionOS)
+import DataVision
+#endif
+
 import PencilKit
 import UIKit
 

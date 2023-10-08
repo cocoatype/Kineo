@@ -102,7 +102,7 @@ class UnstoredDocumentsSaveOperation: ResultOperation<Void, Error> {
     // MARK: Boilerplate
 
     private let database: CKDatabase
-    private let documentStore = DocumentStore()
+    private let documentStore = FileDocumentStore()
     private var fetchedRecords = [CKRecord]()
     private let syncQueue = CloudSyncQueue()
 }
