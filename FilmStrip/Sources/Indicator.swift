@@ -4,15 +4,44 @@
 import SwiftUI
 
 struct Indicator: View {
+    enum Axis {
+        static let perpendicular = 28.0
+        static let parallel = 2.0
+
+        case horizontal, vertical
+
+        var width: Double {
+            return switch self {
+            case .horizontal: Self.perpendicular
+            case .vertical: Self.parallel
+            }
+        }
+
+        var height: Double {
+            return switch self {
+            case .horizontal: Self.parallel
+            case .vertical: Self.perpendicular
+            }
+        }
+    }
+
+    private let axis: Axis
+    init(axis: Axis) {
+        self.axis = axis
+    }
+
     var body: some View {
         Color(uiColor: .filmStripIndicator)
             .clipShape(Capsule())
-            .frame(width: 2, height: 28)
+            .frame(width: axis.width, height: axis.height)
     }
 }
 
 enum IndicatorPreviews: PreviewProvider {
     static var previews: some View {
-        Indicator()
+        HStack {
+            Indicator(axis: .horizontal)
+            Indicator(axis: .vertical)
+        }
     }
 }

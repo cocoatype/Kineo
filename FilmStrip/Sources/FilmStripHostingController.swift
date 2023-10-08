@@ -1,8 +1,17 @@
 //  Created by Geoff Pado on 9/3/23.
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
+import EditingState
 import SwiftUI
 
-class FilmStripHostingController: UIHostingController<FilmStrip> {
+class FilmStripHostingController<FilmStripType: FilmStrip>: UIHostingController<FilmStripType> {
+    init(editingStatePublisher: EditingStatePublisher) {
+        super.init(rootView: FilmStripType(editingStatePublisher: editingStatePublisher))
+    }
 
+    @available(*, unavailable)
+    required init(coder: NSCoder) {
+        let typeName = NSStringFromClass(type(of: self))
+        fatalError("\(typeName) does not implement init(coder:)")
+    }
 }
