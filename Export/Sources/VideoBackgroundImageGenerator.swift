@@ -3,8 +3,10 @@
 
 #if os(iOS)
 import DataPhone
+import StylePhone
 #elseif os(visionOS)
 import DataVision
+import StyleVision
 #endif
 
 import UIKit
@@ -19,7 +21,7 @@ public class VideoBackgroundImageGenerator: NSObject {
         return UIGraphicsImageRenderer(size: shape.size, format: VideoRendererFormat()).image { context in
             backgroundTraitCollection.performAsCurrent {
                 // draw a background
-                UIColor.appBackground.setFill()
+                Asset.background.color.setFill()
                 context.fill(CGRect(origin: .zero, size: shape.size))
 
                 // draw a canvas
@@ -33,13 +35,13 @@ public class VideoBackgroundImageGenerator: NSObject {
 
                 // draw the lower shadow
                 cgContext.saveGState()
-                cgContext.setShadow(offset: CGSize(width: 0, height: 12), blur: 32, color: UIColor.canvasShadowDark.cgColor)
+                cgContext.setShadow(offset: CGSize(width: 0, height: 12), blur: 32, color: Asset.canvasShadowDark.color.cgColor)
                 cgContext.fillPath()
                 cgContext.restoreGState()
 
                 // draw the upper shadow
                 cgContext.saveGState()
-                cgContext.setShadow(offset: CGSize(width: 0, height: -12), blur: 32, color: UIColor.canvasShadowLight.cgColor)
+                cgContext.setShadow(offset: CGSize(width: 0, height: -12), blur: 32, color: Asset.canvasShadowLight.color.cgColor)
                 cgContext.fillPath()
                 cgContext.restoreGState()
 

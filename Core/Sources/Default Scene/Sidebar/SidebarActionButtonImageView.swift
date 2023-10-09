@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 11/25/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class SidebarActionButtonImageView: UIImageView {
@@ -8,7 +9,7 @@ class SidebarActionButtonImageView: UIImageView {
         super.init(frame: .zero)
         backgroundColor = .clear
         contentMode = .center
-        tintColor = .sidebarButtonTint
+        tintColor = Asset.sidebarButtonTint.color
         translatesAutoresizingMaskIntoConstraints = false
     }
 
@@ -22,9 +23,9 @@ class SidebarActionButtonImageView: UIImageView {
 class SidebarActionButtonAuxiliaryImageView: UIImageView {
     init() {
         super.init(frame: .zero)
-        backgroundColor = .sidebarButtonBackground
+        backgroundColor = Asset.sidebarButtonBackground.color
         contentMode = .center
-        tintColor = .sidebarButtonTint
+        tintColor = Asset.sidebarButtonTint.color
         translatesAutoresizingMaskIntoConstraints = false
 
         let maskLayer = CAShapeLayer()

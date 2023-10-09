@@ -3,8 +3,10 @@
 
 #if os(iOS) && !os(visionOS)
 import SharedPhone
+import StylePhone
 #elseif os(visionOS)
 import SharedVision
+import StyleVision
 #endif
 
 import UIKit
@@ -92,6 +94,6 @@ public class SkinGenerator: NSObject {
 
 public extension Document {
     var canvasBackgroundColor: UIColor {
-        UIColor(hexString: backgroundColorHex) ?? .canvasBackground
+        UIColor(hexString: backgroundColorHex) ?? Asset.canvasBackground.color
     }
 }

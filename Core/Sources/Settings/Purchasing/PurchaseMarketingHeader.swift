@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 4/15/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import SwiftUI
 
 struct PurchaseMarketingHeader: View {
@@ -12,7 +13,7 @@ struct PurchaseMarketingHeader: View {
     var body: some View {
         Text(titleKey)
             .font(.appFont(for: .headline))
-            .foregroundColor(.purchaseMarketingCellText)
+            .foregroundColor(Asset.purchaseMarketingCellText.swiftUIColor)
             .lineLimit(1)
     }
 }

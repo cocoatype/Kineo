@@ -1,14 +1,15 @@
 //  Created by Geoff Pado on 4/19/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class SidebarActionButtonBackgroundLightShadowLayer: CAShapeLayer {
     override init() {
         super.init()
-        fillColor = UIColor.sidebarButtonBackground.cgColor
-        strokeColor = UIColor.sidebarButtonBorder.cgColor
-        shadowColor = UIColor.sidebarButtonShadowLight.cgColor
+        fillColor = Asset.sidebarButtonBackground.color.cgColor
+        strokeColor = Asset.sidebarButtonBorder.color.cgColor
+        shadowColor = Asset.sidebarButtonShadowLight.color.cgColor
         shadowOffset = CGSize(width: 0, height: -5)
         shadowOpacity = 1
         shadowRadius = SidebarActionButtonBackgroundView.cornerRadius
@@ -26,9 +27,9 @@ class SidebarActionButtonBackgroundLightShadowLayer: CAShapeLayer {
 
     var traitCollection = UITraitCollection.current {
         didSet {
-            fillColor = UIColor.sidebarButtonBackground.resolvedColor(with: traitCollection).cgColor
-            strokeColor = UIColor.sidebarButtonBorder.resolvedColor(with: traitCollection).cgColor
-            shadowColor = UIColor.sidebarButtonShadowLight.resolvedColor(with: traitCollection).cgColor
+            fillColor = Asset.sidebarButtonBackground.color(compatibleWith: traitCollection).cgColor
+            strokeColor = Asset.sidebarButtonBorder.color(compatibleWith: traitCollection).cgColor
+            shadowColor = Asset.sidebarButtonShadowLight.color(compatibleWith: traitCollection).cgColor
         }
     }
 

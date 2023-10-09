@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 11/16/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 public class SidebarActionButton: UIControl, UIPointerInteractionDelegate {
@@ -22,7 +23,7 @@ public class SidebarActionButton: UIControl, UIPointerInteractionDelegate {
     private func commonSetup(icon: UIImage? = nil, auxiliaryIcon: UIImage? = nil) {
         image = icon
         auxiliaryImage = auxiliaryIcon
-        tintColor = .sidebarButtonTint
+        tintColor = Asset.sidebarButtonTint.color
         translatesAutoresizingMaskIntoConstraints = false
         isAccessibilityElement = true
         accessibilityTraits = [.button]

@@ -1,7 +1,8 @@
 //  Created by Geoff Pado on 9/3/23.
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
-import EditingState
+import EditingStatePhone
+import StylePhone
 import SwiftUI
 
 struct VFilmStrip: FilmStrip, View {
@@ -15,8 +16,8 @@ struct VFilmStrip: FilmStrip, View {
         HStack(alignment: .top, spacing: 2) {
             ScrollView(showsIndicators: false) {
                 LazyVStack {
-                    ForEach(0..<10) { _ in
-                        ExistingPageItem()
+                    ForEach(editingState.document.pages) { page in
+                        ExistingPageItem(page: page, tooExcitedAboutXcode: $editingState)
                     }
                 }
                 .frame(width: 44)
@@ -38,7 +39,7 @@ enum VFilmStripPreviews: PreviewProvider {
             VFilmStrip(editingStatePublisher: PreviewData.editingStatePublisher)
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(uiColor: .appBackground))
+        .background(Asset.background.swiftUIColor)
 
     }
 }

@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 4/18/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import SwiftUI
 
 @available(iOS 15, *)
@@ -22,7 +23,7 @@ struct PurchaseMarketingButton: View {
         }.sheet(isPresented: $selected) {
             PurchaseMarketingView(purchaseState: $purchaseState)
         }
-        .listRowBackground(Color.purchaseMarketingTopBarBackground)
+        .listRowBackground(Asset.purchaseMarketingTopBarBackground.swiftUIColor)
         .padding(.vertical, 8)
     }
 }

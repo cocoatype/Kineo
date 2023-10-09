@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 11/10/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class GalleryNewCollectionViewCell: UICollectionViewCell, UIPointerInteractionDelegate {
@@ -29,7 +30,7 @@ class GalleryNewCollectionViewCell: UICollectionViewCell, UIPointerInteractionDe
         borderPath.setLineDash([4.0, 12.0], count: 2, phase: 0)
         borderPath.lineWidth = 4.0
         borderPath.lineCapStyle = .round
-        UIColor.newCellTint.setStroke()
+        Asset.newDocumentCellTint.color.setStroke()
         borderPath.stroke()
     }
 

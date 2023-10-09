@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 4/18/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import SwiftUI
 
 @available(iOS 15, *)
@@ -13,16 +14,16 @@ struct PurchaseMarketingTopBarButtonStyle: ButtonStyle {
             .background(content: {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(fillStyle(isPressed: configuration.isPressed))
-                    .shadow(color: .purchaseMarketingButtonShadowLight, radius: 10, x: 0, y: -5)
-                    .shadow(color: .purchaseMarketingButtonShadowDark, radius: 10, x: 0, y: 5)
+                    .shadow(color: Asset.purchaseMarketingButtonShadowLight.swiftUIColor, radius: 10, x: 0, y: -5)
+                    .shadow(color: Asset.purchaseMarketingButtonShadowDark.swiftUIColor, radius: 10, x: 0, y: 5)
             })
     }
 
     private func fillStyle(isPressed: Bool) -> some ShapeStyle {
         if isPressed {
-            return LinearGradient(colors: [.purchaseMarketingButtonPressedGradientDark, .purchaseMarketingButtonPressedGradientLight], startPoint: .top, endPoint: .bottom)
+            return LinearGradient(colors: [Asset.purchaseMarketingButtonPressedGradientDark.swiftUIColor, Asset.purchaseMarketingButtonPressedGradientLight.swiftUIColor], startPoint: .top, endPoint: .bottom)
         } else {
-            return LinearGradient(colors: [.purchaseMarketingTopBarBackground, .purchaseMarketingTopBarBackground], startPoint: .top, endPoint: .bottom)
+            return LinearGradient(colors: [Asset.purchaseMarketingTopBarBackground.swiftUIColor, Asset.purchaseMarketingTopBarBackground.swiftUIColor], startPoint: .top, endPoint: .bottom)
         }
     }
 }

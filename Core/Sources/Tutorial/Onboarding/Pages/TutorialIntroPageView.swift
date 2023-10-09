@@ -1,12 +1,13 @@
 //  Created by Geoff Pado on 3/11/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class TutorialIntroPageView: UIView {
     init() {
         super.init(frame: .zero)
-        backgroundColor = .appBackground
+        backgroundColor = Asset.background.color
 
         addSubview(headerLabel)
         addSubview(bodyLabel)

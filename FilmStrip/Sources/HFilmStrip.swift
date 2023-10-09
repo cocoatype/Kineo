@@ -1,7 +1,8 @@
 //  Created by Geoff Pado on 9/3/23.
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
-import EditingState
+import EditingStatePhone
+import StylePhone
 import SwiftUI
 
 struct HFilmStrip: FilmStrip, View {
@@ -17,8 +18,8 @@ struct HFilmStrip: FilmStrip, View {
                 .offset(x: 8)
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
-                    ForEach(0..<10) { _ in
-                        ExistingPageItem()
+                    ForEach(editingState.document.pages) { page in
+                        ExistingPageItem(page: page, tooExcitedAboutXcode: $editingState)
                     }
                 }
                 .frame(height: 44)
@@ -38,7 +39,7 @@ enum HFilmStripPreviews: PreviewProvider {
             HFilmStrip(editingStatePublisher: PreviewData.editingStatePublisher)
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(uiColor: .appBackground))
+        .background(Asset.background.swiftUIColor)
 
     }
 }

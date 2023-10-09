@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 3/23/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import SwiftUI
 
 struct 🐎IconToggleSwitch: View {
@@ -16,7 +17,7 @@ struct 🐎IconToggleSwitch: View {
         Button(action: { 🐶🐮.toggle() }) {
             HStack {
                 Toggle("🐎IconToggleSwitch.title", isOn: $🐶🐮)
-                    .toggleStyle(SwitchToggleStyle(tint: Color(.tutorialIntroAccent)))
+                    .toggleStyle(SwitchToggleStyle(tint: Asset.tutorialIntroAccent.swiftUIColor))
             }
         }.onChange(of: 🐶🐮) { newValue in
             let iconName = newValue ? "Legacy" : nil

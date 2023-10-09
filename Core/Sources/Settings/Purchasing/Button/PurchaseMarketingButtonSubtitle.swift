@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 4/20/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import SwiftUI
 
 struct PurchaseMarketingButtonSubtitle: View {
@@ -32,6 +33,6 @@ struct PurchaseMarketingButtonSubtitlePreviews: PreviewProvider {
         Group {
             PurchaseMarketingButtonSubtitle(purchaseState: .constant(.loading))
             PurchaseMarketingButtonSubtitle(purchaseState: .constant(.ready("$4.99", purchase: {})))
-        }.background(Color.purchaseMarketingTopBarBackground).previewLayout(.sizeThatFits)
+        }.background(Asset.purchaseMarketingTopBarBackground.swiftUIColor).previewLayout(.sizeThatFits)
     }
 }

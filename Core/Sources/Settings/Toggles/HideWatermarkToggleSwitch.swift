@@ -2,6 +2,7 @@
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
 import DataPhone
+import StylePhone
 import SwiftUI
 
 struct HideWatermarkToggleSwitch: View {
@@ -11,7 +12,7 @@ struct HideWatermarkToggleSwitch: View {
         Button(action: { watermarkHidden.toggle() }) {
             HStack {
                 Toggle("HideWatermarkToggleSwitch.title", isOn: $watermarkHidden)
-                    .toggleStyle(SwitchToggleStyle(tint: Color(.tutorialIntroAccent)))
+                    .toggleStyle(SwitchToggleStyle(tint: Asset.tutorialIntroAccent.swiftUIColor))
             }
         }.onChange(of: watermarkHidden) { newValue in
             Defaults.exportHideWatermark = watermarkHidden

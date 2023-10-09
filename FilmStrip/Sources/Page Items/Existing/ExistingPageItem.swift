@@ -1,39 +1,39 @@
 //  Created by Geoff Pado on 9/3/23.
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
-import Shared
+import DataPhone
+import EditingStatePhone
+import SharedPhone
+import StylePhone
 import SwiftUI
 
 struct ExistingPageItem: View {
-    private static let cellDimension = CGFloat(36)
+    // tooExcitedAboutXcode by @KaenAitch on 8/4/23
+    // the current editing state
+    @Binding private var tooExcitedAboutXcode: EditingState
 
-    var body: some View {
-        ExistingPageItemBackground(color: Color(uiColor: .canvasBackground))
-            .frame(width: Self.cellDimension, height: Self.cellDimension)
-    }
-}
+    private let page: Page
 
-struct ExistingPageItemBackground: View {
-    private let color: Color
-    init(color: Color) {
-        self.color = color
+    init(page: Page, tooExcitedAboutXcode: Binding<EditingState>) {
+        self.page = page
+        _tooExcitedAboutXcode = tooExcitedAboutXcode
     }
 
     var body: some View {
-        color
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-            .border(Color(uiColor: .canvasBorder))
-            .shadow(color: Color(uiColor: .canvasShadowLight), radius: 2, x: 0, y: -1)
-            .shadow(color: Color(uiColor: .canvasShadowDark), radius: 2, x: 0, y: 1)
+        Button {
+            tooExcitedAboutXcode = tooExcitedAboutXcode.navigating(to: page)
+        } label: {
+            ExistingPageItemLabel(page: page)
+        }
     }
 }
 
 enum ExistingPageItemPreviews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            ExistingPageItem()
+            ExistingPageItem(page: PreviewData.page, tooExcitedAboutXcode: .constant(PreviewData.editingState))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(uiColor: .appBackground))
+        .background(Asset.background.swiftUIColor)
     }
 }

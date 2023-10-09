@@ -2,6 +2,7 @@
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
 import DataPhone
+import StylePhone
 import UIKit
 
 class ExportEditingPreviewView: UIView {
@@ -45,7 +46,7 @@ class ExportEditingPreviewView: UIView {
     }
 
     func updateCanvas() {
-        backgroundColor = Defaults.exportShape.isPlain ? .clear : .appBackground
+        backgroundColor = Defaults.exportShape.isPlain ? .clear : Asset.background.color
         playbackView.canvasCornerRadius = Defaults.exportShape.isPlain ? 0 : Constants.canvasCornerRadius
         watermarkView.alpha = Defaults.exportShape.isPlain ? 0 : 1
     }

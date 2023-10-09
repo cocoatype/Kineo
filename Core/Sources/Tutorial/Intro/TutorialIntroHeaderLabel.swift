@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 3/11/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class TutorialIntroHeaderLabel: UILabel {
@@ -11,7 +12,7 @@ class TutorialIntroHeaderLabel: UILabel {
         font = .appFont(forTextStyle: .largeTitle)
         minimumScaleFactor = 0.9
         numberOfLines = 0
-        textColor = .tutorialIntroText
+        textColor = Asset.tutorialIntroText.color
         translatesAutoresizingMaskIntoConstraints = false
         setContentCompressionResistancePriority(.required, for: .vertical)
 
@@ -19,7 +20,7 @@ class TutorialIntroHeaderLabel: UILabel {
         var attributedLines = lines.compactMap { String($0).correctlyPronounced.mutableCopy() as? NSMutableAttributedString }
 
         if let lastLine = attributedLines.popLast() {
-            lastLine.addAttribute(.foregroundColor, value: UIColor.tutorialIntroAccent, range: NSRange(location: 0, length: lastLine.length))
+            lastLine.addAttribute(.foregroundColor, value: Asset.tutorialIntroAccent.color, range: NSRange(location: 0, length: lastLine.length))
             attributedLines.append(lastLine)
         }
 

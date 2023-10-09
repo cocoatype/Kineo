@@ -2,6 +2,7 @@
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
 import DataPhone
+import StylePhone
 import UIKit
 
 class ExportSettingsNavigationController: UINavigationController {
@@ -51,12 +52,12 @@ class ExportSettingsNavigationBarAppearance: UINavigationBarAppearance {
 
     private func setup() {
         configureWithOpaqueBackground()
-        backgroundColor = .appBackground
+        backgroundColor = Asset.background.color
         shadowColor = .clear
         titleTextAttributes[.font] = UIFont.navigationBarTitleFont
-        buttonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.controlTint
+        buttonAppearance.normal.titleTextAttributes[.foregroundColor] = Asset.webControlTint.color
         buttonAppearance.normal.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
-        doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = UIColor.controlTint
+        doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = Asset.webControlTint.color
         doneButtonAppearance.normal.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
         doneButtonAppearance.highlighted.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
     }
