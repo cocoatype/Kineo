@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 11/8/21.
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class ColorPickerViewController: UIColorPickerViewController, UIColorPickerViewControllerDelegate {
@@ -15,7 +16,7 @@ class ColorPickerViewController: UIColorPickerViewController, UIColorPickerViewC
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.tintColor = .exportAccent
+        view.tintColor = Asset.exportAccent.color
     }
 
     @available(*, unavailable)

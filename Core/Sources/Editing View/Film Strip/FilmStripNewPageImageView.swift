@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 12/24/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class FilmStripNewPageImageView: UIImageView {
@@ -9,7 +10,7 @@ class FilmStripNewPageImageView: UIImageView {
         backgroundColor = .clear
         contentMode = .center
         image = Icons.newPage
-        tintColor = .sidebarButtonTint
+        tintColor = Asset.sidebarButtonTint.color
         translatesAutoresizingMaskIntoConstraints = false
     }
 

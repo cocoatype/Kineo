@@ -1,15 +1,16 @@
 //  Created by Geoff Pado on 3/11/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class TutorialIntroContinueButton: UIButton {
     init(style: Style) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .tutorialIntroAccent
+        backgroundColor = Asset.tutorialIntroAccent.color
         titleLabel?.font = .appFont(forTextStyle: .headline)
-        setTitleColor(.tutorialIntroStartButtonTitle, for: .normal)
+        setTitleColor(Asset.tutorialIntroStartButtonTitle.color, for: .normal)
         setTitle(style.title, for: .normal)
         layer.cornerRadius = 8
 

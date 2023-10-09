@@ -2,6 +2,7 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 import SafariServices
+import StylePhone
 
 class WebViewController: SFSafariViewController {
     init(url: URL) {
@@ -13,7 +14,7 @@ class WebViewController: SFSafariViewController {
     }
 
     private func updateControlTintColor() {
-        preferredControlTintColor = .controlTint
+        preferredControlTintColor = Asset.webControlTint.color
     }
 
     private var isDarkMode: Bool { return traitCollection.userInterfaceStyle == .dark }

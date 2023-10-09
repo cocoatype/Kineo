@@ -159,7 +159,8 @@ let targets = ([
             public: ["Sources/Data.h"]
         ),
         dependencies: [
-            .multiPlatformTarget(namePrefix: "Shared")
+            .multiPlatformTarget(namePrefix: "Shared"),
+            .multiPlatformTarget(namePrefix: "Style"),
         ],
         settings: .settings(
             base: [
@@ -216,6 +217,19 @@ let targets = ([
         product: .framework,
         bundleId: "com.flipbookapp.flickbook.Shared",
         sources: ["Shared/Sources/**"],
+        settings: .settings(
+            base: [
+                "APPLICATION_EXTENSION_API_ONLY": "YES"
+            ]
+        )
+    ),
+
+    MultiPlatformTarget(
+        name: "Style",
+        platforms: [.iOS, .visionOS],
+        product: .framework,
+        bundleId: "com.flipbookapp.flickbook.Style",
+        resources: ["Style/Resources/**"],
         settings: .settings(
             base: [
                 "APPLICATION_EXTENSION_API_ONLY": "YES"

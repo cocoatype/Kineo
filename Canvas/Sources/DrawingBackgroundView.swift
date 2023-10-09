@@ -3,8 +3,10 @@
 
 #if os(iOS) && !os(visionOS)
 import DataPhone
+import StylePhone
 #elseif os(visionOS)
 import DataVision
+import StyleVision
 #endif
 
 import UIKit
@@ -31,8 +33,8 @@ public class DrawingBackgroundView: UIView {
         super.traitCollectionDidChange(previousTraitCollection)
 
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
-        darkShadowLayer.shadowColor = UIColor.canvasShadowDark.cgColor
-        lightShadowLayer.shadowColor = UIColor.canvasShadowLight.cgColor
+        darkShadowLayer.shadowColor = Asset.canvasShadowDark.color.cgColor
+        lightShadowLayer.shadowColor = Asset.canvasShadowLight.color.cgColor
     }
 
     // MARK: Shadow Layers
@@ -40,7 +42,7 @@ public class DrawingBackgroundView: UIView {
     private let darkShadowLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.fillColor = UIColor.clear.cgColor
-        layer.shadowColor = UIColor.canvasShadowDark.cgColor
+        layer.shadowColor = Asset.canvasShadowDark.color.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 12)
         layer.shadowOpacity = 1
         layer.shadowRadius = 32
@@ -50,7 +52,7 @@ public class DrawingBackgroundView: UIView {
     private let lightShadowLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.fillColor = UIColor.clear.cgColor
-        layer.shadowColor = UIColor.canvasShadowLight.cgColor
+        layer.shadowColor = Asset.canvasShadowLight.color.cgColor
         layer.shadowOffset = CGSize(width: 0, height: -12)
         layer.shadowOpacity = 1
         layer.shadowRadius = 32

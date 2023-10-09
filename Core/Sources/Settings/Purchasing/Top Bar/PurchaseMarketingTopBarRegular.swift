@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 4/15/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import SwiftUI
 
 @available(iOS 15, *)
@@ -23,7 +24,7 @@ struct PurchaseMarketingTopBar: View {
         }
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.purchaseMarketingTopBarBackground)
+        .background(Asset.purchaseMarketingTopBarBackground.swiftUIColor)
     }
 }
 

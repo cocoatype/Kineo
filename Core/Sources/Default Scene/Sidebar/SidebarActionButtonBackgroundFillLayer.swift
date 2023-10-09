@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 4/19/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class SidebarActionButtonBackgroundFillLayer: CAGradientLayer {
@@ -31,12 +32,12 @@ class SidebarActionButtonBackgroundFillLayer: CAGradientLayer {
     func updateColors() {
         if isHighlighted || isSelected {
             colors = [
-                UIColor.sidebarButtonPressedGradientDark.resolvedColor(with: traitCollection).cgColor,
-                UIColor.sidebarButtonPressedGradientLight.resolvedColor(with: traitCollection).cgColor,
+                Asset.sidebarButtonPressedGradientDark.color(compatibleWith: traitCollection).cgColor,
+                Asset.sidebarButtonPressedGradientLight.color(compatibleWith: traitCollection).cgColor,
             ]
         } else {
             colors = [
-                UIColor.sidebarButtonBackground.resolvedColor(with: traitCollection).cgColor
+                Asset.sidebarButtonBackground.color(compatibleWith: traitCollection).cgColor
             ]
         }
     }

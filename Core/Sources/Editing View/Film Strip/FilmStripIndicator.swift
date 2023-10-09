@@ -1,12 +1,13 @@
 //  Created by Geoff Pado on 12/24/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class FilmStripIndicator: UIView {
     init() {
         super.init(frame: .zero)
-        backgroundColor = .filmStripIndicator
+        backgroundColor = Asset.filmStripIndicator.color
         layer.cornerRadius = 1
         translatesAutoresizingMaskIntoConstraints = false
     }

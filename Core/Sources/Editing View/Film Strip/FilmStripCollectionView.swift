@@ -1,13 +1,14 @@
 //  Created by Geoff Pado on 12/24/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class FilmStripCollectionView: UICollectionView {
     init() {
         super.init(frame: .zero, collectionViewLayout: FilmStripCollectionViewLayout())
 
-        backgroundColor = .filmStripBackground
+        backgroundColor = Asset.filmStripBackground.color
         layer.cornerRadius = 10
         showsHorizontalScrollIndicator = false
         showsVerticalScrollIndicator = false

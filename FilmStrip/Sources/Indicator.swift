@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 9/3/23.
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import SwiftUI
 
 struct Indicator: View {
@@ -31,7 +32,7 @@ struct Indicator: View {
     }
 
     var body: some View {
-        Color(uiColor: .filmStripIndicator)
+        Asset.filmStripIndicator.swiftUIColor
             .clipShape(Capsule())
             .frame(width: axis.width, height: axis.height)
     }

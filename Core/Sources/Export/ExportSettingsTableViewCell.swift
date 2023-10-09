@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 2/8/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class ExportSettingsTableViewCell: UITableViewCell {
@@ -9,7 +10,7 @@ class ExportSettingsTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         textLabel?.font = .appFont(forTextStyle: .body)
-        tintColor = .settingsRowTint
+        tintColor = Asset.settingsRowTint.color
     }
 
     @available(*, unavailable)

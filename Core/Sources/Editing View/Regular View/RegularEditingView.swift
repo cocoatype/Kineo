@@ -5,6 +5,7 @@ import CanvasPhone
 import DataPhone
 import EditingStatePhone
 import PencilKit
+import StylePhone
 import UIKit
 
 class RegularEditingView: EditingDrawView, CanvasDisplayingView, UIScrollViewDelegate {
@@ -22,7 +23,7 @@ class RegularEditingView: EditingDrawView, CanvasDisplayingView, UIScrollViewDel
         super.init(frame: .zero)
 
         autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        backgroundColor = .appBackground
+        backgroundColor = Asset.background.color
 
         zoomView.delegate = self
         zoomView.addSubview(zoomContentView)

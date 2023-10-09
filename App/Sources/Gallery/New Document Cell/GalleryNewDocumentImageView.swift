@@ -2,6 +2,7 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 import Core
+import StylePhone
 import UIKit
 
 class GalleryNewDocumentImageView: UIImageView {
@@ -9,7 +10,7 @@ class GalleryNewDocumentImageView: UIImageView {
         super.init(frame: .zero)
         backgroundColor = .clear
         image = Icons.newDocument
-        tintColor = .newCellTint
+        tintColor = Asset.newDocumentCellTint.color
         translatesAutoresizingMaskIntoConstraints = false
     }
 

@@ -5,6 +5,7 @@ import CanvasPhone
 import DataPhone
 import EditingStatePhone
 import PencilKit
+import StylePhone
 import UIKit
 
 class CompactEditingView: EditingDrawView, CanvasDisplayingView {
@@ -23,7 +24,7 @@ class CompactEditingView: EditingDrawView, CanvasDisplayingView {
         super.init(frame: .zero)
 
         autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        backgroundColor = .appBackground
+        backgroundColor = Asset.background.color
 
         addLayoutGuide(drawingViewGuide)
 
