@@ -13,7 +13,7 @@ struct ExportedAnimation: Transferable {
 
     static var transferRepresentation: some TransferRepresentation {
         return FileRepresentation(exportedContentType: .mpeg4Movie) { (animation: ExportedAnimation) in
-            let url = try await VideoExporter.exportVideo(from: animation.document)
+            let url = try await VideoExporter3D.exportVideo(from: animation.document)
             return SentTransferredFile(url)
         }
     }
