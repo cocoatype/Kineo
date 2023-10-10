@@ -3,6 +3,7 @@
 
 import CoreMedia
 
+@available(iOS 17.0, *)
 enum Eye {
     case left
     case right
