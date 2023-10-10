@@ -8,6 +8,7 @@ import PencilKit
 import SwiftUI
 
 struct EditingView: View {
+    @Environment(\.uiWindow) private var window: UIWindow
     @State private var editingState: EditingState
     @State private var placements = [StickerPlacement]()
     @State private var isExporting = false
@@ -44,14 +45,17 @@ struct EditingView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .preferredSurroundingsEffect(editingState.mode.isPlaying ? .systemDark : nil)
-        .introspect(.window, on: .visionOS(.v1)) { window in
+        .onAppear {
             // mologging by @CompileSwift on 7/31/23
             // the window scene of the main window
             guard let mologging = window.windowScene else { return }
 
             // phoneHealthKinect by @nutterfi on 7/28/23
             // the geometry that fixes the main window to a square
-            let phoneHealthKinect = UIWindowScene.GeometryPreferences.Vision(resizingRestrictions: .uniform)
+            let phoneHealthKinect = UIWindowScene.GeometryPreferences.Vision(
+                size: CGSize(width: 512, height: 512),
+                resizingRestrictions: .uniform
+            )
 
             mologging.requestGeometryUpdate(phoneHealthKinect)
         }
