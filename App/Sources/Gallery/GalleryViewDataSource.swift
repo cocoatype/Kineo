@@ -36,6 +36,11 @@ class GalleryViewDataSource: NSObject, UICollectionViewDataSource {
         try documentStore.deleteDocument(at: documentIndex)
     }
 
+    func url(forDocumentAt indexPath: IndexPath) -> URL {
+        let documentIndex = indexPath.item - 1
+        return documentStore.url(forDocumentAt: documentIndex)
+    }
+
     func contextMenuConfiguration(forItemAt indexPath: IndexPath, delegate: GalleryViewController) -> UIContextMenuConfiguration? {
         guard indexPath != Self.newDocumentIndexPath else { return nil }
         return GalleryDocumentCollectionViewCellContextMenuConfigurationFactory.configuration(for: indexPath, delegate: delegate)

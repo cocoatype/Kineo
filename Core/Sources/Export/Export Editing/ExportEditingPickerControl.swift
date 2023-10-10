@@ -17,7 +17,7 @@ class ExportEditingPickerControl: UIControl {
         self.selectedIndex = selectedIndex
         super.init(frame: .zero)
 
-        backgroundColor = .darkSystemBackgroundSecondary
+        backgroundColor = UIColor.secondarySystemBackground.resolvedColor(with: UITraitCollection(userInterfaceStyle: .dark))
         translatesAutoresizingMaskIntoConstraints = false
 
         layer.cornerRadius = intrinsicContentSize.height / 2

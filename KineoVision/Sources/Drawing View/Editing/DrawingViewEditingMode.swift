@@ -20,6 +20,7 @@ struct DrawingViewEditingMode: View {
 
             ForEach(editingState.currentPage.layers) { layer in
                 DrawingCanvas(editingState: $editingState, layerID: layer.id)
+                    .frame(depth: 10)
             }
 
 //            ForEach(placements) { placement in

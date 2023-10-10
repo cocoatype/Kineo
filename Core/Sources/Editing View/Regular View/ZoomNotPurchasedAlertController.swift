@@ -2,6 +2,7 @@
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
 import DataPhone
+import StylePhone
 import UIKit
 
 class ZoomNotPurchasedAlertController: UIAlertController {
@@ -10,7 +11,7 @@ class ZoomNotPurchasedAlertController: UIAlertController {
         let message = NSLocalizedString("ZoomNotPurchasedAlertController.message", comment: "Message for the document scanner not purchased alert")
         self.init(title: title, message: message, preferredStyle: .alert)
 
-        view.tintColor = .appAccent
+        view.tintColor = Asset.appAccent.color
 
         addAction(
             UIAlertAction(

@@ -80,6 +80,7 @@
 "GalleryDocumentCollectionViewCell.accessibilityLabel" = "Animation";
 "GalleryDocumentCollectionViewCell.accessibilityValueFormat" = "Last modified on %@";
 
+"GalleryDocumentCollectionViewCellMenuConfigurationProvider.backupMenuItemTitle" = "Back Up";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.deleteMenuItemTitle" = "Delete";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.exportMenuItemTitle" = "Share";
 "GalleryDocumentCollectionViewCellMenuConfigurationProvider.windowMenuItemTitle" = "Open in New Window";

@@ -1,15 +1,16 @@
 //  Created by Geoff Pado on 3/11/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class TutorialIntroDismissButton: UIButton {
     init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .sidebarButtonBackground
+        backgroundColor = Asset.sidebarButtonBackground.color
         titleLabel?.font = .appFont(forTextStyle: .body)
-        setTitleColor(.tutorialIntroDismissButtonTitle, for: .normal)
+        setTitleColor(Asset.tutorialIntroDismissButtonTitle.color, for: .normal)
         setTitle(Self.title, for: .normal)
         layer.cornerRadius = 8
 

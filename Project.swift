@@ -34,6 +34,7 @@ let targets = ([
       bundleId: "com.flipbookapp.flickbook.Clip",
       infoPlist: "Clip/Info.plist",
       sources: ["Clip/Sources/**"],
+      resources: ["App/Resources/**"],
       entitlements: "Clip/Clip.entitlements",
       dependencies: [
         .target(name: "Core"),
@@ -68,6 +69,16 @@ let targets = ([
       ]
     ),
     Target(
+      name: "FilmStripPhone",
+      platform: .iOS,
+      product: .framework,
+      bundleId: "com.flipbookapp.flickbook.FilmStrip",
+      sources: ["FilmStrip/Sources/**"],
+      dependencies: [
+        .target(name: "EditingStatePhone")
+      ]
+    ),
+    Target(
       name: "Stickers",
       platform: .iOS,
       product: .appExtension,
@@ -80,6 +91,10 @@ let targets = ([
         .target(name: "DataPhone")
       ],
       settings: .settings(
+        base: [
+          "ASSETCATALOG_COMPILER_APPICON_NAME": "iMessage App Icon",
+          "ASSETCATALOG_COMPILER_TARGET_STICKERS_ICON_ROLE": "extension",
+        ],
         debug: [
           "CODE_SIGN_IDENTITY": "Apple Development: Buddy Build (D47V8Y25W5)",
           "PROVISIONING_PROFILE_SPECIFIER": "match Development com.flipbookapp.flickbook.Stickers"
@@ -144,7 +159,8 @@ let targets = ([
             public: ["Sources/Data.h"]
         ),
         dependencies: [
-            .multiPlatformTarget(namePrefix: "Shared")
+            .multiPlatformTarget(namePrefix: "Shared"),
+            .multiPlatformTarget(namePrefix: "Style"),
         ],
         settings: .settings(
             base: [
@@ -207,6 +223,19 @@ let targets = ([
             ]
         )
     ),
+
+    MultiPlatformTarget(
+        name: "Style",
+        platforms: [.iOS, .visionOS],
+        product: .framework,
+        bundleId: "com.flipbookapp.flickbook.Style",
+        resources: ["Style/Resources/**"],
+        settings: .settings(
+            base: [
+                "APPLICATION_EXTENSION_API_ONLY": "YES"
+            ]
+        )
+    ),
 ] as [TargetProducer]).flatMap(\.targets)
 
 let project = Project(
@@ -216,7 +245,7 @@ let project = Project(
     base: [
       "CURRENT_PROJECT_VERSION": "0",
       "DEVELOPMENT_TEAM": "287EDDET2B",
-      "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+      "IPHONEOS_DEPLOYMENT_TARGET": "16.0",
       "MARKETING_VERSION": "23.0",
     ],
     debug: [

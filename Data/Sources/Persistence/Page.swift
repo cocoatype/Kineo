@@ -50,8 +50,8 @@ public struct Page: Codable, Equatable, Identifiable {
         do {
             self.layers = try container.decode([Layer].self, forKey: .layers)
         } catch {
-            let drawing = try container.decode(PKDrawing.self, forKey: .drawing)
-            self.layers = [Layer(drawing: drawing)]
+            let drawingData = try container.decode(Data.self, forKey: .drawing)
+            self.layers = [Layer(drawingData: drawingData)]
         }
         self.uuid = try container.decode(UUID.self, forKey: .uuid)
     }

@@ -27,6 +27,10 @@ public struct CascadingPublisher<ValueType>: Publisher {
     public typealias Output = ValueType
     public typealias Failure = Never
 
+    public init(initialValue: ValueType) {
+        self.init(CurrentValueSubject(initialValue))
+    }
+
     init(_ currentValueSubject: CurrentValueSubject<ValueType, Never>) {
         self.currentValueSubject = currentValueSubject
     }

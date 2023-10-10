@@ -33,10 +33,14 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     private func presentAnimation(at indexPath: IndexPath) {
         // TODO (#18): Show some kind of error if reading the document throws
-        guard let document = try? dataSource.document(at: indexPath) else { return }
-        let selectionEvent = GallerySelectionEvent(document: document)
+        do {
+            let document = try dataSource.document(at: indexPath)
+            let selectionEvent = GallerySelectionEvent(document: document)
 
-        galleryView?.sendAction(#selector(SceneViewController.showEditingView(_:for:)), to: nil, for: selectionEvent)
+            galleryView?.sendAction(#selector(SceneViewController.showEditingView(_:for:)), to: nil, for: selectionEvent)
+        } catch {
+            print(String(describing: error))
+        }
     }
 
     // MARK: Key Commands
@@ -57,6 +61,13 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     private static let newDocumentKeyCommandTitle = NSLocalizedString("GalleryViewController.newDocumentKeyCommandTitle", comment: "Key command title for creating a new animation")
 
     // MARK: Context Menu Actions
+
+    func backupAnimation(at indexPath: IndexPath) {
+        let documentURL = dataSource.url(forDocumentAt: indexPath)
+        let shareController = UIActivityViewController(activityItems: [documentURL], applicationActivities: nil)
+        shareController.popoverPresentationController?.sourceView = galleryView?.cellForItem(at: indexPath)
+        present(shareController, animated: true)
+    }
 
     func deleteAnimation(at indexPath: IndexPath) {
         do {

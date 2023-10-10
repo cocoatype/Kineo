@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 6/15/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class FilmStripForegroundView: UIView {
@@ -25,20 +26,20 @@ class FilmStripForegroundView: UIView {
         super.traitCollectionDidChange(previousTraitCollection)
 
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
-        darkShadowLayer.shadowColor = UIColor.filmStripShadowDark.cgColor
-        lightShadowLayer.shadowColor = UIColor.filmStripShadowLight.cgColor
+        darkShadowLayer.shadowColor = Asset.filmStripShadowDark.color.cgColor
+        lightShadowLayer.shadowColor = Asset.filmStripShadowLight.color.cgColor
     }
 
     private let darkShadowLayer: InnerShadowLayer = {
         let layer = InnerShadowLayer()
-        layer.shadowColor = UIColor.filmStripShadowDark.cgColor
+        layer.shadowColor = Asset.filmStripShadowDark.color.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 3)
         return layer
     }()
 
     private let lightShadowLayer: InnerShadowLayer = {
         let layer = InnerShadowLayer()
-        layer.shadowColor = UIColor.filmStripShadowLight.cgColor
+        layer.shadowColor = Asset.filmStripShadowLight.color.cgColor
         layer.shadowOffset = CGSize(width: 0, height: -3)
         return layer
     }()
@@ -59,7 +60,7 @@ class InnerShadowLayer: CAShapeLayer {
         masksToBounds = true
         shadowOpacity = 1
         shadowRadius = 4
-        strokeColor = UIColor.filmStripBorder.cgColor
+        strokeColor = Asset.filmStripBorder.color.cgColor
     }
 
     var containerBounds = CGRect.zero {

@@ -1,12 +1,13 @@
 //  Created by Geoff Pado on 8/12/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 enum GalleryNotImplementedAlertFactory {
     static func newAlert() -> UIAlertController {
         let alert = UIAlertController(title: Self.title, message: Self.message, preferredStyle: .alert)
-        alert.view.tintColor = .appAccent
+        alert.view.tintColor = Asset.appAccent.color
         alert.addAction(UIAlertAction(title: Self.dismissButtonTitle, style: .cancel))
         return alert
     }

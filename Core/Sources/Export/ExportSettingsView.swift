@@ -1,13 +1,14 @@
 //  Created by Geoff Pado on 2/8/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class ExportSettingsView: UITableView {
     init() {
         super.init(frame: .zero, style: .insetGrouped)
         register(ExportSettingsTableViewCell.self, forCellReuseIdentifier: ExportSettingsTableViewCell.identifier)
-        backgroundColor = .appBackground
+        backgroundColor = Asset.background.color
     }
 
     // MARK: Boilerplate

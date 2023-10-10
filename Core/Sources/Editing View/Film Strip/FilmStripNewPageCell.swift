@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 12/24/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class FilmStripNewPageCell: UICollectionViewCell, UIPointerInteractionDelegate {
@@ -28,7 +29,7 @@ class FilmStripNewPageCell: UICollectionViewCell, UIPointerInteractionDelegate {
         borderPath.setLineDash([4.0, 4.0], count: 2, phase: 0)
         borderPath.lineWidth = 1.0
         borderPath.lineCapStyle = .round
-        UIColor.sidebarButtonTint.setStroke()
+        Asset.sidebarButtonTint.color.setStroke()
         borderPath.stroke()
     }
 

@@ -17,10 +17,7 @@ struct DrawingView: View {
             case .editing:
                 DrawingViewEditingMode(editingState: $editingState)
             case .playing:
-                Player(editingState: editingState)
-                    .background(
-                        Color(uiColor: editingState.canvasBackgroundColor)
-                    )
+                DrawingViewPlayingMode(editingState: editingState)
             case .scrolling:
                 EmptyView()
             case .layers:

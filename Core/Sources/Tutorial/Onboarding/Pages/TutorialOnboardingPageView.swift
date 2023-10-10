@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 3/8/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class TutorialOnboardingPageView: UIView {
@@ -10,7 +11,7 @@ class TutorialOnboardingPageView: UIView {
         bodyLabel = TutorialIntroBodyLabel(text: body)
 
         super.init(frame: .zero)
-        backgroundColor = .appBackground
+        backgroundColor = Asset.background.color
 
         addSubview(slideshowView)
         addSubview(headerLabel)

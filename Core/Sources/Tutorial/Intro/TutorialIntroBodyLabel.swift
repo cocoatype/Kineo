@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 3/11/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class TutorialIntroBodyLabel: UILabel {
@@ -9,7 +10,7 @@ class TutorialIntroBodyLabel: UILabel {
         font = .appFont(forTextStyle: .callout)
         numberOfLines = 0
         attributedText = text.correctlyPronounced.symbolized
-        textColor = .tutorialIntroText
+        textColor = Asset.tutorialIntroText.color
         translatesAutoresizingMaskIntoConstraints = false
         setContentCompressionResistancePriority(.required, for: .vertical)
     }

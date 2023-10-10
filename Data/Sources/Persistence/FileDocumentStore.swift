@@ -85,6 +85,10 @@ public struct FileDocumentStore: DocumentStore {
         return url(forDocumentWith: document.uuid)
     }
 
+    public func url(forDocumentAt index: Int) -> URL {
+        storedDocuments[index].url
+    }
+
     static func previewImageURL(for document: Document) -> URL {
         return url(for: document.uuid, pathExtension: "png")
     }

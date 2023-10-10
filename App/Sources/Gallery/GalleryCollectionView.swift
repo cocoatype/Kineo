@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 12/16/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class GalleryCollectionView: UICollectionView {
@@ -14,7 +15,7 @@ class GalleryCollectionView: UICollectionView {
         register(GalleryDocumentCollectionViewCell.self, forCellWithReuseIdentifier: GalleryDocumentCollectionViewCell.identifier)
         register(GalleryNewCollectionViewCell.self, forCellWithReuseIdentifier: GalleryNewCollectionViewCell.identifier)
 
-        backgroundColor = .appBackground
+        backgroundColor = Asset.background.color
     }
 
     // MARK: Boilerplate

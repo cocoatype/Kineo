@@ -1,12 +1,13 @@
 //  Created by Geoff Pado on 11/16/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class ContainerView: UIView {
     init() {
         super.init(frame: .zero)
-        backgroundColor = .appBackground
+        backgroundColor = Asset.background.color
         translatesAutoresizingMaskIntoConstraints = false
     }
 

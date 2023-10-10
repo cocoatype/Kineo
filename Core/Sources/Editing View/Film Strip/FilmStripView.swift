@@ -4,6 +4,7 @@
 import Combine
 import DocumentNavigationPhone
 import EditingStatePhone
+import StylePhone
 import UIKit
 
 class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDelegate, UICollectionViewDropDelegate, UIGestureRecognizerDelegate {
@@ -15,7 +16,7 @@ class FilmStripView: UIControl, UICollectionViewDelegate, UICollectionViewDragDe
         accessibilityLabel = NSLocalizedString("FilmStripView.accessibilityLabel", comment: "Accessibility label for the film strip")
         accessibilityTraits = [.adjustable, .button]
         accessibilityValue = accessibilityValueForCurrentIndex()
-        backgroundColor = .filmStripBackground
+        backgroundColor = Asset.filmStripBackground.color
         clipsToBounds = false
         isAccessibilityElement = true
         layer.cornerRadius = 10

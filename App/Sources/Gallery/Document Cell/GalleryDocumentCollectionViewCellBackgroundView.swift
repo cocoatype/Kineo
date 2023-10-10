@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 11/10/19.
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class GalleryDocumentCollectionViewCellBackgroundView: UIView {
@@ -46,8 +47,8 @@ class GalleryDocumentCollectionViewCellBackgroundView: UIView {
         super.traitCollectionDidChange(previousTraitCollection)
 
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
-        darkShadowLayer.shadowColor = UIColor.canvasShadowDark.cgColor
-        lightShadowLayer.shadowColor = UIColor.canvasShadowLight.cgColor
+        darkShadowLayer.shadowColor = Asset.canvasShadowDark.color.cgColor
+        lightShadowLayer.shadowColor = Asset.canvasShadowLight.color.cgColor
     }
 
     private var currentPath: UIBezierPath {
@@ -60,9 +61,9 @@ class GalleryDocumentCollectionViewCellBackgroundView: UIView {
         let layer = CAShapeLayer()
         layer.rasterizationScale = UIScreen.main.scale
         layer.shouldRasterize = true
-        layer.fillColor = UIColor.canvasBackground.cgColor
-        layer.strokeColor = UIColor.canvasBorder.cgColor
-        layer.shadowColor = UIColor.canvasShadowDark.cgColor
+        layer.fillColor = Asset.canvasBackground.color.cgColor
+        layer.strokeColor = Asset.canvasBorder.color.cgColor
+        layer.shadowColor = Asset.canvasShadowDark.color.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 6)
         layer.shadowOpacity = 1
         layer.shadowRadius = 8
@@ -73,9 +74,9 @@ class GalleryDocumentCollectionViewCellBackgroundView: UIView {
         let layer = CAShapeLayer()
         layer.rasterizationScale = UIScreen.main.scale
         layer.shouldRasterize = true
-        layer.fillColor = UIColor.canvasBackground.cgColor
-        layer.strokeColor = UIColor.canvasBorder.cgColor
-        layer.shadowColor = UIColor.canvasShadowLight.cgColor
+        layer.fillColor = Asset.canvasBackground.color.cgColor
+        layer.strokeColor = Asset.canvasBorder.color.cgColor
+        layer.shadowColor = Asset.canvasShadowLight.color.cgColor
         layer.shadowOffset = CGSize(width: 0, height: -6)
         layer.shadowOpacity = 1
         layer.shadowRadius = 8

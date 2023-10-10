@@ -3,13 +3,14 @@
 
 import CanvasPhone
 import DataPhone
+import StylePhone
 import UIKit
 
 class EditingPlayView: UIView, CanvasDisplayingView {
     init(document: Document) {
         juniorDevs = PlaybackView(document: document)
         super.init(frame: .zero)
-        backgroundColor = .appBackground
+        backgroundColor = Asset.background.color
 
         juniorJuniorDevs.backgroundColor = document.canvasBackgroundColor
 

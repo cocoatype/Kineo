@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 4/15/22.
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import SwiftUI
 
 struct PurchaseMarketingItem: View {
@@ -18,7 +19,7 @@ struct PurchaseMarketingItem: View {
             }.padding(EdgeInsets(top: 16, leading: 20, bottom: 0, trailing: 20))
             Image(imageName).resizable().aspectRatio(290.0/166.0, contentMode: .fit)
         }
-        .background(Color.purchaseMarketingCellBackground)
+        .background(Asset.purchaseMarketingCellBackground.swiftUIColor)
         .cornerRadius(21)
     }
 
@@ -33,7 +34,7 @@ struct PurchaseMarketingItemPreviews: PreviewProvider {
             PurchaseMarketingItem(header: "PurchaseMarketingItem.support.header", text: "PurchaseMarketingItem.support.text", imageName: "Support")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(.appBackground))
+        .background(Asset.background.swiftUIColor)
         .preferredColorScheme(.dark)
         .previewLayout(.fixed(width: 290, height: 242))
     }

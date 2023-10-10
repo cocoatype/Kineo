@@ -1,6 +1,7 @@
 //  Created by Geoff Pado on 6/30/20.
 //  Copyright © 2020 Cocoatype, LLC. All rights reserved.
 
+import StylePhone
 import UIKit
 
 class FilmStripExistingPageBackgroundView: UIView {
@@ -15,7 +16,7 @@ class FilmStripExistingPageBackgroundView: UIView {
 
     var canvasBackgroundColor: UIColor? {
         didSet {
-            let canvasBackgroundColor = canvasBackgroundColor ?? UIColor.canvasBackground
+            let canvasBackgroundColor = canvasBackgroundColor ?? Asset.canvasBackground.color
             darkShadowLayer.fillColor = canvasBackgroundColor.cgColor
             lightShadowLayer.fillColor = canvasBackgroundColor.cgColor
         }
@@ -38,8 +39,8 @@ class FilmStripExistingPageBackgroundView: UIView {
         super.traitCollectionDidChange(previousTraitCollection)
 
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
-        darkShadowLayer.shadowColor = UIColor.canvasShadowDark.cgColor
-        lightShadowLayer.shadowColor = UIColor.canvasShadowLight.cgColor
+        darkShadowLayer.shadowColor = Asset.canvasShadowDark.color.cgColor
+        lightShadowLayer.shadowColor = Asset.canvasShadowLight.color.cgColor
     }
 
     private var currentPath: UIBezierPath {
@@ -52,9 +53,9 @@ class FilmStripExistingPageBackgroundView: UIView {
         let layer = CAShapeLayer()
         layer.rasterizationScale = UIScreen.main.scale
         layer.shouldRasterize = true
-        layer.fillColor = UIColor.canvasBackground.cgColor
-        layer.strokeColor = UIColor.canvasBorder.cgColor
-        layer.shadowColor = UIColor.canvasShadowDark.cgColor
+        layer.fillColor = Asset.canvasBackground.color.cgColor
+        layer.strokeColor = Asset.canvasBorder.color.cgColor
+        layer.shadowColor = Asset.canvasShadowDark.color.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 1)
         layer.shadowOpacity = 1
         layer.shadowRadius = 2
@@ -65,9 +66,9 @@ class FilmStripExistingPageBackgroundView: UIView {
         let layer = CAShapeLayer()
         layer.rasterizationScale = UIScreen.main.scale
         layer.shouldRasterize = true
-        layer.fillColor = UIColor.canvasBackground.cgColor
-        layer.strokeColor = UIColor.canvasBorder.cgColor
-        layer.shadowColor = UIColor.canvasShadowLight.cgColor
+        layer.fillColor = Asset.canvasBackground.color.cgColor
+        layer.strokeColor = Asset.canvasBorder.color.cgColor
+        layer.shadowColor = Asset.canvasShadowLight.color.cgColor
         layer.shadowOffset = CGSize(width: 0, height: -1)
         layer.shadowOpacity = 1
         layer.shadowRadius = 2

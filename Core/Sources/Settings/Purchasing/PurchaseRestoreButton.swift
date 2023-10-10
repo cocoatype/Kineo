@@ -2,6 +2,7 @@
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
 import StoreKit
+import StylePhone
 import SwiftUI
 
 @available(iOS 15, *)
@@ -20,6 +21,6 @@ struct PurchaseRestoreButtonPreviews: PreviewProvider {
     static var previews: some View {
         VStack(spacing: 20) {
             PurchaseRestoreButton()
-        }.fill().background(Color.purchaseMarketingTopBarBackground)
+        }.fill().background(Asset.purchaseMarketingTopBarBackground.swiftUIColor)
     }
 }
