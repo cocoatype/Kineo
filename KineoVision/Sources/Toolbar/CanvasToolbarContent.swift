@@ -15,6 +15,13 @@ struct CanvasToolbarContent: ToolbarContent {
 
     var body: some ToolbarContent {
         if editingState.toolPickerShowing == false {
+            ToolbarItemGroup(placement: .bottomOrnament) {
+                UndoButton()
+                RedoButton()
+            }
+            ToolbarItem(placement: .bottomOrnament) {
+                Divider()
+            }
             ToolbarItem(placement: .bottomOrnament) {
                 PlayButton(editingState: $editingState)
             }
