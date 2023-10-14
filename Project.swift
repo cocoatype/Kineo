@@ -259,7 +259,12 @@ let project = Project(
       shared: true,
       buildAction: .buildAction(targets: ["Kineo"]),
       testAction: .targets(["Tests"]),
-      runAction: .runAction(executable: "Kineo")
+      runAction: .runAction(
+        executable: "Kineo",
+        arguments: Arguments(
+            environmentVariables: FeatureFlags.environment
+        )
+      )
     )
   ]
 )

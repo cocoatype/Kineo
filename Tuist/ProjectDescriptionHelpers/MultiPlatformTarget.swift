@@ -12,12 +12,12 @@ public struct MultiPlatformTarget: TargetProducer {
     private let resources: ResourceFileElements?
     private let copyFiles: [CopyFilesAction]?
     private let headers: Headers?
-    private let entitlements: Path?
+    private let entitlements: Entitlements?
     private let scripts: [TargetScript]
     private let dependencies: [MultiPlatformDependency]
     private let settings: Settings?
     private let coreDataModels: [CoreDataModel]
-    private let environment: [String: String]
+    private let environmentVariables: [String: EnvironmentVariable]
     private let launchArguments: [LaunchArgument]
     private let additionalFiles: [FileElement]
     private let buildRules: [BuildRule]
@@ -34,12 +34,12 @@ public struct MultiPlatformTarget: TargetProducer {
         resources: ResourceFileElements? = nil,
         copyFiles: [CopyFilesAction]? = nil,
         headers: Headers? = nil,
-        entitlements: Path? = nil,
+        entitlements: Entitlements? = nil,
         scripts: [TargetScript] = [],
         dependencies: [MultiPlatformDependency] = [],
         settings: Settings? = nil,
         coreDataModels: [CoreDataModel] = [],
-        environment: [String : String] = [:],
+        environmentVariables: [String : EnvironmentVariable] = [:],
         launchArguments: [LaunchArgument] = [],
         additionalFiles: [FileElement] = [],
         buildRules: [BuildRule] = []
@@ -60,7 +60,7 @@ public struct MultiPlatformTarget: TargetProducer {
         self.dependencies = dependencies
         self.settings = settings
         self.coreDataModels = coreDataModels
-        self.environment = environment
+        self.environmentVariables = environmentVariables
         self.launchArguments = launchArguments
         self.additionalFiles = additionalFiles
         self.buildRules = buildRules
@@ -85,7 +85,7 @@ public struct MultiPlatformTarget: TargetProducer {
                 dependencies: dependencies.map { $0.targetDependency(for: platform) },
                 settings: settings,
                 coreDataModels: coreDataModels,
-                environment: environment,
+                environmentVariables: environmentVariables,
                 launchArguments: launchArguments,
                 additionalFiles: additionalFiles,
                 buildRules: buildRules
