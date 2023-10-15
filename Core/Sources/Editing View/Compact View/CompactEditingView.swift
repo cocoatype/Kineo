@@ -15,10 +15,14 @@ class CompactEditingView: EditingDrawView, CanvasDisplayingView {
     let drawingViewGuide = DrawingViewGuide()
     var canvasView: UIView { drawingView }
 
+    var filmStripView: UIView { filmStripViewController.view }
+    let filmStripViewGuide = FilmStripViewGuide()
+
     var backgroundPopoverSourceView: UIView? { nil }
 
-    required init(statePublisher: EditingStatePublisher, drawingViewController: DrawingViewController) {
+    required init(statePublisher: EditingStatePublisher, drawingViewController: DrawingViewController, filmStripViewController: UIViewController) {
         self.drawingViewController = drawingViewController
+        self.filmStripViewController = filmStripViewController
         self.statePublisher = statePublisher
         self.toolPicker = EditingToolPicker(statePublisher: statePublisher, drawingView: drawingViewController.drawingView)
         super.init(frame: .zero)
@@ -27,8 +31,9 @@ class CompactEditingView: EditingDrawView, CanvasDisplayingView {
         backgroundColor = Asset.background.color
 
         addLayoutGuide(drawingViewGuide)
+        addLayoutGuide(filmStripViewGuide)
 
-        [filmStripView, playButton, buttonBar, playbackView].forEach(self.addSubview(_:))
+        [playButton, buttonBar, playbackView].forEach(self.addSubview(_:))
 
         NSLayoutConstraint.activate([
             buttonBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 11),
@@ -40,10 +45,10 @@ class CompactEditingView: EditingDrawView, CanvasDisplayingView {
             drawingViewGuide.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
             drawingViewGuide.heightAnchor.constraint(equalTo: drawingViewGuide.widthAnchor),
             drawingViewGuide.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
-            filmStripView.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 11),
-            filmStripView.topAnchor.constraint(equalTo: playButton.topAnchor),
-            filmStripView.bottomAnchor.constraint(equalTo: playButton.bottomAnchor),
-            filmStripView.trailingAnchor.constraint(equalTo: buttonBar.trailingAnchor),
+            filmStripViewGuide.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 11),
+            filmStripViewGuide.topAnchor.constraint(equalTo: playButton.topAnchor),
+            filmStripViewGuide.bottomAnchor.constraint(equalTo: playButton.bottomAnchor),
+            filmStripViewGuide.trailingAnchor.constraint(equalTo: buttonBar.trailingAnchor),
             playbackView.heightAnchor.constraint(equalTo: drawingViewGuide.heightAnchor),
             playbackView.widthAnchor.constraint(equalTo: drawingViewGuide.widthAnchor),
             playbackView.centerXAnchor.constraint(equalTo: drawingViewGuide.centerXAnchor),
@@ -52,10 +57,10 @@ class CompactEditingView: EditingDrawView, CanvasDisplayingView {
     }
 
     private let drawingViewController: DrawingViewController
+    private let filmStripViewController: UIViewController
     private let statePublisher: EditingStatePublisher
     private let toolPicker: EditingToolPicker
 
-    private lazy var filmStripView = FilmStripView(statePublisher: statePublisher)
     private let playButton = PlayButton()
     private lazy var buttonBar = CompactEditingViewButtonBar(statePublisher: statePublisher)
     private lazy var playbackView = PlaybackView(statePublisher: statePublisher)

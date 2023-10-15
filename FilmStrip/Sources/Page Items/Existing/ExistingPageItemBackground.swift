@@ -6,6 +6,8 @@ import StylePhone
 import SwiftUI
 
 struct ExistingPageItemBackground: View {
+    private static let shape = RoundedRectangle(cornerRadius: 8)
+
     private let color: Color
     init(color: Color) {
         self.color = color
@@ -13,9 +15,18 @@ struct ExistingPageItemBackground: View {
 
     var body: some View {
         color
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-            .border(Asset.canvasBorder.swiftUIColor)
+            .clipShape(Self.shape)
+            .overlay {
+                Self.shape.stroke(Asset.canvasBorder.swiftUIColor, lineWidth: 1)
+            }
             .shadow(color: Asset.canvasShadowLight.swiftUIColor, radius: 2, x: 0, y: -1)
             .shadow(color: Asset.canvasShadowDark.swiftUIColor, radius: 2, x: 0, y: 1)
+    }
+}
+
+enum ExistingPageItemBackgroundPreviews: PreviewProvider {
+    static var previews: some View {
+        ExistingPageItemBackground(color: Asset.canvasBackground.swiftUIColor)
+            .frame(width: 44, height: 44)
     }
 }

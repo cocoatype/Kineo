@@ -4,7 +4,6 @@
 import Foundation
 
 enum FeatureFlag {
-    static var displayMode: Bool {
-        ProcessInfo.processInfo.environment["FF_DISPLAY_MODE"] != nil
-    }
+    static var displayMode = ProcessInfo.processInfo.environment["FF_DISPLAY_MODE"] != nil
+    static let newFilmStrip = ProcessInfo.processInfo.environment["FF_NEW_FILM_STRIP"] != nil
 }

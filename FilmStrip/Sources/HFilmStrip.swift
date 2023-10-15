@@ -5,7 +5,7 @@ import EditingStatePhone
 import StylePhone
 import SwiftUI
 
-struct HFilmStrip: FilmStrip, View {
+struct HFilmStrip: View {
     private let editingStatePublisher: EditingStatePublisher
     init(editingStatePublisher: EditingStatePublisher) {
         self.editingStatePublisher = editingStatePublisher
@@ -26,6 +26,8 @@ struct HFilmStrip: FilmStrip, View {
                 .offset(x: 4)
             }.overlay {
                 Overlay()
+            }.mask {
+                Overlay.shape
             }
         }
         .onReceive(editingStatePublisher) { editingState = $0 }

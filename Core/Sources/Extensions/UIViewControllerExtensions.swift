@@ -5,16 +5,20 @@ import UIKit
 
 extension UIViewController {
     public func embed(_ newChild: UIViewController, embedView: UIView? = nil, layoutGuide: UILayoutGuide? = nil) {
-        transition(to: newChild, animated: false, embedView: embedView, layoutGuide: layoutGuide, completion: nil)
+        addChild(newChild, removingExistingChildren: false, animated: false, embedView: embedView, layoutGuide: layoutGuide, completion: nil)
     }
 
-    public func transition(to: UIViewController, animated: Bool = true, embedView: UIView? = nil, layoutGuide: UILayoutGuide? = nil, completion: ((Bool) -> Void)? = nil) {
+    public func transition(to: UIViewController, embedView: UIView? = nil, layoutGuide: UILayoutGuide? = nil, completion: ((Bool) -> Void)? = nil) {
+        addChild(to, removingExistingChildren: true, animated: true, embedView: embedView, layoutGuide: layoutGuide, completion: completion)
+    }
+
+    private func addChild(_ to: UIViewController, removingExistingChildren: Bool, animated: Bool, embedView: UIView?, layoutGuide: UILayoutGuide?, completion: ((Bool) -> Void)?) {
         guard
           let parentView = embedView ?? self.view,
           let toView = to.view
         else { return }
 
-        let from = children.last
+        let from = removingExistingChildren ? children.last : nil
         from?.willMove(toParent: nil)
 
         addChild(to)

@@ -7,13 +7,13 @@ import EditingStatePhone
 import UIKit
 
 enum EditingViewFactory {
-    static func editingView(for traitCollection: UITraitCollection, drawingViewController: DrawingViewController, statePublisher: EditingStatePublisher) -> EditingDrawView {
+    static func editingView(for traitCollection: UITraitCollection, drawingViewController: DrawingViewController, filmStripViewController: UIViewController, statePublisher: EditingStatePublisher) -> EditingDrawView {
         let sizeClass = traitCollection.horizontalSizeClass
 
         if case .compact = sizeClass {
-            return CompactEditingView(statePublisher: statePublisher, drawingViewController: drawingViewController)
+            return CompactEditingView(statePublisher: statePublisher, drawingViewController: drawingViewController, filmStripViewController: filmStripViewController)
         }
 
-        return RegularEditingView(statePublisher: statePublisher, drawingViewController: drawingViewController)
+        return RegularEditingView(statePublisher: statePublisher, drawingViewController: drawingViewController, filmStripViewController: filmStripViewController)
     }
 }
