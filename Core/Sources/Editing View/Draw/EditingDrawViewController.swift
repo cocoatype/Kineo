@@ -15,10 +15,9 @@ public class EditingDrawViewController: UIViewController, DrawingViewActions, Dr
     public init(document: Document) {
         self.state = EditingState(document: document)
         super.init(nibName: nil, bundle: nil)
-        embed(drawingViewController, embedView: editingView.drawingSuperview, layoutGuide: editingView.drawingViewGuide)
-        view.sendSubviewToBack(drawingViewController.drawingView)
+        updateChildViewControllers()
         applicationStateManager.notificationHandler = { [weak self] in
-            guard let self = self else { return }
+            guard let self else { return }
             self.state = EditingState.Lenses.document.set($0.document, self.state)
         }
     }
@@ -27,12 +26,11 @@ public class EditingDrawViewController: UIViewController, DrawingViewActions, Dr
 
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        editingView = EditingViewFactory.editingView(for: traitCollection, drawingViewController: drawingViewController, statePublisher: $state)
-        embed(drawingViewController, embedView: editingView.drawingSuperview, layoutGuide: editingView.drawingViewGuide)
-        view.sendSubviewToBack(drawingViewController.drawingView)
+        editingView = EditingViewFactory.editingView(for: traitCollection, drawingViewController: drawingViewController, filmStripViewController: filmStripViewController, statePublisher: $state)
+        updateChildViewControllers()
         drawingViewController.drawingView.becomeFirstResponder()
 
-        guard let parent = parent else { return }
+        guard let parent else { return }
         editingView.frame = parent.view.bounds
     }
 
@@ -164,6 +162,12 @@ public class EditingDrawViewController: UIViewController, DrawingViewActions, Dr
         state = EditingState.Lenses.toolPickerShowing.set(state.toolPickerShowing.toggled, state)
     }
 
+    private func updateChildViewControllers() {
+        embed(drawingViewController, embedView: editingView.drawingSuperview, layoutGuide: editingView.drawingViewGuide)
+        embed(filmStripViewController, embedView: editingView, layoutGuide: editingView.filmStripViewGuide)
+        view.sendSubviewToBack(drawingViewController.drawingView)
+    }
+
     // MARK: Undo/Redo
 
     @objc func undoDrawing() { undoManager?.undo() }
@@ -173,11 +177,18 @@ public class EditingDrawViewController: UIViewController, DrawingViewActions, Dr
 
     @Cascading private var state: EditingState
     private lazy var drawingViewController = DrawingViewController(publisher: $state)
-    private lazy var editingView = EditingViewFactory.editingView(for: traitCollection, drawingViewController: drawingViewController, statePublisher: $state) {
+    private lazy var editingView = EditingViewFactory.editingView(for: traitCollection, drawingViewController: drawingViewController, filmStripViewController: filmStripViewController, statePublisher: $state) {
         didSet {
             view = editingView
         }
     }
+    private lazy var filmStripViewController: UIViewController = {
+//        if FeatureFlag.newFilmStrip {
+//            // return new film strip
+//        } else {
+            return FilmStripViewController(statePublisher: $state)
+//        }
+    }()
     private lazy var applicationStateManager = ApplicationEditingStateManager(statePublisher: $state)
 
     @available(*, unavailable)
