@@ -11,7 +11,7 @@ public struct FilmStrip: View {
     }
 
     public var body: some View {
-        ViewThatFits {
+        ViewThatFits(in: .horizontal) {
             HFilmStrip(editingStatePublisher: editingStatePublisher)
             VFilmStrip(editingStatePublisher: editingStatePublisher)
         }
