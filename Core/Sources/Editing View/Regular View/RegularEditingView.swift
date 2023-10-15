@@ -59,7 +59,7 @@ class RegularEditingView: EditingDrawView, CanvasDisplayingView, UIScrollViewDel
             zoomContentView.centerYAnchor.constraint(equalTo: zoomView.contentLayoutGuide.centerYAnchor),
 
             filmStripViewGuide.bottomAnchor.constraint(equalTo: playButton.topAnchor, constant: -11),
-            filmStripViewGuide.widthAnchor.constraint(equalToConstant: 44),
+            filmStripViewGuide.widthAnchor.constraint(equalToConstant: 48),
             filmStripViewGuide.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11),
             exportButton.topAnchor.constraint(equalTo: topAnchor, constant: 11),
             exportButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11),

@@ -6,6 +6,7 @@ import Combine
 import DataPhone
 import DocumentNavigationPhone
 import EditingStatePhone
+import FilmStripPhone
 import StoreKit
 import UIKit
 
@@ -183,11 +184,11 @@ public class EditingDrawViewController: UIViewController, DrawingViewActions, Dr
         }
     }
     private lazy var filmStripViewController: UIViewController = {
-//        if FeatureFlag.newFilmStrip {
-//            // return new film strip
-//        } else {
+        if FeatureFlag.newFilmStrip {
+            return FilmStripHostingController(editingStatePublisher: $state)
+        } else {
             return FilmStripViewController(statePublisher: $state)
-//        }
+        }
     }()
     private lazy var applicationStateManager = ApplicationEditingStateManager(statePublisher: $state)
 

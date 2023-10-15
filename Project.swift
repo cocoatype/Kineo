@@ -66,6 +66,7 @@ let targets = ([
         .target(name: "DocumentNavigationPhone"),
         .target(name: "EditingStatePhone"),
         .target(name: "ExportPhone"),
+        .target(name: "FilmStripPhone"),
       ]
     ),
     Target(
