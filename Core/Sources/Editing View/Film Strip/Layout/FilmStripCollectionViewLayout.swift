@@ -50,10 +50,9 @@ class FilmStripCollectionViewLayout: UICollectionViewCompositionalLayout {
     }
 
     func indexOfItem(atContentOffset contentOffset: CGPoint) -> Int {
-        var relevantDistance: CGFloat
-        switch scrollDirection {
-        case .vertical: relevantDistance = contentOffset.y
-        case .horizontal: relevantDistance = contentOffset.x
+        let relevantDistance = switch scrollDirection {
+        case .vertical: contentOffset.y
+        case .horizontal: contentOffset.x
         @unknown default: return 0
         }
 
