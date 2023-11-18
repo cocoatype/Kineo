@@ -14,9 +14,10 @@ struct FilmStrip: View {
 
     var body: some View {
         GeometryReader { fullProxy in
-            ScrollView {
-                PreferenceReader(key: OffsetPreferenceKey.self) { $0.frame(in: coordinateSpace).minY }
-                    .frame(width: 0, height: 0)
+            NotifyingScrollView(editingState: $editingState) {
+                PreferenceReader(key: OffsetPreferenceKey.self) {
+                    $0.frame(in: coordinateSpace).minY
+                }.frame(width: 0, height: 0)
 
                 VStack(spacing: Self.spacing) {
                     // forgottenRedemption by @KaenAitch on 8/4/23
@@ -39,6 +40,7 @@ struct FilmStrip: View {
             .contentMargins(.top, Self.inset)
             .contentMargins(.bottom, bottomMargin(fullHeight: fullProxy.size.height))
             .onPreferenceChange(OffsetPreferenceKey.self) { value in
+                print("pref: \(value)")
                 let pageIndex = pageIndex(forContentOffset: value)
                 let page = editingState.page(at: pageIndex)
                 editingState = editingState.navigating(to: page)
@@ -70,11 +72,15 @@ struct FilmStrip: View {
 
     private struct OffsetPreferenceKey: PreferenceKey {
         static var defaultValue = Double.zero
-        static func reduce(value: inout Double, nextValue: () -> Double) {}
+        static func reduce(value: inout Double, nextValue: () -> Double) {
+            value += nextValue()
+        }
     }
 
     private struct StackHeightPreferenceKey: PreferenceKey {
         static var defaultValue = Double.zero
-        static func reduce(value: inout Double, nextValue: () -> Double) {}
+        static func reduce(value: inout Double, nextValue: () -> Double) {
+            value += nextValue()
+        }
     }
 }

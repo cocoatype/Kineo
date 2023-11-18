@@ -27,7 +27,7 @@ struct DrawingViewEditingMode: View {
 //                placement
 //            }
 //
-            if let skinImage { skinImage.allowsHitTesting(false) }
+            if let skinImage, case .editing = editingState.mode { skinImage.allowsHitTesting(false) }
         }
         .onChange(of: editingState) { _, newState in
             documentStore.save(newState.document)
