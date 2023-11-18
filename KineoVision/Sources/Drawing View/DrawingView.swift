@@ -14,12 +14,10 @@ struct DrawingView: View {
     var body: some View {
         Group {
             switch editingState.mode {
-            case .editing:
+            case .editing, .scrolling:
                 DrawingViewEditingMode(editingState: $editingState)
             case .playing:
                 DrawingViewPlayingMode(editingState: editingState)
-            case .scrolling:
-                EmptyView()
             case .layers:
                 DrawingViewLayersMode(editingState: $editingState)
             }
