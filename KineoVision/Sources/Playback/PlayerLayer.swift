@@ -15,7 +15,6 @@ struct PlayerLayer: View {
             let size = CGSize(width: proxy.size.width, height: proxy.size.height)
             let bounds = CGRect(origin: .zero, size: size)
             Image(uiImage: drawing.image(from: bounds, scale: displayScale))
-                .frame(depth: 10)
         }
     }
 
