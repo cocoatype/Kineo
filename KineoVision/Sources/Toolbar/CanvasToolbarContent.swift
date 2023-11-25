@@ -33,7 +33,6 @@ struct CanvasToolbarContent: ToolbarContent {
                 LayerButton(editingState: $editingState)
                 FillButton(editingState: $editingState)
                 ShareButton(editingState: editingState)
-                InsertButton()
             }
         }
     }

@@ -10,28 +10,15 @@ import SwiftUI
 struct EditingView: View {
     @Environment(\.uiWindow) private var window: UIWindow
     @State private var editingState: EditingState
-    @State private var placements = [StickerPlacement]()
     @State private var isExporting = false
 
     init(document: Document) {
         _editingState = State(initialValue: EditingState(document: document))
     }
 
-    private static let fullTransform = Rotation3D(angle: Angle2D(degrees: 10), axis: .y)
-
     var body: some View {
         GeometryReader3D { proxy in
-            ZStack {
-                DrawingView(editingState: $editingState)
-            }
-//            .dropDestination(for: Data.self) { items, location in
-//                guard let firstItem = items.first,
-//                      let placement = StickerPlacement(data: firstItem, location: location)
-//                else { return false }
-//
-//                placements.append(placement)
-//                return true
-//            }
+            DrawingView(editingState: $editingState)
             .ornament(attachmentAnchor: OrnamentAttachmentAnchor.scene(.top)) {
                 EditingMenu(editingState: editingState)
             }
