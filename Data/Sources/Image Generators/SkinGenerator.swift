@@ -2,10 +2,8 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 #if os(iOS) && !os(visionOS)
-import SharedPhone
 import StylePhone
 #elseif os(visionOS)
-import SharedVision
 import StyleVision
 #endif
 
