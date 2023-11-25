@@ -9,8 +9,10 @@ import DataVision
 
 import AVFoundation
 import UIKit
+import VideoToolbox
 
-public enum VideoExporter {
+@available(visionOS 1.0, iOS 17.0, *)
+public enum VideoExporter3D {
     public typealias VideoExportResult = Result<URL, Swift.Error>
 
     public static func exportVideo(from document: Document) async throws -> URL {
@@ -37,17 +39,24 @@ public enum VideoExporter {
             // create the parent directory
             try FileManager.default.createDirectory(at: exportURL.deletingLastPathComponent(), withIntermediateDirectories: true, attributes: nil)
 
-
             // set up the video writer input
-            let writerInput = AVAssetWriterInput(mediaType: .video, outputSettings: [
-                AVVideoCodecKey: AVVideoCodecType.h264,
-                AVVideoWidthKey: shape.size.width,
-                AVVideoHeightKey: shape.size.height
-            ])
+            // = AVOutputSettingsAssistant(preset: .mvhevc1440x1440)!.videoSettings
+            let assistantSettings: [String: Any] = [
+                AVVideoWidthKey: 720,
+                AVVideoHeightKey: 720,
+                AVVideoScalingModeKey: AVVideoScalingModeResizeAspectFill,
+                AVVideoCompressionPropertiesKey: [
+                    kVTCompressionPropertyKey_MVHEVCLeftAndRightViewIDs: [0, 1],
+                    kVTCompressionPropertyKey_MVHEVCVideoLayerIDs: [0, 1],
+                    kVTCompressionPropertyKey_MVHEVCViewIDs: [0, 1]
+                ],
+                AVVideoCodecKey: AVVideoCodecType.hevc,
+            ]
+            let writerInput = AVAssetWriterInput(mediaType: .video, outputSettings: assistantSettings)
             videoWriter.add(writerInput)
 
             // start a session
-            let adaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: writerInput)
+            let adaptor = AVAssetWriterInputTaggedPixelBufferGroupAdaptor(assetWriterInput: writerInput)
             videoWriter.startWriting()
             videoWriter.startSession(atSourceTime: .zero)
 
@@ -63,19 +72,14 @@ public enum VideoExporter {
                 }
             }
 
-            let horizontalMargins = (shape.size.width - Self.standardCanvasRect.size.width) / 2
-            let verticalMargins = (shape.size.height - Self.standardCanvasRect.size.height) / 2
-            let canvasPoint = CGPoint(x: horizontalMargins, y: verticalMargins)
-
-            let backgroundImage = VideoBackgroundImageGenerator.backgroundImage(for: transformedDocument, shape: shape)
-
             let traitCollection = UITraitCollection(userInterfaceStyle: .light)
             let pages = transformedDocument.pages
             pages.enumerated().forEach { pageWithIndex in
                 let (index, page) = pageWithIndex
                 let presentationTime = CMTime(value: CMTimeValue(index), timescale: frameDuration.timescale)
                 traitCollection.performAsCurrent {
-                    let pageImage = page.drawing.image(from: Self.standardCanvasRect, scale: 1)
+                    let pageImageLeft = PageImageRenderer.image(for: page, eye: .left)
+                    let pageImageRight = PageImageRenderer.image(for: page, eye: .right)
 
                     mediaReadyCondition.lock()
                     while writerInput.isReadyForMoreMediaData == false {
@@ -83,12 +87,23 @@ public enum VideoExporter {
                     }
                     mediaReadyCondition.unlock()
 
-                    let image = UIGraphicsImageRenderer(size: shape.size, format: VideoRendererFormat()).image { context in
-                        backgroundImage.draw(at: .zero)
-                        pageImage.draw(at: canvasPoint)
+                    let leftTaggedBuffer = CMTaggedBuffer(
+                        tags: [
+                            .stereoView(.leftEye),
+                            .videoLayerID(0)
+                        ],
+                        pixelBuffer: pageImageLeft.surfacePixelBuffer
+                    )
+                    let rightTaggedBuffer = CMTaggedBuffer(
+                        tags: [
+                            .stereoView(.rightEye),
+                            .videoLayerID(1)
+                        ],
+                        pixelBuffer: pageImageRight.surfacePixelBuffer
+                    )
+                    if adaptor.appendTaggedBuffers([leftTaggedBuffer, rightTaggedBuffer], withPresentationTime: presentationTime) == false {
+                        print("uh oh!")
                     }
-
-                    adaptor.append(image.surfacePixelBuffer, withPresentationTime: presentationTime)
                 }
             }
 
@@ -114,11 +129,6 @@ public enum VideoExporter {
         }
     }
 
-    private static let standardCanvasRect = CGRect(origin: .zero, size: CGSize(width: 512, height: 512))
+    static let standardCanvasRect = CGRect(origin: .zero, size: CGSize(width: 512, height: 512))
     private static let standardFramesPerSecond = CMTimeScale(12)
-}
-
-enum VideoExportError: Error {
-    case unexpectedExportFailure
-    case writingNotFinished
 }

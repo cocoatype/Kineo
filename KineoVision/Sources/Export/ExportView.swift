@@ -9,7 +9,6 @@ import SwiftUI
 struct ExportView: View {
     init(editingState: EditingState) {
         self.editingState = editingState
-        self.exportedAnimation = ExportedAnimation(document: editingState.document)
     }
 
     var body: some View {
@@ -23,7 +22,6 @@ struct ExportView: View {
     }
 
     private let editingState: EditingState
-    private let exportedAnimation: ExportedAnimation
 }
 
 #Preview {
