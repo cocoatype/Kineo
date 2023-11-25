@@ -4,5 +4,6 @@
 public protocol DocumentStore {
     var storedDocuments: [StoredDocument] { get }
 
+    func newDocument() -> Document
     func save(_ document: Document)
 }
