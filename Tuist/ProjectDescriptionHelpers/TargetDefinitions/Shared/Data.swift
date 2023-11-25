@@ -7,8 +7,8 @@ public extension Shared {
             platforms: [.iOS, .visionOS],
             product: .framework,
             bundleId: "com.flipbookapp.flickbook.Data",
-            infoPlist: "Data/Info.plist",
-            sources: ["Data/Sources/**"],
+            infoPlist: "Shared/Data/Info.plist",
+            sources: ["Shared/Data/Sources/**"],
             headers: .headers(
                 public: ["Sources/Data.h"]
             ),
@@ -27,7 +27,7 @@ public extension Shared {
             platforms: [.iOS, .visionOS],
             product: .unitTests,
             bundleId: "com.flipbookapp.flickbook.DataTests",
-            sources: ["Data/Tests/**"],
+            sources: ["Shared/Data/Tests/**"],
             dependencies: [
                 .multiPlatformTarget(namePrefix: target.namePrefix)
             ]

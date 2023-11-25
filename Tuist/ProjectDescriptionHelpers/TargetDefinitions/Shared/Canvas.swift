@@ -7,7 +7,7 @@ public extension Shared {
             platforms: [.iOS, .visionOS],
             product: .framework,
             bundleId: "com.flipbookapp.flickbook.Canvas",
-            sources: ["Canvas/Sources/**"],
+            sources: ["Shared/Canvas/Sources/**"],
             dependencies: [
                 .multiPlatformTarget(namePrefix: Data.target.namePrefix),
                 .multiPlatformTarget(namePrefix: DocumentNavigation.target.namePrefix),

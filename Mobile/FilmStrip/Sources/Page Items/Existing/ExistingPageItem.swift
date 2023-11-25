@@ -3,7 +3,6 @@
 
 import DataPhone
 import EditingStatePhone
-import SharedPhone
 import StylePhone
 import SwiftUI
 

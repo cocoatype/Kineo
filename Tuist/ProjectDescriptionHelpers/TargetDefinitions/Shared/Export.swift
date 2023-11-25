@@ -7,7 +7,7 @@ public extension Shared {
             platforms: [.iOS, .visionOS],
             product: .framework,
             bundleId: "com.flipbookapp.flickbook.Export",
-            sources: ["Export/Sources/**"],
+            sources: ["Shared/Export/Sources/**"],
             dependencies: [
                 .multiPlatformTarget(namePrefix: Shared.Data.target.namePrefix),
             ]

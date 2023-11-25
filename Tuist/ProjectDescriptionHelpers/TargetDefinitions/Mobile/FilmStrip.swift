@@ -7,7 +7,7 @@ public extension Mobile {
             platform: .iOS,
             product: .framework,
             bundleId: "com.flipbookapp.flickbook.FilmStrip",
-            sources: ["FilmStrip/Sources/**"],
+            sources: ["Mobile/FilmStrip/Sources/**"],
             dependencies: [
                 .target(name: Shared.EditingState.target.name(for: .iOS))
             ]

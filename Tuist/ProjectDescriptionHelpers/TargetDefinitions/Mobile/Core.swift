@@ -7,7 +7,7 @@ public extension Mobile {
             platform: .iOS,
             product: .framework,
             bundleId: "com.flipbookapp.flickbook.Core",
-            sources: ["Core/Sources/**"],
+            sources: ["Mobile/Core/Sources/**"],
             dependencies: [
                 .external(name: "Introspect"),
                 .external(name: "Lottie"),

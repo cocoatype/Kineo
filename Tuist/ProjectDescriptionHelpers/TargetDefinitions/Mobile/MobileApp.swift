@@ -3,14 +3,14 @@ import ProjectDescription
 public extension Mobile {
     enum App {
         public static let target = Target(
-            name: "Kineo",
+            name: "MobileApp",
             platform: .iOS,
             product: .app,
             bundleId: "com.flipbookapp.flickbook",
-            infoPlist: "App/Info.plist",
-            sources: ["App/Sources/**"],
-            resources: ["App/Resources/**"],
-            entitlements: "App/Kineo.entitlements",
+            infoPlist: "Mobile/App/Info.plist",
+            sources: ["Mobile/App/Sources/**"],
+            resources: ["Mobile/App/Resources/**"],
+            entitlements: "Mobile/App/Kineo.entitlements",
             dependencies: [
                 .target(name: Mobile.Clip.target.name),
                 .target(name: "Core"),
@@ -18,6 +18,9 @@ public extension Mobile {
                 .target(name: "Stickers")
             ],
             settings: .settings(
+                base: [
+                    "PRODUCT_NAME": "Kineo",
+                ],
                 debug: [
                     "PROVISIONING_PROFILE_SPECIFIER": "match Development com.flipbookapp.flickbook"
                 ],
@@ -29,12 +32,12 @@ public extension Mobile {
         )
 
         public static let testTarget = Target(
-            name: "Tests",
+            name: "MobileAppTests",
             platform: .iOS,
             product: .unitTests,
             bundleId: "com.flipbookapp.flickbook.Tests",
-            infoPlist: "Tests/Info.plist",
-            sources: ["Tests/Sources/**"]
+            infoPlist: "Mobile/Tests/Info.plist",
+            sources: ["Mobile/Tests/Sources/**"]
         )
     }
 }

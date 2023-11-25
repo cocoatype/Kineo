@@ -7,10 +7,10 @@ public extension Mobile {
             platform: .iOS,
             product: .appExtension,
             bundleId: "com.flipbookapp.flickbook.Stickers",
-            infoPlist: "Stickers/Info.plist",
-            sources: ["Stickers/Sources/**"],
-            resources: ["Stickers/Resources/**"],
-            entitlements: "Stickers/Stickers.entitlements",
+            infoPlist: "Mobile/Stickers/Info.plist",
+            sources: ["Mobile/Stickers/Sources/**"],
+            resources: ["Mobile/Stickers/Resources/**"],
+            entitlements: "Mobile/Stickers/Stickers.entitlements",
             dependencies: [
                 .target(name: Shared.Data.target.name(for: .iOS))
             ],

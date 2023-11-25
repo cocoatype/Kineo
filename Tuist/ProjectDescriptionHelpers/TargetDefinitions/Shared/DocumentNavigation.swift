@@ -7,7 +7,7 @@ public extension Shared {
             platforms: [.iOS, .visionOS],
             product: .framework,
             bundleId: "com.flipbookapp.flickbook.DocumentNavigation",
-            sources: ["DocumentNavigation/Sources/**"],
+            sources: ["Shared/DocumentNavigation/Sources/**"],
             dependencies: []
         )
     }
