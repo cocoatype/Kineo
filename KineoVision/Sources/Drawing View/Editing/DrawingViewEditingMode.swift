@@ -23,11 +23,7 @@ struct DrawingViewEditingMode: View {
                     .frame(depth: 10)
             }
 
-//            ForEach(placements) { placement in
-//                placement
-//            }
-//
-            if let skinImage { skinImage.allowsHitTesting(false) }
+            if let skinImage, case .editing = editingState.mode { skinImage.allowsHitTesting(false) }
         }
         .onChange(of: editingState) { _, newState in
             documentStore.save(newState.document)

@@ -13,8 +13,11 @@ protocol EditingDraw {
     var drawingView: DrawingView { get }
     var drawingViewGuide: DrawingViewGuide { get }
 
+    var filmStripView: UIView { get }
+    var filmStripViewGuide: FilmStripViewGuide { get }
+
     var backgroundPopoverSourceView: UIView? { get }
 
-    init(statePublisher: EditingStatePublisher, drawingViewController: DrawingViewController)
+    init(statePublisher: EditingStatePublisher, drawingViewController: DrawingViewController, filmStripViewController: UIViewController)
 }
 typealias EditingDrawView = (EditingDraw & UIView)

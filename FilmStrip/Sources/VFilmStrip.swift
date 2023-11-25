@@ -5,7 +5,7 @@ import EditingStatePhone
 import StylePhone
 import SwiftUI
 
-struct VFilmStrip: FilmStrip, View {
+struct VFilmStrip: View {
     private let editingStatePublisher: EditingStatePublisher
     init(editingStatePublisher: EditingStatePublisher) {
         self.editingStatePublisher = editingStatePublisher
@@ -24,6 +24,8 @@ struct VFilmStrip: FilmStrip, View {
                 .offset(y: 4)
             }.overlay {
                 Overlay()
+            }.mask {
+                Overlay.shape
             }
             Indicator(axis: .vertical)
                 .offset(y: 8)
@@ -37,7 +39,6 @@ struct VFilmStrip: FilmStrip, View {
 enum VFilmStripPreviews: PreviewProvider {
     static var previews: some View {
             VFilmStrip(editingStatePublisher: PreviewData.editingStatePublisher)
-        .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Asset.background.swiftUIColor)
 

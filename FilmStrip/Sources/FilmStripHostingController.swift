@@ -4,9 +4,13 @@
 import EditingStatePhone
 import SwiftUI
 
-class FilmStripHostingController<FilmStripType: FilmStrip>: UIHostingController<FilmStripType> {
-    init(editingStatePublisher: EditingStatePublisher) {
-        super.init(rootView: FilmStripType(editingStatePublisher: editingStatePublisher))
+public class FilmStripHostingController: UIHostingController<FilmStrip> {
+    public init(editingStatePublisher: EditingStatePublisher) {
+        super.init(rootView: FilmStrip(editingStatePublisher: editingStatePublisher))
+    }
+
+    public override func viewDidLoad() {
+        view.backgroundColor = .clear
     }
 
     @available(*, unavailable)
