@@ -6,11 +6,11 @@ import EditingStateVision
 import SwiftUI
 import PencilKit
 
-struct Player: View {
+public struct Player: View {
     private let playbackDocument: Document
     @State private var currentPageIndex: Int
 
-    init(editingState: EditingState) {
+    public init(editingState: EditingState) {
         playbackDocument = DocumentTransformer.bouncedDocument(from: editingState.document)
         _currentPageIndex = State(initialValue: editingState.currentPageIndex)
     }
@@ -19,7 +19,7 @@ struct Player: View {
         playbackDocument.pages[currentPageIndex].layers
     }
 
-    var body: some View {
+    public var body: some View {
         ZStack {
             ForEach(currentLayers) { layer in
                 PlayerLayer(drawing: layer.drawing)

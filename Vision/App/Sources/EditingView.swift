@@ -6,6 +6,7 @@ import DataVision
 import EditingStateVision
 import PencilKit
 import SwiftUI
+import ToolbarVision
 
 struct EditingView: View {
     @Environment(\.uiWindow) private var window: UIWindow

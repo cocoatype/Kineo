@@ -3,6 +3,7 @@
 
 import DataVision
 import SwiftUI
+import SwiftUIIntrospect
 
 struct RootView: View {
     @State var currentDocument: Document?

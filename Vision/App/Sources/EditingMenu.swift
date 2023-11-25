@@ -3,6 +3,7 @@
 
 import EditingStateVision
 import SwiftUI
+import ToolbarVision
 
 struct EditingMenu: View {
     private let editingState: EditingState

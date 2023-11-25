@@ -4,16 +4,17 @@
 import CoreTransferable
 import DataVision
 import EditingStateVision
+import PlaybackVision
 import SwiftUI
 
-struct ExportView: View {
-    init(editingState: EditingState) {
+public struct ExportView: View {
+    public init(editingState: EditingState) {
         self.editingState = editingState
     }
 
-    var body: some View {
+    public var body: some View {
         ZStack {
-            Color(editingState.canvasBackgroundColor)
+            Color(editingState.document.canvasBackgroundColor)
             Player(editingState: editingState)
             ExportButtonsOverlay(editingState: editingState)
         }

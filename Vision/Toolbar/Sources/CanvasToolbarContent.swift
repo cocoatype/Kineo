@@ -4,16 +4,16 @@
 import EditingStateVision
 import SwiftUI
 
-struct CanvasToolbarContent: ToolbarContent {
+public struct CanvasToolbarContent: ToolbarContent {
     @Binding private var editingState: EditingState
     @Binding private var isExporting: Bool
 
-    init(editingState: Binding<EditingState>, isExporting: Binding<Bool>) {
+    public init(editingState: Binding<EditingState>, isExporting: Binding<Bool>) {
         _editingState = editingState
         _isExporting = isExporting
     }
 
-    var body: some ToolbarContent {
+    public var body: some ToolbarContent {
         if editingState.toolPickerShowing == false {
             ToolbarItemGroup(placement: .bottomOrnament) {
                 UndoButton()

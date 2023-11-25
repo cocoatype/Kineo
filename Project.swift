@@ -10,6 +10,10 @@ let targets = ([
     Mobile.Stickers.target,
 
     Vision.App.target,
+    Vision.ExportEditing.target,
+    Vision.FilmStrip.target,
+    Vision.Playback.target,
+    Vision.Toolbar.target,
 
     Shared.Canvas.target,
     Shared.Data.target,

@@ -2,16 +2,17 @@
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
 import EditingStateVision
+import ExportEditingVision
 import SwiftUI
 
-struct ShareButton: View {
+public struct ShareButton: View {
     private let editingState: EditingState
 
-    init(editingState: EditingState) {
+    public init(editingState: EditingState) {
         self.editingState = editingState
     }
 
-    var body: some View {
+    public var body: some View {
         NavigationLink {
             ExportView(editingState: editingState)
         } label: {

@@ -10,7 +10,7 @@ struct FillButton: View {
 
     init(editingState: Binding<EditingState>) {
         _editingState = editingState
-        _backgroundColor = State(initialValue: Color(uiColor: editingState.wrappedValue.canvasBackgroundColor))
+        _backgroundColor = State(initialValue: Color(uiColor: editingState.wrappedValue.document.canvasBackgroundColor))
     }
 
     var body: some View {

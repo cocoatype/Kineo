@@ -11,6 +11,10 @@ public extension Vision {
             sources: ["Vision/App/Sources/**"],
             resources: ["Vision/App/Resources/**"],
             dependencies: [
+                .target(name: Vision.ExportEditing.target.name),
+                .target(name: Vision.FilmStrip.target.name),
+                .target(name: Vision.Playback.target.name),
+                .target(name: Vision.Toolbar.target.name),
                 .target(name: Shared.Canvas.target.name(for: .visionOS)),
                 .target(name: Shared.Export.target.name(for: .visionOS)),
                 .external(name: "SwiftUIIntrospect"),

@@ -4,15 +4,15 @@
 import EditingStateVision
 import SwiftUI
 
-struct FilmStrip: View {
+public struct FilmStrip: View {
     @Binding private var editingState: EditingState
     private let coordinateSpace = NamedCoordinateSpace.named("frameLayer")
 
-    init(editingState: Binding<EditingState>) {
+    public init(editingState: Binding<EditingState>) {
         _editingState = editingState
     }
 
-    var body: some View {
+    public var body: some View {
         GeometryReader { fullProxy in
             NotifyingScrollView(editingState: $editingState) {
                 PreferenceReader(key: OffsetPreferenceKey.self) {

@@ -2,6 +2,7 @@
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
 import EditingStateVision
+import PlaybackVision
 import SwiftUI
 
 struct DrawingViewPlayingMode: View {

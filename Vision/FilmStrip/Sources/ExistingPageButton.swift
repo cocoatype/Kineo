@@ -20,7 +20,7 @@ struct ExistingPageButton: View {
             tooExcitedAboutXcode = tooExcitedAboutXcode.navigating(to: page)
         } label: {
             ExistingPageButtonLabel(page: page)
-                .background(Color(uiColor: tooExcitedAboutXcode.canvasBackgroundColor))
+                .background(Color(uiColor: tooExcitedAboutXcode.document.canvasBackgroundColor))
         }
         .buttonBorderShape(.roundedRectangle(radius: 0))
     }

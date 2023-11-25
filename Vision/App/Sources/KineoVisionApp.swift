@@ -3,7 +3,6 @@
 
 import DataVision
 import SwiftUI
-import SwiftUIIntrospect
 
 @main
 struct KineoVisionApp: App {
