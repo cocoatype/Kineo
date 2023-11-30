@@ -69,7 +69,7 @@ public struct MultiPlatformTarget: TargetProducer {
     public var targets: [Target] {
         platforms.map { platform in
             Target(
-                name: name + platform.nameSuffix,
+                name: name(for: platform),
                 platform: platform,
                 product: product,
                 productName: productName,
@@ -92,6 +92,9 @@ public struct MultiPlatformTarget: TargetProducer {
             )
         }
     }
+
+    var namePrefix: String { name }
+    func name(for platform: Platform) -> String { name + platform.nameSuffix }
 }
 
 public enum MultiPlatformDependency {
