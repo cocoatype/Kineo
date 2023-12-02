@@ -27,6 +27,7 @@ let targets = ([
 let project = Project(
   name: "Kineo",
   organizationName: "Cocoatype, LLC",
+  options: .options(automaticSchemesOptions: .disabled),
   settings: .settings(
     base: [
       "CURRENT_PROJECT_VERSION": "0",
@@ -41,16 +42,27 @@ let project = Project(
   targets: targets,
   schemes: [
     Scheme(
-      name: "Kineo",
+      name: "Kineo (iOS)",
       shared: true,
-      buildAction: .buildAction(targets: ["Kineo"]),
-      testAction: .targets(["Tests"]),
+      buildAction: .buildAction(targets: ["MobileApp"]),
+      testAction: .targets(["MobileAppTests"]),
       runAction: .runAction(
-        executable: "Kineo",
+        executable: "MobileApp",
         arguments: Arguments(
             environmentVariables: FeatureFlags.environment
         )
       )
-    )
+    ),
+    Scheme(
+      name: "Kineo (visionOS)",
+      shared: true,
+      buildAction: .buildAction(targets: ["VisionApp"]),
+      runAction: .runAction(
+        executable: "VisionApp",
+        arguments: Arguments(
+            environmentVariables: FeatureFlags.environment
+        )
+      )
+    ),
   ]
 )
