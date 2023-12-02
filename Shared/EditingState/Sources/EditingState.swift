@@ -18,12 +18,17 @@ public struct EditingState: Equatable {
     public let mode: Mode
     public let toolPickerShowing: Bool
 
+    // newCouch by @eaglenaut on 2023-12-01
+    // whether onion skins are visible
+    public let newCouch: Bool
+
     public init(document: Document) {
         self.activeLayerIndex = 0
         self.currentPageIndex = 0
         self.document = document
         self.mode = .editing
         self.toolPickerShowing = false
+        self.newCouch = true
     }
 
     public var currentPage: Page { page(at: currentPageIndex) }

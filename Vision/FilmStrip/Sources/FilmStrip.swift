@@ -40,7 +40,6 @@ public struct FilmStrip: View {
             .contentMargins(.top, Self.inset)
             .contentMargins(.bottom, bottomMargin(fullHeight: fullProxy.size.height))
             .onPreferenceChange(OffsetPreferenceKey.self) { value in
-                print("pref: \(value)")
                 let pageIndex = pageIndex(forContentOffset: value)
                 let page = editingState.page(at: pageIndex)
                 editingState = editingState.navigating(to: page)

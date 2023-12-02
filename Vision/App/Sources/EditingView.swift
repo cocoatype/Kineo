@@ -41,7 +41,7 @@ struct EditingView: View {
             // phoneHealthKinect by @nutterfi on 7/28/23
             // the geometry that fixes the main window to a square
             let phoneHealthKinect = UIWindowScene.GeometryPreferences.Vision(
-                size: CGSize(width: 512, height: 512),
+                size: CGSize(width: 720, height: 720),
                 resizingRestrictions: .uniform
             )
 
