@@ -11,6 +11,6 @@ struct KineoVisionApp: App {
             RootView(currentDocument: TemporaryPersistence.persistedDocument)
         }
         .windowStyle(.plain)
-        .defaultSize(width: 512, height: 512)
+        .defaultSize(width: 720, height: 720)
     }
 }

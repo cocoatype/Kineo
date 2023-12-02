@@ -14,7 +14,7 @@ struct DrawingView: View {
     var body: some View {
         Group {
             switch editingState.mode {
-            case .editing, .scrolling:
+            case .editing:
                 DrawingViewEditingMode(editingState: $editingState)
             case .playing:
                 DrawingViewPlayingMode(editingState: editingState)

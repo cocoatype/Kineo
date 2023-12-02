@@ -89,8 +89,8 @@ public class EditingDrawViewController: UIViewController, DrawingViewActions, Dr
         }
     }
 
-    @objc public func startScrolling() { state = state.scrolling }
-    @objc public func stopScrolling() { let newState = state.editing; state = newState }
+    @objc public func startScrolling() { state = state.withSkinVisible(false) }
+    @objc public func stopScrolling() { state = state.withSkinVisible(true) }
 
     // MARK: Actions
 

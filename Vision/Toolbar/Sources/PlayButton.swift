@@ -13,7 +13,7 @@ struct PlayButton: View {
     var body: some View {
         Button {
             switch editingState.mode {
-            case .editing, .scrolling, .layers:
+            case .editing, .layers:
                 editingState = editingState.playingContinuously
             case .playing:
                 editingState = editingState.editing

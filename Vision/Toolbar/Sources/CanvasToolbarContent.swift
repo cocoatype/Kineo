@@ -31,8 +31,9 @@ public struct CanvasToolbarContent: ToolbarContent {
             ToolbarItemGroup(placement: .bottomOrnament) {
                 ToolPickerButton(editingState: $editingState)
                 LayerButton(editingState: $editingState)
-                FillButton(editingState: $editingState)
-                ShareButton(editingState: editingState)
+                SkinVisibilityButton(editingState: $editingState)
+//                FillButton(editingState: $editingState)
+//                ShareButton(editingState: editingState)
             }
         }
     }

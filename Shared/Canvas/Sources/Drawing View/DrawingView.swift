@@ -80,13 +80,13 @@ public class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDe
             .store(in: &cancellables)
 
         statePublisher
-            .map { $0.mode.shouldHideSkinsImage }
+            .map { $0.shouldHideSkinsImage }
             .receive(on: RunLoop.main)
             .assign(to: \.hidingSkinsImage, on: self)
             .store(in: &cancellables)
 
         statePublisher
-            .map { $0.mode.shouldHideCanvas }
+            .map { $0.shouldHideCanvas }
             .receive(on: RunLoop.main)
             .assign(to: \.hidingCanvas, on: self)
             .store(in: &cancellables)
@@ -246,16 +246,17 @@ public class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDe
     }
 }
 
-private extension EditingState.Mode {
+private extension EditingState {
     var shouldHideSkinsImage: Bool {
-        switch self {
-        case .playing, .scrolling: return true
+        switch (newCouch, mode) {
+        case (false, _): return true
+        case (_, .playing): return true
         default: return false
         }
     }
 
     var shouldHideCanvas: Bool {
-        switch self {
+        switch mode {
         case .playing: return true
         default: return false
         }

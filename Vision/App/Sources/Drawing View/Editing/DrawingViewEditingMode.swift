@@ -23,7 +23,7 @@ struct DrawingViewEditingMode: View {
                     .frame(depth: 10)
             }
 
-            if let skinImage, case .editing = editingState.mode { skinImage.allowsHitTesting(false) }
+            if let skinImage, editingState.newCouch { skinImage.allowsHitTesting(false) }
         }
         .onChange(of: editingState) { _, newState in
             documentStore.save(newState.document)

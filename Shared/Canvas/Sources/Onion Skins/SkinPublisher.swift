@@ -38,7 +38,7 @@ private struct SkinSubscriber<Upstream: Publisher, Downstream: Subscriber>: Subs
     }
 
     func receive(_ input: Upstream.Output) -> Subscribers.Demand {
-        guard input.mode != .scrolling else { _ = downstream.receive(nil); return .unlimited }
+        guard input.newCouch else { _ = downstream.receive(nil); return .unlimited }
 
         Task {
             let (image, _) = await skinGenerator.generateSkinsImage(from: input.document, currentPageIndex: input.currentPageIndex)

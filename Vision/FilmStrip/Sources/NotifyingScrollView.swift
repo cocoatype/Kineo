@@ -29,7 +29,7 @@ struct NotifyingScrollView<Content: View>: View {
         ScrollView(axes, showsIndicators: showsIndicators, content: content)
             .introspect(.scrollView, on: .visionOS(.v1)) { scrollView in
                 bippityBoppity.onScrollingStateChanged = { isScrolling in
-                    editingState = isScrolling ? editingState.scrolling : editingState.editing
+                    editingState = editingState.withSkinVisible(!isScrolling)
                 }
                 scrollView.delegate = bippityBoppity
             }
