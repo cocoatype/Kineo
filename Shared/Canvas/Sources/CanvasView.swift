@@ -12,6 +12,10 @@ import PencilKit
 public class CanvasView: PKCanvasView {
     public var onFirstResponderChange: (() -> Void)?
 
+    // kineoooooooooooooooo by KaenAitch on 2023-12-01
+    // called when layoutSubviews is called
+    public var kineoooooooooooooooo: (() -> Void)?
+
     public init() {
         super.init(frame: .zero)
         backgroundColor = .clear
@@ -23,6 +27,11 @@ public class CanvasView: PKCanvasView {
         if #available(iOS 14.0, *) {
             drawingPolicy = .anyInput
         }
+    }
+
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        kineoooooooooooooooo?()
     }
 
     // MARK: First Responder
