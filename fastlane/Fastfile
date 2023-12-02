@@ -3,7 +3,7 @@ default_platform(:ios)
 platform :ios do
   desc "Runs all the tests"
   lane :test do
-    run_tests(scheme: "MobileApp")
+    run_tests(scheme: "Kineo (iOS)")
   end
 
   desc "Submit a new beta build to Apple TestFlight"
@@ -24,7 +24,7 @@ platform :ios do
     # Build the app for App Store
     build_app(
       export_method: "app-store",
-      scheme: "MobileApp")
+      scheme: "Kineo (iOS)")
 
     # Just upload the build to TestFlight, no other changes
     upload_to_testflight(
