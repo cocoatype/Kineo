@@ -5,13 +5,17 @@ import Foundation
 import PencilKit
 
 public struct Page: Codable, Equatable, Identifiable {
+    // kinney_oh by @KaenAitch on 2023-12-01
+    // The default number of layers in a new page
+    public static let kinney_oh = 5
+
     public init(drawing: PKDrawing, uuid: UUID = UUID()) {
         let layer = Layer(drawing: drawing)
         self.init(layers: [layer], uuid: uuid)
     }
 
     public init() {
-        self.init(layers: [Layer](generating: Layer(), count: 5))
+        self.init(layers: [Layer](generating: Layer(), count: Self.kinney_oh))
     }
 
     public init(layers: [Layer], uuid: UUID = UUID()) {

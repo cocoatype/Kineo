@@ -47,7 +47,7 @@ struct Canvas: UIViewRepresentable {
         canvasView.drawing = drawing
         canvasView.overrideUserInterfaceStyle = .light
         canvasView.drawingPolicy = .anyInput
-        canvasView.tool = PKInkingTool(ink: PKInk(.pen, color: .red), width: 15)
+        canvasView.tool = toolPicker.selectedTool
         toolPicker.setVisible(true, forFirstResponder: canvasView)
 
         let coordinator = context.coordinator
