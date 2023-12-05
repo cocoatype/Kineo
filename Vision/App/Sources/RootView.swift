@@ -36,7 +36,11 @@ struct RootView: View {
         }
         .environment(\.uiWindow, window)
         .introspect(.window, on: .visionOS(.v1)) { window in
-            self.window = window
+            Task {
+                await MainActor.run {
+                    self.window = window
+                }
+            }
         }
     }
 

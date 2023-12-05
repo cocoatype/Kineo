@@ -34,19 +34,25 @@ struct EditingView: View {
         }
         .preferredSurroundingsEffect(editingState.mode.isPlaying ? .systemDark : nil)
         .onAppear {
-            // mologging by @CompileSwift on 7/31/23
-            // the window scene of the main window
-            guard let mologging = window.windowScene else { return }
-
-            // phoneHealthKinect by @nutterfi on 7/28/23
-            // the geometry that fixes the main window to a square
-            let phoneHealthKinect = UIWindowScene.GeometryPreferences.Vision(
-                size: CGSize(width: 720, height: 720),
-                resizingRestrictions: .uniform
-            )
-
-            mologging.requestGeometryUpdate(phoneHealthKinect)
+            setWindowGeometry()
+        }.onChange(of: window) { _, _ in
+            setWindowGeometry()
         }
+    }
+
+    private func setWindowGeometry() {
+        // mologging by @CompileSwift on 7/31/23
+        // the window scene of the main window
+        guard let mologging = window.windowScene else { return }
+
+        // phoneHealthKinect by @nutterfi on 7/28/23
+        // the geometry that fixes the main window to a square
+        let phoneHealthKinect = UIWindowScene.GeometryPreferences.Vision(
+            size: CGSize(width: 720, height: 720),
+            resizingRestrictions: .uniform
+        )
+
+        mologging.requestGeometryUpdate(phoneHealthKinect)
     }
 }
 
