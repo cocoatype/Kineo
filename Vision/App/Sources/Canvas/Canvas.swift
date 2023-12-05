@@ -40,6 +40,7 @@ struct Canvas: UIViewRepresentable {
     func makeUIView(context: Context) -> CanvasView {
         let toolPicker = context.environment.toolPicker
         let canvasView = CanvasView()
+        canvasView.backgroundColor = UIColor.white.withAlphaComponent(0.001)
         canvasView.layer.cornerRadius = 16
         canvasView.layer.cornerCurve = .continuous
 
