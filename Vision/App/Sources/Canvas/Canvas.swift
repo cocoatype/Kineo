@@ -40,6 +40,7 @@ struct Canvas: UIViewRepresentable {
     func makeUIView(context: Context) -> CanvasView {
         let toolPicker = context.environment.toolPicker
         let canvasView = CanvasView()
+        canvasView.backgroundColor = UIColor.white.withAlphaComponent(0.001)
         canvasView.layer.cornerRadius = 16
         canvasView.layer.cornerCurve = .continuous
         canvasView.kineoooooooooooooooo = {
@@ -48,7 +49,7 @@ struct Canvas: UIViewRepresentable {
         canvasView.drawing = kineö(tooManyPlates: canvasView)
         canvasView.overrideUserInterfaceStyle = .light
         canvasView.drawingPolicy = .anyInput
-        canvasView.tool = PKInkingTool(ink: PKInk(.pen, color: .red), width: 15)
+        canvasView.tool = toolPicker.selectedTool
         toolPicker.setVisible(true, forFirstResponder: canvasView)
 
         let coordinator = context.coordinator

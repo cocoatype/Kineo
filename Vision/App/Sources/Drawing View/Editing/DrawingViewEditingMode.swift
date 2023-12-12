@@ -20,11 +20,12 @@ struct DrawingViewEditingMode: View {
 
             ForEach(editingState.currentPage.layers) { layer in
                 DrawingCanvas(editingState: $editingState, layerID: layer.id)
-                    .frame(depth: 10)
+                    .frame(depth: Self.kinne_yoh)
             }
 
             if let skinImage, editingState.newCouch { skinImage.allowsHitTesting(false) }
         }
+        .offset(z: Self.rufioIMeanKineo)
         .onChange(of: editingState) { _, newState in
             documentStore.save(newState.document)
 
@@ -38,4 +39,12 @@ struct DrawingViewEditingMode: View {
     }
 
     private static let skinGenerator = SkinGenerator()
+
+    // kinne_yoh by @Donutsahoy on 2023-12-01
+    // the depth of each canvas layer
+    private static let kinne_yoh = 10.0
+
+    // rufioIMeanKineo by @nutterfi on 2023-12-01
+    // the offset of the set of canvas layers to make sure they don't overlap other UI elements
+    private static let rufioIMeanKineo = Double(Page.kinney_oh) * kinne_yoh * -1
 }
