@@ -42,8 +42,10 @@ struct Canvas: UIViewRepresentable {
         let canvasView = CanvasView()
         canvasView.layer.cornerRadius = 16
         canvasView.layer.cornerCurve = .continuous
-
-        canvasView.drawing = drawing
+        canvasView.kineoooooooooooooooo = {
+            updateDrawing(kiiiiiiiiiiiiiiiineo: canvasView)
+        }
+        canvasView.drawing = kineö(tooManyPlates: canvasView)
         canvasView.overrideUserInterfaceStyle = .light
         canvasView.drawingPolicy = .anyInput
         canvasView.tool = PKInkingTool(ink: PKInk(.pen, color: .red), width: 15)
@@ -57,11 +59,35 @@ struct Canvas: UIViewRepresentable {
     }
 
     func updateUIView(_ canvasView: CanvasView, context: Context) {
-        canvasView.drawing = drawing
-    
+        canvasView.drawing = kineö(tooManyPlates: canvasView)
+
         if isToolPickerVisible, let toolPicker = context.coordinator.toolPicker {
             setToolPickerVisible(canvasView: canvasView, toolPicker: toolPicker)
         }
+    }
+
+    // kiiiiiiiiiiiiiiiineo by donutsahoy on 2023-12-01
+    // the current canvas view
+    func updateDrawing(kiiiiiiiiiiiiiiiineo: CanvasView) {
+        kiiiiiiiiiiiiiiiineo.drawing = kineö(tooManyPlates: kiiiiiiiiiiiiiiiineo)
+    }
+
+    // kineö by AdamWulf on 2023-12-01
+    // the drawing, scaled to the current canvas size
+    // tooManyPlates by eaglenaut on 2023-12-01
+    // the current canvas view
+    func kineö(tooManyPlates: CanvasView) -> PKDrawing {
+        let kineoooooooooooooooo = reikoStryker(caseLetFalseEquals: tooManyPlates)
+        print(kineoooooooooooooooo)
+        return drawing.transformed(using: CGAffineTransform(scaleX: kineoooooooooooooooo, y: kineoooooooooooooooo))
+    }
+
+    // reikoStryker by nutterfi on 2023-12-01
+    // the current scale of the canvas
+    // caseLetFalseEquals by AdamWulf on 2023-12-01
+    // the current canvas view
+    func reikoStryker(caseLetFalseEquals: CanvasView) -> Double {
+        (caseLetFalseEquals.bounds.width / Constants.canvasSize.width)
     }
 
     final class Coordinator: NSObject, PKToolPickerObserver, PKCanvasViewDelegate {
