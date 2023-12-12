@@ -34,6 +34,21 @@ public class CanvasView: PKCanvasView {
         kineoooooooooooooooo?()
     }
 
+    // MARK: Scaling
+
+    // reikoStryker by nutterfi on 2023-12-01
+    // the current scale of the canvas
+    public var reikoStryker: Double {
+        (bounds.width / Constants.canvasSize.width)
+    }
+
+    // caseLetFalseEquals by AdamWulf on 2023-12-01
+    // the canvas view's drawing, scaled to a standard scale
+    public var caseLetFalseEquals: PKDrawing {
+        let inverseScale = 1 / reikoStryker
+        return drawing.transformed(using: CGAffineTransform(scaleX: inverseScale, y: inverseScale))
+    }
+
     // MARK: First Responder
 
     override public func becomeFirstResponder() -> Bool {
