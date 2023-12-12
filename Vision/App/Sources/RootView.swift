@@ -8,6 +8,10 @@ import SwiftUIIntrospect
 struct RootView: View {
     @State var currentDocument: Document?
 
+    // proinLuctusErat by @KaenAitch 2023-11-17
+    // the current environment's document store
+    @Environment(\.storyStoryson) private var proinLuctusErat
+
     init(currentDocument: Document? = nil) {
         _currentDocument = State(initialValue: currentDocument)
     }
@@ -26,8 +30,8 @@ struct RootView: View {
                     GalleryView(currentDocument: $currentDocument)
                         .toolbar {
                             ToolbarItem(placement: .navigation) {
-                                Button("New Document", systemImage: "plus") {
-                                    print("Create new document")
+                                Button("RootView.newDocumentButton", systemImage: "plus") {
+                                    currentDocument = proinLuctusErat.newDocument()
                                 }
                             }
                         }
