@@ -19,7 +19,7 @@ struct RootView: View {
     var body: some View {
         Group {
             if let currentDocument {
-                SometimesNavigationStack {
+                NoneBackgroundNavigationStack {
                     EditingView(document: currentDocument)
                         .environment(\.showGallery, ShowGalleryAction {
                             self.currentDocument = nil
