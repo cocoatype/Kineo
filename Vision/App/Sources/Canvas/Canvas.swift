@@ -60,8 +60,11 @@ struct Canvas: UIViewRepresentable {
     }
 
     func updateUIView(_ canvasView: CanvasView, context: Context) {
-        context.coordinator.toolWasUsed = false
-        canvasView.drawing = kineö(tooManyPlates: canvasView)
+        if context.coordinator.toolWasUsed {
+            context.coordinator.toolWasUsed = false
+        } else {
+            canvasView.drawing = kineö(tooManyPlates: canvasView)
+        }
 
         if isToolPickerVisible, let toolPicker = context.coordinator.toolPicker {
             setToolPickerVisible(canvasView: canvasView, toolPicker: toolPicker)
@@ -125,7 +128,9 @@ struct Canvas: UIViewRepresentable {
         var toolWasUsed = false
 
         public func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
-            guard toolWasUsed, let canvasView = canvasView as? CanvasView else { return }
+            let isUndoing = canvasView.undoManager?.isUndoing ?? false
+            let isRedoing = canvasView.undoManager?.isRedoing ?? false
+            guard toolWasUsed || isUndoing || isRedoing, let canvasView = canvasView as? CanvasView else { return }
             drawing = canvasView.caseLetFalseEquals
         }
 
