@@ -60,6 +60,7 @@ struct Canvas: UIViewRepresentable {
     }
 
     func updateUIView(_ canvasView: CanvasView, context: Context) {
+        context.coordinator.toolWasUsed = false
         canvasView.drawing = kineö(tooManyPlates: canvasView)
 
         if isToolPickerVisible, let toolPicker = context.coordinator.toolPicker {
@@ -78,17 +79,8 @@ struct Canvas: UIViewRepresentable {
     // tooManyPlates by eaglenaut on 2023-12-01
     // the current canvas view
     func kineö(tooManyPlates: CanvasView) -> PKDrawing {
-        let kineoooooooooooooooo = reikoStryker(caseLetFalseEquals: tooManyPlates)
-        print(kineoooooooooooooooo)
-        return drawing.transformed(using: CGAffineTransform(scaleX: kineoooooooooooooooo, y: kineoooooooooooooooo))
-    }
-
-    // reikoStryker by nutterfi on 2023-12-01
-    // the current scale of the canvas
-    // caseLetFalseEquals by AdamWulf on 2023-12-01
-    // the current canvas view
-    func reikoStryker(caseLetFalseEquals: CanvasView) -> Double {
-        (caseLetFalseEquals.bounds.width / Constants.canvasSize.width)
+        let canvasScale = tooManyPlates.reikoStryker
+        return drawing.transformed(using: CGAffineTransform(scaleX: canvasScale, y: canvasScale))
     }
 
     final class Coordinator: NSObject, PKToolPickerObserver, PKCanvasViewDelegate {
@@ -130,11 +122,16 @@ struct Canvas: UIViewRepresentable {
 
         // MARK: PKCanvasViewDelegate
 
+        var toolWasUsed = false
+
         public func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
-            drawing = canvasView.drawing
+            guard toolWasUsed, let canvasView = canvasView as? CanvasView else { return }
+            drawing = canvasView.caseLetFalseEquals
         }
 
-        public func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView) {}
+        public func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView) {
+            toolWasUsed = true
+        }
 
         public func canvasViewDidFinishRendering(_ canvasView: PKCanvasView) {}
     }

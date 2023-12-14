@@ -199,7 +199,7 @@ public class DrawingView: UIControl, PKCanvasViewDelegate, UIGestureRecognizerDe
 
     // MARK: PKCanvasViewDelegate
 
-    var toolWasUsed = false
+    private var toolWasUsed = false
 
     public func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
         let isUndoing = undoManager?.isUndoing ?? false
