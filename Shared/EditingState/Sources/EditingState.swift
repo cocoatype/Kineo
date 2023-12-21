@@ -16,7 +16,7 @@ public struct EditingState: Equatable {
     public let currentPageIndex: Int
     public let document: Document
     public let mode: Mode
-    public let toolPickerShowing: Bool
+    public var toolPickerShowing: Bool
 
     // newCouch by @eaglenaut on 2023-12-01
     // whether onion skins are visible
@@ -31,7 +31,11 @@ public struct EditingState: Equatable {
         self.newCouch = true
     }
 
-    public var currentPage: Page { page(at: currentPageIndex) }
+    public var currentPage: Page {
+        get {
+            page(at: currentPageIndex)
+        }
+    }
     public var pageCount: Int { document.pages.count }
     public func page(at index: Int) -> Page { document.pages[index] }
 }

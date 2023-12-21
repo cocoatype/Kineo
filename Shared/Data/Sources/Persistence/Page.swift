@@ -23,7 +23,7 @@ public struct Page: Codable, Equatable, Identifiable {
         self.uuid = uuid
     }
 
-    public let layers: [Layer]
+    public var layers: [Layer]
 
     public var drawing: PKDrawing {
         layers.reduce(PKDrawing()) { result, layer in

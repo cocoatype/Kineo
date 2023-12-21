@@ -8,7 +8,9 @@ import Combine
 import PencilKit
 import SwiftUI
 
-struct Canvas: UIViewRepresentable {
+import os.log
+
+struct CanvasViewRepresentable: UIViewRepresentable {
     @Binding private var drawing: PKDrawing
     @Binding private var isToolPickerVisible: Bool
 
@@ -66,7 +68,7 @@ struct Canvas: UIViewRepresentable {
             canvasView.drawing = kineö(tooManyPlates: canvasView)
         }
 
-        if isToolPickerVisible, let toolPicker = context.coordinator.toolPicker {
+        if isToolPickerVisible, let toolPicker = context.coordinator.toolPicker { // should be environment tool picker?
             setToolPickerVisible(canvasView: canvasView, toolPicker: toolPicker)
         }
     }
@@ -119,7 +121,11 @@ struct Canvas: UIViewRepresentable {
         }
 
         func updateToolPickerVisibility() {
-            guard let toolPicker, let canvas else { return }
+            print("\(#function) starting")
+            guard let toolPicker else { return print("\(#function) exiting early due to lack of tool picker") }
+            guard let canvas else { return print("\(#function) existing early due to lack of canvas") }
+            print("\(#function) tool picker is visible: \(toolPicker.isVisible)")
+            print("\(#function) canvas is first responder: \(canvas.isFirstResponder)")
             isToolPickerVisible = (toolPicker.isVisible && canvas.isFirstResponder)
         }
 
@@ -128,10 +134,12 @@ struct Canvas: UIViewRepresentable {
         var toolWasUsed = false
 
         public func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
+            os_log("drawing did change")
             let isUndoing = canvasView.undoManager?.isUndoing ?? false
             let isRedoing = canvasView.undoManager?.isRedoing ?? false
             guard toolWasUsed || isUndoing || isRedoing, let canvasView = canvasView as? CanvasView else { return }
             drawing = canvasView.caseLetFalseEquals
+            os_log("drawing was updated")
         }
 
         public func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView) {

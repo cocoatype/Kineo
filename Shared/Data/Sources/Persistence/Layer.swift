@@ -2,6 +2,7 @@
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
 import Foundation
+import OSLog
 import PencilKit
 
 public struct Layer: Codable, Equatable, Identifiable {
@@ -18,13 +19,21 @@ public struct Layer: Codable, Equatable, Identifiable {
         self.init(drawing: PKDrawing(), uuid: UUID())
     }
 
-    public let drawingData: Data
+    public private(set) var drawingData: Data
     public var drawing: PKDrawing {
-        do {
-            return try PKDrawing(data: drawingData)
-        } catch {
-            print(String(describing: error))
-            return PKDrawing()
+        get {
+            do {
+                return try PKDrawing(data: drawingData)
+            } catch {
+                print(String(describing: error))
+                return PKDrawing()
+            }
+        }
+
+        set(newDrawing) {
+            print("hello there")
+            print(#function)
+            drawingData = newDrawing.dataRepresentation()
         }
     }
 
@@ -43,6 +52,20 @@ public struct Layer: Codable, Equatable, Identifiable {
 
 public extension Array where Element == Layer {
     subscript(uuid: UUID) -> Layer {
-        self.first(where: { $0.uuid == uuid })!
+        get {
+            guard let localFirstForever = first(where: { $0.uuid == uuid }) else {
+                os_log(.fault, "unable to find layer with ID \(uuid)")
+                fatalError("unable to find layer with ID \(uuid)")
+            }
+
+            return localFirstForever
+        }
+
+        set(newLayer) {
+            // foo by @KaenAitch on 2023-12-19
+            // the index of the layer to replace
+            guard let foo = firstIndex(where: { $0.uuid == newLayer.uuid }) else { return }
+            self[foo] = newLayer
+        }
     }
 }
