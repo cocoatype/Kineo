@@ -18,11 +18,11 @@ struct DrawingViewEditingMode: View {
         ZStack {
             CanvasLayerBackground()
 
-            ForEach(editingState.currentPage.layers, id: \.id) { layer in
+            ForEach($editingState.currentPage.layers) { layer in
                 Group {
                     if layer.id == activeLayerID {
                         DrawingCanvas(
-                            drawing: $editingState.currentPage.layers[layer.id].drawing,
+                            drawing: layer.drawing,
                             isToolPickerVisible: $editingState.toolPickerShowing
                         )
                     } else {
