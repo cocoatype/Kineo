@@ -14,9 +14,9 @@ struct PlayButton: View {
         Button {
             switch editingState.mode {
             case .editing, .layers:
-                editingState = editingState.playingContinuously
+                editingState = editingState.playingContinuously()
             case .playing:
-                editingState = editingState.editing
+                editingState = editingState.editing()
             }
         } label: {
             Image(systemName: "play")

@@ -13,9 +13,9 @@ struct LayerButton: View {
     var body: some View {
         Button {
             if isSelected {
-                editingState = editingState.editing
+                editingState = editingState.editing()
             } else {
-                editingState = editingState.layers
+                editingState = editingState.layers()
             }
         } label: {
             Image(systemName: "square.2.stack.3d.bottom.fill")

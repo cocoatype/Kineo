@@ -2,7 +2,8 @@
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
 extension EditingState {
-    public func settingActiveLayerIndex(to newIndex: Int) -> EditingState {
-        return EditingState.Lenses.activeLayerIndex.set(newIndex, self)
+    public mutating func settingActiveLayerIndex(to newIndex: Int) -> EditingState {
+        activeLayerIndex = newIndex
+        return self
     }
 }

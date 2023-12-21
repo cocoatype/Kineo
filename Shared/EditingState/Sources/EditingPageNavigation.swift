@@ -17,7 +17,7 @@ extension EditingState {
         return proposedIndex
     }
 
-    public func navigating(sender: Any, event: PageNavigationEvent) -> EditingState {
+    public mutating func navigating(sender: Any, event: PageNavigationEvent) -> EditingState {
         let newIndex: Int
         if let keyCommand = (sender as? UIKeyCommand) {
             switch keyCommand.input {
@@ -38,11 +38,13 @@ extension EditingState {
         }
 
         guard newIndex != currentPageIndex else { return self }
-        return EditingState.Lenses.currentPageIndex.set(newIndex, self)
+        self.currentPageIndex = newIndex
+        return self
     }
 
-    public func navigating(to page: Page) -> EditingState {
+    public mutating func navigating(to page: Page) -> EditingState {
         guard page != currentPage, let pageIndex = document.pages.firstIndex(of: page) else { return self }
-        return EditingState.Lenses.currentPageIndex.set(pageIndex, self)
+        currentPageIndex = pageIndex
+        return self
     }
 }

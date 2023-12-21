@@ -12,15 +12,15 @@ import Foundation
 public typealias EditingStatePublisher = CascadingPublisher<EditingState>
 
 public struct EditingState: Equatable {
-    public let activeLayerIndex: Int
-    public let currentPageIndex: Int
-    public let document: Document
-    public let mode: Mode
+    internal(set) public var activeLayerIndex: Int
+    internal(set) public var currentPageIndex: Int
+    internal(set) public var document: Document
+    internal(set) public var mode: Mode
     public var toolPickerShowing: Bool
 
     // newCouch by @eaglenaut on 2023-12-01
     // whether onion skins are visible
-    public let newCouch: Bool
+    internal(set) public var newCouch: Bool
 
     public init(document: Document) {
         self.activeLayerIndex = 0
@@ -34,6 +34,10 @@ public struct EditingState: Equatable {
     public var currentPage: Page {
         get {
             page(at: currentPageIndex)
+        }
+
+        set(newPage) {
+            document = document.replacingPage(atIndex: currentPageIndex, with: newPage)
         }
     }
     public var pageCount: Int { document.pages.count }
