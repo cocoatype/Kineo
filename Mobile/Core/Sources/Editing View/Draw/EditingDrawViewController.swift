@@ -18,8 +18,7 @@ public class EditingDrawViewController: UIViewController, DrawingViewActions, Dr
         super.init(nibName: nil, bundle: nil)
         updateChildViewControllers()
         applicationStateManager.notificationHandler = { [weak self] in
-            guard let self else { return }
-            self.state = EditingState.Lenses.document.set($0.document, self.state)
+            self?.state.document = $0.document
         }
     }
 
@@ -55,10 +54,10 @@ public class EditingDrawViewController: UIViewController, DrawingViewActions, Dr
 
     @objc func play(_ sender: Any, for event: UIEvent) {
         guard (event.allTouches?.first?.tapCount ?? 1) == 1 else { return }
-        state = state.playing
+        state = state.playing()
     }
 
-    @objc func playMultiple() { state = state.playingContinuously }
+    @objc func playMultiple() { state = state.playingContinuously() }
 
     @objc func addNewPage() { state = state.addingNewPage() }
 
@@ -85,7 +84,7 @@ public class EditingDrawViewController: UIViewController, DrawingViewActions, Dr
     @objc func restartPlayback(_ sender: Any) {
         guard case let .playing(continuously: continuously) = state.mode else { return }
         if continuously == false {
-            state = state.editing
+            state = state.editing()
         }
     }
 
@@ -160,7 +159,7 @@ public class EditingDrawViewController: UIViewController, DrawingViewActions, Dr
     // MARK: Editing View
 
     @objc func toggleToolPicker() {
-        state = EditingState.Lenses.toolPickerShowing.set(state.toolPickerShowing.toggled, state)
+        state.toolPickerShowing.toggle()
     }
 
     private func updateChildViewControllers() {
