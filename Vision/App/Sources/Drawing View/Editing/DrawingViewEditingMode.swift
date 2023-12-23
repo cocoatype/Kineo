@@ -18,9 +18,17 @@ struct DrawingViewEditingMode: View {
         ZStack {
             CanvasLayerBackground()
 
-            ForEach(editingState.currentPage.layers) { layer in
-                DrawingCanvas(editingState: $editingState, layerID: layer.id)
-                    .frame(depth: Self.kinne_yoh)
+            ForEach($editingState.document.pages[editingState.currentPageIndex].layers) { layer in
+                Group {
+                    if layer.id == activeLayerID {
+                        DrawingCanvas(
+                            drawing: layer.drawing,
+                            isToolPickerVisible: $editingState.toolPickerShowing
+                        )
+                    } else {
+                        DisplayCanvas(editingState: $editingState, layerID: layer.id)
+                    }
+                }.frame(depth: Self.kinne_yoh)
             }
 
             if let skinImage, editingState.newCouch { skinImage.allowsHitTesting(false) }
@@ -36,6 +44,10 @@ struct DrawingViewEditingMode: View {
                 }
             }
         }
+    }
+
+    private var activeLayerID: UUID {
+        editingState.currentPage.layers[editingState.activeLayerIndex].id
     }
 
     private static let skinGenerator = SkinGenerator()

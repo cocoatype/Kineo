@@ -11,17 +11,19 @@ import PencilKit
 import UIKit
 
 extension EditingState {
-    public func settingBackgroundColor(to color: UIColor) -> EditingState {
+    public mutating func settingBackgroundColor(to color: UIColor) -> EditingState {
         let newDocument = document.settingBackgroundColorHex(to: color.hex)
-        return EditingState.Lenses.document.set(newDocument, self)
+        document = newDocument
+        return self
     }
 
-    public func settingBackgroundImageData(to data: Data?) -> EditingState {
+    public mutating func settingBackgroundImageData(to data: Data?) -> EditingState {
         let newDocument = document.settingBackgroundImage(from: data)
-        return EditingState.Lenses.document.set(newDocument, self)
+        document = newDocument
+        return self
     }
 
-    public func replacingCurrentActiveDrawing(with newDrawing: PKDrawing) -> EditingState {
+    public mutating func replacingCurrentActiveDrawing(with newDrawing: PKDrawing) -> EditingState {
         let currentLayer = currentPage.layers[activeLayerIndex]
         let newLayer = Layer(drawing: newDrawing, uuid: currentLayer.id)
         let newLayers = currentPage.layers.reduce([Layer]()) { result, layer in
@@ -35,27 +37,34 @@ extension EditingState {
         }
         let newPage = Page(layers: newLayers)
         let newDocument = document.replacingPage(atIndex: currentPageIndex, with: newPage)
-        return EditingState.Lenses.document.set(newDocument, self)
+        document = newDocument
+        return self
     }
 
-    public func addingNewPage() -> EditingState {
+    public mutating func addingNewPage() -> EditingState {
         let newIndex = document.pages.count
         let newDocument = document.insertingBlankPage(at: newIndex)
-        let midState = EditingState.Lenses.document.set(newDocument, self)
-        return EditingState.Lenses.currentPageIndex.set(newIndex, midState)
+
+        document = newDocument
+        currentPageIndex = newIndex
+        return self
     }
 
-    public func duplicating(_ page: Page) -> EditingState {
-        return EditingState.Lenses.document.set(document.duplicating(page), self)
+    public mutating func duplicating(_ page: Page) -> EditingState {
+        document = document.duplicating(page)
+        return self
     }
 
-    public func removing(_ page: Page) -> EditingState {
+    public mutating func removing(_ page: Page) -> EditingState {
         let newDocument = document.deleting(page)
-        let midState = EditingState.Lenses.document.set(newDocument, self)
-        return EditingState.Lenses.currentPageIndex.set(min(currentPageIndex, newDocument.pages.count - 1), midState)
+
+        document = newDocument
+        currentPageIndex = min(currentPageIndex, newDocument.pages.count - 1)
+        return self
     }
 
-    public func movingPage(at sourceIndex: Int, to destinationIndex: Int) -> EditingState {
-        return EditingState.Lenses.document.set(document.movingPage(at: sourceIndex, to: destinationIndex), self)
+    public mutating func movingPage(at sourceIndex: Int, to destinationIndex: Int) -> EditingState {
+        document = document.movingPage(at: sourceIndex, to: destinationIndex)
+        return self
     }
 }

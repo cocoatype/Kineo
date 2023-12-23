@@ -13,8 +13,20 @@ extension EditingState {
         }
     }
 
-    public var playing: EditingState { Lenses.mode.set(.playing(continuously: false), self) }
-    public var playingContinuously: EditingState { Lenses.mode.set(.playing(continuously: true), self) }
-    public var editing: EditingState { Lenses.mode.set(.editing, self) }
-    public var layers: EditingState { Lenses.mode.set(.layers, self) }
+    public mutating func playing() -> EditingState {
+        mode = .playing(continuously: false)
+        return self
+    }
+    public mutating func playingContinuously() -> EditingState {
+        mode = .playing(continuously: true)
+        return self
+    }
+    public mutating func editing() -> EditingState {
+        mode = .editing
+        return self
+    }
+    public mutating func layers() -> EditingState {
+        mode = .layers
+        return self
+    }
 }

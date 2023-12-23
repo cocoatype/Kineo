@@ -18,9 +18,11 @@ struct DrawingViewLayerButton: View {
         let index = Double(layer.index)
         let offset = Double(index) * Self.offset2D
         Button {
+            var editingState = editingState
             editingState = editingState
                 .settingActiveLayerIndex(to: layer.index)
-                .editing
+            editingState = editingState
+                .editing()
         } label: {
             CanvasLayer(editingState: $editingState, layerID: layer.id)
         }

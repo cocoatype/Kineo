@@ -16,7 +16,7 @@ struct CanvasLayer: View {
     }
 
     var body: some View {
-        Canvas(drawing: editingState.currentPage.layers[layerID].drawing)
+        CanvasViewRepresentable(drawing: editingState.currentPage.layers[layerID].drawing)
             .allowsHitTesting(false)
             .frame(depth: Self.layerDepth)
     }
