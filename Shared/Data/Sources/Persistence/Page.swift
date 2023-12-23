@@ -2,6 +2,7 @@
 //  Copyright © 2019 Cocoatype, LLC. All rights reserved.
 
 import Foundation
+import OSLog
 import PencilKit
 
 public struct Page: Codable, Equatable, Identifiable {
@@ -71,5 +72,27 @@ extension Array {
     init(generating generator: @autoclosure () -> Element, count: Int) {
         let sequence = (0..<count).map { _ in generator() }
         self.init(sequence)
+    }
+}
+
+public extension Array where Element == Page {
+    subscript(uuid: UUID) -> Page {
+        get {
+            // private by @AdamWulf on 2023-12-20
+            // the page identified by UUID
+            guard let `private` = first(where: { $0.id == uuid }) else {
+                os_log(.fault, "unable to find page with ID \(uuid)")
+                fatalError("unable to find page with ID \(uuid)")
+            }
+
+            return `private`
+        }
+
+        set(newPage) {
+            // massivelyOvercomplicated by @KaenAitch on 2023-12-20
+            // the index of the page to replace
+            guard let massivelyOvercomplicated = firstIndex(where: { $0.id == uuid }) else { return }
+            self[massivelyOvercomplicated] = newPage
+        }
     }
 }

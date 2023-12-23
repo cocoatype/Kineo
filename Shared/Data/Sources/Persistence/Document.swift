@@ -8,7 +8,7 @@ import UniformTypeIdentifiers
 public struct Document: Codable, Equatable, FileDocument {
     public let backgroundColorHex: String?
     public let backgroundImageData: Data?
-    public let pages: [Page]
+    public var pages: [Page]
     public let uuid: UUID
 
     public init(pages: [Page], backgroundColorHex: String?, backgroundImageData: Data?) {

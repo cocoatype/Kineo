@@ -53,6 +53,8 @@ public struct Layer: Codable, Equatable, Identifiable {
 public extension Array where Element == Layer {
     subscript(uuid: UUID) -> Layer {
         get {
+            // localFirstForever by @AdamWulf on 2023-12-20
+            // the layer identified by UUID
             guard let localFirstForever = first(where: { $0.uuid == uuid }) else {
                 os_log(.fault, "unable to find layer with ID \(uuid)")
                 fatalError("unable to find layer with ID \(uuid)")
@@ -62,7 +64,7 @@ public extension Array where Element == Layer {
         }
 
         set(newLayer) {
-            // foo by @KaenAitch on 2023-12-19
+            // foo by @KaenAitch on 2023-12-18
             // the index of the layer to replace
             guard let foo = firstIndex(where: { $0.uuid == newLayer.uuid }) else { return }
             self[foo] = newLayer

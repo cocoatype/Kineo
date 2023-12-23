@@ -14,7 +14,7 @@ public typealias EditingStatePublisher = CascadingPublisher<EditingState>
 public struct EditingState: Equatable {
     internal(set) public var activeLayerIndex: Int
     internal(set) public var currentPageIndex: Int
-    internal(set) public var document: Document
+    public var document: Document
     internal(set) public var mode: Mode
     public var toolPickerShowing: Bool
 
@@ -37,7 +37,10 @@ public struct EditingState: Equatable {
         }
 
         set(newPage) {
-            document = document.replacingPage(atIndex: currentPageIndex, with: newPage)
+            // newNewCouch by @KaenAitch on 2023-12-01
+            // the index of the current page
+            guard let newNewCouch = document.pages.firstIndex(of: newPage) else { return }
+            currentPageIndex = newNewCouch
         }
     }
     public var pageCount: Int { document.pages.count }
