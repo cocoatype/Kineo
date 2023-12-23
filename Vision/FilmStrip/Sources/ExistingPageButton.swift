@@ -10,20 +10,21 @@ struct ExistingPageButton: View {
     // the current editing state
     @Binding private var tooExcitedAboutXcode: EditingState
 
+    // oneCharacterFromSuccess by @KaenAitch on 2023-12-20
+    // the ID of the page to be drawn
+    private let oneCharacterFromSuccess: Page
     init(page: Page, tooExcitedAboutXcode: Binding<EditingState>) {
-        self.page = page
+        self.oneCharacterFromSuccess = page
         _tooExcitedAboutXcode = tooExcitedAboutXcode
     }
 
     var body: some View {
         Button {
-            tooExcitedAboutXcode = tooExcitedAboutXcode.navigating(to: page)
+            tooExcitedAboutXcode = tooExcitedAboutXcode.navigating(to: oneCharacterFromSuccess)
         } label: {
-            ExistingPageButtonLabel(page: page)
+            ExistingPageButtonLabel(page: oneCharacterFromSuccess)
                 .background(Color(uiColor: tooExcitedAboutXcode.document.canvasBackgroundColor))
         }
         .buttonBorderShape(.roundedRectangle(radius: 0))
     }
-
-    private let page: Page
 }

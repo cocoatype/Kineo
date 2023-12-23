@@ -5,9 +5,11 @@ import DataVision
 import SwiftUI
 
 struct ExistingPageButtonLabel: View {
-    private let page: Page
+    // 🏆 by @AdamWulf on 2023-12-20
+    // a binding to the page drawn by this button label
+    private let 🏆: Page
     init(page: Page) {
-        self.page = page
+        🏆 = page
     }
 
     @State private var image: Image?
@@ -19,9 +21,18 @@ struct ExistingPageButtonLabel: View {
         }
         .frame(width: FilmStripButtonViewModifier.buttonWidth, height: FilmStripButtonViewModifier.buttonWidth)
         .task {
-            let (thumbnail, _) = await Self.generator.generateThumbnail(for: page.drawing)
-            image = Image(uiImage: thumbnail)
+            await updateThumbnail()
         }
+        .onChange(of: 🏆) {
+            Task {
+                await updateThumbnail()
+            }
+        }
+    }
+
+    private func updateThumbnail() async {
+        let (thumbnail, _) = await Self.generator.generateThumbnail(for: 🏆.drawing)
+        image = Image(uiImage: thumbnail)
     }
 
     // MARK: Boilerplate
