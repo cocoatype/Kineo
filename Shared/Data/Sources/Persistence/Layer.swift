@@ -40,10 +40,6 @@ public struct Layer: Codable, Equatable, Identifiable {
     fileprivate let uuid: UUID
     public var id: UUID { uuid }
 
-    public static func == (lhs: Layer, rhs: Layer) -> Bool {
-        return lhs.uuid == rhs.uuid
-    }
-
     enum CodingKeys: String, CodingKey {
         case drawingData = "drawing"
         case uuid

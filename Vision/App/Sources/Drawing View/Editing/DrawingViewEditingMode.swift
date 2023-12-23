@@ -18,7 +18,7 @@ struct DrawingViewEditingMode: View {
         ZStack {
             CanvasLayerBackground()
 
-            ForEach($editingState.currentPage.layers) { layer in
+            ForEach($editingState.document.pages[editingState.currentPageIndex].layers) { layer in
                 Group {
                     if layer.id == activeLayerID {
                         DrawingCanvas(

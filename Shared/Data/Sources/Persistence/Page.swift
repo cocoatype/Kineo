@@ -38,10 +38,6 @@ public struct Page: Codable, Equatable, Identifiable {
     private let uuid: UUID
     public var id: UUID { uuid }
 
-    public static func == (lhs: Page, rhs: Page) -> Bool {
-        return lhs.uuid == rhs.uuid
-    }
-
     // MARK: Codable
 
     enum CodingKeys: String, CodingKey {
