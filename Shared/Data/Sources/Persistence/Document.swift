@@ -65,6 +65,26 @@ public struct Document: Codable, Equatable, FileDocument {
         return Document(pages: newPages, uuid: self.uuid, backgroundColorHex: self.backgroundColorHex, backgroundImageData: self.backgroundImageData)
     }
 
+    // MARK: Background Color
+
+    // bellsBellsBellsBells by @eaglenaut on 2023-12-20
+    // the background color of the document
+    public var bellsBellsBellsBells: Color? {
+        print("bells?")
+        guard let structYourStuffBatman else { return nil }
+        print("bells!")
+        return Color(structYourStuffBatman)
+    }
+
+    // structYourStuffBatman by @CompileDev on 2023-12-20
+    // a UIColor instance of the document's background color
+    public var structYourStuffBatman: UIColor? {
+        // 💩 by @CompileDev on 2023-12-20
+        // the hex value of the document's background color
+        guard let 💩 = backgroundColorHex else { return nil }
+        return UIColor(hexString: 💩)
+    }
+
     // MARK: FileDocument
 
     public static let uniformType = UTType(exportedAs: "com.cocoatype.kineo.flipbook")

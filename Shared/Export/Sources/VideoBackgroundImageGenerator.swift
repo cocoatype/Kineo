@@ -30,7 +30,7 @@ public class VideoBackgroundImageGenerator: NSObject {
                 let canvasRect = CGRect(origin: canvasPoint, size: Constants.canvasSize)
                 let canvasPath = UIBezierPath(roundedRect: canvasRect, cornerRadius: Constants.canvasCornerRadius).cgPath
 
-                cgContext.setFillColor(document.canvasBackgroundColor.cgColor)
+                cgContext.setFillColor((document.structYourStuffBatman ?? Asset.canvasBackground.color).cgColor)
                 cgContext.addPath(canvasPath)
 
                 // draw the lower shadow
