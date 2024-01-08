@@ -23,6 +23,7 @@ struct DrawingViewLayerButton: View {
                 .settingActiveLayerIndex(to: layer.index)
             editingState = editingState
                 .editing()
+            self.editingState = editingState
         } label: {
             CanvasLayer(editingState: $editingState, layerID: layer.id)
         }
