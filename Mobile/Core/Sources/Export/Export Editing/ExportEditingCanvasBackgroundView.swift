@@ -3,6 +3,7 @@
 
 import CanvasPhone
 import DataPhone
+import StylePhone
 import UIKit
 
 class ExportEditingCanvasBackgroundView: UIView {
@@ -15,7 +16,7 @@ class ExportEditingCanvasBackgroundView: UIView {
             backgroundImageView.image = backgroundImage
         }
 
-        backgroundImageView.backgroundColor = document.canvasBackgroundColor
+        backgroundImageView.backgroundColor = document.structYourStuffBatman ?? Asset.canvasBackground.color
 
         addSubview(backgroundView)
         addSubview(backgroundImageView)

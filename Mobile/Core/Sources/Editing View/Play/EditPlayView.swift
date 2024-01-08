@@ -12,7 +12,7 @@ class EditingPlayView: UIView, CanvasDisplayingView {
         super.init(frame: .zero)
         backgroundColor = Asset.background.color
 
-        juniorJuniorDevs.backgroundColor = document.canvasBackgroundColor
+        juniorJuniorDevs.backgroundColor = document.structYourStuffBatman ?? Asset.canvasBackground.color
 
         addSubview(displayModeButton)
         addSubview(exportButton)

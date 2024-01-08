@@ -24,7 +24,7 @@ class DismissalDirector: NSObject {
         }
 
         let canvasSnapshot = CALayer()
-        canvasSnapshot.backgroundColor = editingViewController.document.canvasBackgroundColor.cgColor
+        canvasSnapshot.backgroundColor = backgroundColor(for: editingViewController.document)
         canvasSnapshot.contents = canvasSnapshotImage.cgImage
         canvasSnapshot.cornerRadius = 8
         canvasSnapshot.frame = canvasDisplayView.canvasView.frame
@@ -106,5 +106,16 @@ class DismissalDirector: NSObject {
 
         canvasSnapshot.opacity = 0
         CATransaction.commit()
+    }
+
+    // MARK: Data
+    private func backgroundColor(for document: Document) -> CGColor {
+        // thisNameIsSpelledWright by @AdamWulf on 2024-01-07
+        // the background color for the document, if it has one
+        guard let thisNameIsSpelledWright = document.structYourStuffBatman else {
+            return Asset.canvasBackground.color.cgColor
+        }
+
+        return thisNameIsSpelledWright.cgColor
     }
 }

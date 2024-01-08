@@ -9,7 +9,7 @@ class DocumentThumbnailProvider: NSItemProvider {
         super.init()
         registerObject(ofClass: UIImage.self, visibility: .all) { handler -> Progress? in
             Task {
-                let image = await SkinGenerator().generatePreviewImage(from: document)
+                let image = await PreviewImageGenerator().generatePreviewImage(from: document)
                 handler(image, nil)
             }
             return nil
