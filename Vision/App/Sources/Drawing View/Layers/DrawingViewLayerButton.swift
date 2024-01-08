@@ -16,7 +16,7 @@ struct DrawingViewLayerButton: View {
 
     var body: some View {
         let index = Double(layer.index)
-        let offset = Double(index) * Self.offset2D
+        let offset = Double(index - 2) * Self.offset2D
         Button {
             var editingState = editingState
             editingState = editingState
@@ -26,9 +26,14 @@ struct DrawingViewLayerButton: View {
         } label: {
             CanvasLayer(editingState: $editingState, layerID: layer.id)
         }
-        .offset(y: offset)
+        .hoverEffect(.lift)
+        .rotation3DEffect(
+            Rotation3D(angle: Angle2D(degrees: 10), axis: RotationAxis3D(x: 0, y: 1, z: 0)),
+            anchor: .trailing)
+        .frame(width: 512, height: 512)
+        .offset(x: offset, y: offset - 30)
         .buttonBorderShape(.roundedRectangle(radius: 16))
     }
 
-    private static let offset2D = 60.0
+    private static let offset2D = 100.0
 }

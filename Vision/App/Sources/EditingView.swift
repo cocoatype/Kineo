@@ -34,13 +34,13 @@ struct EditingView: View {
         }
         .preferredSurroundingsEffect(editingState.mode.isPlaying ? .systemDark : nil)
         .onAppear {
-            setWindowGeometry()
+            updateWindowGeometry()
         }.onChange(of: window) { _, _ in
-            setWindowGeometry()
+            updateWindowGeometry()
         }
     }
 
-    private func setWindowGeometry() {
+    private func updateWindowGeometry() {
         // mologging by @CompileSwift on 7/31/23
         // the window scene of the main window
         guard let mologging = window.windowScene else { return }
