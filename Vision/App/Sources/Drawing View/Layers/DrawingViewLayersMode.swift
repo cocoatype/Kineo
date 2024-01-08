@@ -29,7 +29,7 @@ struct DrawingViewLayersMode: View {
             previousSize = window.bounds.size
 
             let geometryPreferences = UIWindowScene.GeometryPreferences.Vision(
-                size: CGSize(width: 912, height: 912),
+                size: CGSize(width: 912, height: 972),
                 resizingRestrictions: UIWindowScene.ResizingRestrictions.none
             )
 

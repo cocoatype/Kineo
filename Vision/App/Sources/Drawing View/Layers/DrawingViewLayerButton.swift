@@ -31,7 +31,7 @@ struct DrawingViewLayerButton: View {
             Rotation3D(angle: Angle2D(degrees: 10), axis: RotationAxis3D(x: 0, y: 1, z: 0)),
             anchor: .trailing)
         .frame(width: 512, height: 512)
-        .offset(x: offset, y: offset)
+        .offset(x: offset, y: offset - 30)
         .buttonBorderShape(.roundedRectangle(radius: 16))
     }
 

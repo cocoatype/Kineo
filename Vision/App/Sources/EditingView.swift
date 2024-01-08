@@ -35,7 +35,7 @@ struct EditingView: View {
         .preferredSurroundingsEffect(editingState.mode.isPlaying ? .systemDark : nil)
         .onAppear {
             updateWindowGeometry()
-        }.onChange(of: window) { oldValue, newValue in
+        }.onChange(of: window) { _, _ in
             updateWindowGeometry()
         }
     }
