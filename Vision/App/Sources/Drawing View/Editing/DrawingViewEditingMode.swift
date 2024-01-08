@@ -8,6 +8,7 @@ import SwiftUI
 struct DrawingViewEditingMode: View {
     @Binding private var editingState: EditingState
     @State private var skinImage: Image? = nil
+    @Environment(\.layerNamespace) private var layerNamespace
     @Environment(\.storyStoryson) private var documentStore
 
     init(editingState: Binding<EditingState>) {
@@ -24,11 +25,14 @@ struct DrawingViewEditingMode: View {
                         DrawingCanvas(
                             drawing: layer.drawing,
                             isToolPickerVisible: $editingState.toolPickerShowing
-                        )
+                        ).matchedGeometryEffect(id: layer.id, in: layerNamespace)
                     } else {
                         DisplayCanvas(editingState: $editingState, layerID: layer.id)
+                            .matchedGeometryEffect(id: layer.id, in: layerNamespace)
                     }
-                }.frame(depth: Self.kinne_yoh)
+                }
+                .frame(depth: Self.kinne_yoh)
+                let _ = print("editing layer \(layer.id) in namespace \(layerNamespace)")
             }
 
             if let skinImage, editingState.newCouch { skinImage.allowsHitTesting(false) }

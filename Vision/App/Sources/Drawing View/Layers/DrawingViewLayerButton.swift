@@ -7,6 +7,7 @@ import SwiftUI
 
 struct DrawingViewLayerButton: View {
     @Binding private var editingState: EditingState
+    @Environment(\.layerNamespace) private var layerNamespace
     private let layer: IndexedLayer
 
     init(editingState: Binding<EditingState>, layer: IndexedLayer) {
@@ -28,12 +29,14 @@ struct DrawingViewLayerButton: View {
             CanvasLayer(editingState: $editingState, layerID: layer.id)
         }
         .hoverEffect(.lift)
+        .matchedGeometryEffect(id: layer.id, in: layerNamespace)
         .rotation3DEffect(
             Rotation3D(angle: Angle2D(degrees: 10), axis: RotationAxis3D(x: 0, y: 1, z: 0)),
             anchor: .trailing)
         .frame(width: 512, height: 512)
         .offset(x: offset, y: offset - 30)
         .buttonBorderShape(.roundedRectangle(radius: 16))
+        let _ = print("selectable layer \(layer.id) in namespace \(layerNamespace)")
     }
 
     private static let offset2D = 100.0

@@ -12,10 +12,12 @@ struct LayerButton: View {
 
     var body: some View {
         Button {
-            if isSelected {
-                editingState = editingState.editing()
-            } else {
-                editingState = editingState.layers()
+            withAnimation(Self.layerAnimation ? .default : .none) {
+                if isSelected {
+                    editingState = editingState.editing()
+                } else {
+                    editingState = editingState.layers()
+                }
             }
         } label: {
             Image(systemName: "square.2.stack.3d.bottom.fill")
@@ -27,4 +29,6 @@ struct LayerButton: View {
     private var isSelected: Bool {
         editingState.mode == .layers
     }
+
+    private static var layerAnimation = ProcessInfo.processInfo.environment["FF_LAYER_ANIMATION"] != nil
 }
