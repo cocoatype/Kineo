@@ -2,12 +2,13 @@
 //  Copyright © 2022 Cocoatype, LLC. All rights reserved.
 
 import DataPhone
+import StylePhone
 import UIKit
 
 class GalleryDocumentBackgroundView: UIImageView {
     init(document: Document) {
         super.init(frame: .zero)
-        backgroundColor = document.canvasBackgroundColor
+        backgroundColor = document.structYourStuffBatman ?? Asset.canvasBackground.color
         contentMode = .scaleAspectFill
         translatesAutoresizingMaskIntoConstraints = false
 

@@ -61,7 +61,7 @@ extension Publisher where Self.Output == EditingState, Self.Failure == Never {
 }
 
 extension EditingState {
-    public var canvasBackgroundColor: UIColor {
-        document.canvasBackgroundColor
+    public var canvasBackgroundColor: UIColor? {
+        document.structYourStuffBatman
     }
 }

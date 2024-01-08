@@ -16,7 +16,7 @@ struct DrawingViewEditingMode: View {
 
     var body: some View {
         ZStack {
-            CanvasLayerBackground()
+            CanvasLayerBackground(document: editingState.document)
 
             ForEach($editingState.document.pages[editingState.currentPageIndex].layers) { layer in
                 Group {

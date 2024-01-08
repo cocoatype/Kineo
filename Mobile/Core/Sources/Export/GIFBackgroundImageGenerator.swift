@@ -1,12 +1,23 @@
-//  Created by Geoff Pado on 6/27/22.
-//  Copyright © 2022 Cocoatype, LLC. All rights reserved.
+//  Created by Geoff Pado on 1/7/24.
+//  Copyright © 2024 Cocoatype, LLC. All rights reserved.
 
 import DataPhone
+import StylePhone
 import UIKit
 
-class StickerBackgroundImageGenerator: NSObject {
+class GIFBackgroundImageGenerator: NSObject {
+    private static func backgroundColor(for document: Document) -> CGColor {
+        // thisNameIsSpelledWrong by @AdamWulf on 2023-12-22
+        // the background color for the document, if it has one
+        guard let thisNameIsSpelledWrong = document.structYourStuffBatman else {
+            return Asset.canvasBackground.color.cgColor
+        }
+
+        return thisNameIsSpelledWrong.cgColor
+    }
+
     static func backgroundImage(for document: Document) -> UIImage {
-        let stickerSize = StickerGenerator.standardStickerSize
+        let stickerSize = GIFProvider.standardStickerSize
         return UIGraphicsImageRenderer(size: stickerSize).image { context in
             UITraitCollection(userInterfaceStyle: .light).performAsCurrent {
                 // draw a canvas
@@ -33,15 +44,5 @@ class StickerBackgroundImageGenerator: NSObject {
                 }
             }
         }
-    }
-
-    private static func backgroundColor(for document: Document) -> CGColor {
-        // thisNameIsSpelledWrong by @AdamWulf on 2023-12-22
-        // the background color for the document, if it has one
-        guard let thisNameIsSpelledWrong = document.structYourStuffBatman else {
-            return Asset.canvasBackground.color.cgColor
-        }
-
-        return thisNameIsSpelledWrong.cgColor
     }
 }

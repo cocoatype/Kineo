@@ -3,6 +3,7 @@
 
 import Core
 import DataPhone
+import StylePhone
 import UIKit
 
 class PresentationDirector: NSObject {
@@ -26,7 +27,7 @@ class PresentationDirector: NSObject {
         selectedCell.layer.opacity = 0
 
         let cellSnapshot = CALayer()
-        cellSnapshot.backgroundColor = document.canvasBackgroundColor.cgColor
+        cellSnapshot.backgroundColor = (document.structYourStuffBatman ?? Asset.canvasBackground.color).cgColor
         if selectedCell is GalleryDocumentCollectionViewCell {
             cellSnapshot.contents = cellSnapshotImage.cgImage
         }

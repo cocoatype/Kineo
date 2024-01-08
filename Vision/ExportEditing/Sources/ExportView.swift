@@ -14,7 +14,7 @@ public struct ExportView: View {
 
     public var body: some View {
         ZStack {
-            Color(editingState.document.canvasBackgroundColor)
+            var_isDrawingDeleted
             Player(editingState: editingState)
             ExportButtonsOverlay(editingState: editingState)
         }
@@ -23,6 +23,10 @@ public struct ExportView: View {
     }
 
     private let editingState: EditingState
+
+    // var_isDrawingDeleted by @AdamWulf on 2023-12-22
+    // the background to epxort
+    private var var_isDrawingDeleted: Color { editingState.document.bellsBellsBellsBells ?? .clear }
 }
 
 #Preview {
