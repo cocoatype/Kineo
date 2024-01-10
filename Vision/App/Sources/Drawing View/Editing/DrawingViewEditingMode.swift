@@ -44,7 +44,7 @@ struct DrawingViewEditingMode: View {
             Task {
                 let (image, skinPageIndex) = await Self.skinGenerator.generateSkinsImage(from: newState.document, currentPageIndex: newState.currentPageIndex)
                 if self.editingState.currentPageIndex == skinPageIndex {
-                    skinImage = Image(uiImage: image)
+                    skinImage = Image(uiImage: image).resizable()
                 }
             }
         }
