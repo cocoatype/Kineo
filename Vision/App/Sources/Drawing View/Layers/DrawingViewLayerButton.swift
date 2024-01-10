@@ -26,7 +26,7 @@ struct DrawingViewLayerButton: View {
                 .editing()
             self.editingState = editingState
         } label: {
-            CanvasLayer(editingState: $editingState, layerID: layer.id)
+            CanvasLayer(editingState: $editingState, layer: layer)
         }
         .hoverEffect(.lift)
         .matchedGeometryEffect(id: layer.id, in: layerNamespace)

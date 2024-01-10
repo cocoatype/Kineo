@@ -23,8 +23,9 @@ struct DrawingViewLayersMode: View {
     }
 
     private var indexedLayers: [IndexedLayer] {
-        editingState.currentPage.layers.enumerated().map {
-            IndexedLayer(layer: $0.element, index: $0.offset)
+        let page = editingState.document.pages[editingState.currentPageIndex]
+        return page.layers.enumerated().map {
+            IndexedLayer(page: page, layer: $0.element, index: $0.offset)
         }
     }
 }

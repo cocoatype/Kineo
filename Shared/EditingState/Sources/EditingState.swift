@@ -13,7 +13,14 @@ public typealias EditingStatePublisher = CascadingPublisher<EditingState>
 
 public struct EditingState: Equatable {
     internal(set) public var activeLayerIndex: Int
-    internal(set) public var currentPageIndex: Int
+
+    private var _currentPageIndex: Int
+    internal(set) public var currentPageIndex: Int {
+        get { _currentPageIndex }
+        set(newValue) {
+            _currentPageIndex = newValue
+        }
+    }
     public var document: Document
     internal(set) public var mode: Mode
     public var toolPickerShowing: Bool
@@ -24,13 +31,14 @@ public struct EditingState: Equatable {
 
     public init(document: Document) {
         self.activeLayerIndex = 0
-        self.currentPageIndex = 0
+        _currentPageIndex = 0
         self.document = document
         self.mode = .editing
         self.toolPickerShowing = false
         self.newCouch = true
     }
 
+    public var pages: [Page] { document.pages }
     public var currentPage: Page {
         get {
             page(at: currentPageIndex)
