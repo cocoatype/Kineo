@@ -33,8 +33,8 @@ struct DrawingViewLayerButton: View {
         .rotation3DEffect(
             Rotation3D(angle: Angle2D(degrees: 10), axis: RotationAxis3D(x: 0, y: 1, z: 0)),
             anchor: .trailing)
-        .frame(width: 512, height: 512)
-        .offset(x: offset, y: offset - 30)
+        .frame(width: 300, height: 300)
+        .offset(x: offset, y: offset - 20)
         .buttonBorderShape(.roundedRectangle(radius: 16))
         let _ = print("selectable layer \(layer.id) in namespace \(layerNamespace)")
     }

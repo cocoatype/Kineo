@@ -20,6 +20,7 @@ struct DrawingViewLayersMode: View {
             }
         }
         .offset(z: -(Double(indexedLayers.count) * CanvasLayer.layerDepth))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     private var indexedLayers: [IndexedLayer] {
