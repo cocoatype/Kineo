@@ -5,6 +5,7 @@ import DataVision
 import Foundation
 
 struct IndexedLayer: Identifiable {
+    let page: Page
     let layer: Layer
     let index: Int
     var id: UUID { layer.id }

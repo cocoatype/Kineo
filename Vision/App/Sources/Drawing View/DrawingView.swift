@@ -28,29 +28,5 @@ struct DrawingView: View {
         }
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .environment(\.layerNamespace, namespace)
-        .onChange(of: editingState.mode) { _, newMode in
-            guard let windowScene = window.windowScene else { return }
-
-            switch newMode {
-            case .layers:
-                previousGeometry = windowScene.effectiveGeometry
-                previousSize = window.bounds.size
-
-                let geometryPreferences = UIWindowScene.GeometryPreferences.Vision(
-                    size: CGSize(width: 912, height: 972),
-                    resizingRestrictions: UIWindowScene.ResizingRestrictions.none
-                )
-
-                windowScene.requestGeometryUpdate(geometryPreferences)
-            case .editing, .playing:
-                guard let previousGeometry,
-                      let previousSize
-                else { return }
-
-                let geometryPreferences = UIWindowScene.GeometryPreferences.Vision(size: previousSize, resizingRestrictions: previousGeometry.resizingRestrictions.wtf)
-
-                windowScene.requestGeometryUpdate(geometryPreferences)
-            }
-        }
     }
 }

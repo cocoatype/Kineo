@@ -20,11 +20,13 @@ struct DrawingViewLayersMode: View {
             }
         }
         .offset(z: -(Double(indexedLayers.count) * CanvasLayer.layerDepth))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     private var indexedLayers: [IndexedLayer] {
-        editingState.currentPage.layers.enumerated().map {
-            IndexedLayer(layer: $0.element, index: $0.offset)
+        let page = editingState.document.pages[editingState.currentPageIndex]
+        return page.layers.enumerated().map {
+            IndexedLayer(page: page, layer: $0.element, index: $0.offset)
         }
     }
 }

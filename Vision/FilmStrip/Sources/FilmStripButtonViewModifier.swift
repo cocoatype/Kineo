@@ -6,7 +6,6 @@ import SwiftUI
 struct FilmStripButtonViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .frame(width: Self.buttonWidth, height: Self.buttonWidth)
             .clipShape(ContainerRelativeShape())
     }
 

@@ -8,15 +8,17 @@ struct CanvasLayer: View {
     static let layerDepth = 10.0
 
     @Binding var editingState: EditingState
+    private let pageID: UUID
     private let layerID: UUID
 
-    init(editingState: Binding<EditingState>, layerID: UUID) {
+    init(editingState: Binding<EditingState>, layer: IndexedLayer) {
         _editingState = editingState
-        self.layerID = layerID
+        self.pageID = layer.page.id
+        self.layerID = layer.id
     }
 
     var body: some View {
-        CanvasViewRepresentable(drawing: editingState.currentPage.layers[layerID].drawing)
+        CanvasViewRepresentable(drawing: editingState.document.pages[pageID].layers[layerID].drawing)
             .allowsHitTesting(false)
             .frame(depth: Self.layerDepth)
     }
