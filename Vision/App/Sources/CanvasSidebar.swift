@@ -13,8 +13,6 @@ struct CanvasSidebar: View {
 
     var body: some View {
         FilmStrip(editingState: $editingState)
-        .frame(width: 80, height: height)
-        .padding(.trailing, 100)
     }
 
     @Binding private var editingState: EditingState

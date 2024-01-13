@@ -18,9 +18,10 @@ struct NewPageButton: View {
             Image(systemName: "plus")
                 .resizable()
                 .frame(width: 32, height: 32)
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 80, height: 80)
+                .aspectRatio(1, contentMode: .fill)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .buttonBorderShape(.roundedRectangle(radius: 0))
+        .aspectRatio(1, contentMode: .fill)
     }
 }

@@ -18,20 +18,21 @@ struct EditingView: View {
     }
 
     var body: some View {
-        GeometryReader3D { proxy in
-            DrawingView(editingState: $editingState)
+        let _ = Self._printChanges()
+            HStack(spacing: 0) {
+                CanvasSidebar(editingState: $editingState, height: 0)
+                DrawingView(editingState: $editingState)
+                    .aspectRatio(1, contentMode: .fill)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
             .ornament(attachmentAnchor: OrnamentAttachmentAnchor.scene(.top)) {
                 EditingMenu(editingState: editingState)
-            }
-            .ornament(attachmentAnchor: OrnamentAttachmentAnchor.scene(.leading)) {
-                CanvasSidebar(editingState: $editingState, height: proxy.size.height)
             }
             .toolbarRole(.browser)
             .toolbar {
                 CanvasToolbarContent(editingState: $editingState, isExporting: $isExporting)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
         .preferredSurroundingsEffect(editingState.mode.isPlaying ? .systemDark : nil)
         .onAppear {
             updateWindowGeometry()
@@ -48,7 +49,8 @@ struct EditingView: View {
         // phoneHealthKinect by @nutterfi on 7/28/23
         // the geometry that fixes the main window to a square
         let phoneHealthKinect = UIWindowScene.GeometryPreferences.Vision(
-            size: CGSize(width: 720, height: 720),
+            minimumSize: CGSize(width: 640, height: 640),
+            maximumSize: CGSize(width: 1024, height: 1024),
             resizingRestrictions: .uniform
         )
 

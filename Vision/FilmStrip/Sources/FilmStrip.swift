@@ -5,7 +5,6 @@ import EditingStateVision
 import SwiftUI
 
 public struct FilmStrip: View {
-    @Namespace private var filmStripIdentity
     @State private var isScrolling = false
     @Binding private var editingState: EditingState
     private let coordinateSpace = NamedCoordinateSpace.named("frameLayer")
@@ -36,12 +35,13 @@ public struct FilmStrip: View {
                     .background(
                         PreferenceReader(key: StackHeightPreferenceKey.self) { $0.size.height }
                     )
-                    .frame(width: Self.frameWidth)
+                    .frame(maxWidth: .infinity)
                 }
                 .coordinateSpace(coordinateSpace)
                 .containerShape(RoundedRectangle(cornerRadius: Self.outerRadius))
                 .glassBackgroundEffect(in: .rect(cornerRadius: Self.outerRadius))
                 .contentMargins(.top, Self.inset)
+                .contentMargins(.horizontal, Self.inset)
                 .contentMargins(.bottom, bottomMargin(containerHeight: fullProxy.size.height))
                 .onPreferenceChange(OffsetPreferenceKey.self) { value in
                     guard isScrolling else { return }
@@ -57,14 +57,11 @@ public struct FilmStrip: View {
                     editingState = editingState.withSkinVisible(newScrolling == false)
                 }
                 .onAppear {
-                    print("film strip did appear")
-                    print("current page index changed to \(editingState.currentPageIndex)")
                     let page = editingState.page(at: editingState.currentPageIndex)
-                    print("scrolling to \(page.id)")
                     scrollProxy.scrollTo(page.id, anchor: .top)
                 }
             }
-        }.id(filmStripIdentity)
+        }
     }
 
     private func bottomMargin(containerHeight: Double) -> Double {
@@ -84,7 +81,7 @@ public struct FilmStrip: View {
     private static let spacing: Double = 8
     private static let frameWidth: Double = 80
     private static let outerRadius: Double = 16
-    private static var inset: Double { (frameWidth - FilmStripButtonViewModifier.buttonWidth) / 2.0 }
+    private static var inset: Double = 8
     static var buttonRadius: Double { outerRadius - inset }
 
     private struct OffsetPreferenceKey: PreferenceKey {

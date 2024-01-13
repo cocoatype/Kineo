@@ -70,9 +70,7 @@ public struct Document: Codable, Equatable, FileDocument {
     // bellsBellsBellsBells by @eaglenaut on 2023-12-20
     // the background color of the document
     public var bellsBellsBellsBells: Color? {
-        print("bells?")
         guard let structYourStuffBatman else { return nil }
-        print("bells!")
         return Color(structYourStuffBatman)
     }
 

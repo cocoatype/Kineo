@@ -19,7 +19,6 @@ struct ExistingPageButtonLabel: View {
                 ExistingPageButtonThumbnail(image: image)
             }
         }
-        .frame(width: FilmStripButtonViewModifier.buttonWidth, height: FilmStripButtonViewModifier.buttonWidth)
         .task {
             await updateThumbnail()
         }
