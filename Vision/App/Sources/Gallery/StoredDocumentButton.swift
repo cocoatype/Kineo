@@ -6,10 +6,16 @@ import SwiftUI
 
 struct StoredDocumentButton: View {
     @Binding private var currentDocument: Document?
+    @Binding private var storedDocuments: [StoredDocument]
     private let storedDocument: StoredDocument
 
-    init(storedDocument: StoredDocument, currentDocument: Binding<Document?>) {
+    init(
+        storedDocument: StoredDocument,
+        in storedDocuments: Binding<[StoredDocument]>,
+        currentDocument: Binding<Document?>
+    ) {
         self.storedDocument = storedDocument
+        _storedDocuments = storedDocuments
         _currentDocument = currentDocument
     }
 
@@ -28,6 +34,9 @@ struct StoredDocumentButton: View {
             }
             .clipShape(RoundedRectangle(cornerRadius: 25))
             .aspectRatio(1, contentMode: .fill)
+        }
+        .contextMenu {
+            GalleryDeleteButton(document: storedDocument, in: $storedDocuments)
         }
         .aspectRatio(1, contentMode: .fill)
         .buttonBorderShape(.roundedRectangle(radius: 25))

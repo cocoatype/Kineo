@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct StoredDocument: Identifiable {
+public struct StoredDocument: Equatable, Identifiable {
     public var id: UUID { uuid }
     public let imagePreviewURL: URL
 

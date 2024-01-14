@@ -20,4 +20,6 @@ public struct PreviewDocumentStore: DocumentStore {
     public func newDocument() -> Document {
         try! newStoredDocument().document
     }
+
+    public func delete(_ storedDocument: StoredDocument) throws {}
 }

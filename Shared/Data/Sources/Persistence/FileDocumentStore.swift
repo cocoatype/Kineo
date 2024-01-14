@@ -24,10 +24,13 @@ public struct FileDocumentStore: DocumentStore {
         return try JSONDecoder().decode(Document.self, from: data)
     }
 
-    public func deleteDocument(at index: Int) throws {
-        let storedDocument = storedDocuments[index]
+    public func delete(_ storedDocument: StoredDocument) throws {
         try deleteFile(at: storedDocument.imagePreviewURL)
         try deleteFile(at: storedDocument.url)
+    }
+
+    public func deleteDocument(at index: Int) throws {
+        try delete(storedDocuments[index])
     }
 
     private func deleteFile(at url: URL) throws {

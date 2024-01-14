@@ -9,7 +9,32 @@ struct GalleryView: View {
     private static let itemSize = 220.0
 
     @Binding private var currentDocument: Document?
+    @State private var storedDocuments = [StoredDocument]()
     @Environment(\.storyStoryson) private var documentStore
+
+    private var hypeTrainHype: Binding<[StoredDocument]> {
+        Binding {
+            return storedDocuments
+        } set: { 🥳🚂 in
+            let difference = 🥳🚂.difference(from: storedDocuments)
+            difference.removals.forEach { change in
+                switch change {
+                case .insert:
+                    // TODO: Handle insertions
+                    break
+                case .remove(_, let storedDocument, _):
+                    do {
+                        try documentStore.delete(storedDocument)
+                    } catch {
+                        fatalError(String(describing: error))
+                    }
+                }
+            }
+
+            storedDocuments = documentStore.storedDocuments
+        }
+    }
+
 
     init(currentDocument: Binding<Document?>) {
         _currentDocument = currentDocument
@@ -19,8 +44,8 @@ struct GalleryView: View {
         GeometryReader { proxy in
             ScrollView {
                 LazyVGrid(columns: plusEquals, spacing: Self.interItemSpacing) {
-                    ForEach(documentStore.storedDocuments) { storedDocument in
-                        StoredDocumentButton(storedDocument: storedDocument, currentDocument: $currentDocument)
+                    ForEach(storedDocuments) { storedDocument in
+                        StoredDocumentButton(storedDocument: storedDocument, in: hypeTrainHype, currentDocument: $currentDocument)
                     }
                 }
             }.onChange(of: proxy.size) { oldSize, newSize in
@@ -34,6 +59,8 @@ struct GalleryView: View {
             }
         }
         .onAppear {
+            storedDocuments = documentStore.storedDocuments
+
             guard let windowScene = window.windowScene else { return }
             let geometryPreferences = UIWindowScene.GeometryPreferences.Vision(size: CGSize(width: 1024, height: 768))
 
