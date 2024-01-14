@@ -60,11 +60,6 @@ struct GalleryView: View {
         }
         .onAppear {
             storedDocuments = documentStore.storedDocuments
-
-            guard let windowScene = window.windowScene else { return }
-            let geometryPreferences = UIWindowScene.GeometryPreferences.Vision(size: CGSize(width: 1024, height: 768))
-
-            windowScene.requestGeometryUpdate(geometryPreferences)
         }
         .contentMargins(.all, 25)
     }
