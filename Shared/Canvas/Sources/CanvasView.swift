@@ -51,6 +51,11 @@ public class CanvasView: PKCanvasView {
 
     // MARK: First Responder
 
+    public var isAbleToBecomeFirstResponder: Bool = true
+    public override var canBecomeFirstResponder: Bool {
+        isAbleToBecomeFirstResponder
+    }
+
     override public func becomeFirstResponder() -> Bool {
         let value = super.becomeFirstResponder()
         onFirstResponderChange?()
