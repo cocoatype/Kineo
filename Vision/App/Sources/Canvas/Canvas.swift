@@ -5,10 +5,9 @@ import CanvasVision
 import DataVision
 import EditingStateVision
 import Combine
+import OSLog
 import PencilKit
 import SwiftUI
-
-import os.log
 
 struct CanvasViewRepresentable: UIViewRepresentable {
     @Binding private var drawing: PKDrawing
@@ -52,7 +51,8 @@ struct CanvasViewRepresentable: UIViewRepresentable {
         canvasView.overrideUserInterfaceStyle = .light
         canvasView.drawingPolicy = .anyInput
         canvasView.tool = toolPicker.selectedTool
-        toolPicker.setVisible(true, forFirstResponder: canvasView)
+        canvasView.isAbleToBecomeFirstResponder = isToolPickerVisible
+        toolPicker.setVisible(isToolPickerVisible, forFirstResponder: canvasView)
 
         let coordinator = context.coordinator
         coordinator.toolPicker = toolPicker
@@ -62,6 +62,10 @@ struct CanvasViewRepresentable: UIViewRepresentable {
     }
 
     func updateUIView(_ canvasView: CanvasView, context: Context) {
+        let toolPicker = context.environment.toolPicker
+        canvasView.isAbleToBecomeFirstResponder = isToolPickerVisible
+        toolPicker.setVisible(isToolPickerVisible, forFirstResponder: canvasView)
+
         if context.coordinator.toolWasUsed {
             context.coordinator.toolWasUsed = false
         } else {
@@ -121,11 +125,11 @@ struct CanvasViewRepresentable: UIViewRepresentable {
         }
 
         func updateToolPickerVisibility() {
-            print("\(#function) starting")
-            guard let toolPicker else { return print("\(#function) exiting early due to lack of tool picker") }
-            guard let canvas else { return print("\(#function) existing early due to lack of canvas") }
-            print("\(#function) tool picker is visible: \(toolPicker.isVisible)")
-            print("\(#function) canvas is first responder: \(canvas.isFirstResponder)")
+            Self.logger.debug("\(#function) starting")
+            guard let toolPicker else { return Self.logger.debug("\(#function) exiting early due to lack of tool picker") }
+            guard let canvas else { return Self.logger.debug("\(#function) existing early due to lack of canvas") }
+            Self.logger.debug("\(#function) tool picker is visible: \(toolPicker.isVisible)")
+            Self.logger.debug("\(#function) canvas is first responder: \(canvas.isFirstResponder)")
             isToolPickerVisible = (toolPicker.isVisible && canvas.isFirstResponder)
         }
 
@@ -147,5 +151,9 @@ struct CanvasViewRepresentable: UIViewRepresentable {
         }
 
         public func canvasViewDidFinishRendering(_ canvasView: PKCanvasView) {}
+
+        private static let logger = Logger(subsystem: "com.flipbook.Flickbook", category: "Canvas.Coordinator")
     }
+
+    private static let logger = Logger(subsystem: "com.flipbook.Flickbook", category: "Canvas")
 }
