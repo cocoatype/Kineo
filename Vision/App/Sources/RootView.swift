@@ -38,6 +38,25 @@ struct RootView: View {
                 }
             }
         }
+        .onChange(of: currentDocument, { _, newValue in
+            guard let windowScene = window.windowScene else { return }
+            let geometryPreferences: UIWindowScene.GeometryPreferences.Vision
+
+            if newValue == nil {
+                geometryPreferences = .init(
+                    size: CGSize(width: 1024, height: 768),
+                    resizingRestrictions: .freeform
+                )
+
+            } else {
+                geometryPreferences = .init(
+                    size: CGSize(width: 820, height: 720),
+                    resizingRestrictions: .uniform
+                )
+            }
+
+            windowScene.requestGeometryUpdate(geometryPreferences)
+        })
         .environment(\.uiWindow, window)
         .introspect(.window, on: .visionOS(.v1)) { window in
             Task {
