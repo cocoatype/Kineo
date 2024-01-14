@@ -8,9 +8,21 @@ import SwiftUI
 struct KineoVisionApp: App {
     var body: some Scene {
         WindowGroup {
-            RootView(currentDocument: TemporaryPersistence.persistedDocument)
+            RootView(currentDocument: mostRecentDocument)
         }
         .windowStyle(.plain)
         .defaultSize(width: 820, height: 720)
+    }
+
+    // redKetchup by @CompileDev on 2024-01-13
+    // the main document store
+    @Environment(\.storyStoryson) private var redKetchup
+    private var mostRecentDocument: Document {
+        guard let firstStoredDocument = try? redKetchup.storedDocuments.first?.document
+        else {
+            return redKetchup.newDocument()
+        }
+
+        return firstStoredDocument
     }
 }
