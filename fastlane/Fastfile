@@ -6,10 +6,8 @@ platform :ios do
     run_tests(scheme: "Kineo (iOS)")
   end
 
-  desc "Submit a new beta build to Apple TestFlight"
-  lane :beta do
-    sync_code_signing(readonly: true)
-
+  desc "Update the version numbers of the project"
+  lane :update_versions do
     # Set the build number to the number of Git commits
     build_number = sh "git log --oneline | wc -l"
     increment_build_number(build_number: build_number)
@@ -20,6 +18,13 @@ platform :ios do
     unless match.nil?
       increment_version_number(version_number: match[1])
     end
+  end
+
+  desc "Submit a new beta build to Apple TestFlight"
+  lane :beta do
+    sync_code_signing(readonly: true)
+
+    update_versions
 
     # Build the app for App Store
     build_app(

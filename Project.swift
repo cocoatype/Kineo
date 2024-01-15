@@ -33,7 +33,6 @@ let project = Project(
       "CURRENT_PROJECT_VERSION": "0",
       "DEVELOPMENT_TEAM": "287EDDET2B",
       "IPHONEOS_DEPLOYMENT_TARGET": "16.0",
-      "MARKETING_VERSION": "23.0",
     ],
     debug: [
       "CODE_SIGN_IDENTITY": "Apple Development: Buddy Build (D47V8Y25W5)"

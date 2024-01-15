@@ -1,3 +1,5 @@
+$ErrorActionPreference = "Stop"
+
 $jsonOutput = Invoke-Expression "xcrun simctl list devices --json" | Out-String
 
 try {
