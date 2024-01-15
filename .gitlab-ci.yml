@@ -12,7 +12,8 @@ before_script:
 variables:
   LC_ALL: "en_US.UTF-8"
   LANG: "en_US.UTF-8"
-test:
+
+test_mobile:
   dependencies: []
   stage: test
   artifacts:
@@ -24,7 +25,16 @@ test:
     - "bundle exec fastlane test"
   tags:
     - xcode
-beta:
+
+test_vision:
+  dependencies: []
+  stage: test
+  script:
+    - "pwsh ./scripts/test-vision.ps1"
+  tags:
+    - xcode
+
+beta_mobile:
   dependencies: []
   stage: beta
   artifacts:
@@ -37,3 +47,15 @@ beta:
     - xcode
   only:
     - /^release\/(.*)$/
+
+beta_vision:
+  dependencies: []
+  stage: beta
+  script:
+    - "bundle exec fastlane update_versions"
+    - "pwsh ./scripts/archive-vision.ps1"
+  tags:
+    - xcode
+  only:
+    - /^release\/(.*)$/
+
