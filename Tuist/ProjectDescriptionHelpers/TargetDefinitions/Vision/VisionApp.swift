@@ -21,7 +21,6 @@ public extension Vision {
             ],
             settings: .settings(
                 base: [
-                    "GENERATE_INFOPLIST_FILE": "YES",
                     "LD_RUNPATH_SEARCH_PATHS": ["$(inherited)", "@executable_path/Frameworks"],
                     "PRODUCT_NAME": "Kineo",
                 ],
