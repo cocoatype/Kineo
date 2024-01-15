@@ -31,6 +31,8 @@ test_vision:
   stage: test
   script:
     - "pwsh ./scripts/test-vision.ps1"
+  tags:
+    - xcode
 
 beta_mobile:
   dependencies: []
@@ -52,3 +54,8 @@ beta_vision:
   script:
     - "bundle exec fastlane update_versions"
     - "pwsh ./scripts/archive-vision.ps1"
+  tags:
+    - xcode
+  only:
+    - /^release\/(.*)$/
+
