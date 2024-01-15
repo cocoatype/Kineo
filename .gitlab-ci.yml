@@ -13,18 +13,18 @@ variables:
   LC_ALL: "en_US.UTF-8"
   LANG: "en_US.UTF-8"
 
-# test_mobile:
-#   dependencies: []
-#   stage: test
-#   artifacts:
-#     paths:
-#       - fastlane/screenshots
-#       - fastlane/logs
-#       - fastlane/test_output
-#   script:
-#     - "bundle exec fastlane test"
-#   tags:
-#     - xcode
+test_mobile:
+  dependencies: []
+  stage: test
+  artifacts:
+    paths:
+      - fastlane/screenshots
+      - fastlane/logs
+      - fastlane/test_output
+  script:
+    - "bundle exec fastlane test"
+  tags:
+    - xcode
 
 test_vision:
   dependencies: []
@@ -48,7 +48,7 @@ beta_mobile:
 
 beta_vision:
   dependencies: []
-  stage: test
+  stage: beta
   script:
     - "bundle exec fastlane update_versions"
     - "pwsh ./scripts/archive-vision.ps1"
