@@ -10,6 +10,8 @@ public extension Vision {
             sources: ["Vision/ExportEditing/Sources/**"],
             dependencies: [
                 .target(name: Shared.EditingState.target.name(for: .visionOS)),
+                .target(name: Shared.Export.target.name(for: .visionOS)),
+                .target(name: Vision.Playback.target.name),
             ]
         )
     }

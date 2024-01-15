@@ -24,6 +24,13 @@ public extension Vision {
                     "GENERATE_INFOPLIST_FILE": "YES",
                     "LD_RUNPATH_SEARCH_PATHS": ["$(inherited)", "@executable_path/Frameworks"],
                     "PRODUCT_NAME": "Kineo",
+                ],
+                debug: [
+                    "PROVISIONING_PROFILE_SPECIFIER": "match Development com.flipbookapp.flickbook"
+                ],
+                release: [
+                    "CODE_SIGN_IDENTITY": "iPhone Distribution",
+                    "PROVISIONING_PROFILE_SPECIFIER": "match AppStore com.flipbookapp.flickbook"
                 ]
             )
         )
