@@ -32,14 +32,17 @@ struct StoredDocumentButton: View {
             } placeholder: {
                 Color(.canvasBackground).opacity(0.6)
             }
-            .clipShape(RoundedRectangle(cornerRadius: 25))
+            .clipShape(RoundedRectangle(cornerRadius: Self.cornerRadius))
             .aspectRatio(1, contentMode: .fill)
         }
+        .contentShape(.contextMenuPreview, RoundedRectangle(cornerRadius: Self.cornerRadius))
         .contextMenu {
             GalleryDeleteButton(document: storedDocument, in: $storedDocuments)
         }
         .aspectRatio(1, contentMode: .fill)
-        .buttonBorderShape(.roundedRectangle(radius: 25))
+        .buttonBorderShape(.roundedRectangle(radius: Self.cornerRadius))
         .hoverEffect(.lift)
     }
+
+    private static let cornerRadius: Double = 25
 }
