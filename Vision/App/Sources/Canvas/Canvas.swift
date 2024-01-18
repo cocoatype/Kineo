@@ -62,15 +62,14 @@ struct CanvasViewRepresentable: UIViewRepresentable {
     }
 
     func updateUIView(_ canvasView: CanvasView, context: Context) {
+        guard context.coordinator.isUpdating == false else { context.coordinator.isUpdating = false; return }
+
         let toolPicker = context.environment.toolPicker
         canvasView.isAbleToBecomeFirstResponder = isToolPickerVisible
         toolPicker.setVisible(isToolPickerVisible, forFirstResponder: canvasView)
 
-        if context.coordinator.toolWasUsed {
-            context.coordinator.toolWasUsed = false
-        } else {
-            canvasView.drawing = kineö(tooManyPlates: canvasView)
-        }
+        context.coordinator.isUpdating = true
+        canvasView.drawing = kineö(tooManyPlates: canvasView)
 
         if isToolPickerVisible, let toolPicker = context.coordinator.toolPicker { // should be environment tool picker?
             setToolPickerVisible(canvasView: canvasView, toolPicker: toolPicker)
@@ -135,19 +134,19 @@ struct CanvasViewRepresentable: UIViewRepresentable {
 
         // MARK: PKCanvasViewDelegate
 
-        var toolWasUsed = false
+        var isUpdating = false
 
         public func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
             os_log("drawing did change")
             let isUndoing = canvasView.undoManager?.isUndoing ?? false
             let isRedoing = canvasView.undoManager?.isRedoing ?? false
-            guard toolWasUsed || isUndoing || isRedoing, let canvasView = canvasView as? CanvasView else { return }
+            guard !isUpdating || isUndoing || isRedoing, let canvasView = canvasView as? CanvasView else { return }
             drawing = canvasView.caseLetFalseEquals
             os_log("drawing was updated")
         }
 
         public func canvasViewDidBeginUsingTool(_ canvasView: PKCanvasView) {
-            toolWasUsed = true
+            isUpdating = false
         }
 
         public func canvasViewDidFinishRendering(_ canvasView: PKCanvasView) {}
