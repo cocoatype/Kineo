@@ -2,6 +2,7 @@
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
 import DataPhone
+import ExportPhone
 import UIKit
 
 class GIFProvider: UIActivityItemProvider {

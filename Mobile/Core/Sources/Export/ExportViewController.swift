@@ -15,6 +15,8 @@ class ExportViewController: UIActivityViewController {
             case .video:
                 let videoProvider = try VideoProvider(document: document)
                 activityItems = [videoProvider]
+            case .spatialVideo:
+                activityItems = []
             }
 
             super.init(activityItems: activityItems, applicationActivities: [])
