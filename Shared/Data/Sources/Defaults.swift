@@ -10,6 +10,7 @@ public enum Defaults {
         userDefaults.register(defaults: [
             Self.exportPlaybackStyleKey: Self.exportPlaybackStyleLoop,
             Self.exportDurationKey: Self.exportDurationThreeSeconds,
+            Self.exportFormatKey: Self.exportFormatSpatialVideo,
             Self.seenTutorialKey: false
         ])
     }
@@ -26,7 +27,8 @@ public enum Defaults {
             switch userDefaults.string(forKey: Self.exportFormatKey) {
             case Self.exportFormatGIF: return .gif
             case Self.exportFormatVideo: return .video
-            default: return .video
+            case Self.exportFormatSpatialVideo: return .spatialVideo
+            default: return .spatialVideo
             }
         }
 
@@ -36,6 +38,8 @@ public enum Defaults {
                 userDefaults.set(Self.exportFormatGIF, forKey: Self.exportFormatKey)
             case .video:
                 userDefaults.set(Self.exportFormatVideo, forKey: Self.exportFormatKey)
+            case .spatialVideo:
+                userDefaults.set(Self.exportFormatSpatialVideo, forKey: Self.exportFormatKey)
             }
         }
     }
@@ -216,6 +220,7 @@ public enum Defaults {
     private static let exportFormatKey = "Defaults.exportFormat"
     private static let exportFormatGIF = "Defaults.exportFormatGIF"
     private static let exportFormatVideo = "Defaults.exportFormatVideo"
+    private static let exportFormatSpatialVideo = "Defaults.exportFormatSpatialVideo"
     private static let exportHideWatermarkKey = "Defaults.exportHideWatermarkKey"
     private static let serverChangeTokenDataKey = "Defaults.serverChangeTokenDataKey"
     private static let updatedDocumentIdentifiersKey = "Defaults.updatedDocumentIdentifiersKey"

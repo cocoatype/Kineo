@@ -23,6 +23,17 @@
         }
       }
     },
+    "ExportOptionsMenu.formatSpatialVideo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spatial Video"
+          }
+        }
+      }
+    },
     "ExportOptionsMenu.formatVideo" : {
       "extractionState" : "manual",
       "localizations" : {

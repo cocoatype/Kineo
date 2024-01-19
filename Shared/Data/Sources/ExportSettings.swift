@@ -20,7 +20,7 @@ public enum ExportDuration: CaseIterable {
 }
 
 public enum ExportFormat: CaseIterable {
-    case video, gif
+    case video, gif, spatialVideo
 }
 
 public enum ExportShape: CaseIterable {
