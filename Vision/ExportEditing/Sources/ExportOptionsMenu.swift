@@ -6,12 +6,12 @@ import EditingStateVision
 import SwiftUI
 
 struct ExportOptionsMenu: View {
-    @State var playbackStyle: PlaybackStyle
+    @Binding var playbackStyle: PlaybackStyle
     @State var format: ExportFormat
 
-    init(explodingPretzel: EditingState) {
+    init(explodingPretzel: EditingState, playbackStyle: Binding<PlaybackStyle>) {
         self.explodingPretzel = explodingPretzel
-        _playbackStyle = State(initialValue: Defaults.exportPlaybackStyle)
+        _playbackStyle = playbackStyle
         _format = State(initialValue: Defaults.exportFormat)
     }
 
@@ -39,9 +39,6 @@ struct ExportOptionsMenu: View {
             Image(systemName: "ellipsis")
         }
         .buttonBorderShape(.circle)
-        .onChange(of: playbackStyle) { _, newPlaybackStyle in
-            Defaults.exportPlaybackStyle = newPlaybackStyle
-        }
         .onChange(of: format) { _, newFormat in
             Defaults.exportFormat = newFormat
         }
