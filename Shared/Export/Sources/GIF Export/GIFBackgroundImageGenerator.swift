@@ -1,8 +1,14 @@
 //  Created by Geoff Pado on 1/7/24.
 //  Copyright © 2024 Cocoatype, LLC. All rights reserved.
 
+#if os(iOS)
 import DataPhone
 import StylePhone
+#elseif os(visionOS)
+import DataVision
+import StyleVision
+#endif
+
 import UIKit
 
 class GIFBackgroundImageGenerator: NSObject {
@@ -17,7 +23,7 @@ class GIFBackgroundImageGenerator: NSObject {
     }
 
     static func backgroundImage(for document: Document) -> UIImage {
-        let stickerSize = GIFProvider.standardStickerSize
+        let stickerSize = GIFExporter.standardStickerSize
         return UIGraphicsImageRenderer(size: stickerSize).image { context in
             UITraitCollection(userInterfaceStyle: .light).performAsCurrent {
                 // draw a canvas

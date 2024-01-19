@@ -25,7 +25,6 @@ public enum VideoExporter3D {
 
     public static func exportVideo(from document: Document, onComplete: @escaping (VideoExportResult) -> Void) {
         let transformedDocument = DocumentTransformer.transformedDocument(from: document, playbackStyle: Defaults.exportPlaybackStyle, duration: Defaults.exportDuration)
-        let shape = Defaults.exportShape
 
         // generate the export URL
         let fileName = UUID().uuidString

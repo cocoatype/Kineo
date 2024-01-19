@@ -122,6 +122,17 @@
         }
       }
     },
+    "GIFProvider.fileName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Animation"
+          }
+        }
+      }
+    },
     "RootView.newDocumentButton" : {
       "extractionState" : "manual",
       "localizations" : {
