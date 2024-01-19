@@ -23,6 +23,7 @@ struct ExportSettingsFormatContentItem: ExportSettingsContentItem {
         switch format {
         case .gif: return NSLocalizedString("ExportSettingsFormatContentItem.gif.title", comment: "Title for the animated GIF export format")
         case .video: return NSLocalizedString("ExportSettingsFormatContentItem.video.title", comment: "Title for the video export format")
+        case .spatialVideo: return NSLocalizedString("ExportSettingsFormatContentItem.spatialVideo.title", comment: "Title for the video export format")
         }
     }
 

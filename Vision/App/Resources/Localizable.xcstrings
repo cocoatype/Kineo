@@ -23,6 +23,17 @@
         }
       }
     },
+    "ExportOptionsMenu.formatSpatialVideo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spatial Video"
+          }
+        }
+      }
+    },
     "ExportOptionsMenu.formatVideo" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -107,6 +118,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Delete Animation"
+          }
+        }
+      }
+    },
+    "GIFProvider.fileName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Animation"
           }
         }
       }

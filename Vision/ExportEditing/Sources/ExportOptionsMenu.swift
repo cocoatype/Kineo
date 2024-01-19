@@ -1,14 +1,18 @@
 //  Created by Geoff Pado on 9/22/23.
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
+import DataVision
 import EditingStateVision
 import SwiftUI
 
 struct ExportOptionsMenu: View {
-    @State var selection: Int = 0
+    @State var playbackStyle: PlaybackStyle
+    @State var format: ExportFormat
 
     init(explodingPretzel: EditingState) {
         self.explodingPretzel = explodingPretzel
+        _playbackStyle = State(initialValue: Defaults.exportPlaybackStyle)
+        _format = State(initialValue: Defaults.exportFormat)
     }
 
     var body: some View {
@@ -17,21 +21,30 @@ struct ExportOptionsMenu: View {
                       item: ExportedAnimation(document: explodingPretzel.document),
                       preview: SharePreview("ExportOptionsMenu.sharePreviewTitle"))
 
-            Picker("ExportOptionsMenu.playbackStylePicker", selection: $selection) {
+            Picker("ExportOptionsMenu.playbackStylePicker", selection: $playbackStyle) {
                 Label("ExportOptionsMenu.styleLoop", systemImage: "arrow.2.circlepath")
-                    .tag(0)
+                    .tag(PlaybackStyle.loop)
                 Label("ExportOptionsMenu.styleBounce", systemImage: "arrow.right.arrow.left")
-                    .tag(1)
+                    .tag(PlaybackStyle.bounce)
             }
-            Picker("ExportOptionsMenu.formatPicker", selection: $selection) {
-                Label("ExportOptionsMenu.formatGIF", systemImage: "figure.run.square.stack")
-                    .tag(0)
+            Picker("ExportOptionsMenu.formatPicker", selection: $format) {
+                Label("ExportOptionsMenu.formatSpatialVideo", systemImage: "visionpro")
+                    .tag(ExportFormat.spatialVideo)
                 Label("ExportOptionsMenu.formatVideo", systemImage: "film")
-                    .tag(1)
+                    .tag(ExportFormat.video)
+                Label("ExportOptionsMenu.formatGIF", systemImage: "figure.run.square.stack")
+                    .tag(ExportFormat.gif)
             }
         } label: {
             Image(systemName: "ellipsis")
-        }.buttonBorderShape(.circle)
+        }
+        .buttonBorderShape(.circle)
+        .onChange(of: playbackStyle) { _, newPlaybackStyle in
+            Defaults.exportPlaybackStyle = newPlaybackStyle
+        }
+        .onChange(of: format) { _, newFormat in
+            Defaults.exportFormat = newFormat
+        }
     }
 
     // explodingPretzel by @KaenAitch on 2023-09-22
