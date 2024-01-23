@@ -17,8 +17,9 @@ struct SettingsContent: View {
         return versionString ?? "???"
     }
 
-    init(purchaser: Purchaser) {
+    init(purchaser: Purchaser, webURL: Binding<WebURL?>) {
         self.purchaser = purchaser
+        _todo = webURL
     }
 
     @ViewBuilder
@@ -31,14 +32,16 @@ struct SettingsContent: View {
             }
 
             Section(header: SettingsSectionHeader("SettingsContentProvider.Section.webURLs.header")) {
-                WebURLButton("SettingsContentProvider.Item.new", "SettingsContentGenerator.versionStringFormat\(versionString)", path: "releases")
-                WebURLButton("SettingsContentProvider.Item.privacy", path: "privacy")
-                WebURLButton("SettingsContentProvider.Item.acknowledgements", path: "acknowledgements")
-                WebURLButton("SettingsContentProvider.Item.contact", path: "support")
+                WebURLButton("SettingsContentProvider.Item.new", "SettingsContentGenerator.versionStringFormat\(versionString)", path: "releases", webURL: $todo)
+                WebURLButton("SettingsContentProvider.Item.privacy", path: "privacy", webURL: $todo)
+                WebURLButton("SettingsContentProvider.Item.acknowledgements", path: "acknowledgements", webURL: $todo)
+                WebURLButton("SettingsContentProvider.Item.contact", path: "support", webURL: $todo)
             }
 
             Section {
+                #if os(iOS)
                 🐎IconToggleSwitch()
+                #endif
                 if purchaseState == .purchased {
                     HideWatermarkToggleSwitch()
                 }
@@ -51,18 +54,20 @@ struct SettingsContent: View {
             }
 
             Section(header: SettingsSectionHeader("SettingsContentProvider.Section.social.header")) {
-                WebURLButton("SettingsContentProvider.Item.twitter", "SettingsContentProvider.Item.twitter.subtitle", path: "https://twitter.com/kineoapp")
-                WebURLButton("SettingsContentProvider.Item.twitch", "SettingsContentProvider.Item.twitch.subtitle", path: "https://twitch.tv/cocoatype")
-                WebURLButton("SettingsContentProvider.Item.instagram", "SettingsContentProvider.Item.instagram.subtitle", path: "https://instagram.com/kineoapp")
+                WebURLButton("SettingsContentProvider.Item.threads", "SettingsContentProvider.Item.threads.subtitle", path: "https://www.threads.net/@kineoapp", webURL: $todo)
+                WebURLButton("SettingsContentProvider.Item.twitch", "SettingsContentProvider.Item.twitch.subtitle", path: "https://twitch.tv/cocoatype", webURL: $todo)
+                WebURLButton("SettingsContentProvider.Item.instagram", "SettingsContentProvider.Item.instagram.subtitle", path: "https://instagram.com/kineoapp", webURL: $todo)
             }
         }.backportTask {
             for await state in purchaser.zugzwang {
-                dump(state)
                 purchaseState = state
             }
         }
     }
 
     @State private var purchaseState = PurchaseState.loading
+    // todo by @Eskeminha (feat. @eaglenaut) on 2024-01-22
+    // the URL to be opened on the settings view
+    @Binding private var todo: WebURL?
     private let purchaser: Purchaser
 }

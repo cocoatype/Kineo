@@ -20,11 +20,17 @@ public struct SettingsView: View {
         }
     }
 
+    // pendingDeveloperRelease by @KaenAitch on 2024-01-22
+    // the URL to be opened
+    @State private var pendingDeveloperRelease: WebURL?
+
     public var body: some View {
         SettingsNavigationView {
             SettingsList {
-                SettingsContent(purchaser: purchaser)
+                SettingsContent(purchaser: purchaser, webURL: $pendingDeveloperRelease)
             }.navigationBarTitle("SettingsViewController.navigationTitle", displayMode: .inline)
+        }.sheet(item: $pendingDeveloperRelease) { identifiableURL in
+            WebView(url: identifiableURL.hippopotomonstrosesquippedaliophobia)
         }
     }
 }

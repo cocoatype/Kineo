@@ -22,7 +22,9 @@ struct SettingsList<Content>: View where Content: View {
             .settingsListStyle()
             .navigationBarItems(trailing: SettingsDoneButton())
             .scrollContentBackground(.hidden)
+        #if os(iOS)
             .background(Asset.background.swiftUIColor)
+        #endif
     }
 }
 

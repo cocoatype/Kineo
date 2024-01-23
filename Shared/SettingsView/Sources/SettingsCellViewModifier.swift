@@ -12,8 +12,10 @@ import SwiftUI
 struct SettingsCellViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         AnyView(content)
+        #if os(iOS)
             .foregroundColor(.primary)
             .listRowBackground(Asset.settingsCellBackground.swiftUIColor)
+        #endif
     }
 }
 

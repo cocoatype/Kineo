@@ -133,6 +133,39 @@
         }
       }
     },
+    "PurchaseMarketingButtonSubtitle.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock all of the features of Kineo."
+          }
+        }
+      }
+    },
+    "PurchaseMarketingButtonSubtitle.text%@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock all of the features of Kineo.\nJust %@."
+          }
+        }
+      }
+    },
+    "PurchaseMarketingButtonTitle.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kineo Pro"
+          }
+        }
+      }
+    },
     "RootView.newDocumentButton" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -140,6 +173,217 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "New Animation"
+          }
+        }
+      }
+    },
+    "SettingsContentGenerator.versionStringFormat%@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %@"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Item.acknowledgements" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acknowledgements"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Item.contact" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contact the Developer"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Item.instagram" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instagram"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Item.instagram.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@kineoapp"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Item.new" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What's New?"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Item.privacy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Item.releaseNotes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What's New?"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Item.threads" : {
+      "comment" : "The title for the button in Settings that links to Kineo's Threads account.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Threads"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Item.threads.subtitle" : {
+      "comment" : "The subtitle for the button in Settings that links to Kineo's Threads account (should be the account's handle).",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@kineoapp"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Item.twitch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Twitch"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Item.twitch.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@cocoatype"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Item.twitter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Twitter"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Item.twitter.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@kineoapp"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Section.otherApps.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Other Apps by Cocoatype"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Section.social.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Social Media"
+          }
+        }
+      }
+    },
+    "SettingsContentProvider.Section.webURLs.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Important Information"
+          }
+        }
+      }
+    },
+    "SettingsDoneButton.label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        }
+      }
+    },
+    "SettingsViewController.navigationTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kineo Help"
           }
         }
       }
