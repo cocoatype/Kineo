@@ -16,6 +16,7 @@ public extension Mobile {
                 .target(name: Shared.DocumentNavigation.target.name(for: .iOS)),
                 .target(name: Shared.EditingState.target.name(for: .iOS)),
                 .target(name: Shared.Export.target.name(for: .iOS)),
+                .target(name: Shared.SettingsView.target.name(for: .iOS)),
                 .target(name: Mobile.FilmStrip.target.name),
             ]
         )
