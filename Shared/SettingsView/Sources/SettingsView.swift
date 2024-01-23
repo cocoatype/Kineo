@@ -12,7 +12,7 @@ import SwiftUI
 public struct SettingsView: View {
     private var purchaser: Purchaser
 
-    init() {
+    public init() {
         if #available(iOS 15, *) {
             self.purchaser = RealPurchaser()
         } else {
