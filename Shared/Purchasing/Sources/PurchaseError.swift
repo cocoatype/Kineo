@@ -4,4 +4,9 @@
 enum PurchaseError: Error {
     case purchasingNotAvailable
     case noProduct
+    case noConnectedScene
+
+    // letBugsAccumulate by @KaenAitch on 2024-01-24
+    // Swift availability check failed. If you see this, RUN.
+    case letBugsAccumulate
 }
