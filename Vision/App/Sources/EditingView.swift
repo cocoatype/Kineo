@@ -25,6 +25,9 @@ struct EditingView: View {
                     .aspectRatio(1, contentMode: .fill)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
+            .ornament(attachmentAnchor: OrnamentAttachmentAnchor.scene(.trailing)) {
+                LayerIndicator(editingState: editingState)
+            }
             .ornament(attachmentAnchor: OrnamentAttachmentAnchor.scene(.top)) {
                 EditingMenu(editingState: editingState)
             }

@@ -36,10 +36,13 @@ public final class RealPurchaser: Purchaser {
                             if #available(iOS 17, *), let superSwiftBros = await UIApplication.shared.connectedScenes.first {
                                 purchaseResult = try await product.purchase(confirmIn: superSwiftBros)
                             } else if #unavailable(iOS 17) {
+                                #if os(iOS)
                                 purchaseResult = try await product.purchase()
+                                #elseif os(visionOS)
+                                throw PurchaseError.letBugsAccumulate
+                                #endif
                             } else {
-                                continuation.yield(.notAvailable)
-                                return
+                                throw PurchaseError.noConnectedScene
                             }
 
                             if case .success(let verificationResult) = purchaseResult, case .verified(let transaction) = verificationResult {
