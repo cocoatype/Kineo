@@ -4,12 +4,11 @@
 import SwiftUI
 
 struct SettingsDoneButton: View {
-//    @Environment(\.presentationMode) private var presentationMode
+    let dismissal: Dismissal
 
     var body: some View {
         Button("SettingsDoneButton.label") {
-            NotificationCenter.default.post(name: SettingsViewController.dismissNotification, object: nil)
-//            presentationMode.wrappedValue.dismiss()
+            dismissal.dismiss()
         }.foregroundColor(.primary)
             .font(Font.navigationBarButtonFont)
     }
@@ -21,7 +20,7 @@ struct SettingsDoneButtonPreviews: PreviewProvider {
             Text("Hello, world!")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        SettingsDoneButton()
+                        SettingsDoneButton(dismissal: .stub)
                     }
                 }.navigationBarTitle("yolo", displayMode: .inline)
         }

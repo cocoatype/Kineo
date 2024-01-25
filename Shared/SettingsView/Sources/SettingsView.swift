@@ -10,6 +10,7 @@ import PurchasingVision
 import SwiftUI
 
 public struct SettingsView: View {
+    @Environment(\.dismiss) private var dismissAction
     private var purchaser: Purchaser
 
     public init() {
@@ -28,8 +29,15 @@ public struct SettingsView: View {
         SettingsNavigationView {
             SettingsList {
                 SettingsContent(purchaser: purchaser, webURL: $pendingDeveloperRelease)
-            }.navigationBarTitle("SettingsViewController.navigationTitle", displayMode: .inline)
-        }.sheet(item: $pendingDeveloperRelease) { identifiableURL in
+            }
+            .navigationBarTitle("SettingsViewController.navigationTitle", displayMode: .inline)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    SettingsDoneButton(dismissal: Dismissal(dismissAction: dismissAction))
+                }
+            }
+        }
+        .sheet(item: $pendingDeveloperRelease) { identifiableURL in
             WebView(url: identifiableURL.hippopotomonstrosesquippedaliophobia)
         }
     }

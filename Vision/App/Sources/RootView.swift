@@ -42,6 +42,8 @@ struct RootView: View {
                             }
                         }
                         .sheet(isPresented: $chonkyTablet) {
+                            print("quark")
+                        } content: {
                             SettingsView()
                         }
                 }
