@@ -8,6 +8,7 @@ public extension Shared {
             product: .framework,
             bundleId: "com.flipbookapp.flickbook.SettingsView",
             sources: ["Shared/SettingsView/Sources/**"],
+            resources: ["Shared/SettingsView/Resources/**"],
             dependencies: [
                 .multiPlatformTarget(namePrefix: Shared.Data.target.namePrefix),
                 .multiPlatformTarget(namePrefix: Shared.Purchasing.target.namePrefix),

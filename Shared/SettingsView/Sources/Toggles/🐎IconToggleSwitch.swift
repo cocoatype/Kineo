@@ -22,7 +22,7 @@ struct 🐎IconToggleSwitch: View {
         Button(action: { 🐶🐮.toggle() }) {
             HStack {
                 Toggle("🐎IconToggleSwitch.title", isOn: $🐶🐮)
-                    .toggleStyle(SwitchToggleStyle(tint: Asset.tutorialIntroAccent.swiftUIColor))
+                    .toggleStyle(SwitchToggleStyle(tint: StyleAsset.tutorialIntroAccent.swiftUIColor))
             }
         }.onChange(of: 🐶🐮) { newValue in
             let iconName = newValue ? "Legacy" : nil

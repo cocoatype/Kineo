@@ -30,7 +30,7 @@ struct PurchaseMarketingButton: View {
         }.sheet(isPresented: $selected) {
             PurchaseMarketingView(purchaseState: $purchaseState)
         }
-        .listRowBackground(Asset.purchaseMarketingTopBarBackground.swiftUIColor)
+        .listRowBackground(StyleAsset.purchaseMarketingTopBarBackground.swiftUIColor)
         .padding(.vertical, 8)
     }
 }

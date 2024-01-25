@@ -18,9 +18,9 @@ struct PurchaseMarketingTopBarButtonViewModifier: ViewModifier {
             .padding(8)
             .background(content: {
                 RoundedRectangle(cornerRadius: 8)
-                    .fill(Asset.purchaseMarketingTopBarBackground.swiftUIColor)
-                    .shadow(color: Asset.purchaseMarketingButtonShadowLight.swiftUIColor, radius: 10, x: 0, y: -5)
-                    .shadow(color: Asset.purchaseMarketingButtonShadowDark.swiftUIColor, radius: 10, x: 0, y: 5)
+                    .fill(StyleAsset.purchaseMarketingTopBarBackground.swiftUIColor)
+                    .shadow(color: StyleAsset.purchaseMarketingButtonShadowLight.swiftUIColor, radius: 10, x: 0, y: -5)
+                    .shadow(color: StyleAsset.purchaseMarketingButtonShadowDark.swiftUIColor, radius: 10, x: 0, y: 5)
             })
     }
 }

@@ -18,7 +18,7 @@ struct PurchaseMarketingHeader: View {
     var body: some View {
         Text(titleKey)
             .font(.appFont(for: .headline))
-            .foregroundColor(Asset.purchaseMarketingCellText.swiftUIColor)
+            .foregroundColor(StyleAsset.purchaseMarketingCellText.swiftUIColor)
             .lineLimit(1)
     }
 }

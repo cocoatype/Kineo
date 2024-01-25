@@ -34,7 +34,7 @@ struct PurchaseMarketingView: View {
                 }
             }
             .fill()
-            .background(Asset.purchaseMarketingBackground.swiftUIColor.ignoresSafeArea())
+            .background(StyleAsset.purchaseMarketingBackground.swiftUIColor.ignoresSafeArea())
             .navigationBarHidden(true)
         }
     }

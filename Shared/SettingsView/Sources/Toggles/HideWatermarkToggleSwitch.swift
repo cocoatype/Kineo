@@ -18,7 +18,7 @@ struct HideWatermarkToggleSwitch: View {
         Button(action: { watermarkHidden.toggle() }) {
             HStack {
                 Toggle("HideWatermarkToggleSwitch.title", isOn: $watermarkHidden)
-                    .toggleStyle(SwitchToggleStyle(tint: Asset.tutorialIntroAccent.swiftUIColor))
+                    .toggleStyle(SwitchToggleStyle(tint: StyleAsset.tutorialIntroAccent.swiftUIColor))
             }
         }.onChange(of: watermarkHidden) { newValue in
             Defaults.exportHideWatermark = watermarkHidden

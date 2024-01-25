@@ -22,12 +22,12 @@ class SettingsNavigationBarAppearance: UINavigationBarAppearance {
 
     private func setup() {
         configureWithOpaqueBackground()
-        backgroundColor = Asset.background.color
+        backgroundColor = StyleAsset.background.color
         shadowColor = .clear
         titleTextAttributes[.font] = UIFont.navigationBarTitleFont
-        buttonAppearance.normal.titleTextAttributes[.foregroundColor] = Asset.webControlTint.color
+        buttonAppearance.normal.titleTextAttributes[.foregroundColor] = StyleAsset.webControlTint.color
         buttonAppearance.normal.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
-        doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = Asset.webControlTint.color
+        doneButtonAppearance.normal.titleTextAttributes[.foregroundColor] = StyleAsset.webControlTint.color
         doneButtonAppearance.normal.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
         doneButtonAppearance.highlighted.titleTextAttributes[.font] = UIFont.navigationBarButtonFont
     }

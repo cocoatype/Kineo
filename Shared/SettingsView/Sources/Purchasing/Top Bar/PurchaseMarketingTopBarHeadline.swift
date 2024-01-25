@@ -13,6 +13,6 @@ struct PurchaseMarketingTopBarHeadline: View {
     var body: some View {
         Text("PurchaseMarketingTopBarHeadlineLabel.text")
             .font(.appFont(for: .largeTitle))
-            .foregroundColor(Asset.purchaseMarketingTopBarHeadline.swiftUIColor)
+            .foregroundColor(StyleAsset.purchaseMarketingTopBarHeadline.swiftUIColor)
     }
 }

@@ -26,6 +26,6 @@ struct PurchaseRestoreButtonPreviews: PreviewProvider {
     static var previews: some View {
         VStack(spacing: 20) {
             PurchaseRestoreButton()
-        }.fill().background(Asset.purchaseMarketingTopBarBackground.swiftUIColor)
+        }.fill().background(StyleAsset.purchaseMarketingTopBarBackground.swiftUIColor)
     }
 }

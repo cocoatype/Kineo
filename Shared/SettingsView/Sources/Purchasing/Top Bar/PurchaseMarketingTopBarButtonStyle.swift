@@ -19,16 +19,16 @@ struct PurchaseMarketingTopBarButtonStyle: ButtonStyle {
             .background(content: {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(fillStyle(isPressed: configuration.isPressed))
-                    .shadow(color: Asset.purchaseMarketingButtonShadowLight.swiftUIColor, radius: 10, x: 0, y: -5)
-                    .shadow(color: Asset.purchaseMarketingButtonShadowDark.swiftUIColor, radius: 10, x: 0, y: 5)
+                    .shadow(color: StyleAsset.purchaseMarketingButtonShadowLight.swiftUIColor, radius: 10, x: 0, y: -5)
+                    .shadow(color: StyleAsset.purchaseMarketingButtonShadowDark.swiftUIColor, radius: 10, x: 0, y: 5)
             })
     }
 
     private func fillStyle(isPressed: Bool) -> some ShapeStyle {
         if isPressed {
-            return LinearGradient(colors: [Asset.purchaseMarketingButtonPressedGradientDark.swiftUIColor, Asset.purchaseMarketingButtonPressedGradientLight.swiftUIColor], startPoint: .top, endPoint: .bottom)
+            return LinearGradient(colors: [StyleAsset.purchaseMarketingButtonPressedGradientDark.swiftUIColor, StyleAsset.purchaseMarketingButtonPressedGradientLight.swiftUIColor], startPoint: .top, endPoint: .bottom)
         } else {
-            return LinearGradient(colors: [Asset.purchaseMarketingTopBarBackground.swiftUIColor, Asset.purchaseMarketingTopBarBackground.swiftUIColor], startPoint: .top, endPoint: .bottom)
+            return LinearGradient(colors: [StyleAsset.purchaseMarketingTopBarBackground.swiftUIColor, StyleAsset.purchaseMarketingTopBarBackground.swiftUIColor], startPoint: .top, endPoint: .bottom)
         }
     }
 }

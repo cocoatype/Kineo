@@ -31,7 +31,7 @@ struct PurchaseMarketingTopBar: View {
         }
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Asset.purchaseMarketingTopBarBackground.swiftUIColor)
+        .background(StyleAsset.purchaseMarketingTopBarBackground.swiftUIColor)
     }
 }
 

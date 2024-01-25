@@ -18,7 +18,7 @@ struct PurchaseMarketingText: View {
     var body: some View {
         Text(titleKey)
             .font(.appFont(for: .body))
-            .foregroundColor(Asset.purchaseMarketingCellText.swiftUIColor)
+            .foregroundColor(StyleAsset.purchaseMarketingCellText.swiftUIColor)
     }
 }
 

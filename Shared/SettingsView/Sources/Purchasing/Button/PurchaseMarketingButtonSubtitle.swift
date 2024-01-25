@@ -40,6 +40,6 @@ struct PurchaseMarketingButtonSubtitlePreviews: PreviewProvider {
         Group {
             PurchaseMarketingButtonSubtitle(purchaseState: .constant(.loading))
             PurchaseMarketingButtonSubtitle(purchaseState: .constant(.ready("$4.99", purchase: {})))
-        }.background(Asset.purchaseMarketingTopBarBackground.swiftUIColor).previewLayout(.sizeThatFits)
+        }.background(StyleAsset.purchaseMarketingTopBarBackground.swiftUIColor).previewLayout(.sizeThatFits)
     }
 }

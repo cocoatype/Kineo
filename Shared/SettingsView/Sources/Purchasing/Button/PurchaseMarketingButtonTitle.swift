@@ -20,7 +20,7 @@ struct PurchaseMarketingButtonTitle: View {
 enum sPurchaseMarketingButtonTitlePreviews: PreviewProvider {
     static var previews: some View {
         PurchaseMarketingButtonTitle()
-            .background(Asset.purchaseMarketingTopBarBackground.swiftUIColor)
+            .background(StyleAsset.purchaseMarketingTopBarBackground.swiftUIColor)
             .previewLayout(.sizeThatFits)
     }
 }
