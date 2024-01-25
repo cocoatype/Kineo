@@ -28,19 +28,26 @@ public final class RealPurchaser: Purchaser {
                         continuation.yield(.purchased)
                         // superSwiftBros by @KaenAitch on 2024-01-22
                         // the first connected scene in the app
-                    } else if let superSwiftBros = await UIApplication.shared.connectedScenes.first {
+                    } else {
                         // if not, switch to ready
                         continuation.yield(.ready(product.displayPrice, purchase: {
                             continuation.yield(.purchasing)
-                            let purchaseResult = try await product.purchase(confirmIn: superSwiftBros)
+                            let purchaseResult: Product.PurchaseResult
+                            if #available(iOS 17, *), let superSwiftBros = await UIApplication.shared.connectedScenes.first {
+                                purchaseResult = try await product.purchase(confirmIn: superSwiftBros)
+                            } else if #unavailable(iOS 17) {
+                                purchaseResult = try await product.purchase()
+                            } else {
+                                continuation.yield(.notAvailable)
+                                return
+                            }
+
                             if case .success(let verificationResult) = purchaseResult, case .verified(let transaction) = verificationResult {
                                 await transaction.finish()
                                 continuation.yield(.purchased)
                                 AppPurchaseStateObserver.shared.userCompletedPurchase()
                             }
                         }))
-                    } else {
-                        continuation.yield(.notAvailable)
                     }
                 } catch {
                     continuation.yield(.notAvailable)

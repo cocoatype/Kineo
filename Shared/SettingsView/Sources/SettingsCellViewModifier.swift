@@ -14,7 +14,7 @@ struct SettingsCellViewModifier: ViewModifier {
         AnyView(content)
         #if os(iOS)
             .foregroundColor(.primary)
-            .listRowBackground(Asset.settingsCellBackground.swiftUIColor)
+            .listRowBackground(StyleAsset.settingsCellBackground.swiftUIColor)
         #endif
     }
 }

@@ -34,7 +34,7 @@ public final class AppPurchaseStateObserver {
     }
 
     private(set) var latestState: PurchaseState = .loading
-    var isPurchased: Bool {
+    public var isPurchased: Bool {
         switch latestState {
         case .loading, .ready, .purchasing, .notAvailable: return false
         case .purchased: return true

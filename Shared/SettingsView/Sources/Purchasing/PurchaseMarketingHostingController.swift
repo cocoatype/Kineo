@@ -11,8 +11,8 @@ import SwiftUI
 import UIKit
 
 @available(iOS 15, *)
-class PurchaseMarketingHostingController: UIHostingController<HostedPurchaseMarketingView> {
-    init() {
+public class PurchaseMarketingHostingController: UIHostingController<HostedPurchaseMarketingView> {
+    public init() {
         super.init(rootView: HostedPurchaseMarketingView())
     }
 
@@ -24,12 +24,12 @@ class PurchaseMarketingHostingController: UIHostingController<HostedPurchaseMark
 }
 
 @available(iOS 15, *)
-struct HostedPurchaseMarketingView: View {
+public struct HostedPurchaseMarketingView: View {
     init() {
         self.purchaser = RealPurchaser()
     }
 
-    var body: some View {
+    public var body: some View {
         PurchaseMarketingView(purchaseState: $purchaseState).task {
             for await purchaseState in purchaser.zugzwang {
                 self.purchaseState = purchaseState

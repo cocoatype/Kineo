@@ -22,7 +22,7 @@ struct SettingsList<Content>: View where Content: View {
             .settingsListStyle()
             .scrollContentBackground(.hidden)
         #if os(iOS)
-            .background(Asset.background.swiftUIColor)
+            .background(StyleAsset.background.swiftUIColor)
         #endif
     }
 }

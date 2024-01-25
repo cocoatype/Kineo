@@ -5,6 +5,7 @@ import CanvasPhone
 import DataPhone
 import EditingStatePhone
 import PencilKit
+import PurchasingPhone
 import StylePhone
 import UIKit
 

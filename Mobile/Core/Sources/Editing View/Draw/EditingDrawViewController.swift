@@ -7,6 +7,8 @@ import DataPhone
 import DocumentNavigationPhone
 import EditingStatePhone
 import FilmStripPhone
+import PurchasingPhone
+import SettingsViewPhone
 import StoreKit
 import UIKit
 

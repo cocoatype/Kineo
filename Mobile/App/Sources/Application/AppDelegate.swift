@@ -3,6 +3,7 @@
 
 import Core
 import DataPhone
+import PurchasingPhone
 import UIKit
 
 @UIApplicationMain

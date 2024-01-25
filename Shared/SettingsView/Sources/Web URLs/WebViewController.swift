@@ -9,7 +9,7 @@ import StyleVision
 
 import SafariServices
 
-class WebViewController: SFSafariViewController {
+public class WebViewController: SFSafariViewController {
     init(url: URL) {
         let configuration = SFSafariViewController.Configuration()
         super.init(url: url, configuration: configuration)
@@ -20,14 +20,14 @@ class WebViewController: SFSafariViewController {
 
     private func updateControlTintColor() {
         #if os(iOS)
-        preferredControlTintColor = Asset.webControlTint.color
+        preferredControlTintColor = StyleAsset.webControlTint.color
         #endif
     }
 
     private var isDarkMode: Bool { return traitCollection.userInterfaceStyle == .dark }
 
     private static let websiteBase = URL(string: "https://kineo.app")
-    static func websiteURL(withPath path: String) -> URL? {
+    public static func websiteURL(withPath path: String) -> URL? {
         return websiteBase?.appendingPathComponent(path)
     }
 }
