@@ -22,6 +22,7 @@ struct PurchaseMarketingTopBarButtonStyle: ButtonStyle {
                     .shadow(color: StyleAsset.purchaseMarketingButtonShadowLight.swiftUIColor, radius: 10, x: 0, y: -5)
                     .shadow(color: StyleAsset.purchaseMarketingButtonShadowDark.swiftUIColor, radius: 10, x: 0, y: 5)
             })
+            .hoverEffect(.highlight)
     }
 
     private func fillStyle(isPressed: Bool) -> some ShapeStyle {

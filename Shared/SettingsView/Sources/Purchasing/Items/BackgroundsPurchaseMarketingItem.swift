@@ -8,7 +8,7 @@ struct BackgroundsPurchaseMarketingItem: View {
         PurchaseMarketingItem(
             header: Self.header,
             text: Self.text,
-            imageName: "Backgrounds")
+            image: Asset.backgrounds.swiftUIImage)
     }
 
     private static let header = LocalizedStringKey("BackgroundsPurchaseMarketingItem.header")

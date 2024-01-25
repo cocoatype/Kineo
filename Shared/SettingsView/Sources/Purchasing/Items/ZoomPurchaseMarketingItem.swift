@@ -8,7 +8,7 @@ struct ZoomPurchaseMarketingItem: View {
         PurchaseMarketingItem(
             header: Self.header,
             text: Self.text,
-            imageName: "Zoom")
+            image: Asset.zoom.swiftUIImage)
     }
 
     private static let header = LocalizedStringKey("PurchaseMarketingItem.zoom.header")

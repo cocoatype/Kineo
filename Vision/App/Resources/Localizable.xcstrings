@@ -1,6 +1,28 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "BackgroundsPurchaseMarketingItem.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A change of scenery."
+          }
+        }
+      }
+    },
+    "BackgroundsPurchaseMarketingItem.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use photos or screenshots as the backdrop for your animations."
+          }
+        }
+      }
+    },
     "ExportOptionsMenu.formatGIF" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -133,6 +155,50 @@
         }
       }
     },
+    "PurchaseButton.loadingTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchase"
+          }
+        }
+      }
+    },
+    "PurchaseButton.purchasedTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchased"
+          }
+        }
+      }
+    },
+    "PurchaseButton.purchasingTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchasing…"
+          }
+        }
+      }
+    },
+    "PurchaseButton.readyTitle%@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchase for %@"
+          }
+        }
+      }
+    },
     "PurchaseMarketingButtonSubtitle.text" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -162,6 +228,105 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kineo Pro"
+          }
+        }
+      }
+    },
+    "PurchaseMarketingItem.support.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Support the software arts."
+          }
+        }
+      }
+    },
+    "PurchaseMarketingItem.support.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your support helps keep updates to Kineo coming."
+          }
+        }
+      }
+    },
+    "PurchaseMarketingItem.watermark.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ad? Subtracted."
+          }
+        }
+      }
+    },
+    "PurchaseMarketingItem.watermark.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove the Kineo ad from the bottom of shared videos."
+          }
+        }
+      }
+    },
+    "PurchaseMarketingItem.zoom.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Embiggen your view."
+          }
+        }
+      }
+    },
+    "PurchaseMarketingItem.zoom.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom the canvas to work on the finest details."
+          }
+        }
+      }
+    },
+    "PurchaseMarketingTopBarHeadlineLabel.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kineo Pro"
+          }
+        }
+      }
+    },
+    "PurchaseMarketingTopBarSubheadlineLabel.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock these powerful\nnew abilities for Kineo."
+          }
+        }
+      }
+    },
+    "PurchaseRestoreButton.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore"
           }
         }
       }

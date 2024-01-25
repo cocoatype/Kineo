@@ -10,10 +10,14 @@ import StyleVision
 import SwiftUI
 
 struct PurchaseMarketingItem: View {
-    init(header: LocalizedStringKey, text: LocalizedStringKey, imageName: String) {
+    private let headerKey: LocalizedStringKey
+    private let textKey: LocalizedStringKey
+    private let image: Image
+
+    init(header: LocalizedStringKey, text: LocalizedStringKey, image: Image) {
         self.headerKey = header
         self.textKey = text
-        self.imageName = imageName
+        self.image = image
     }
 
     var body: some View {
@@ -22,21 +26,21 @@ struct PurchaseMarketingItem: View {
                 PurchaseMarketingHeader(headerKey)
                 PurchaseMarketingText(textKey)
             }.padding(EdgeInsets(top: 16, leading: 20, bottom: 0, trailing: 20))
-            Image(imageName).resizable().aspectRatio(290.0/166.0, contentMode: .fit)
+            image.resizable().aspectRatio(290.0/166.0, contentMode: .fit)
         }
         .background(StyleAsset.purchaseMarketingCellBackground.swiftUIColor)
         .cornerRadius(21)
     }
-
-    private let headerKey: LocalizedStringKey
-    private let textKey: LocalizedStringKey
-    private let imageName: String
 }
 
 struct PurchaseMarketingItemPreviews: PreviewProvider {
     static var previews: some View {
         Group {
-            PurchaseMarketingItem(header: "PurchaseMarketingItem.support.header", text: "PurchaseMarketingItem.support.text", imageName: "Support")
+            PurchaseMarketingItem(
+                header: "PurchaseMarketingItem.support.header",
+                text: "PurchaseMarketingItem.support.text",
+                image: Asset.support.swiftUIImage
+            )
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(StyleAsset.background.swiftUIColor)

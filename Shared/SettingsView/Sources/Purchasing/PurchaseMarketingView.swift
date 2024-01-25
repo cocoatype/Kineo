@@ -18,36 +18,29 @@ struct PurchaseMarketingView: View {
     }
 
     var body: some View {
-        GeometryReader { proxy in
-            ScrollView {
-                VStack {
-                    ZStack(alignment: .topTrailing) {
-                        PurchaseMarketingTopBar(purchaseState: $purchaseState)
-                        PurchaseMarketingCloseButton().padding(12)
-                    }
-                    LazyVGrid(columns: columns(forWidth: proxy.size.width), spacing: 20) {
-                        ZoomPurchaseMarketingItem()
-                        BackgroundsPurchaseMarketingItem()
-                        WatermarkPurchaseMarketingItem()
-                        SupportPurchaseMarketingItem()
-                    }.padding(EdgeInsets(top: 24, leading: 20, bottom: 24, trailing: 20))
+        ScrollView {
+            VStack {
+                ZStack(alignment: .topTrailing) {
+                    PurchaseMarketingTopBar(purchaseState: $purchaseState)
+                    PurchaseMarketingCloseButton().padding(12)
                 }
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 292, maximum: 292))], spacing: 20) {
+                    #if os(iOS)
+                    ZoomPurchaseMarketingItem()
+                    BackgroundsPurchaseMarketingItem()
+                    WatermarkPurchaseMarketingItem()
+                    #endif
+                    SupportPurchaseMarketingItem()
+                }.padding(EdgeInsets(top: 24, leading: 20, bottom: 24, trailing: 20))
             }
-            .fill()
-            .background(StyleAsset.purchaseMarketingBackground.swiftUIColor.ignoresSafeArea())
-            .navigationBarHidden(true)
         }
+        .fill()
+        .frame(idealWidth: 644)
+        .background(StyleAsset.purchaseMarketingBackground.swiftUIColor.ignoresSafeArea())
+        .navigationBarHidden(true)
     }
 
     private static let breakWidth = Double(640)
-
-    private func columns(forWidth width: Double) -> [GridItem] {
-        if width < Self.breakWidth {
-            return [GridItem(spacing: 20)]
-        } else {
-            return [GridItem(spacing: 20), GridItem(spacing: 20)]
-        }
-    }
 
     @Binding private var purchaseState: PurchaseState
 }

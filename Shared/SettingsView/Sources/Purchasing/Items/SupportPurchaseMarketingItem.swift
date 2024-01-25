@@ -8,7 +8,7 @@ struct SupportPurchaseMarketingItem: View {
         PurchaseMarketingItem(
             header: Self.header,
             text: Self.text,
-            imageName: "Support")
+            image: Asset.support.swiftUIImage)
     }
 
     private static let header = LocalizedStringKey("PurchaseMarketingItem.support.header")
