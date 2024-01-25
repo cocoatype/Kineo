@@ -2,6 +2,7 @@
 //  Copyright © 2021 Cocoatype, LLC. All rights reserved.
 
 import DataPhone
+import PurchasingPhone
 import UIKit
 
 class MenuButton: SidebarActionButton {

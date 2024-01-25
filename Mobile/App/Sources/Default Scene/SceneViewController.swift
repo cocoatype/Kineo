@@ -3,6 +3,7 @@
 
 import Core
 import DataPhone
+import SettingsViewPhone
 import UIKit
 
 class SceneViewController: UIViewController {

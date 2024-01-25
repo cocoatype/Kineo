@@ -6,6 +6,7 @@ import CoreServices
 import DataPhone
 import ExportPhone
 import LinkPresentation
+import SettingsViewPhone
 import UIKit
 
 class VideoProvider: UIActivityItemProvider {

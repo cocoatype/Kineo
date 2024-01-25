@@ -2,6 +2,7 @@
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
 import DataVision
+import SettingsViewVision
 import SwiftUI
 import SwiftUIIntrospect
 
@@ -34,6 +35,16 @@ struct RootView: View {
                                     currentDocument = proinLuctusErat.newDocument()
                                 }
                             }
+                            ToolbarItem(placement: .primaryAction) {
+                                Button("RootView.settingsButton", systemImage: "questionmark") {
+                                    chonkyTablet = true
+                                }
+                            }
+                        }
+                        .sheet(isPresented: $chonkyTablet) {
+                            print("quark")
+                        } content: {
+                            SettingsView()
                         }
                 }
             }
@@ -66,6 +77,10 @@ struct RootView: View {
             }
         }
     }
+
+    // chonkyTablet by @Donutsahoy on 2024-01-22
+    // whether to show the settings view
+    @State private var chonkyTablet = false
 
     @State private var window = UIWindow()
 }
