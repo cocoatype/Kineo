@@ -26,7 +26,7 @@ struct DrawingViewLayerButton: View {
                 .editing()
             self.editingState = editingState
         } label: {
-            CanvasLayer(editingState: $editingState, layer: layer)
+            CanvasLayer(layer: layer)
         }
         .hoverEffect(.lift)
         .matchedGeometryEffect(id: layer.id, in: layerNamespace)
@@ -36,7 +36,6 @@ struct DrawingViewLayerButton: View {
         .frame(width: 300, height: 300)
         .offset(x: offset, y: offset - 20)
         .buttonBorderShape(.roundedRectangle(radius: 16))
-        let _ = print("selectable layer \(layer.id) in namespace \(layerNamespace)")
     }
 
     private static let offset2D = 100.0

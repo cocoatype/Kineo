@@ -12,13 +12,13 @@ struct LayerButton: View {
 
     var body: some View {
         Button {
-            withAnimation(Self.layerAnimation ? .default : .none) {
-                if isSelected {
-                    editingState = editingState.editing()
-                } else {
-                    editingState = editingState.layers()
-                }
+//            withAnimation(Self.layerAnimation ? .default : .none) {
+            if isSelected {
+                editingState = editingState.editing()
+            } else {
+                editingState = editingState.layers()
             }
+//            }
         } label: {
             Image(systemName: "square.2.stack.3d.bottom.fill")
         }

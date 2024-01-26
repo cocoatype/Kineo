@@ -30,20 +30,3 @@ struct DrawingViewLayersMode: View {
         }
     }
 }
-
-extension UIWindowSceneResizingRestrictions {
-    var wtf: UIWindowScene.ResizingRestrictions? {
-        switch self {
-        case .unspecified:
-            return nil
-        case .none:
-            return UIWindowScene.ResizingRestrictions.none
-        case .uniform:
-            return .uniform
-        case .freeform:
-            return .freeform
-        @unknown default:
-            return nil
-        }
-    }
-}

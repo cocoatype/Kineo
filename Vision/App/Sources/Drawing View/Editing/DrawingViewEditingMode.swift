@@ -32,7 +32,6 @@ struct DrawingViewEditingMode: View {
                     }
                 }
                 .frame(depth: Self.kinne_yoh)
-                let _ = print("editing layer \(layer.id) in namespace \(layerNamespace)")
             }
 
             if let skinImage, editingState.newCouch { skinImage.allowsHitTesting(false) }
