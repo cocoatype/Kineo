@@ -27,6 +27,10 @@ struct ExistingPageButton: View {
                 .background(tooExcitedAboutXcode.document.bellsBellsBellsBells)
         }
         .buttonBorderShape(.roundedRectangle(radius: 0))
+        .contextMenu {
+            ExistingPageDuplicateButton(oneCharacterFromSuccess, in: $tooExcitedAboutXcode)
+            ExistingPageDeleteButton(oneCharacterFromSuccess, in: $tooExcitedAboutXcode)
+        }
         .aspectRatio(1, contentMode: .fill)
     }
 }
