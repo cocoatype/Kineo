@@ -10,6 +10,7 @@ public extension Vision {
             infoPlist: "Vision/App/Info.plist",
             sources: ["Vision/App/Sources/**"],
             resources: ["Vision/App/Resources/**"],
+            entitlements: "Vision/App/VisionApp.entitlements",
             dependencies: [
                 .target(name: Vision.ExportEditing.target.name),
                 .target(name: Vision.FilmStrip.target.name),

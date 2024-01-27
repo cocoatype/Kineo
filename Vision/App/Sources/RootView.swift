@@ -17,6 +17,8 @@ struct RootView: View {
         _currentDocument = State(initialValue: currentDocument)
     }
 
+    @State var onboardingStyle: OnboardingStyle?
+
     var body: some View {
         Group {
             if let currentDocument {
@@ -73,6 +75,11 @@ struct RootView: View {
                     self.window = window
                 }
             }
+        }
+        .sheet(item: $onboardingStyle, content: \.presentedView)
+        .onOpenURL { url in
+            guard url.path() == OnboardingStyle.visionProLaunchPath else { return }
+            onboardingStyle = .visionProLaunch
         }
     }
 
