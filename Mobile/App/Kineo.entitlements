@@ -4,7 +4,8 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>appclips:kineo.app?mode=developer</string>
+		<string>appclips:kineo.app</string>
+		<string>appclips:kineo.static?mode=developer</string>
 	</array>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
