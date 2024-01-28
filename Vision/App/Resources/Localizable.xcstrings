@@ -232,6 +232,28 @@
         }
       }
     },
+    "PurchaseMarketingItem.soon.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A vision of the future."
+          }
+        }
+      }
+    },
+    "PurchaseMarketingItem.soon.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Additional features are coming to Vision Pro as soon as possible!"
+          }
+        }
+      }
+    },
     "PurchaseMarketingItem.support.header" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -570,7 +592,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Thanks for downloading Kineo!\n\nTo help get you started using Kineo to make animations, I’ve put together a short tour. If you’ve used Kineo before, or would rather just get started, feel free to skip it and jump right into action!\n\nEither way, I hope you have a great time using Kineo! If you have any questions or concerns, you can contact me from the help menu at any time.\n\n—Geoff, Kineo Developer"
+            "value" : "Thanks for downloading Kineo!\n\nTo help get you started using Kineo to make animations, I’ve put together a short video that walks through the basic features. If you’ve used Kineo before, or would rather just get started, feel free to skip it and jump right into action!\n\nEither way, I hope you have a great time using Kineo! If you have any questions or concerns, you can contact me from the help menu at any time.\n\n—Geoff, Kineo Developer"
           }
         }
       }

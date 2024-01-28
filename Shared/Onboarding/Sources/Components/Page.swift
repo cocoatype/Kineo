@@ -5,10 +5,10 @@ import StyleVision
 import SwiftUI
 
 struct Page<Buttons: View>: View {
-    private let bodyText: String
+    private let bodyText: LocalizedStringKey
     private let buttons: () -> Buttons
 
-    init(bodyText: String, @ViewBuilder buttons: @escaping () -> Buttons) {
+    init(bodyText: LocalizedStringKey, @ViewBuilder buttons: @escaping () -> Buttons) {
         self.bodyText = bodyText
         self.buttons = buttons
     }
