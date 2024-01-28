@@ -4,8 +4,8 @@
 import SwiftUI
 
 struct BodyText: View {
-    private let bodyText: String
-    init(_ bodyText: String) {
+    private let bodyText: LocalizedStringKey
+    init(_ bodyText: LocalizedStringKey) {
         self.bodyText = bodyText
     }
 
