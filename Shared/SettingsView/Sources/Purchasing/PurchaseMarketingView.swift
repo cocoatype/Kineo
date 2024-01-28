@@ -29,6 +29,8 @@ struct PurchaseMarketingView: View {
                     ZoomPurchaseMarketingItem()
                     BackgroundsPurchaseMarketingItem()
                     WatermarkPurchaseMarketingItem()
+                    #elseif os(visionOS)
+                    SoonPurchaseMarketingItem()
                     #endif
                     SupportPurchaseMarketingItem()
                 }.padding(EdgeInsets(top: 24, leading: 20, bottom: 24, trailing: 20))
