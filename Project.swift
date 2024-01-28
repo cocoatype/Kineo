@@ -21,6 +21,7 @@ let targets = ([
     Shared.DocumentNavigation.target,
     Shared.EditingState.target,
     Shared.Export.target,
+    Shared.Onboarding.target,
     Shared.Purchasing.target,
     Shared.SettingsView.target,
     Shared.Style.target,

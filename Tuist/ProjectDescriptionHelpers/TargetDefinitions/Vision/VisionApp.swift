@@ -18,6 +18,7 @@ public extension Vision {
                 .target(name: Vision.Toolbar.target.name),
                 .target(name: Shared.Canvas.target.name(for: .visionOS)),
                 .target(name: Shared.Export.target.name(for: .visionOS)),
+                .target(name: Shared.Onboarding.target.name(for: .visionOS)),
                 .target(name: Shared.SettingsView.target.name(for: .visionOS)),
                 .external(name: "SwiftUIIntrospect"),
             ],

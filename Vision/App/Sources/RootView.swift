@@ -2,6 +2,7 @@
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
 import DataVision
+import OnboardingVision
 import SettingsViewVision
 import SwiftUI
 import SwiftUIIntrospect
@@ -17,7 +18,7 @@ struct RootView: View {
         _currentDocument = State(initialValue: currentDocument)
     }
 
-    @State var onboardingStyle: OnboardingStyle?
+    @State var onboardingStyle: Style?
 
     var body: some View {
         Group {
@@ -77,8 +78,12 @@ struct RootView: View {
             }
         }
         .sheet(item: $onboardingStyle, content: \.presentedView)
+        .onAppear {
+            // TODO: make this only happen once
+            onboardingStyle = .visionProLaunch
+        }
         .onOpenURL { url in
-            guard url.path() == OnboardingStyle.visionProLaunchPath else { return }
+            guard url.path() == Style.visionProLaunchPath else { return }
             onboardingStyle = .visionProLaunch
         }
     }
