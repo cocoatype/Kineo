@@ -9,6 +9,7 @@ public extension Shared {
             bundleId: "com.flipbookapp.flickbook.Onboarding",
             sources: ["Shared/Onboarding/Sources/**"],
             dependencies: [
+                .multiPlatformTarget(namePrefix: Shared.Data.target.namePrefix),
                 .multiPlatformTarget(namePrefix: Shared.Style.target.namePrefix),
             ],
             settings: .settings(

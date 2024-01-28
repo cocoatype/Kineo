@@ -78,10 +78,7 @@ struct RootView: View {
             }
         }
         .sheet(item: $onboardingStyle, content: \.presentedView)
-        .onAppear {
-            // TODO: make this only happen once
-            onboardingStyle = .visionProLaunch
-        }
+        .onAppear { onboardingStyle = OnboardingCoordinator.onboardingStyle }
         .onOpenURL { url in
             guard url.path() == Style.visionProLaunchPath else { return }
             onboardingStyle = .visionProLaunch

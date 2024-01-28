@@ -1,7 +1,14 @@
 //  Created by Geoff Pado on 1/26/24.
 //  Copyright © 2024 Cocoatype, LLC. All rights reserved.
 
+#if os(iOS)
+import DataPhone
+import StylePhone
+#elseif os(visionOS)
+import DataVision
 import StyleVision
+#endif
+
 import SwiftUI
 
 struct Page<Buttons: View>: View {
@@ -30,6 +37,9 @@ struct Page<Buttons: View>: View {
                         buttons()
                     }
                 }.padding(32)
+            }
+            .onAppear {
+                Defaults.seenTutorial = true
             }
     }
 }
