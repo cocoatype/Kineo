@@ -1,0 +1,52 @@
+name: Distribute App
+on:
+  push:
+    branches:
+      - 'releases/**'
+env:
+  LC_ALL: en_US.UTF-8
+  LANG: en_US.UTF-8
+  MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+
+jobs:
+  distribute_mobile:
+    name: Distribute Mobile App
+    runs-on: xcode
+    steps:
+      - name: Check Out Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Project
+        uses: ./.github/actions/setup
+
+      - name: Install Apple API Key
+        id: api-key
+        uses: ./.github/actions/api-key
+        with:
+          api-key-json: ${{ secrets.APPLE_API_KEY_JSON }}
+
+      - name: Distribute App
+        env:
+          APPLE_API_KEY_JSON: ${{ steps.api-key.outputs.api-key-path }}
+        run: bundle exec fastlane beta
+
+  distribute_mobile:
+    name: Distribute Vision App
+    runs-on: xcode
+    steps:
+      - name: Check Out Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Project
+        uses: ./.github/actions/setup
+
+      - name: Install Apple API Key
+        id: api-key
+        uses: ./.github/actions/api-key
+        with:
+          api-key-json: ${{ secrets.APPLE_API_KEY_JSON }}
+
+      - name: Distribute App
+        env:
+          APPLE_API_KEY_JSON: ${{ steps.api-key.outputs.api-key-path }}
+        run: pwsh ./scripts/archive-vision.ps1

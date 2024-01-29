@@ -1,0 +1,21 @@
+name: Install Apple API Key
+description: Installs the API key for talking to App Store Connect
+inputs:
+  api-key-json:
+    description: 'Contents of the API key JSON file'
+    required: true
+outputs:
+  api-key-path:
+    description: 'Path where the JSON file is written'
+    value: ${{ steps.write-key.outputs.key-path }}
+
+runs:
+  using: composite
+  steps:
+    - name: Write Key File
+      id: write-key
+      shell: bash
+      run: |
+        echo "Writing file to ${{ github.workspace }}api-key.json"
+        echo "${{ inputs.api-key-json }}" > ${{ github.workspace }}api-key.json
+        echo "api-key-path=${{ github.workspace }}api-key.json" >> $GITHUB_OUTPUT

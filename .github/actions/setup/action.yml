@@ -1,0 +1,16 @@
+name: Set Up Project
+description: Performs the initial setup of the project directory
+runs:
+  using: composite
+  steps:
+    - name: Install Gems
+      run: bundle install --path vendor/bundle
+      shell: bash
+
+    - name: Fetch Xcode Dependencies
+      run: tuist fetch
+      shell: bash
+
+    - name: Generate Xcode Project
+      run: tuist generate --no-open
+      shell: bash

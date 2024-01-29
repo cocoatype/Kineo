@@ -1,0 +1,33 @@
+name: Test App
+on:
+  push:
+env:
+  LC_ALL: en_US.UTF-8
+  LANG: en_US.UTF-8
+
+jobs:
+  test_mobile:
+    name: Test Mobile App
+    runs-on: xcode
+    steps:
+      - name: Check Out Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Project
+        uses: ./.github/actions/setup
+
+      - name: Run Tests
+        run: bundle exec fastlane test
+
+  test_vision:
+    name: Test Vision App
+    runs-on: xcode
+    steps:
+      - name: Check Out Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Project
+        uses: ./.github/actions/setup
+
+      - name: Run Tests
+        run: pwsh ./scripts/test-vision.ps1
