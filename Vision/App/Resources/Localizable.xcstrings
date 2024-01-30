@@ -23,6 +23,30 @@
         }
       }
     },
+    "ExistingPageDeleteButton.title" : {
+      "comment" : "Title for the menu option in the film strip that deletes a page.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        }
+      }
+    },
+    "ExistingPageDuplicateButton.title" : {
+      "comment" : "Title for the menu option in the film strip that duplicates a page.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duplicate"
+          }
+        }
+      }
+    },
     "ExportOptionsMenu.formatGIF" : {
       "extractionState" : "manual",
       "localizations" : {
