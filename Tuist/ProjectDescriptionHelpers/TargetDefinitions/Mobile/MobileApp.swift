@@ -37,7 +37,10 @@ public extension Mobile {
             product: .unitTests,
             bundleId: "com.flipbookapp.flickbook.Tests",
             infoPlist: "Mobile/Tests/Info.plist",
-            sources: ["Mobile/Tests/Sources/**"]
+            sources: ["Mobile/Tests/Sources/**"],
+            dependencies: [
+                .target(name: "Core"),
+            ]
         )
     }
 }
