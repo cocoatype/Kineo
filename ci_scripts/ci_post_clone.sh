@@ -5,5 +5,5 @@ export PATH="$HOME/.local/bin:$PATH"
 mise install tuist # Version controlled by .tool-versions
 eval "$(mise activate zsh --shims)" # Adds the activated tools to $PATH
 
-tuist fetch
-tuist generate --no-open
+tuist fetch --path ..
+tuist generate --no-open --path ..
