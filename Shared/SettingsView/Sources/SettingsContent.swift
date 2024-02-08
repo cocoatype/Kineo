@@ -62,10 +62,10 @@ struct SettingsContent: View {
         Section {
             #if os(iOS)
             🐎IconToggleSwitch()
-            #endif
             if purchaseState == .purchased {
                 HideWatermarkToggleSwitch()
             }
+            #endif
         }
     }
 
