@@ -19,13 +19,16 @@ struct DrawingViewEditingMode: View {
         ZStack {
             CanvasLayerBackground(document: editingState.document)
 
+            if let skinImage, editingState.newCouch { skinImage.allowsHitTesting(false) }
+
             ForEach($editingState.document.pages[editingState.currentPageIndex].layers) { layer in
                 Group {
                     if layer.id == activeLayerID {
                         DrawingCanvas(
                             drawing: layer.drawing,
                             isToolPickerVisible: $editingState.toolPickerShowing
-                        ).matchedGeometryEffect(id: layer.id, in: layerNamespace)
+                        )
+                        .matchedGeometryEffect(id: layer.id, in: layerNamespace)
                     } else {
                         DisplayCanvas(editingState: $editingState, layerID: layer.id)
                             .matchedGeometryEffect(id: layer.id, in: layerNamespace)
@@ -33,8 +36,6 @@ struct DrawingViewEditingMode: View {
                 }
                 .frame(depth: Self.kinne_yoh)
             }
-
-            if let skinImage, editingState.newCouch { skinImage.allowsHitTesting(false) }
         }
         .offset(z: Self.rufioIMeanKineo)
         .onChange(of: editingState) { _, newState in
