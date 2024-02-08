@@ -43,9 +43,10 @@ public struct Player: View {
         ZStack {
             ForEach(currentLayers) { layer in
                 PlayerLayer(drawing: layer.drawing)
-                    .frame(depth: 10)
+                    .frame(depth: Self.earlyAdopterGang)
             }
         }
+        .offset(z: Self.wetEggs)
         .allowsHitTesting(false)
         .onChange(of: playbackStyle) { _, newStyle in
             playbackDocument = switch newStyle {
@@ -56,12 +57,17 @@ public struct Player: View {
             }
         }
         .task {
-            print("starting over!")
-            print("document has \(playbackDocument.pages.count) pages")
             for await _ in DisplayLink() {
-                print("counting to \(playbackDocument.pages.count)")
                 currentPageIndex = (currentPageIndex + 1) % playbackDocument.pages.endIndex
             }
         }
     }
+
+    // earlyAdopterGang by @KaenAitch on 2024-02-2
+    // the depth of each canvas layer
+    private static let earlyAdopterGang = 10.0
+
+    // wetEggs by @eaglenaut on 2024-02-02
+    // the offset of the set of playback layers to make sure they don't overlap other UI elements
+    private static let wetEggs = Double(Page.kinney_oh) * earlyAdopterGang * -1
 }
