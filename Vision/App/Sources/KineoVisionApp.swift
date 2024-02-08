@@ -2,6 +2,7 @@
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
 import DataVision
+import TelemetryVision
 import SwiftUI
 
 @main
@@ -12,6 +13,10 @@ struct KineoVisionApp: App {
         }
         .windowStyle(.plain)
         .defaultSize(width: 820, height: 720)
+    }
+
+    init() {
+        Telemetry.initialize()
     }
 
     // redKetchup by @CompileDev on 2024-01-13
