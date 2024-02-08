@@ -20,6 +20,7 @@ public extension Vision {
                 .target(name: Shared.Export.target.name(for: .visionOS)),
                 .target(name: Shared.Onboarding.target.name(for: .visionOS)),
                 .target(name: Shared.SettingsView.target.name(for: .visionOS)),
+                .target(name: Shared.Telemetry.target.name(for: .visionOS)),
                 .external(name: "SwiftUIIntrospect"),
             ],
             settings: .settings(

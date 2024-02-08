@@ -25,6 +25,7 @@ let targets = ([
     Shared.Purchasing.target,
     Shared.SettingsView.target,
     Shared.Style.target,
+    Shared.Telemetry.target,
 ] as [TargetProducer]).flatMap(\.targets)
 
 let project = Project(
