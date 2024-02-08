@@ -388,6 +388,18 @@
         }
       }
     },
+    "RootView.settingsButton" : {
+      "comment" : "Text label for the settings button",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Help"
+          }
+        }
+      }
+    },
     "SettingsContentGenerator.versionStringFormat%@" : {
       "extractionState" : "manual",
       "localizations" : {
