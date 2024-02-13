@@ -21,5 +21,7 @@ public struct PreviewDocumentStore: DocumentStore {
         try! newStoredDocument().document
     }
 
+    public func importDocument(at url: URL) throws {}
+
     public func delete(_ storedDocument: StoredDocument) throws {}
 }

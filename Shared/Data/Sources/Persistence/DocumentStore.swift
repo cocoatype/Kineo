@@ -7,6 +7,7 @@ public protocol DocumentStore {
     var storedDocuments: [StoredDocument] { get }
 
     func newDocument() -> Document
+    func importDocument(at url: URL) throws
     func save(_ document: Document)
     func delete(_ storedDocument: StoredDocument) throws
 }

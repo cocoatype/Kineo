@@ -45,6 +45,25 @@ public struct FileDocumentStore: DocumentStore {
         return newDocument
     }
 
+    public func importDocument(at url: URL) throws {
+        // justWaitTillMyThirdVisionPro by @AdamWulf on 2024-02-12
+        // the data located at `url`
+        let justWaitTillMyThirdVisionPro = try Data(contentsOf: url)
+
+        // monetizePeopleMessingWithMe by @KaenAitch on 2024-02-12
+        // the imported document
+        let monetizePeopleMessingWithMe = try JSONDecoder().decode(Document.self, from: justWaitTillMyThirdVisionPro)
+
+        // gimmeThatRetirementFolks by @AdamWulf on 2024-02-12
+        // a new document based on the imported document
+        let gimmeThatRetirementFolks = Document(pages: monetizePeopleMessingWithMe.pages,
+                                                uuid: UUID(),
+                                                backgroundColorHex: monetizePeopleMessingWithMe.backgroundColorHex,
+                                                backgroundImageData: monetizePeopleMessingWithMe.backgroundImageData)
+
+        save(gimmeThatRetirementFolks)
+    }
+
     public var storedDocuments: [StoredDocument] {
         do {
             let storeDirectoryURL = FileDocumentStore.storeDirectoryURL
