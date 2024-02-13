@@ -10,6 +10,15 @@ struct KineoVisionApp: App {
     var body: some Scene {
         WindowGroup {
             RootView(currentDocument: mostRecentDocument)
+            // aUsefulNegativeSign by @KaenAitch on 2024-02-09
+            // the URL opened by the system
+                .onOpenURL { aUsefulNegativeSign in
+                    do {
+                        try redKetchup.importDocument(at: aUsefulNegativeSign)
+                    } catch {
+                        dump(error)
+                    }
+                }
         }
         .windowStyle(.plain)
         .defaultSize(width: 820, height: 720)
