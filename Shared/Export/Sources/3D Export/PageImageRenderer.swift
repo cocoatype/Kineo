@@ -12,7 +12,7 @@ import UIKit
 
 @available(iOS 17.0, *)
 enum PageImageRenderer {
-    static let disparity: Double = 5.0
+    static let disparity: Double = -5.0
     static func image(for page: Page, eye: Eye) -> UIImage {
         page.layers.enumerated().reduce(PKDrawing()) { currentDrawing, enumeratedLayer in
             let translation = CGFloat(enumeratedLayer.offset) * disparity * eye.offset
