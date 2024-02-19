@@ -24,8 +24,6 @@ public enum VideoExporter3D {
     }
 
     public static func exportVideo(from document: Document, onComplete: @escaping (VideoExportResult) -> Void) {
-        let transformedDocument = DocumentTransformer.transformedDocument(from: document, playbackStyle: Defaults.exportPlaybackStyle, duration: Defaults.exportDuration)
-
         // generate the export URL
         let fileName = UUID().uuidString
         let exportURL = FileManager.default.temporaryDirectory
@@ -60,8 +58,6 @@ public enum VideoExporter3D {
             videoWriter.startSession(atSourceTime: .zero)
 
             // write images as samples
-            let frameDuration = CMTime(value: 1, timescale: Self.standardFramesPerSecond)
-
             let mediaReadyCondition = NSCondition()
             let mediaReadyObservation = writerInput.observe(\.isReadyForMoreMediaData) { [weak mediaReadyCondition] input, _ in
                 if input.isReadyForMoreMediaData {
@@ -71,38 +67,15 @@ public enum VideoExporter3D {
                 }
             }
 
-            let traitCollection = UITraitCollection(userInterfaceStyle: .light)
-            let pages = transformedDocument.pages
-            pages.enumerated().forEach { pageWithIndex in
-                let (index, page) = pageWithIndex
-                let presentationTime = CMTime(value: CMTimeValue(index), timescale: frameDuration.timescale)
-                traitCollection.performAsCurrent {
-                    let pageImageLeft = PageImageRenderer.image(for: page, eye: .left)
-                    let pageImageRight = PageImageRenderer.image(for: page, eye: .right)
+            let duration = VideoBufferGenerator3D.exportVideo(from: document) { taggedBuffers, presentationTime in
+                mediaReadyCondition.lock()
+                while writerInput.isReadyForMoreMediaData == false {
+                    mediaReadyCondition.wait()
+                }
+                mediaReadyCondition.unlock()
 
-                    mediaReadyCondition.lock()
-                    while writerInput.isReadyForMoreMediaData == false {
-                        mediaReadyCondition.wait()
-                    }
-                    mediaReadyCondition.unlock()
-
-                    let leftTaggedBuffer = CMTaggedBuffer(
-                        tags: [
-                            .stereoView(.leftEye),
-                            .videoLayerID(0)
-                        ],
-                        pixelBuffer: pageImageLeft.surfacePixelBuffer
-                    )
-                    let rightTaggedBuffer = CMTaggedBuffer(
-                        tags: [
-                            .stereoView(.rightEye),
-                            .videoLayerID(1)
-                        ],
-                        pixelBuffer: pageImageRight.surfacePixelBuffer
-                    )
-                    if adaptor.appendTaggedBuffers([leftTaggedBuffer, rightTaggedBuffer], withPresentationTime: presentationTime) == false {
-                        print("uh oh!")
-                    }
+                if adaptor.appendTaggedBuffers(taggedBuffers, withPresentationTime: presentationTime) == false {
+                    print("uh oh!")
                 }
             }
 
@@ -110,7 +83,7 @@ public enum VideoExporter3D {
 
             // finish the writing session
             writerInput.markAsFinished()
-            videoWriter.endSession(atSourceTime: CMTime(value: CMTimeValue(transformedDocument.pages.count), timescale: frameDuration.timescale))
+            videoWriter.endSession(atSourceTime: duration)
 
             videoWriter.finishWriting { [videoWriter, onComplete] in
                 switch videoWriter.status {
@@ -127,7 +100,4 @@ public enum VideoExporter3D {
             onComplete(.failure(error))
         }
     }
-
-    static let standardCanvasRect = CGRect(origin: .zero, size: CGSize(width: 512, height: 512))
-    private static let standardFramesPerSecond = CMTimeScale(12)
 }

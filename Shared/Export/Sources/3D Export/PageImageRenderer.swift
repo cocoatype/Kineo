@@ -25,6 +25,6 @@ enum PageImageRenderer {
                 )
             )
         }
-        .image(from: VideoExporter3D.standardCanvasRect, scale: 1)
+        .image(from: VideoGenerationConstants.standardCanvasRect, scale: 1)
     }
 }
