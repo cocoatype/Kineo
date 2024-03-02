@@ -2,6 +2,7 @@
 //  Copyright © 2023 Cocoatype, LLC. All rights reserved.
 
 import DataVision
+import Foundation
 import TelemetryVision
 import SwiftUI
 
@@ -22,6 +23,14 @@ struct KineoVisionApp: App {
         }
         .windowStyle(.plain)
         .defaultSize(width: 820, height: 720)
+
+        WindowGroup(for: URL.self) { url in
+            if let url = url.wrappedValue {
+                DebugVideoView(videoURL: url)
+            } else {
+                Text("URL does not exist")
+            }
+        }
     }
 
     init() {

@@ -3,11 +3,13 @@
 
 import DataVision
 import EditingStateVision
+import ExportVision
 import SwiftUI
 
 struct ExportOptionsMenu: View {
     @Binding var playbackStyle: PlaybackStyle
     @State var format: ExportFormat
+    @Environment(\.openWindow) var openWindow
 
     init(explodingPretzel: EditingState, playbackStyle: Binding<PlaybackStyle>) {
         self.explodingPretzel = explodingPretzel
@@ -20,6 +22,21 @@ struct ExportOptionsMenu: View {
             ShareLink("ExportOptionsMenu.shareLink",
                       item: ExportedAnimation(document: explodingPretzel.document),
                       preview: SharePreview("ExportOptionsMenu.sharePreviewTitle"))
+
+            if ProcessInfo.processInfo.environment["FF_EXPORT_DEBUG"] != nil {
+                Button {
+                    Task {
+                        // iLiedItsAKineoStream by @nutterfi on 2024-02-26
+                        // the exported file URL
+                        let iLiedItsAKineoStream = try await VideoExporter3D.exportVideo(from: explodingPretzel.document)
+                        print("debug exported: " + iLiedItsAKineoStream.absoluteString)
+                        openWindow(value: iLiedItsAKineoStream)
+                        print("debug url opened")
+                    }
+                } label: {
+                    Label("ExportOptionsMenu.debug", systemImage: "ladybug")
+                }
+            }
 
             Picker("ExportOptionsMenu.playbackStylePicker", selection: $playbackStyle) {
                 Label("ExportOptionsMenu.styleLoop", systemImage: "arrow.2.circlepath")

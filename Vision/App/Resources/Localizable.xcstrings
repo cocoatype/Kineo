@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "(null)" : {
+
+    },
     "BackgroundsPurchaseMarketingItem.header" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -621,6 +624,9 @@
           }
         }
       }
+    },
+    "URL does not exist" : {
+
     },
     "VisionProLaunch.bodyText" : {
       "extractionState" : "manual",
