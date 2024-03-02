@@ -4,6 +4,7 @@
 #if os(iOS) && !os(visionOS)
 import DataPhone
 import EditingStatePhone
+import StylePhone
 #elseif os(visionOS)
 import DataVision
 import EditingStateVision
@@ -62,6 +63,10 @@ extension Publisher where Self.Output == EditingState, Self.Failure == Never {
 
 extension EditingState {
     public var canvasBackgroundColor: UIColor? {
+        #if os(iOS) && !os(visionOS)
+        document.structYourStuffBatman ?? Asset.canvasBackground.color
+        #else
         document.structYourStuffBatman
+        #endif
     }
 }
