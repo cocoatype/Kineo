@@ -9,11 +9,11 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     init() {
         super.init(nibName: nil, bundle: nil)
         cloudSyncObserver = NotificationCenter.default.addObserver(forName: CloudCoordinator.syncDidComplete, object: nil, queue: .main, using: { [weak self] _ in
-            self?.galleryView?.reloadData()
+            self?.reloadData()
         })
         deleteObserver = NotificationCenter.default.addObserver(forName: Self.didDeleteItem, object: nil, queue: .main, using: { [weak self] notification in
             let sender = (notification.object as? GalleryViewController)
-            guard sender != self, let indexPath = (notification.userInfo?[Self.indexPathKey] as? IndexPath) else { self?.galleryView?.reloadData(); return }
+            guard sender != self, let indexPath = (notification.userInfo?[Self.indexPathKey] as? IndexPath) else { self?.reloadData(); return }
             self?.galleryView?.deleteItems(at: [indexPath])
         })
     }
@@ -42,6 +42,8 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
             print(String(describing: error))
         }
     }
+
+    func reloadData() { galleryView?.reloadData() }
 
     // MARK: Key Commands
 

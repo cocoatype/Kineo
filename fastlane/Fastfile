@@ -38,4 +38,15 @@ platform :ios do
       skip_submission: true,
       skip_waiting_for_build_processing: true)
   end
+
+  desc "Set up developer environment"
+  lane :dev do
+    sync_code_signing(type: "development")
+  end
+
+  desc "Regenerate all signing certs"
+  lane :certs do
+    sync_code_signing(readonly: false, type: "development")
+    sync_code_signing(readonly: false, type: "appstore")
+  end
 end
