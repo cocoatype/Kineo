@@ -40,4 +40,10 @@ class EditingToolPicker: PKToolPicker {
 
     private weak var drawingView: DrawingView?
     private var cancellables = Set<AnyCancellable>()
+
+
+    @available(iOS 18.0, *) // required to avoid crash
+    override init(toolItems items: [PKToolPickerItem]) {
+        super.init(toolItems: items)
+    }
 }
